@@ -22,6 +22,15 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
         }
 
+#region Paneles
+
+        //Método para traer paneles
+        private void TraerPanel(int nropanel, Panel nombrepanel)
+        {
+            if (panel != nropanel)
+            { nombrepanel.Visible = true; nombrepanel.BringToFront(); panel = nropanel; };
+        }
+
         private void Bt_Inicio_Click(object sender, EventArgs e)
         {
             TraerPanel(0, Panel_Inicio);
@@ -50,7 +59,9 @@ namespace _398_UI
         {
             nsd.Show();
         }
+#endregion
 
+#region Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
             TraerPanel(3, Panel_Equipos); 
@@ -93,24 +104,42 @@ namespace _398_UI
             BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
         }
 
-        private void TraerPanel(int nropanel, Panel nombrepanel)
-        {
-            if (panel != nropanel)
-            { nombrepanel.Visible= true; nombrepanel.BringToFront(); panel = nropanel; };
-        }
+        #endregion
 
+#region Promedios
         private void Prom_Lref(object sender, EventArgs e)
         {
             Metodos.promediar(Panel_LecRef, LB_LecRefProm);
-             
         }
+
         private void Prom_L20(object sender, EventArgs e)
         {
             Metodos.promediar(Panel_Lect20, LB_Lect20prom);
         }
+
         private void Prom_L10(object sender, EventArgs e)
         {
             Metodos.promediar(Panel_Lect10, LB_Lect10prom);
+        }
+
+        private void Prom_masV(object sender, EventArgs e)
+        {
+            Metodos.promediar(Panel_LectmasV, LB_LectmasVprom);
+        }
+
+        private void Prom_menosV(object sender, EventArgs e)
+        {
+            Metodos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
+        }
+
+        private void Prom_Vtot(object sender, EventArgs e)
+        {
+            Metodos.promediar(Panel_lectVtot, LB_lectVtotProm);
+        }
+
+        private void Prom_Vred(object sender, EventArgs e)
+        {
+            Metodos.promediar(Panel_LectVred, LB_LectVredProm);
         }
 
         private void textBox_Enter(object sender, EventArgs e)
@@ -118,6 +147,6 @@ namespace _398_UI
             ((TextBox)sender).SelectAll();
         }
     }
+    #endregion
 
-    
 }

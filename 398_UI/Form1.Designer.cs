@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -71,6 +71,20 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Panel_LectmenosV = new System.Windows.Forms.Panel();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.LB_LectmenosVprom = new System.Windows.Forms.Label();
+            this.Panel_LectmasV = new System.Windows.Forms.Panel();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.LB_LectmasVprom = new System.Windows.Forms.Label();
             this.chEditarVKapol = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -79,6 +93,20 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.panelFactor = new System.Windows.Forms.Panel();
+            this.Panel_Lect10 = new System.Windows.Forms.Panel();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.LB_Lect10prom = new System.Windows.Forms.Label();
+            this.Panel_Lect20 = new System.Windows.Forms.Panel();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.LB_Lect20prom = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.chFactor = new System.Windows.Forms.CheckBox();
@@ -135,7 +163,6 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -235,34 +262,25 @@
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
-            this.Panel_Lect20 = new System.Windows.Forms.Panel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.LB_Lect20prom = new System.Windows.Forms.Label();
-            this.Panel_Lect10 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.LB_Lect10prom = new System.Windows.Forms.Label();
-            this.Panel_LectVm = new System.Windows.Forms.Panel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.LB_LectVmprom = new System.Windows.Forms.Label();
-            this.Panel_LectVP = new System.Windows.Forms.Panel();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.LB_LectVPprom = new System.Windows.Forms.Label();
+            this.Panel_LectVred = new System.Windows.Forms.Panel();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.Panel_lectVtot = new System.Windows.Forms.Panel();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.textBox38 = new System.Windows.Forms.TextBox();
+            this.LB_LectVredProm = new System.Windows.Forms.Label();
+            this.LB_lectVtotProm = new System.Windows.Forms.Label();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.label22 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
@@ -270,9 +288,13 @@
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.Panel_LectmenosV.SuspendLayout();
+            this.Panel_LectmasV.SuspendLayout();
             this.gFactorDeCalidad.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelFactor.SuspendLayout();
+            this.Panel_Lect10.SuspendLayout();
+            this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
             this.Panel_Equipos.SuspendLayout();
             this.GB_CondRef.SuspendLayout();
@@ -297,10 +319,8 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
-            this.Panel_Lect20.SuspendLayout();
-            this.Panel_Lect10.SuspendLayout();
-            this.Panel_LectVm.SuspendLayout();
-            this.Panel_LectVP.SuspendLayout();
+            this.Panel_LectVred.SuspendLayout();
+            this.Panel_lectVtot.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -625,6 +645,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.LB_LectVredProm);
+            this.panel2.Controls.Add(this.Panel_LectVred);
+            this.panel2.Controls.Add(this.LB_lectVtotProm);
+            this.panel2.Controls.Add(this.Panel_lectVtot);
             this.panel2.Controls.Add(this.checkBox7);
             this.panel2.Controls.Add(this.label37);
             this.panel2.Controls.Add(this.label38);
@@ -722,10 +746,10 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.Panel_LectVm);
-            this.panel3.Controls.Add(this.LB_LectVmprom);
-            this.panel3.Controls.Add(this.Panel_LectVP);
-            this.panel3.Controls.Add(this.LB_LectVPprom);
+            this.panel3.Controls.Add(this.Panel_LectmenosV);
+            this.panel3.Controls.Add(this.LB_LectmenosVprom);
+            this.panel3.Controls.Add(this.Panel_LectmasV);
+            this.panel3.Controls.Add(this.LB_LectmasVprom);
             this.panel3.Controls.Add(this.chEditarVKapol);
             this.panel3.Controls.Add(this.label29);
             this.panel3.Controls.Add(this.label30);
@@ -733,6 +757,150 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 215);
             this.panel3.TabIndex = 24;
+            // 
+            // Panel_LectmenosV
+            // 
+            this.Panel_LectmenosV.Controls.Add(this.textBox9);
+            this.Panel_LectmenosV.Controls.Add(this.textBox16);
+            this.Panel_LectmenosV.Controls.Add(this.textBox17);
+            this.Panel_LectmenosV.Controls.Add(this.textBox18);
+            this.Panel_LectmenosV.Controls.Add(this.textBox19);
+            this.Panel_LectmenosV.Location = new System.Drawing.Point(108, 26);
+            this.Panel_LectmenosV.Name = "Panel_LectmenosV";
+            this.Panel_LectmenosV.Size = new System.Drawing.Size(78, 138);
+            this.Panel_LectmenosV.TabIndex = 61;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(7, 59);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(65, 20);
+            this.textBox9.TabIndex = 39;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox9.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox9.Leave += new System.EventHandler(this.Prom_menosV);
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(7, 111);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(65, 20);
+            this.textBox16.TabIndex = 41;
+            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox16.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox16.Leave += new System.EventHandler(this.Prom_menosV);
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(7, 33);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(65, 20);
+            this.textBox17.TabIndex = 38;
+            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox17.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox17.Leave += new System.EventHandler(this.Prom_menosV);
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(7, 85);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(65, 20);
+            this.textBox18.TabIndex = 40;
+            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox18.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox18.Leave += new System.EventHandler(this.Prom_menosV);
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(7, 7);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(65, 20);
+            this.textBox19.TabIndex = 37;
+            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox19.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox19.Leave += new System.EventHandler(this.Prom_menosV);
+            // 
+            // LB_LectmenosVprom
+            // 
+            this.LB_LectmenosVprom.Location = new System.Drawing.Point(114, 167);
+            this.LB_LectmenosVprom.Name = "LB_LectmenosVprom";
+            this.LB_LectmenosVprom.Size = new System.Drawing.Size(66, 13);
+            this.LB_LectmenosVprom.TabIndex = 60;
+            this.LB_LectmenosVprom.Text = "Lect-Vprom";
+            this.LB_LectmenosVprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_LectmenosVprom.Visible = false;
+            // 
+            // Panel_LectmasV
+            // 
+            this.Panel_LectmasV.Controls.Add(this.textBox20);
+            this.Panel_LectmasV.Controls.Add(this.textBox21);
+            this.Panel_LectmasV.Controls.Add(this.textBox22);
+            this.Panel_LectmasV.Controls.Add(this.textBox23);
+            this.Panel_LectmasV.Controls.Add(this.textBox24);
+            this.Panel_LectmasV.Location = new System.Drawing.Point(12, 26);
+            this.Panel_LectmasV.Name = "Panel_LectmasV";
+            this.Panel_LectmasV.Size = new System.Drawing.Size(78, 138);
+            this.Panel_LectmasV.TabIndex = 59;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(7, 59);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(65, 20);
+            this.textBox20.TabIndex = 39;
+            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox20.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox20.Leave += new System.EventHandler(this.Prom_masV);
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(7, 111);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(65, 20);
+            this.textBox21.TabIndex = 41;
+            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox21.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox21.Leave += new System.EventHandler(this.Prom_masV);
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(7, 33);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(65, 20);
+            this.textBox22.TabIndex = 38;
+            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox22.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox22.Leave += new System.EventHandler(this.Prom_masV);
+            // 
+            // textBox23
+            // 
+            this.textBox23.Location = new System.Drawing.Point(7, 85);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(65, 20);
+            this.textBox23.TabIndex = 40;
+            this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox23.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox23.Leave += new System.EventHandler(this.Prom_masV);
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(7, 7);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(65, 20);
+            this.textBox24.TabIndex = 37;
+            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox24.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox24.Leave += new System.EventHandler(this.Prom_masV);
+            // 
+            // LB_LectmasVprom
+            // 
+            this.LB_LectmasVprom.Location = new System.Drawing.Point(18, 167);
+            this.LB_LectmasVprom.Name = "LB_LectmasVprom";
+            this.LB_LectmasVprom.Size = new System.Drawing.Size(66, 13);
+            this.LB_LectmasVprom.TabIndex = 58;
+            this.LB_LectmasVprom.Text = "Lect+Vprom";
+            this.LB_LectmasVprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_LectmasVprom.Visible = false;
             // 
             // chEditarVKapol
             // 
@@ -818,6 +986,150 @@
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Size = new System.Drawing.Size(197, 190);
             this.panelFactor.TabIndex = 24;
+            // 
+            // Panel_Lect10
+            // 
+            this.Panel_Lect10.Controls.Add(this.textBox11);
+            this.Panel_Lect10.Controls.Add(this.textBox12);
+            this.Panel_Lect10.Controls.Add(this.textBox13);
+            this.Panel_Lect10.Controls.Add(this.textBox14);
+            this.Panel_Lect10.Controls.Add(this.textBox15);
+            this.Panel_Lect10.Location = new System.Drawing.Point(107, 22);
+            this.Panel_Lect10.Name = "Panel_Lect10";
+            this.Panel_Lect10.Size = new System.Drawing.Size(78, 138);
+            this.Panel_Lect10.TabIndex = 43;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(7, 59);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(65, 20);
+            this.textBox11.TabIndex = 39;
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox11.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox11.Leave += new System.EventHandler(this.Prom_L10);
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(7, 111);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(65, 20);
+            this.textBox12.TabIndex = 41;
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox12.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox12.Leave += new System.EventHandler(this.Prom_L10);
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(7, 33);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(65, 20);
+            this.textBox13.TabIndex = 38;
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox13.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox13.Leave += new System.EventHandler(this.Prom_L10);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(7, 85);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(65, 20);
+            this.textBox14.TabIndex = 40;
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox14.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox14.Leave += new System.EventHandler(this.Prom_L10);
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(7, 7);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(65, 20);
+            this.textBox15.TabIndex = 37;
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox15.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox15.Leave += new System.EventHandler(this.Prom_L10);
+            // 
+            // LB_Lect10prom
+            // 
+            this.LB_Lect10prom.Location = new System.Drawing.Point(113, 163);
+            this.LB_Lect10prom.Name = "LB_Lect10prom";
+            this.LB_Lect10prom.Size = new System.Drawing.Size(66, 13);
+            this.LB_Lect10prom.TabIndex = 42;
+            this.LB_Lect10prom.Text = "Lect10prom";
+            this.LB_Lect10prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_Lect10prom.Visible = false;
+            // 
+            // Panel_Lect20
+            // 
+            this.Panel_Lect20.Controls.Add(this.textBox10);
+            this.Panel_Lect20.Controls.Add(this.textBox26);
+            this.Panel_Lect20.Controls.Add(this.textBox27);
+            this.Panel_Lect20.Controls.Add(this.textBox28);
+            this.Panel_Lect20.Controls.Add(this.textBox29);
+            this.Panel_Lect20.Location = new System.Drawing.Point(11, 22);
+            this.Panel_Lect20.Name = "Panel_Lect20";
+            this.Panel_Lect20.Size = new System.Drawing.Size(78, 138);
+            this.Panel_Lect20.TabIndex = 40;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(7, 59);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(65, 20);
+            this.textBox10.TabIndex = 39;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox10.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox10.Leave += new System.EventHandler(this.Prom_L20);
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(7, 111);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(65, 20);
+            this.textBox26.TabIndex = 41;
+            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox26.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox26.Leave += new System.EventHandler(this.Prom_L20);
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(7, 33);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(65, 20);
+            this.textBox27.TabIndex = 38;
+            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox27.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox27.Leave += new System.EventHandler(this.Prom_L20);
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(7, 85);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(65, 20);
+            this.textBox28.TabIndex = 40;
+            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox28.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox28.Leave += new System.EventHandler(this.Prom_L20);
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(7, 7);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(65, 20);
+            this.textBox29.TabIndex = 37;
+            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox29.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox29.Leave += new System.EventHandler(this.Prom_L20);
+            // 
+            // LB_Lect20prom
+            // 
+            this.LB_Lect20prom.Location = new System.Drawing.Point(17, 163);
+            this.LB_Lect20prom.Name = "LB_Lect20prom";
+            this.LB_Lect20prom.Size = new System.Drawing.Size(66, 13);
+            this.LB_Lect20prom.TabIndex = 39;
+            this.LB_Lect20prom.Text = "Lect20prom";
+            this.LB_Lect20prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_Lect20prom.Visible = false;
             // 
             // label32
             // 
@@ -1159,7 +1471,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(82, 26);
+            this.radioButton2.Location = new System.Drawing.Point(82, 25);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(69, 17);
             this.radioButton2.TabIndex = 1;
@@ -1180,12 +1492,16 @@
             // 
             // GB_Equipos
             // 
+            this.GB_Equipos.Controls.Add(this.radioButton7);
+            this.GB_Equipos.Controls.Add(this.radioButton8);
+            this.GB_Equipos.Controls.Add(this.label22);
+            this.GB_Equipos.Controls.Add(this.radioButton5);
+            this.GB_Equipos.Controls.Add(this.radioButton6);
             this.GB_Equipos.Controls.Add(this.BT_EqIraCal);
             this.GB_Equipos.Controls.Add(this.button17);
             this.GB_Equipos.Controls.Add(this.textBox44);
             this.GB_Equipos.Controls.Add(this.label18);
             this.GB_Equipos.Controls.Add(this.groupBox2);
-            this.GB_Equipos.Controls.Add(this.comboBox1);
             this.GB_Equipos.Controls.Add(this.label5);
             this.GB_Equipos.Controls.Add(this.button1);
             this.GB_Equipos.Controls.Add(this.button2);
@@ -1201,14 +1517,14 @@
             this.GB_Equipos.Controls.Add(this.label3);
             this.GB_Equipos.Location = new System.Drawing.Point(5, 7);
             this.GB_Equipos.Name = "GB_Equipos";
-            this.GB_Equipos.Size = new System.Drawing.Size(486, 626);
+            this.GB_Equipos.Size = new System.Drawing.Size(486, 666);
             this.GB_Equipos.TabIndex = 0;
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
             // 
             // BT_EqIraCal
             // 
-            this.BT_EqIraCal.Location = new System.Drawing.Point(372, 524);
+            this.BT_EqIraCal.Location = new System.Drawing.Point(371, 563);
             this.BT_EqIraCal.Name = "BT_EqIraCal";
             this.BT_EqIraCal.Size = new System.Drawing.Size(108, 39);
             this.BT_EqIraCal.TabIndex = 66;
@@ -1218,7 +1534,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(370, 432);
+            this.button17.Location = new System.Drawing.Point(369, 471);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(110, 23);
             this.button17.TabIndex = 65;
@@ -1227,7 +1543,7 @@
             // 
             // textBox44
             // 
-            this.textBox44.Location = new System.Drawing.Point(112, 142);
+            this.textBox44.Location = new System.Drawing.Point(112, 117);
             this.textBox44.Name = "textBox44";
             this.textBox44.Size = new System.Drawing.Size(100, 20);
             this.textBox44.TabIndex = 64;
@@ -1235,7 +1551,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 144);
+            this.label18.Location = new System.Drawing.Point(19, 119);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(29, 13);
             this.label18.TabIndex = 63;
@@ -1255,7 +1571,7 @@
             this.groupBox2.Controls.Add(this.checkBox2);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(11, 171);
+            this.groupBox2.Location = new System.Drawing.Point(9, 215);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(437, 241);
             this.groupBox2.TabIndex = 62;
@@ -1366,29 +1682,18 @@
             this.checkBox1.Text = "Fotones";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Co-60",
-            "Acelerador Lineal"});
-            this.comboBox1.Location = new System.Drawing.Point(112, 113);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 61;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 119);
+            this.label5.Location = new System.Drawing.Point(17, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 60;
-            this.label5.Text = "\"Tipo\"";
+            this.label5.Text = "Fuente";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(372, 583);
+            this.button1.Location = new System.Drawing.Point(371, 622);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 23);
             this.button1.TabIndex = 58;
@@ -1397,7 +1702,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 492);
+            this.button2.Location = new System.Drawing.Point(370, 531);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 23);
             this.button2.TabIndex = 57;
@@ -1406,7 +1711,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(371, 463);
+            this.button3.Location = new System.Drawing.Point(370, 502);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 23);
             this.button3.TabIndex = 56;
@@ -1416,7 +1721,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(10, 432);
+            this.dataGridView2.Location = new System.Drawing.Point(9, 471);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(343, 176);
             this.dataGridView2.TabIndex = 55;
@@ -2336,14 +2641,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -2361,14 +2666,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -2385,263 +2690,202 @@
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
             // 
-            // Panel_Lect20
+            // Panel_LectVred
             // 
-            this.Panel_Lect20.Controls.Add(this.textBox10);
-            this.Panel_Lect20.Controls.Add(this.textBox26);
-            this.Panel_Lect20.Controls.Add(this.textBox27);
-            this.Panel_Lect20.Controls.Add(this.textBox28);
-            this.Panel_Lect20.Controls.Add(this.textBox29);
-            this.Panel_Lect20.Location = new System.Drawing.Point(11, 22);
-            this.Panel_Lect20.Name = "Panel_Lect20";
-            this.Panel_Lect20.Size = new System.Drawing.Size(78, 138);
-            this.Panel_Lect20.TabIndex = 40;
+            this.Panel_LectVred.Controls.Add(this.textBox25);
+            this.Panel_LectVred.Controls.Add(this.textBox30);
+            this.Panel_LectVred.Controls.Add(this.textBox31);
+            this.Panel_LectVred.Controls.Add(this.textBox32);
+            this.Panel_LectVred.Controls.Add(this.textBox33);
+            this.Panel_LectVred.Location = new System.Drawing.Point(106, 27);
+            this.Panel_LectVred.Name = "Panel_LectVred";
+            this.Panel_LectVred.Size = new System.Drawing.Size(78, 138);
+            this.Panel_LectVred.TabIndex = 63;
             // 
-            // textBox10
+            // textBox25
             // 
-            this.textBox10.Location = new System.Drawing.Point(7, 59);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(65, 20);
-            this.textBox10.TabIndex = 39;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox10.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox10.Leave += new System.EventHandler(this.Prom_L20);
+            this.textBox25.Location = new System.Drawing.Point(7, 59);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new System.Drawing.Size(65, 20);
+            this.textBox25.TabIndex = 39;
+            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox25.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox25.Leave += new System.EventHandler(this.Prom_Vred);
             // 
-            // textBox26
+            // textBox30
             // 
-            this.textBox26.Location = new System.Drawing.Point(7, 111);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(65, 20);
-            this.textBox26.TabIndex = 41;
-            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox26.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox26.Leave += new System.EventHandler(this.Prom_L20);
+            this.textBox30.Location = new System.Drawing.Point(7, 111);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(65, 20);
+            this.textBox30.TabIndex = 41;
+            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox30.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox30.Leave += new System.EventHandler(this.Prom_Vred);
             // 
-            // textBox27
+            // textBox31
             // 
-            this.textBox27.Location = new System.Drawing.Point(7, 33);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(65, 20);
-            this.textBox27.TabIndex = 38;
-            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox27.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox27.Leave += new System.EventHandler(this.Prom_L20);
+            this.textBox31.Location = new System.Drawing.Point(7, 33);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(65, 20);
+            this.textBox31.TabIndex = 38;
+            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox31.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox31.Leave += new System.EventHandler(this.Prom_Vred);
             // 
-            // textBox28
+            // textBox32
             // 
-            this.textBox28.Location = new System.Drawing.Point(7, 85);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(65, 20);
-            this.textBox28.TabIndex = 40;
-            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox28.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox28.Leave += new System.EventHandler(this.Prom_L20);
+            this.textBox32.Location = new System.Drawing.Point(7, 85);
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(65, 20);
+            this.textBox32.TabIndex = 40;
+            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox32.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox32.Leave += new System.EventHandler(this.Prom_Vred);
             // 
-            // textBox29
+            // textBox33
             // 
-            this.textBox29.Location = new System.Drawing.Point(7, 7);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(65, 20);
-            this.textBox29.TabIndex = 37;
-            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox29.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox29.Leave += new System.EventHandler(this.Prom_L20);
+            this.textBox33.Location = new System.Drawing.Point(7, 7);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(65, 20);
+            this.textBox33.TabIndex = 37;
+            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox33.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox33.Leave += new System.EventHandler(this.Prom_Vred);
             // 
-            // LB_Lect20prom
+            // Panel_lectVtot
             // 
-            this.LB_Lect20prom.Location = new System.Drawing.Point(17, 163);
-            this.LB_Lect20prom.Name = "LB_Lect20prom";
-            this.LB_Lect20prom.Size = new System.Drawing.Size(66, 13);
-            this.LB_Lect20prom.TabIndex = 39;
-            this.LB_Lect20prom.Text = "Lect20prom";
-            this.LB_Lect20prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_Lect20prom.Visible = false;
+            this.Panel_lectVtot.Controls.Add(this.textBox34);
+            this.Panel_lectVtot.Controls.Add(this.textBox35);
+            this.Panel_lectVtot.Controls.Add(this.textBox36);
+            this.Panel_lectVtot.Controls.Add(this.textBox37);
+            this.Panel_lectVtot.Controls.Add(this.textBox38);
+            this.Panel_lectVtot.Location = new System.Drawing.Point(10, 27);
+            this.Panel_lectVtot.Name = "Panel_lectVtot";
+            this.Panel_lectVtot.Size = new System.Drawing.Size(78, 138);
+            this.Panel_lectVtot.TabIndex = 62;
             // 
-            // Panel_Lect10
+            // textBox34
             // 
-            this.Panel_Lect10.Controls.Add(this.textBox11);
-            this.Panel_Lect10.Controls.Add(this.textBox12);
-            this.Panel_Lect10.Controls.Add(this.textBox13);
-            this.Panel_Lect10.Controls.Add(this.textBox14);
-            this.Panel_Lect10.Controls.Add(this.textBox15);
-            this.Panel_Lect10.Location = new System.Drawing.Point(107, 22);
-            this.Panel_Lect10.Name = "Panel_Lect10";
-            this.Panel_Lect10.Size = new System.Drawing.Size(78, 138);
-            this.Panel_Lect10.TabIndex = 43;
+            this.textBox34.Location = new System.Drawing.Point(7, 59);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(65, 20);
+            this.textBox34.TabIndex = 39;
+            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox34.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox34.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // textBox11
+            // textBox35
             // 
-            this.textBox11.Location = new System.Drawing.Point(7, 59);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(65, 20);
-            this.textBox11.TabIndex = 39;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox35.Location = new System.Drawing.Point(7, 111);
+            this.textBox35.Name = "textBox35";
+            this.textBox35.Size = new System.Drawing.Size(65, 20);
+            this.textBox35.TabIndex = 41;
+            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox35.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox35.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // textBox12
+            // textBox36
             // 
-            this.textBox12.Location = new System.Drawing.Point(7, 111);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(65, 20);
-            this.textBox12.TabIndex = 41;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox36.Location = new System.Drawing.Point(7, 33);
+            this.textBox36.Name = "textBox36";
+            this.textBox36.Size = new System.Drawing.Size(65, 20);
+            this.textBox36.TabIndex = 38;
+            this.textBox36.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox36.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox36.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // textBox13
+            // textBox37
             // 
-            this.textBox13.Location = new System.Drawing.Point(7, 33);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(65, 20);
-            this.textBox13.TabIndex = 38;
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox37.Location = new System.Drawing.Point(7, 85);
+            this.textBox37.Name = "textBox37";
+            this.textBox37.Size = new System.Drawing.Size(65, 20);
+            this.textBox37.TabIndex = 40;
+            this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox37.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox37.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // textBox14
+            // textBox38
             // 
-            this.textBox14.Location = new System.Drawing.Point(7, 85);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(65, 20);
-            this.textBox14.TabIndex = 40;
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox38.Location = new System.Drawing.Point(7, 7);
+            this.textBox38.Name = "textBox38";
+            this.textBox38.Size = new System.Drawing.Size(65, 20);
+            this.textBox38.TabIndex = 37;
+            this.textBox38.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox38.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox38.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // textBox15
+            // LB_LectVredProm
             // 
-            this.textBox15.Location = new System.Drawing.Point(7, 7);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(65, 20);
-            this.textBox15.TabIndex = 37;
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.LB_LectVredProm.Location = new System.Drawing.Point(113, 168);
+            this.LB_LectVredProm.Name = "LB_LectVredProm";
+            this.LB_LectVredProm.Size = new System.Drawing.Size(66, 13);
+            this.LB_LectVredProm.TabIndex = 63;
+            this.LB_LectVredProm.Text = "Lect-Vred";
+            this.LB_LectVredProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_LectVredProm.Visible = false;
             // 
-            // LB_Lect10prom
+            // LB_lectVtotProm
             // 
-            this.LB_Lect10prom.Location = new System.Drawing.Point(113, 163);
-            this.LB_Lect10prom.Name = "LB_Lect10prom";
-            this.LB_Lect10prom.Size = new System.Drawing.Size(66, 13);
-            this.LB_Lect10prom.TabIndex = 42;
-            this.LB_Lect10prom.Text = "Lect10prom";
-            this.LB_Lect10prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_Lect10prom.Visible = false;
+            this.LB_lectVtotProm.Location = new System.Drawing.Point(17, 168);
+            this.LB_lectVtotProm.Name = "LB_lectVtotProm";
+            this.LB_lectVtotProm.Size = new System.Drawing.Size(66, 13);
+            this.LB_lectVtotProm.TabIndex = 62;
+            this.LB_lectVtotProm.Text = "Lect+Vtot";
+            this.LB_lectVtotProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_lectVtotProm.Visible = false;
             // 
-            // Panel_LectVm
+            // radioButton5
             // 
-            this.Panel_LectVm.Controls.Add(this.textBox9);
-            this.Panel_LectVm.Controls.Add(this.textBox16);
-            this.Panel_LectVm.Controls.Add(this.textBox17);
-            this.Panel_LectVm.Controls.Add(this.textBox18);
-            this.Panel_LectVm.Controls.Add(this.textBox19);
-            this.Panel_LectVm.Location = new System.Drawing.Point(108, 26);
-            this.Panel_LectVm.Name = "Panel_LectVm";
-            this.Panel_LectVm.Size = new System.Drawing.Size(78, 138);
-            this.Panel_LectVm.TabIndex = 61;
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(177, 151);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(107, 17);
+            this.radioButton5.TabIndex = 68;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Acelerador Lineal";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // radioButton6
             // 
-            this.textBox9.Location = new System.Drawing.Point(7, 59);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(65, 20);
-            this.textBox9.TabIndex = 39;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(111, 151);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(53, 17);
+            this.radioButton6.TabIndex = 67;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Co-60";
+            this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // textBox16
+            // radioButton7
             // 
-            this.textBox16.Location = new System.Drawing.Point(7, 111);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(65, 20);
-            this.textBox16.TabIndex = 41;
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(177, 178);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(101, 17);
+            this.radioButton7.TabIndex = 71;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Pulsado/Barrido";
+            this.radioButton7.UseVisualStyleBackColor = true;
             // 
-            // textBox17
+            // radioButton8
             // 
-            this.textBox17.Location = new System.Drawing.Point(7, 33);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(65, 20);
-            this.textBox17.TabIndex = 38;
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(111, 178);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(63, 17);
+            this.radioButton8.TabIndex = 70;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Pulsado";
+            this.radioButton8.UseVisualStyleBackColor = true;
             // 
-            // textBox18
+            // label22
             // 
-            this.textBox18.Location = new System.Drawing.Point(7, 85);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(65, 20);
-            this.textBox18.TabIndex = 40;
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(7, 7);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(65, 20);
-            this.textBox19.TabIndex = 37;
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // LB_LectVmprom
-            // 
-            this.LB_LectVmprom.Location = new System.Drawing.Point(114, 167);
-            this.LB_LectVmprom.Name = "LB_LectVmprom";
-            this.LB_LectVmprom.Size = new System.Drawing.Size(66, 13);
-            this.LB_LectVmprom.TabIndex = 60;
-            this.LB_LectVmprom.Text = "Lect-Vprom";
-            this.LB_LectVmprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_LectVmprom.Visible = false;
-            // 
-            // Panel_LectVP
-            // 
-            this.Panel_LectVP.Controls.Add(this.textBox20);
-            this.Panel_LectVP.Controls.Add(this.textBox21);
-            this.Panel_LectVP.Controls.Add(this.textBox22);
-            this.Panel_LectVP.Controls.Add(this.textBox23);
-            this.Panel_LectVP.Controls.Add(this.textBox24);
-            this.Panel_LectVP.Location = new System.Drawing.Point(12, 26);
-            this.Panel_LectVP.Name = "Panel_LectVP";
-            this.Panel_LectVP.Size = new System.Drawing.Size(78, 138);
-            this.Panel_LectVP.TabIndex = 59;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(7, 59);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(65, 20);
-            this.textBox20.TabIndex = 39;
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(7, 111);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(65, 20);
-            this.textBox21.TabIndex = 41;
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(7, 33);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(65, 20);
-            this.textBox22.TabIndex = 38;
-            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(7, 85);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(65, 20);
-            this.textBox23.TabIndex = 40;
-            this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(7, 7);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(65, 20);
-            this.textBox24.TabIndex = 37;
-            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // LB_LectVPprom
-            // 
-            this.LB_LectVPprom.Location = new System.Drawing.Point(18, 167);
-            this.LB_LectVPprom.Name = "LB_LectVPprom";
-            this.LB_LectVPprom.Size = new System.Drawing.Size(66, 13);
-            this.LB_LectVPprom.TabIndex = 58;
-            this.LB_LectVPprom.Text = "Lect+Vprom";
-            this.LB_LectVPprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_LectVPprom.Visible = false;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(17, 180);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(63, 13);
+            this.label22.TabIndex = 69;
+            this.label22.Text = "Tipo de haz";
             // 
             // Form1
             // 
@@ -2654,10 +2898,10 @@
             this.Controls.Add(this.Bt_Equipos);
             this.Controls.Add(this.Bt_SistDos);
             this.Controls.Add(this.Bt_CalFot);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -2675,12 +2919,20 @@
             this.groupBox4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.Panel_LectmenosV.ResumeLayout(false);
+            this.Panel_LectmenosV.PerformLayout();
+            this.Panel_LectmasV.ResumeLayout(false);
+            this.Panel_LectmasV.PerformLayout();
             this.gFactorDeCalidad.ResumeLayout(false);
             this.gFactorDeCalidad.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
+            this.Panel_Lect10.ResumeLayout(false);
+            this.Panel_Lect10.PerformLayout();
+            this.Panel_Lect20.ResumeLayout(false);
+            this.Panel_Lect20.PerformLayout();
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
             this.Panel_Equipos.ResumeLayout(false);
@@ -2716,14 +2968,10 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
-            this.Panel_Lect20.ResumeLayout(false);
-            this.Panel_Lect20.PerformLayout();
-            this.Panel_Lect10.ResumeLayout(false);
-            this.Panel_Lect10.PerformLayout();
-            this.Panel_LectVm.ResumeLayout(false);
-            this.Panel_LectVm.PerformLayout();
-            this.Panel_LectVP.ResumeLayout(false);
-            this.Panel_LectVP.PerformLayout();
+            this.Panel_LectVred.ResumeLayout(false);
+            this.Panel_LectVred.PerformLayout();
+            this.Panel_lectVtot.ResumeLayout(false);
+            this.Panel_lectVtot.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2784,7 +3032,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -2949,20 +3196,39 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label LB_Lect10prom;
-        private System.Windows.Forms.Panel Panel_LectVm;
+        private System.Windows.Forms.Panel Panel_LectmenosV;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.Label LB_LectVmprom;
-        private System.Windows.Forms.Panel Panel_LectVP;
+        private System.Windows.Forms.Label LB_LectmenosVprom;
+        private System.Windows.Forms.Panel Panel_LectmasV;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.Label LB_LectVPprom;
+        private System.Windows.Forms.Label LB_LectmasVprom;
+        private System.Windows.Forms.Label LB_LectVredProm;
+        private System.Windows.Forms.Panel Panel_LectVred;
+        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.TextBox textBox32;
+        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.Label LB_lectVtotProm;
+        private System.Windows.Forms.Panel Panel_lectVtot;
+        private System.Windows.Forms.TextBox textBox34;
+        private System.Windows.Forms.TextBox textBox35;
+        private System.Windows.Forms.TextBox textBox36;
+        private System.Windows.Forms.TextBox textBox37;
+        private System.Windows.Forms.TextBox textBox38;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
     }
 }
 
