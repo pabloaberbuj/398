@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -55,22 +55,37 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
+            this.Panel_Vred = new System.Windows.Forms.Panel();
             this.textBox43 = new System.Windows.Forms.TextBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.label40 = new System.Windows.Forms.Label();
+            this.LB_KsRes = new System.Windows.Forms.Label();
+            this.CHB_NoUsaKs = new System.Windows.Forms.CheckBox();
+            this.CHB_UsaKsLB = new System.Windows.Forms.CheckBox();
+            this.Panel_LecKs = new System.Windows.Forms.Panel();
+            this.LB_LectVredProm = new System.Windows.Forms.Label();
+            this.Panel_LectVred = new System.Windows.Forms.Panel();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.LB_lectVtotProm = new System.Windows.Forms.Label();
+            this.Panel_lectVtot = new System.Windows.Forms.Panel();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.textBox38 = new System.Windows.Forms.TextBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.LB_KpolRes = new System.Windows.Forms.Label();
+            this.CHB_NoUsaKpol = new System.Windows.Forms.CheckBox();
+            this.CHB_UsaKpolLB = new System.Windows.Forms.CheckBox();
+            this.Panel_LecKpol = new System.Windows.Forms.Panel();
             this.Panel_LectmenosV = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -89,10 +104,11 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.gFactorDeCalidad = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.Panel_TPRoPDD = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.panelFactor = new System.Windows.Forms.Panel();
+            this.Panel_LecKqq0 = new System.Windows.Forms.Panel();
             this.Panel_Lect10 = new System.Windows.Forms.Panel();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -109,7 +125,7 @@
             this.LB_Lect20prom = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.chFactor = new System.Windows.Forms.CheckBox();
+            this.CHB_UsarKqq0LB = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
@@ -129,6 +145,7 @@
             this.cbDosimetro = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_CondRef = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.BT_CondIraCal = new System.Windows.Forms.Button();
@@ -139,30 +156,37 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
+            this.Panel_TipoHazEquipo = new System.Windows.Forms.Panel();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.Panel_FuenteEquipo = new System.Windows.Forms.Panel();
+            this.RB_FuenteALE = new System.Windows.Forms.RadioButton();
+            this.RB_FuenteCo = new System.Windows.Forms.RadioButton();
+            this.LB_TipoHaz = new System.Windows.Forms.Label();
             this.BT_EqIraCal = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.textBox44 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
             this.button20 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.CHB_EnElecEquipo = new System.Windows.Forms.CheckBox();
+            this.CHB_EnFotEquipo = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -262,37 +286,21 @@
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
-            this.Panel_LectVred = new System.Windows.Forms.Panel();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.Panel_lectVtot = new System.Windows.Forms.Panel();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.LB_LectVredProm = new System.Windows.Forms.Label();
-            this.LB_lectVtotProm = new System.Windows.Forms.Label();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.label22 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.Panel_Vred.SuspendLayout();
+            this.Panel_LecKs.SuspendLayout();
+            this.Panel_LectVred.SuspendLayout();
+            this.Panel_lectVtot.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.Panel_LecKpol.SuspendLayout();
             this.Panel_LectmenosV.SuspendLayout();
             this.Panel_LectmasV.SuspendLayout();
             this.gFactorDeCalidad.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelFactor.SuspendLayout();
+            this.Panel_TPRoPDD.SuspendLayout();
+            this.Panel_LecKqq0.SuspendLayout();
             this.Panel_Lect10.SuspendLayout();
             this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
@@ -300,7 +308,11 @@
             this.GB_CondRef.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.GB_Equipos.SuspendLayout();
+            this.Panel_TipoHazEquipo.SuspendLayout();
+            this.Panel_FuenteEquipo.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.Panel_EnElecEquipo.SuspendLayout();
+            this.Panel_EnFotEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.Panel_SistDos.SuspendLayout();
             this.GB_SistDos.SuspendLayout();
@@ -319,8 +331,6 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
-            this.Panel_LectVred.SuspendLayout();
-            this.Panel_lectVtot.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -539,9 +549,9 @@
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.Location = new System.Drawing.Point(23, 186);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(46, 16);
+            this.label41.Size = new System.Drawing.Size(50, 16);
             this.label41.TabIndex = 31;
-            this.label41.Text = "Mref=";
+            this.label41.Text = "Mref =";
             // 
             // label42
             // 
@@ -549,9 +559,9 @@
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.Location = new System.Drawing.Point(23, 262);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(53, 16);
+            this.label42.Size = new System.Drawing.Size(57, 16);
             this.label42.TabIndex = 29;
-            this.label42.Text = "DifLB=";
+            this.label42.Text = "DifLB =";
             // 
             // label43
             // 
@@ -559,9 +569,9 @@
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(23, 237);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(72, 16);
+            this.label43.Size = new System.Drawing.Size(76, 16);
             this.label43.TabIndex = 28;
-            this.label43.Text = "Dwzmax=";
+            this.label43.Text = "Dwzmax =";
             // 
             // label44
             // 
@@ -569,9 +579,9 @@
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.Location = new System.Drawing.Point(23, 212);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(62, 16);
+            this.label44.Size = new System.Drawing.Size(66, 16);
             this.label44.TabIndex = 27;
-            this.label44.Text = "Dwzref=";
+            this.label44.Text = "Dwzref =";
             // 
             // label17
             // 
@@ -584,12 +594,11 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label39);
-            this.groupBox5.Controls.Add(this.label40);
-            this.groupBox5.Controls.Add(this.textBox43);
-            this.groupBox5.Controls.Add(this.checkBox5);
-            this.groupBox5.Controls.Add(this.checkBox6);
-            this.groupBox5.Controls.Add(this.panel2);
+            this.groupBox5.Controls.Add(this.Panel_Vred);
+            this.groupBox5.Controls.Add(this.LB_KsRes);
+            this.groupBox5.Controls.Add(this.CHB_NoUsaKs);
+            this.groupBox5.Controls.Add(this.CHB_UsaKsLB);
+            this.groupBox5.Controls.Add(this.Panel_LecKs);
             this.groupBox5.Location = new System.Drawing.Point(543, 342);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(245, 320);
@@ -597,65 +606,220 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ks";
             // 
-            // label39
+            // Panel_Vred
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(28, 291);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(33, 16);
-            this.label39.TabIndex = 36;
-            this.label39.Text = "Ks=";
+            this.Panel_Vred.Controls.Add(this.textBox43);
+            this.Panel_Vred.Controls.Add(this.label40);
+            this.Panel_Vred.Location = new System.Drawing.Point(127, 37);
+            this.Panel_Vred.Name = "Panel_Vred";
+            this.Panel_Vred.Size = new System.Drawing.Size(115, 30);
+            this.Panel_Vred.TabIndex = 39;
+            // 
+            // textBox43
+            // 
+            this.textBox43.Location = new System.Drawing.Point(38, 5);
+            this.textBox43.Name = "textBox43";
+            this.textBox43.Size = new System.Drawing.Size(68, 20);
+            this.textBox43.TabIndex = 34;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(136, 43);
+            this.label40.Location = new System.Drawing.Point(3, 8);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(29, 13);
             this.label40.TabIndex = 35;
             this.label40.Text = "Vred";
             // 
-            // textBox43
+            // LB_KsRes
             // 
-            this.textBox43.Location = new System.Drawing.Point(171, 40);
-            this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(68, 20);
-            this.textBox43.TabIndex = 34;
+            this.LB_KsRes.AutoSize = true;
+            this.LB_KsRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_KsRes.Location = new System.Drawing.Point(28, 291);
+            this.LB_KsRes.Name = "LB_KsRes";
+            this.LB_KsRes.Size = new System.Drawing.Size(37, 16);
+            this.LB_KsRes.TabIndex = 36;
+            this.LB_KsRes.Text = "Ks =";
             // 
-            // checkBox5
+            // CHB_NoUsaKs
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(10, 43);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(110, 17);
-            this.checkBox5.TabIndex = 33;
-            this.checkBox5.Text = "No corregir por ks";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.CHB_NoUsaKs.AutoSize = true;
+            this.CHB_NoUsaKs.Location = new System.Drawing.Point(10, 43);
+            this.CHB_NoUsaKs.Name = "CHB_NoUsaKs";
+            this.CHB_NoUsaKs.Size = new System.Drawing.Size(110, 17);
+            this.CHB_NoUsaKs.TabIndex = 33;
+            this.CHB_NoUsaKs.Text = "No corregir por ks";
+            this.CHB_NoUsaKs.UseVisualStyleBackColor = true;
+            this.CHB_NoUsaKs.CheckedChanged += new System.EventHandler(this.CHB_NoUsaKs_CheckedChanged);
             // 
-            // checkBox6
+            // CHB_UsaKsLB
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(10, 20);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(131, 17);
-            this.checkBox6.TabIndex = 32;
-            this.checkBox6.Text = "Usar Ks de línea base";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.CHB_UsaKsLB.AutoSize = true;
+            this.CHB_UsaKsLB.Location = new System.Drawing.Point(10, 20);
+            this.CHB_UsaKsLB.Name = "CHB_UsaKsLB";
+            this.CHB_UsaKsLB.Size = new System.Drawing.Size(131, 17);
+            this.CHB_UsaKsLB.TabIndex = 32;
+            this.CHB_UsaKsLB.Text = "Usar Ks de línea base";
+            this.CHB_UsaKsLB.UseVisualStyleBackColor = true;
+            this.CHB_UsaKsLB.CheckedChanged += new System.EventHandler(this.CHB_UsaKsLB_CheckedChanged);
             // 
-            // panel2
+            // Panel_LecKs
             // 
-            this.panel2.Controls.Add(this.LB_LectVredProm);
-            this.panel2.Controls.Add(this.Panel_LectVred);
-            this.panel2.Controls.Add(this.LB_lectVtotProm);
-            this.panel2.Controls.Add(this.Panel_lectVtot);
-            this.panel2.Controls.Add(this.checkBox7);
-            this.panel2.Controls.Add(this.label37);
-            this.panel2.Controls.Add(this.label38);
-            this.panel2.Location = new System.Drawing.Point(6, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(197, 215);
-            this.panel2.TabIndex = 24;
+            this.Panel_LecKs.Controls.Add(this.LB_LectVredProm);
+            this.Panel_LecKs.Controls.Add(this.Panel_LectVred);
+            this.Panel_LecKs.Controls.Add(this.LB_lectVtotProm);
+            this.Panel_LecKs.Controls.Add(this.Panel_lectVtot);
+            this.Panel_LecKs.Controls.Add(this.checkBox7);
+            this.Panel_LecKs.Controls.Add(this.label37);
+            this.Panel_LecKs.Controls.Add(this.label38);
+            this.Panel_LecKs.Location = new System.Drawing.Point(6, 66);
+            this.Panel_LecKs.Name = "Panel_LecKs";
+            this.Panel_LecKs.Size = new System.Drawing.Size(197, 215);
+            this.Panel_LecKs.TabIndex = 24;
+            // 
+            // LB_LectVredProm
+            // 
+            this.LB_LectVredProm.Location = new System.Drawing.Point(113, 168);
+            this.LB_LectVredProm.Name = "LB_LectVredProm";
+            this.LB_LectVredProm.Size = new System.Drawing.Size(66, 13);
+            this.LB_LectVredProm.TabIndex = 63;
+            this.LB_LectVredProm.Text = "Lect-Vred";
+            this.LB_LectVredProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_LectVredProm.Visible = false;
+            // 
+            // Panel_LectVred
+            // 
+            this.Panel_LectVred.Controls.Add(this.textBox25);
+            this.Panel_LectVred.Controls.Add(this.textBox30);
+            this.Panel_LectVred.Controls.Add(this.textBox31);
+            this.Panel_LectVred.Controls.Add(this.textBox32);
+            this.Panel_LectVred.Controls.Add(this.textBox33);
+            this.Panel_LectVred.Location = new System.Drawing.Point(106, 27);
+            this.Panel_LectVred.Name = "Panel_LectVred";
+            this.Panel_LectVred.Size = new System.Drawing.Size(78, 138);
+            this.Panel_LectVred.TabIndex = 63;
+            // 
+            // textBox25
+            // 
+            this.textBox25.Location = new System.Drawing.Point(7, 59);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new System.Drawing.Size(65, 20);
+            this.textBox25.TabIndex = 39;
+            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox25.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox25.Leave += new System.EventHandler(this.Prom_Vred);
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(7, 111);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(65, 20);
+            this.textBox30.TabIndex = 41;
+            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox30.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox30.Leave += new System.EventHandler(this.Prom_Vred);
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(7, 33);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(65, 20);
+            this.textBox31.TabIndex = 38;
+            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox31.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox31.Leave += new System.EventHandler(this.Prom_Vred);
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new System.Drawing.Point(7, 85);
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(65, 20);
+            this.textBox32.TabIndex = 40;
+            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox32.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox32.Leave += new System.EventHandler(this.Prom_Vred);
+            // 
+            // textBox33
+            // 
+            this.textBox33.Location = new System.Drawing.Point(7, 7);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(65, 20);
+            this.textBox33.TabIndex = 37;
+            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox33.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox33.Leave += new System.EventHandler(this.Prom_Vred);
+            // 
+            // LB_lectVtotProm
+            // 
+            this.LB_lectVtotProm.Location = new System.Drawing.Point(17, 168);
+            this.LB_lectVtotProm.Name = "LB_lectVtotProm";
+            this.LB_lectVtotProm.Size = new System.Drawing.Size(66, 13);
+            this.LB_lectVtotProm.TabIndex = 62;
+            this.LB_lectVtotProm.Text = "Lect+Vtot";
+            this.LB_lectVtotProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_lectVtotProm.Visible = false;
+            // 
+            // Panel_lectVtot
+            // 
+            this.Panel_lectVtot.Controls.Add(this.textBox34);
+            this.Panel_lectVtot.Controls.Add(this.textBox35);
+            this.Panel_lectVtot.Controls.Add(this.textBox36);
+            this.Panel_lectVtot.Controls.Add(this.textBox37);
+            this.Panel_lectVtot.Controls.Add(this.textBox38);
+            this.Panel_lectVtot.Location = new System.Drawing.Point(10, 27);
+            this.Panel_lectVtot.Name = "Panel_lectVtot";
+            this.Panel_lectVtot.Size = new System.Drawing.Size(78, 138);
+            this.Panel_lectVtot.TabIndex = 62;
+            // 
+            // textBox34
+            // 
+            this.textBox34.Location = new System.Drawing.Point(7, 59);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(65, 20);
+            this.textBox34.TabIndex = 39;
+            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox34.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox34.Leave += new System.EventHandler(this.Prom_Vtot);
+            // 
+            // textBox35
+            // 
+            this.textBox35.Location = new System.Drawing.Point(7, 111);
+            this.textBox35.Name = "textBox35";
+            this.textBox35.Size = new System.Drawing.Size(65, 20);
+            this.textBox35.TabIndex = 41;
+            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox35.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox35.Leave += new System.EventHandler(this.Prom_Vtot);
+            // 
+            // textBox36
+            // 
+            this.textBox36.Location = new System.Drawing.Point(7, 33);
+            this.textBox36.Name = "textBox36";
+            this.textBox36.Size = new System.Drawing.Size(65, 20);
+            this.textBox36.TabIndex = 38;
+            this.textBox36.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox36.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox36.Leave += new System.EventHandler(this.Prom_Vtot);
+            // 
+            // textBox37
+            // 
+            this.textBox37.Location = new System.Drawing.Point(7, 85);
+            this.textBox37.Name = "textBox37";
+            this.textBox37.Size = new System.Drawing.Size(65, 20);
+            this.textBox37.TabIndex = 40;
+            this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox37.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox37.Leave += new System.EventHandler(this.Prom_Vtot);
+            // 
+            // textBox38
+            // 
+            this.textBox38.Location = new System.Drawing.Point(7, 7);
+            this.textBox38.Name = "textBox38";
+            this.textBox38.Size = new System.Drawing.Size(65, 20);
+            this.textBox38.TabIndex = 37;
+            this.textBox38.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox38.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox38.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
             // checkBox7
             // 
@@ -703,10 +867,10 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label33);
-            this.groupBox4.Controls.Add(this.checkBox4);
-            this.groupBox4.Controls.Add(this.checkBox3);
-            this.groupBox4.Controls.Add(this.panel3);
+            this.groupBox4.Controls.Add(this.LB_KpolRes);
+            this.groupBox4.Controls.Add(this.CHB_NoUsaKpol);
+            this.groupBox4.Controls.Add(this.CHB_UsaKpolLB);
+            this.groupBox4.Controls.Add(this.Panel_LecKpol);
             this.groupBox4.Location = new System.Drawing.Point(297, 342);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(231, 320);
@@ -714,49 +878,51 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Kpol";
             // 
-            // label33
+            // LB_KpolRes
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(34, 294);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(47, 16);
-            this.label33.TabIndex = 34;
-            this.label33.Text = "Kpol=";
+            this.LB_KpolRes.AutoSize = true;
+            this.LB_KpolRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_KpolRes.Location = new System.Drawing.Point(34, 294);
+            this.LB_KpolRes.Name = "LB_KpolRes";
+            this.LB_KpolRes.Size = new System.Drawing.Size(51, 16);
+            this.LB_KpolRes.TabIndex = 34;
+            this.LB_KpolRes.Text = "Kpol =";
             // 
-            // checkBox4
+            // CHB_NoUsaKpol
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(10, 43);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(119, 17);
-            this.checkBox4.TabIndex = 33;
-            this.checkBox4.Text = "No corregir por kpol";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.CHB_NoUsaKpol.AutoSize = true;
+            this.CHB_NoUsaKpol.Location = new System.Drawing.Point(10, 43);
+            this.CHB_NoUsaKpol.Name = "CHB_NoUsaKpol";
+            this.CHB_NoUsaKpol.Size = new System.Drawing.Size(119, 17);
+            this.CHB_NoUsaKpol.TabIndex = 33;
+            this.CHB_NoUsaKpol.Text = "No corregir por kpol";
+            this.CHB_NoUsaKpol.UseVisualStyleBackColor = true;
+            this.CHB_NoUsaKpol.CheckedChanged += new System.EventHandler(this.CHB_NoUsaKpol_CheckedChanged);
             // 
-            // checkBox3
+            // CHB_UsaKpolLB
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(10, 20);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(140, 17);
-            this.checkBox3.TabIndex = 32;
-            this.checkBox3.Text = "Usar Kpol de línea base";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.CHB_UsaKpolLB.AutoSize = true;
+            this.CHB_UsaKpolLB.Location = new System.Drawing.Point(10, 20);
+            this.CHB_UsaKpolLB.Name = "CHB_UsaKpolLB";
+            this.CHB_UsaKpolLB.Size = new System.Drawing.Size(140, 17);
+            this.CHB_UsaKpolLB.TabIndex = 32;
+            this.CHB_UsaKpolLB.Text = "Usar Kpol de línea base";
+            this.CHB_UsaKpolLB.UseVisualStyleBackColor = true;
+            this.CHB_UsaKpolLB.CheckedChanged += new System.EventHandler(this.CHB_UsaKpolLB_CheckedChanged);
             // 
-            // panel3
+            // Panel_LecKpol
             // 
-            this.panel3.Controls.Add(this.Panel_LectmenosV);
-            this.panel3.Controls.Add(this.LB_LectmenosVprom);
-            this.panel3.Controls.Add(this.Panel_LectmasV);
-            this.panel3.Controls.Add(this.LB_LectmasVprom);
-            this.panel3.Controls.Add(this.chEditarVKapol);
-            this.panel3.Controls.Add(this.label29);
-            this.panel3.Controls.Add(this.label30);
-            this.panel3.Location = new System.Drawing.Point(18, 67);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(197, 215);
-            this.panel3.TabIndex = 24;
+            this.Panel_LecKpol.Controls.Add(this.Panel_LectmenosV);
+            this.Panel_LecKpol.Controls.Add(this.LB_LectmenosVprom);
+            this.Panel_LecKpol.Controls.Add(this.Panel_LectmasV);
+            this.Panel_LecKpol.Controls.Add(this.LB_LectmasVprom);
+            this.Panel_LecKpol.Controls.Add(this.chEditarVKapol);
+            this.Panel_LecKpol.Controls.Add(this.label29);
+            this.Panel_LecKpol.Controls.Add(this.label30);
+            this.Panel_LecKpol.Location = new System.Drawing.Point(18, 67);
+            this.Panel_LecKpol.Name = "Panel_LecKpol";
+            this.Panel_LecKpol.Size = new System.Drawing.Size(197, 215);
+            this.Panel_LecKpol.TabIndex = 24;
             // 
             // Panel_LectmenosV
             // 
@@ -932,9 +1098,10 @@
             // 
             // gFactorDeCalidad
             // 
-            this.gFactorDeCalidad.Controls.Add(this.panel1);
-            this.gFactorDeCalidad.Controls.Add(this.panelFactor);
-            this.gFactorDeCalidad.Controls.Add(this.chFactor);
+            this.gFactorDeCalidad.Controls.Add(this.label24);
+            this.gFactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
+            this.gFactorDeCalidad.Controls.Add(this.Panel_LecKqq0);
+            this.gFactorDeCalidad.Controls.Add(this.CHB_UsarKqq0LB);
             this.gFactorDeCalidad.Controls.Add(this.label15);
             this.gFactorDeCalidad.Location = new System.Drawing.Point(297, 12);
             this.gFactorDeCalidad.Name = "gFactorDeCalidad";
@@ -943,14 +1110,24 @@
             this.gFactorDeCalidad.TabStop = false;
             this.gFactorDeCalidad.Text = "Factor de calidad";
             // 
-            // panel1
+            // label24
             // 
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton4);
-            this.panel1.Location = new System.Drawing.Point(30, 44);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(155, 35);
-            this.panel1.TabIndex = 25;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(39, 272);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(83, 16);
+            this.label24.TabIndex = 26;
+            this.label24.Text = "TPR2010 =";
+            // 
+            // Panel_TPRoPDD
+            // 
+            this.Panel_TPRoPDD.Controls.Add(this.radioButton3);
+            this.Panel_TPRoPDD.Controls.Add(this.radioButton4);
+            this.Panel_TPRoPDD.Location = new System.Drawing.Point(38, 40);
+            this.Panel_TPRoPDD.Name = "Panel_TPRoPDD";
+            this.Panel_TPRoPDD.Size = new System.Drawing.Size(155, 28);
+            this.Panel_TPRoPDD.TabIndex = 25;
             // 
             // radioButton3
             // 
@@ -974,18 +1151,18 @@
             this.radioButton4.Text = "TPR2010";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // panelFactor
+            // Panel_LecKqq0
             // 
-            this.panelFactor.Controls.Add(this.Panel_Lect10);
-            this.panelFactor.Controls.Add(this.LB_Lect10prom);
-            this.panelFactor.Controls.Add(this.Panel_Lect20);
-            this.panelFactor.Controls.Add(this.LB_Lect20prom);
-            this.panelFactor.Controls.Add(this.label32);
-            this.panelFactor.Controls.Add(this.label31);
-            this.panelFactor.Location = new System.Drawing.Point(20, 86);
-            this.panelFactor.Name = "panelFactor";
-            this.panelFactor.Size = new System.Drawing.Size(197, 190);
-            this.panelFactor.TabIndex = 24;
+            this.Panel_LecKqq0.Controls.Add(this.Panel_Lect10);
+            this.Panel_LecKqq0.Controls.Add(this.LB_Lect10prom);
+            this.Panel_LecKqq0.Controls.Add(this.Panel_Lect20);
+            this.Panel_LecKqq0.Controls.Add(this.LB_Lect20prom);
+            this.Panel_LecKqq0.Controls.Add(this.label32);
+            this.Panel_LecKqq0.Controls.Add(this.label31);
+            this.Panel_LecKqq0.Location = new System.Drawing.Point(20, 74);
+            this.Panel_LecKqq0.Name = "Panel_LecKqq0";
+            this.Panel_LecKqq0.Size = new System.Drawing.Size(197, 190);
+            this.Panel_LecKqq0.TabIndex = 24;
             // 
             // Panel_Lect10
             // 
@@ -1149,25 +1326,26 @@
             this.label31.TabIndex = 8;
             this.label31.Text = "Lecturas a 20 cm";
             // 
-            // chFactor
+            // CHB_UsarKqq0LB
             // 
-            this.chFactor.AutoSize = true;
-            this.chFactor.Location = new System.Drawing.Point(11, 18);
-            this.chFactor.Name = "chFactor";
-            this.chFactor.Size = new System.Drawing.Size(198, 17);
-            this.chFactor.TabIndex = 7;
-            this.chFactor.Text = "Usar factor de calidad de línea base";
-            this.chFactor.UseVisualStyleBackColor = true;
+            this.CHB_UsarKqq0LB.AutoSize = true;
+            this.CHB_UsarKqq0LB.Location = new System.Drawing.Point(11, 18);
+            this.CHB_UsarKqq0LB.Name = "CHB_UsarKqq0LB";
+            this.CHB_UsarKqq0LB.Size = new System.Drawing.Size(198, 17);
+            this.CHB_UsarKqq0LB.TabIndex = 7;
+            this.CHB_UsarKqq0LB.Text = "Usar factor de calidad de línea base";
+            this.CHB_UsarKqq0LB.UseVisualStyleBackColor = true;
+            this.CHB_UsarKqq0LB.CheckedChanged += new System.EventHandler(this.CHB_UsarKqq0LB_CheckedChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(40, 289);
+            this.label15.Location = new System.Drawing.Point(39, 296);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 16);
+            this.label15.Size = new System.Drawing.Size(55, 16);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Kqq0=";
+            this.label15.Text = "Kqq0 =";
             // 
             // label23
             // 
@@ -1325,6 +1503,7 @@
             // 
             // GB_CondRef
             // 
+            this.GB_CondRef.Controls.Add(this.label7);
             this.GB_CondRef.Controls.Add(this.button22);
             this.GB_CondRef.Controls.Add(this.button21);
             this.GB_CondRef.Controls.Add(this.BT_CondIraCal);
@@ -1335,8 +1514,6 @@
             this.GB_CondRef.Controls.Add(this.label8);
             this.GB_CondRef.Controls.Add(this.textBox6);
             this.GB_CondRef.Controls.Add(this.textBox8);
-            this.GB_CondRef.Controls.Add(this.label7);
-            this.GB_CondRef.Controls.Add(this.textBox7);
             this.GB_CondRef.Controls.Add(this.label4);
             this.GB_CondRef.Controls.Add(this.label6);
             this.GB_CondRef.Controls.Add(this.radioButton2);
@@ -1347,6 +1524,15 @@
             this.GB_CondRef.TabIndex = 1;
             this.GB_CondRef.TabStop = false;
             this.GB_CondRef.Text = "Condiciones de referencia fotones";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(120, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "cm";
             // 
             // button22
             // 
@@ -1422,33 +1608,17 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(82, 80);
+            this.textBox6.Location = new System.Drawing.Point(84, 81);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(27, 20);
             this.textBox6.TabIndex = 62;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(134, 52);
+            this.textBox8.Location = new System.Drawing.Point(84, 52);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(27, 20);
             this.textBox8.TabIndex = 61;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(117, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(12, 13);
-            this.label7.TabIndex = 60;
-            this.label7.Text = "x";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(82, 52);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(27, 20);
-            this.textBox7.TabIndex = 57;
             // 
             // label4
             // 
@@ -1464,9 +1634,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(13, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 55;
-            this.label6.Text = "Campo";
+            this.label6.Text = "Lado Campo";
             // 
             // radioButton2
             // 
@@ -1492,11 +1662,9 @@
             // 
             // GB_Equipos
             // 
-            this.GB_Equipos.Controls.Add(this.radioButton7);
-            this.GB_Equipos.Controls.Add(this.radioButton8);
-            this.GB_Equipos.Controls.Add(this.label22);
-            this.GB_Equipos.Controls.Add(this.radioButton5);
-            this.GB_Equipos.Controls.Add(this.radioButton6);
+            this.GB_Equipos.Controls.Add(this.Panel_TipoHazEquipo);
+            this.GB_Equipos.Controls.Add(this.Panel_FuenteEquipo);
+            this.GB_Equipos.Controls.Add(this.LB_TipoHaz);
             this.GB_Equipos.Controls.Add(this.BT_EqIraCal);
             this.GB_Equipos.Controls.Add(this.button17);
             this.GB_Equipos.Controls.Add(this.textBox44);
@@ -1521,6 +1689,81 @@
             this.GB_Equipos.TabIndex = 0;
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
+            // 
+            // Panel_TipoHazEquipo
+            // 
+            this.Panel_TipoHazEquipo.Controls.Add(this.radioButton9);
+            this.Panel_TipoHazEquipo.Controls.Add(this.radioButton10);
+            this.Panel_TipoHazEquipo.Enabled = false;
+            this.Panel_TipoHazEquipo.Location = new System.Drawing.Point(105, 175);
+            this.Panel_TipoHazEquipo.Name = "Panel_TipoHazEquipo";
+            this.Panel_TipoHazEquipo.Size = new System.Drawing.Size(174, 19);
+            this.Panel_TipoHazEquipo.TabIndex = 73;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(67, 1);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(107, 17);
+            this.radioButton9.TabIndex = 70;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "Pulsado y Barrido";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(1, 1);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(63, 17);
+            this.radioButton10.TabIndex = 69;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "Pulsado";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // Panel_FuenteEquipo
+            // 
+            this.Panel_FuenteEquipo.Controls.Add(this.RB_FuenteALE);
+            this.Panel_FuenteEquipo.Controls.Add(this.RB_FuenteCo);
+            this.Panel_FuenteEquipo.Location = new System.Drawing.Point(105, 150);
+            this.Panel_FuenteEquipo.Name = "Panel_FuenteEquipo";
+            this.Panel_FuenteEquipo.Size = new System.Drawing.Size(174, 19);
+            this.Panel_FuenteEquipo.TabIndex = 72;
+            // 
+            // RB_FuenteALE
+            // 
+            this.RB_FuenteALE.AutoSize = true;
+            this.RB_FuenteALE.Location = new System.Drawing.Point(67, 1);
+            this.RB_FuenteALE.Name = "RB_FuenteALE";
+            this.RB_FuenteALE.Size = new System.Drawing.Size(107, 17);
+            this.RB_FuenteALE.TabIndex = 70;
+            this.RB_FuenteALE.TabStop = true;
+            this.RB_FuenteALE.Text = "Acelerador Lineal";
+            this.RB_FuenteALE.UseVisualStyleBackColor = true;
+            this.RB_FuenteALE.CheckedChanged += new System.EventHandler(this.RB_FuenteALE_CheckedChanged);
+            // 
+            // RB_FuenteCo
+            // 
+            this.RB_FuenteCo.AutoSize = true;
+            this.RB_FuenteCo.Location = new System.Drawing.Point(1, 1);
+            this.RB_FuenteCo.Name = "RB_FuenteCo";
+            this.RB_FuenteCo.Size = new System.Drawing.Size(53, 17);
+            this.RB_FuenteCo.TabIndex = 69;
+            this.RB_FuenteCo.TabStop = true;
+            this.RB_FuenteCo.Text = "Co-60";
+            this.RB_FuenteCo.UseVisualStyleBackColor = true;
+            this.RB_FuenteCo.CheckedChanged += new System.EventHandler(this.RB_FuenteCo_CheckedChanged);
+            // 
+            // LB_TipoHaz
+            // 
+            this.LB_TipoHaz.AutoSize = true;
+            this.LB_TipoHaz.Enabled = false;
+            this.LB_TipoHaz.Location = new System.Drawing.Point(17, 180);
+            this.LB_TipoHaz.Name = "LB_TipoHaz";
+            this.LB_TipoHaz.Size = new System.Drawing.Size(63, 13);
+            this.LB_TipoHaz.TabIndex = 69;
+            this.LB_TipoHaz.Text = "Tipo de haz";
             // 
             // BT_EqIraCal
             // 
@@ -1559,18 +1802,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button20);
-            this.groupBox2.Controls.Add(this.button18);
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.listBox2);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.Panel_EnElecEquipo);
+            this.groupBox2.Controls.Add(this.Panel_EnFotEquipo);
+            this.groupBox2.Controls.Add(this.CHB_EnElecEquipo);
+            this.groupBox2.Controls.Add(this.CHB_EnFotEquipo);
             this.groupBox2.Location = new System.Drawing.Point(9, 215);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(437, 241);
@@ -1578,109 +1813,137 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Energías";
             // 
+            // Panel_EnElecEquipo
+            // 
+            this.Panel_EnElecEquipo.Controls.Add(this.button20);
+            this.Panel_EnElecEquipo.Controls.Add(this.button8);
+            this.Panel_EnElecEquipo.Controls.Add(this.button9);
+            this.Panel_EnElecEquipo.Controls.Add(this.listBox2);
+            this.Panel_EnElecEquipo.Controls.Add(this.textBox5);
+            this.Panel_EnElecEquipo.Enabled = false;
+            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(85, 127);
+            this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
+            this.Panel_EnElecEquipo.Size = new System.Drawing.Size(346, 107);
+            this.Panel_EnElecEquipo.TabIndex = 56;
+            // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(319, 164);
+            this.button20.Location = new System.Drawing.Point(235, 40);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(97, 23);
-            this.button20.TabIndex = 54;
+            this.button20.TabIndex = 59;
             this.button20.Text = "Predeterminado";
             this.button20.UseVisualStyleBackColor = true;
             // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(319, 58);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(97, 23);
-            this.button18.TabIndex = 53;
-            this.button18.Text = "Predeterminado";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(319, 129);
+            this.button8.Location = new System.Drawing.Point(235, 5);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(97, 23);
-            this.button8.TabIndex = 52;
+            this.button8.TabIndex = 58;
             this.button8.Text = "Eliminar";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(99, 164);
+            this.button9.Location = new System.Drawing.Point(15, 40);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(97, 23);
-            this.button9.TabIndex = 51;
+            this.button9.TabIndex = 57;
             this.button9.Text = "Agregar";
             this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(319, 24);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(97, 23);
-            this.button7.TabIndex = 50;
-            this.button7.Text = "Eliminar";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(99, 51);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 23);
-            this.button6.TabIndex = 49;
-            this.button6.Text = "Agregar";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(221, 128);
+            this.listBox2.Location = new System.Drawing.Point(137, 4);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(85, 95);
-            this.listBox2.TabIndex = 48;
+            this.listBox2.TabIndex = 56;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(100, 128);
+            this.textBox5.Location = new System.Drawing.Point(16, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(97, 20);
-            this.textBox5.TabIndex = 47;
+            this.textBox5.TabIndex = 55;
+            // 
+            // Panel_EnFotEquipo
+            // 
+            this.Panel_EnFotEquipo.Controls.Add(this.button18);
+            this.Panel_EnFotEquipo.Controls.Add(this.textBox4);
+            this.Panel_EnFotEquipo.Controls.Add(this.button7);
+            this.Panel_EnFotEquipo.Controls.Add(this.listBox1);
+            this.Panel_EnFotEquipo.Controls.Add(this.button6);
+            this.Panel_EnFotEquipo.Enabled = false;
+            this.Panel_EnFotEquipo.Location = new System.Drawing.Point(85, 19);
+            this.Panel_EnFotEquipo.Name = "Panel_EnFotEquipo";
+            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(346, 100);
+            this.Panel_EnFotEquipo.TabIndex = 55;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(233, 41);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(97, 23);
+            this.button18.TabIndex = 78;
+            this.button18.Text = "Predeterminado";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(14, 8);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(97, 20);
+            this.textBox4.TabIndex = 74;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(233, 7);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(97, 23);
+            this.button7.TabIndex = 77;
+            this.button7.Text = "Eliminar";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(221, 25);
+            this.listBox1.Location = new System.Drawing.Point(135, 8);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(85, 82);
-            this.listBox1.TabIndex = 46;
+            this.listBox1.TabIndex = 75;
             // 
-            // checkBox2
+            // button6
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(0, 133);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(76, 17);
-            this.checkBox2.TabIndex = 44;
-            this.checkBox2.Text = "Electrones";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.button6.Location = new System.Drawing.Point(13, 34);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(97, 23);
+            this.button6.TabIndex = 76;
+            this.button6.Text = "Agregar";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // CHB_EnElecEquipo
             // 
-            this.textBox4.Location = new System.Drawing.Point(100, 25);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(97, 20);
-            this.textBox4.TabIndex = 45;
+            this.CHB_EnElecEquipo.AutoSize = true;
+            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(0, 133);
+            this.CHB_EnElecEquipo.Name = "CHB_EnElecEquipo";
+            this.CHB_EnElecEquipo.Size = new System.Drawing.Size(76, 17);
+            this.CHB_EnElecEquipo.TabIndex = 44;
+            this.CHB_EnElecEquipo.Text = "Electrones";
+            this.CHB_EnElecEquipo.UseVisualStyleBackColor = true;
+            this.CHB_EnElecEquipo.CheckedChanged += new System.EventHandler(this.CHB_EnElecEquipo_CheckedChanged);
             // 
-            // checkBox1
+            // CHB_EnFotEquipo
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 28);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 17);
-            this.checkBox1.TabIndex = 43;
-            this.checkBox1.Text = "Fotones";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CHB_EnFotEquipo.AutoSize = true;
+            this.CHB_EnFotEquipo.Location = new System.Drawing.Point(6, 28);
+            this.CHB_EnFotEquipo.Name = "CHB_EnFotEquipo";
+            this.CHB_EnFotEquipo.Size = new System.Drawing.Size(64, 17);
+            this.CHB_EnFotEquipo.TabIndex = 43;
+            this.CHB_EnFotEquipo.Text = "Fotones";
+            this.CHB_EnFotEquipo.UseVisualStyleBackColor = true;
+            this.CHB_EnFotEquipo.CheckedChanged += new System.EventHandler(this.CHB_EnFotEquipo_CheckedChanged);
             // 
             // label5
             // 
@@ -2641,14 +2904,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -2666,14 +2929,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -2689,203 +2952,6 @@
             this.Bt_CalElec.TabIndex = 8;
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
-            // 
-            // Panel_LectVred
-            // 
-            this.Panel_LectVred.Controls.Add(this.textBox25);
-            this.Panel_LectVred.Controls.Add(this.textBox30);
-            this.Panel_LectVred.Controls.Add(this.textBox31);
-            this.Panel_LectVred.Controls.Add(this.textBox32);
-            this.Panel_LectVred.Controls.Add(this.textBox33);
-            this.Panel_LectVred.Location = new System.Drawing.Point(106, 27);
-            this.Panel_LectVred.Name = "Panel_LectVred";
-            this.Panel_LectVred.Size = new System.Drawing.Size(78, 138);
-            this.Panel_LectVred.TabIndex = 63;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(7, 59);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(65, 20);
-            this.textBox25.TabIndex = 39;
-            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox25.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox25.Leave += new System.EventHandler(this.Prom_Vred);
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(7, 111);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(65, 20);
-            this.textBox30.TabIndex = 41;
-            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox30.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox30.Leave += new System.EventHandler(this.Prom_Vred);
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(7, 33);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(65, 20);
-            this.textBox31.TabIndex = 38;
-            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox31.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox31.Leave += new System.EventHandler(this.Prom_Vred);
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(7, 85);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(65, 20);
-            this.textBox32.TabIndex = 40;
-            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox32.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox32.Leave += new System.EventHandler(this.Prom_Vred);
-            // 
-            // textBox33
-            // 
-            this.textBox33.Location = new System.Drawing.Point(7, 7);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(65, 20);
-            this.textBox33.TabIndex = 37;
-            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox33.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox33.Leave += new System.EventHandler(this.Prom_Vred);
-            // 
-            // Panel_lectVtot
-            // 
-            this.Panel_lectVtot.Controls.Add(this.textBox34);
-            this.Panel_lectVtot.Controls.Add(this.textBox35);
-            this.Panel_lectVtot.Controls.Add(this.textBox36);
-            this.Panel_lectVtot.Controls.Add(this.textBox37);
-            this.Panel_lectVtot.Controls.Add(this.textBox38);
-            this.Panel_lectVtot.Location = new System.Drawing.Point(10, 27);
-            this.Panel_lectVtot.Name = "Panel_lectVtot";
-            this.Panel_lectVtot.Size = new System.Drawing.Size(78, 138);
-            this.Panel_lectVtot.TabIndex = 62;
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(7, 59);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(65, 20);
-            this.textBox34.TabIndex = 39;
-            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox34.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox34.Leave += new System.EventHandler(this.Prom_Vtot);
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(7, 111);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(65, 20);
-            this.textBox35.TabIndex = 41;
-            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox35.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox35.Leave += new System.EventHandler(this.Prom_Vtot);
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(7, 33);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(65, 20);
-            this.textBox36.TabIndex = 38;
-            this.textBox36.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox36.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox36.Leave += new System.EventHandler(this.Prom_Vtot);
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(7, 85);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(65, 20);
-            this.textBox37.TabIndex = 40;
-            this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox37.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox37.Leave += new System.EventHandler(this.Prom_Vtot);
-            // 
-            // textBox38
-            // 
-            this.textBox38.Location = new System.Drawing.Point(7, 7);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(65, 20);
-            this.textBox38.TabIndex = 37;
-            this.textBox38.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox38.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox38.Leave += new System.EventHandler(this.Prom_Vtot);
-            // 
-            // LB_LectVredProm
-            // 
-            this.LB_LectVredProm.Location = new System.Drawing.Point(113, 168);
-            this.LB_LectVredProm.Name = "LB_LectVredProm";
-            this.LB_LectVredProm.Size = new System.Drawing.Size(66, 13);
-            this.LB_LectVredProm.TabIndex = 63;
-            this.LB_LectVredProm.Text = "Lect-Vred";
-            this.LB_LectVredProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_LectVredProm.Visible = false;
-            // 
-            // LB_lectVtotProm
-            // 
-            this.LB_lectVtotProm.Location = new System.Drawing.Point(17, 168);
-            this.LB_lectVtotProm.Name = "LB_lectVtotProm";
-            this.LB_lectVtotProm.Size = new System.Drawing.Size(66, 13);
-            this.LB_lectVtotProm.TabIndex = 62;
-            this.LB_lectVtotProm.Text = "Lect+Vtot";
-            this.LB_lectVtotProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_lectVtotProm.Visible = false;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(177, 151);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(107, 17);
-            this.radioButton5.TabIndex = 68;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Acelerador Lineal";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(111, 151);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(53, 17);
-            this.radioButton6.TabIndex = 67;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Co-60";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(177, 178);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(101, 17);
-            this.radioButton7.TabIndex = 71;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Pulsado/Barrido";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(111, 178);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(63, 17);
-            this.radioButton8.TabIndex = 70;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Pulsado";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(17, 180);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(63, 13);
-            this.label22.TabIndex = 69;
-            this.label22.Text = "Tipo de haz";
             // 
             // Form1
             // 
@@ -2913,22 +2979,28 @@
             this.Panel_LecRef.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Panel_Vred.ResumeLayout(false);
+            this.Panel_Vred.PerformLayout();
+            this.Panel_LecKs.ResumeLayout(false);
+            this.Panel_LecKs.PerformLayout();
+            this.Panel_LectVred.ResumeLayout(false);
+            this.Panel_LectVred.PerformLayout();
+            this.Panel_lectVtot.ResumeLayout(false);
+            this.Panel_lectVtot.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.Panel_LecKpol.ResumeLayout(false);
+            this.Panel_LecKpol.PerformLayout();
             this.Panel_LectmenosV.ResumeLayout(false);
             this.Panel_LectmenosV.PerformLayout();
             this.Panel_LectmasV.ResumeLayout(false);
             this.Panel_LectmasV.PerformLayout();
             this.gFactorDeCalidad.ResumeLayout(false);
             this.gFactorDeCalidad.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panelFactor.ResumeLayout(false);
-            this.panelFactor.PerformLayout();
+            this.Panel_TPRoPDD.ResumeLayout(false);
+            this.Panel_TPRoPDD.PerformLayout();
+            this.Panel_LecKqq0.ResumeLayout(false);
+            this.Panel_LecKqq0.PerformLayout();
             this.Panel_Lect10.ResumeLayout(false);
             this.Panel_Lect10.PerformLayout();
             this.Panel_Lect20.ResumeLayout(false);
@@ -2941,8 +3013,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.GB_Equipos.ResumeLayout(false);
             this.GB_Equipos.PerformLayout();
+            this.Panel_TipoHazEquipo.ResumeLayout(false);
+            this.Panel_TipoHazEquipo.PerformLayout();
+            this.Panel_FuenteEquipo.ResumeLayout(false);
+            this.Panel_FuenteEquipo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.Panel_EnElecEquipo.ResumeLayout(false);
+            this.Panel_EnElecEquipo.PerformLayout();
+            this.Panel_EnFotEquipo.ResumeLayout(false);
+            this.Panel_EnFotEquipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.Panel_SistDos.ResumeLayout(false);
             this.GB_SistDos.ResumeLayout(false);
@@ -2968,10 +3048,6 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
-            this.Panel_LectVred.ResumeLayout(false);
-            this.Panel_LectVred.PerformLayout();
-            this.Panel_lectVtot.ResumeLayout(false);
-            this.Panel_lectVtot.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3014,24 +3090,14 @@
         private System.Windows.Forms.Button BT_EditarSistDos;
         private System.Windows.Forms.GroupBox GB_CondRef;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox GB_Equipos;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox CHB_EnElecEquipo;
+        private System.Windows.Forms.CheckBox CHB_EnFotEquipo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -3058,19 +3124,19 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbDosimetro;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.CheckBox CHB_NoUsaKpol;
+        private System.Windows.Forms.CheckBox CHB_UsaKpolLB;
+        private System.Windows.Forms.Panel Panel_LecKpol;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.GroupBox gFactorDeCalidad;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Panel_TPRoPDD;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Panel panelFactor;
+        private System.Windows.Forms.Panel Panel_LecKqq0;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.CheckBox chFactor;
+        private System.Windows.Forms.CheckBox CHB_UsarKqq0LB;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -3085,16 +3151,16 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label LB_KsRes;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox textBox43;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox CHB_NoUsaKs;
+        private System.Windows.Forms.CheckBox CHB_UsaKsLB;
+        private System.Windows.Forms.Panel Panel_LecKs;
         private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label LB_KpolRes;
         private System.Windows.Forms.CheckBox chEditarVKapol;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label10;
@@ -3141,8 +3207,6 @@
         private System.Windows.Forms.Button BT_EqIraCal;
         private System.Windows.Forms.Button BT_RegistroImp;
         private System.Windows.Forms.Button Bt_RegistroVP;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button18;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label25;
@@ -3224,11 +3288,28 @@
         private System.Windows.Forms.TextBox textBox36;
         private System.Windows.Forms.TextBox textBox37;
         private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.Label LB_TipoHaz;
+        private System.Windows.Forms.Panel Panel_TipoHazEquipo;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.Panel Panel_FuenteEquipo;
+        private System.Windows.Forms.RadioButton RB_FuenteALE;
+        private System.Windows.Forms.RadioButton RB_FuenteCo;
+        private System.Windows.Forms.Panel Panel_EnElecEquipo;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Panel Panel_EnFotEquipo;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel Panel_Vred;
     }
 }
 

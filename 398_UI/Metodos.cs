@@ -47,11 +47,24 @@ namespace _398_UI
             return KPOL;
         }
 
-        public static double Ks
+        public static double KsALE (double LVtot, double LVred, double a0, double a1, double a2) 
         {
+            double KS = a0 + a1 * (LVtot / LVred) + a2 * Math.Pow((LVtot / LVred),2);
+            return KS;
+        }
 
+        public static double KsCo (double LVtot, double LVred, double Vtot, double Vred)
+        {
+            double KS = (Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2));
+            return KS;
         }
         
+        public static double PDD20_10aTPR20_10 (double PDD20_10)
+        {
+            double TPR20_10 = 1.2661 * PDD20_10 - 0.0595;
+            return TPR20_10;
+        }
+
         public static double interpolar(double x1, double x2, double y1, double y2, double x)
         {
             double y;
