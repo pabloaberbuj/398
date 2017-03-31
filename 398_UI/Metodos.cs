@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    class Metodos
+    public class Metodos
     {
         public static void promediar(Panel panel, Label texto)
         {
@@ -49,7 +49,7 @@ namespace _398_UI
 
         public static double KsALE (double LVtot, double LVred, double a0, double a1, double a2) 
         {
-            double KS = a0 + a1 * (LVtot / LVred) + a2 * Math.Pow((LVtot / LVred),2);
+            double KS = a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred),2);
             return KS;
         }
 
@@ -59,9 +59,18 @@ namespace _398_UI
             return KS;
         }
         
-        public static double PDD20_10aTPR20_10 (double PDD20_10)
+        public static double TPR2010 (double LV20, double LV10, int PDDoTPR)
         {
-            double TPR20_10 = 1.2661 * PDD20_10 - 0.0595;
+            double TPR20_10 = 0;
+            if (PDDoTPR == 1)//está tildado PDD
+            {
+                double PDD20_10 = Math.Abs(LV20 / LV10);
+                TPR20_10 = 1.2661 * PDD20_10 - 0.0595;
+            }
+            else if (PDDoTPR == 2)//está tildado TPR
+            {
+                TPR20_10 = Math.Abs(LV20 / LV10);
+            }
             return TPR20_10;
         }
 
@@ -83,40 +92,52 @@ namespace _398_UI
 
         public static double interpolatabla(double X, string Y, double[] etiquetasX, string[] etiquetasY, double[,] valores)
         {
-            int iX = Array.IndexOf(etiquetasX, X);
-            int iY = Array.IndexOf(etiquetasY, Y);
-            double XY;
-            double X1 = 0 ; double Y1;
-            double X2 = 0 ; double Y2;
-            if (iX!=-1) //no hace falta interpolar
-            {
-                XY = valores[iY, iX];
-            }
+            double XY=0;
+            if (X > etiquetasX.Max()) { MessageBox.Show("El valor es mayor que todos los tabulados. No se puede interpolar"); return XY; }
+            else if (X < etiquetasX.Min()) { MessageBox.Show("El valor es menor que todos los tabulados. No se puede interpolar"); return XY; }
             else
             {
-                if (Math.Sign(etiquetasX[1] - etiquetasX[0])==1) //creciente
+                int iX = Array.IndexOf(etiquetasX, X);
+                int iY = Array.IndexOf(etiquetasY, Y);
+                
+                double X1 = 0; double Y1;
+                double X2 = 0; double Y2;
+                if (iX != -1) //no hace falta interpolar
                 {
-                    for (int i =0; i<etiquetasX.Count();i++)
-                    {
-                        if (etiquetasX[i] > X) { break; }
-                        X1 = etiquetasX[i - 1];
-                        X2 = etiquetasX[i];
-                    }
+                    XY = valores[iY, iX];
                 }
-                else if(Math.Sign(etiquetasX[1] - etiquetasX[0]) == -1) //creciente
+                else
                 {
-                    for (int i = 0; i < etiquetasX.Count(); i++)
+                    if (Math.Sign(etiquetasX[1] - etiquetasX[0]) == 1) //creciente
                     {
-                        if (etiquetasX[i] < X) { break; }
-                        X1 = etiquetasX[i - 1];
-                        X2 = etiquetasX[i];
+                        for (int i = 0; i < etiquetasX.Count(); i++)
+                        {
+                            if (etiquetasX[i] > X)
+                            {
+                                X1 = etiquetasX[i - 1];
+                                X2 = etiquetasX[i];
+                                break;
+                            }
+                        }
                     }
+                    else if (Math.Sign(etiquetasX[1] - etiquetasX[0]) == -1) //creciente
+                    {
+                        for (int i = 0; i < etiquetasX.Count(); i++)
+                        {
+                            if (etiquetasX[i] < X)
+                            {
+                                X1 = etiquetasX[i - 1];
+                                X2 = etiquetasX[i];
+                                break;
+                            }
+                        }
+                    }
+                    Y1 = buscatabla(X1, Y, etiquetasX, etiquetasY, valores);
+                    Y2 = buscatabla(X2, Y, etiquetasX, etiquetasY, valores);
+                    XY = interpolar(X1, X2, Y1, Y2, X);
                 }
-                Y1 = buscatabla(X, Y, etiquetasX, etiquetasY, valores);
-                Y2 = buscatabla(X, Y, etiquetasX, etiquetasY, valores);
-                XY = interpolar(X1, X2, Y1, Y2, X);
+                return XY;
             }
-            return XY;
         }
     }
 }
