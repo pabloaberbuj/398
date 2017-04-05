@@ -66,7 +66,7 @@ namespace _398_UI
         {
             TraerPanel(3, Panel_Equipos); 
             BT_EqIraCal.Text="Seleccionar y volver a calibración";
-            GB_Equipos.Visible = true; GB_CondRef.Visible = false; Panel_Equipos.Visible = true;
+            Panel_Equipos.Visible = true;
         }
 
         private void btCkick_IraSistDos(object sender, EventArgs e)
@@ -76,25 +76,11 @@ namespace _398_UI
             Panel_SistDos.Visible = true;
         }
 
-        private void btClick_IraCondic(object sender, EventArgs e)
-        {
-            TraerPanel(3, Panel_Equipos);
-            BT_CondIraCal.Text = "Seleccionar y volver a calibración";
-            GB_CondRef.Visible = true; GB_Equipos.Visible = false; Panel_Equipos.Visible = true;
-        }
-
         private void BT_EqIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese equipo en calibración
             TraerPanel(1, Panel_CalFot);
-            BT_EqIraCal.Text = "Seleccionar e ir a calibración"; GB_CondRef.Visible = true;
-        }
-
-        private void BT_CondIraCal_Click(object sender, EventArgs e)
-        {
-            //falta que seleccione esa condicion en calibración
-            TraerPanel(1, Panel_CalFot);
-            BT_CondIraCal.Text = "Seleccionar e ir a calibración"; GB_Equipos.Visible = true;
+            BT_EqIraCal.Text = "Seleccionar e ir a calibración";
         }
 
         private void BT_SistDosIraCal_Click(object sender, EventArgs e)

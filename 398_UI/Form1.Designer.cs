@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -37,10 +37,8 @@
             this.BT_RegistroImp = new System.Windows.Forms.Button();
             this.Bt_RegistroVP = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
             this.Panel_LecRef = new System.Windows.Forms.Panel();
             this.textBox39 = new System.Windows.Forms.TextBox();
@@ -53,7 +51,6 @@
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.Panel_Vred = new System.Windows.Forms.Panel();
             this.textBox43 = new System.Windows.Forms.TextBox();
@@ -144,22 +141,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbDosimetro = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
-            this.GB_CondRef = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.BT_CondIraCal = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
             this.Panel_TipoHazEquipo = new System.Windows.Forms.Panel();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
@@ -173,15 +154,8 @@
             this.textBox44 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -286,6 +260,44 @@
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.GB_CondMed = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox49 = new System.Windows.Forms.TextBox();
+            this.textBox50 = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
@@ -305,13 +317,10 @@
             this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
             this.Panel_Equipos.SuspendLayout();
-            this.GB_CondRef.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.GB_Equipos.SuspendLayout();
             this.Panel_TipoHazEquipo.SuspendLayout();
             this.Panel_FuenteEquipo.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.Panel_EnElecEquipo.SuspendLayout();
             this.Panel_EnFotEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.Panel_SistDos.SuspendLayout();
@@ -331,22 +340,23 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.GB_CondMed.SuspendLayout();
+            this.Panel_EnElecEquipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
             // 
+            this.Panel_CalFot.Controls.Add(this.GB_CondMed);
             this.Panel_CalFot.Controls.Add(this.comboBox4);
             this.Panel_CalFot.Controls.Add(this.comboBox3);
             this.Panel_CalFot.Controls.Add(this.label64);
             this.Panel_CalFot.Controls.Add(this.BT_RegistroImp);
             this.Panel_CalFot.Controls.Add(this.Bt_RegistroVP);
             this.Panel_CalFot.Controls.Add(this.button19);
-            this.Panel_CalFot.Controls.Add(this.button16);
             this.Panel_CalFot.Controls.Add(this.button15);
             this.Panel_CalFot.Controls.Add(this.button14);
-            this.Panel_CalFot.Controls.Add(this.comboBox2);
             this.Panel_CalFot.Controls.Add(this.gLecturaReferencia);
-            this.Panel_CalFot.Controls.Add(this.label17);
             this.Panel_CalFot.Controls.Add(this.groupBox5);
             this.Panel_CalFot.Controls.Add(this.label14);
             this.Panel_CalFot.Controls.Add(this.dateTimePicker1);
@@ -369,7 +379,7 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(102, 283);
+            this.comboBox4.Location = new System.Drawing.Point(105, 448);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(159, 21);
             this.comboBox4.TabIndex = 67;
@@ -418,16 +428,6 @@
             this.button19.Text = "Compartir";
             this.button19.UseVisualStyleBackColor = true;
             // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(188, 163);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(67, 23);
-            this.button16.TabIndex = 60;
-            this.button16.Text = "Nuevo...";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.btClick_IraCondic);
-            // 
             // button15
             // 
             this.button15.Location = new System.Drawing.Point(191, 101);
@@ -447,14 +447,6 @@
             this.button14.Text = "Nuevo...";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.btClick_IraEquipo);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(24, 192);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(231, 21);
-            this.comboBox2.TabIndex = 44;
             // 
             // gLecturaReferencia
             // 
@@ -582,15 +574,6 @@
             this.label44.Size = new System.Drawing.Size(66, 16);
             this.label44.TabIndex = 27;
             this.label44.Text = "Dwzref =";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(28, 169);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(125, 13);
-            this.label17.TabIndex = 43;
-            this.label17.Text = "Condiciones de medición";
             // 
             // groupBox5
             // 
@@ -852,7 +835,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 260);
+            this.label14.Location = new System.Drawing.Point(24, 425);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 13);
             this.label14.TabIndex = 54;
@@ -860,7 +843,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(64, 257);
+            this.dateTimePicker1.Location = new System.Drawing.Point(67, 422);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
             this.dateTimePicker1.TabIndex = 53;
@@ -1350,7 +1333,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(21, 291);
+            this.label23.Location = new System.Drawing.Point(24, 456);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(72, 13);
             this.label23.TabIndex = 52;
@@ -1385,6 +1368,9 @@
             // 
             // gCondiciones
             // 
+            this.gCondiciones.Controls.Add(this.label17);
+            this.gCondiciones.Controls.Add(this.label22);
+            this.gCondiciones.Controls.Add(this.label27);
             this.gCondiciones.Controls.Add(this.label20);
             this.gCondiciones.Controls.Add(this.label10);
             this.gCondiciones.Controls.Add(this.tbTemp);
@@ -1392,7 +1378,7 @@
             this.gCondiciones.Controls.Add(this.tbPresion);
             this.gCondiciones.Controls.Add(this.label12);
             this.gCondiciones.Controls.Add(this.tbHumedad);
-            this.gCondiciones.Location = new System.Drawing.Point(18, 348);
+            this.gCondiciones.Location = new System.Drawing.Point(28, 280);
             this.gCondiciones.Name = "gCondiciones";
             this.gCondiciones.Size = new System.Drawing.Size(241, 123);
             this.gCondiciones.TabIndex = 43;
@@ -1422,7 +1408,7 @@
             // 
             this.tbTemp.Location = new System.Drawing.Point(97, 17);
             this.tbTemp.Name = "tbTemp";
-            this.tbTemp.Size = new System.Drawing.Size(100, 20);
+            this.tbTemp.Size = new System.Drawing.Size(74, 20);
             this.tbTemp.TabIndex = 32;
             // 
             // label11
@@ -1438,7 +1424,7 @@
             // 
             this.tbPresion.Location = new System.Drawing.Point(97, 41);
             this.tbPresion.Name = "tbPresion";
-            this.tbPresion.Size = new System.Drawing.Size(100, 20);
+            this.tbPresion.Size = new System.Drawing.Size(74, 20);
             this.tbPresion.TabIndex = 34;
             // 
             // label12
@@ -1454,7 +1440,7 @@
             // 
             this.tbHumedad.Location = new System.Drawing.Point(96, 67);
             this.tbHumedad.Name = "tbHumedad";
-            this.tbHumedad.Size = new System.Drawing.Size(100, 20);
+            this.tbHumedad.Size = new System.Drawing.Size(74, 20);
             this.tbHumedad.TabIndex = 36;
             // 
             // cbEquipo
@@ -1493,172 +1479,12 @@
             // 
             // Panel_Equipos
             // 
-            this.Panel_Equipos.Controls.Add(this.GB_CondRef);
             this.Panel_Equipos.Controls.Add(this.GB_Equipos);
             this.Panel_Equipos.Location = new System.Drawing.Point(0, 0);
             this.Panel_Equipos.Name = "Panel_Equipos";
             this.Panel_Equipos.Size = new System.Drawing.Size(800, 700);
             this.Panel_Equipos.TabIndex = 1;
             this.Panel_Equipos.Visible = false;
-            // 
-            // GB_CondRef
-            // 
-            this.GB_CondRef.Controls.Add(this.label7);
-            this.GB_CondRef.Controls.Add(this.button22);
-            this.GB_CondRef.Controls.Add(this.button21);
-            this.GB_CondRef.Controls.Add(this.BT_CondIraCal);
-            this.GB_CondRef.Controls.Add(this.dataGridView3);
-            this.GB_CondRef.Controls.Add(this.button12);
-            this.GB_CondRef.Controls.Add(this.button10);
-            this.GB_CondRef.Controls.Add(this.button11);
-            this.GB_CondRef.Controls.Add(this.label8);
-            this.GB_CondRef.Controls.Add(this.textBox6);
-            this.GB_CondRef.Controls.Add(this.textBox8);
-            this.GB_CondRef.Controls.Add(this.label4);
-            this.GB_CondRef.Controls.Add(this.label6);
-            this.GB_CondRef.Controls.Add(this.radioButton2);
-            this.GB_CondRef.Controls.Add(this.radioButton1);
-            this.GB_CondRef.Location = new System.Drawing.Point(497, 7);
-            this.GB_CondRef.Name = "GB_CondRef";
-            this.GB_CondRef.Size = new System.Drawing.Size(291, 359);
-            this.GB_CondRef.TabIndex = 1;
-            this.GB_CondRef.TabStop = false;
-            this.GB_CondRef.Text = "Condiciones de referencia fotones";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(120, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 13);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "cm";
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(170, 277);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(96, 23);
-            this.button22.TabIndex = 69;
-            this.button22.Text = "Editar";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(16, 275);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(116, 23);
-            this.button21.TabIndex = 67;
-            this.button21.Text = "Predeterminado";
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // BT_CondIraCal
-            // 
-            this.BT_CondIraCal.Location = new System.Drawing.Point(16, 310);
-            this.BT_CondIraCal.Name = "BT_CondIraCal";
-            this.BT_CondIraCal.Size = new System.Drawing.Size(116, 39);
-            this.BT_CondIraCal.TabIndex = 68;
-            this.BT_CondIraCal.Text = "Seleccionar e ir a Calibración";
-            this.BT_CondIraCal.UseVisualStyleBackColor = true;
-            this.BT_CondIraCal.Click += new System.EventHandler(this.BT_CondIraCal_Click);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(16, 114);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(266, 150);
-            this.dataGridView3.TabIndex = 63;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(170, 311);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(96, 23);
-            this.button12.TabIndex = 65;
-            this.button12.Text = "Eliminar";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(187, 25);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(95, 23);
-            this.button10.TabIndex = 64;
-            this.button10.Text = "Guardar";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(187, 57);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(95, 23);
-            this.button11.TabIndex = 63;
-            this.button11.Text = "Cancelar";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(117, 84);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "cm";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(84, 81);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(27, 20);
-            this.textBox6.TabIndex = 62;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(84, 52);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(27, 20);
-            this.textBox8.TabIndex = 61;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 85);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 56;
-            this.label4.Text = "Profundidad";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Lado Campo";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(82, 25);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(69, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Isocentro";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(16, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(65, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "DFS Fija";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // GB_Equipos
             // 
@@ -1685,7 +1511,7 @@
             this.GB_Equipos.Controls.Add(this.label3);
             this.GB_Equipos.Location = new System.Drawing.Point(5, 7);
             this.GB_Equipos.Name = "GB_Equipos";
-            this.GB_Equipos.Size = new System.Drawing.Size(486, 666);
+            this.GB_Equipos.Size = new System.Drawing.Size(789, 683);
             this.GB_Equipos.TabIndex = 0;
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
@@ -1767,7 +1593,7 @@
             // 
             // BT_EqIraCal
             // 
-            this.BT_EqIraCal.Location = new System.Drawing.Point(371, 563);
+            this.BT_EqIraCal.Location = new System.Drawing.Point(375, 588);
             this.BT_EqIraCal.Name = "BT_EqIraCal";
             this.BT_EqIraCal.Size = new System.Drawing.Size(108, 39);
             this.BT_EqIraCal.TabIndex = 66;
@@ -1777,7 +1603,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(369, 471);
+            this.button17.Location = new System.Drawing.Point(373, 496);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(110, 23);
             this.button17.TabIndex = 65;
@@ -1808,98 +1634,45 @@
             this.groupBox2.Controls.Add(this.CHB_EnFotEquipo);
             this.groupBox2.Location = new System.Drawing.Point(9, 215);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(437, 241);
+            this.groupBox2.Size = new System.Drawing.Size(762, 271);
             this.groupBox2.TabIndex = 62;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Energías";
             // 
-            // Panel_EnElecEquipo
-            // 
-            this.Panel_EnElecEquipo.Controls.Add(this.button20);
-            this.Panel_EnElecEquipo.Controls.Add(this.button8);
-            this.Panel_EnElecEquipo.Controls.Add(this.button9);
-            this.Panel_EnElecEquipo.Controls.Add(this.listBox2);
-            this.Panel_EnElecEquipo.Controls.Add(this.textBox5);
-            this.Panel_EnElecEquipo.Enabled = false;
-            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(85, 127);
-            this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
-            this.Panel_EnElecEquipo.Size = new System.Drawing.Size(346, 107);
-            this.Panel_EnElecEquipo.TabIndex = 56;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(235, 40);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(97, 23);
-            this.button20.TabIndex = 59;
-            this.button20.Text = "Predeterminado";
-            this.button20.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(235, 5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(97, 23);
-            this.button8.TabIndex = 58;
-            this.button8.Text = "Eliminar";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(15, 40);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(97, 23);
-            this.button9.TabIndex = 57;
-            this.button9.Text = "Agregar";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(137, 4);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(85, 95);
-            this.listBox2.TabIndex = 56;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(16, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(97, 20);
-            this.textBox5.TabIndex = 55;
-            // 
             // Panel_EnFotEquipo
             // 
-            this.Panel_EnFotEquipo.Controls.Add(this.button18);
+            this.Panel_EnFotEquipo.Controls.Add(this.button8);
+            this.Panel_EnFotEquipo.Controls.Add(this.label36);
+            this.Panel_EnFotEquipo.Controls.Add(this.label39);
+            this.Panel_EnFotEquipo.Controls.Add(this.label45);
             this.Panel_EnFotEquipo.Controls.Add(this.textBox4);
+            this.Panel_EnFotEquipo.Controls.Add(this.textBox8);
+            this.Panel_EnFotEquipo.Controls.Add(this.textBox48);
+            this.Panel_EnFotEquipo.Controls.Add(this.label28);
+            this.Panel_EnFotEquipo.Controls.Add(this.label33);
+            this.Panel_EnFotEquipo.Controls.Add(this.label35);
+            this.Panel_EnFotEquipo.Controls.Add(this.button18);
             this.Panel_EnFotEquipo.Controls.Add(this.button7);
             this.Panel_EnFotEquipo.Controls.Add(this.listBox1);
             this.Panel_EnFotEquipo.Controls.Add(this.button6);
             this.Panel_EnFotEquipo.Enabled = false;
-            this.Panel_EnFotEquipo.Location = new System.Drawing.Point(85, 19);
+            this.Panel_EnFotEquipo.Location = new System.Drawing.Point(6, 54);
             this.Panel_EnFotEquipo.Name = "Panel_EnFotEquipo";
-            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(346, 100);
+            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(346, 210);
             this.Panel_EnFotEquipo.TabIndex = 55;
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(233, 41);
+            this.button18.Location = new System.Drawing.Point(235, 166);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(97, 23);
             this.button18.TabIndex = 78;
             this.button18.Text = "Predeterminado";
             this.button18.UseVisualStyleBackColor = true;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(14, 8);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(97, 20);
-            this.textBox4.TabIndex = 74;
-            // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(233, 7);
+            this.button7.Location = new System.Drawing.Point(235, 137);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(97, 23);
             this.button7.TabIndex = 77;
@@ -1909,14 +1682,14 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(135, 8);
+            this.listBox1.Location = new System.Drawing.Point(228, 9);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(85, 82);
+            this.listBox1.Size = new System.Drawing.Size(106, 95);
             this.listBox1.TabIndex = 75;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(13, 34);
+            this.button6.Location = new System.Drawing.Point(95, 108);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(97, 23);
             this.button6.TabIndex = 76;
@@ -1926,7 +1699,7 @@
             // CHB_EnElecEquipo
             // 
             this.CHB_EnElecEquipo.AutoSize = true;
-            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(0, 133);
+            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(386, 28);
             this.CHB_EnElecEquipo.Name = "CHB_EnElecEquipo";
             this.CHB_EnElecEquipo.Size = new System.Drawing.Size(76, 17);
             this.CHB_EnElecEquipo.TabIndex = 44;
@@ -1956,7 +1729,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(371, 622);
+            this.button1.Location = new System.Drawing.Point(375, 647);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 23);
             this.button1.TabIndex = 58;
@@ -1965,7 +1738,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(370, 531);
+            this.button2.Location = new System.Drawing.Point(374, 556);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 23);
             this.button2.TabIndex = 57;
@@ -1974,7 +1747,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(370, 502);
+            this.button3.Location = new System.Drawing.Point(374, 527);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 23);
             this.button3.TabIndex = 56;
@@ -1984,7 +1757,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 471);
+            this.dataGridView2.Location = new System.Drawing.Point(13, 496);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(343, 176);
             this.dataGridView2.TabIndex = 55;
@@ -2684,7 +2457,7 @@
             this.Bt_Equipos.Name = "Bt_Equipos";
             this.Bt_Equipos.Size = new System.Drawing.Size(130, 50);
             this.Bt_Equipos.TabIndex = 5;
-            this.Bt_Equipos.Text = "Equipos y Condiciones";
+            this.Bt_Equipos.Text = "Equipos";
             this.Bt_Equipos.UseVisualStyleBackColor = true;
             this.Bt_Equipos.Click += new System.EventHandler(this.Bt_Equipos_Click);
             // 
@@ -2904,14 +2677,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -2929,14 +2702,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -2952,6 +2725,355 @@
             this.Bt_CalElec.TabIndex = 8;
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Location = new System.Drawing.Point(17, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(207, 27);
+            this.panel1.TabIndex = 68;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(103, 4);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(77, 17);
+            this.radioButton1.TabIndex = 22;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Isocéntrica";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(23, 4);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(62, 17);
+            this.radioButton2.TabIndex = 21;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "DFS fija";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // GB_CondMed
+            // 
+            this.GB_CondMed.Controls.Add(this.label7);
+            this.GB_CondMed.Controls.Add(this.label8);
+            this.GB_CondMed.Controls.Add(this.label4);
+            this.GB_CondMed.Controls.Add(this.textBox6);
+            this.GB_CondMed.Controls.Add(this.label6);
+            this.GB_CondMed.Controls.Add(this.textBox7);
+            this.GB_CondMed.Controls.Add(this.panel1);
+            this.GB_CondMed.Location = new System.Drawing.Point(27, 160);
+            this.GB_CondMed.Name = "GB_CondMed";
+            this.GB_CondMed.Size = new System.Drawing.Size(242, 100);
+            this.GB_CondMed.TabIndex = 70;
+            this.GB_CondMed.TabStop = false;
+            this.GB_CondMed.Text = "Condiciones de medición";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "Lado campo";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(96, 51);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(76, 20);
+            this.textBox6.TabIndex = 70;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 71;
+            this.label6.Text = "Profundidad";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(96, 75);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(76, 20);
+            this.textBox7.TabIndex = 72;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(178, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 73;
+            this.label7.Text = "cm";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 74;
+            this.label8.Text = "cm";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(177, 22);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(18, 13);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "ºC";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(177, 44);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(26, 13);
+            this.label22.TabIndex = 39;
+            this.label22.Text = "hPa";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(177, 67);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(15, 13);
+            this.label27.TabIndex = 40;
+            this.label27.Text = "%";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(95, 37);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(73, 20);
+            this.textBox4.TabIndex = 84;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(95, 6);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(73, 20);
+            this.textBox8.TabIndex = 83;
+            // 
+            // textBox48
+            // 
+            this.textBox48.Location = new System.Drawing.Point(95, 69);
+            this.textBox48.Name = "textBox48";
+            this.textBox48.Size = new System.Drawing.Size(73, 20);
+            this.textBox48.TabIndex = 82;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(11, 71);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(67, 13);
+            this.label28.TabIndex = 81;
+            this.label28.Text = "PDD en Zref";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(11, 42);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(26, 13);
+            this.label33.TabIndex = 80;
+            this.label33.Text = "Zref";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(11, 11);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(58, 13);
+            this.label35.TabIndex = 79;
+            this.label35.Text = "Energía (*)";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(174, 71);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(15, 13);
+            this.label36.TabIndex = 87;
+            this.label36.Text = "%";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(174, 42);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(21, 13);
+            this.label39.TabIndex = 86;
+            this.label39.Text = "cm";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(174, 11);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(23, 13);
+            this.label45.TabIndex = 85;
+            this.label45.Text = "MV";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(235, 108);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(97, 23);
+            this.button8.TabIndex = 88;
+            this.button8.Text = "Editar";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // Panel_EnElecEquipo
+            // 
+            this.Panel_EnElecEquipo.Controls.Add(this.button9);
+            this.Panel_EnElecEquipo.Controls.Add(this.label65);
+            this.Panel_EnElecEquipo.Controls.Add(this.label66);
+            this.Panel_EnElecEquipo.Controls.Add(this.label67);
+            this.Panel_EnElecEquipo.Controls.Add(this.textBox5);
+            this.Panel_EnElecEquipo.Controls.Add(this.textBox49);
+            this.Panel_EnElecEquipo.Controls.Add(this.textBox50);
+            this.Panel_EnElecEquipo.Controls.Add(this.label68);
+            this.Panel_EnElecEquipo.Controls.Add(this.label69);
+            this.Panel_EnElecEquipo.Controls.Add(this.label70);
+            this.Panel_EnElecEquipo.Controls.Add(this.button10);
+            this.Panel_EnElecEquipo.Controls.Add(this.button11);
+            this.Panel_EnElecEquipo.Controls.Add(this.listBox2);
+            this.Panel_EnElecEquipo.Controls.Add(this.button12);
+            this.Panel_EnElecEquipo.Enabled = false;
+            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(391, 54);
+            this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
+            this.Panel_EnElecEquipo.Size = new System.Drawing.Size(346, 210);
+            this.Panel_EnElecEquipo.TabIndex = 89;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(235, 108);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(97, 23);
+            this.button9.TabIndex = 88;
+            this.button9.Text = "Editar";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(174, 71);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(15, 13);
+            this.label65.TabIndex = 87;
+            this.label65.Text = "%";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(174, 42);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(21, 13);
+            this.label66.TabIndex = 86;
+            this.label66.Text = "cm";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(174, 11);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(23, 13);
+            this.label67.TabIndex = 85;
+            this.label67.Text = "MV";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(95, 37);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(73, 20);
+            this.textBox5.TabIndex = 84;
+            // 
+            // textBox49
+            // 
+            this.textBox49.Location = new System.Drawing.Point(95, 6);
+            this.textBox49.Name = "textBox49";
+            this.textBox49.Size = new System.Drawing.Size(73, 20);
+            this.textBox49.TabIndex = 83;
+            // 
+            // textBox50
+            // 
+            this.textBox50.Location = new System.Drawing.Point(95, 69);
+            this.textBox50.Name = "textBox50";
+            this.textBox50.Size = new System.Drawing.Size(73, 20);
+            this.textBox50.TabIndex = 82;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(11, 71);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(67, 13);
+            this.label68.TabIndex = 81;
+            this.label68.Text = "PDD en Zref";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(11, 42);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(26, 13);
+            this.label69.TabIndex = 80;
+            this.label69.Text = "Zref";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(11, 11);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(58, 13);
+            this.label70.TabIndex = 79;
+            this.label70.Text = "Energía (*)";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(235, 166);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(97, 23);
+            this.button10.TabIndex = 78;
+            this.button10.Text = "Predeterminado";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(235, 137);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(97, 23);
+            this.button11.TabIndex = 77;
+            this.button11.Text = "Eliminar";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(228, 9);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(106, 95);
+            this.listBox2.TabIndex = 75;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(95, 108);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(97, 23);
+            this.button12.TabIndex = 76;
+            this.button12.Text = "Agregar";
+            this.button12.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -3008,9 +3130,6 @@
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
             this.Panel_Equipos.ResumeLayout(false);
-            this.GB_CondRef.ResumeLayout(false);
-            this.GB_CondRef.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.GB_Equipos.ResumeLayout(false);
             this.GB_Equipos.PerformLayout();
             this.Panel_TipoHazEquipo.ResumeLayout(false);
@@ -3019,8 +3138,6 @@
             this.Panel_FuenteEquipo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.Panel_EnElecEquipo.ResumeLayout(false);
-            this.Panel_EnElecEquipo.PerformLayout();
             this.Panel_EnFotEquipo.ResumeLayout(false);
             this.Panel_EnFotEquipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -3048,6 +3165,12 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.GB_CondMed.ResumeLayout(false);
+            this.GB_CondMed.PerformLayout();
+            this.Panel_EnElecEquipo.ResumeLayout(false);
+            this.Panel_EnElecEquipo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3088,12 +3211,6 @@
         private System.Windows.Forms.Label LB_MarcaCam;
         private System.Windows.Forms.Button BT_PredSistDos;
         private System.Windows.Forms.Button BT_EditarSistDos;
-        private System.Windows.Forms.GroupBox GB_CondRef;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox GB_Equipos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox CHB_EnElecEquipo;
@@ -3111,12 +3228,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Panel Panel_Inicio;
         private System.Windows.Forms.GroupBox gCondiciones;
         private System.Windows.Forms.ComboBox cbEquipo;
@@ -3169,9 +3280,6 @@
         private System.Windows.Forms.TextBox tbPresion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbHumedad;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox textBox44;
@@ -3201,9 +3309,6 @@
         private System.Windows.Forms.GroupBox GBGrafReg;
         private System.Windows.Forms.DataGridView DGVRegistros;
         private System.Windows.Forms.Button BT_SistDosIraCal;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button BT_CondIraCal;
         private System.Windows.Forms.Button BT_EqIraCal;
         private System.Windows.Forms.Button BT_RegistroImp;
         private System.Windows.Forms.Button Bt_RegistroVP;
@@ -3295,21 +3400,51 @@
         private System.Windows.Forms.Panel Panel_FuenteEquipo;
         private System.Windows.Forms.RadioButton RB_FuenteALE;
         private System.Windows.Forms.RadioButton RB_FuenteCo;
-        private System.Windows.Forms.Panel Panel_EnElecEquipo;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Panel Panel_EnFotEquipo;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel Panel_Vred;
+        private System.Windows.Forms.GroupBox GB_CondMed;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel Panel_EnElecEquipo;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox49;
+        private System.Windows.Forms.TextBox textBox50;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox48;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label35;
     }
 }
 
