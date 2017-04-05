@@ -22,6 +22,7 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
         }
 
+        
 #region Paneles
 
         //Método para traer paneles
@@ -200,8 +201,9 @@ namespace _398_UI
             else { Panel_LecKs.Enabled = true; LB_KsRes.Text = "Kpol = "; Panel_Vred.Enabled = false; }
         }
         #endregion
+        
     }
 
-
+    
 
 }
