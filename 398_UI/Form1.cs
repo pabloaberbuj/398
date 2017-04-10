@@ -96,37 +96,37 @@ namespace _398_UI
 #region Promedios
         private void Prom_Lref(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LecRef, LB_LecRefProm);
+            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
         }
 
         private void Prom_L20(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_Lect20, LB_Lect20prom);
+            MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
         }
 
         private void Prom_L10(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_Lect10, LB_Lect10prom);
+            MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
         }
 
         private void Prom_masV(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LectmasV, LB_LectmasVprom);
+            MetodosCalculos.promediar(Panel_LectmasV, LB_LectmasVprom);
         }
 
         private void Prom_menosV(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
+            MetodosCalculos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
         }
 
         private void Prom_Vtot(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_lectVtot, LB_lectVtotProm);
+            MetodosCalculos.promediar(Panel_lectVtot, LB_lectVtotProm);
         }
 
         private void Prom_Vred(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LectVred, LB_LectVredProm);
+            MetodosCalculos.promediar(Panel_LectVred, LB_LectVredProm);
         }
 
         private void textBox_Enter(object sender, EventArgs e)
@@ -201,7 +201,21 @@ namespace _398_UI
             else { Panel_LecKs.Enabled = true; LB_KsRes.Text = "Kpol = "; Panel_Vred.Enabled = false; }
         }
         #endregion
-        
+
+        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
+        {
+           // if (MetodosCalculos.EsNumero(TB_EnFotEn) == true) //EsNumero debería aparecer en todos los textbox que llene. Quiza ponerlo como acción en Leave
+            //{
+                string aux = TB_EnFotEn.Text + "MV";
+                if (string.IsNullOrEmpty(TB_EnFotZref.Text)) { }
+                else
+                {
+                    aux += "(zref=" + TB_EnFotZref.Text + "cm)";
+                }
+                LB_EnFot.Items.Add(aux);
+                MetodosControles.LimpiarRegistro(Panel_EnFotEquipo);
+        //    }
+        }
     }
 
     

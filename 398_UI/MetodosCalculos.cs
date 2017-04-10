@@ -7,12 +7,24 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class Metodos
+    public class MetodosCalculos
     {
+        public static bool EsNumero(TextBox tb)
+        {
+            double aux=0;
+            bool esnumero=true;
+            if (tb.Text != "")
+            {
+                esnumero = Double.TryParse(tb.Text, out aux);
+                if (esnumero == true) { }
+                else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll();}
+            }
+            return esnumero;
+        }
         public static void promediar(Panel panel, Label texto)
         {
             double suma = 0; double aux; int contador = 0; Nullable<double> promedio = null;
-            foreach (TextBox tb in panel.Controls)
+            foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             {
                 if (tb.Text != "")
                 {

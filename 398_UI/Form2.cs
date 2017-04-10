@@ -32,13 +32,13 @@ namespace _398_UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double aux = Metodos.interpolar(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToDouble(textBox3.Text), Convert.ToDouble(textBox4.Text), Convert.ToDouble(textBox5.Text));
+            double aux = MetodosCalculos.interpolar(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToDouble(textBox3.Text), Convert.ToDouble(textBox4.Text), Convert.ToDouble(textBox5.Text));
             label1.Text = aux.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            double XY = Metodos.interpolatabla(Convert.ToDouble(TB_Xint.Text), CB_Y.Text, etiquetasX, etiquetasY, valores);
+            double XY = MetodosCalculos.interpolatabla(Convert.ToDouble(TB_Xint.Text), CB_Y.Text, etiquetasX, etiquetasY, valores);
             LB_XY.Text = XY.ToString();
 
         }
