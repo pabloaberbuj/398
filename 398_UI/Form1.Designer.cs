@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -168,22 +168,25 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox49 = new System.Windows.Forms.TextBox();
-            this.textBox50 = new System.Windows.Forms.TextBox();
+            this.BT_EnElecEditar = new System.Windows.Forms.Button();
             this.label68 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button12 = new System.Windows.Forms.Button();
+            this.label67 = new System.Windows.Forms.Label();
+            this.TB_EnElecPDD = new System.Windows.Forms.TextBox();
+            this.TB_EnElecZref = new System.Windows.Forms.TextBox();
+            this.BT_EnElecGuardar = new System.Windows.Forms.Button();
+            this.TB_EnElecEn = new System.Windows.Forms.TextBox();
+            this.LB_EnElec = new System.Windows.Forms.ListBox();
+            this.BT_EnElecEliminar = new System.Windows.Forms.Button();
+            this.BT_EnElecPredet = new System.Windows.Forms.Button();
             this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
+            this.TB_EnFotTMR = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.BT_EnFotEditar = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -193,9 +196,8 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.LB_EnFot = new System.Windows.Forms.ListBox();
+            this.BT_EnFotPredet = new System.Windows.Forms.Button();
+            this.BT_EnFotEliminar = new System.Windows.Forms.Button();
             this.BT_EnFotGuardar = new System.Windows.Forms.Button();
             this.CHB_EnElecEquipo = new System.Windows.Forms.CheckBox();
             this.CHB_EnFotEquipo = new System.Windows.Forms.CheckBox();
@@ -298,9 +300,7 @@
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
-            this.label71 = new System.Windows.Forms.Label();
-            this.TB_EnFotTMR = new System.Windows.Forms.TextBox();
-            this.label72 = new System.Windows.Forms.Label();
+            this.DGV_EnFot = new System.Windows.Forms.DataGridView();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -346,6 +346,7 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -1755,6 +1756,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.DGV_EnFot);
             this.groupBox2.Controls.Add(this.Panel_EnElecEquipo);
             this.groupBox2.Controls.Add(this.Panel_EnFotEquipo);
             this.groupBox2.Controls.Add(this.CHB_EnElecEquipo);
@@ -1768,82 +1770,35 @@
             // 
             // Panel_EnElecEquipo
             // 
-            this.Panel_EnElecEquipo.Controls.Add(this.button9);
-            this.Panel_EnElecEquipo.Controls.Add(this.label65);
-            this.Panel_EnElecEquipo.Controls.Add(this.label66);
-            this.Panel_EnElecEquipo.Controls.Add(this.label67);
-            this.Panel_EnElecEquipo.Controls.Add(this.textBox5);
-            this.Panel_EnElecEquipo.Controls.Add(this.textBox49);
-            this.Panel_EnElecEquipo.Controls.Add(this.textBox50);
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecEditar);
             this.Panel_EnElecEquipo.Controls.Add(this.label68);
+            this.Panel_EnElecEquipo.Controls.Add(this.label65);
             this.Panel_EnElecEquipo.Controls.Add(this.label69);
+            this.Panel_EnElecEquipo.Controls.Add(this.label66);
             this.Panel_EnElecEquipo.Controls.Add(this.label70);
-            this.Panel_EnElecEquipo.Controls.Add(this.button10);
-            this.Panel_EnElecEquipo.Controls.Add(this.button11);
-            this.Panel_EnElecEquipo.Controls.Add(this.listBox2);
-            this.Panel_EnElecEquipo.Controls.Add(this.button12);
+            this.Panel_EnElecEquipo.Controls.Add(this.label67);
+            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecPDD);
+            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecZref);
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecGuardar);
+            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecEn);
+            this.Panel_EnElecEquipo.Controls.Add(this.LB_EnElec);
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecEliminar);
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecPredet);
             this.Panel_EnElecEquipo.Enabled = false;
             this.Panel_EnElecEquipo.Location = new System.Drawing.Point(391, 54);
             this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
             this.Panel_EnElecEquipo.Size = new System.Drawing.Size(346, 210);
             this.Panel_EnElecEquipo.TabIndex = 89;
             // 
-            // button9
+            // BT_EnElecEditar
             // 
-            this.button9.Location = new System.Drawing.Point(235, 108);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(97, 23);
-            this.button9.TabIndex = 88;
-            this.button9.Text = "Editar";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(174, 71);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(15, 13);
-            this.label65.TabIndex = 87;
-            this.label65.Text = "%";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(174, 42);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(21, 13);
-            this.label66.TabIndex = 86;
-            this.label66.Text = "cm";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(174, 11);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(23, 13);
-            this.label67.TabIndex = 85;
-            this.label67.Text = "MV";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(95, 37);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(73, 20);
-            this.textBox5.TabIndex = 84;
-            // 
-            // textBox49
-            // 
-            this.textBox49.Location = new System.Drawing.Point(95, 6);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(73, 20);
-            this.textBox49.TabIndex = 83;
-            // 
-            // textBox50
-            // 
-            this.textBox50.Location = new System.Drawing.Point(95, 69);
-            this.textBox50.Name = "textBox50";
-            this.textBox50.Size = new System.Drawing.Size(73, 20);
-            this.textBox50.TabIndex = 82;
+            this.BT_EnElecEditar.Enabled = false;
+            this.BT_EnElecEditar.Location = new System.Drawing.Point(232, 109);
+            this.BT_EnElecEditar.Name = "BT_EnElecEditar";
+            this.BT_EnElecEditar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecEditar.TabIndex = 102;
+            this.BT_EnElecEditar.Text = "Editar";
+            this.BT_EnElecEditar.UseVisualStyleBackColor = true;
             // 
             // label68
             // 
@@ -1854,6 +1809,15 @@
             this.label68.TabIndex = 81;
             this.label68.Text = "PDD en Zref";
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(157, 72);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(15, 13);
+            this.label65.TabIndex = 101;
+            this.label65.Text = "%";
+            // 
             // label69
             // 
             this.label69.AutoSize = true;
@@ -1862,6 +1826,15 @@
             this.label69.Size = new System.Drawing.Size(26, 13);
             this.label69.TabIndex = 80;
             this.label69.Text = "Zref";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(157, 43);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(21, 13);
+            this.label66.TabIndex = 100;
+            this.label66.Text = "cm";
             // 
             // label70
             // 
@@ -1872,47 +1845,86 @@
             this.label70.TabIndex = 79;
             this.label70.Text = "Energía (*)";
             // 
-            // button10
+            // label67
             // 
-            this.button10.Location = new System.Drawing.Point(235, 166);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(97, 23);
-            this.button10.TabIndex = 78;
-            this.button10.Text = "Predeterminado";
-            this.button10.UseVisualStyleBackColor = true;
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(157, 12);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(23, 13);
+            this.label67.TabIndex = 98;
+            this.label67.Text = "MV";
             // 
-            // button11
+            // TB_EnElecPDD
             // 
-            this.button11.Location = new System.Drawing.Point(235, 137);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(97, 23);
-            this.button11.TabIndex = 77;
-            this.button11.Text = "Eliminar";
-            this.button11.UseVisualStyleBackColor = true;
+            this.TB_EnElecPDD.Location = new System.Drawing.Point(92, 70);
+            this.TB_EnElecPDD.Name = "TB_EnElecPDD";
+            this.TB_EnElecPDD.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnElecPDD.TabIndex = 99;
+            this.TB_EnElecPDD.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
-            // listBox2
+            // TB_EnElecZref
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(228, 9);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(106, 95);
-            this.listBox2.TabIndex = 75;
+            this.TB_EnElecZref.Location = new System.Drawing.Point(92, 38);
+            this.TB_EnElecZref.Name = "TB_EnElecZref";
+            this.TB_EnElecZref.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnElecZref.TabIndex = 97;
+            this.TB_EnElecZref.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
-            // button12
+            // BT_EnElecGuardar
             // 
-            this.button12.Location = new System.Drawing.Point(95, 132);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(97, 23);
-            this.button12.TabIndex = 76;
-            this.button12.Text = "Agregar";
-            this.button12.UseVisualStyleBackColor = true;
+            this.BT_EnElecGuardar.Enabled = false;
+            this.BT_EnElecGuardar.Location = new System.Drawing.Point(75, 133);
+            this.BT_EnElecGuardar.Name = "BT_EnElecGuardar";
+            this.BT_EnElecGuardar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecGuardar.TabIndex = 93;
+            this.BT_EnElecGuardar.Text = "Guardar";
+            this.BT_EnElecGuardar.UseVisualStyleBackColor = true;
+            this.BT_EnElecGuardar.Click += new System.EventHandler(this.BT_EnElecGuardar_Click);
+            // 
+            // TB_EnElecEn
+            // 
+            this.TB_EnElecEn.Location = new System.Drawing.Point(92, 7);
+            this.TB_EnElecEn.Name = "TB_EnElecEn";
+            this.TB_EnElecEn.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnElecEn.TabIndex = 96;
+            this.TB_EnElecEn.Leave += new System.EventHandler(this.TB_EnElecEn_Leave);
+            // 
+            // LB_EnElec
+            // 
+            this.LB_EnElec.FormattingEnabled = true;
+            this.LB_EnElec.HorizontalScrollbar = true;
+            this.LB_EnElec.Location = new System.Drawing.Point(203, 10);
+            this.LB_EnElec.Name = "LB_EnElec";
+            this.LB_EnElec.Size = new System.Drawing.Size(128, 95);
+            this.LB_EnElec.TabIndex = 92;
+            this.LB_EnElec.SelectedIndexChanged += new System.EventHandler(this.LB_EnElec_SelectedIndexChanged);
+            // 
+            // BT_EnElecEliminar
+            // 
+            this.BT_EnElecEliminar.Enabled = false;
+            this.BT_EnElecEliminar.Location = new System.Drawing.Point(232, 138);
+            this.BT_EnElecEliminar.Name = "BT_EnElecEliminar";
+            this.BT_EnElecEliminar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecEliminar.TabIndex = 94;
+            this.BT_EnElecEliminar.Text = "Eliminar";
+            this.BT_EnElecEliminar.UseVisualStyleBackColor = true;
+            // 
+            // BT_EnElecPredet
+            // 
+            this.BT_EnElecPredet.Enabled = false;
+            this.BT_EnElecPredet.Location = new System.Drawing.Point(232, 167);
+            this.BT_EnElecPredet.Name = "BT_EnElecPredet";
+            this.BT_EnElecPredet.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecPredet.TabIndex = 95;
+            this.BT_EnElecPredet.Text = "Predeterminado";
+            this.BT_EnElecPredet.UseVisualStyleBackColor = true;
             // 
             // Panel_EnFotEquipo
             // 
             this.Panel_EnFotEquipo.Controls.Add(this.label71);
             this.Panel_EnFotEquipo.Controls.Add(this.TB_EnFotTMR);
             this.Panel_EnFotEquipo.Controls.Add(this.label72);
-            this.Panel_EnFotEquipo.Controls.Add(this.button8);
+            this.Panel_EnFotEquipo.Controls.Add(this.BT_EnFotEditar);
             this.Panel_EnFotEquipo.Controls.Add(this.label36);
             this.Panel_EnFotEquipo.Controls.Add(this.label39);
             this.Panel_EnFotEquipo.Controls.Add(this.label45);
@@ -1922,9 +1934,8 @@
             this.Panel_EnFotEquipo.Controls.Add(this.label28);
             this.Panel_EnFotEquipo.Controls.Add(this.label33);
             this.Panel_EnFotEquipo.Controls.Add(this.label35);
-            this.Panel_EnFotEquipo.Controls.Add(this.button18);
-            this.Panel_EnFotEquipo.Controls.Add(this.button7);
-            this.Panel_EnFotEquipo.Controls.Add(this.LB_EnFot);
+            this.Panel_EnFotEquipo.Controls.Add(this.BT_EnFotPredet);
+            this.Panel_EnFotEquipo.Controls.Add(this.BT_EnFotEliminar);
             this.Panel_EnFotEquipo.Controls.Add(this.BT_EnFotGuardar);
             this.Panel_EnFotEquipo.Enabled = false;
             this.Panel_EnFotEquipo.Location = new System.Drawing.Point(6, 54);
@@ -1932,14 +1943,41 @@
             this.Panel_EnFotEquipo.Size = new System.Drawing.Size(346, 210);
             this.Panel_EnFotEquipo.TabIndex = 55;
             // 
-            // button8
+            // label71
             // 
-            this.button8.Location = new System.Drawing.Point(235, 108);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(97, 23);
-            this.button8.TabIndex = 88;
-            this.button8.Text = "Editar";
-            this.button8.UseVisualStyleBackColor = true;
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(160, 100);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(15, 13);
+            this.label71.TabIndex = 91;
+            this.label71.Text = "%";
+            // 
+            // TB_EnFotTMR
+            // 
+            this.TB_EnFotTMR.Location = new System.Drawing.Point(95, 98);
+            this.TB_EnFotTMR.Name = "TB_EnFotTMR";
+            this.TB_EnFotTMR.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnFotTMR.TabIndex = 86;
+            this.TB_EnFotTMR.Leave += new System.EventHandler(this.TB_EsNumero);
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(11, 100);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(68, 13);
+            this.label72.TabIndex = 89;
+            this.label72.Text = "TMR en Zref";
+            // 
+            // BT_EnFotEditar
+            // 
+            this.BT_EnFotEditar.Enabled = false;
+            this.BT_EnFotEditar.Location = new System.Drawing.Point(235, 124);
+            this.BT_EnFotEditar.Name = "BT_EnFotEditar";
+            this.BT_EnFotEditar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnFotEditar.TabIndex = 88;
+            this.BT_EnFotEditar.Text = "Editar";
+            this.BT_EnFotEditar.UseVisualStyleBackColor = true;
             // 
             // label36
             // 
@@ -1974,6 +2012,7 @@
             this.TB_EnFotZref.Name = "TB_EnFotZref";
             this.TB_EnFotZref.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotZref.TabIndex = 84;
+            this.TB_EnFotZref.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // TB_EnFotEn
             // 
@@ -1981,13 +2020,15 @@
             this.TB_EnFotEn.Name = "TB_EnFotEn";
             this.TB_EnFotEn.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotEn.TabIndex = 83;
+            this.TB_EnFotEn.Leave += new System.EventHandler(this.TB_EnFotEnLeave);
             // 
             // TB_EnFotPDD
             // 
             this.TB_EnFotPDD.Location = new System.Drawing.Point(95, 69);
             this.TB_EnFotPDD.Name = "TB_EnFotPDD";
             this.TB_EnFotPDD.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnFotPDD.TabIndex = 82;
+            this.TB_EnFotPDD.TabIndex = 85;
+            this.TB_EnFotPDD.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // label28
             // 
@@ -2016,34 +2057,29 @@
             this.label35.TabIndex = 79;
             this.label35.Text = "Energía (*)";
             // 
-            // button18
+            // BT_EnFotPredet
             // 
-            this.button18.Location = new System.Drawing.Point(235, 166);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(97, 23);
-            this.button18.TabIndex = 78;
-            this.button18.Text = "Predeterminado";
-            this.button18.UseVisualStyleBackColor = true;
+            this.BT_EnFotPredet.Enabled = false;
+            this.BT_EnFotPredet.Location = new System.Drawing.Point(235, 182);
+            this.BT_EnFotPredet.Name = "BT_EnFotPredet";
+            this.BT_EnFotPredet.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnFotPredet.TabIndex = 78;
+            this.BT_EnFotPredet.Text = "Predeterminado";
+            this.BT_EnFotPredet.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // BT_EnFotEliminar
             // 
-            this.button7.Location = new System.Drawing.Point(235, 137);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(97, 23);
-            this.button7.TabIndex = 77;
-            this.button7.Text = "Eliminar";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // LB_EnFot
-            // 
-            this.LB_EnFot.FormattingEnabled = true;
-            this.LB_EnFot.Location = new System.Drawing.Point(206, 9);
-            this.LB_EnFot.Name = "LB_EnFot";
-            this.LB_EnFot.Size = new System.Drawing.Size(128, 95);
-            this.LB_EnFot.TabIndex = 75;
+            this.BT_EnFotEliminar.Enabled = false;
+            this.BT_EnFotEliminar.Location = new System.Drawing.Point(235, 153);
+            this.BT_EnFotEliminar.Name = "BT_EnFotEliminar";
+            this.BT_EnFotEliminar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnFotEliminar.TabIndex = 77;
+            this.BT_EnFotEliminar.Text = "Eliminar";
+            this.BT_EnFotEliminar.UseVisualStyleBackColor = true;
             // 
             // BT_EnFotGuardar
             // 
+            this.BT_EnFotGuardar.Enabled = false;
             this.BT_EnFotGuardar.Location = new System.Drawing.Point(78, 132);
             this.BT_EnFotGuardar.Name = "BT_EnFotGuardar";
             this.BT_EnFotGuardar.Size = new System.Drawing.Size(97, 23);
@@ -3033,14 +3069,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle7;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3058,14 +3094,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle8;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3082,30 +3118,16 @@
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
             // 
-            // label71
+            // DGV_EnFot
             // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(160, 100);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(15, 13);
-            this.label71.TabIndex = 91;
-            this.label71.Text = "%";
-            // 
-            // TB_EnFotTMR
-            // 
-            this.TB_EnFotTMR.Location = new System.Drawing.Point(95, 98);
-            this.TB_EnFotTMR.Name = "TB_EnFotTMR";
-            this.TB_EnFotTMR.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnFotTMR.TabIndex = 90;
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(11, 100);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(68, 13);
-            this.label72.TabIndex = 89;
-            this.label72.Text = "TMR en Zref";
+            this.DGV_EnFot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_EnFot.Location = new System.Drawing.Point(195, 64);
+            this.DGV_EnFot.Name = "DGV_EnFot";
+            this.DGV_EnFot.RowHeadersVisible = false;
+            this.DGV_EnFot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_EnFot.Size = new System.Drawing.Size(143, 105);
+            this.DGV_EnFot.TabIndex = 92;
+            this.DGV_EnFot.Visible = false;
             // 
             // Form1
             // 
@@ -3203,6 +3225,7 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3433,9 +3456,8 @@
         private System.Windows.Forms.RadioButton RB_FuenteALE;
         private System.Windows.Forms.RadioButton RB_FuenteCo;
         private System.Windows.Forms.Panel Panel_EnFotEquipo;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ListBox LB_EnFot;
+        private System.Windows.Forms.Button BT_EnFotPredet;
+        private System.Windows.Forms.Button BT_EnFotEliminar;
         private System.Windows.Forms.Button BT_EnFotGuardar;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel Panel_Vred;
@@ -3453,21 +3475,10 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel Panel_EnElecEquipo;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox49;
-        private System.Windows.Forms.TextBox textBox50;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button BT_EnFotEditar;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label45;
@@ -3480,6 +3491,18 @@
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TextBox TB_EnFotTMR;
         private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Button BT_EnElecEditar;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox TB_EnElecPDD;
+        private System.Windows.Forms.TextBox TB_EnElecZref;
+        private System.Windows.Forms.Button BT_EnElecGuardar;
+        private System.Windows.Forms.TextBox TB_EnElecEn;
+        private System.Windows.Forms.ListBox LB_EnElec;
+        private System.Windows.Forms.Button BT_EnElecEliminar;
+        private System.Windows.Forms.Button BT_EnElecPredet;
+        private System.Windows.Forms.DataGridView DGV_EnFot;
     }
 }
 
