@@ -64,7 +64,7 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="IO.cs" />
-    <Compile Include="Metodos.cs" />
+    <Compile Include="MetodosCalculos.cs" />
     <Compile Include="NuevoSistDos.cs">
       <SubType>Form</SubType>
     </Compile>
