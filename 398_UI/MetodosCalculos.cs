@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class Metodos
+    public class MetodosCalculos
     {
         public static void promediar(Panel panel, Label texto)
         {
