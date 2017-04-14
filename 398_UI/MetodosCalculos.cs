@@ -9,19 +9,35 @@ namespace _398_UI
 {
     public class MetodosCalculos
     {
+
+        public static bool EsNumero(TextBox tb)
+        {
+            double aux = 0;
+            bool esnumero = true;
+            if (tb.Text != "")
+            {
+                esnumero = Double.TryParse(tb.Text, out aux);
+                if (esnumero == true) { }
+                else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll(); }
+            }
+            return esnumero;
+        }
         public static void promediar(Panel panel, Label texto)
         {
             double suma = 0; double aux; int contador = 0; Nullable<double> promedio = null;
-            foreach (TextBox tb in panel.Controls)
+            foreach (TextBox tb in panel.Controls.OfType<TextBox>())
+
             {
                 if (tb.Text != "")
                 {
                     bool esnumero = Double.TryParse(tb.Text, out aux);
                     if (esnumero == true)
-                    { suma += aux; contador++;}
+
+                    { suma += aux; contador++; }
                     else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll(); break; }
                 }
-                if (contador != 0) { promedio = Math.Round(suma / contador,3); }
+                if (contador != 0) { promedio = Math.Round(suma / contador, 3); }
+
             }
             texto.Visible = true;
             texto.Text = Convert.ToString(promedio);
@@ -47,19 +63,21 @@ namespace _398_UI
             return KPOL;
         }
 
-        public static double KsALE (double LVtot, double LVred, double a0, double a1, double a2) 
+        public static double KsALE(double LVtot, double LVred, double a0, double a1, double a2)
         {
-            double KS = a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred),2);
+            double KS = a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2);
             return KS;
         }
 
-        public static double KsCo (double LVtot, double LVred, double Vtot, double Vred)
+        public static double KsCo(double LVtot, double LVred, double Vtot, double Vred)
+
         {
             double KS = (Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2));
             return KS;
         }
-        
-        public static double TPR2010 (double LV20, double LV10, int PDDoTPR)
+
+        public static double TPR2010(double LV20, double LV10, int PDDoTPR)
+
         {
             double TPR20_10 = 0;
             if (PDDoTPR == 1)//está tildado PDD
@@ -78,7 +96,8 @@ namespace _398_UI
         {
             double y;
             if (x == x1) { y = y1; }
-            else if (x==x2) { y = y2; }
+            else if (x == x2) { y = y2; }
+
             else { y = y1 + (y2 - y1) / (x2 - x1) * (x - x1); }
             return y;
         }
@@ -92,14 +111,15 @@ namespace _398_UI
 
         public static double interpolatabla(double X, string Y, double[] etiquetasX, string[] etiquetasY, double[,] valores)
         {
-            double XY=0;
+            double XY = 0;
+
             if (X > etiquetasX.Max()) { MessageBox.Show("El valor es mayor que todos los tabulados. No se puede interpolar"); return XY; }
             else if (X < etiquetasX.Min()) { MessageBox.Show("El valor es menor que todos los tabulados. No se puede interpolar"); return XY; }
             else
             {
                 int iX = Array.IndexOf(etiquetasX, X);
                 int iY = Array.IndexOf(etiquetasY, Y);
-                
+
                 double X1 = 0; double Y1;
                 double X2 = 0; double Y2;
                 if (iX != -1) //no hace falta interpolar

@@ -19,10 +19,16 @@ namespace _398_UI
             InitializeComponent();
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
+            DGV_EnFot.ColumnCount = 4;
+            DGV_EnFot.Columns[0].Name = "Energia";
+            DGV_EnFot.Columns[1].Name = "Zref";
+            DGV_EnFot.Columns[2].Name = "PDD";
+            DGV_EnFot.Columns[3].Name = "TPR";
+            DGV_EnFot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
         }
 
-        
-#region Paneles
+
+        #region Paneles
 
         //Método para traer paneles
         private void TraerPanel(int nropanel, Panel nombrepanel)
@@ -59,13 +65,13 @@ namespace _398_UI
         {
             nsd.Show();
         }
-#endregion
+        #endregion
 
-#region Ir y volver de calibración
+        #region Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            TraerPanel(3, Panel_Equipos); 
-            BT_EqIraCal.Text="Seleccionar y volver a calibración";
+            TraerPanel(3, Panel_Equipos);
+            BT_EqIraCal.Text = "Seleccionar y volver a calibración";
             Panel_Equipos.Visible = true;
         }
 
@@ -92,40 +98,40 @@ namespace _398_UI
 
         #endregion
 
-#region Promedios
+        #region Promedios
         private void Prom_Lref(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LecRef, LB_LecRefProm);
+            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
         }
 
         private void Prom_L20(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_Lect20, LB_Lect20prom);
+            MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
         }
 
         private void Prom_L10(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_Lect10, LB_Lect10prom);
+            MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
         }
 
         private void Prom_masV(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LectmasV, LB_LectmasVprom);
+            MetodosCalculos.promediar(Panel_LectmasV, LB_LectmasVprom);
         }
 
         private void Prom_menosV(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
+            MetodosCalculos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
         }
 
         private void Prom_Vtot(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_lectVtot, LB_lectVtotProm);
+            MetodosCalculos.promediar(Panel_lectVtot, LB_lectVtotProm);
         }
 
         private void Prom_Vred(object sender, EventArgs e)
         {
-            Metodos.promediar(Panel_LectVred, LB_LectVredProm);
+            MetodosCalculos.promediar(Panel_LectVred, LB_LectVredProm);
         }
 
         private void textBox_Enter(object sender, EventArgs e)
@@ -145,7 +151,7 @@ namespace _398_UI
 
         private void CHB_EnElecEquipo_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_EnElecEquipo.Checked==true)
+            if (CHB_EnElecEquipo.Checked == true)
             { Panel_EnElecEquipo.Enabled = true; }
             else { Panel_EnElecEquipo.Enabled = false; }
         }
@@ -162,12 +168,99 @@ namespace _398_UI
             { Panel_TipoHazEquipo.Enabled = true; LB_TipoHaz.Enabled = true; }
 
         }
+
+        #region Energia
+
+        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
+        {
+            string[] aux = { TB_EnFotEn.Text+"MV", TB_EnFotZref.Text+"cm", TB_EnFotPDD.Text+"%", TB_EnFotTMR.Text+ "%" };
+            DGV_EnFot.Rows.Add(aux);
+            DGV_EnFot.Visible = true;
+            /*      string aux = TB_EnFotEn.Text + "MV";
+                  string aux2 = " (";
+                  if (string.IsNullOrEmpty(TB_EnFotZref.Text)) { }
+                  else
+                  {
+                      aux2 += "Zref=" + TB_EnFotZref.Text + "cm ";
+                  }
+                  if (string.IsNullOrEmpty(TB_EnFotPDD.Text)) { }
+                  else
+                  {
+                      aux2 += "PDD" + TB_EnFotPDD.Text + "% ";
+                  }
+                  if (string.IsNullOrEmpty(TB_EnFotTMR.Text)) { }
+                  else
+                  {
+                      aux2 += "TMR" + TB_EnFotTMR.Text + "%";
+                  }
+                  aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
+                  LB_EnFot.Items.Add(aux);*/
+
+            MetodosControles.LimpiarRegistro(Panel_EnFotEquipo);
+            TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
+            BT_EnFotGuardar.Enabled = false;
+        }
+
+        private void TB_EnFotEnLeave(object sender, EventArgs e)
+        {
+            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
+            { BT_EnFotGuardar.Enabled = true; }
+        }
+
+        /*  private void LB_EnFot_SelectedIndexChanged(object sender, EventArgs e)
+          {
+              if (LB_EnFot.SelectedIndex != -1)
+              { BT_EnFotEditar.Enabled = true; BT_EnFotEliminar.Enabled = true; BT_EnFotPredet.Enabled = true; }
+          }*/
+
+        private void TB_EsNumero(object sender, EventArgs e)
+        {
+            MetodosCalculos.EsNumero((TextBox)sender);
+        }
+
+        private void TB_EnElecEn_Leave(object sender, EventArgs e)
+        {
+            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
+            { BT_EnElecGuardar.Enabled = true; }
+        }
+
+        private void BT_EnElecGuardar_Click(object sender, EventArgs e)
+        {
+            {
+                string aux = TB_EnElecEn.Text + "MeV";
+                string aux2 = " (";
+                if (string.IsNullOrEmpty(TB_EnElecZref.Text)) { }
+                else
+                {
+                    aux2 += "Zref=" + TB_EnElecZref.Text + "cm ";
+                }
+                if (string.IsNullOrEmpty(TB_EnElecPDD.Text)) { }
+                else
+                {
+                    aux2 += "PDD" + TB_EnElecPDD.Text + "%";
+                }
+                aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
+                LB_EnElec.Items.Add(aux);
+                MetodosControles.LimpiarRegistro(Panel_EnElecEquipo);
+                TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
+                BT_EnElecGuardar.Enabled = false;
+            }
+        }
+
+        private void LB_EnElec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LB_EnElec.SelectedIndex != -1)
+            { BT_EnElecEditar.Enabled = true; BT_EnElecEliminar.Enabled = true; BT_EnElecPredet.Enabled = true; }
+        }
+
+        #endregion
+
         #endregion
 
         #region UI Calibración Fotones
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_UsarKqq0LB.Checked==true)
+            if (CHB_UsarKqq0LB.Checked == true)
             { Panel_TPRoPDD.Enabled = false; Panel_LecKqq0.Enabled = false; }
             else { Panel_TPRoPDD.Enabled = true; Panel_LecKqq0.Enabled = true; }
         }
@@ -181,7 +274,7 @@ namespace _398_UI
 
         private void CHB_NoUsaKpol_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_NoUsaKpol.Checked==true)
+            if (CHB_NoUsaKpol.Checked == true)
             { CHB_UsaKpolLB.Checked = false; Panel_LecKpol.Enabled = false; LB_KpolRes.Text = "Kpol = 1"; }
             else { Panel_LecKpol.Enabled = true; LB_KpolRes.Text = "Kpol = "; }
         }
@@ -200,9 +293,10 @@ namespace _398_UI
             else { Panel_LecKs.Enabled = true; LB_KsRes.Text = "Kpol = "; Panel_Vred.Enabled = false; }
         }
         #endregion
-        
+
     }
-
-    
-
 }
+
+
+
+

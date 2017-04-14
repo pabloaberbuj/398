@@ -1,0 +1,45 @@
+Equipo:
+- String Marca 
+- String Modelo
+- String NºSerie
+- String Alias
+- int Fuente (1,2)
+- int (0,1,2) (inicializa como 0)
+- lista<double> Energía Fotones
+- double Energía Fotones predeterminado
+- lista<double> Energía Electrones
+- double Energía Electrones predeterminado
+- bool es predeterminado
+
+Condiciones:
+- Int DFSfija o Iso (1,2)
+- Double Lado campo
+- Double Profundidad
+
+Cámaras:
+- String Marca
+- String Modelo
+- String NºSerie
+
+Electrómetro
+- String Marca
+- String Modelo
+- String NºSerie
+
+Sistema Dosimétrico
+- String MarcaCamara
+- String ModeloCamara
+- String NºSerieCamara
+- String MarcaElectrometro
+- String ModeloElectrometro
+- String NºSerieElectrometro
+- Double Factor de calibración
+- int signo tensión (1,-1) ¿o bool?
+- double Tensión
+- string Haz de referencia
+- double Temperatura
+- double Presión
+- double Humedad
+- DateTime Fecha de calibración
+- String Laboratorio de calibración
+- bool es predeterminado
