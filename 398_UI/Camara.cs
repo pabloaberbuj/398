@@ -8,9 +8,9 @@ namespace _398_UI
 {
     public class Camara
     {
-        string Marca { get; set; }
-        string Modelo { get; set; }
-        string NumSerie { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string NumSerie { get; set; }
     }
 }
 

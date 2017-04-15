@@ -183,6 +183,7 @@
             this.BT_EnElecEliminar = new System.Windows.Forms.Button();
             this.BT_EnElecPredet = new System.Windows.Forms.Button();
             this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
+            this.DGV_EnFot = new System.Windows.Forms.DataGridView();
             this.label71 = new System.Windows.Forms.Label();
             this.TB_EnFotTMR = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
@@ -222,7 +223,7 @@
             this.BT_CompartirSistDos = new System.Windows.Forms.Button();
             this.BT_EliminarSistDos = new System.Windows.Forms.Button();
             this.BT_NuevSistDos = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_SistDos = new System.Windows.Forms.DataGridView();
             this.GB_Electrómetros = new System.Windows.Forms.GroupBox();
             this.TB_ModeloElec = new System.Windows.Forms.TextBox();
             this.TB_MarcaElec = new System.Windows.Forms.TextBox();
@@ -300,7 +301,6 @@
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
-            this.DGV_EnFot = new System.Windows.Forms.DataGridView();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -328,10 +328,11 @@
             this.groupBox2.SuspendLayout();
             this.Panel_EnElecEquipo.SuspendLayout();
             this.Panel_EnFotEquipo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.Panel_SistDos.SuspendLayout();
             this.GB_SistDos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_SistDos)).BeginInit();
             this.GB_Electrómetros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Elec)).BeginInit();
             this.GB_Camaras.SuspendLayout();
@@ -346,7 +347,6 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -1756,14 +1756,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.DGV_EnFot);
             this.groupBox2.Controls.Add(this.Panel_EnElecEquipo);
             this.groupBox2.Controls.Add(this.Panel_EnFotEquipo);
             this.groupBox2.Controls.Add(this.CHB_EnElecEquipo);
             this.groupBox2.Controls.Add(this.CHB_EnFotEquipo);
             this.groupBox2.Location = new System.Drawing.Point(9, 215);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(762, 271);
+            this.groupBox2.Size = new System.Drawing.Size(775, 271);
             this.groupBox2.TabIndex = 62;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Energías";
@@ -1785,7 +1784,7 @@
             this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecEliminar);
             this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecPredet);
             this.Panel_EnElecEquipo.Enabled = false;
-            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(391, 54);
+            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(424, 53);
             this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
             this.Panel_EnElecEquipo.Size = new System.Drawing.Size(346, 210);
             this.Panel_EnElecEquipo.TabIndex = 89;
@@ -1921,6 +1920,7 @@
             // 
             // Panel_EnFotEquipo
             // 
+            this.Panel_EnFotEquipo.Controls.Add(this.DGV_EnFot);
             this.Panel_EnFotEquipo.Controls.Add(this.label71);
             this.Panel_EnFotEquipo.Controls.Add(this.TB_EnFotTMR);
             this.Panel_EnFotEquipo.Controls.Add(this.label72);
@@ -1938,10 +1938,23 @@
             this.Panel_EnFotEquipo.Controls.Add(this.BT_EnFotEliminar);
             this.Panel_EnFotEquipo.Controls.Add(this.BT_EnFotGuardar);
             this.Panel_EnFotEquipo.Enabled = false;
-            this.Panel_EnFotEquipo.Location = new System.Drawing.Point(6, 54);
+            this.Panel_EnFotEquipo.Location = new System.Drawing.Point(6, 33);
             this.Panel_EnFotEquipo.Name = "Panel_EnFotEquipo";
-            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(346, 210);
+            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(389, 231);
             this.Panel_EnFotEquipo.TabIndex = 55;
+            // 
+            // DGV_EnFot
+            // 
+            this.DGV_EnFot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_EnFot.Location = new System.Drawing.Point(191, 6);
+            this.DGV_EnFot.Margin = new System.Windows.Forms.Padding(1);
+            this.DGV_EnFot.Name = "DGV_EnFot";
+            this.DGV_EnFot.ReadOnly = true;
+            this.DGV_EnFot.RowHeadersVisible = false;
+            this.DGV_EnFot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_EnFot.Size = new System.Drawing.Size(183, 134);
+            this.DGV_EnFot.TabIndex = 92;
+            this.DGV_EnFot.Visible = false;
             // 
             // label71
             // 
@@ -1972,7 +1985,7 @@
             // BT_EnFotEditar
             // 
             this.BT_EnFotEditar.Enabled = false;
-            this.BT_EnFotEditar.Location = new System.Drawing.Point(235, 124);
+            this.BT_EnFotEditar.Location = new System.Drawing.Point(258, 146);
             this.BT_EnFotEditar.Name = "BT_EnFotEditar";
             this.BT_EnFotEditar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotEditar.TabIndex = 88;
@@ -2060,7 +2073,7 @@
             // BT_EnFotPredet
             // 
             this.BT_EnFotPredet.Enabled = false;
-            this.BT_EnFotPredet.Location = new System.Drawing.Point(235, 182);
+            this.BT_EnFotPredet.Location = new System.Drawing.Point(257, 203);
             this.BT_EnFotPredet.Name = "BT_EnFotPredet";
             this.BT_EnFotPredet.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotPredet.TabIndex = 78;
@@ -2070,7 +2083,7 @@
             // BT_EnFotEliminar
             // 
             this.BT_EnFotEliminar.Enabled = false;
-            this.BT_EnFotEliminar.Location = new System.Drawing.Point(235, 153);
+            this.BT_EnFotEliminar.Location = new System.Drawing.Point(258, 174);
             this.BT_EnFotEliminar.Name = "BT_EnFotEliminar";
             this.BT_EnFotEliminar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotEliminar.TabIndex = 77;
@@ -2080,7 +2093,7 @@
             // BT_EnFotGuardar
             // 
             this.BT_EnFotGuardar.Enabled = false;
-            this.BT_EnFotGuardar.Location = new System.Drawing.Point(78, 132);
+            this.BT_EnFotGuardar.Location = new System.Drawing.Point(51, 146);
             this.BT_EnFotGuardar.Name = "BT_EnFotGuardar";
             this.BT_EnFotGuardar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotGuardar.TabIndex = 76;
@@ -2091,7 +2104,7 @@
             // CHB_EnElecEquipo
             // 
             this.CHB_EnElecEquipo.AutoSize = true;
-            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(386, 28);
+            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(419, 27);
             this.CHB_EnElecEquipo.Name = "CHB_EnElecEquipo";
             this.CHB_EnElecEquipo.Size = new System.Drawing.Size(76, 17);
             this.CHB_EnElecEquipo.TabIndex = 44;
@@ -2102,7 +2115,7 @@
             // CHB_EnFotEquipo
             // 
             this.CHB_EnFotEquipo.AutoSize = true;
-            this.CHB_EnFotEquipo.Location = new System.Drawing.Point(6, 28);
+            this.CHB_EnFotEquipo.Location = new System.Drawing.Point(6, 17);
             this.CHB_EnFotEquipo.Name = "CHB_EnFotEquipo";
             this.CHB_EnFotEquipo.Size = new System.Drawing.Size(64, 17);
             this.CHB_EnFotEquipo.TabIndex = 43;
@@ -2238,7 +2251,7 @@
             this.GB_SistDos.Controls.Add(this.BT_CompartirSistDos);
             this.GB_SistDos.Controls.Add(this.BT_EliminarSistDos);
             this.GB_SistDos.Controls.Add(this.BT_NuevSistDos);
-            this.GB_SistDos.Controls.Add(this.dataGridView1);
+            this.GB_SistDos.Controls.Add(this.DGV_SistDos);
             this.GB_SistDos.Location = new System.Drawing.Point(12, 409);
             this.GB_SistDos.Name = "GB_SistDos";
             this.GB_SistDos.Size = new System.Drawing.Size(782, 270);
@@ -2302,13 +2315,13 @@
             this.BT_NuevSistDos.UseVisualStyleBackColor = true;
             this.BT_NuevSistDos.Click += new System.EventHandler(this.BT_NuevSistDos_Click);
             // 
-            // dataGridView1
+            // DGV_SistDos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 33);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(594, 220);
-            this.dataGridView1.TabIndex = 13;
+            this.DGV_SistDos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_SistDos.Location = new System.Drawing.Point(19, 33);
+            this.DGV_SistDos.Name = "DGV_SistDos";
+            this.DGV_SistDos.Size = new System.Drawing.Size(594, 220);
+            this.DGV_SistDos.TabIndex = 13;
             // 
             // GB_Electrómetros
             // 
@@ -2370,6 +2383,7 @@
             this.BT_GuardarElec.TabIndex = 21;
             this.BT_GuardarElec.Text = "Guardar";
             this.BT_GuardarElec.UseVisualStyleBackColor = true;
+            this.BT_GuardarElec.Click += new System.EventHandler(this.BT_GuardarElec_Click);
             // 
             // BT_CancelarElec
             // 
@@ -2468,6 +2482,7 @@
             this.BT_GuardarCam.TabIndex = 9;
             this.BT_GuardarCam.Text = "Guardar";
             this.BT_GuardarCam.UseVisualStyleBackColor = true;
+            this.BT_GuardarCam.Click += new System.EventHandler(this.BT_GuardarCam_Click);
             // 
             // BT_CancelarCam
             // 
@@ -3118,17 +3133,6 @@
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
             // 
-            // DGV_EnFot
-            // 
-            this.DGV_EnFot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_EnFot.Location = new System.Drawing.Point(195, 64);
-            this.DGV_EnFot.Name = "DGV_EnFot";
-            this.DGV_EnFot.RowHeadersVisible = false;
-            this.DGV_EnFot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_EnFot.Size = new System.Drawing.Size(143, 105);
-            this.DGV_EnFot.TabIndex = 92;
-            this.DGV_EnFot.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3140,10 +3144,10 @@
             this.Controls.Add(this.Bt_Equipos);
             this.Controls.Add(this.Bt_SistDos);
             this.Controls.Add(this.Bt_CalFot);
-            this.Controls.Add(this.Panel_Equipos);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_Inicio);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_AnalizarReg);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -3200,10 +3204,11 @@
             this.Panel_EnElecEquipo.PerformLayout();
             this.Panel_EnFotEquipo.ResumeLayout(false);
             this.Panel_EnFotEquipo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.Panel_SistDos.ResumeLayout(false);
             this.GB_SistDos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_SistDos)).EndInit();
             this.GB_Electrómetros.ResumeLayout(false);
             this.GB_Electrómetros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Elec)).EndInit();
@@ -3225,7 +3230,6 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3239,7 +3243,7 @@
         private System.Windows.Forms.Button BT_CompartirSistDos;
         private System.Windows.Forms.Button BT_EliminarSistDos;
         private System.Windows.Forms.Button BT_NuevSistDos;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_SistDos;
         private System.Windows.Forms.GroupBox GB_Electrómetros;
         private System.Windows.Forms.TextBox TB_ModeloElec;
         private System.Windows.Forms.TextBox TB_MarcaElec;

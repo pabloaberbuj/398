@@ -22,6 +22,8 @@ namespace _398_UI
             }
             return esnumero;
         }
+
+        
         public static void promediar(Panel panel, Label texto)
         {
             double suma = 0; double aux; int contador = 0; Nullable<double> promedio = null;

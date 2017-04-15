@@ -12,7 +12,16 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
-        NuevoSistDos nsd = new NuevoSistDos();
+        
+        List<Camara> Camaras = new List<Camara>();
+        List<Electrometro> Electrometros = new List<Electrometro>();
+        static List<SistemaDosimetrico> SistemasDosimetricos = new List<SistemaDosimetrico>();
+        List<Equipo> Equipos = new List<Equipo>();
+        List<CalibracionFot> CalibracionesFot = new List<CalibracionFot>();
+        
+        
+
+
         public Form1()
         {
 
@@ -20,11 +29,14 @@ namespace _398_UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             DGV_EnFot.ColumnCount = 4;
-            DGV_EnFot.Columns[0].Name = "Energia";
-            DGV_EnFot.Columns[1].Name = "Zref";
-            DGV_EnFot.Columns[2].Name = "PDD";
-            DGV_EnFot.Columns[3].Name = "TPR";
-            DGV_EnFot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            DGV_EnFot.Columns[0].Name = "E [MV]"; DGV_EnFot.Columns[0].Width = 65;
+            DGV_EnFot.Columns[1].Name = "Zref"; DGV_EnFot.Columns[1].Width = 38;
+            DGV_EnFot.Columns[2].Name = "PDD"; DGV_EnFot.Columns[2].Width = 38;
+            DGV_EnFot.Columns[3].Name = "TPR"; DGV_EnFot.Columns[3].Width = 38;
+            DGV_Cam.DataSource = Camaras;
+            DGV_Elec.DataSource = Electrometros;
+            DGV_SistDos.DataSource = SistemasDosimetricos;
+
         }
 
 
@@ -63,7 +75,10 @@ namespace _398_UI
 
         private void BT_NuevSistDos_Click(object sender, EventArgs e)
         {
-            nsd.Show();
+            NuevoSistDos nsd = new NuevoSistDos();
+            nsd.ShowDialog();
+            DGV_SistDos.DataSource = null;
+            DGV_SistDos.DataSource = SistemasDosimetricos;
         }
         #endregion
 
@@ -173,7 +188,7 @@ namespace _398_UI
 
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
-            string[] aux = { TB_EnFotEn.Text+"MV", TB_EnFotZref.Text+"cm", TB_EnFotPDD.Text+"%", TB_EnFotTMR.Text+ "%" };
+            string[] aux = { TB_EnFotEn.Text, TB_EnFotZref.Text, TB_EnFotPDD.Text, TB_EnFotTMR.Text};
             DGV_EnFot.Rows.Add(aux);
             DGV_EnFot.Visible = true;
             /*      string aux = TB_EnFotEn.Text + "MV";
@@ -196,7 +211,7 @@ namespace _398_UI
                   aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
                   LB_EnFot.Items.Add(aux);*/
 
-            MetodosControles.LimpiarRegistro(Panel_EnFotEquipo);
+            MetodosControles.LimpiarRegistroPanel(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
         }
@@ -241,7 +256,7 @@ namespace _398_UI
                 }
                 aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
                 LB_EnElec.Items.Add(aux);
-                MetodosControles.LimpiarRegistro(Panel_EnElecEquipo);
+                MetodosControles.LimpiarRegistroPanel(Panel_EnElecEquipo);
                 TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
                 BT_EnElecGuardar.Enabled = false;
             }
@@ -289,10 +304,33 @@ namespace _398_UI
         private void CHB_NoUsaKs_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_NoUsaKs.Checked == true)
-            { CHB_UsaKsLB.Checked = false; Panel_LecKs.Enabled = false; LB_KsRes.Text = "Kpol = 1"; Panel_Vred.Enabled = false; }
-            else { Panel_LecKs.Enabled = true; LB_KsRes.Text = "Kpol = "; Panel_Vred.Enabled = false; }
+            { CHB_UsaKsLB.Checked = false; Panel_LecKs.Enabled = false; LB_KsRes.Text = "Ks = 1"; Panel_Vred.Enabled = false; }
+            else { Panel_LecKs.Enabled = true; LB_KsRes.Text = "Ks = "; Panel_Vred.Enabled = false; }
         }
         #endregion
+
+        private void BT_GuardarCam_Click(object sender, EventArgs e)
+        {
+            Camara camara = CrearInstancia.CrearCamara(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text);
+            Camaras.Add(camara);
+            MetodosControles.LimpiarRegistroGroupBox(GB_Camaras);
+            DGV_Cam.DataSource = null;
+            DGV_Cam.DataSource = Camaras;
+        }
+
+        private void BT_GuardarElec_Click(object sender, EventArgs e)
+        {
+            Electrometro electrometro = CrearInstancia.CrearElectrometro(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text);
+            Electrometros.Add(electrometro);
+            MetodosControles.LimpiarRegistroGroupBox(GB_Electrómetros);
+            DGV_Elec.DataSource = null;
+            DGV_Elec.DataSource = Electrometros;
+        }
+
+        public static void AddSistDos(SistemaDosimetrico SistDos) //
+        {
+            SistemasDosimetricos.Add(SistDos);
+        }
 
     }
 }

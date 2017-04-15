@@ -8,22 +8,22 @@ namespace _398_UI
 {
     class CalibracionFot
     {
-        List<string> Equipo { get; set; }
-        double Energia { get; set; }
-        List<string> SistemaDosim { get; set; }
-        double DFSoISO { get; set; } //1 DFSfija 2 ISO
-        double LadoCampo { get; set; }
-        double Profundidad { get; set; }
-        double Ktp { get; set; }
-        DateTime Fecha { get; set; }
-        string RealizadoPor { get; set; }
-        double TPR2010 { get; set; }
-        double Kqq0 { get; set; }
-        double kpol { get; set; }
-        double Vred { get; set; }
-        double ks { get; set; }
-        double Mref { get; set; }
-        double Dwzref { get; set; }
-        double Dwzmax { get; set; }
+        public List<string> Equipo { get; set; }
+        public double Energia { get; set; }
+        public List<string> SistemaDosim { get; set; }
+        public double DFSoISO { get; set; } //1 DFSfija 2 ISO
+        public double LadoCampo { get; set; }
+        public double Profundidad { get; set; }
+        public double Ktp { get; set; }
+        public DateTime Fecha { get; set; }
+        public string RealizadoPor { get; set; }
+        public double TPR2010 { get; set; }
+        public double Kqq0 { get; set; }
+        public double kpol { get; set; }
+        public double Vred { get; set; }
+        public double ks { get; set; }
+        public double Mref { get; set; }
+        public double Dwzref { get; set; }
+        public double Dwzmax { get; set; }
     }
 }

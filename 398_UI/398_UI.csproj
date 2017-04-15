@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="CalibracionFot.cs" />
     <Compile Include="Camara.cs" />
+    <Compile Include="CrearInstancia.cs" />
     <Compile Include="Electrometro.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="Form1.cs">
