@@ -12,20 +12,32 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
-        
-        List<Camara> Camaras = new List<Camara>();
-        List<Electrometro> Electrometros = new List<Electrometro>();
-        static List<SistemaDosimetrico> SistemasDosimetricos = new List<SistemaDosimetrico>();
-        List<Equipo> Equipos = new List<Equipo>();
-        List<CalibracionFot> CalibracionesFot = new List<CalibracionFot>();
-        
-        
-
+        BindingList<Camara> Camaras = new BindingList<Camara>();
+        BindingList<Electrometro> Electrometros = new BindingList<Electrometro>();
+        static BindingList<SistemaDosimetrico> SistemasDosimetricos = new BindingList<SistemaDosimetrico>();
+        BindingList<Equipo> Equipos = new BindingList<Equipo>();
+        BindingList<CalibracionFot> CalibracionesFot = new BindingList<CalibracionFot>();
 
         public Form1()
         {
-
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            //Carga registros
+
+            Camaras = IO.readJsonList<Camara>("camaras.txt");
+            Electrometros = IO.readJsonList<Electrometro>("electrometros.txt");
+            SistemasDosimetricos = IO.readJsonList<SistemaDosimetrico>("sistdos.txt");
+
+            //Carga DGV
+            DGV_Cam.DataSource = Camaras;
+            DGV_Elec.DataSource = Electrometros;
+            DGV_SistDos.DataSource = SistemasDosimetricos;
+
+            //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             DGV_EnFot.ColumnCount = 4;
@@ -33,66 +45,46 @@ namespace _398_UI
             DGV_EnFot.Columns[1].Name = "Zref"; DGV_EnFot.Columns[1].Width = 38;
             DGV_EnFot.Columns[2].Name = "PDD"; DGV_EnFot.Columns[2].Width = 38;
             DGV_EnFot.Columns[3].Name = "TPR"; DGV_EnFot.Columns[3].Width = 38;
-            DGV_Cam.DataSource = Camaras;
-            DGV_Elec.DataSource = Electrometros;
-            DGV_SistDos.DataSource = SistemasDosimetricos;
-
         }
 
 
         #region Paneles
-
-        //Método para traer paneles
-        private void TraerPanel(int nropanel, Panel nombrepanel)
-        {
-            if (panel != nropanel)
-            { nombrepanel.Visible = true; nombrepanel.BringToFront(); panel = nropanel; };
-        }
-
+        //Ir a paneles
         private void Bt_Inicio_Click(object sender, EventArgs e)
         {
-            TraerPanel(0, Panel_Inicio);
+            MetodosControles.TraerPanel(panel,0, Panel_Inicio);
         }
         private void Bt_NuevaCal_Click(object sender, EventArgs e)
         {
-            TraerPanel(1, Panel_CalFot);
+            MetodosControles.TraerPanel(panel,1, Panel_CalFot);
         }
 
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
-            TraerPanel(2, Panel_SistDos);
+            MetodosControles.TraerPanel(panel,2, Panel_SistDos);
         }
 
         private void Bt_Equipos_Click(object sender, EventArgs e)
         {
-            TraerPanel(3, Panel_Equipos);
+            MetodosControles.TraerPanel(panel,3, Panel_Equipos);
         }
 
         private void Bt_AnalizarReg_Click(object sender, EventArgs e)
         {
-            TraerPanel(4, Panel_AnalizarReg);
+            MetodosControles.TraerPanel(panel,4, Panel_AnalizarReg);
         }
 
-        private void BT_NuevSistDos_Click(object sender, EventArgs e)
-        {
-            NuevoSistDos nsd = new NuevoSistDos();
-            nsd.ShowDialog();
-            DGV_SistDos.DataSource = null;
-            DGV_SistDos.DataSource = SistemasDosimetricos;
-        }
-        #endregion
-
-        #region Ir y volver de calibración
+        //Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            TraerPanel(3, Panel_Equipos);
+            MetodosControles.TraerPanel(panel, 3, Panel_Equipos);
             BT_EqIraCal.Text = "Seleccionar y volver a calibración";
             Panel_Equipos.Visible = true;
         }
 
         private void btCkick_IraSistDos(object sender, EventArgs e)
         {
-            TraerPanel(2, Panel_SistDos);
+            MetodosControles.TraerPanel(panel, 2, Panel_SistDos);
             BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
             Panel_SistDos.Visible = true;
         }
@@ -100,20 +92,20 @@ namespace _398_UI
         private void BT_EqIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese equipo en calibración
-            TraerPanel(1, Panel_CalFot);
+            MetodosControles.TraerPanel(panel, 1, Panel_CalFot);
             BT_EqIraCal.Text = "Seleccionar e ir a calibración";
         }
 
         private void BT_SistDosIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese sist dos en calibración
-            TraerPanel(1, Panel_CalFot);
+            MetodosControles.TraerPanel(panel, 1, Panel_CalFot);
             BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
         }
-
         #endregion
 
-        #region Promedios
+
+        #region Cali Fotones Promedios
         private void Prom_Lref(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
@@ -155,124 +147,7 @@ namespace _398_UI
         }
         #endregion
 
-        #region UI Equipos
-
-        private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHB_EnFotEquipo.Checked == true)
-            { Panel_EnFotEquipo.Enabled = true; }
-            else { Panel_EnFotEquipo.Enabled = false; }
-        }
-
-        private void CHB_EnElecEquipo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHB_EnElecEquipo.Checked == true)
-            { Panel_EnElecEquipo.Enabled = true; }
-            else { Panel_EnElecEquipo.Enabled = false; }
-        }
-
-        private void RB_FuenteCo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RB_FuenteCo.Checked == true)
-            { Panel_TipoHazEquipo.Enabled = false; LB_TipoHaz.Enabled = false; }
-        }
-
-        private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RB_FuenteALE.Checked == true)
-            { Panel_TipoHazEquipo.Enabled = true; LB_TipoHaz.Enabled = true; }
-
-        }
-
-        #region Energia
-
-        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
-        {
-            string[] aux = { TB_EnFotEn.Text, TB_EnFotZref.Text, TB_EnFotPDD.Text, TB_EnFotTMR.Text};
-            DGV_EnFot.Rows.Add(aux);
-            DGV_EnFot.Visible = true;
-            /*      string aux = TB_EnFotEn.Text + "MV";
-                  string aux2 = " (";
-                  if (string.IsNullOrEmpty(TB_EnFotZref.Text)) { }
-                  else
-                  {
-                      aux2 += "Zref=" + TB_EnFotZref.Text + "cm ";
-                  }
-                  if (string.IsNullOrEmpty(TB_EnFotPDD.Text)) { }
-                  else
-                  {
-                      aux2 += "PDD" + TB_EnFotPDD.Text + "% ";
-                  }
-                  if (string.IsNullOrEmpty(TB_EnFotTMR.Text)) { }
-                  else
-                  {
-                      aux2 += "TMR" + TB_EnFotTMR.Text + "%";
-                  }
-                  aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
-                  LB_EnFot.Items.Add(aux);*/
-
-            MetodosControles.LimpiarRegistroPanel(Panel_EnFotEquipo);
-            TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-            BT_EnFotGuardar.Enabled = false;
-        }
-
-        private void TB_EnFotEnLeave(object sender, EventArgs e)
-        {
-            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
-            { BT_EnFotGuardar.Enabled = true; }
-        }
-
-        /*  private void LB_EnFot_SelectedIndexChanged(object sender, EventArgs e)
-          {
-              if (LB_EnFot.SelectedIndex != -1)
-              { BT_EnFotEditar.Enabled = true; BT_EnFotEliminar.Enabled = true; BT_EnFotPredet.Enabled = true; }
-          }*/
-
-        private void TB_EsNumero(object sender, EventArgs e)
-        {
-            MetodosCalculos.EsNumero((TextBox)sender);
-        }
-
-        private void TB_EnElecEn_Leave(object sender, EventArgs e)
-        {
-            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
-            { BT_EnElecGuardar.Enabled = true; }
-        }
-
-        private void BT_EnElecGuardar_Click(object sender, EventArgs e)
-        {
-            {
-                string aux = TB_EnElecEn.Text + "MeV";
-                string aux2 = " (";
-                if (string.IsNullOrEmpty(TB_EnElecZref.Text)) { }
-                else
-                {
-                    aux2 += "Zref=" + TB_EnElecZref.Text + "cm ";
-                }
-                if (string.IsNullOrEmpty(TB_EnElecPDD.Text)) { }
-                else
-                {
-                    aux2 += "PDD" + TB_EnElecPDD.Text + "%";
-                }
-                aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
-                LB_EnElec.Items.Add(aux);
-                MetodosControles.LimpiarRegistroPanel(Panel_EnElecEquipo);
-                TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-                BT_EnElecGuardar.Enabled = false;
-            }
-        }
-
-        private void LB_EnElec_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (LB_EnElec.SelectedIndex != -1)
-            { BT_EnElecEditar.Enabled = true; BT_EnElecEliminar.Enabled = true; BT_EnElecPredet.Enabled = true; }
-        }
-
-        #endregion
-
-        #endregion
-
-        #region UI Calibración Fotones
+        #region Cali Fotones UI
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_UsarKqq0LB.Checked == true)
@@ -309,28 +184,149 @@ namespace _398_UI
         }
         #endregion
 
+        #region Equipos UI
+
+        private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHB_EnFotEquipo.Checked == true)
+            { Panel_EnFotEquipo.Enabled = true; }
+            else { Panel_EnFotEquipo.Enabled = false; }
+        }
+
+        private void CHB_EnElecEquipo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHB_EnElecEquipo.Checked == true)
+            { Panel_EnElecEquipo.Enabled = true; }
+            else { Panel_EnElecEquipo.Enabled = false; }
+        }
+
+        private void RB_FuenteCo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RB_FuenteCo.Checked == true)
+            { Panel_TipoHazEquipo.Enabled = false; LB_TipoHaz.Enabled = false; }
+        }
+
+        private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RB_FuenteALE.Checked == true)
+            { Panel_TipoHazEquipo.Enabled = true; LB_TipoHaz.Enabled = true; }
+
+        }
+
+        #region Energia
+
+        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
+        {
+            string[] aux = { TB_EnFotEn.Text, TB_EnFotZref.Text, TB_EnFotPDD.Text, TB_EnFotTMR.Text };
+            DGV_EnFot.Rows.Add(aux);
+            DGV_EnFot.Visible = true;
+       
+            MetodosControles.LimpiarRegistro(Panel_EnFotEquipo);
+            TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
+            BT_EnFotGuardar.Enabled = false;
+        }
+
+        private void TB_EnFotEnLeave(object sender, EventArgs e)
+        {
+            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
+            { BT_EnFotGuardar.Enabled = true; }
+        }
+
+        private void TB_EsNumero(object sender, EventArgs e)
+        {
+            MetodosCalculos.EsNumero((TextBox)sender);
+        }
+
+        private void TB_EnElecEn_Leave(object sender, EventArgs e)
+        {
+            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
+            { BT_EnElecGuardar.Enabled = true; }
+        }
+
+        private void BT_EnElecGuardar_Click(object sender, EventArgs e)
+        {
+            {
+                string aux = TB_EnElecEn.Text + "MeV";
+                string aux2 = " (";
+                if (string.IsNullOrEmpty(TB_EnElecZref.Text)) { }
+                else
+                {
+                    aux2 += "Zref=" + TB_EnElecZref.Text + "cm ";
+                }
+                if (string.IsNullOrEmpty(TB_EnElecPDD.Text)) { }
+                else
+                {
+                    aux2 += "PDD" + TB_EnElecPDD.Text + "%";
+                }
+                aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
+                LB_EnElec.Items.Add(aux);
+                MetodosControles.LimpiarRegistro(Panel_EnElecEquipo);
+                TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
+                BT_EnElecGuardar.Enabled = false;
+            }
+        }
+
+        private void LB_EnElec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LB_EnElec.SelectedIndex != -1)
+            { BT_EnElecEditar.Enabled = true; BT_EnElecEliminar.Enabled = true; BT_EnElecPredet.Enabled = true; }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Sist Dosimetrico Botones
+
+        //Camara
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
             Camara camara = CrearInstancia.CrearCamara(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text);
             Camaras.Add(camara);
-            MetodosControles.LimpiarRegistroGroupBox(GB_Camaras);
-            DGV_Cam.DataSource = null;
-            DGV_Cam.DataSource = Camaras;
+            MetodosControles.LimpiarRegistro(GB_Camaras);
+            IO.writeObjectAsJson("camaras.txt", Camaras);
         }
 
+        private void BT_EliminarCam_Click(object sender, EventArgs e)
+        {
+            MetodosControles.EliminarRegistro<Camara>(DGV_Cam, Camaras, "camaras.txt");
+        }
+
+        //Electrometro
         private void BT_GuardarElec_Click(object sender, EventArgs e)
         {
             Electrometro electrometro = CrearInstancia.CrearElectrometro(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text);
             Electrometros.Add(electrometro);
-            MetodosControles.LimpiarRegistroGroupBox(GB_Electrómetros);
-            DGV_Elec.DataSource = null;
-            DGV_Elec.DataSource = Electrometros;
+            MetodosControles.LimpiarRegistro(GB_Electrómetros);
+            IO.writeObjectAsJson("electrometros.txt", Electrometros);
         }
 
-        public static void AddSistDos(SistemaDosimetrico SistDos) //
+        private void BT_EliminarElec_Click(object sender, EventArgs e)
+        {
+            MetodosControles.EliminarRegistro<Electrometro>(DGV_Elec, Electrometros, "electrometros.txt");
+        }
+
+
+        //Sistema Dosimétrico
+        public static void AddSistDos(SistemaDosimetrico SistDos) //Para poder acceder desde NuevoSistDos a la Lista
         {
             SistemasDosimetricos.Add(SistDos);
         }
+
+        private void BT_NuevSistDos_Click(object sender, EventArgs e)
+        {
+            NuevoSistDos nsd = new NuevoSistDos();
+            nsd.ShowDialog();
+            IO.writeObjectAsJson("sistdos.txt", SistemasDosimetricos);
+        }
+
+        private void BT_EliminarSistDos_Click(object sender, EventArgs e)
+        {
+            MetodosControles.EliminarRegistro<SistemaDosimetrico>(DGV_SistDos, SistemasDosimetricos, "sistdos.txt");
+        }
+
+        #endregion
+
 
     }
 }

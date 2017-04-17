@@ -31,7 +31,7 @@ namespace _398_UI
         }
 
         public static SistemaDosimetrico CrearSistDosim(string marcaCam, string modeloCam, string SNCam, string marcaElec, string modeloElec, string SNElec,
-            double factorCal, double tension, string hazRef, double tempRef, double presionRef, double HumedadRef, string fechaCal, string laboCal)
+            double factorCal, int signotension, double tension, string hazRef, double tempRef, double presionRef, double HumedadRef, string fechaCal, string laboCal)
             //EsPredet inicia como false siempre
         {
             SistemaDosimetrico sistemadosim = new SistemaDosimetrico()
@@ -43,6 +43,7 @@ namespace _398_UI
                 ModeloElec = modeloElec,
                 NumSerieElec = SNElec,
                 FactorCalibracion = factorCal,
+                SignoTension = signotension,
                 Tension = tension,
                 HazDeRef = hazRef,
                 TempRef = tempRef,

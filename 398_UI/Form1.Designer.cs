@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -230,7 +230,6 @@
             this.BT_EliminarElec = new System.Windows.Forms.Button();
             this.BT_EditarElec = new System.Windows.Forms.Button();
             this.BT_GuardarElec = new System.Windows.Forms.Button();
-            this.BT_CancelarElec = new System.Windows.Forms.Button();
             this.DGV_Elec = new System.Windows.Forms.DataGridView();
             this.TB_SNElec = new System.Windows.Forms.TextBox();
             this.LB_SNElec = new System.Windows.Forms.Label();
@@ -240,7 +239,6 @@
             this.BT_EliminarCam = new System.Windows.Forms.Button();
             this.BT_EditarCam = new System.Windows.Forms.Button();
             this.BT_GuardarCam = new System.Windows.Forms.Button();
-            this.BT_CancelarCam = new System.Windows.Forms.Button();
             this.DGV_Cam = new System.Windows.Forms.DataGridView();
             this.CB_ModCam = new System.Windows.Forms.ComboBox();
             this.CB_MarcaCam = new System.Windows.Forms.ComboBox();
@@ -2304,6 +2302,7 @@
             this.BT_EliminarSistDos.TabIndex = 16;
             this.BT_EliminarSistDos.Text = "Eliminar";
             this.BT_EliminarSistDos.UseVisualStyleBackColor = true;
+            this.BT_EliminarSistDos.Click += new System.EventHandler(this.BT_EliminarSistDos_Click);
             // 
             // BT_NuevSistDos
             // 
@@ -2317,9 +2316,12 @@
             // 
             // DGV_SistDos
             // 
+            this.DGV_SistDos.AllowUserToAddRows = false;
             this.DGV_SistDos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_SistDos.Location = new System.Drawing.Point(19, 33);
             this.DGV_SistDos.Name = "DGV_SistDos";
+            this.DGV_SistDos.RowHeadersVisible = false;
+            this.DGV_SistDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_SistDos.Size = new System.Drawing.Size(594, 220);
             this.DGV_SistDos.TabIndex = 13;
             // 
@@ -2330,7 +2332,6 @@
             this.GB_Electrómetros.Controls.Add(this.BT_EliminarElec);
             this.GB_Electrómetros.Controls.Add(this.BT_EditarElec);
             this.GB_Electrómetros.Controls.Add(this.BT_GuardarElec);
-            this.GB_Electrómetros.Controls.Add(this.BT_CancelarElec);
             this.GB_Electrómetros.Controls.Add(this.DGV_Elec);
             this.GB_Electrómetros.Controls.Add(this.TB_SNElec);
             this.GB_Electrómetros.Controls.Add(this.LB_SNElec);
@@ -2365,6 +2366,7 @@
             this.BT_EliminarElec.TabIndex = 24;
             this.BT_EliminarElec.Text = "Eliminar";
             this.BT_EliminarElec.UseVisualStyleBackColor = true;
+            this.BT_EliminarElec.Click += new System.EventHandler(this.BT_EliminarElec_Click);
             // 
             // BT_EditarElec
             // 
@@ -2385,20 +2387,14 @@
             this.BT_GuardarElec.UseVisualStyleBackColor = true;
             this.BT_GuardarElec.Click += new System.EventHandler(this.BT_GuardarElec_Click);
             // 
-            // BT_CancelarElec
-            // 
-            this.BT_CancelarElec.Location = new System.Drawing.Point(257, 65);
-            this.BT_CancelarElec.Name = "BT_CancelarElec";
-            this.BT_CancelarElec.Size = new System.Drawing.Size(119, 23);
-            this.BT_CancelarElec.TabIndex = 20;
-            this.BT_CancelarElec.Text = "Cancelar";
-            this.BT_CancelarElec.UseVisualStyleBackColor = true;
-            // 
             // DGV_Elec
             // 
+            this.DGV_Elec.AllowUserToAddRows = false;
             this.DGV_Elec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Elec.Location = new System.Drawing.Point(14, 150);
             this.DGV_Elec.Name = "DGV_Elec";
+            this.DGV_Elec.RowHeadersVisible = false;
+            this.DGV_Elec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Elec.Size = new System.Drawing.Size(362, 150);
             this.DGV_Elec.TabIndex = 19;
             // 
@@ -2441,7 +2437,6 @@
             this.GB_Camaras.Controls.Add(this.BT_EliminarCam);
             this.GB_Camaras.Controls.Add(this.BT_EditarCam);
             this.GB_Camaras.Controls.Add(this.BT_GuardarCam);
-            this.GB_Camaras.Controls.Add(this.BT_CancelarCam);
             this.GB_Camaras.Controls.Add(this.DGV_Cam);
             this.GB_Camaras.Controls.Add(this.CB_ModCam);
             this.GB_Camaras.Controls.Add(this.CB_MarcaCam);
@@ -2464,6 +2459,7 @@
             this.BT_EliminarCam.TabIndex = 12;
             this.BT_EliminarCam.Text = "Eliminar";
             this.BT_EliminarCam.UseVisualStyleBackColor = true;
+            this.BT_EliminarCam.Click += new System.EventHandler(this.BT_EliminarCam_Click);
             // 
             // BT_EditarCam
             // 
@@ -2484,20 +2480,14 @@
             this.BT_GuardarCam.UseVisualStyleBackColor = true;
             this.BT_GuardarCam.Click += new System.EventHandler(this.BT_GuardarCam_Click);
             // 
-            // BT_CancelarCam
-            // 
-            this.BT_CancelarCam.Location = new System.Drawing.Point(252, 65);
-            this.BT_CancelarCam.Name = "BT_CancelarCam";
-            this.BT_CancelarCam.Size = new System.Drawing.Size(119, 23);
-            this.BT_CancelarCam.TabIndex = 8;
-            this.BT_CancelarCam.Text = "Cancelar";
-            this.BT_CancelarCam.UseVisualStyleBackColor = true;
-            // 
             // DGV_Cam
             // 
+            this.DGV_Cam.AllowUserToAddRows = false;
             this.DGV_Cam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Cam.Location = new System.Drawing.Point(9, 150);
             this.DGV_Cam.Name = "DGV_Cam";
+            this.DGV_Cam.RowHeadersVisible = false;
+            this.DGV_Cam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Cam.Size = new System.Drawing.Size(362, 150);
             this.DGV_Cam.TabIndex = 7;
             // 
@@ -3084,14 +3074,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3109,14 +3099,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3151,6 +3141,7 @@
             this.Controls.Add(this.Panel_AnalizarReg);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Panel_CalFot.ResumeLayout(false);
             this.Panel_CalFot.PerformLayout();
             this.GB_CondMed.ResumeLayout(false);
@@ -3250,7 +3241,6 @@
         private System.Windows.Forms.Button BT_EliminarElec;
         private System.Windows.Forms.Button BT_EditarElec;
         private System.Windows.Forms.Button BT_GuardarElec;
-        private System.Windows.Forms.Button BT_CancelarElec;
         private System.Windows.Forms.DataGridView DGV_Elec;
         private System.Windows.Forms.TextBox TB_SNElec;
         private System.Windows.Forms.Label LB_SNElec;
@@ -3260,7 +3250,6 @@
         private System.Windows.Forms.Button BT_EliminarCam;
         private System.Windows.Forms.Button BT_EditarCam;
         private System.Windows.Forms.Button BT_GuardarCam;
-        private System.Windows.Forms.Button BT_CancelarCam;
         private System.Windows.Forms.DataGridView DGV_Cam;
         private System.Windows.Forms.ComboBox CB_ModCam;
         private System.Windows.Forms.ComboBox CB_MarcaCam;

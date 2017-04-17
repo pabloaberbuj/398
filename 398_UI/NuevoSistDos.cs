@@ -50,15 +50,15 @@ namespace _398_UI
         {
             string[] auxCam = CB_Camara.Text.Split(',');
             string[] auxElec = CB_Electrometro.Text.Split(',');
-            double auxTension;
+            int auxSignoTension;
             string auxFecha = DTP_FechaCal.Value.ToShortDateString();
-            if (CB_Tension.Text == "+") { auxTension = Convert.ToDouble(TB_Tension.Text); }
-            else { auxTension = (-1) * Convert.ToDouble(TB_Tension.Text); }
+            if (CB_Tension.Text == "+") { auxSignoTension = 1; }
+            else { auxSignoTension = -1; }
             SistemaDosimetrico SistDosAux = CrearInstancia.CrearSistDosim(
                 auxCam[0], auxCam[1], auxCam[2],
                 auxElec[0], auxElec[1], auxElec[2],
                 Convert.ToDouble(TB_FCal.Text),
-                auxTension,
+                auxSignoTension, Convert.ToDouble(TB_Tension),
                 CB_HazRef.Text,
                 Convert.ToDouble(TB_Temp.Text),
                 Convert.ToDouble(TB_Presion.Text),
@@ -66,6 +66,7 @@ namespace _398_UI
                 auxFecha,
                 TB_LabCal.Text);
             Form1.AddSistDos(SistDosAux);
+
             Close();
         }
     }

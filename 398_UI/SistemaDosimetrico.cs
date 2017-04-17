@@ -15,6 +15,7 @@ namespace _398_UI
         public string ModeloElec { get; set; }
         public string NumSerieElec { get; set; }
         public double FactorCalibracion { get; set; }
+        public int SignoTension { get; set; } // -1 negativo 1 positivo
         public double Tension { get; set; }
         public string HazDeRef { get; set; } //ver si cambiar el nombre
         public double TempRef { get; set; }
