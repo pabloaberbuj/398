@@ -12,6 +12,7 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
+        Archivos arch = new Archivos();
         BindingList<Camara> Camaras = new BindingList<Camara>();
         BindingList<Electrometro> Electrometros = new BindingList<Electrometro>();
         static BindingList<SistemaDosimetrico> SistemasDosimetricos = new BindingList<SistemaDosimetrico>();
@@ -28,9 +29,9 @@ namespace _398_UI
 
             //Carga registros
 
-            Camaras = IO.readJsonList<Camara>("camaras.txt");
-            Electrometros = IO.readJsonList<Electrometro>("electrometros.txt");
-            SistemasDosimetricos = IO.readJsonList<SistemaDosimetrico>("sistdos.txt");
+            Camaras = IO.readJsonList<Camara>(arch.pathcamaras);
+            Electrometros = IO.readJsonList<Electrometro>(arch.pathelectrometros);
+            SistemasDosimetricos = IO.readJsonList<SistemaDosimetrico>(arch.pathsistdos);
 
             //Carga DGV
             DGV_Cam.DataSource = Camaras;
@@ -103,7 +104,6 @@ namespace _398_UI
             BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
         }
         #endregion
-
 
         #region Cali Fotones Promedios
         private void Prom_Lref(object sender, EventArgs e)
@@ -284,12 +284,12 @@ namespace _398_UI
             Camara camara = CrearInstancia.CrearCamara(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text);
             Camaras.Add(camara);
             MetodosControles.LimpiarRegistro(GB_Camaras);
-            IO.writeObjectAsJson("camaras.txt", Camaras);
+            IO.writeObjectAsJson(arch.pathcamaras, Camaras);
         }
 
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
-            MetodosControles.EliminarRegistro<Camara>(DGV_Cam, Camaras, "camaras.txt");
+            MetodosControles.EliminarRegistro<Camara>(DGV_Cam, Camaras, arch.pathcamaras);
         }
 
         //Electrometro
@@ -298,12 +298,12 @@ namespace _398_UI
             Electrometro electrometro = CrearInstancia.CrearElectrometro(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text);
             Electrometros.Add(electrometro);
             MetodosControles.LimpiarRegistro(GB_Electrómetros);
-            IO.writeObjectAsJson("electrometros.txt", Electrometros);
+            IO.writeObjectAsJson(arch.pathelectrometros, Electrometros);
         }
 
         private void BT_EliminarElec_Click(object sender, EventArgs e)
         {
-            MetodosControles.EliminarRegistro<Electrometro>(DGV_Elec, Electrometros, "electrometros.txt");
+            MetodosControles.EliminarRegistro<Electrometro>(DGV_Elec, Electrometros, arch.pathelectrometros);
         }
 
 
@@ -317,12 +317,12 @@ namespace _398_UI
         {
             NuevoSistDos nsd = new NuevoSistDos();
             nsd.ShowDialog();
-            IO.writeObjectAsJson("sistdos.txt", SistemasDosimetricos);
+            IO.writeObjectAsJson(arch.pathsistdos, SistemasDosimetricos);
         }
 
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
-            MetodosControles.EliminarRegistro<SistemaDosimetrico>(DGV_SistDos, SistemasDosimetricos, "sistdos.txt");
+            MetodosControles.EliminarRegistro<SistemaDosimetrico>(DGV_SistDos, SistemasDosimetricos, arch.pathsistdos);
         }
 
         #endregion
