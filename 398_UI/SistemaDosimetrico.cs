@@ -24,5 +24,7 @@ namespace _398_UI
         public string FechaCalibracion { get; set; }
         public string LaboCalibracion { get; set; }
         public bool EsPredet { get; set; }
+
+        List<SistemaDosimetrico> sd = new List<SistemaDosimetrico>();
     }
 }

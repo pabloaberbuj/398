@@ -13,7 +13,7 @@ namespace _398_UI
     {
         int panel = 0;
         Archivos arch = new Archivos();
-        BindingList<Camara> Camaras = new BindingList<Camara>();
+      //  BindingList<Camara> Camaras = new BindingList<Camara>();
         BindingList<Electrometro> Electrometros = new BindingList<Electrometro>();
         static BindingList<SistemaDosimetrico> SistemasDosimetricos = new BindingList<SistemaDosimetrico>();
         BindingList<Equipo> Equipos = new BindingList<Equipo>();
@@ -22,19 +22,20 @@ namespace _398_UI
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
             //Carga registros
-
-            Camaras = IO.readJsonList<Camara>(arch.pathcamaras);
+            
+     //       Camaras = IO.readJsonList<Camara>(arch.pathcamaras);
             Electrometros = IO.readJsonList<Electrometro>(arch.pathelectrometros);
             SistemasDosimetricos = IO.readJsonList<SistemaDosimetrico>(arch.pathsistdos);
 
             //Carga DGV
-            DGV_Cam.DataSource = Camaras;
+            DGV_Cam.DataSource = Camara.lista();
             DGV_Elec.DataSource = Electrometros;
             DGV_SistDos.DataSource = SistemasDosimetricos;
 
@@ -281,15 +282,15 @@ namespace _398_UI
         //Camara
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
-            Camara camara = CrearInstancia.CrearCamara(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text);
-            Camaras.Add(camara);
+            Camara.guardarCamara(Camara.crearCamara(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text));
+            DGV_Cam.DataSource = Camara.lista();
             MetodosControles.LimpiarRegistro(GB_Camaras);
-            IO.writeObjectAsJson(arch.pathcamaras, Camaras);
+
         }
 
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
-            MetodosControles.EliminarRegistro<Camara>(DGV_Cam, Camaras, arch.pathcamaras);
+  //          MetodosControles.EliminarRegistro<Camara>(DGV_Cam, Camaras, arch.pathcamaras);
         }
 
         //Electrometro
