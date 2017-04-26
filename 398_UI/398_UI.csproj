@@ -54,7 +54,6 @@
     <Compile Include="Archivos.cs" />
     <Compile Include="CalibracionFot.cs" />
     <Compile Include="Camara.cs" />
-    <Compile Include="CrearInstancia.cs" />
     <Compile Include="Electrometro.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="Form1.cs">
@@ -78,6 +77,7 @@
     <Compile Include="NuevoSistDos.Designer.cs">
       <DependentUpon>NuevoSistDos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objeto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SistemaDosimetrico.cs" />

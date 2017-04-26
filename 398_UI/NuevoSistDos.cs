@@ -16,8 +16,19 @@ namespace _398_UI
         {
             InitializeComponent();
             CB_Tension.SelectedIndex = 0;
+            foreach (var reg in Camara.lista())
+            {
+                string aux = reg.Marca + ", " + reg.Modelo + ", NumSerie: " + reg.Modelo;
+                CB_Camara.Items.Add(aux);
+            }
+            foreach (var reg in Electrometro.lista())
+            {
+                string aux = reg.Marca + ", " + reg.Modelo + ", NumSerie: " + reg.Modelo;
+                CB_Electrometro.Items.Add(aux);
+            }
 
         }
+
 
         private void Leave_ObligatoriosparaGuardar(object sender, EventArgs e)
         {
@@ -48,16 +59,12 @@ namespace _398_UI
 
         private void BT_Guardar_Click(object sender, EventArgs e)
         {
-            string[] auxCam = CB_Camara.Text.Split(',');
-            string[] auxElec = CB_Electrometro.Text.Split(',');
             int auxSignoTension;
             string auxFecha = DTP_FechaCal.Value.ToShortDateString();
             if (CB_Tension.Text == "+") { auxSignoTension = 1; }
             else { auxSignoTension = -1; }
             
-            SistemaDosimetrico SistDosAux = CrearInstancia.CrearSistDosim(
-                auxCam[0], auxCam[1], auxCam[2],
-                auxElec[0], auxElec[1], auxElec[2],
+            SistemaDosimetrico.guardar(SistemaDosimetrico.crear(Camara.lista()[CB_Camara.SelectedIndex],Electrometro.lista()[CB_Electrometro.SelectedIndex],
                 Convert.ToDouble(TB_FCal.Text),
                 auxSignoTension, Convert.ToDouble(TB_Tension.Text),
                 CB_HazRef.Text,
@@ -65,8 +72,8 @@ namespace _398_UI
                 Convert.ToDouble(TB_Presion.Text),
                 Convert.ToDouble(TB_Humedad.Text),
                 auxFecha,
-                TB_LabCal.Text);
-            Form1.AddSistDos(SistDosAux);
+                TB_LabCal.Text));
+            
 
             Close();
         }

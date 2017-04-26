@@ -46,7 +46,7 @@ namespace _398_UI
             }
             catch (Exception)
             {
-                System.Windows.Forms.MessageBox.Show("No existe el archivo" + file);
+                System.Windows.Forms.MessageBox.Show("No existe el archivo: " + file);
                 BindingList<T> lista = new BindingList<T>();
                 return lista;
             }

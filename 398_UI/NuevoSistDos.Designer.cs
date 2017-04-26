@@ -106,9 +106,8 @@
             // 
             // CB_Camara
             // 
+            this.CB_Camara.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Camara.FormattingEnabled = true;
-            this.CB_Camara.Items.AddRange(new object[] {
-            "marca,modelo,SN"});
             this.CB_Camara.Location = new System.Drawing.Point(165, 24);
             this.CB_Camara.Name = "CB_Camara";
             this.CB_Camara.Size = new System.Drawing.Size(173, 21);
@@ -117,6 +116,7 @@
             // 
             // CB_Electrometro
             // 
+            this.CB_Electrometro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Electrometro.FormattingEnabled = true;
             this.CB_Electrometro.Items.AddRange(new object[] {
             "marca,modelo,SN"});

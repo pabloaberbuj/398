@@ -2275,6 +2275,7 @@
             this.BT_PredSistDos.TabIndex = 28;
             this.BT_PredSistDos.Text = "Elegir como predeterminado";
             this.BT_PredSistDos.UseVisualStyleBackColor = true;
+            this.BT_PredSistDos.Click += new System.EventHandler(this.BT_PredSistDos_Click);
             // 
             // BT_EditarSistDos
             // 

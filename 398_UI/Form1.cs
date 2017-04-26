@@ -13,11 +13,6 @@ namespace _398_UI
     {
         int panel = 0;
         Archivos arch = new Archivos();
-      //  BindingList<Camara> Camaras = new BindingList<Camara>();
-        BindingList<Electrometro> Electrometros = new BindingList<Electrometro>();
-        static BindingList<SistemaDosimetrico> SistemasDosimetricos = new BindingList<SistemaDosimetrico>();
-        BindingList<Equipo> Equipos = new BindingList<Equipo>();
-        BindingList<CalibracionFot> CalibracionesFot = new BindingList<CalibracionFot>();
 
         public Form1()
         {
@@ -28,16 +23,10 @@ namespace _398_UI
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            //Carga registros
-            
-     //       Camaras = IO.readJsonList<Camara>(arch.pathcamaras);
-            Electrometros = IO.readJsonList<Electrometro>(arch.pathelectrometros);
-            SistemasDosimetricos = IO.readJsonList<SistemaDosimetrico>(arch.pathsistdos);
-
             //Carga DGV
             DGV_Cam.DataSource = Camara.lista();
-            DGV_Elec.DataSource = Electrometros;
-            DGV_SistDos.DataSource = SistemasDosimetricos;
+            DGV_Elec.DataSource = Electrometro.lista();
+            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
@@ -54,39 +43,39 @@ namespace _398_UI
         //Ir a paneles
         private void Bt_Inicio_Click(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel,0, Panel_Inicio);
+            TraerPanel(panel,0, Panel_Inicio);
         }
         private void Bt_NuevaCal_Click(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel,1, Panel_CalFot);
+            TraerPanel(panel,1, Panel_CalFot);
         }
 
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel,2, Panel_SistDos);
+            TraerPanel(panel,2, Panel_SistDos);
         }
 
         private void Bt_Equipos_Click(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel,3, Panel_Equipos);
+            TraerPanel(panel,3, Panel_Equipos);
         }
 
         private void Bt_AnalizarReg_Click(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel,4, Panel_AnalizarReg);
+            TraerPanel(panel,4, Panel_AnalizarReg);
         }
 
         //Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel, 3, Panel_Equipos);
+            TraerPanel(panel, 3, Panel_Equipos);
             BT_EqIraCal.Text = "Seleccionar y volver a calibración";
             Panel_Equipos.Visible = true;
         }
 
         private void btCkick_IraSistDos(object sender, EventArgs e)
         {
-            MetodosControles.TraerPanel(panel, 2, Panel_SistDos);
+            TraerPanel(panel, 2, Panel_SistDos);
             BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
             Panel_SistDos.Visible = true;
         }
@@ -94,14 +83,14 @@ namespace _398_UI
         private void BT_EqIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese equipo en calibración
-            MetodosControles.TraerPanel(panel, 1, Panel_CalFot);
+            TraerPanel(panel, 1, Panel_CalFot);
             BT_EqIraCal.Text = "Seleccionar e ir a calibración";
         }
 
         private void BT_SistDosIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese sist dos en calibración
-            MetodosControles.TraerPanel(panel, 1, Panel_CalFot);
+            TraerPanel(panel, 1, Panel_CalFot);
             BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
         }
         #endregion
@@ -222,7 +211,7 @@ namespace _398_UI
             DGV_EnFot.Rows.Add(aux);
             DGV_EnFot.Visible = true;
        
-            MetodosControles.LimpiarRegistro(Panel_EnFotEquipo);
+            LimpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
         }
@@ -261,7 +250,7 @@ namespace _398_UI
                 }
                 aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
                 LB_EnElec.Items.Add(aux);
-                MetodosControles.LimpiarRegistro(Panel_EnElecEquipo);
+                LimpiarRegistro(Panel_EnElecEquipo);
                 TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
                 BT_EnElecGuardar.Enabled = false;
             }
@@ -282,52 +271,76 @@ namespace _398_UI
         //Camara
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
-            Camara.guardarCamara(Camara.crearCamara(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text));
+            Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text));
             DGV_Cam.DataSource = Camara.lista();
-            MetodosControles.LimpiarRegistro(GB_Camaras);
-
+            LimpiarRegistro(GB_Camaras);
         }
 
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
-  //          MetodosControles.EliminarRegistro<Camara>(DGV_Cam, Camaras, arch.pathcamaras);
+            Camara.eliminar(DGV_Cam);
         }
 
         //Electrometro
         private void BT_GuardarElec_Click(object sender, EventArgs e)
         {
-            Electrometro electrometro = CrearInstancia.CrearElectrometro(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text);
-            Electrometros.Add(electrometro);
-            MetodosControles.LimpiarRegistro(GB_Electrómetros);
-            IO.writeObjectAsJson(arch.pathelectrometros, Electrometros);
+            Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text));
+            DGV_Elec.DataSource = Electrometro.lista();
+            LimpiarRegistro(GB_Electrómetros);
         }
 
         private void BT_EliminarElec_Click(object sender, EventArgs e)
         {
-            MetodosControles.EliminarRegistro<Electrometro>(DGV_Elec, Electrometros, arch.pathelectrometros);
+            Electrometro.eliminar(DGV_Elec);
         }
 
 
         //Sistema Dosimétrico
-        public static void AddSistDos(SistemaDosimetrico SistDos) //Para poder acceder desde NuevoSistDos a la Lista
-        {
-            SistemasDosimetricos.Add(SistDos);
-        }
 
         private void BT_NuevSistDos_Click(object sender, EventArgs e)
         {
             NuevoSistDos nsd = new NuevoSistDos();
             nsd.ShowDialog();
-            IO.writeObjectAsJson(arch.pathsistdos, SistemasDosimetricos);
+            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
         }
 
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
-            MetodosControles.EliminarRegistro<SistemaDosimetrico>(DGV_SistDos, SistemasDosimetricos, arch.pathsistdos);
+            SistemaDosimetrico.eliminar(DGV_SistDos);
         }
+
+        private void BT_PredSistDos_Click(object sender, EventArgs e)
+        {
+            SistemaDosimetrico.hacerPredeterminado(DGV_SistDos);
+        }
+
 
         #endregion
 
+        #region Métodos
+        public static void LimpiarRegistro(Panel panel)
+        {
+            foreach (TextBox tb in panel.Controls.OfType<TextBox>())
+            { tb.Clear(); }
+            foreach (ComboBox cb in panel.Controls.OfType<ComboBox>())
+            { cb.Text = ""; }
+        }
+
+        public static void LimpiarRegistro(GroupBox gb)
+        {
+            foreach (TextBox tb in gb.Controls.OfType<TextBox>())
+            { tb.Clear(); }
+            foreach (ComboBox cb in gb.Controls.OfType<ComboBox>())
+            { cb.Text = ""; }
+        }
+
+        public static void TraerPanel(int indicepanel, int nropanel, Panel nombrepanel)
+        {
+            if (indicepanel != nropanel)
+            { nombrepanel.Visible = true; nombrepanel.BringToFront(); indicepanel = nropanel; };
+        }
+
+        #endregion
 
     }
 }
