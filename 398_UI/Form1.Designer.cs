@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -299,6 +299,7 @@
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
+            this.Panel_Botones = new System.Windows.Forms.Panel();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -345,6 +346,7 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
+            this.Panel_Botones.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -2825,33 +2827,35 @@
             // 
             // Bt_CalFot
             // 
+            this.Bt_CalFot.BackColor = System.Drawing.SystemColors.Control;
             this.Bt_CalFot.FlatAppearance.BorderSize = 0;
             this.Bt_CalFot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bt_CalFot.Location = new System.Drawing.Point(800, 0);
+            this.Bt_CalFot.Location = new System.Drawing.Point(0, 0);
             this.Bt_CalFot.Name = "Bt_CalFot";
             this.Bt_CalFot.Size = new System.Drawing.Size(130, 50);
             this.Bt_CalFot.TabIndex = 3;
             this.Bt_CalFot.Text = "Calibración fotones";
-            this.Bt_CalFot.UseVisualStyleBackColor = true;
-            this.Bt_CalFot.Click += new System.EventHandler(this.Bt_NuevaCal_Click);
+            this.Bt_CalFot.UseVisualStyleBackColor = false;
+            this.Bt_CalFot.Click += new System.EventHandler(this.Bt_CalFot_Click);
             // 
             // Bt_SistDos
             // 
+            this.Bt_SistDos.BackColor = System.Drawing.SystemColors.Control;
             this.Bt_SistDos.FlatAppearance.BorderSize = 0;
             this.Bt_SistDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bt_SistDos.Location = new System.Drawing.Point(800, 100);
+            this.Bt_SistDos.Location = new System.Drawing.Point(0, 100);
             this.Bt_SistDos.Name = "Bt_SistDos";
             this.Bt_SistDos.Size = new System.Drawing.Size(130, 50);
             this.Bt_SistDos.TabIndex = 4;
             this.Bt_SistDos.Text = "Sistemas Dosimétricos";
-            this.Bt_SistDos.UseVisualStyleBackColor = true;
+            this.Bt_SistDos.UseVisualStyleBackColor = false;
             this.Bt_SistDos.Click += new System.EventHandler(this.Bt_SistDos_Click);
             // 
             // Bt_Equipos
             // 
             this.Bt_Equipos.FlatAppearance.BorderSize = 0;
             this.Bt_Equipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bt_Equipos.Location = new System.Drawing.Point(800, 150);
+            this.Bt_Equipos.Location = new System.Drawing.Point(0, 150);
             this.Bt_Equipos.Name = "Bt_Equipos";
             this.Bt_Equipos.Size = new System.Drawing.Size(130, 50);
             this.Bt_Equipos.TabIndex = 5;
@@ -2863,7 +2867,7 @@
             // 
             this.Bt_AnalizarReg.FlatAppearance.BorderSize = 0;
             this.Bt_AnalizarReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bt_AnalizarReg.Location = new System.Drawing.Point(800, 200);
+            this.Bt_AnalizarReg.Location = new System.Drawing.Point(0, 200);
             this.Bt_AnalizarReg.Name = "Bt_AnalizarReg";
             this.Bt_AnalizarReg.Size = new System.Drawing.Size(130, 50);
             this.Bt_AnalizarReg.TabIndex = 6;
@@ -2875,7 +2879,7 @@
             // 
             this.Bt_Inicio.FlatAppearance.BorderSize = 0;
             this.Bt_Inicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bt_Inicio.Location = new System.Drawing.Point(800, 640);
+            this.Bt_Inicio.Location = new System.Drawing.Point(0, 640);
             this.Bt_Inicio.Name = "Bt_Inicio";
             this.Bt_Inicio.Size = new System.Drawing.Size(130, 50);
             this.Bt_Inicio.TabIndex = 7;
@@ -3075,14 +3079,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle9;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3100,14 +3104,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle10;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3117,26 +3121,34 @@
             // 
             this.Bt_CalElec.FlatAppearance.BorderSize = 0;
             this.Bt_CalElec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bt_CalElec.Location = new System.Drawing.Point(800, 50);
+            this.Bt_CalElec.Location = new System.Drawing.Point(0, 50);
             this.Bt_CalElec.Name = "Bt_CalElec";
             this.Bt_CalElec.Size = new System.Drawing.Size(130, 50);
             this.Bt_CalElec.TabIndex = 8;
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
             // 
+            // Panel_Botones
+            // 
+            this.Panel_Botones.Controls.Add(this.Bt_CalFot);
+            this.Panel_Botones.Controls.Add(this.Bt_Inicio);
+            this.Panel_Botones.Controls.Add(this.Bt_CalElec);
+            this.Panel_Botones.Controls.Add(this.Bt_AnalizarReg);
+            this.Panel_Botones.Controls.Add(this.Bt_SistDos);
+            this.Panel_Botones.Controls.Add(this.Bt_Equipos);
+            this.Panel_Botones.Location = new System.Drawing.Point(800, 0);
+            this.Panel_Botones.Name = "Panel_Botones";
+            this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
+            this.Panel_Botones.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 692);
-            this.Controls.Add(this.Bt_CalElec);
-            this.Controls.Add(this.Bt_Inicio);
-            this.Controls.Add(this.Bt_AnalizarReg);
-            this.Controls.Add(this.Bt_Equipos);
-            this.Controls.Add(this.Bt_SistDos);
-            this.Controls.Add(this.Bt_CalFot);
-            this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Equipos);
+            this.Controls.Add(this.Panel_Botones);
+            this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -3222,6 +3234,7 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
+            this.Panel_Botones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3497,6 +3510,7 @@
         private System.Windows.Forms.Button BT_EnElecEliminar;
         private System.Windows.Forms.Button BT_EnElecPredet;
         private System.Windows.Forms.DataGridView DGV_EnFot;
+        private System.Windows.Forms.Panel Panel_Botones;
     }
 }
 

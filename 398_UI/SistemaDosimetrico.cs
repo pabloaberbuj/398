@@ -80,8 +80,21 @@ namespace _398_UI
                 int aux = DGV.SelectedRows[0].Index;
                 auxLista[aux].EsPredet = true;
                 IO.writeObjectAsJson(file, auxLista);
-                DGV.DataSource = lista();
+                llenarDGV(DGV);
             }
+        }
+        public static void llenarDGV(DataGridView DGV)
+        {
+            DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
+            {
+                SistemaDosimetrico.EsPredet,
+                SistemaDosimetrico.camara.EtiquetaCam,
+                SistemaDosimetrico.electrometro.EtiquetaElec,
+                SistemaDosimetrico.FactorCalibracion,
+                SistemaDosimetrico.Tension,
+                SistemaDosimetrico.TempRef,
+                SistemaDosimetrico.PresionRef,
+            }).ToList();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace _398_UI
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string NumSerie { get; set; }
+        public string EtiquetaElec { get; set; }
 
         public static Electrometro crear(string _marca, string _modelo, string _numSerie)
         {
@@ -21,7 +22,8 @@ namespace _398_UI
             {
                 Marca = _marca,
                 Modelo = _modelo,
-                NumSerie = _numSerie
+                NumSerie = _numSerie,
+                EtiquetaElec = _marca + " " + _modelo + " " + _numSerie,
             };
         }
 

@@ -18,12 +18,14 @@ namespace _398_UI
             CB_Tension.SelectedIndex = 0;
             foreach (var reg in Camara.lista())
             {
-                string aux = reg.Marca + ", " + reg.Modelo + ", NumSerie: " + reg.Modelo;
+                //string aux = reg.Marca + ", " + reg.Modelo + ", NumSerie: " + reg.Modelo;
+                string aux = reg.EtiquetaCam;
                 CB_Camara.Items.Add(aux);
             }
             foreach (var reg in Electrometro.lista())
             {
-                string aux = reg.Marca + ", " + reg.Modelo + ", NumSerie: " + reg.Modelo;
+                //string aux = reg.Marca + ", " + reg.Modelo + ", NumSerie: " + reg.Modelo;
+                string aux = reg.EtiquetaElec;
                 CB_Electrometro.Items.Add(aux);
             }
 

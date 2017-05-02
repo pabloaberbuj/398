@@ -118,8 +118,6 @@
             // 
             this.CB_Electrometro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Electrometro.FormattingEnabled = true;
-            this.CB_Electrometro.Items.AddRange(new object[] {
-            "marca,modelo,SN"});
             this.CB_Electrometro.Location = new System.Drawing.Point(165, 51);
             this.CB_Electrometro.Name = "CB_Electrometro";
             this.CB_Electrometro.Size = new System.Drawing.Size(173, 21);

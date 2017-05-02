@@ -17,7 +17,7 @@ namespace _398_UI
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace _398_UI
             //Carga DGV
             DGV_Cam.DataSource = Camara.lista();
             DGV_Elec.DataSource = Electrometro.lista();
-            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
+            SistemaDosimetrico.llenarDGV(DGV_SistDos);
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
@@ -36,6 +36,7 @@ namespace _398_UI
             DGV_EnFot.Columns[1].Name = "Zref"; DGV_EnFot.Columns[1].Width = 38;
             DGV_EnFot.Columns[2].Name = "PDD"; DGV_EnFot.Columns[2].Width = 38;
             DGV_EnFot.Columns[3].Name = "TPR"; DGV_EnFot.Columns[3].Width = 38;
+
         }
 
 
@@ -43,39 +44,39 @@ namespace _398_UI
         //Ir a paneles
         private void Bt_Inicio_Click(object sender, EventArgs e)
         {
-            TraerPanel(panel,0, Panel_Inicio);
+            panel = TraerPanel(panel, 0, Panel_Inicio, Bt_Inicio, Panel_Botones);
         }
-        private void Bt_NuevaCal_Click(object sender, EventArgs e)
+        private void Bt_CalFot_Click(object sender, EventArgs e)
         {
-            TraerPanel(panel,1, Panel_CalFot);
+            panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
         }
 
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
-            TraerPanel(panel,2, Panel_SistDos);
+            panel = TraerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
         }
 
         private void Bt_Equipos_Click(object sender, EventArgs e)
         {
-            TraerPanel(panel,3, Panel_Equipos);
+            panel = TraerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
         }
 
         private void Bt_AnalizarReg_Click(object sender, EventArgs e)
         {
-            TraerPanel(panel,4, Panel_AnalizarReg);
+            panel = TraerPanel(panel, 4, Panel_AnalizarReg, Bt_AnalizarReg, Panel_Botones);
         }
 
         //Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            TraerPanel(panel, 3, Panel_Equipos);
+            panel = TraerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
             BT_EqIraCal.Text = "Seleccionar y volver a calibración";
             Panel_Equipos.Visible = true;
         }
 
         private void btCkick_IraSistDos(object sender, EventArgs e)
         {
-            TraerPanel(panel, 2, Panel_SistDos);
+            panel = TraerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
             BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
             Panel_SistDos.Visible = true;
         }
@@ -83,14 +84,14 @@ namespace _398_UI
         private void BT_EqIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese equipo en calibración
-            TraerPanel(panel, 1, Panel_CalFot);
+            panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
             BT_EqIraCal.Text = "Seleccionar e ir a calibración";
         }
 
         private void BT_SistDosIraCal_Click(object sender, EventArgs e)
         {
             //falta que seleccione ese sist dos en calibración
-            TraerPanel(panel, 1, Panel_CalFot);
+            panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
             BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
         }
         #endregion
@@ -210,7 +211,7 @@ namespace _398_UI
             string[] aux = { TB_EnFotEn.Text, TB_EnFotZref.Text, TB_EnFotPDD.Text, TB_EnFotTMR.Text };
             DGV_EnFot.Rows.Add(aux);
             DGV_EnFot.Visible = true;
-       
+
             LimpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
@@ -301,7 +302,7 @@ namespace _398_UI
         {
             NuevoSistDos nsd = new NuevoSistDos();
             nsd.ShowDialog();
-            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
+            SistemaDosimetrico.llenarDGV(DGV_SistDos);
         }
 
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
@@ -334,12 +335,26 @@ namespace _398_UI
             { cb.Text = ""; }
         }
 
-        public static void TraerPanel(int indicepanel, int nropanel, Panel nombrepanel)
+        public static int TraerPanel(int indicepanel, int nropanel, Panel nombrepanel, Button boton, Panel panelbotones)
         {
             if (indicepanel != nropanel)
-            { nombrepanel.Visible = true; nombrepanel.BringToFront(); indicepanel = nropanel; };
+            {
+                nombrepanel.Visible = true; nombrepanel.BringToFront(); indicepanel = nropanel;
+                ColorBoton(boton, panelbotones);
+            };
+            return indicepanel;
         }
-
+        public static void ColorBoton(Button boton, Panel panelbotones)
+        {
+            
+            {
+                foreach (Button bt in panelbotones.Controls)
+                {
+                    bt.BackColor = SystemColors.Control;
+                }
+                if (boton.Name != "Bt_Inicio") { boton.BackColor = SystemColors.ActiveBorder; }
+            }
+        }
         #endregion
 
     }
