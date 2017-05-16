@@ -10,7 +10,7 @@ namespace _398_UI
 {
     public class Electrometro:Objeto
     {
-        public static string file = "electrometros.txt";
+        public static string file = @"..\..\electrometros.txt";
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string NumSerie { get; set; }
@@ -31,11 +31,26 @@ namespace _398_UI
         {
             return IO.readJsonList<Electrometro>(file);
         }
-        public static void guardar(Electrometro _nuevo)
+        public static void guardar(Electrometro _nuevo, bool edita, DataGridView DGV)
         {
-            var auxLista = lista();
-            auxLista.Add(_nuevo);
-            IO.writeObjectAsJson(file, auxLista);
+            if (edita)
+            {
+                int indice = DGV.SelectedRows[0].Index;
+                DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                var auxLista = lista();
+                auxLista.Insert(indice, _nuevo);
+                IO.writeObjectAsJson(file, auxLista);
+                DGV.DataSource = lista();
+                DGV.ClearSelection();
+                DGV.Rows[indice].Selected = true;
+                edita = false;
+            }
+            else
+            {
+                var auxLista = lista();
+                auxLista.Add(_nuevo);
+                IO.writeObjectAsJson(file, auxLista);
+            }
         }
 
         public static void eliminar(DataGridView DGV)
@@ -49,6 +64,15 @@ namespace _398_UI
                 };
             }
         }
+
+        public static void editar(TextBox Marca, TextBox Modelo, TextBox NumSerie, DataGridView DGV, bool edita)
+        {
+            Electrometro aux = lista()[DGV.SelectedRows[0].Index];
+            Marca.Text = aux.Marca;
+            Modelo.Text = aux.Modelo;
+            NumSerie.Text = aux.NumSerie;
+        }
+
         public static void darFormatoADGV(DataGridView DGV)
         {
             DGV.Columns[3].Visible = false;

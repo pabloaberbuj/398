@@ -10,7 +10,7 @@ namespace _398_UI
 {
     public class SistemaDosimetrico:Objeto
     {
-        public static string file = "sistemasdosimetricos.txt";
+        public static string file = @"..\..\sistemasdosimetricos.txt";
         public Camara camara { get; set; }
         public Electrometro electrometro { get; set; }
         public double FactorCalibracion { get; set; }

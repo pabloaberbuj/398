@@ -281,7 +281,6 @@ namespace _398_UI
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
             Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text), editaCam, DGV_Cam);
-            //DGV_Cam.DataSource = Camara.lista();
             LimpiarRegistro(GB_Camaras);
         }
         private void BT_EliminarCam_Click(object sender, EventArgs e)
@@ -298,14 +297,19 @@ namespace _398_UI
         //Electrometro
         private void BT_GuardarElec_Click(object sender, EventArgs e)
         {
-            Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text));
-            DGV_Elec.DataSource = Electrometro.lista();
+            Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text),editaElec,DGV_Elec);
             LimpiarRegistro(GB_Electrómetros);
         }
 
         private void BT_EliminarElec_Click(object sender, EventArgs e)
         {
             Electrometro.eliminar(DGV_Elec);
+        }
+
+        private void BT_EditarElec_Click(object sender, EventArgs e)
+        {
+            Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec, editaElec);
+            editaElec = true;
         }
 
 
@@ -369,6 +373,7 @@ namespace _398_UI
             }
         }
         #endregion
+
 
     }
 }

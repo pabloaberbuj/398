@@ -1,0 +1,1 @@
+[{"Marca":"dkjsahkdj","Modelo":"hkjas","NumSerie":"3","EtiquetaElec":"dkjsahkdj hkjas 3"},{"Marca":"fds","Modelo":"sfd","NumSerie":"5","EtiquetaElec":"fds sfd 5"}]

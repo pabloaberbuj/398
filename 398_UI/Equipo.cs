@@ -10,7 +10,7 @@ namespace _398_UI
 {
     public class Equipo : Objeto
     {
-        public static string file = "equipos.txt";
+        public static string file = @"..\..\equipos.txt";
         public string Marca;
         public string Modelo;
         public string NumSerie;

@@ -11,7 +11,7 @@ namespace _398_UI
     public class Camara : Objeto
     {
 
-        public static string file = "camaras.txt";
+        public static string file = @"..\..\camaras.txt";
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string NumSerie { get; set; }
@@ -33,7 +33,7 @@ namespace _398_UI
         }
         public static void guardar(Camara _nuevo,bool edita,DataGridView DGV)
         {
-            if (edita == true)
+            if (edita)
             {
                 int indice = DGV.SelectedRows[0].Index;
                 DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
@@ -44,7 +44,6 @@ namespace _398_UI
                 DGV.ClearSelection();
                 DGV.Rows[indice].Selected = true;
                 edita = false;
-
             }
             else
             {
