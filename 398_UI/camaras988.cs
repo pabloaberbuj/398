@@ -14,7 +14,7 @@ namespace _398_UI
 
     public static BindingList<camaras398> lista()
         {
-            return IO.readJsonList<camaras398>("camaras3.txt");
+            return IO.readJsonList<camaras398>(@"..\..\camaras3.txt");
         }
         public static List<string> listaDeMarcas()
         {
