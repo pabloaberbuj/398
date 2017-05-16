@@ -49,5 +49,10 @@ namespace _398_UI
                 };
             }
         }
+        public static void darFormatoADGV(DataGridView DGV)
+        {
+            DGV.Columns[3].Visible = false;
+            DGV.Columns[2].Name = "Nº de serie";
+        }
     }
 }

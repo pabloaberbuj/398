@@ -12,8 +12,11 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
-        Archivos arch = new Archivos();
-
+        bool editaCam = false;
+        bool editaElec = false;
+        bool editaSistDos = false;
+        bool editaEquipo = false;
+        
         public Form1()
         {
             InitializeComponent();
@@ -25,9 +28,10 @@ namespace _398_UI
 
             //Carga DGV
             DGV_Cam.DataSource = Camara.lista();
-            Camara.darFormatoADGV(DGV_Cam);
             DGV_Elec.DataSource = Electrometro.lista();
             SistemaDosimetrico.llenarDGV(DGV_SistDos);
+            Camara.darFormatoADGV(DGV_Cam);
+            Electrometro.darFormatoADGV(DGV_Elec);
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
@@ -273,15 +277,21 @@ namespace _398_UI
         //Camara
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
-            Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text));
-            DGV_Cam.DataSource = Camara.lista();
+            Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text), editaCam, DGV_Cam);
+            //DGV_Cam.DataSource = Camara.lista();
             LimpiarRegistro(GB_Camaras);
         }
-
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
             Camara.eliminar(DGV_Cam);
         }
+
+        private void BT_EditarCam_Click(object sender, EventArgs e)
+        {
+            Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam,editaCam);
+            editaCam = true;
+        }
+
 
         //Electrometro
         private void BT_GuardarElec_Click(object sender, EventArgs e)
@@ -325,7 +335,7 @@ namespace _398_UI
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
             foreach (ComboBox cb in panel.Controls.OfType<ComboBox>())
-            { cb.Text = ""; }
+            { cb.SelectedIndex = -1; }
         }
 
         public static void LimpiarRegistro(GroupBox gb)
@@ -333,7 +343,7 @@ namespace _398_UI
             foreach (TextBox tb in gb.Controls.OfType<TextBox>())
             { tb.Clear(); }
             foreach (ComboBox cb in gb.Controls.OfType<ComboBox>())
-            { cb.Text = ""; }
+            { cb.SelectedIndex = -1; }
         }
 
         public static int TraerPanel(int indicepanel, int nropanel, Panel nombrepanel, Button boton, Panel panelbotones)
@@ -357,6 +367,7 @@ namespace _398_UI
             }
         }
         #endregion
+
 
     }
 }

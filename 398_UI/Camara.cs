@@ -31,11 +31,27 @@ namespace _398_UI
         {
             return IO.readJsonList<Camara>(file);
         }
-        public static void guardar(Camara _nuevo)
+        public static void guardar(Camara _nuevo,bool edita,DataGridView DGV)
         {
-            var auxLista = lista();
-            auxLista.Add(_nuevo);
-            IO.writeObjectAsJson(file, auxLista);
+            if (edita == true)
+            {
+                int indice = DGV.SelectedRows[0].Index;
+                DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                var auxLista = lista(); 
+                auxLista.Insert(indice, _nuevo);
+                IO.writeObjectAsJson(file, auxLista);
+                DGV.DataSource = lista();
+                DGV.ClearSelection();
+                DGV.Rows[indice].Selected = true;
+                edita = false;
+
+            }
+            else
+            {
+                var auxLista = lista();
+                auxLista.Add(_nuevo);
+                IO.writeObjectAsJson(file, auxLista);
+            }
         }
 
         public static void eliminar(DataGridView DGV)
@@ -52,6 +68,15 @@ namespace _398_UI
         public static void darFormatoADGV(DataGridView DGV)
         {
             DGV.Columns[3].Visible = false;
+            DGV.Columns[2].Name = "Nº de serie";
+        }
+        public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV,bool edita)
+        {
+            Camara aux = lista()[DGV.SelectedRows[0].Index];
+            Marca.SelectedItem = aux.Marca;
+            Modelo.SelectedItem = aux.Modelo;
+            NumSerie.Text = aux.NumSerie;
+
         }
 
         
