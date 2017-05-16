@@ -33,6 +33,9 @@ namespace _398_UI
             Camara.darFormatoADGV(DGV_Cam);
             Electrometro.darFormatoADGV(DGV_Elec);
 
+            //lista de cámaras 398
+            this.CB_MarcaCam.DataSource = camaras398.listaDeMarcas();
+
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
@@ -292,7 +295,6 @@ namespace _398_UI
             editaCam = true;
         }
 
-
         //Electrometro
         private void BT_GuardarElec_Click(object sender, EventArgs e)
         {
@@ -367,7 +369,6 @@ namespace _398_UI
             }
         }
         #endregion
-
 
     }
 }
