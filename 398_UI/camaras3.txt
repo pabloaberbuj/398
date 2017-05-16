@@ -1,0 +1,32 @@
+[{
+		"marca": "Capintec",
+		"modelos": ["PR-05P mini", "PR-05 mini", "PR-06C/G Farmer"]
+	}, {
+		"marca": "Exradin",
+		"modelos": ["A2 Spokas", "T2 Spokas", "A 1 mini Shonka", "Tl mini Shonka", "A 12 Farmer"]
+	}, {
+		"marca": "Far West",
+		"modelos": ["Tech. 1C- 18"]
+	}, {
+		"marca": "FZHTK01",
+		"modelos": ["FZHTK01"]
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelos": ["30-750", "30-749", "30-744", "30-716", "30-753 Farmer shortened", "30-751 Farmer", "30-752 Farmer"]
+	}, {
+		"marca": "NE",
+		"modelos": ["2515", "2515/3", "2577", "2505 Farmer", "2505/A Farmer", "2505/3, 3A Farmer", "2505/3, 3B Farmer", "2571 Farmer", "2581 Farmer", "2561/2611 Sec. Std"]
+	}, {
+		"marca": "PTW",
+		"modelos": ["23323 micro", "23331 rigid", "23332 rigid", "23333", "3000 1/30010 Farmer", "30002/300 11 Farmer", "30004/30012 Farmer", "30006/30013 Farmer", "31002 flexible", "31003 flexible"]
+	}, {
+		"marca": "SNC",
+		"modelos": ["100730 Farmer", "100740 Farmer"]
+	}, {
+		"marca": "Victoreen",
+		"modelos": ["Radocon III 550", "Radocon II 555", "30-348", "30-351", "30-349", "30-361"]
+	}, {
+		"marca": "Scdx-Wellhöfer",
+		"modelos": ["IC 05", "IC 06", "IC 10", "IC 15", "IC 25", "IC 28 Farmer shortened", "IC 69 Farmer", "IC 70 Farmer"]
+	}
+]
