@@ -10,35 +10,20 @@ namespace _398_UI
 {
     public class Equipo : Objeto
     {
-        public static string file = "equipos.txt"
+        public static string file = "equipos.txt";
         public string Marca;
         public string Modelo;
         public string NumSerie;
         public string Alias;
         public int Fuente; //1 para Co 2 para Ale
         public int TipoDeHaz;//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
-        public List<EnergiaFot> energiaFot;
-        public List<EnergiaElec> energiaElec;
+        public List<Estructuras.EnergiaFot> energiaFot;
+        public List<Estructuras.EnergiaElec> energiaElec;
         public bool EsPredet;
 
-        public struct EnergiaFot
-        {
-            public string Energia;
-            public double ZrefFot;
-            public double PddZrefFot;
-            public double TmrZrefFot;
-            public bool EsPredet;
-        }
-        public struct EnergiaElec
-        {
-            public string Energia;
-            public double ZrefElec;
-            public double PddZrefElec;
-            //public double R50; // VER ESTO
-            public bool EsPredet;
-        }
+
         public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
-            List<EnergiaFot> _energiaFot, List<EnergiaElec> _energiaElec)
+            List<Estructuras.EnergiaFot> _energiaFot, List<Estructuras.EnergiaElec> _energiaElec)
         //EsPredet inicia como false siempre
         {
             return new Equipo()

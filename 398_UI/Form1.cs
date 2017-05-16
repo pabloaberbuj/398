@@ -25,6 +25,7 @@ namespace _398_UI
 
             //Carga DGV
             DGV_Cam.DataSource = Camara.lista();
+            Camara.darFormatoADGV(DGV_Cam);
             DGV_Elec.DataSource = Electrometro.lista();
             SistemaDosimetrico.llenarDGV(DGV_SistDos);
 
