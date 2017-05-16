@@ -1,0 +1,148 @@
+[{
+		"marca": "Capintec",
+		"camaras": [{
+				"modelo": "PR-05P mini"
+			}, {
+				"modelo": "PR-05 mini"
+			}, {
+				"modelo": "PR-06C/G Farmer"
+			}
+		]
+	}, {
+		"marca": "Exradin",
+		"camaras": [{
+				"modelo": "A2 Spokas"
+			}, {
+				"modelo": "T2 Spokas"
+			}, {
+				"modelo": "A 1 mini Shonka"
+			}, {
+				"modelo": "Tl mini Shonka"
+			}, {
+				"modelo": "A 12 Farmer"
+			}
+		]
+	}, {
+		"marca": "Far West",
+		"camaras": [{
+				"modelo": "Tech. 1C- 18"
+			}
+		]
+	}, {
+		"marca": "FZHTK01",
+		"camaras": [{
+				"modelo": "FZHTK01"
+			}
+		]
+	}, {
+		"marca": "Nuclear Assoc.",
+		"camaras": [{
+				"modelo": "30-750"
+			}, {                 
+				"modelo": "30-749"
+			}, {                 
+				"modelo": "30-744"
+			}, {                 
+				"modelo": "30-716"
+			}, {           
+				"modelo": "30-753 Farmer shortened"
+			}, {           
+				"modelo": "30-751 Farmer"
+			}, {           
+				"modelo": "30-752 Farmer"
+			}
+		]
+	}, {
+		"marca": "NE",
+		"camaras": [{
+				"modelo": "2515"
+			}, {           
+				"modelo": "2515/3"
+			}, {           
+				"modelo": "2577"
+			}, {           
+				"modelo": "2505 Farmer"
+			}, {           
+				"modelo": "2505/A Farmer"
+			}, {           
+				"modelo": "2505/3, 3A Farmer"
+			}, {           
+				"modelo": "2505/3, 3B Farmer"
+			}, {           
+				"modelo": "2571 Farmer"
+			}, {           
+				"modelo": "2581 Farmer"
+			}, {           
+				"modelo": "2561/2611 Sec. Std"
+			}
+		]
+	}, {
+		"marca": "PTW",
+		"camaras": [{
+				"modelo": "23323 micro"
+			}, {           
+				"modelo": "23331 rigid"
+			}, {           
+				"modelo": "23332 rigid"
+			}, {           
+				"modelo": "23333"
+			}, {           
+				"modelo": "3000 1/30010 Farmer"
+			}, {           
+				"modelo": "30002/300 11 Farmer"
+			}, {           
+				"modelo": "30004/30012 Farmer"
+			}, {           
+				"modelo": "30006/30013 Farmer"
+			}, {           
+				"modelo": "31002 flexible"
+			}, {           
+				"modelo": "31003 flexible"
+			}
+		]
+	}, {
+		"marca": "SNC",
+		"camaras": [{
+				"modelo": "100730 Farmer"
+			}, {
+				"modelo": "100740 Farmer"
+			}
+		]
+	}, {
+		"marca": "Victoreen",
+		"camaras": [{
+				"modelo": "Radocon III 550"
+			}, {           
+				"modelo": "Radocon II 555"
+			}, {           
+				"modelo": "30-348"
+			}, {                 
+				"modelo": "30-351"
+			}, {                 
+				"modelo": "30-349"
+			}, {                 
+				"modelo": "30-361"
+			}
+		]
+	}, {
+		"marca": "Scdx-Wellhöfer",
+		"camaras": [{
+				"modelo": "IC 05"
+			}, {                
+				"modelo": "IC 06"
+			}, {                
+				"modelo": "IC 10"
+			}, {                
+				"modelo": "IC 15"
+			}, {                
+				"modelo": "IC 25"
+			}, {
+				"modelo": "IC 28 Farmer shortened"
+			}, {
+				"modelo": "IC 69 Farmer"
+			}, {
+				"modelo": "IC 70 Farmer"
+			}
+		]
+	}
+]
