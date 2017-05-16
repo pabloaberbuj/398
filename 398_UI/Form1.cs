@@ -29,6 +29,9 @@ namespace _398_UI
             DGV_Elec.DataSource = Electrometro.lista();
             SistemaDosimetrico.llenarDGV(DGV_SistDos);
 
+            //lista de cámaras 398
+            this.CB_MarcaCam.DataSource = camaras398.listaDeMarcas();
+
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
@@ -282,6 +285,7 @@ namespace _398_UI
         {
             Camara.eliminar(DGV_Cam);
         }
+
 
         //Electrometro
         private void BT_GuardarElec_Click(object sender, EventArgs e)

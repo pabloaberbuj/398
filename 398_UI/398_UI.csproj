@@ -54,6 +54,7 @@
     <Compile Include="Archivos.cs" />
     <Compile Include="CalibracionFot.cs" />
     <Compile Include="Camara.cs" />
+    <Compile Include="camaras988.cs" />
     <Compile Include="Electrometro.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="Estructuras.cs" />

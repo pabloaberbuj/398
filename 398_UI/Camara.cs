@@ -54,7 +54,6 @@ namespace _398_UI
             DGV.Columns[3].Visible = false;
         }
 
-        
     }
 }
 
