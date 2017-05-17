@@ -324,6 +324,7 @@ namespace _398_UI
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.eliminar(DGV_SistDos);
+            SistemaDosimetrico.llenarDGV(DGV_SistDos);
         }
 
         private void BT_EditarSistDos_Click(object sender, EventArgs e)

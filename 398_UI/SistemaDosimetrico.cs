@@ -71,7 +71,9 @@ namespace _398_UI
         {
             if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                    var auxLista = lista(); auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                    IO.writeObjectAsJson(file, auxLista);
+                    //DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
             };
         }
     }
