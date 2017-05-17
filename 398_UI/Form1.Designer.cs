@@ -2287,6 +2287,7 @@
             this.BT_EditarSistDos.TabIndex = 27;
             this.BT_EditarSistDos.Text = "Editar";
             this.BT_EditarSistDos.UseVisualStyleBackColor = true;
+            this.BT_EditarSistDos.Click += new System.EventHandler(this.BT_EditarSistDos_Click);
             // 
             // BT_CompartirSistDos
             // 

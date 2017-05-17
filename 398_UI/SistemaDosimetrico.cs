@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class SistemaDosimetrico:Objeto
+    public class SistemaDosimetrico : Objeto
     {
         public static string file = @"..\..\sistemasdosimetricos.txt";
         public Camara camara { get; set; }
@@ -49,52 +49,81 @@ namespace _398_UI
         {
             return IO.readJsonList<SistemaDosimetrico>(file);
         }
-        public static void guardar(SistemaDosimetrico _nuevo)
+        public static void guardar(SistemaDosimetrico _nuevo, bool edita, int indice)
         {
             var auxLista = lista();
-            auxLista.Add(_nuevo);
+            if (edita)
+            {
+                auxLista.RemoveAt(indice);
+                auxLista.Insert(indice, _nuevo);
+            }
+            else
+            {
+                auxLista.Add(_nuevo);
+            }
             IO.writeObjectAsJson(file, auxLista);
         }
 
-        public static void eliminar(DataGridView DGV)
-        {
+    public static void eliminar(DataGridView DGV)
+    {
 
-            if (DGV.SelectedRows.Count > 0)
-            {
-                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
-                };
-            }
-        }
-        public static void hacerPredeterminado(DataGridView DGV)
+        if (DGV.SelectedRows.Count > 0)
         {
-            if (DGV.SelectedRows.Count>0)
+            if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                var auxLista = lista();
-                foreach (var reg in auxLista)
-                {
-                    reg.EsPredet = false;
-                }
-
-                int aux = DGV.SelectedRows[0].Index;
-                auxLista[aux].EsPredet = true;
-                IO.writeObjectAsJson(file, auxLista);
-                llenarDGV(DGV);
-            }
-        }
-        public static void llenarDGV(DataGridView DGV)
-        {
-            DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
-            {
-                SistemaDosimetrico.EsPredet,
-                SistemaDosimetrico.camara.EtiquetaCam,
-                SistemaDosimetrico.electrometro.EtiquetaElec,
-                SistemaDosimetrico.FactorCalibracion,
-                SistemaDosimetrico.Tension,
-                SistemaDosimetrico.TempRef,
-                SistemaDosimetrico.PresionRef,
-            }).ToList();
+                DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+            };
         }
     }
+
+    public static void editar(ComboBox Camara, ComboBox Electrometro, TextBox FactorCali, ComboBox SignoTension, TextBox Tension,
+        ComboBox HazRef, TextBox TempRef, TextBox PresRef, TextBox HumRef, DateTime FechaCal, TextBox LaboCalibracion,
+        int indice)
+    {
+        SistemaDosimetrico aux = lista()[indice];
+        Camara.SelectedItem = aux.camara.EtiquetaCam;
+        Electrometro.SelectedItem = aux.electrometro.EtiquetaElec;
+        FactorCali.Text = Convert.ToString(aux.FactorCalibracion);
+        if (aux.SignoTension == 1)
+        { SignoTension.SelectedItem = "+"; }
+        else { SignoTension.SelectedItem = "-"; }
+        Tension.Text = Convert.ToString(aux.Tension);
+        HazRef.SelectedItem = aux.HazDeRef;
+        TempRef.Text = Convert.ToString(aux.TempRef);
+        PresRef.Text = Convert.ToString(aux.PresionRef);
+        HumRef.Text = Convert.ToString(aux.HumedadRef);
+        FechaCal = Convert.ToDateTime(aux.FechaCalibracion);
+        LaboCalibracion.Text = aux.LaboCalibracion;
+    }
+
+    public static void hacerPredeterminado(DataGridView DGV)
+    {
+        if (DGV.SelectedRows.Count > 0)
+        {
+            var auxLista = lista();
+            foreach (var reg in auxLista)
+            {
+                reg.EsPredet = false;
+            }
+
+            int aux = DGV.SelectedRows[0].Index;
+            auxLista[aux].EsPredet = true;
+            IO.writeObjectAsJson(file, auxLista);
+            llenarDGV(DGV);
+        }
+    }
+    public static void llenarDGV(DataGridView DGV)
+    {
+        DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
+        {
+            SistemaDosimetrico.EsPredet,
+            SistemaDosimetrico.camara.EtiquetaCam,
+            SistemaDosimetrico.electrometro.EtiquetaElec,
+            SistemaDosimetrico.FactorCalibracion,
+            SistemaDosimetrico.Tension,
+            SistemaDosimetrico.TempRef,
+            SistemaDosimetrico.PresionRef,
+        }).ToList();
+    }
+}
 }

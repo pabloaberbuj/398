@@ -64,12 +64,8 @@ namespace _398_UI
                 };
             }
         }
-        public static void darFormatoADGV(DataGridView DGV)
-        {
-            DGV.Columns[3].Visible = false;
-            DGV.Columns[2].Name = "Nº de serie";
-        }
-        public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV,bool edita)
+
+        public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV, bool edita)
         {
             Camara aux = lista()[DGV.SelectedRows[0].Index];
             Marca.SelectedItem = aux.Marca;
@@ -77,6 +73,13 @@ namespace _398_UI
             NumSerie.Text = aux.NumSerie;
 
         }
+
+        public static void darFormatoADGV(DataGridView DGV)
+        {
+            DGV.Columns[3].Visible = false;
+            DGV.Columns[2].Name = "Nº de serie";
+        }
+
 
     }
 }

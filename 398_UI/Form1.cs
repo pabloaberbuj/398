@@ -14,7 +14,6 @@ namespace _398_UI
         int panel = 0;
         bool editaCam = false;
         bool editaElec = false;
-        bool editaSistDos = false;
         bool editaEquipo = false;
         
         public Form1()
@@ -317,7 +316,7 @@ namespace _398_UI
 
         private void BT_NuevSistDos_Click(object sender, EventArgs e)
         {
-            NuevoSistDos nsd = new NuevoSistDos();
+            NuevoSistDos nsd = new NuevoSistDos(false,0);
             nsd.ShowDialog();
             SistemaDosimetrico.llenarDGV(DGV_SistDos);
         }
@@ -325,6 +324,14 @@ namespace _398_UI
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.eliminar(DGV_SistDos);
+        }
+
+        private void BT_EditarSistDos_Click(object sender, EventArgs e)
+        {
+            NuevoSistDos nsd = new NuevoSistDos(true, DGV_SistDos.SelectedRows[0].Index);
+            nsd.ShowDialog();
+            SistemaDosimetrico.llenarDGV(DGV_SistDos);
+            DGV_SistDos.ClearSelection();
         }
 
         private void BT_PredSistDos_Click(object sender, EventArgs e)
@@ -372,6 +379,7 @@ namespace _398_UI
                 if (boton.Name != "Bt_Inicio") { boton.BackColor = SystemColors.ActiveBorder; }
             }
         }
+
         #endregion
 
 
