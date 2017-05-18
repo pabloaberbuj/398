@@ -10,19 +10,30 @@ namespace _398_UI
     {
         public struct EnergiaFot
         {
-            public string Energia;
-            public double ZrefFot;
-            public double PddZrefFot;
-            public double TmrZrefFot;
-            public bool EsPredet;
+            public string Energia { get; set; }
+            public double ZrefFot{ get; set; }
+            public double PddZrefFot { get; set; }
+            public double TmrZrefFot { get; set; } 
+            public bool EsPredet { get; set; }
+
+            public static List<EnergiaFot> crearLista()
+            {
+                return new List<EnergiaFot>();
+            }
         }
         public struct EnergiaElec
         {
-            public string Energia;
-            public double ZrefElec;
-            public double PddZrefElec;
-            //public double R50; // VER ESTO
-            public bool EsPredet;
+            public string Energia { get; set; }
+            public double R50ionElec { get; set; }
+            public double R50dosisElec { get; set; }
+            public double ZrefElec { get; set; }
+            public double PddZrefElec { get; set; }
+            public bool EsPredet { get; set; }
+
+            public static List<EnergiaElec> crearLista()
+            {
+                return new List<EnergiaElec>();
+            }
         }
     }
 }

@@ -15,6 +15,8 @@ namespace _398_UI
         bool editaCam = false;
         bool editaElec = false;
         bool editaEquipo = false;
+        bool existeListaEnergiaFotones = false;
+        bool existeListaEnergiaElectrones = false;
         
         public Form1()
         {
@@ -187,14 +189,26 @@ namespace _398_UI
         private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnFotEquipo.Checked == true)
-            { Panel_EnFotEquipo.Enabled = true; }
+            {
+                Panel_EnFotEquipo.Enabled = true;
+                if (!existeListaEnergiaFotones)
+                {
+                    List<Estructuras.EnergiaFot> listaEnergiaFotones = Estructuras.EnergiaFot.crearLista();
+                }
+            }
             else { Panel_EnFotEquipo.Enabled = false; }
         }
 
         private void CHB_EnElecEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnElecEquipo.Checked == true)
-            { Panel_EnElecEquipo.Enabled = true; }
+            {
+                Panel_EnElecEquipo.Enabled = true;
+                if (!existeListaEnergiaElectrones)
+                {
+                    List<Estructuras.EnergiaElec> listaEnergiaElectrones = Estructuras.EnergiaElec.crearLista();
+                }
+            }
             else { Panel_EnElecEquipo.Enabled = false; }
         }
 
