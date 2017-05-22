@@ -65,7 +65,7 @@ namespace _398_UI
             }
         }
 
-        public static void editar(TextBox Marca, TextBox Modelo, TextBox NumSerie, DataGridView DGV, bool edita)
+        public static void editar(TextBox Marca, TextBox Modelo, TextBox NumSerie, DataGridView DGV)
         {
             Electrometro aux = lista()[DGV.SelectedRows[0].Index];
             Marca.Text = aux.Marca;

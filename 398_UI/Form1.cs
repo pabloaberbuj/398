@@ -15,8 +15,9 @@ namespace _398_UI
         bool editaCam = false;
         bool editaElec = false;
         bool editaEquipo = false;
-        bool existeListaEnergiaFotones = false;
-        bool existeListaEnergiaElectrones = false;
+        bool editaEnergiaFot = false;
+        bool editaEnergiaElect = false;
+        
         
         public Form1()
         {
@@ -40,12 +41,8 @@ namespace _398_UI
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
-            DGV_EnFot.ColumnCount = 4;
-            DGV_EnFot.Columns[0].Name = "E [MV]"; DGV_EnFot.Columns[0].Width = 65;
-            DGV_EnFot.Columns[1].Name = "Zref"; DGV_EnFot.Columns[1].Width = 38;
-            DGV_EnFot.Columns[2].Name = "PDD"; DGV_EnFot.Columns[2].Width = 38;
-            DGV_EnFot.Columns[3].Name = "TPR"; DGV_EnFot.Columns[3].Width = 38;
-
+            
+            
         }
 
 
@@ -191,10 +188,6 @@ namespace _398_UI
             if (CHB_EnFotEquipo.Checked == true)
             {
                 Panel_EnFotEquipo.Enabled = true;
-                if (!existeListaEnergiaFotones)
-                {
-                    List<Estructuras.EnergiaFot> listaEnergiaFotones = Estructuras.EnergiaFot.crearLista();
-                }
             }
             else { Panel_EnFotEquipo.Enabled = false; }
         }
@@ -204,10 +197,6 @@ namespace _398_UI
             if (CHB_EnElecEquipo.Checked == true)
             {
                 Panel_EnElecEquipo.Enabled = true;
-                if (!existeListaEnergiaElectrones)
-                {
-                    List<Estructuras.EnergiaElec> listaEnergiaElectrones = Estructuras.EnergiaElec.crearLista();
-                }
             }
             else { Panel_EnElecEquipo.Enabled = false; }
         }
@@ -229,13 +218,22 @@ namespace _398_UI
 
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
-            string[] aux = { TB_EnFotEn.Text, TB_EnFotZref.Text, TB_EnFotPDD.Text, TB_EnFotTMR.Text };
-            DGV_EnFot.Rows.Add(aux);
             DGV_EnFot.Visible = true;
-
+            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Convert.ToDouble(TB_EnFotZref.Text), Convert.ToDouble(TB_EnFotPDD.Text), Convert.ToDouble(TB_EnFotTMR.Text)), editaEnergiaFot, DGV_EnFot);
             LimpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
+        }
+
+        private void BT_EnFotEliminar_Click(object sender, EventArgs e)
+        {
+            EnergiaFotones.eliminar(DGV_EnFot);
+        }
+
+        private void BT_EnFotEditar_Click(object sender, EventArgs e)
+        {
+            EnergiaFotones.editar(TB_EnFotEn, TB_EnFotZref, TB_EnFotPDD, TB_EnFotTMR, DGV_EnFot);
+            editaEnergiaFot = true;
         }
 
         private void TB_EnFotEnLeave(object sender, EventArgs e)
@@ -258,23 +256,7 @@ namespace _398_UI
         private void BT_EnElecGuardar_Click(object sender, EventArgs e)
         {
             {
-                string aux = TB_EnElecEn.Text + "MeV";
-                string aux2 = " (";
-                if (string.IsNullOrEmpty(TB_EnElecZref.Text)) { }
-                else
-                {
-                    aux2 += "Zref=" + TB_EnElecZref.Text + "cm ";
-                }
-                if (string.IsNullOrEmpty(TB_EnElecPDD.Text)) { }
-                else
-                {
-                    aux2 += "PDD" + TB_EnElecPDD.Text + "%";
-                }
-                aux2 += ")"; if (aux2 != " ()") { aux += aux2; }
-                LB_EnElec.Items.Add(aux);
-                LimpiarRegistro(Panel_EnElecEquipo);
-                TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-                BT_EnElecGuardar.Enabled = false;
+                
             }
         }
 
@@ -303,7 +285,7 @@ namespace _398_UI
 
         private void BT_EditarCam_Click(object sender, EventArgs e)
         {
-            Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam,editaCam);
+            Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam);
             editaCam = true;
         }
 
@@ -321,7 +303,7 @@ namespace _398_UI
 
         private void BT_EditarElec_Click(object sender, EventArgs e)
         {
-            Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec, editaElec);
+            Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
             editaElec = true;
         }
 
@@ -395,9 +377,11 @@ namespace _398_UI
             }
         }
 
+
+
         #endregion
 
-
+        
     }
 }
 

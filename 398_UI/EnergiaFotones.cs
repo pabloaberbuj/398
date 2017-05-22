@@ -10,13 +10,18 @@ namespace _398_UI
 {
     class EnergiaFotones
     {
-        public string Energia { get; set; }
-        public double ZRefFot { get; set; }
-        public double PddZrefFot { get; set; }
-        public double TmrZrefFot { get; set; }
+        [DisplayName(" ")]
         public bool EsPredet { get; set; }
+        public double Energia { get; set; }
+        [DisplayName("Zref")]
+        public double ZRefFot { get; set; }
+        [DisplayName("PDD")]
+        public double PddZrefFot { get; set; }
+        [DisplayName("TMR")]
+        public double TmrZrefFot { get; set; }
+        
 
-        public static EnergiaFotones crear(string _energia, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
+        public static EnergiaFotones crear(double _energia, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
         {
             return new EnergiaFotones()
             {
@@ -28,19 +33,68 @@ namespace _398_UI
             };
         }
 
-        public static BindingList<EnergiaFotones> lista()
+        public static BindingList<EnergiaFotones> lista(DataGridView DGV)
         {
-            return new BindingList<EnergiaFotones>();
+            if (DGV.Rows.Count == 0)
+            {
+                return new BindingList<EnergiaFotones>();
+            }
+            else
+            {
+                return (BindingList<EnergiaFotones>)DGV.DataSource;
+            }
+
         }
+
         public static void guardar(EnergiaFotones _nuevo, bool edita, DataGridView DGV)
         {
             if (edita)
             {
                 int indice = DGV.SelectedRows[0].Index;
                 DGV.Rows.Remove(DGV.SelectedRows[0]);
-                DGV.DataSource
-                DGV.DataSource = auxLista;
+                var auxlista = lista(DGV);
+                auxlista.Insert(indice, _nuevo);
+                DGV.DataSource = auxlista;
+                DGV.ClearSelection();
+                DGV.Rows[indice].Selected = true;
+                edita = false;
+            }
+            else
+            {
+                var auxlista = lista(DGV);
+                auxlista.Add(_nuevo);
+                DGV.DataSource = auxlista;
+            }
+            darFormatoADGV(DGV);
+        }
+        public static void eliminar(DataGridView DGV)
+        {
+            if (DGV.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    DGV.Rows.Remove(DGV.SelectedRows[0]);
+                };
             }
         }
+
+        public static void editar(TextBox Energia, TextBox Zref, TextBox PDDZref, TextBox TMRZref, DataGridView DGV)
+        {
+            EnergiaFotones aux = lista(DGV)[DGV.SelectedRows[0].Index];
+            Energia.Text = aux.Energia.ToString();
+            Zref.Text = aux.ZRefFot.ToString();
+            PDDZref.Text = aux.PddZrefFot.ToString();
+            TMRZref.Text = aux.TmrZrefFot.ToString();
+        }
+        public static void darFormatoADGV(DataGridView DGV)
+        {
+            DGV.Columns[0].Name = ""; DGV.Columns[0].Width = 20;
+            DGV.Columns[1].Name = "E [MV]"; DGV.Columns[1].Width = 50;
+            DGV.Columns[2].Name = "Zref"; DGV.Columns[2].Width = 38;
+            DGV.Columns[3].Name = "PDD"; DGV.Columns[3].Width = 38;
+            DGV.Columns[4].Name = "TPR"; DGV.Columns[4].Width = 38;
+
+        }
+
     }
 }

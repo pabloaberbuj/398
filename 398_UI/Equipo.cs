@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class Equipo : Objeto
+ /*   public class Equipo : Objeto
     {
         public static string file = @"..\..\equipos.txt";
         public string Marca;
@@ -17,12 +17,12 @@ namespace _398_UI
         public string Alias;
         public int Fuente; //1 para Co 2 para Ale
         public int TipoDeHaz;//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
-        public List<Estructuras.EnergiaFot> energiaFot;
-        public List<Estructuras.EnergiaElec> energiaElec;
+        //public List<EnergiaFotones> energiaFot;
+        //public List<EnergiaElectrones> energiaElec;
         public bool EsPredet;
 
 
-        public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
+  /*      public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
             List<Estructuras.EnergiaFot> _energiaFot, List<Estructuras.EnergiaElec> _energiaElec)
         //EsPredet inicia como false siempre
         {
@@ -90,5 +90,5 @@ namespace _398_UI
                 SistemaDosimetrico.PresionRef,
             }).ToList();
         }*/
-    }
+    //}
 }

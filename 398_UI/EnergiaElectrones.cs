@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _398_UI
 {
-    class EnergiaFotones
+    class EnergiaElectrones
     {
     }
 }

@@ -65,7 +65,7 @@ namespace _398_UI
             }
         }
 
-        public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV, bool edita)
+        public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV)
         {
             Camara aux = lista()[DGV.SelectedRows[0].Index];
             Marca.SelectedItem = aux.Marca;

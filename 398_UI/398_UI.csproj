@@ -59,7 +59,6 @@
     <Compile Include="EnergiaElectrones.cs" />
     <Compile Include="EnergiaFotones.cs" />
     <Compile Include="Equipo.cs" />
-    <Compile Include="Estructuras.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
