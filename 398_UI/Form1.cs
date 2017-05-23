@@ -228,12 +228,18 @@ namespace _398_UI
         private void BT_EnFotEliminar_Click(object sender, EventArgs e)
         {
             EnergiaFotones.eliminar(DGV_EnFot);
+            LimpiarRegistro(Panel_EnFotEquipo);
         }
 
         private void BT_EnFotEditar_Click(object sender, EventArgs e)
         {
             EnergiaFotones.editar(TB_EnFotEn, TB_EnFotZref, TB_EnFotPDD, TB_EnFotTMR, DGV_EnFot);
             editaEnergiaFot = true;
+        }
+
+        private void BT_EnFotPredet_Click(object sender, EventArgs e)
+        {
+            EnergiaFotones.hacerPredeterminado(DGV_EnFot);
         }
 
         private void TB_EnFotEnLeave(object sender, EventArgs e)
@@ -379,9 +385,10 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-        
+
     }
 }
 

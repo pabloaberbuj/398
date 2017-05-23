@@ -61,6 +61,10 @@ namespace _398_UI
             }
             else
             {
+                if (DGV.RowCount==0)
+                {
+                    _nuevo.EsPredet = true;
+                }
                 var auxlista = lista(DGV);
                 auxlista.Add(_nuevo);
                 DGV.DataSource = auxlista;
@@ -74,7 +78,7 @@ namespace _398_UI
                 if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     DGV.Rows.Remove(DGV.SelectedRows[0]);
-                };
+                }
             }
         }
 
@@ -86,13 +90,31 @@ namespace _398_UI
             PDDZref.Text = aux.PddZrefFot.ToString();
             TMRZref.Text = aux.TmrZrefFot.ToString();
         }
+
+        public static void hacerPredeterminado(DataGridView DGV)
+        {
+            if (DGV.SelectedRows.Count > 0)
+            {
+                var auxLista = lista(DGV);
+                foreach (var reg in auxLista)
+                {
+                    reg.EsPredet = false;
+                }
+
+                int aux = DGV.SelectedRows[0].Index;
+                auxLista[aux].EsPredet = true;
+                DGV.DataSource = auxLista;
+                DGV.Update();
+                //darFormatoADGV(DGV);
+            }
+        }
         public static void darFormatoADGV(DataGridView DGV)
         {
-            DGV.Columns[0].Name = ""; DGV.Columns[0].Width = 20;
-            DGV.Columns[1].Name = "E [MV]"; DGV.Columns[1].Width = 50;
-            DGV.Columns[2].Name = "Zref"; DGV.Columns[2].Width = 38;
-            DGV.Columns[3].Name = "PDD"; DGV.Columns[3].Width = 38;
-            DGV.Columns[4].Name = "TPR"; DGV.Columns[4].Width = 38;
+            DGV.Columns[0].Width = 20;
+            DGV.Columns[1].Width = 50;
+            DGV.Columns[2].Width = 38;
+            DGV.Columns[3].Width = 38;
+            DGV.Columns[4].Width = 38;
 
         }
 
