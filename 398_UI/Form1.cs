@@ -214,7 +214,7 @@ namespace _398_UI
 
         }
 
-        #region Energia
+        //Energía Fotones
 
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
@@ -253,26 +253,47 @@ namespace _398_UI
             MetodosCalculos.EsNumero((TextBox)sender);
         }
 
+
+
+        //Energía Electrones
+
+        private void BT_EnElecGuardar_Click(object sender, EventArgs e)
+        {
+            DGV_EnElec.Visible = true;
+            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Convert.ToDouble(TB_EnElecR50ion.Text), Convert.ToDouble(L_EnElecR50dosis.Text), Convert.ToDouble(L_EnElecZref.Text), Convert.ToDouble(TB_EnElecPDDZref.Text)), editaEnergiaElect, DGV_EnElec);
+            LimpiarRegistro(Panel_EnElecEquipo);
+            L_EnElecR50dosis.Text = null;
+            L_EnElecZref.Text = null;
+            TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
+            BT_EnElecGuardar.Enabled = false;
+        }
+
+        private void BT_EnElecEliminar_Click(object sender, EventArgs e)
+        {
+            EnergiaElectrones.eliminar(DGV_EnElec);
+            LimpiarRegistro(Panel_EnElecEquipo);
+        }
+
+        private void BT_EnElecEditar_Click(object sender, EventArgs e)
+        {
+            EnergiaElectrones.editar(TB_EnElecEn, TB_EnElecR50ion, L_EnElecR50dosis, L_EnElecZref, TB_EnElecPDDZref, DGV_EnElec);
+            editaEnergiaElect = true;
+        }
+
+        private void BT_EnElecPredet_Click(object sender, EventArgs e)
+        {
+            EnergiaElectrones.hacerPredeterminado(DGV_EnElec);
+        }
+
+
         private void TB_EnElecEn_Leave(object sender, EventArgs e)
         {
             if (MetodosCalculos.EsNumero((TextBox)sender) == true)
             { BT_EnElecGuardar.Enabled = true; }
         }
 
-        private void BT_EnElecGuardar_Click(object sender, EventArgs e)
-        {
-            {
-                
-            }
-        }
 
-        private void LB_EnElec_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (LB_EnElec.SelectedIndex != -1)
-            { BT_EnElecEditar.Enabled = true; BT_EnElecEliminar.Enabled = true; BT_EnElecPredet.Enabled = true; }
-        }
 
-        #endregion
 
         #endregion
 
@@ -386,9 +407,18 @@ namespace _398_UI
 
 
 
+
+
+
         #endregion
 
-
+        private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
+        {
+            L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
+            L_EnElecR50dosis.Visible = true;
+            L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
+            L_EnElecZref.Visible = true;
+        }
     }
 }
 

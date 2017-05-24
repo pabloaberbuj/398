@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -168,20 +168,24 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
+            this.L_EnElecR50dosis = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.L_EnElecZref = new System.Windows.Forms.Label();
+            this.DGV_EnElec = new System.Windows.Forms.DataGridView();
+            this.label65 = new System.Windows.Forms.Label();
+            this.TB_EnElecPDDZref = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
             this.BT_EnElecEditar = new System.Windows.Forms.Button();
             this.label68 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.TB_EnElecPDD = new System.Windows.Forms.TextBox();
-            this.TB_EnElecZref = new System.Windows.Forms.TextBox();
-            this.BT_EnElecGuardar = new System.Windows.Forms.Button();
+            this.TB_EnElecR50ion = new System.Windows.Forms.TextBox();
             this.TB_EnElecEn = new System.Windows.Forms.TextBox();
-            this.LB_EnElec = new System.Windows.Forms.ListBox();
-            this.BT_EnElecEliminar = new System.Windows.Forms.Button();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
             this.BT_EnElecPredet = new System.Windows.Forms.Button();
+            this.BT_EnElecEliminar = new System.Windows.Forms.Button();
+            this.BT_EnElecGuardar = new System.Windows.Forms.Button();
             this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
             this.DGV_EnFot = new System.Windows.Forms.DataGridView();
             this.label71 = new System.Windows.Forms.Label();
@@ -300,6 +304,8 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -326,6 +332,7 @@
             this.Panel_FuenteEquipo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Panel_EnElecEquipo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).BeginInit();
             this.Panel_EnFotEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -1769,154 +1776,206 @@
             // 
             // Panel_EnElecEquipo
             // 
+            this.Panel_EnElecEquipo.Controls.Add(this.label76);
+            this.Panel_EnElecEquipo.Controls.Add(this.label67);
+            this.Panel_EnElecEquipo.Controls.Add(this.L_EnElecR50dosis);
+            this.Panel_EnElecEquipo.Controls.Add(this.label75);
+            this.Panel_EnElecEquipo.Controls.Add(this.L_EnElecZref);
+            this.Panel_EnElecEquipo.Controls.Add(this.DGV_EnElec);
+            this.Panel_EnElecEquipo.Controls.Add(this.label65);
+            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecPDDZref);
+            this.Panel_EnElecEquipo.Controls.Add(this.label66);
             this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecEditar);
             this.Panel_EnElecEquipo.Controls.Add(this.label68);
-            this.Panel_EnElecEquipo.Controls.Add(this.label65);
             this.Panel_EnElecEquipo.Controls.Add(this.label69);
-            this.Panel_EnElecEquipo.Controls.Add(this.label66);
-            this.Panel_EnElecEquipo.Controls.Add(this.label70);
-            this.Panel_EnElecEquipo.Controls.Add(this.label67);
-            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecPDD);
-            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecZref);
-            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecGuardar);
+            this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecR50ion);
             this.Panel_EnElecEquipo.Controls.Add(this.TB_EnElecEn);
-            this.Panel_EnElecEquipo.Controls.Add(this.LB_EnElec);
-            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecEliminar);
+            this.Panel_EnElecEquipo.Controls.Add(this.label70);
+            this.Panel_EnElecEquipo.Controls.Add(this.label73);
+            this.Panel_EnElecEquipo.Controls.Add(this.label74);
             this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecPredet);
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecEliminar);
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EnElecGuardar);
             this.Panel_EnElecEquipo.Enabled = false;
-            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(424, 53);
+            this.Panel_EnElecEquipo.Location = new System.Drawing.Point(393, 33);
             this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
-            this.Panel_EnElecEquipo.Size = new System.Drawing.Size(346, 210);
+            this.Panel_EnElecEquipo.Size = new System.Drawing.Size(378, 231);
             this.Panel_EnElecEquipo.TabIndex = 89;
             // 
-            // BT_EnElecEditar
+            // L_EnElecR50dosis
             // 
-            this.BT_EnElecEditar.Enabled = false;
-            this.BT_EnElecEditar.Location = new System.Drawing.Point(232, 109);
-            this.BT_EnElecEditar.Name = "BT_EnElecEditar";
-            this.BT_EnElecEditar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecEditar.TabIndex = 102;
-            this.BT_EnElecEditar.Text = "Editar";
-            this.BT_EnElecEditar.UseVisualStyleBackColor = true;
+            this.L_EnElecR50dosis.AutoSize = true;
+            this.L_EnElecR50dosis.Location = new System.Drawing.Point(113, 64);
+            this.L_EnElecR50dosis.Name = "L_EnElecR50dosis";
+            this.L_EnElecR50dosis.Size = new System.Drawing.Size(27, 13);
+            this.L_EnElecR50dosis.TabIndex = 112;
+            this.L_EnElecR50dosis.Text = "R50";
+            this.L_EnElecR50dosis.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_EnElecR50dosis.Visible = false;
             // 
-            // label68
+            // label75
             // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(11, 71);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(67, 13);
-            this.label68.TabIndex = 81;
-            this.label68.Text = "PDD en Zref";
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(50, 64);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(27, 13);
+            this.label75.TabIndex = 111;
+            this.label75.Text = "R50";
+            // 
+            // L_EnElecZref
+            // 
+            this.L_EnElecZref.AutoSize = true;
+            this.L_EnElecZref.Location = new System.Drawing.Point(113, 87);
+            this.L_EnElecZref.Name = "L_EnElecZref";
+            this.L_EnElecZref.Size = new System.Drawing.Size(26, 13);
+            this.L_EnElecZref.TabIndex = 110;
+            this.L_EnElecZref.Text = "Zref";
+            this.L_EnElecZref.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_EnElecZref.Visible = false;
+            // 
+            // DGV_EnElec
+            // 
+            this.DGV_EnElec.AllowUserToAddRows = false;
+            this.DGV_EnElec.AllowUserToDeleteRows = false;
+            this.DGV_EnElec.AllowUserToResizeColumns = false;
+            this.DGV_EnElec.AllowUserToResizeRows = false;
+            this.DGV_EnElec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_EnElec.Location = new System.Drawing.Point(184, 6);
+            this.DGV_EnElec.Margin = new System.Windows.Forms.Padding(1);
+            this.DGV_EnElec.Name = "DGV_EnElec";
+            this.DGV_EnElec.ReadOnly = true;
+            this.DGV_EnElec.RowHeadersVisible = false;
+            this.DGV_EnElec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_EnElec.Size = new System.Drawing.Size(183, 134);
+            this.DGV_EnElec.TabIndex = 109;
+            this.DGV_EnElec.Visible = false;
             // 
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(157, 72);
+            this.label65.Location = new System.Drawing.Point(149, 111);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(15, 13);
-            this.label65.TabIndex = 101;
+            this.label65.TabIndex = 108;
             this.label65.Text = "%";
             // 
-            // label69
+            // TB_EnElecPDDZref
             // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(11, 42);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(26, 13);
-            this.label69.TabIndex = 80;
-            this.label69.Text = "Zref";
+            this.TB_EnElecPDDZref.Location = new System.Drawing.Point(84, 109);
+            this.TB_EnElecPDDZref.Name = "TB_EnElecPDDZref";
+            this.TB_EnElecPDDZref.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnElecPDDZref.TabIndex = 104;
             // 
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(157, 43);
+            this.label66.Location = new System.Drawing.Point(10, 109);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(21, 13);
-            this.label66.TabIndex = 100;
-            this.label66.Text = "cm";
+            this.label66.Size = new System.Drawing.Size(67, 13);
+            this.label66.TabIndex = 107;
+            this.label66.Text = "PDD en Zref";
+            // 
+            // BT_EnElecEditar
+            // 
+            this.BT_EnElecEditar.Location = new System.Drawing.Point(234, 145);
+            this.BT_EnElecEditar.Name = "BT_EnElecEditar";
+            this.BT_EnElecEditar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecEditar.TabIndex = 106;
+            this.BT_EnElecEditar.Text = "Editar";
+            this.BT_EnElecEditar.UseVisualStyleBackColor = true;
+            this.BT_EnElecEditar.Click += new System.EventHandler(this.BT_EnElecEditar_Click);
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(151, 41);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(21, 13);
+            this.label68.TabIndex = 103;
+            this.label68.Text = "cm";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(151, 10);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(29, 13);
+            this.label69.TabIndex = 102;
+            this.label69.Text = "MeV";
+            // 
+            // TB_EnElecR50ion
+            // 
+            this.TB_EnElecR50ion.Location = new System.Drawing.Point(86, 36);
+            this.TB_EnElecR50ion.Name = "TB_EnElecR50ion";
+            this.TB_EnElecR50ion.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnElecR50ion.TabIndex = 100;
+            this.TB_EnElecR50ion.Leave += new System.EventHandler(this.TB_EnElecR50ion_Leave);
+            // 
+            // TB_EnElecEn
+            // 
+            this.TB_EnElecEn.Location = new System.Drawing.Point(86, 5);
+            this.TB_EnElecEn.Name = "TB_EnElecEn";
+            this.TB_EnElecEn.Size = new System.Drawing.Size(59, 20);
+            this.TB_EnElecEn.TabIndex = 99;
+            this.TB_EnElecEn.Leave += new System.EventHandler(this.TB_EnElecEn_Leave);
             // 
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(11, 11);
+            this.label70.Location = new System.Drawing.Point(51, 87);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(58, 13);
-            this.label70.TabIndex = 79;
-            this.label70.Text = "Energía (*)";
+            this.label70.Size = new System.Drawing.Size(26, 13);
+            this.label70.TabIndex = 98;
+            this.label70.Text = "Zref";
             // 
-            // label67
+            // label73
             // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(157, 12);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(23, 13);
-            this.label67.TabIndex = 98;
-            this.label67.Text = "MV";
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(12, 39);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(44, 13);
+            this.label73.TabIndex = 97;
+            this.label73.Text = "R50 ion";
             // 
-            // TB_EnElecPDD
+            // label74
             // 
-            this.TB_EnElecPDD.Location = new System.Drawing.Point(92, 70);
-            this.TB_EnElecPDD.Name = "TB_EnElecPDD";
-            this.TB_EnElecPDD.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnElecPDD.TabIndex = 99;
-            this.TB_EnElecPDD.Leave += new System.EventHandler(this.TB_EsNumero);
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(12, 8);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(58, 13);
+            this.label74.TabIndex = 96;
+            this.label74.Text = "Energía (*)";
             // 
-            // TB_EnElecZref
+            // BT_EnElecPredet
             // 
-            this.TB_EnElecZref.Location = new System.Drawing.Point(92, 38);
-            this.TB_EnElecZref.Name = "TB_EnElecZref";
-            this.TB_EnElecZref.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnElecZref.TabIndex = 97;
-            this.TB_EnElecZref.Leave += new System.EventHandler(this.TB_EsNumero);
+            this.BT_EnElecPredet.Location = new System.Drawing.Point(233, 202);
+            this.BT_EnElecPredet.Name = "BT_EnElecPredet";
+            this.BT_EnElecPredet.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecPredet.TabIndex = 95;
+            this.BT_EnElecPredet.Text = "Predeterminado";
+            this.BT_EnElecPredet.UseVisualStyleBackColor = true;
+            this.BT_EnElecPredet.Click += new System.EventHandler(this.BT_EnElecPredet_Click);
+            // 
+            // BT_EnElecEliminar
+            // 
+            this.BT_EnElecEliminar.Location = new System.Drawing.Point(234, 173);
+            this.BT_EnElecEliminar.Name = "BT_EnElecEliminar";
+            this.BT_EnElecEliminar.Size = new System.Drawing.Size(97, 23);
+            this.BT_EnElecEliminar.TabIndex = 94;
+            this.BT_EnElecEliminar.Text = "Eliminar";
+            this.BT_EnElecEliminar.UseVisualStyleBackColor = true;
+            this.BT_EnElecEliminar.Click += new System.EventHandler(this.BT_EnElecEliminar_Click);
             // 
             // BT_EnElecGuardar
             // 
             this.BT_EnElecGuardar.Enabled = false;
-            this.BT_EnElecGuardar.Location = new System.Drawing.Point(75, 133);
+            this.BT_EnElecGuardar.Location = new System.Drawing.Point(75, 146);
             this.BT_EnElecGuardar.Name = "BT_EnElecGuardar";
             this.BT_EnElecGuardar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnElecGuardar.TabIndex = 93;
             this.BT_EnElecGuardar.Text = "Guardar";
             this.BT_EnElecGuardar.UseVisualStyleBackColor = true;
             this.BT_EnElecGuardar.Click += new System.EventHandler(this.BT_EnElecGuardar_Click);
-            // 
-            // TB_EnElecEn
-            // 
-            this.TB_EnElecEn.Location = new System.Drawing.Point(92, 7);
-            this.TB_EnElecEn.Name = "TB_EnElecEn";
-            this.TB_EnElecEn.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnElecEn.TabIndex = 96;
-            this.TB_EnElecEn.Leave += new System.EventHandler(this.TB_EnElecEn_Leave);
-            // 
-            // LB_EnElec
-            // 
-            this.LB_EnElec.FormattingEnabled = true;
-            this.LB_EnElec.HorizontalScrollbar = true;
-            this.LB_EnElec.Location = new System.Drawing.Point(203, 10);
-            this.LB_EnElec.Name = "LB_EnElec";
-            this.LB_EnElec.Size = new System.Drawing.Size(128, 95);
-            this.LB_EnElec.TabIndex = 92;
-            this.LB_EnElec.SelectedIndexChanged += new System.EventHandler(this.LB_EnElec_SelectedIndexChanged);
-            // 
-            // BT_EnElecEliminar
-            // 
-            this.BT_EnElecEliminar.Enabled = false;
-            this.BT_EnElecEliminar.Location = new System.Drawing.Point(232, 138);
-            this.BT_EnElecEliminar.Name = "BT_EnElecEliminar";
-            this.BT_EnElecEliminar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecEliminar.TabIndex = 94;
-            this.BT_EnElecEliminar.Text = "Eliminar";
-            this.BT_EnElecEliminar.UseVisualStyleBackColor = true;
-            // 
-            // BT_EnElecPredet
-            // 
-            this.BT_EnElecPredet.Enabled = false;
-            this.BT_EnElecPredet.Location = new System.Drawing.Point(232, 167);
-            this.BT_EnElecPredet.Name = "BT_EnElecPredet";
-            this.BT_EnElecPredet.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecPredet.TabIndex = 95;
-            this.BT_EnElecPredet.Text = "Predeterminado";
-            this.BT_EnElecPredet.UseVisualStyleBackColor = true;
             // 
             // Panel_EnFotEquipo
             // 
@@ -1940,7 +1999,7 @@
             this.Panel_EnFotEquipo.Enabled = false;
             this.Panel_EnFotEquipo.Location = new System.Drawing.Point(6, 33);
             this.Panel_EnFotEquipo.Name = "Panel_EnFotEquipo";
-            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(389, 231);
+            this.Panel_EnFotEquipo.Size = new System.Drawing.Size(378, 231);
             this.Panel_EnFotEquipo.TabIndex = 55;
             // 
             // DGV_EnFot
@@ -1950,7 +2009,7 @@
             this.DGV_EnFot.AllowUserToResizeColumns = false;
             this.DGV_EnFot.AllowUserToResizeRows = false;
             this.DGV_EnFot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_EnFot.Location = new System.Drawing.Point(191, 6);
+            this.DGV_EnFot.Location = new System.Drawing.Point(175, 5);
             this.DGV_EnFot.Margin = new System.Windows.Forms.Padding(1);
             this.DGV_EnFot.Name = "DGV_EnFot";
             this.DGV_EnFot.ReadOnly = true;
@@ -1963,7 +2022,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(160, 100);
+            this.label71.Location = new System.Drawing.Point(142, 98);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(15, 13);
             this.label71.TabIndex = 91;
@@ -1971,7 +2030,7 @@
             // 
             // TB_EnFotTMR
             // 
-            this.TB_EnFotTMR.Location = new System.Drawing.Point(95, 98);
+            this.TB_EnFotTMR.Location = new System.Drawing.Point(77, 96);
             this.TB_EnFotTMR.Name = "TB_EnFotTMR";
             this.TB_EnFotTMR.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotTMR.TabIndex = 86;
@@ -1980,7 +2039,7 @@
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(11, 100);
+            this.label72.Location = new System.Drawing.Point(3, 96);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(68, 13);
             this.label72.TabIndex = 89;
@@ -1988,7 +2047,7 @@
             // 
             // BT_EnFotEditar
             // 
-            this.BT_EnFotEditar.Location = new System.Drawing.Point(258, 146);
+            this.BT_EnFotEditar.Location = new System.Drawing.Point(225, 144);
             this.BT_EnFotEditar.Name = "BT_EnFotEditar";
             this.BT_EnFotEditar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotEditar.TabIndex = 88;
@@ -1999,7 +2058,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(160, 71);
+            this.label36.Location = new System.Drawing.Point(142, 69);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(15, 13);
             this.label36.TabIndex = 87;
@@ -2008,7 +2067,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(160, 42);
+            this.label39.Location = new System.Drawing.Point(142, 40);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(21, 13);
             this.label39.TabIndex = 86;
@@ -2017,7 +2076,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(160, 11);
+            this.label45.Location = new System.Drawing.Point(142, 9);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(23, 13);
             this.label45.TabIndex = 85;
@@ -2025,7 +2084,7 @@
             // 
             // TB_EnFotZref
             // 
-            this.TB_EnFotZref.Location = new System.Drawing.Point(95, 37);
+            this.TB_EnFotZref.Location = new System.Drawing.Point(77, 35);
             this.TB_EnFotZref.Name = "TB_EnFotZref";
             this.TB_EnFotZref.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotZref.TabIndex = 84;
@@ -2033,7 +2092,7 @@
             // 
             // TB_EnFotEn
             // 
-            this.TB_EnFotEn.Location = new System.Drawing.Point(95, 6);
+            this.TB_EnFotEn.Location = new System.Drawing.Point(77, 4);
             this.TB_EnFotEn.Name = "TB_EnFotEn";
             this.TB_EnFotEn.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotEn.TabIndex = 83;
@@ -2041,7 +2100,7 @@
             // 
             // TB_EnFotPDD
             // 
-            this.TB_EnFotPDD.Location = new System.Drawing.Point(95, 69);
+            this.TB_EnFotPDD.Location = new System.Drawing.Point(77, 67);
             this.TB_EnFotPDD.Name = "TB_EnFotPDD";
             this.TB_EnFotPDD.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotPDD.TabIndex = 85;
@@ -2050,7 +2109,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(11, 71);
+            this.label28.Location = new System.Drawing.Point(3, 67);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(67, 13);
             this.label28.TabIndex = 81;
@@ -2059,7 +2118,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(11, 42);
+            this.label33.Location = new System.Drawing.Point(3, 38);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(26, 13);
             this.label33.TabIndex = 80;
@@ -2068,7 +2127,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(11, 11);
+            this.label35.Location = new System.Drawing.Point(3, 7);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(58, 13);
             this.label35.TabIndex = 79;
@@ -2076,7 +2135,7 @@
             // 
             // BT_EnFotPredet
             // 
-            this.BT_EnFotPredet.Location = new System.Drawing.Point(257, 203);
+            this.BT_EnFotPredet.Location = new System.Drawing.Point(224, 201);
             this.BT_EnFotPredet.Name = "BT_EnFotPredet";
             this.BT_EnFotPredet.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotPredet.TabIndex = 78;
@@ -2086,7 +2145,7 @@
             // 
             // BT_EnFotEliminar
             // 
-            this.BT_EnFotEliminar.Location = new System.Drawing.Point(258, 174);
+            this.BT_EnFotEliminar.Location = new System.Drawing.Point(225, 172);
             this.BT_EnFotEliminar.Name = "BT_EnFotEliminar";
             this.BT_EnFotEliminar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotEliminar.TabIndex = 77;
@@ -2097,7 +2156,7 @@
             // BT_EnFotGuardar
             // 
             this.BT_EnFotGuardar.Enabled = false;
-            this.BT_EnFotGuardar.Location = new System.Drawing.Point(51, 146);
+            this.BT_EnFotGuardar.Location = new System.Drawing.Point(66, 140);
             this.BT_EnFotGuardar.Name = "BT_EnFotGuardar";
             this.BT_EnFotGuardar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotGuardar.TabIndex = 76;
@@ -2108,7 +2167,7 @@
             // CHB_EnElecEquipo
             // 
             this.CHB_EnElecEquipo.AutoSize = true;
-            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(419, 27);
+            this.CHB_EnElecEquipo.Location = new System.Drawing.Point(395, 17);
             this.CHB_EnElecEquipo.Name = "CHB_EnElecEquipo";
             this.CHB_EnElecEquipo.Size = new System.Drawing.Size(76, 17);
             this.CHB_EnElecEquipo.TabIndex = 44;
@@ -3088,14 +3147,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3113,14 +3172,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3149,6 +3208,24 @@
             this.Panel_Botones.Name = "Panel_Botones";
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(151, 64);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(21, 13);
+            this.label67.TabIndex = 113;
+            this.label67.Text = "cm";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(150, 87);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(21, 13);
+            this.label76.TabIndex = 114;
+            this.label76.Text = "cm";
             // 
             // Form1
             // 
@@ -3215,6 +3292,7 @@
             this.groupBox2.PerformLayout();
             this.Panel_EnElecEquipo.ResumeLayout(false);
             this.Panel_EnElecEquipo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).EndInit();
             this.Panel_EnFotEquipo.ResumeLayout(false);
             this.Panel_EnFotEquipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).EndInit();
@@ -3491,9 +3569,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel Panel_EnElecEquipo;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Button BT_EnFotEditar;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label39;
@@ -3507,19 +3582,28 @@
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TextBox TB_EnFotTMR;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Button BT_EnElecEditar;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.TextBox TB_EnElecPDD;
-        private System.Windows.Forms.TextBox TB_EnElecZref;
-        private System.Windows.Forms.Button BT_EnElecGuardar;
-        private System.Windows.Forms.TextBox TB_EnElecEn;
-        private System.Windows.Forms.ListBox LB_EnElec;
-        private System.Windows.Forms.Button BT_EnElecEliminar;
-        private System.Windows.Forms.Button BT_EnElecPredet;
         private System.Windows.Forms.DataGridView DGV_EnFot;
         private System.Windows.Forms.Panel Panel_Botones;
+        private System.Windows.Forms.Label L_EnElecZref;
+        private System.Windows.Forms.DataGridView DGV_EnElec;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox TB_EnElecPDDZref;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Button BT_EnElecEditar;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.TextBox TB_EnElecR50ion;
+        private System.Windows.Forms.TextBox TB_EnElecEn;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Button BT_EnElecPredet;
+        private System.Windows.Forms.Button BT_EnElecEliminar;
+        private System.Windows.Forms.Button BT_EnElecGuardar;
+        private System.Windows.Forms.Label L_EnElecR50dosis;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label67;
     }
 }
 

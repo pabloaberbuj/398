@@ -103,9 +103,9 @@ namespace _398_UI
 
                 int aux = DGV.SelectedRows[0].Index;
                 auxLista[aux].EsPredet = true;
+                DGV.DataSource = null;
                 DGV.DataSource = auxLista;
-                DGV.Update();
-                //darFormatoADGV(DGV);
+                darFormatoADGV(DGV);
             }
         }
         public static void darFormatoADGV(DataGridView DGV)
