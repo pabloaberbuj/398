@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    class EnergiaFotones
+    public class EnergiaFotones
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }
@@ -19,6 +19,7 @@ namespace _398_UI
         public double PddZrefFot { get; set; }
         [DisplayName("TMR")]
         public double TmrZrefFot { get; set; }
+
         
 
         public static EnergiaFotones crear(double _energia, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    class EnergiaElectrones
+    public class EnergiaElectrones
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }

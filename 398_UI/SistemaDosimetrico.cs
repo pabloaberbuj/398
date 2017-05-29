@@ -59,73 +59,79 @@ namespace _398_UI
             }
             else
             {
+                if (auxLista.Count() == 0)
+                {
+                    _nuevo.EsPredet = true;
+                }
                 auxLista.Add(_nuevo);
+                IO.writeObjectAsJson(file, auxLista);
             }
-            IO.writeObjectAsJson(file, auxLista);
         }
 
-    public static void eliminar(DataGridView DGV)
-    {
-
-        if (DGV.SelectedRows.Count > 0)
+        public static void eliminar(DataGridView DGV)
         {
-            if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+
+            if (DGV.SelectedRows.Count > 0)
             {
+                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
                     var auxLista = lista(); auxLista.RemoveAt(DGV.SelectedRows[0].Index);
                     IO.writeObjectAsJson(file, auxLista);
-                    //DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
-            };
-        }
-    }
-
-    public static void editar(ComboBox Camara, ComboBox Electrometro, TextBox FactorCali, ComboBox SignoTension, TextBox Tension,
-        ComboBox HazRef, TextBox TempRef, TextBox PresRef, TextBox HumRef, DateTime FechaCal, TextBox LaboCalibracion,
-        int indice)
-    {
-        SistemaDosimetrico aux = lista()[indice];
-        Camara.SelectedItem = aux.camara.EtiquetaCam;
-        Electrometro.SelectedItem = aux.electrometro.EtiquetaElec;
-        FactorCali.Text = Convert.ToString(aux.FactorCalibracion);
-        if (aux.SignoTension == 1)
-        { SignoTension.SelectedItem = "+"; }
-        else { SignoTension.SelectedItem = "-"; }
-        Tension.Text = Convert.ToString(aux.Tension);
-        HazRef.SelectedItem = aux.HazDeRef;
-        TempRef.Text = Convert.ToString(aux.TempRef);
-        PresRef.Text = Convert.ToString(aux.PresionRef);
-        HumRef.Text = Convert.ToString(aux.HumedadRef);
-        FechaCal = Convert.ToDateTime(aux.FechaCalibracion);
-        LaboCalibracion.Text = aux.LaboCalibracion;
-    }
-
-    public static void hacerPredeterminado(DataGridView DGV)
-    {
-        if (DGV.SelectedRows.Count > 0)
-        {
-            var auxLista = lista();
-            foreach (var reg in auxLista)
-            {
-                reg.EsPredet = false;
+                    llenarDGV(DGV);
+                };
             }
+        }
 
-            int aux = DGV.SelectedRows[0].Index;
-            auxLista[aux].EsPredet = true;
-            IO.writeObjectAsJson(file, auxLista);
-            llenarDGV(DGV);
+        public static void editar(ComboBox Camara, ComboBox Electrometro, TextBox FactorCali, ComboBox SignoTension, TextBox Tension,
+            ComboBox HazRef, TextBox TempRef, TextBox PresRef, TextBox HumRef, DateTime FechaCal, TextBox LaboCalibracion,
+            int indice)
+        {
+            SistemaDosimetrico aux = lista()[indice];
+            Camara.SelectedItem = aux.camara.EtiquetaCam;
+            Electrometro.SelectedItem = aux.electrometro.EtiquetaElec;
+            FactorCali.Text = Convert.ToString(aux.FactorCalibracion);
+            if (aux.SignoTension == 1)
+            { SignoTension.SelectedItem = "+"; }
+            else { SignoTension.SelectedItem = "-"; }
+            Tension.Text = Convert.ToString(aux.Tension);
+            HazRef.SelectedItem = aux.HazDeRef;
+            TempRef.Text = Convert.ToString(aux.TempRef);
+            PresRef.Text = Convert.ToString(aux.PresionRef);
+            HumRef.Text = Convert.ToString(aux.HumedadRef);
+            FechaCal = Convert.ToDateTime(aux.FechaCalibracion);
+            LaboCalibracion.Text = aux.LaboCalibracion;
+        }
+
+        public static void hacerPredeterminado(DataGridView DGV)
+        {
+            if (DGV.SelectedRows.Count > 0)
+            {
+                var auxLista = lista();
+                foreach (var reg in auxLista)
+                {
+                    reg.EsPredet = false;
+                }
+
+                int aux = DGV.SelectedRows[0].Index;
+                auxLista[aux].EsPredet = true;
+                IO.writeObjectAsJson(file, auxLista);
+                llenarDGV(DGV);
+                DGV.ClearSelection();
+                DGV.Rows[aux].Selected = true;
+            }
+        }
+        public static void llenarDGV(DataGridView DGV)
+        {
+            DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
+            {
+                SistemaDosimetrico.EsPredet,
+                SistemaDosimetrico.camara.EtiquetaCam,
+                SistemaDosimetrico.electrometro.EtiquetaElec,
+                SistemaDosimetrico.FactorCalibracion,
+                SistemaDosimetrico.Tension,
+                SistemaDosimetrico.TempRef,
+                SistemaDosimetrico.PresionRef,
+            }).ToList();
         }
     }
-    public static void llenarDGV(DataGridView DGV)
-    {
-        DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
-        {
-            SistemaDosimetrico.EsPredet,
-            SistemaDosimetrico.camara.EtiquetaCam,
-            SistemaDosimetrico.electrometro.EtiquetaElec,
-            SistemaDosimetrico.FactorCalibracion,
-            SistemaDosimetrico.Tension,
-            SistemaDosimetrico.TempRef,
-            SistemaDosimetrico.PresionRef,
-        }).ToList();
-    }
-}
 }

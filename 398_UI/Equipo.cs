@@ -8,24 +8,36 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
- /*   public class Equipo : Objeto
+    public class Equipo : Objeto
     {
         public static string file = @"..\..\equipos.txt";
         public string Marca;
         public string Modelo;
         public string NumSerie;
         public string Alias;
-        public int Fuente; //1 para Co 2 para Ale
+        public int Fuente; //0 para Co 1 para Ale
         public int TipoDeHaz;//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
-        //public List<EnergiaFotones> energiaFot;
-        //public List<EnergiaElectrones> energiaElec;
+        public BindingList<EnergiaFotones> energiaFot;
+        public string EnergiasFotones;
+        public BindingList<EnergiaElectrones> energiaElec;
+        public string EnergiasElectrones;
         public bool EsPredet;
 
 
-  /*      public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
-            List<Estructuras.EnergiaFot> _energiaFot, List<Estructuras.EnergiaElec> _energiaElec)
+       public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
+            DataGridView DGVFot, DataGridView DGVElec)
         //EsPredet inicia como false siempre
         {
+            string auxEnergiasFot = "";
+            string auxEnergiasElec = "";
+            foreach (var energia in EnergiaFotones.lista(DGVFot))
+            {
+                auxEnergiasFot += energia.Energia + " ";
+            }
+            foreach(var energia in EnergiaElectrones.lista(DGVElec))
+            {
+                auxEnergiasElec += energia.Energia + "";
+            }
             return new Equipo()
             {
                 Marca = _marca,
@@ -34,8 +46,10 @@ namespace _398_UI
                 Alias = _alias,
                 Fuente = _fuente,
                 TipoDeHaz = _tipoDeHaz,
-                energiaFot = _energiaFot,
-                energiaElec = _energiaElec,
+                energiaFot = EnergiaFotones.lista(DGVFot),
+                EnergiasFotones = auxEnergiasFot,
+                energiaElec = EnergiaElectrones.lista(DGVElec),
+                EnergiasElectrones = auxEnergiasElec,
                 EsPredet = false,
             };
         }
@@ -43,11 +57,23 @@ namespace _398_UI
         {
             return IO.readJsonList<Equipo>(file);
         }
-        public static void guardar(Equipo _nuevo)
+        public static void guardar(Equipo _nuevo, bool edita, int indice)
         {
             var auxLista = lista();
-            auxLista.Add(_nuevo);
-            IO.writeObjectAsJson(file, auxLista);
+            if (edita)
+            {
+                auxLista.RemoveAt(indice);
+                auxLista.Insert(indice, _nuevo);
+            }
+            else
+            {
+                if (auxLista.Count()==0)
+                {
+                    _nuevo.EsPredet = true;
+                }
+                auxLista.Add(_nuevo);
+                IO.writeObjectAsJson(file, auxLista);
+            }
         }
 
         public static void eliminar(DataGridView DGV)
@@ -57,7 +83,9 @@ namespace _398_UI
             {
                 if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                    var auxLista = lista(); auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                    IO.writeObjectAsJson(file, auxLista);
+                    llenarDGV(DGV);
                 };
             }
         }
@@ -74,21 +102,24 @@ namespace _398_UI
                 int aux = DGV.SelectedRows[0].Index;
                 auxLista[aux].EsPredet = true;
                 IO.writeObjectAsJson(file, auxLista);
-          //      llenarDGV(DGV);
+                DGV.DataSource = lista();
+                llenarDGV(DGV);
+                DGV.ClearSelection();
+                DGV.Rows[aux].Selected = true;
             }
         }
-        /*public static void llenarDGV(DataGridView DGV)
+        public static void llenarDGV(DataGridView DGV)
         {
-            DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
+            DGV.DataSource = lista().Select(Equipo => new
             {
-                SistemaDosimetrico.EsPredet,
-                SistemaDosimetrico.camara.EtiquetaCam,
-                SistemaDosimetrico.electrometro.EtiquetaElec,
-                SistemaDosimetrico.FactorCalibracion,
-                SistemaDosimetrico.Tension,
-                SistemaDosimetrico.TempRef,
-                SistemaDosimetrico.PresionRef,
+                Equipo.EsPredet,
+                Equipo.Alias,
+                Equipo.Marca,
+                Equipo.Modelo,
+                Equipo.NumSerie,
+                Equipo.EnergiasFotones,
+                Equipo.EnergiasElectrones,
             }).ToList();
-        }*/
-    //}
+        }
+    }
 }

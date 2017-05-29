@@ -12,6 +12,7 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
+        int indiceEquipo = 0;
         bool editaCam = false;
         bool editaElec = false;
         bool editaEquipo = false;
@@ -32,6 +33,7 @@ namespace _398_UI
             DGV_Cam.DataSource = Camara.lista();
             DGV_Elec.DataSource = Electrometro.lista();
             SistemaDosimetrico.llenarDGV(DGV_SistDos);
+            Equipo.llenarDGV(DGV_Equipo);
             Camara.darFormatoADGV(DGV_Cam);
             Electrometro.darFormatoADGV(DGV_Elec);
 
@@ -181,8 +183,10 @@ namespace _398_UI
         }
         #endregion
 
-        #region Equipos UI
+        #region Equipos
 
+
+        //UI
         private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnFotEquipo.Checked == true)
@@ -204,14 +208,63 @@ namespace _398_UI
         private void RB_FuenteCo_CheckedChanged(object sender, EventArgs e)
         {
             if (RB_FuenteCo.Checked == true)
-            { Panel_TipoHazEquipo.Enabled = false; LB_TipoHaz.Enabled = false; }
+            { Panel_TipoHazEq.Enabled = false; LB_TipoHaz.Enabled = false; }
         }
 
         private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
         {
             if (RB_FuenteALE.Checked == true)
-            { Panel_TipoHazEquipo.Enabled = true; LB_TipoHaz.Enabled = true; }
+            { Panel_TipoHazEq.Enabled = true; LB_TipoHaz.Enabled = true; }
 
+        }
+
+        //Equipo
+
+        private void BT_GuardarEq_Click(object sender, EventArgs e)
+        {
+            if (editaEquipo == true)
+            {
+                indiceEquipo = DGV_Equipo.SelectedRows[0].Index;
+            }
+            int auxfuente = 0; int auxHaz = 0;
+            if (RB_FuenteCo.Checked ==true)
+            {
+                auxfuente = 1;
+            }
+            else if (RB_FuenteALE.Checked ==true)
+            {
+                auxfuente = 2;
+                if (RB_Pulsado.Checked ==true)
+                {
+                    auxHaz = 1;
+                }
+                else if (RB_PulsadoYBarrido.Checked==true)
+                {
+                    auxHaz = 2;
+                }
+            }
+            Equipo.guardar(Equipo.crear(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, auxfuente, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, indiceEquipo);
+            Equipo.llenarDGV(DGV_Equipo);
+            LimpiarRegistro(GB_Equipos);
+            DGV_EnFot.Rows.Clear();
+            DGV_EnElec.Rows.Clear();
+            CHB_EnFotEquipo.Checked = false;
+            CHB_EnElecEquipo.Checked = false;
+        }
+
+        private void BT_PredetEqu_Click(object sender, EventArgs e)
+        {
+            Equipo.hacerPredeterminado(DGV_Equipo);
+        }
+
+        private void BT_EliminarEq_Click(object sender, EventArgs e)
+        {
+            Equipo.eliminar(DGV_Equipo);
+        }
+
+        private void BT_EditarEq_Click(object sender, EventArgs e)
+        {
+            
         }
 
         //Energía Fotones
@@ -292,6 +345,13 @@ namespace _398_UI
             { BT_EnElecGuardar.Enabled = true; }
         }
 
+        private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
+        {
+            L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
+            L_EnElecR50dosis.Visible = true;
+            L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
+            L_EnElecZref.Visible = true;
+        }
 
 
 
@@ -347,7 +407,7 @@ namespace _398_UI
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.eliminar(DGV_SistDos);
-            SistemaDosimetrico.llenarDGV(DGV_SistDos);
+            //SistemaDosimetrico.llenarDGV(DGV_SistDos);
         }
 
         private void BT_EditarSistDos_Click(object sender, EventArgs e)
@@ -412,13 +472,9 @@ namespace _398_UI
 
         #endregion
 
-        private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
-        {
-            L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
-            L_EnElecR50dosis.Visible = true;
-            L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
-            L_EnElecZref.Visible = true;
-        }
+
+
+
     }
 }
 

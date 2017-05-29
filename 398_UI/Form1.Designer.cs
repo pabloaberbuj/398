@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -155,19 +155,21 @@
             this.cbDosimetro = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
-            this.Panel_TipoHazEquipo = new System.Windows.Forms.Panel();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.Panel_FuenteEquipo = new System.Windows.Forms.Panel();
+            this.Panel_TipoHazEq = new System.Windows.Forms.Panel();
+            this.RB_PulsadoYBarrido = new System.Windows.Forms.RadioButton();
+            this.RB_Pulsado = new System.Windows.Forms.RadioButton();
+            this.Panel_FuenteEq = new System.Windows.Forms.Panel();
             this.RB_FuenteALE = new System.Windows.Forms.RadioButton();
             this.RB_FuenteCo = new System.Windows.Forms.RadioButton();
             this.LB_TipoHaz = new System.Windows.Forms.Label();
             this.BT_EqIraCal = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.textBox44 = new System.Windows.Forms.TextBox();
+            this.BT_PredetEqu = new System.Windows.Forms.Button();
+            this.TB_AliasEq = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
             this.L_EnElecR50dosis = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
             this.L_EnElecZref = new System.Windows.Forms.Label();
@@ -207,15 +209,13 @@
             this.CHB_EnElecEquipo = new System.Windows.Forms.CheckBox();
             this.CHB_EnFotEquipo = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.BT_EliminarEq = new System.Windows.Forms.Button();
+            this.BT_EditarEq = new System.Windows.Forms.Button();
+            this.BT_CompartEq = new System.Windows.Forms.Button();
+            this.TB_ModeloEq = new System.Windows.Forms.TextBox();
+            this.TB_MarcaEq = new System.Windows.Forms.TextBox();
+            this.BT_GuardarEq = new System.Windows.Forms.Button();
+            this.TB_NumSerieEq = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -304,8 +304,7 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
+            this.DGV_Equipo = new System.Windows.Forms.DataGridView();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -328,14 +327,13 @@
             this.gCondiciones.SuspendLayout();
             this.Panel_Equipos.SuspendLayout();
             this.GB_Equipos.SuspendLayout();
-            this.Panel_TipoHazEquipo.SuspendLayout();
-            this.Panel_FuenteEquipo.SuspendLayout();
+            this.Panel_TipoHazEq.SuspendLayout();
+            this.Panel_FuenteEq.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Panel_EnElecEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).BeginInit();
             this.Panel_EnFotEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.Panel_SistDos.SuspendLayout();
             this.GB_SistDos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SistDos)).BeginInit();
@@ -354,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -1623,24 +1622,23 @@
             // 
             // GB_Equipos
             // 
-            this.GB_Equipos.Controls.Add(this.Panel_TipoHazEquipo);
-            this.GB_Equipos.Controls.Add(this.Panel_FuenteEquipo);
+            this.GB_Equipos.Controls.Add(this.DGV_Equipo);
+            this.GB_Equipos.Controls.Add(this.Panel_TipoHazEq);
+            this.GB_Equipos.Controls.Add(this.Panel_FuenteEq);
             this.GB_Equipos.Controls.Add(this.LB_TipoHaz);
             this.GB_Equipos.Controls.Add(this.BT_EqIraCal);
-            this.GB_Equipos.Controls.Add(this.button17);
-            this.GB_Equipos.Controls.Add(this.textBox44);
+            this.GB_Equipos.Controls.Add(this.BT_PredetEqu);
+            this.GB_Equipos.Controls.Add(this.TB_AliasEq);
             this.GB_Equipos.Controls.Add(this.label18);
             this.GB_Equipos.Controls.Add(this.groupBox2);
             this.GB_Equipos.Controls.Add(this.label5);
-            this.GB_Equipos.Controls.Add(this.button1);
-            this.GB_Equipos.Controls.Add(this.button2);
-            this.GB_Equipos.Controls.Add(this.button3);
-            this.GB_Equipos.Controls.Add(this.dataGridView2);
-            this.GB_Equipos.Controls.Add(this.textBox1);
-            this.GB_Equipos.Controls.Add(this.textBox2);
-            this.GB_Equipos.Controls.Add(this.button4);
-            this.GB_Equipos.Controls.Add(this.button5);
-            this.GB_Equipos.Controls.Add(this.textBox3);
+            this.GB_Equipos.Controls.Add(this.BT_EliminarEq);
+            this.GB_Equipos.Controls.Add(this.BT_EditarEq);
+            this.GB_Equipos.Controls.Add(this.BT_CompartEq);
+            this.GB_Equipos.Controls.Add(this.TB_ModeloEq);
+            this.GB_Equipos.Controls.Add(this.TB_MarcaEq);
+            this.GB_Equipos.Controls.Add(this.BT_GuardarEq);
+            this.GB_Equipos.Controls.Add(this.TB_NumSerieEq);
             this.GB_Equipos.Controls.Add(this.label1);
             this.GB_Equipos.Controls.Add(this.label2);
             this.GB_Equipos.Controls.Add(this.label3);
@@ -1651,46 +1649,46 @@
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
             // 
-            // Panel_TipoHazEquipo
+            // Panel_TipoHazEq
             // 
-            this.Panel_TipoHazEquipo.Controls.Add(this.radioButton9);
-            this.Panel_TipoHazEquipo.Controls.Add(this.radioButton10);
-            this.Panel_TipoHazEquipo.Enabled = false;
-            this.Panel_TipoHazEquipo.Location = new System.Drawing.Point(105, 175);
-            this.Panel_TipoHazEquipo.Name = "Panel_TipoHazEquipo";
-            this.Panel_TipoHazEquipo.Size = new System.Drawing.Size(174, 19);
-            this.Panel_TipoHazEquipo.TabIndex = 73;
+            this.Panel_TipoHazEq.Controls.Add(this.RB_PulsadoYBarrido);
+            this.Panel_TipoHazEq.Controls.Add(this.RB_Pulsado);
+            this.Panel_TipoHazEq.Enabled = false;
+            this.Panel_TipoHazEq.Location = new System.Drawing.Point(105, 175);
+            this.Panel_TipoHazEq.Name = "Panel_TipoHazEq";
+            this.Panel_TipoHazEq.Size = new System.Drawing.Size(174, 19);
+            this.Panel_TipoHazEq.TabIndex = 73;
             // 
-            // radioButton9
+            // RB_PulsadoYBarrido
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(67, 1);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(107, 17);
-            this.radioButton9.TabIndex = 70;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Pulsado y Barrido";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.RB_PulsadoYBarrido.AutoSize = true;
+            this.RB_PulsadoYBarrido.Location = new System.Drawing.Point(67, 1);
+            this.RB_PulsadoYBarrido.Name = "RB_PulsadoYBarrido";
+            this.RB_PulsadoYBarrido.Size = new System.Drawing.Size(107, 17);
+            this.RB_PulsadoYBarrido.TabIndex = 70;
+            this.RB_PulsadoYBarrido.TabStop = true;
+            this.RB_PulsadoYBarrido.Text = "Pulsado y Barrido";
+            this.RB_PulsadoYBarrido.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // RB_Pulsado
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(1, 1);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(63, 17);
-            this.radioButton10.TabIndex = 69;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Pulsado";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.RB_Pulsado.AutoSize = true;
+            this.RB_Pulsado.Location = new System.Drawing.Point(1, 1);
+            this.RB_Pulsado.Name = "RB_Pulsado";
+            this.RB_Pulsado.Size = new System.Drawing.Size(63, 17);
+            this.RB_Pulsado.TabIndex = 69;
+            this.RB_Pulsado.TabStop = true;
+            this.RB_Pulsado.Text = "Pulsado";
+            this.RB_Pulsado.UseVisualStyleBackColor = true;
             // 
-            // Panel_FuenteEquipo
+            // Panel_FuenteEq
             // 
-            this.Panel_FuenteEquipo.Controls.Add(this.RB_FuenteALE);
-            this.Panel_FuenteEquipo.Controls.Add(this.RB_FuenteCo);
-            this.Panel_FuenteEquipo.Location = new System.Drawing.Point(105, 150);
-            this.Panel_FuenteEquipo.Name = "Panel_FuenteEquipo";
-            this.Panel_FuenteEquipo.Size = new System.Drawing.Size(174, 19);
-            this.Panel_FuenteEquipo.TabIndex = 72;
+            this.Panel_FuenteEq.Controls.Add(this.RB_FuenteALE);
+            this.Panel_FuenteEq.Controls.Add(this.RB_FuenteCo);
+            this.Panel_FuenteEq.Location = new System.Drawing.Point(105, 150);
+            this.Panel_FuenteEq.Name = "Panel_FuenteEq";
+            this.Panel_FuenteEq.Size = new System.Drawing.Size(174, 19);
+            this.Panel_FuenteEq.TabIndex = 72;
             // 
             // RB_FuenteALE
             // 
@@ -1728,29 +1726,29 @@
             // 
             // BT_EqIraCal
             // 
-            this.BT_EqIraCal.Location = new System.Drawing.Point(375, 588);
+            this.BT_EqIraCal.Location = new System.Drawing.Point(672, 584);
             this.BT_EqIraCal.Name = "BT_EqIraCal";
             this.BT_EqIraCal.Size = new System.Drawing.Size(108, 39);
             this.BT_EqIraCal.TabIndex = 66;
             this.BT_EqIraCal.Text = "Seleccionar e ir a Calibración";
             this.BT_EqIraCal.UseVisualStyleBackColor = true;
-            this.BT_EqIraCal.Click += new System.EventHandler(this.BT_EqIraCal_Click);
             // 
-            // button17
+            // BT_PredetEqu
             // 
-            this.button17.Location = new System.Drawing.Point(373, 496);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(110, 23);
-            this.button17.TabIndex = 65;
-            this.button17.Text = "Predeterminado";
-            this.button17.UseVisualStyleBackColor = true;
+            this.BT_PredetEqu.Location = new System.Drawing.Point(670, 492);
+            this.BT_PredetEqu.Name = "BT_PredetEqu";
+            this.BT_PredetEqu.Size = new System.Drawing.Size(110, 23);
+            this.BT_PredetEqu.TabIndex = 65;
+            this.BT_PredetEqu.Text = "Predeterminado";
+            this.BT_PredetEqu.UseVisualStyleBackColor = true;
+            this.BT_PredetEqu.Click += new System.EventHandler(this.BT_PredetEqu_Click);
             // 
-            // textBox44
+            // TB_AliasEq
             // 
-            this.textBox44.Location = new System.Drawing.Point(112, 117);
-            this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(100, 20);
-            this.textBox44.TabIndex = 64;
+            this.TB_AliasEq.Location = new System.Drawing.Point(112, 117);
+            this.TB_AliasEq.Name = "TB_AliasEq";
+            this.TB_AliasEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_AliasEq.TabIndex = 64;
             // 
             // label18
             // 
@@ -1801,6 +1799,24 @@
             this.Panel_EnElecEquipo.Name = "Panel_EnElecEquipo";
             this.Panel_EnElecEquipo.Size = new System.Drawing.Size(378, 231);
             this.Panel_EnElecEquipo.TabIndex = 89;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(150, 87);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(21, 13);
+            this.label76.TabIndex = 114;
+            this.label76.Text = "cm";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(151, 64);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(21, 13);
+            this.label67.TabIndex = 113;
+            this.label67.Text = "cm";
             // 
             // L_EnElecR50dosis
             // 
@@ -2195,79 +2211,65 @@
             this.label5.TabIndex = 60;
             this.label5.Text = "Fuente";
             // 
-            // button1
+            // BT_EliminarEq
             // 
-            this.button1.Location = new System.Drawing.Point(375, 647);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_EliminarEq.Location = new System.Drawing.Point(672, 643);
+            this.BT_EliminarEq.Name = "BT_EliminarEq";
+            this.BT_EliminarEq.Size = new System.Drawing.Size(110, 23);
+            this.BT_EliminarEq.TabIndex = 58;
+            this.BT_EliminarEq.Text = "Eliminar";
+            this.BT_EliminarEq.UseVisualStyleBackColor = true;
+            this.BT_EliminarEq.Click += new System.EventHandler(this.BT_EliminarEq_Click);
             // 
-            // button2
+            // BT_EditarEq
             // 
-            this.button2.Location = new System.Drawing.Point(374, 556);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 23);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BT_EditarEq.Location = new System.Drawing.Point(671, 552);
+            this.BT_EditarEq.Name = "BT_EditarEq";
+            this.BT_EditarEq.Size = new System.Drawing.Size(110, 23);
+            this.BT_EditarEq.TabIndex = 57;
+            this.BT_EditarEq.Text = "Editar";
+            this.BT_EditarEq.UseVisualStyleBackColor = true;
+            this.BT_EditarEq.Click += new System.EventHandler(this.BT_EditarEq_Click);
             // 
-            // button3
+            // BT_CompartEq
             // 
-            this.button3.Location = new System.Drawing.Point(374, 527);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 23);
-            this.button3.TabIndex = 56;
-            this.button3.Text = "Compartir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BT_CompartEq.Location = new System.Drawing.Point(671, 523);
+            this.BT_CompartEq.Name = "BT_CompartEq";
+            this.BT_CompartEq.Size = new System.Drawing.Size(110, 23);
+            this.BT_CompartEq.TabIndex = 56;
+            this.BT_CompartEq.Text = "Compartir";
+            this.BT_CompartEq.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // TB_ModeloEq
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 496);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(343, 176);
-            this.dataGridView2.TabIndex = 55;
+            this.TB_ModeloEq.Location = new System.Drawing.Point(112, 55);
+            this.TB_ModeloEq.Name = "TB_ModeloEq";
+            this.TB_ModeloEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_ModeloEq.TabIndex = 54;
             // 
-            // textBox1
+            // TB_MarcaEq
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 54;
+            this.TB_MarcaEq.Location = new System.Drawing.Point(112, 24);
+            this.TB_MarcaEq.Name = "TB_MarcaEq";
+            this.TB_MarcaEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_MarcaEq.TabIndex = 53;
             // 
-            // textBox2
+            // BT_GuardarEq
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 53;
+            this.BT_GuardarEq.Location = new System.Drawing.Point(346, 19);
+            this.BT_GuardarEq.Name = "BT_GuardarEq";
+            this.BT_GuardarEq.Size = new System.Drawing.Size(119, 23);
+            this.BT_GuardarEq.TabIndex = 52;
+            this.BT_GuardarEq.Text = "Guardar";
+            this.BT_GuardarEq.UseVisualStyleBackColor = true;
+            this.BT_GuardarEq.Click += new System.EventHandler(this.BT_GuardarEq_Click);
             // 
-            // button4
+            // TB_NumSerieEq
             // 
-            this.button4.Location = new System.Drawing.Point(346, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 23);
-            this.button4.TabIndex = 52;
-            this.button4.Text = "Guardar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(346, 58);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(119, 23);
-            this.button5.TabIndex = 51;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(112, 87);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 50;
+            this.TB_NumSerieEq.Location = new System.Drawing.Point(112, 87);
+            this.TB_NumSerieEq.Name = "TB_NumSerieEq";
+            this.TB_NumSerieEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_NumSerieEq.TabIndex = 50;
             // 
             // label1
             // 
@@ -3147,14 +3149,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle7;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3172,14 +3174,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle8;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3209,23 +3211,16 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
-            // label67
+            // DGV_Equipo
             // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(151, 64);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(21, 13);
-            this.label67.TabIndex = 113;
-            this.label67.Text = "cm";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(150, 87);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(21, 13);
-            this.label76.TabIndex = 114;
-            this.label76.Text = "cm";
+            this.DGV_Equipo.AllowUserToAddRows = false;
+            this.DGV_Equipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Equipo.Location = new System.Drawing.Point(15, 495);
+            this.DGV_Equipo.Name = "DGV_Equipo";
+            this.DGV_Equipo.RowHeadersVisible = false;
+            this.DGV_Equipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Equipo.Size = new System.Drawing.Size(643, 171);
+            this.DGV_Equipo.TabIndex = 71;
             // 
             // Form1
             // 
@@ -3284,10 +3279,10 @@
             this.Panel_Equipos.ResumeLayout(false);
             this.GB_Equipos.ResumeLayout(false);
             this.GB_Equipos.PerformLayout();
-            this.Panel_TipoHazEquipo.ResumeLayout(false);
-            this.Panel_TipoHazEquipo.PerformLayout();
-            this.Panel_FuenteEquipo.ResumeLayout(false);
-            this.Panel_FuenteEquipo.PerformLayout();
+            this.Panel_TipoHazEq.ResumeLayout(false);
+            this.Panel_TipoHazEq.PerformLayout();
+            this.Panel_FuenteEq.ResumeLayout(false);
+            this.Panel_FuenteEq.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.Panel_EnElecEquipo.ResumeLayout(false);
@@ -3296,7 +3291,6 @@
             this.Panel_EnFotEquipo.ResumeLayout(false);
             this.Panel_EnFotEquipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnFot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.Panel_SistDos.ResumeLayout(false);
             this.GB_SistDos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SistDos)).EndInit();
@@ -3322,6 +3316,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3365,15 +3360,13 @@
         private System.Windows.Forms.CheckBox CHB_EnElecEquipo;
         private System.Windows.Forms.CheckBox CHB_EnFotEquipo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button BT_EliminarEq;
+        private System.Windows.Forms.Button BT_EditarEq;
+        private System.Windows.Forms.Button BT_CompartEq;
+        private System.Windows.Forms.TextBox TB_ModeloEq;
+        private System.Windows.Forms.TextBox TB_MarcaEq;
+        private System.Windows.Forms.Button BT_GuardarEq;
+        private System.Windows.Forms.TextBox TB_NumSerieEq;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -3431,9 +3424,9 @@
         private System.Windows.Forms.TextBox tbHumedad;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.TextBox textBox44;
+        private System.Windows.Forms.TextBox TB_AliasEq;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button BT_PredetEqu;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button Bt_CalFot;
         private System.Windows.Forms.Button Bt_SistDos;
@@ -3543,10 +3536,10 @@
         private System.Windows.Forms.TextBox textBox37;
         private System.Windows.Forms.TextBox textBox38;
         private System.Windows.Forms.Label LB_TipoHaz;
-        private System.Windows.Forms.Panel Panel_TipoHazEquipo;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.Panel Panel_FuenteEquipo;
+        private System.Windows.Forms.Panel Panel_TipoHazEq;
+        private System.Windows.Forms.RadioButton RB_PulsadoYBarrido;
+        private System.Windows.Forms.RadioButton RB_Pulsado;
+        private System.Windows.Forms.Panel Panel_FuenteEq;
         private System.Windows.Forms.RadioButton RB_FuenteALE;
         private System.Windows.Forms.RadioButton RB_FuenteCo;
         private System.Windows.Forms.Panel Panel_EnFotEquipo;
@@ -3604,6 +3597,7 @@
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.DataGridView DGV_Equipo;
     }
 }
 
