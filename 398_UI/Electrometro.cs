@@ -73,8 +73,9 @@ namespace _398_UI
             NumSerie.Text = aux.NumSerie;
         }
 
-        public static void darFormatoADGV(DataGridView DGV)
+        public static void llenarDGV(DataGridView DGV)
         {
+            DGV.DataSource = lista();
             DGV.Columns[3].Visible = false;
             DGV.Columns[2].Name = "Nº de serie";
         }

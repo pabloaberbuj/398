@@ -23,20 +23,17 @@ namespace _398_UI
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
             //Carga DGV
-            DGV_Cam.DataSource = Camara.lista();
-            DGV_Elec.DataSource = Electrometro.lista();
+            Camara.llenarDGV(DGV_Cam);
+            Electrometro.llenarDGV(DGV_Elec);
             SistemaDosimetrico.llenarDGV(DGV_SistDos);
             Equipo.llenarDGV(DGV_Equipo);
-            Camara.darFormatoADGV(DGV_Cam);
-            Electrometro.darFormatoADGV(DGV_Elec);
-
+            
             //lista de cámaras 398
             this.CB_MarcaCam.DataSource = camaras398.listaDeMarcas();
 
