@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -155,6 +155,7 @@
             this.cbDosimetro = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
+            this.DGV_Equipo = new System.Windows.Forms.DataGridView();
             this.Panel_TipoHazEq = new System.Windows.Forms.Panel();
             this.RB_PulsadoYBarrido = new System.Windows.Forms.RadioButton();
             this.RB_Pulsado = new System.Windows.Forms.RadioButton();
@@ -304,7 +305,6 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.DGV_Equipo = new System.Windows.Forms.DataGridView();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -327,6 +327,7 @@
             this.gCondiciones.SuspendLayout();
             this.Panel_Equipos.SuspendLayout();
             this.GB_Equipos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
             this.Panel_TipoHazEq.SuspendLayout();
             this.Panel_FuenteEq.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -352,7 +353,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -1649,6 +1649,17 @@
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
             // 
+            // DGV_Equipo
+            // 
+            this.DGV_Equipo.AllowUserToAddRows = false;
+            this.DGV_Equipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Equipo.Location = new System.Drawing.Point(15, 495);
+            this.DGV_Equipo.Name = "DGV_Equipo";
+            this.DGV_Equipo.RowHeadersVisible = false;
+            this.DGV_Equipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Equipo.Size = new System.Drawing.Size(643, 171);
+            this.DGV_Equipo.TabIndex = 71;
+            // 
             // Panel_TipoHazEq
             // 
             this.Panel_TipoHazEq.Controls.Add(this.RB_PulsadoYBarrido);
@@ -1665,7 +1676,7 @@
             this.RB_PulsadoYBarrido.Location = new System.Drawing.Point(67, 1);
             this.RB_PulsadoYBarrido.Name = "RB_PulsadoYBarrido";
             this.RB_PulsadoYBarrido.Size = new System.Drawing.Size(107, 17);
-            this.RB_PulsadoYBarrido.TabIndex = 70;
+            this.RB_PulsadoYBarrido.TabIndex = 2;
             this.RB_PulsadoYBarrido.TabStop = true;
             this.RB_PulsadoYBarrido.Text = "Pulsado y Barrido";
             this.RB_PulsadoYBarrido.UseVisualStyleBackColor = true;
@@ -1676,7 +1687,7 @@
             this.RB_Pulsado.Location = new System.Drawing.Point(1, 1);
             this.RB_Pulsado.Name = "RB_Pulsado";
             this.RB_Pulsado.Size = new System.Drawing.Size(63, 17);
-            this.RB_Pulsado.TabIndex = 69;
+            this.RB_Pulsado.TabIndex = 1;
             this.RB_Pulsado.TabStop = true;
             this.RB_Pulsado.Text = "Pulsado";
             this.RB_Pulsado.UseVisualStyleBackColor = true;
@@ -1696,7 +1707,7 @@
             this.RB_FuenteALE.Location = new System.Drawing.Point(67, 1);
             this.RB_FuenteALE.Name = "RB_FuenteALE";
             this.RB_FuenteALE.Size = new System.Drawing.Size(107, 17);
-            this.RB_FuenteALE.TabIndex = 70;
+            this.RB_FuenteALE.TabIndex = 2;
             this.RB_FuenteALE.TabStop = true;
             this.RB_FuenteALE.Text = "Acelerador Lineal";
             this.RB_FuenteALE.UseVisualStyleBackColor = true;
@@ -1708,7 +1719,7 @@
             this.RB_FuenteCo.Location = new System.Drawing.Point(1, 1);
             this.RB_FuenteCo.Name = "RB_FuenteCo";
             this.RB_FuenteCo.Size = new System.Drawing.Size(53, 17);
-            this.RB_FuenteCo.TabIndex = 69;
+            this.RB_FuenteCo.TabIndex = 1;
             this.RB_FuenteCo.TabStop = true;
             this.RB_FuenteCo.Text = "Co-60";
             this.RB_FuenteCo.UseVisualStyleBackColor = true;
@@ -3149,14 +3160,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3174,14 +3185,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3210,17 +3221,6 @@
             this.Panel_Botones.Name = "Panel_Botones";
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
-            // 
-            // DGV_Equipo
-            // 
-            this.DGV_Equipo.AllowUserToAddRows = false;
-            this.DGV_Equipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Equipo.Location = new System.Drawing.Point(15, 495);
-            this.DGV_Equipo.Name = "DGV_Equipo";
-            this.DGV_Equipo.RowHeadersVisible = false;
-            this.DGV_Equipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_Equipo.Size = new System.Drawing.Size(643, 171);
-            this.DGV_Equipo.TabIndex = 71;
             // 
             // Form1
             // 
@@ -3279,6 +3279,7 @@
             this.Panel_Equipos.ResumeLayout(false);
             this.GB_Equipos.ResumeLayout(false);
             this.GB_Equipos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).EndInit();
             this.Panel_TipoHazEq.ResumeLayout(false);
             this.Panel_TipoHazEq.PerformLayout();
             this.Panel_FuenteEq.ResumeLayout(false);
@@ -3316,7 +3317,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).EndInit();
             this.ResumeLayout(false);
 
         }

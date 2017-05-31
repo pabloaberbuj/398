@@ -30,7 +30,6 @@ namespace _398_UI
                 ZRefFot = _zRefFot,
                 PddZrefFot = _pddZrefFot,
                 TmrZrefFot = _tmrZrefFot,
-                EsPredet = false,
             };
         }
 
@@ -78,7 +77,18 @@ namespace _398_UI
             {
                 if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    DGV.Rows.Remove(DGV.SelectedRows[0]);
+
+                    var auxLista = lista(DGV);
+                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)
+                    {
+                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                        auxLista[0].EsPredet = true;
+                    }
+                    else
+                    {
+                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                    }
+                    DGV.DataSource = auxLista;
                 }
             }
         }

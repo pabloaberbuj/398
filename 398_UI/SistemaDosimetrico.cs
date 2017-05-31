@@ -42,7 +42,6 @@ namespace _398_UI
                 HumedadRef = _humedadRef,
                 FechaCalibracion = _fechaCal,
                 LaboCalibracion = _laboCal,
-                EsPredet = false,
             };
         }
         public static BindingList<SistemaDosimetrico> lista()
@@ -75,7 +74,16 @@ namespace _398_UI
             {
                 if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    var auxLista = lista(); auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                    var auxLista = lista();
+                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)
+                    {
+                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                        auxLista[0].EsPredet = true;
+                    }
+                    else
+                    {
+                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                    }
                     IO.writeObjectAsJson(file, auxLista);
                     llenarDGV(DGV);
                 };

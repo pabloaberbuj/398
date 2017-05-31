@@ -261,7 +261,12 @@ namespace _398_UI
 
         private void BT_EditarEq_Click(object sender, EventArgs e)
         {
-            
+            CHB_EnFotEquipo.Checked = true;
+            CHB_EnElecEquipo.Checked = true;
+            DGV_EnFot.Visible = true;
+            DGV_EnElec.Visible = true;
+            Equipo.editar(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
+            editaEquipo = true;
         }
 
         //Energía Fotones
