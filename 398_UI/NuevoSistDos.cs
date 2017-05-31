@@ -89,5 +89,10 @@ namespace _398_UI
 
             Close();
         }
+
+        private void BT_Cancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

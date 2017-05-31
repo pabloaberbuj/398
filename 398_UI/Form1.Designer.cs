@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.CB_CaliEnergias = new System.Windows.Forms.ComboBox();
             this.label64 = new System.Windows.Forms.Label();
             this.BT_RegistroImp = new System.Windows.Forms.Button();
             this.Bt_RegistroVP = new System.Windows.Forms.Button();
@@ -149,10 +149,10 @@
             this.tbPresion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbHumedad = new System.Windows.Forms.TextBox();
-            this.cbEquipo = new System.Windows.Forms.ComboBox();
+            this.CB_CaliEquipos = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.cbDosimetro = new System.Windows.Forms.ComboBox();
+            this.CB_CaliSistDosimetrico = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
             this.DGV_Equipo = new System.Windows.Forms.DataGridView();
@@ -359,7 +359,7 @@
             // 
             this.Panel_CalFot.Controls.Add(this.GB_CondMed);
             this.Panel_CalFot.Controls.Add(this.comboBox4);
-            this.Panel_CalFot.Controls.Add(this.comboBox3);
+            this.Panel_CalFot.Controls.Add(this.CB_CaliEnergias);
             this.Panel_CalFot.Controls.Add(this.label64);
             this.Panel_CalFot.Controls.Add(this.BT_RegistroImp);
             this.Panel_CalFot.Controls.Add(this.Bt_RegistroVP);
@@ -377,10 +377,10 @@
             this.Panel_CalFot.Controls.Add(this.btnGuardar);
             this.Panel_CalFot.Controls.Add(this.btnCancel);
             this.Panel_CalFot.Controls.Add(this.gCondiciones);
-            this.Panel_CalFot.Controls.Add(this.cbEquipo);
+            this.Panel_CalFot.Controls.Add(this.CB_CaliEquipos);
             this.Panel_CalFot.Controls.Add(this.label16);
             this.Panel_CalFot.Controls.Add(this.label9);
-            this.Panel_CalFot.Controls.Add(this.cbDosimetro);
+            this.Panel_CalFot.Controls.Add(this.CB_CaliSistDosimetrico);
             this.Panel_CalFot.Location = new System.Drawing.Point(0, 0);
             this.Panel_CalFot.Name = "Panel_CalFot";
             this.Panel_CalFot.Size = new System.Drawing.Size(800, 700);
@@ -491,13 +491,14 @@
             this.comboBox4.Size = new System.Drawing.Size(159, 21);
             this.comboBox4.TabIndex = 67;
             // 
-            // comboBox3
+            // CB_CaliEnergias
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(204, 63);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(54, 21);
-            this.comboBox3.TabIndex = 66;
+            this.CB_CaliEnergias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_CaliEnergias.FormattingEnabled = true;
+            this.CB_CaliEnergias.Location = new System.Drawing.Point(204, 63);
+            this.CB_CaliEnergias.Name = "CB_CaliEnergias";
+            this.CB_CaliEnergias.Size = new System.Drawing.Size(54, 21);
+            this.CB_CaliEnergias.TabIndex = 66;
             // 
             // label64
             // 
@@ -1577,13 +1578,15 @@
             this.tbHumedad.Size = new System.Drawing.Size(74, 20);
             this.tbHumedad.TabIndex = 36;
             // 
-            // cbEquipo
+            // CB_CaliEquipos
             // 
-            this.cbEquipo.FormattingEnabled = true;
-            this.cbEquipo.Location = new System.Drawing.Point(27, 38);
-            this.cbEquipo.Name = "cbEquipo";
-            this.cbEquipo.Size = new System.Drawing.Size(231, 21);
-            this.cbEquipo.TabIndex = 42;
+            this.CB_CaliEquipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_CaliEquipos.FormattingEnabled = true;
+            this.CB_CaliEquipos.Location = new System.Drawing.Point(27, 38);
+            this.CB_CaliEquipos.Name = "CB_CaliEquipos";
+            this.CB_CaliEquipos.Size = new System.Drawing.Size(231, 21);
+            this.CB_CaliEquipos.TabIndex = 42;
+            this.CB_CaliEquipos.SelectedIndexChanged += new System.EventHandler(this.CB_CaliEquipos_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -1603,13 +1606,14 @@
             this.label9.TabIndex = 40;
             this.label9.Text = "Equipo";
             // 
-            // cbDosimetro
+            // CB_CaliSistDosimetrico
             // 
-            this.cbDosimetro.FormattingEnabled = true;
-            this.cbDosimetro.Location = new System.Drawing.Point(27, 130);
-            this.cbDosimetro.Name = "cbDosimetro";
-            this.cbDosimetro.Size = new System.Drawing.Size(231, 21);
-            this.cbDosimetro.TabIndex = 39;
+            this.CB_CaliSistDosimetrico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_CaliSistDosimetrico.FormattingEnabled = true;
+            this.CB_CaliSistDosimetrico.Location = new System.Drawing.Point(27, 130);
+            this.CB_CaliSistDosimetrico.Name = "CB_CaliSistDosimetrico";
+            this.CB_CaliSistDosimetrico.Size = new System.Drawing.Size(231, 21);
+            this.CB_CaliSistDosimetrico.TabIndex = 39;
             // 
             // Panel_Equipos
             // 
@@ -1668,7 +1672,7 @@
             this.Panel_TipoHazEq.Location = new System.Drawing.Point(105, 175);
             this.Panel_TipoHazEq.Name = "Panel_TipoHazEq";
             this.Panel_TipoHazEq.Size = new System.Drawing.Size(174, 19);
-            this.Panel_TipoHazEq.TabIndex = 73;
+            this.Panel_TipoHazEq.TabIndex = 6;
             // 
             // RB_PulsadoYBarrido
             // 
@@ -1699,7 +1703,7 @@
             this.Panel_FuenteEq.Location = new System.Drawing.Point(105, 150);
             this.Panel_FuenteEq.Name = "Panel_FuenteEq";
             this.Panel_FuenteEq.Size = new System.Drawing.Size(174, 19);
-            this.Panel_FuenteEq.TabIndex = 72;
+            this.Panel_FuenteEq.TabIndex = 5;
             // 
             // RB_FuenteALE
             // 
@@ -1740,7 +1744,7 @@
             this.BT_EqIraCal.Location = new System.Drawing.Point(672, 584);
             this.BT_EqIraCal.Name = "BT_EqIraCal";
             this.BT_EqIraCal.Size = new System.Drawing.Size(108, 39);
-            this.BT_EqIraCal.TabIndex = 66;
+            this.BT_EqIraCal.TabIndex = 28;
             this.BT_EqIraCal.Text = "Seleccionar e ir a Calibración";
             this.BT_EqIraCal.UseVisualStyleBackColor = true;
             // 
@@ -1749,7 +1753,7 @@
             this.BT_PredetEqu.Location = new System.Drawing.Point(670, 492);
             this.BT_PredetEqu.Name = "BT_PredetEqu";
             this.BT_PredetEqu.Size = new System.Drawing.Size(110, 23);
-            this.BT_PredetEqu.TabIndex = 65;
+            this.BT_PredetEqu.TabIndex = 25;
             this.BT_PredetEqu.Text = "Predeterminado";
             this.BT_PredetEqu.UseVisualStyleBackColor = true;
             this.BT_PredetEqu.Click += new System.EventHandler(this.BT_PredetEqu_Click);
@@ -1759,7 +1763,7 @@
             this.TB_AliasEq.Location = new System.Drawing.Point(112, 117);
             this.TB_AliasEq.Name = "TB_AliasEq";
             this.TB_AliasEq.Size = new System.Drawing.Size(100, 20);
-            this.TB_AliasEq.TabIndex = 64;
+            this.TB_AliasEq.TabIndex = 4;
             // 
             // label18
             // 
@@ -1891,7 +1895,7 @@
             this.TB_EnElecPDDZref.Location = new System.Drawing.Point(84, 109);
             this.TB_EnElecPDDZref.Name = "TB_EnElecPDDZref";
             this.TB_EnElecPDDZref.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnElecPDDZref.TabIndex = 104;
+            this.TB_EnElecPDDZref.TabIndex = 16;
             // 
             // label66
             // 
@@ -1907,7 +1911,7 @@
             this.BT_EnElecEditar.Location = new System.Drawing.Point(234, 145);
             this.BT_EnElecEditar.Name = "BT_EnElecEditar";
             this.BT_EnElecEditar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecEditar.TabIndex = 106;
+            this.BT_EnElecEditar.TabIndex = 22;
             this.BT_EnElecEditar.Text = "Editar";
             this.BT_EnElecEditar.UseVisualStyleBackColor = true;
             this.BT_EnElecEditar.Click += new System.EventHandler(this.BT_EnElecEditar_Click);
@@ -1935,7 +1939,7 @@
             this.TB_EnElecR50ion.Location = new System.Drawing.Point(86, 36);
             this.TB_EnElecR50ion.Name = "TB_EnElecR50ion";
             this.TB_EnElecR50ion.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnElecR50ion.TabIndex = 100;
+            this.TB_EnElecR50ion.TabIndex = 15;
             this.TB_EnElecR50ion.Leave += new System.EventHandler(this.TB_EnElecR50ion_Leave);
             // 
             // TB_EnElecEn
@@ -1943,7 +1947,7 @@
             this.TB_EnElecEn.Location = new System.Drawing.Point(86, 5);
             this.TB_EnElecEn.Name = "TB_EnElecEn";
             this.TB_EnElecEn.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnElecEn.TabIndex = 99;
+            this.TB_EnElecEn.TabIndex = 14;
             this.TB_EnElecEn.Leave += new System.EventHandler(this.TB_EnElecEn_Leave);
             // 
             // label70
@@ -1978,7 +1982,7 @@
             this.BT_EnElecPredet.Location = new System.Drawing.Point(233, 202);
             this.BT_EnElecPredet.Name = "BT_EnElecPredet";
             this.BT_EnElecPredet.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecPredet.TabIndex = 95;
+            this.BT_EnElecPredet.TabIndex = 24;
             this.BT_EnElecPredet.Text = "Predeterminado";
             this.BT_EnElecPredet.UseVisualStyleBackColor = true;
             this.BT_EnElecPredet.Click += new System.EventHandler(this.BT_EnElecPredet_Click);
@@ -1988,7 +1992,7 @@
             this.BT_EnElecEliminar.Location = new System.Drawing.Point(234, 173);
             this.BT_EnElecEliminar.Name = "BT_EnElecEliminar";
             this.BT_EnElecEliminar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecEliminar.TabIndex = 94;
+            this.BT_EnElecEliminar.TabIndex = 23;
             this.BT_EnElecEliminar.Text = "Eliminar";
             this.BT_EnElecEliminar.UseVisualStyleBackColor = true;
             this.BT_EnElecEliminar.Click += new System.EventHandler(this.BT_EnElecEliminar_Click);
@@ -1999,7 +2003,7 @@
             this.BT_EnElecGuardar.Location = new System.Drawing.Point(75, 146);
             this.BT_EnElecGuardar.Name = "BT_EnElecGuardar";
             this.BT_EnElecGuardar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnElecGuardar.TabIndex = 93;
+            this.BT_EnElecGuardar.TabIndex = 17;
             this.BT_EnElecGuardar.Text = "Guardar";
             this.BT_EnElecGuardar.UseVisualStyleBackColor = true;
             this.BT_EnElecGuardar.Click += new System.EventHandler(this.BT_EnElecGuardar_Click);
@@ -2060,7 +2064,7 @@
             this.TB_EnFotTMR.Location = new System.Drawing.Point(77, 96);
             this.TB_EnFotTMR.Name = "TB_EnFotTMR";
             this.TB_EnFotTMR.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnFotTMR.TabIndex = 86;
+            this.TB_EnFotTMR.TabIndex = 12;
             this.TB_EnFotTMR.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // label72
@@ -2077,7 +2081,7 @@
             this.BT_EnFotEditar.Location = new System.Drawing.Point(225, 144);
             this.BT_EnFotEditar.Name = "BT_EnFotEditar";
             this.BT_EnFotEditar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnFotEditar.TabIndex = 88;
+            this.BT_EnFotEditar.TabIndex = 19;
             this.BT_EnFotEditar.Text = "Editar";
             this.BT_EnFotEditar.UseVisualStyleBackColor = true;
             this.BT_EnFotEditar.Click += new System.EventHandler(this.BT_EnFotEditar_Click);
@@ -2114,7 +2118,7 @@
             this.TB_EnFotZref.Location = new System.Drawing.Point(77, 35);
             this.TB_EnFotZref.Name = "TB_EnFotZref";
             this.TB_EnFotZref.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnFotZref.TabIndex = 84;
+            this.TB_EnFotZref.TabIndex = 10;
             this.TB_EnFotZref.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // TB_EnFotEn
@@ -2122,7 +2126,7 @@
             this.TB_EnFotEn.Location = new System.Drawing.Point(77, 4);
             this.TB_EnFotEn.Name = "TB_EnFotEn";
             this.TB_EnFotEn.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnFotEn.TabIndex = 83;
+            this.TB_EnFotEn.TabIndex = 9;
             this.TB_EnFotEn.Leave += new System.EventHandler(this.TB_EnFotEnLeave);
             // 
             // TB_EnFotPDD
@@ -2130,7 +2134,7 @@
             this.TB_EnFotPDD.Location = new System.Drawing.Point(77, 67);
             this.TB_EnFotPDD.Name = "TB_EnFotPDD";
             this.TB_EnFotPDD.Size = new System.Drawing.Size(59, 20);
-            this.TB_EnFotPDD.TabIndex = 85;
+            this.TB_EnFotPDD.TabIndex = 11;
             this.TB_EnFotPDD.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // label28
@@ -2165,7 +2169,7 @@
             this.BT_EnFotPredet.Location = new System.Drawing.Point(224, 201);
             this.BT_EnFotPredet.Name = "BT_EnFotPredet";
             this.BT_EnFotPredet.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnFotPredet.TabIndex = 78;
+            this.BT_EnFotPredet.TabIndex = 21;
             this.BT_EnFotPredet.Text = "Predeterminado";
             this.BT_EnFotPredet.UseVisualStyleBackColor = true;
             this.BT_EnFotPredet.Click += new System.EventHandler(this.BT_EnFotPredet_Click);
@@ -2175,7 +2179,7 @@
             this.BT_EnFotEliminar.Location = new System.Drawing.Point(225, 172);
             this.BT_EnFotEliminar.Name = "BT_EnFotEliminar";
             this.BT_EnFotEliminar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnFotEliminar.TabIndex = 77;
+            this.BT_EnFotEliminar.TabIndex = 20;
             this.BT_EnFotEliminar.Text = "Eliminar";
             this.BT_EnFotEliminar.UseVisualStyleBackColor = true;
             this.BT_EnFotEliminar.Click += new System.EventHandler(this.BT_EnFotEliminar_Click);
@@ -2186,7 +2190,7 @@
             this.BT_EnFotGuardar.Location = new System.Drawing.Point(66, 140);
             this.BT_EnFotGuardar.Name = "BT_EnFotGuardar";
             this.BT_EnFotGuardar.Size = new System.Drawing.Size(97, 23);
-            this.BT_EnFotGuardar.TabIndex = 76;
+            this.BT_EnFotGuardar.TabIndex = 13;
             this.BT_EnFotGuardar.Text = "Guardar";
             this.BT_EnFotGuardar.UseVisualStyleBackColor = true;
             this.BT_EnFotGuardar.Click += new System.EventHandler(this.BT_EnFotGuardar_Click);
@@ -2197,7 +2201,7 @@
             this.CHB_EnElecEquipo.Location = new System.Drawing.Point(395, 17);
             this.CHB_EnElecEquipo.Name = "CHB_EnElecEquipo";
             this.CHB_EnElecEquipo.Size = new System.Drawing.Size(76, 17);
-            this.CHB_EnElecEquipo.TabIndex = 44;
+            this.CHB_EnElecEquipo.TabIndex = 8;
             this.CHB_EnElecEquipo.Text = "Electrones";
             this.CHB_EnElecEquipo.UseVisualStyleBackColor = true;
             this.CHB_EnElecEquipo.CheckedChanged += new System.EventHandler(this.CHB_EnElecEquipo_CheckedChanged);
@@ -2208,7 +2212,7 @@
             this.CHB_EnFotEquipo.Location = new System.Drawing.Point(6, 17);
             this.CHB_EnFotEquipo.Name = "CHB_EnFotEquipo";
             this.CHB_EnFotEquipo.Size = new System.Drawing.Size(64, 17);
-            this.CHB_EnFotEquipo.TabIndex = 43;
+            this.CHB_EnFotEquipo.TabIndex = 7;
             this.CHB_EnFotEquipo.Text = "Fotones";
             this.CHB_EnFotEquipo.UseVisualStyleBackColor = true;
             this.CHB_EnFotEquipo.CheckedChanged += new System.EventHandler(this.CHB_EnFotEquipo_CheckedChanged);
@@ -2227,7 +2231,7 @@
             this.BT_EliminarEq.Location = new System.Drawing.Point(672, 643);
             this.BT_EliminarEq.Name = "BT_EliminarEq";
             this.BT_EliminarEq.Size = new System.Drawing.Size(110, 23);
-            this.BT_EliminarEq.TabIndex = 58;
+            this.BT_EliminarEq.TabIndex = 29;
             this.BT_EliminarEq.Text = "Eliminar";
             this.BT_EliminarEq.UseVisualStyleBackColor = true;
             this.BT_EliminarEq.Click += new System.EventHandler(this.BT_EliminarEq_Click);
@@ -2237,7 +2241,7 @@
             this.BT_EditarEq.Location = new System.Drawing.Point(671, 552);
             this.BT_EditarEq.Name = "BT_EditarEq";
             this.BT_EditarEq.Size = new System.Drawing.Size(110, 23);
-            this.BT_EditarEq.TabIndex = 57;
+            this.BT_EditarEq.TabIndex = 27;
             this.BT_EditarEq.Text = "Editar";
             this.BT_EditarEq.UseVisualStyleBackColor = true;
             this.BT_EditarEq.Click += new System.EventHandler(this.BT_EditarEq_Click);
@@ -2247,7 +2251,7 @@
             this.BT_CompartEq.Location = new System.Drawing.Point(671, 523);
             this.BT_CompartEq.Name = "BT_CompartEq";
             this.BT_CompartEq.Size = new System.Drawing.Size(110, 23);
-            this.BT_CompartEq.TabIndex = 56;
+            this.BT_CompartEq.TabIndex = 26;
             this.BT_CompartEq.Text = "Compartir";
             this.BT_CompartEq.UseVisualStyleBackColor = true;
             // 
@@ -2256,21 +2260,21 @@
             this.TB_ModeloEq.Location = new System.Drawing.Point(112, 55);
             this.TB_ModeloEq.Name = "TB_ModeloEq";
             this.TB_ModeloEq.Size = new System.Drawing.Size(100, 20);
-            this.TB_ModeloEq.TabIndex = 54;
+            this.TB_ModeloEq.TabIndex = 2;
             // 
             // TB_MarcaEq
             // 
             this.TB_MarcaEq.Location = new System.Drawing.Point(112, 24);
             this.TB_MarcaEq.Name = "TB_MarcaEq";
             this.TB_MarcaEq.Size = new System.Drawing.Size(100, 20);
-            this.TB_MarcaEq.TabIndex = 53;
+            this.TB_MarcaEq.TabIndex = 1;
             // 
             // BT_GuardarEq
             // 
             this.BT_GuardarEq.Location = new System.Drawing.Point(346, 19);
             this.BT_GuardarEq.Name = "BT_GuardarEq";
             this.BT_GuardarEq.Size = new System.Drawing.Size(119, 23);
-            this.BT_GuardarEq.TabIndex = 52;
+            this.BT_GuardarEq.TabIndex = 18;
             this.BT_GuardarEq.Text = "Guardar";
             this.BT_GuardarEq.UseVisualStyleBackColor = true;
             this.BT_GuardarEq.Click += new System.EventHandler(this.BT_GuardarEq_Click);
@@ -2280,7 +2284,7 @@
             this.TB_NumSerieEq.Location = new System.Drawing.Point(112, 87);
             this.TB_NumSerieEq.Name = "TB_NumSerieEq";
             this.TB_NumSerieEq.Size = new System.Drawing.Size(100, 20);
-            this.TB_NumSerieEq.TabIndex = 50;
+            this.TB_NumSerieEq.TabIndex = 3;
             // 
             // label1
             // 
@@ -2340,7 +2344,7 @@
             this.BT_SistDosIraCal.Location = new System.Drawing.Point(620, 176);
             this.BT_SistDosIraCal.Name = "BT_SistDosIraCal";
             this.BT_SistDosIraCal.Size = new System.Drawing.Size(157, 44);
-            this.BT_SistDosIraCal.TabIndex = 29;
+            this.BT_SistDosIraCal.TabIndex = 18;
             this.BT_SistDosIraCal.Text = "Seleccionar e ir a Calibración";
             this.BT_SistDosIraCal.UseVisualStyleBackColor = true;
             this.BT_SistDosIraCal.Click += new System.EventHandler(this.BT_SistDosIraCal_Click);
@@ -2350,7 +2354,7 @@
             this.BT_PredSistDos.Location = new System.Drawing.Point(619, 141);
             this.BT_PredSistDos.Name = "BT_PredSistDos";
             this.BT_PredSistDos.Size = new System.Drawing.Size(157, 23);
-            this.BT_PredSistDos.TabIndex = 28;
+            this.BT_PredSistDos.TabIndex = 17;
             this.BT_PredSistDos.Text = "Elegir como predeterminado";
             this.BT_PredSistDos.UseVisualStyleBackColor = true;
             this.BT_PredSistDos.Click += new System.EventHandler(this.BT_PredSistDos_Click);
@@ -2360,7 +2364,7 @@
             this.BT_EditarSistDos.Location = new System.Drawing.Point(619, 112);
             this.BT_EditarSistDos.Name = "BT_EditarSistDos";
             this.BT_EditarSistDos.Size = new System.Drawing.Size(157, 23);
-            this.BT_EditarSistDos.TabIndex = 27;
+            this.BT_EditarSistDos.TabIndex = 16;
             this.BT_EditarSistDos.Text = "Editar";
             this.BT_EditarSistDos.UseVisualStyleBackColor = true;
             this.BT_EditarSistDos.Click += new System.EventHandler(this.BT_EditarSistDos_Click);
@@ -2370,7 +2374,7 @@
             this.BT_CompartirSistDos.Location = new System.Drawing.Point(619, 83);
             this.BT_CompartirSistDos.Name = "BT_CompartirSistDos";
             this.BT_CompartirSistDos.Size = new System.Drawing.Size(157, 23);
-            this.BT_CompartirSistDos.TabIndex = 17;
+            this.BT_CompartirSistDos.TabIndex = 15;
             this.BT_CompartirSistDos.Text = "Compartir";
             this.BT_CompartirSistDos.UseVisualStyleBackColor = true;
             // 
@@ -2379,7 +2383,7 @@
             this.BT_EliminarSistDos.Location = new System.Drawing.Point(619, 230);
             this.BT_EliminarSistDos.Name = "BT_EliminarSistDos";
             this.BT_EliminarSistDos.Size = new System.Drawing.Size(157, 23);
-            this.BT_EliminarSistDos.TabIndex = 16;
+            this.BT_EliminarSistDos.TabIndex = 19;
             this.BT_EliminarSistDos.Text = "Eliminar";
             this.BT_EliminarSistDos.UseVisualStyleBackColor = true;
             this.BT_EliminarSistDos.Click += new System.EventHandler(this.BT_EliminarSistDos_Click);
@@ -2429,21 +2433,21 @@
             this.TB_ModeloElec.Location = new System.Drawing.Point(121, 64);
             this.TB_ModeloElec.Name = "TB_ModeloElec";
             this.TB_ModeloElec.Size = new System.Drawing.Size(100, 20);
-            this.TB_ModeloElec.TabIndex = 26;
+            this.TB_ModeloElec.TabIndex = 8;
             // 
             // TB_MarcaElec
             // 
             this.TB_MarcaElec.Location = new System.Drawing.Point(121, 33);
             this.TB_MarcaElec.Name = "TB_MarcaElec";
             this.TB_MarcaElec.Size = new System.Drawing.Size(100, 20);
-            this.TB_MarcaElec.TabIndex = 25;
+            this.TB_MarcaElec.TabIndex = 7;
             // 
             // BT_EliminarElec
             // 
             this.BT_EliminarElec.Location = new System.Drawing.Point(280, 315);
             this.BT_EliminarElec.Name = "BT_EliminarElec";
             this.BT_EliminarElec.Size = new System.Drawing.Size(96, 23);
-            this.BT_EliminarElec.TabIndex = 24;
+            this.BT_EliminarElec.TabIndex = 12;
             this.BT_EliminarElec.Text = "Eliminar";
             this.BT_EliminarElec.UseVisualStyleBackColor = true;
             this.BT_EliminarElec.Click += new System.EventHandler(this.BT_EliminarElec_Click);
@@ -2453,7 +2457,7 @@
             this.BT_EditarElec.Location = new System.Drawing.Point(148, 315);
             this.BT_EditarElec.Name = "BT_EditarElec";
             this.BT_EditarElec.Size = new System.Drawing.Size(96, 23);
-            this.BT_EditarElec.TabIndex = 23;
+            this.BT_EditarElec.TabIndex = 11;
             this.BT_EditarElec.Text = "Editar";
             this.BT_EditarElec.UseVisualStyleBackColor = true;
             this.BT_EditarElec.Click += new System.EventHandler(this.BT_EditarElec_Click);
@@ -2463,7 +2467,7 @@
             this.BT_GuardarElec.Location = new System.Drawing.Point(257, 30);
             this.BT_GuardarElec.Name = "BT_GuardarElec";
             this.BT_GuardarElec.Size = new System.Drawing.Size(119, 23);
-            this.BT_GuardarElec.TabIndex = 21;
+            this.BT_GuardarElec.TabIndex = 10;
             this.BT_GuardarElec.Text = "Guardar";
             this.BT_GuardarElec.UseVisualStyleBackColor = true;
             this.BT_GuardarElec.Click += new System.EventHandler(this.BT_GuardarElec_Click);
@@ -2484,7 +2488,7 @@
             this.TB_SNElec.Location = new System.Drawing.Point(121, 96);
             this.TB_SNElec.Name = "TB_SNElec";
             this.TB_SNElec.Size = new System.Drawing.Size(100, 20);
-            this.TB_SNElec.TabIndex = 16;
+            this.TB_SNElec.TabIndex = 9;
             // 
             // LB_SNElec
             // 
@@ -2537,7 +2541,7 @@
             this.BT_EliminarCam.Location = new System.Drawing.Point(275, 315);
             this.BT_EliminarCam.Name = "BT_EliminarCam";
             this.BT_EliminarCam.Size = new System.Drawing.Size(96, 23);
-            this.BT_EliminarCam.TabIndex = 12;
+            this.BT_EliminarCam.TabIndex = 6;
             this.BT_EliminarCam.Text = "Eliminar";
             this.BT_EliminarCam.UseVisualStyleBackColor = true;
             this.BT_EliminarCam.Click += new System.EventHandler(this.BT_EliminarCam_Click);
@@ -2547,7 +2551,7 @@
             this.BT_EditarCam.Location = new System.Drawing.Point(143, 315);
             this.BT_EditarCam.Name = "BT_EditarCam";
             this.BT_EditarCam.Size = new System.Drawing.Size(96, 23);
-            this.BT_EditarCam.TabIndex = 11;
+            this.BT_EditarCam.TabIndex = 5;
             this.BT_EditarCam.Text = "Editar";
             this.BT_EditarCam.UseVisualStyleBackColor = true;
             this.BT_EditarCam.Click += new System.EventHandler(this.BT_EditarCam_Click);
@@ -2557,7 +2561,7 @@
             this.BT_GuardarCam.Location = new System.Drawing.Point(252, 30);
             this.BT_GuardarCam.Name = "BT_GuardarCam";
             this.BT_GuardarCam.Size = new System.Drawing.Size(119, 23);
-            this.BT_GuardarCam.TabIndex = 9;
+            this.BT_GuardarCam.TabIndex = 4;
             this.BT_GuardarCam.Text = "Guardar";
             this.BT_GuardarCam.UseVisualStyleBackColor = true;
             this.BT_GuardarCam.Click += new System.EventHandler(this.BT_GuardarCam_Click);
@@ -2580,7 +2584,7 @@
             this.CB_ModCam.Location = new System.Drawing.Point(116, 63);
             this.CB_ModCam.Name = "CB_ModCam";
             this.CB_ModCam.Size = new System.Drawing.Size(100, 21);
-            this.CB_ModCam.TabIndex = 6;
+            this.CB_ModCam.TabIndex = 2;
             // 
             // CB_MarcaCam
             // 
@@ -2589,14 +2593,14 @@
             this.CB_MarcaCam.Location = new System.Drawing.Point(116, 29);
             this.CB_MarcaCam.Name = "CB_MarcaCam";
             this.CB_MarcaCam.Size = new System.Drawing.Size(100, 21);
-            this.CB_MarcaCam.TabIndex = 5;
+            this.CB_MarcaCam.TabIndex = 1;
             // 
             // TB_SNCam
             // 
             this.TB_SNCam.Location = new System.Drawing.Point(116, 95);
             this.TB_SNCam.Name = "TB_SNCam";
             this.TB_SNCam.Size = new System.Drawing.Size(100, 20);
-            this.TB_SNCam.TabIndex = 4;
+            this.TB_SNCam.TabIndex = 3;
             // 
             // LB_SNCam
             // 
@@ -3160,14 +3164,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3185,14 +3189,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3227,11 +3231,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 692);
-            this.Controls.Add(this.Panel_Equipos);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_AnalizarReg);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -3372,10 +3376,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel Panel_Inicio;
         private System.Windows.Forms.GroupBox gCondiciones;
-        private System.Windows.Forms.ComboBox cbEquipo;
+        private System.Windows.Forms.ComboBox CB_CaliEquipos;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbDosimetro;
+        private System.Windows.Forms.ComboBox CB_CaliSistDosimetrico;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox CHB_NoUsaKpol;
         private System.Windows.Forms.CheckBox CHB_UsaKpolLB;
@@ -3483,7 +3487,7 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox CB_CaliEnergias;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Button Bt_CalElec;
         private System.Windows.Forms.ComboBox comboBox4;

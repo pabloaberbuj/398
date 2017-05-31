@@ -112,6 +112,7 @@
             this.CB_Camara.Name = "CB_Camara";
             this.CB_Camara.Size = new System.Drawing.Size(173, 21);
             this.CB_Camara.TabIndex = 1;
+            this.CB_Camara.SelectedValueChanged += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
             this.CB_Camara.Leave += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
             // 
             // CB_Electrometro
@@ -122,6 +123,7 @@
             this.CB_Electrometro.Name = "CB_Electrometro";
             this.CB_Electrometro.Size = new System.Drawing.Size(173, 21);
             this.CB_Electrometro.TabIndex = 2;
+            this.CB_Electrometro.SelectedValueChanged += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
             this.CB_Electrometro.Leave += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
             // 
             // TB_FCal
@@ -272,6 +274,7 @@
             this.BT_Cancelar.TabIndex = 13;
             this.BT_Cancelar.Text = "Cancelar";
             this.BT_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_Cancelar.Click += new System.EventHandler(this.BT_Cancelar_Click);
             // 
             // label1
             // 

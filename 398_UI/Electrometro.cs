@@ -50,6 +50,7 @@ namespace _398_UI
                 var auxLista = lista();
                 auxLista.Add(_nuevo);
                 IO.writeObjectAsJson(file, auxLista);
+                llenarDGV(DGV);
             }
         }
 

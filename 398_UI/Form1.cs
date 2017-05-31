@@ -40,6 +40,9 @@ namespace _398_UI
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
+            CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
+            CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
+            
             
             
         }
@@ -55,12 +58,10 @@ namespace _398_UI
         {
             panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
         }
-
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
             panel = TraerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
         }
-
         private void Bt_Equipos_Click(object sender, EventArgs e)
         {
             panel = TraerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
@@ -100,6 +101,7 @@ namespace _398_UI
             BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
         }
         #endregion
+
 
         #region Cali Fotones Promedios
         private void Prom_Lref(object sender, EventArgs e)
@@ -144,6 +146,12 @@ namespace _398_UI
         #endregion
 
         #region Cali Fotones UI
+
+        private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
+        }
+
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_UsarKqq0LB.Checked == true)
@@ -180,10 +188,11 @@ namespace _398_UI
         }
         #endregion
 
-        #region Equipos
+
+        #region Equipos UI
 
 
-        //UI
+        
         private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnFotEquipo.Checked == true)
@@ -214,9 +223,10 @@ namespace _398_UI
             { Panel_TipoHazEq.Enabled = true; LB_TipoHaz.Enabled = true; }
 
         }
-
-        //Equipo
-
+        #endregion
+        
+        #region Equipos EquipoBotones
+        
         private void BT_GuardarEq_Click(object sender, EventArgs e)
         {
             if (editaEquipo == true)
@@ -268,9 +278,10 @@ namespace _398_UI
             Equipo.editar(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
             editaEquipo = true;
         }
-
-        //Energía Fotones
-
+        #endregion
+        
+        #region Equipos EnergiaFotonesBotones
+        
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Visible = true;
@@ -307,10 +318,9 @@ namespace _398_UI
         {
             MetodosCalculos.EsNumero((TextBox)sender);
         }
-
-
-
-        //Energía Electrones
+        #endregion
+        
+        #region Equipos EnergiaElectronesBotones
 
         private void BT_EnElecGuardar_Click(object sender, EventArgs e)
         {
@@ -355,13 +365,14 @@ namespace _398_UI
             L_EnElecZref.Visible = true;
         }
 
-
-
         #endregion
 
-        #region Sist Dosimetrico Botones
 
-        //Camara
+        #region SistDosimetricos UI
+
+        #endregion
+        
+        #region SistDosimetricos CamaraBotones
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
             Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text), editaCam, DGV_Cam);
@@ -378,7 +389,9 @@ namespace _398_UI
             editaCam = true;
         }
 
-        //Electrometro
+        #endregion
+        
+        #region SistDosimetrico ElectrometroBotones
         private void BT_GuardarElec_Click(object sender, EventArgs e)
         {
             Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text),editaElec,DGV_Elec);
@@ -395,10 +408,10 @@ namespace _398_UI
             Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
             editaElec = true;
         }
+        #endregion
 
-
-        //Sistema Dosimétrico
-
+        #region SistDosimetricos SistDosimetricoBotones
+        
         private void BT_NuevSistDos_Click(object sender, EventArgs e)
         {
             NuevoSistDos nsd = new NuevoSistDos(false,0);
@@ -428,6 +441,7 @@ namespace _398_UI
 
         #endregion
 
+
         #region Métodos
         public static void LimpiarRegistro(Panel panel)
         {
@@ -456,7 +470,6 @@ namespace _398_UI
         }
         public static void ColorBoton(Button boton, Panel panelbotones)
         {
-            
             {
                 foreach (Button bt in panelbotones.Controls)
                 {
@@ -468,15 +481,9 @@ namespace _398_UI
 
 
 
-
-
-
-
         #endregion
 
-
-
-
+        
     }
 }
 
