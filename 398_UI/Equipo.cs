@@ -61,8 +61,11 @@ namespace _398_UI
             var auxLista = lista();
             if (edita)
             {
+                bool auxPredet = auxLista[indice].EsPredet;
                 auxLista.RemoveAt(indice);
                 auxLista.Insert(indice, _nuevo);
+                auxLista[indice].EsPredet = auxPredet;
+                IO.writeObjectAsJson(file, auxLista);
             }
             else
             {
@@ -83,7 +86,7 @@ namespace _398_UI
                 if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     var auxLista = lista();
-                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount>1)
+                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)
                     {
                         auxLista.RemoveAt(DGV.SelectedRows[0].Index);
                         auxLista[0].EsPredet = true;

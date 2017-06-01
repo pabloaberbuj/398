@@ -67,11 +67,6 @@ namespace _398_UI
 
         private void BT_Guardar_Click(object sender, EventArgs e)
         {
-            /*if (editaSD == true)
-            {
-                var auxLista = SistemaDosimetrico.lista(); auxLista.RemoveAt(indice);
-                IO.writeObjectAsJson(SistemaDosimetrico.file,auxLista);
-            }*/
             int auxSignoTension;
             string auxFecha = DTP_FechaCal.Value.ToShortDateString();
             if (CB_Tension.Text == "+") { auxSignoTension = 1; }
@@ -86,6 +81,7 @@ namespace _398_UI
                 Convert.ToDouble(TB_Humedad.Text),
                 auxFecha,
                 TB_LabCal.Text),editaSD,indice);
+            editaSD = false;
 
             Close();
         }

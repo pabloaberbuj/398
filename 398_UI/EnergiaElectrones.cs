@@ -69,10 +69,12 @@ namespace _398_UI
         {
             if (edita)
             {
-                int indice = DGV.SelectedRows[0].Index;
-                DGV.Rows.Remove(DGV.SelectedRows[0]);
                 var auxlista = lista(DGV);
+                int indice = DGV.SelectedRows[0].Index;
+                bool auxPredet = auxlista[indice].EsPredet;
+                auxlista.RemoveAt(indice);
                 auxlista.Insert(indice, _nuevo);
+                auxlista[indice].EsPredet = auxPredet;
                 DGV.DataSource = auxlista;
                 DGV.ClearSelection();
                 DGV.Rows[indice].Selected = true;

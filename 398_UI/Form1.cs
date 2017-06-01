@@ -18,7 +18,7 @@ namespace _398_UI
         bool editaEquipo = false;
         bool editaEnergiaFot = false;
         bool editaEnergiaElect = false;
-        
+
         
         public Form1()
         {
@@ -103,7 +103,7 @@ namespace _398_UI
         #endregion
 
 
-        #region Cali Fotones Promedios
+        #region Cali Fotones Calculos
         private void Prom_Lref(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
@@ -111,12 +111,40 @@ namespace _398_UI
 
         private void Prom_L20(object sender, EventArgs e)
         {
+            int TPRoD = 0;
+            if (RB_CaliFTPR2010.Checked)
+            {
+                TPRoD = 1;
+            }
+            else if (RB_CaliFD2010.Checked)
+            {
+                TPRoD = 2;
+            }
             MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
+            if (TPRoD!=0 && LB_Lect10prom.Text!= "Lect10prom" && LB_Lect20prom.Text!= "Lect20prom")
+            {
+                L_CaliFTPR2010.Text = Convert.ToString(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD));
+                L_CaliFKqq0.Text = "Falta metodo para Kqq0";
+            }
         }
 
         private void Prom_L10(object sender, EventArgs e)
         {
+            int TPRoD = 0;
+            if (RB_CaliFTPR2010.Checked)
+            {
+                TPRoD = 1;
+            }
+            else if (RB_CaliFD2010.Checked)
+            {
+                TPRoD = 2;
+            }
             MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
+            if (TPRoD != 0)
+            {
+                L_CaliFTPR2010.Text = CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD).ToString();
+                L_CaliFKqq0.Text = "Falta metodo para Kqq0";
+            }
         }
 
         private void Prom_masV(object sender, EventArgs e)
@@ -150,8 +178,15 @@ namespace _398_UI
         private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
+            CalibracionFot.InicializarLadoCampoPredet(TB_CaliLadoCampo);
         }
 
+        private void CB_CaliEnergias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalibracionFot.InicializarProfundidadReferencia(CB_CaliEquipos, CB_CaliEnergias,TB_CaliPRof);
+        }
+
+        
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_UsarKqq0LB.Checked == true)
@@ -189,10 +224,13 @@ namespace _398_UI
         #endregion
 
 
+
+
+
         #region Equipos UI
 
 
-        
+
         private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnFotEquipo.Checked == true)
@@ -229,7 +267,7 @@ namespace _398_UI
         
         private void BT_GuardarEq_Click(object sender, EventArgs e)
         {
-            if (editaEquipo == true)
+            if (editaEquipo)
             {
                 indiceEquipo = DGV_Equipo.SelectedRows[0].Index;
             }
@@ -253,10 +291,18 @@ namespace _398_UI
             Equipo.guardar(Equipo.crear(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, auxfuente, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, indiceEquipo);
             Equipo.llenarDGV(DGV_Equipo);
             LimpiarRegistro(GB_Equipos);
+            LimpiarRegistro(Panel_FuenteEq);
+            LimpiarRegistro(Panel_TipoHazEq);
             DGV_EnFot.Rows.Clear();
             DGV_EnElec.Rows.Clear();
             CHB_EnFotEquipo.Checked = false;
             CHB_EnElecEquipo.Checked = false;
+            if (editaEquipo)
+            {
+                DGV_Equipo.Rows[indiceEquipo].Selected = true;
+            }
+            editaEquipo = false;
+            Panel_TipoHazEq.Enabled = false;
         }
 
         private void BT_PredetEqu_Click(object sender, EventArgs e)
@@ -449,6 +495,8 @@ namespace _398_UI
             { tb.Clear(); }
             foreach (ComboBox cb in panel.Controls.OfType<ComboBox>())
             { cb.SelectedIndex = -1; }
+            foreach(RadioButton rb in panel.Controls.OfType<RadioButton>())
+            { rb.Checked = false; }
         }
 
         public static void LimpiarRegistro(GroupBox gb)
@@ -457,6 +505,9 @@ namespace _398_UI
             { tb.Clear(); }
             foreach (ComboBox cb in gb.Controls.OfType<ComboBox>())
             { cb.SelectedIndex = -1; }
+            foreach (RadioButton rb in gb.Controls.OfType<RadioButton>())
+            { rb.Checked = false; }
+
         }
 
         public static int TraerPanel(int indicepanel, int nropanel, Panel nombrepanel, Button boton, Panel panelbotones)
@@ -481,9 +532,9 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-        
     }
 }
 

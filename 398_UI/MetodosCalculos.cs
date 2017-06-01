@@ -23,7 +23,7 @@ namespace _398_UI
             return esnumero;
         }
 
-        
+
         public static void promediar(Panel panel, Label texto)
         {
             double suma = 0; double aux; int contador = 0; Nullable<double> promedio = null;
@@ -43,55 +43,6 @@ namespace _398_UI
             }
             texto.Visible = true;
             texto.Text = Convert.ToString(promedio);
-        }
-
-        public static double Ktp(double T0, double T, double P0, double P)
-        {
-            double KTP = (273.2 + T) * P0 / (273.2 + T0) / P;
-            return KTP;
-        }
-
-        public static double Kpol(bool signopol, double LVmas, double LVmenos)
-        {
-            double KPOL;
-            if (signopol == true) //polaridad positiva
-            {
-                KPOL = (Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas);
-            }
-            else
-            {
-                KPOL = (Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas);
-            }
-            return KPOL;
-        }
-
-        public static double KsALE(double LVtot, double LVred, double a0, double a1, double a2)
-        {
-            double KS = a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2);
-            return KS;
-        }
-
-        public static double KsCo(double LVtot, double LVred, double Vtot, double Vred)
-
-        {
-            double KS = (Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2));
-            return KS;
-        }
-
-        public static double TPR2010(double LV20, double LV10, int PDDoTPR)
-
-        {
-            double TPR20_10 = 0;
-            if (PDDoTPR == 1)//está tildado PDD
-            {
-                double PDD20_10 = Math.Abs(LV20 / LV10);
-                TPR20_10 = 1.2661 * PDD20_10 - 0.0595;
-            }
-            else if (PDDoTPR == 2)//está tildado TPR
-            {
-                TPR20_10 = Math.Abs(LV20 / LV10);
-            }
-            return TPR20_10;
         }
 
         public static double interpolar(double x1, double x2, double y1, double y2, double x)

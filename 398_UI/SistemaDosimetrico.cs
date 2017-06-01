@@ -53,8 +53,11 @@ namespace _398_UI
             var auxLista = lista();
             if (edita)
             {
+                bool auxPredet = auxLista[indice].EsPredet;
                 auxLista.RemoveAt(indice);
                 auxLista.Insert(indice, _nuevo);
+                auxLista[indice].EsPredet = auxPredet;
+                IO.writeObjectAsJson(file, auxLista);
             }
             else
             {

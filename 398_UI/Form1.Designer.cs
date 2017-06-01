@@ -35,9 +35,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TB_CaliLadoCampo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.TB_CaliPRof = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -113,8 +113,8 @@
             this.gFactorDeCalidad = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.Panel_TPRoPDD = new System.Windows.Forms.Panel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.RB_CaliFD2010 = new System.Windows.Forms.RadioButton();
+            this.RB_CaliFTPR2010 = new System.Windows.Forms.RadioButton();
             this.Panel_LecKqq0 = new System.Windows.Forms.Panel();
             this.Panel_Lect10 = new System.Windows.Forms.Panel();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -156,12 +156,6 @@
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
             this.DGV_Equipo = new System.Windows.Forms.DataGridView();
-            this.Panel_TipoHazEq = new System.Windows.Forms.Panel();
-            this.RB_PulsadoYBarrido = new System.Windows.Forms.RadioButton();
-            this.RB_Pulsado = new System.Windows.Forms.RadioButton();
-            this.Panel_FuenteEq = new System.Windows.Forms.Panel();
-            this.RB_FuenteALE = new System.Windows.Forms.RadioButton();
-            this.RB_FuenteCo = new System.Windows.Forms.RadioButton();
             this.LB_TipoHaz = new System.Windows.Forms.Label();
             this.BT_EqIraCal = new System.Windows.Forms.Button();
             this.BT_PredetEqu = new System.Windows.Forms.Button();
@@ -305,6 +299,19 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
+            this.Panel_TipoHazEq = new System.Windows.Forms.Panel();
+            this.RB_Pulsado = new System.Windows.Forms.RadioButton();
+            this.RB_PulsadoYBarrido = new System.Windows.Forms.RadioButton();
+            this.Panel_FuenteEq = new System.Windows.Forms.Panel();
+            this.RB_FuenteCo = new System.Windows.Forms.RadioButton();
+            this.RB_FuenteALE = new System.Windows.Forms.RadioButton();
+            this.L_CaliFKTP = new System.Windows.Forms.Label();
+            this.L_CaliFTPR2010 = new System.Windows.Forms.Label();
+            this.L_CaliFKqq0 = new System.Windows.Forms.Label();
+            this.L_CaliFMref = new System.Windows.Forms.Label();
+            this.L_CaliFDifLB = new System.Windows.Forms.Label();
+            this.L_CaliFDwZmax = new System.Windows.Forms.Label();
+            this.L_CaliFDwZref = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -328,8 +335,6 @@
             this.Panel_Equipos.SuspendLayout();
             this.GB_Equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
-            this.Panel_TipoHazEq.SuspendLayout();
-            this.Panel_FuenteEq.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Panel_EnElecEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).BeginInit();
@@ -353,6 +358,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
+            this.Panel_TipoHazEq.SuspendLayout();
+            this.Panel_FuenteEq.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -391,9 +398,9 @@
             this.GB_CondMed.Controls.Add(this.label7);
             this.GB_CondMed.Controls.Add(this.label8);
             this.GB_CondMed.Controls.Add(this.label4);
-            this.GB_CondMed.Controls.Add(this.textBox6);
+            this.GB_CondMed.Controls.Add(this.TB_CaliLadoCampo);
             this.GB_CondMed.Controls.Add(this.label6);
-            this.GB_CondMed.Controls.Add(this.textBox7);
+            this.GB_CondMed.Controls.Add(this.TB_CaliPRof);
             this.GB_CondMed.Controls.Add(this.panel1);
             this.GB_CondMed.Location = new System.Drawing.Point(27, 160);
             this.GB_CondMed.Name = "GB_CondMed";
@@ -429,12 +436,12 @@
             this.label4.TabIndex = 69;
             this.label4.Text = "Lado campo";
             // 
-            // textBox6
+            // TB_CaliLadoCampo
             // 
-            this.textBox6.Location = new System.Drawing.Point(96, 51);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(76, 20);
-            this.textBox6.TabIndex = 70;
+            this.TB_CaliLadoCampo.Location = new System.Drawing.Point(96, 51);
+            this.TB_CaliLadoCampo.Name = "TB_CaliLadoCampo";
+            this.TB_CaliLadoCampo.Size = new System.Drawing.Size(76, 20);
+            this.TB_CaliLadoCampo.TabIndex = 70;
             // 
             // label6
             // 
@@ -445,12 +452,12 @@
             this.label6.TabIndex = 71;
             this.label6.Text = "Profundidad";
             // 
-            // textBox7
+            // TB_CaliPRof
             // 
-            this.textBox7.Location = new System.Drawing.Point(96, 75);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(76, 20);
-            this.textBox7.TabIndex = 72;
+            this.TB_CaliPRof.Location = new System.Drawing.Point(96, 75);
+            this.TB_CaliPRof.Name = "TB_CaliPRof";
+            this.TB_CaliPRof.Size = new System.Drawing.Size(76, 20);
+            this.TB_CaliPRof.TabIndex = 72;
             // 
             // panel1
             // 
@@ -499,6 +506,7 @@
             this.CB_CaliEnergias.Name = "CB_CaliEnergias";
             this.CB_CaliEnergias.Size = new System.Drawing.Size(54, 21);
             this.CB_CaliEnergias.TabIndex = 66;
+            this.CB_CaliEnergias.SelectedIndexChanged += new System.EventHandler(this.CB_CaliEnergias_SelectedIndexChanged);
             // 
             // label64
             // 
@@ -558,6 +566,10 @@
             // 
             // gLecturaReferencia
             // 
+            this.gLecturaReferencia.Controls.Add(this.L_CaliFMref);
+            this.gLecturaReferencia.Controls.Add(this.L_CaliFDifLB);
+            this.gLecturaReferencia.Controls.Add(this.L_CaliFDwZmax);
+            this.gLecturaReferencia.Controls.Add(this.L_CaliFDwZref);
             this.gLecturaReferencia.Controls.Add(this.Panel_LecRef);
             this.gLecturaReferencia.Controls.Add(this.LB_LecRefProm);
             this.gLecturaReferencia.Controls.Add(this.label41);
@@ -1189,6 +1201,8 @@
             // 
             // gFactorDeCalidad
             // 
+            this.gFactorDeCalidad.Controls.Add(this.L_CaliFTPR2010);
+            this.gFactorDeCalidad.Controls.Add(this.L_CaliFKqq0);
             this.gFactorDeCalidad.Controls.Add(this.label24);
             this.gFactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
             this.gFactorDeCalidad.Controls.Add(this.Panel_LecKqq0);
@@ -1213,34 +1227,34 @@
             // 
             // Panel_TPRoPDD
             // 
-            this.Panel_TPRoPDD.Controls.Add(this.radioButton3);
-            this.Panel_TPRoPDD.Controls.Add(this.radioButton4);
+            this.Panel_TPRoPDD.Controls.Add(this.RB_CaliFD2010);
+            this.Panel_TPRoPDD.Controls.Add(this.RB_CaliFTPR2010);
             this.Panel_TPRoPDD.Location = new System.Drawing.Point(38, 40);
             this.Panel_TPRoPDD.Name = "Panel_TPRoPDD";
             this.Panel_TPRoPDD.Size = new System.Drawing.Size(155, 28);
             this.Panel_TPRoPDD.TabIndex = 25;
             // 
-            // radioButton3
+            // RB_CaliFD2010
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(90, 4);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(57, 17);
-            this.radioButton3.TabIndex = 22;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "D2010";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.RB_CaliFD2010.AutoSize = true;
+            this.RB_CaliFD2010.Location = new System.Drawing.Point(90, 4);
+            this.RB_CaliFD2010.Name = "RB_CaliFD2010";
+            this.RB_CaliFD2010.Size = new System.Drawing.Size(57, 17);
+            this.RB_CaliFD2010.TabIndex = 22;
+            this.RB_CaliFD2010.TabStop = true;
+            this.RB_CaliFD2010.Text = "D2010";
+            this.RB_CaliFD2010.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // RB_CaliFTPR2010
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(13, 4);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(71, 17);
-            this.radioButton4.TabIndex = 21;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "TPR2010";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.RB_CaliFTPR2010.AutoSize = true;
+            this.RB_CaliFTPR2010.Location = new System.Drawing.Point(13, 4);
+            this.RB_CaliFTPR2010.Name = "RB_CaliFTPR2010";
+            this.RB_CaliFTPR2010.Size = new System.Drawing.Size(71, 17);
+            this.RB_CaliFTPR2010.TabIndex = 21;
+            this.RB_CaliFTPR2010.TabStop = true;
+            this.RB_CaliFTPR2010.Text = "TPR2010";
+            this.RB_CaliFTPR2010.UseVisualStyleBackColor = true;
             // 
             // Panel_LecKqq0
             // 
@@ -1476,6 +1490,7 @@
             // 
             // gCondiciones
             // 
+            this.gCondiciones.Controls.Add(this.L_CaliFKTP);
             this.gCondiciones.Controls.Add(this.label17);
             this.gCondiciones.Controls.Add(this.label22);
             this.gCondiciones.Controls.Add(this.label27);
@@ -1663,71 +1678,6 @@
             this.DGV_Equipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Equipo.Size = new System.Drawing.Size(643, 171);
             this.DGV_Equipo.TabIndex = 71;
-            // 
-            // Panel_TipoHazEq
-            // 
-            this.Panel_TipoHazEq.Controls.Add(this.RB_PulsadoYBarrido);
-            this.Panel_TipoHazEq.Controls.Add(this.RB_Pulsado);
-            this.Panel_TipoHazEq.Enabled = false;
-            this.Panel_TipoHazEq.Location = new System.Drawing.Point(105, 175);
-            this.Panel_TipoHazEq.Name = "Panel_TipoHazEq";
-            this.Panel_TipoHazEq.Size = new System.Drawing.Size(174, 19);
-            this.Panel_TipoHazEq.TabIndex = 6;
-            // 
-            // RB_PulsadoYBarrido
-            // 
-            this.RB_PulsadoYBarrido.AutoSize = true;
-            this.RB_PulsadoYBarrido.Location = new System.Drawing.Point(67, 1);
-            this.RB_PulsadoYBarrido.Name = "RB_PulsadoYBarrido";
-            this.RB_PulsadoYBarrido.Size = new System.Drawing.Size(107, 17);
-            this.RB_PulsadoYBarrido.TabIndex = 2;
-            this.RB_PulsadoYBarrido.TabStop = true;
-            this.RB_PulsadoYBarrido.Text = "Pulsado y Barrido";
-            this.RB_PulsadoYBarrido.UseVisualStyleBackColor = true;
-            // 
-            // RB_Pulsado
-            // 
-            this.RB_Pulsado.AutoSize = true;
-            this.RB_Pulsado.Location = new System.Drawing.Point(1, 1);
-            this.RB_Pulsado.Name = "RB_Pulsado";
-            this.RB_Pulsado.Size = new System.Drawing.Size(63, 17);
-            this.RB_Pulsado.TabIndex = 1;
-            this.RB_Pulsado.TabStop = true;
-            this.RB_Pulsado.Text = "Pulsado";
-            this.RB_Pulsado.UseVisualStyleBackColor = true;
-            // 
-            // Panel_FuenteEq
-            // 
-            this.Panel_FuenteEq.Controls.Add(this.RB_FuenteALE);
-            this.Panel_FuenteEq.Controls.Add(this.RB_FuenteCo);
-            this.Panel_FuenteEq.Location = new System.Drawing.Point(105, 150);
-            this.Panel_FuenteEq.Name = "Panel_FuenteEq";
-            this.Panel_FuenteEq.Size = new System.Drawing.Size(174, 19);
-            this.Panel_FuenteEq.TabIndex = 5;
-            // 
-            // RB_FuenteALE
-            // 
-            this.RB_FuenteALE.AutoSize = true;
-            this.RB_FuenteALE.Location = new System.Drawing.Point(67, 1);
-            this.RB_FuenteALE.Name = "RB_FuenteALE";
-            this.RB_FuenteALE.Size = new System.Drawing.Size(107, 17);
-            this.RB_FuenteALE.TabIndex = 2;
-            this.RB_FuenteALE.TabStop = true;
-            this.RB_FuenteALE.Text = "Acelerador Lineal";
-            this.RB_FuenteALE.UseVisualStyleBackColor = true;
-            this.RB_FuenteALE.CheckedChanged += new System.EventHandler(this.RB_FuenteALE_CheckedChanged);
-            // 
-            // RB_FuenteCo
-            // 
-            this.RB_FuenteCo.AutoSize = true;
-            this.RB_FuenteCo.Location = new System.Drawing.Point(1, 1);
-            this.RB_FuenteCo.Name = "RB_FuenteCo";
-            this.RB_FuenteCo.Size = new System.Drawing.Size(53, 17);
-            this.RB_FuenteCo.TabIndex = 1;
-            this.RB_FuenteCo.TabStop = true;
-            this.RB_FuenteCo.Text = "Co-60";
-            this.RB_FuenteCo.UseVisualStyleBackColor = true;
-            this.RB_FuenteCo.CheckedChanged += new System.EventHandler(this.RB_FuenteCo_CheckedChanged);
             // 
             // LB_TipoHaz
             // 
@@ -3226,14 +3176,149 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
+            // Panel_TipoHazEq
+            // 
+            this.Panel_TipoHazEq.Controls.Add(this.RB_PulsadoYBarrido);
+            this.Panel_TipoHazEq.Controls.Add(this.RB_Pulsado);
+            this.Panel_TipoHazEq.Enabled = false;
+            this.Panel_TipoHazEq.Location = new System.Drawing.Point(105, 175);
+            this.Panel_TipoHazEq.Name = "Panel_TipoHazEq";
+            this.Panel_TipoHazEq.Size = new System.Drawing.Size(174, 19);
+            this.Panel_TipoHazEq.TabIndex = 6;
+            // 
+            // RB_Pulsado
+            // 
+            this.RB_Pulsado.AutoSize = true;
+            this.RB_Pulsado.Location = new System.Drawing.Point(1, 1);
+            this.RB_Pulsado.Name = "RB_Pulsado";
+            this.RB_Pulsado.Size = new System.Drawing.Size(63, 17);
+            this.RB_Pulsado.TabIndex = 1;
+            this.RB_Pulsado.TabStop = true;
+            this.RB_Pulsado.Text = "Pulsado";
+            this.RB_Pulsado.UseVisualStyleBackColor = true;
+            // 
+            // RB_PulsadoYBarrido
+            // 
+            this.RB_PulsadoYBarrido.AutoSize = true;
+            this.RB_PulsadoYBarrido.Location = new System.Drawing.Point(67, 1);
+            this.RB_PulsadoYBarrido.Name = "RB_PulsadoYBarrido";
+            this.RB_PulsadoYBarrido.Size = new System.Drawing.Size(107, 17);
+            this.RB_PulsadoYBarrido.TabIndex = 2;
+            this.RB_PulsadoYBarrido.TabStop = true;
+            this.RB_PulsadoYBarrido.Text = "Pulsado y Barrido";
+            this.RB_PulsadoYBarrido.UseVisualStyleBackColor = true;
+            // 
+            // Panel_FuenteEq
+            // 
+            this.Panel_FuenteEq.Controls.Add(this.RB_FuenteALE);
+            this.Panel_FuenteEq.Controls.Add(this.RB_FuenteCo);
+            this.Panel_FuenteEq.Location = new System.Drawing.Point(105, 150);
+            this.Panel_FuenteEq.Name = "Panel_FuenteEq";
+            this.Panel_FuenteEq.Size = new System.Drawing.Size(174, 19);
+            this.Panel_FuenteEq.TabIndex = 5;
+            // 
+            // RB_FuenteCo
+            // 
+            this.RB_FuenteCo.AutoSize = true;
+            this.RB_FuenteCo.Location = new System.Drawing.Point(1, 1);
+            this.RB_FuenteCo.Name = "RB_FuenteCo";
+            this.RB_FuenteCo.Size = new System.Drawing.Size(53, 17);
+            this.RB_FuenteCo.TabIndex = 1;
+            this.RB_FuenteCo.TabStop = true;
+            this.RB_FuenteCo.Text = "Co-60";
+            this.RB_FuenteCo.UseVisualStyleBackColor = true;
+            this.RB_FuenteCo.CheckedChanged += new System.EventHandler(this.RB_FuenteCo_CheckedChanged);
+            // 
+            // RB_FuenteALE
+            // 
+            this.RB_FuenteALE.AutoSize = true;
+            this.RB_FuenteALE.Location = new System.Drawing.Point(67, 1);
+            this.RB_FuenteALE.Name = "RB_FuenteALE";
+            this.RB_FuenteALE.Size = new System.Drawing.Size(107, 17);
+            this.RB_FuenteALE.TabIndex = 2;
+            this.RB_FuenteALE.TabStop = true;
+            this.RB_FuenteALE.Text = "Acelerador Lineal";
+            this.RB_FuenteALE.UseVisualStyleBackColor = true;
+            this.RB_FuenteALE.CheckedChanged += new System.EventHandler(this.RB_FuenteALE_CheckedChanged);
+            // 
+            // L_CaliFKTP
+            // 
+            this.L_CaliFKTP.AutoSize = true;
+            this.L_CaliFKTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFKTP.Location = new System.Drawing.Point(94, 96);
+            this.L_CaliFKTP.Name = "L_CaliFKTP";
+            this.L_CaliFKTP.Size = new System.Drawing.Size(38, 16);
+            this.L_CaliFKTP.TabIndex = 41;
+            this.L_CaliFKTP.Text = "Ktp=";
+            // 
+            // L_CaliFTPR2010
+            // 
+            this.L_CaliFTPR2010.AutoSize = true;
+            this.L_CaliFTPR2010.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFTPR2010.Location = new System.Drawing.Point(125, 272);
+            this.L_CaliFTPR2010.Name = "L_CaliFTPR2010";
+            this.L_CaliFTPR2010.Size = new System.Drawing.Size(83, 16);
+            this.L_CaliFTPR2010.TabIndex = 28;
+            this.L_CaliFTPR2010.Text = "TPR2010 =";
+            // 
+            // L_CaliFKqq0
+            // 
+            this.L_CaliFKqq0.AutoSize = true;
+            this.L_CaliFKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFKqq0.Location = new System.Drawing.Point(125, 296);
+            this.L_CaliFKqq0.Name = "L_CaliFKqq0";
+            this.L_CaliFKqq0.Size = new System.Drawing.Size(55, 16);
+            this.L_CaliFKqq0.TabIndex = 27;
+            this.L_CaliFKqq0.Text = "Kqq0 =";
+            // 
+            // L_CaliFMref
+            // 
+            this.L_CaliFMref.AutoSize = true;
+            this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFMref.Location = new System.Drawing.Point(109, 186);
+            this.L_CaliFMref.Name = "L_CaliFMref";
+            this.L_CaliFMref.Size = new System.Drawing.Size(50, 16);
+            this.L_CaliFMref.TabIndex = 42;
+            this.L_CaliFMref.Text = "Mref =";
+            // 
+            // L_CaliFDifLB
+            // 
+            this.L_CaliFDifLB.AutoSize = true;
+            this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDifLB.Location = new System.Drawing.Point(109, 262);
+            this.L_CaliFDifLB.Name = "L_CaliFDifLB";
+            this.L_CaliFDifLB.Size = new System.Drawing.Size(57, 16);
+            this.L_CaliFDifLB.TabIndex = 41;
+            this.L_CaliFDifLB.Text = "DifLB =";
+            // 
+            // L_CaliFDwZmax
+            // 
+            this.L_CaliFDwZmax.AutoSize = true;
+            this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDwZmax.Location = new System.Drawing.Point(109, 237);
+            this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
+            this.L_CaliFDwZmax.Size = new System.Drawing.Size(76, 16);
+            this.L_CaliFDwZmax.TabIndex = 40;
+            this.L_CaliFDwZmax.Text = "Dwzmax =";
+            // 
+            // L_CaliFDwZref
+            // 
+            this.L_CaliFDwZref.AutoSize = true;
+            this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDwZref.Location = new System.Drawing.Point(109, 212);
+            this.L_CaliFDwZref.Name = "L_CaliFDwZref";
+            this.L_CaliFDwZref.Size = new System.Drawing.Size(66, 16);
+            this.L_CaliFDwZref.TabIndex = 39;
+            this.L_CaliFDwZref.Text = "Dwzref =";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 692);
             this.Controls.Add(this.Panel_CalFot);
-            this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Equipos);
+            this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -3284,10 +3369,6 @@
             this.GB_Equipos.ResumeLayout(false);
             this.GB_Equipos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).EndInit();
-            this.Panel_TipoHazEq.ResumeLayout(false);
-            this.Panel_TipoHazEq.PerformLayout();
-            this.Panel_FuenteEq.ResumeLayout(false);
-            this.Panel_FuenteEq.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.Panel_EnElecEquipo.ResumeLayout(false);
@@ -3321,6 +3402,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
+            this.Panel_TipoHazEq.ResumeLayout(false);
+            this.Panel_TipoHazEq.PerformLayout();
+            this.Panel_FuenteEq.ResumeLayout(false);
+            this.Panel_FuenteEq.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3388,8 +3473,8 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.GroupBox gFactorDeCalidad;
         private System.Windows.Forms.Panel Panel_TPRoPDD;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton RB_CaliFD2010;
+        private System.Windows.Forms.RadioButton RB_CaliFTPR2010;
         private System.Windows.Forms.Panel Panel_LecKqq0;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -3540,12 +3625,6 @@
         private System.Windows.Forms.TextBox textBox37;
         private System.Windows.Forms.TextBox textBox38;
         private System.Windows.Forms.Label LB_TipoHaz;
-        private System.Windows.Forms.Panel Panel_TipoHazEq;
-        private System.Windows.Forms.RadioButton RB_PulsadoYBarrido;
-        private System.Windows.Forms.RadioButton RB_Pulsado;
-        private System.Windows.Forms.Panel Panel_FuenteEq;
-        private System.Windows.Forms.RadioButton RB_FuenteALE;
-        private System.Windows.Forms.RadioButton RB_FuenteCo;
         private System.Windows.Forms.Panel Panel_EnFotEquipo;
         private System.Windows.Forms.Button BT_EnFotPredet;
         private System.Windows.Forms.Button BT_EnFotEliminar;
@@ -3556,9 +3635,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox TB_CaliLadoCampo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox TB_CaliPRof;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
@@ -3602,6 +3681,19 @@
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.DataGridView DGV_Equipo;
+        private System.Windows.Forms.Panel Panel_TipoHazEq;
+        private System.Windows.Forms.RadioButton RB_PulsadoYBarrido;
+        private System.Windows.Forms.RadioButton RB_Pulsado;
+        private System.Windows.Forms.Panel Panel_FuenteEq;
+        private System.Windows.Forms.RadioButton RB_FuenteALE;
+        private System.Windows.Forms.RadioButton RB_FuenteCo;
+        private System.Windows.Forms.Label L_CaliFMref;
+        private System.Windows.Forms.Label L_CaliFDifLB;
+        private System.Windows.Forms.Label L_CaliFDwZmax;
+        private System.Windows.Forms.Label L_CaliFDwZref;
+        private System.Windows.Forms.Label L_CaliFTPR2010;
+        private System.Windows.Forms.Label L_CaliFKqq0;
+        private System.Windows.Forms.Label L_CaliFKTP;
     }
 }
 

@@ -28,9 +28,15 @@ namespace _398_UI
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
 
+        public static double[] Vtot_Vred_Ks = { 2, 2.5, 3, 3.5, 4, 5 };
+        public static string[] a0a1a2 = { "a0", "a1", "a2" };
+        public static double[,] a0a1a2Pulsados = new double[2, 2]; //INVENTADO. CARGAR TABLA
+        public static double[,] a0a1a2Barridos = new double[2, 2]; //INVENTADO. CARGAR TABLA
+
         public static void InicializarComboBoxEquipos(ComboBox CBEquipo)
         {
-            
+
+            CBEquipo.Items.Clear();
             foreach (var equipo in Equipo.lista())
             {
                 string aux = equipo.Marca + " " + equipo.Modelo + " Nº Serie: " + equipo.NumSerie;
@@ -42,8 +48,9 @@ namespace _398_UI
             }
         }
 
-        public static void InicializarComboBoxSistDosim (ComboBox CBSistDos)
+        public static void InicializarComboBoxSistDosim(ComboBox CBSistDos)
         {
+            CBSistDos.Items.Clear();
             foreach (var sistdos in SistemaDosimetrico.lista())
             {
                 string aux = sistdos.camara.EtiquetaCam + sistdos.electrometro.EtiquetaElec;
@@ -56,6 +63,7 @@ namespace _398_UI
         }
         public static void InicializarComboBoxEnergias(ComboBox CBEquipo, ComboBox CBEnergias)
         {
+            CBEnergias.Items.Clear();
             if (CBEquipo.SelectedIndex != -1)
             {
                 foreach (var energia in Equipo.lista()[CBEquipo.SelectedIndex].energiaFot)
@@ -65,11 +73,82 @@ namespace _398_UI
                     {
                         CBEnergias.SelectedIndex = CBEnergias.FindStringExact(energia.Energia.ToString());
                     }
-
                 }
             }
         }
+        public static void InicializarLadoCampoPredet(TextBox TB)
+        {
+            TB.Text = 10.ToString();
+        }
+        public static void InicializarProfundidadReferencia(ComboBox CBEquipo, ComboBox CBEnergias, TextBox TBProf)
+        {
+            if (CBEnergias.SelectedIndex != -1)
+            {
+                TBProf.Text = Equipo.lista()[CBEquipo.SelectedIndex].energiaFot[CBEnergias.SelectedIndex].ZRefFot.ToString();
+            }
+        }
+
+        public static double CalcularKtp(double T0, double T, double P0, double P)
+        {
+            double KTP = (273.2 + T) * P0 / (273.2 + T0) / P;
+            return KTP;
+        }
+
+        public static double CalcularKpol(bool signopol, double LVmas, double LVmenos)
+        {
+            double KPOL;
+            if (signopol == true) //polaridad positiva
+            {
+                KPOL = (Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas);
+            }
+            else
+            {
+                KPOL = (Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas);
+            }
+            return KPOL;
+        }
+
+        public static double CalcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido)
+        {
+            if (ALEoCo == 1)//Co
+            {
+                return (Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2));
+            }
+            else
+            {
+                double a0 = 0; double a1 = 0; double a2 = 0;
+                if (pulsadoOBarrido == 1) //Pulsado
+                {
+                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", Vtot_Vred_Ks,a0a1a2, a0a1a2Pulsados);
+                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", Vtot_Vred_Ks,a0a1a2, a0a1a2Pulsados);
+                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", Vtot_Vred_Ks,a0a1a2, a0a1a2Pulsados);
+                }
+                else
+                {
+                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
+                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
+                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
+                }
+                return a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2);
+            }
+        }
+
+        public static double CalcularTPR2010(double LV20, double LV10, int PDDoTPR)
+
+        {
+            double TPR20_10 = 0;
+            if (PDDoTPR == 1)//está tildado PDD
+            {
+                double PDD20_10 = Math.Abs(LV20 / LV10);
+                TPR20_10 = 1.2661 * PDD20_10 - 0.0595;
+            }
+            else if (PDDoTPR == 2)//está tildado TPR
+            {
+                TPR20_10 = Math.Abs(LV20 / LV10);
+            }
+            return TPR20_10;
+        }
     }
 
-    
+
 }
