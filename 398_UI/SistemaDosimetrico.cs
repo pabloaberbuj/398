@@ -75,7 +75,7 @@ namespace _398_UI
 
             if (DGV.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("¿Desea borrar el/los registro/s?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     var auxLista = lista();
                     if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)

@@ -123,7 +123,7 @@ namespace _398_UI
             MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
             if (TPRoD!=0 && LB_Lect10prom.Text!= "Lect10prom" && LB_Lect20prom.Text!= "Lect20prom")
             {
-                L_CaliFTPR2010.Text = Convert.ToString(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD));
+                L_CaliFTPR2010.Text = Convert.ToString(Math.Round(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD),2));
                 L_CaliFKqq0.Text = "Falta metodo para Kqq0";
             }
         }

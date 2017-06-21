@@ -57,11 +57,23 @@ namespace _398_UI
         public static void eliminar(DataGridView DGV)
         {
 
+            string mensaje = "¿Desea borrar el/los registro/s?";
             if (DGV.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                foreach (DataGridViewRow fila in DGV.SelectedRows)
                 {
-                    DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                    if (SistemaDosimetrico.lista().SingleOrDefault(s => s.electrometro.EtiquetaElec == lista()[fila.Index].EtiquetaElec) != null)
+                    {
+                        mensaje = "Al menos una de los electrómetros seleccionados pertenece a un sistema dosimétrico \n ¿Desea borrar el/los registro/s?";
+                    }
+                }
+                if (MessageBox.Show(mensaje, "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
+                    {
+                        DGV.Rows.Remove(fila);
+                    }
+                    IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
         }

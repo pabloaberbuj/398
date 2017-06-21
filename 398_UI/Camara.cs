@@ -31,13 +31,13 @@ namespace _398_UI
         {
             return IO.readJsonList<Camara>(file);
         }
-        public static void guardar(Camara _nuevo,bool edita,DataGridView DGV)
+        public static void guardar(Camara _nuevo, bool edita, DataGridView DGV)
         {
             if (edita)
             {
                 int indice = DGV.SelectedRows[0].Index;
                 DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
-                var auxLista = lista(); 
+                var auxLista = lista();
                 auxLista.Insert(indice, _nuevo);
                 IO.writeObjectAsJson(file, auxLista);
                 DGV.DataSource = lista();
@@ -56,12 +56,23 @@ namespace _398_UI
 
         public static void eliminar(DataGridView DGV)
         {
-
+            string mensaje = "¿Desea borrar el/los registro/s?";
             if (DGV.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                foreach (DataGridViewRow fila in DGV.SelectedRows)
                 {
-                    DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                    if (SistemaDosimetrico.lista().SingleOrDefault(s => s.camara.EtiquetaCam == lista()[fila.Index].EtiquetaCam) != null)
+                    {
+                        mensaje = "Al menos una de las cámaras seleccionadas pertenece a un sistema dosimétrico \n ¿Desea borrar el/los registro/s?";
+                    }
+                }
+                if (MessageBox.Show(mensaje, "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
+                    {
+                        DGV.Rows.Remove(fila);
+                    }
+                    IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
         }
