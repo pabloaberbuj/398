@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -592,6 +592,7 @@
             this.L_CaliFMref.Size = new System.Drawing.Size(50, 16);
             this.L_CaliFMref.TabIndex = 42;
             this.L_CaliFMref.Text = "Mref =";
+            this.L_CaliFMref.Visible = false;
             // 
             // L_CaliFDifLB
             // 
@@ -602,6 +603,7 @@
             this.L_CaliFDifLB.Size = new System.Drawing.Size(57, 16);
             this.L_CaliFDifLB.TabIndex = 41;
             this.L_CaliFDifLB.Text = "DifLB =";
+            this.L_CaliFDifLB.Visible = false;
             // 
             // L_CaliFDwZmax
             // 
@@ -612,6 +614,7 @@
             this.L_CaliFDwZmax.Size = new System.Drawing.Size(76, 16);
             this.L_CaliFDwZmax.TabIndex = 40;
             this.L_CaliFDwZmax.Text = "Dwzmax =";
+            this.L_CaliFDwZmax.Visible = false;
             // 
             // L_CaliFDwZref
             // 
@@ -622,6 +625,7 @@
             this.L_CaliFDwZref.Size = new System.Drawing.Size(66, 16);
             this.L_CaliFDwZref.TabIndex = 39;
             this.L_CaliFDwZref.Text = "Dwzref =";
+            this.L_CaliFDwZref.Visible = false;
             // 
             // Panel_LecRef
             // 
@@ -1264,6 +1268,7 @@
             this.L_CaliFTPR2010.Size = new System.Drawing.Size(83, 16);
             this.L_CaliFTPR2010.TabIndex = 28;
             this.L_CaliFTPR2010.Text = "TPR2010 =";
+            this.L_CaliFTPR2010.Visible = false;
             // 
             // L_CaliFKqq0
             // 
@@ -1274,6 +1279,7 @@
             this.L_CaliFKqq0.Size = new System.Drawing.Size(55, 16);
             this.L_CaliFKqq0.TabIndex = 27;
             this.L_CaliFKqq0.Text = "Kqq0 =";
+            this.L_CaliFKqq0.Visible = false;
             // 
             // label24
             // 
@@ -1577,6 +1583,7 @@
             this.L_CaliFKTP.Size = new System.Drawing.Size(38, 16);
             this.L_CaliFKTP.TabIndex = 41;
             this.L_CaliFKTP.Text = "Ktp=";
+            this.L_CaliFKTP.Visible = false;
             // 
             // label17
             // 
@@ -1630,6 +1637,7 @@
             this.tbTemp.Name = "tbTemp";
             this.tbTemp.Size = new System.Drawing.Size(74, 20);
             this.tbTemp.TabIndex = 32;
+            this.tbTemp.Leave += new System.EventHandler(this.tbKTP_Leave);
             // 
             // label11
             // 
@@ -1646,6 +1654,7 @@
             this.tbPresion.Name = "tbPresion";
             this.tbPresion.Size = new System.Drawing.Size(74, 20);
             this.tbPresion.TabIndex = 34;
+            this.tbPresion.Leave += new System.EventHandler(this.tbKTP_Leave);
             // 
             // label12
             // 
@@ -1662,6 +1671,7 @@
             this.tbHumedad.Name = "tbHumedad";
             this.tbHumedad.Size = new System.Drawing.Size(74, 20);
             this.tbHumedad.TabIndex = 36;
+            this.tbHumedad.Leave += new System.EventHandler(this.tbKTP_Leave);
             // 
             // CB_CaliEquipos
             // 
@@ -3252,14 +3262,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3277,14 +3287,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);

@@ -1,1 +1,0 @@
-[{"Marca":"Siemmens","Modelo":"MD2","NumSerie":"5","Alias":"da12","Fuente":2,"TipoDeHaz":1,"energiaFot":[{"EsPredet":false,"Energia":6.0,"ZRefFot":7.0,"PddZrefFot":10.0,"TmrZrefFot":10.0},{"EsPredet":true,"Energia":15.0,"ZRefFot":10.0,"PddZrefFot":10.0,"TmrZrefFot":10.0}],"EnergiasFotones":"6 15 ","energiaElec":[],"EnergiasElectrones":"","EsPredet":true}]

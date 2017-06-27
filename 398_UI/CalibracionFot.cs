@@ -90,29 +90,26 @@ namespace _398_UI
 
         public static double CalcularKtp(double T0, double T, double P0, double P)
         {
-            double KTP = (273.2 + T) * P0 / (273.2 + T0) / P;
-            return KTP;
+            return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P,3);
         }
 
         public static double CalcularKpol(bool signopol, double LVmas, double LVmenos)
         {
-            double KPOL;
             if (signopol == true) //polaridad positiva
             {
-                KPOL = (Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas);
+                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas),3);
             }
             else
             {
-                KPOL = (Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas);
+                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas),3);
             }
-            return KPOL;
         }
 
         public static double CalcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido)
         {
             if (ALEoCo == 1)//Co
             {
-                return (Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2));
+                return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2)),3);
             }
             else
             {
@@ -129,24 +126,22 @@ namespace _398_UI
                     a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
                     a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
                 }
-                return a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2);
+                return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2),3);
             }
         }
 
         public static double CalcularTPR2010(double LV20, double LV10, int PDDoTPR)
 
         {
-            double TPR20_10 = 0;
-            if (PDDoTPR == 1)//está tildado PDD
+            if (PDDoTPR == 0)//está tildado PDD
             {
                 double PDD20_10 = Math.Abs(LV20 / LV10);
-                TPR20_10 = 1.2661 * PDD20_10 - 0.0595;
+                return Math.Round(1.2661 * PDD20_10 - 0.0595,3);
             }
-            else if (PDDoTPR == 2)//está tildado TPR
+            else
             {
-                TPR20_10 = Math.Abs(LV20 / LV10);
+                return Math.Round(Math.Abs(LV20 / LV10),3);
             }
-            return TPR20_10;
         }
     }
 

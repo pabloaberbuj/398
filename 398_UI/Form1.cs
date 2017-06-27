@@ -116,6 +116,7 @@ namespace _398_UI
 
 
         #region Cali Fotones Calculos
+
         private void Prom_Lref(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
@@ -137,6 +138,13 @@ namespace _398_UI
             {
                 L_CaliFTPR2010.Text = Convert.ToString(Math.Round(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD), 2));
                 L_CaliFKqq0.Text = "Falta metodo para Kqq0";
+                L_CaliFTPR2010.Visible = true;
+                L_CaliFKqq0.Visible = true;
+            }
+            else
+            {
+                L_CaliFTPR2010.Visible = false;
+                L_CaliFKqq0.Visible = false;
             }
         }
 
@@ -152,10 +160,17 @@ namespace _398_UI
                 TPRoD = 2;
             }
             MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
-            if (TPRoD != 0)
+            if (TPRoD != 0 && LB_Lect10prom.Text != "Lect10prom" && LB_Lect20prom.Text != "Lect20prom")
             {
                 L_CaliFTPR2010.Text = CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD).ToString();
                 L_CaliFKqq0.Text = "Falta metodo para Kqq0";
+                L_CaliFTPR2010.Visible = true;
+                L_CaliFKqq0.Visible = true;
+            }
+            else
+            {
+                L_CaliFTPR2010.Visible = false;
+                L_CaliFKqq0.Visible = false;
             }
         }
 
@@ -183,6 +198,20 @@ namespace _398_UI
         {
             ((TextBox)sender).SelectAll();
         }
+
+        private void tbKTP_Leave(object sender, EventArgs e)
+        {
+            if (tbTemp.Text != "" && tbPresion.Text != "")
+            {
+                L_CaliFKTP.Text = Convert.ToString(CalibracionFot.CalcularKtp(20, Convert.ToDouble(tbTemp.Text), 1013, Convert.ToDouble(tbPresion.Text)));
+                L_CaliFKTP.Visible = true;
+            }
+            else
+            {
+                L_CaliFKTP.Visible = false;
+            }
+        }
+
         #endregion
 
         #region Cali Fotones UI
@@ -197,7 +226,6 @@ namespace _398_UI
         {
             CalibracionFot.InicializarProfundidadReferencia(CB_CaliEquipos, CB_CaliEnergias, TB_CaliPRof);
         }
-
 
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
         {
@@ -562,6 +590,7 @@ namespace _398_UI
                 if (boton.Name != "Bt_Inicio") { boton.BackColor = SystemColors.ActiveBorder; }
             }
         }
+
 
 
 

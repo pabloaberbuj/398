@@ -195,6 +195,7 @@
             // 
             // CB_HazRef
             // 
+            this.CB_HazRef.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_HazRef.FormattingEnabled = true;
             this.CB_HazRef.Items.AddRange(new object[] {
             "Co-60"});

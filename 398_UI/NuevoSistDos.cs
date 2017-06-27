@@ -19,6 +19,7 @@ namespace _398_UI
             InitializeComponent();
            
             CB_Tension.SelectedIndex = 0;
+            CB_HazRef.SelectedIndex = 0;
             DTP_FechaCal.Value = new DateTime(1900, 1, 1);
             foreach (var reg in Camara.lista())
             {
