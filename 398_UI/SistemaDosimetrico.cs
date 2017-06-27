@@ -78,14 +78,18 @@ namespace _398_UI
                 if (MessageBox.Show("¿Desea borrar el/los registro/s?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     var auxLista = lista();
-                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)
+                    List<SistemaDosimetrico> elementosARemover = new List<SistemaDosimetrico>();
+                    foreach(DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
-                        auxLista[0].EsPredet = true;
+                        elementosARemover.Add(auxLista[fila.Index]);
                     }
-                    else
+                    foreach (SistemaDosimetrico sd in elementosARemover)
                     {
-                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                        auxLista.Remove(sd);
+                        if (sd.EsPredet && auxLista.Count > 0)
+                        {
+                            auxLista[0].EsPredet = true;
+                        }
                     }
                     IO.writeObjectAsJson(file, auxLista);
                     llenarDGV(DGV);
@@ -131,6 +135,30 @@ namespace _398_UI
                 DGV.Rows[aux].Selected = true;
             }
         }
+
+        public static void exportar(DataGridView DGV)
+        {
+            try
+            {
+                if (DGV.SelectedRows.Count > 0)
+                {
+                    List<SistemaDosimetrico> listaAExportar = new List<SistemaDosimetrico>();
+                    string fileExportar = @"..\..\sistemasdosimetricos_" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}.txt",
+                DateTime.Now);
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
+                    {
+                        listaAExportar.Add(lista()[fila.Index]);
+                    }
+                    IO.writeObjectAsJson(fileExportar, listaAExportar);
+                }
+                MessageBox.Show("Se han exportado " + DGV.SelectedRows.Count.ToString() + " sistemas dosimétricos correctamente", "Exportar");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
+            }
+        }
+
         public static void llenarDGV(DataGridView DGV)
         {
             DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new

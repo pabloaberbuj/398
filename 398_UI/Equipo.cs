@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.IO;
 
 namespace _398_UI
 {
@@ -83,17 +84,21 @@ namespace _398_UI
 
             if (DGV.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("¿Desea borrar el/los registro/s?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     var auxLista = lista();
-                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)
+                    List<Equipo> elementosARemover = new List<Equipo>();
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
-                        auxLista[0].EsPredet = true;
+                        elementosARemover.Add(auxLista[fila.Index]);
                     }
-                    else
+                    foreach (Equipo eq in elementosARemover)
                     {
-                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                        auxLista.Remove(eq);
+                        if (eq.EsPredet && auxLista.Count > 0)
+                        {
+                            auxLista[0].EsPredet = true;
+                        }
                     }
                     IO.writeObjectAsJson(file, auxLista);
                     llenarDGV(DGV);
@@ -153,6 +158,29 @@ namespace _398_UI
                 llenarDGV(DGV);
                 DGV.ClearSelection();
                 DGV.Rows[aux].Selected = true;
+            }
+        }
+
+        public static void exportar(DataGridView DGV)
+        {
+            try
+            {
+                if (DGV.SelectedRows.Count > 0)
+                {
+                    List<Equipo> listaAExportar = new List<Equipo>();
+                    string fileExportar = @"..\..\equipos_" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}.txt",
+                DateTime.Now);
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
+                    {
+                        listaAExportar.Add(lista()[fila.Index]);
+                    }
+                    IO.writeObjectAsJson(fileExportar, listaAExportar);
+                }
+                MessageBox.Show("Se han exportado " + DGV.SelectedRows.Count.ToString() + " equipos correctamente", "Exportar");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
             }
         }
         public static void llenarDGV(DataGridView DGV)
