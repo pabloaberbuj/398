@@ -96,18 +96,21 @@ namespace _398_UI
         {
             if (DGV.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("¿Desea borrar el registro?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("¿Desea borrar el/los registro/s?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    
                     var auxLista = lista(DGV);
-                    if (auxLista[DGV.SelectedRows[0].Index].EsPredet && DGV.RowCount > 1)
+                    List<EnergiaElectrones> elementosARemover = new List<EnergiaElectrones>();
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
-                        auxLista[0].EsPredet = true;
+                        elementosARemover.Add(auxLista[fila.Index]);
                     }
-                    else
+                    foreach (EnergiaElectrones ee in elementosARemover)
                     {
-                        auxLista.RemoveAt(DGV.SelectedRows[0].Index);
+                        auxLista.Remove(ee);
+                        if (ee.EsPredet && auxLista.Count > 0)
+                        {
+                            auxLista[0].EsPredet = true;
+                        }
                     }
                     DGV.DataSource = auxLista;
                 }
