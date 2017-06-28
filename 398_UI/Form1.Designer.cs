@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -589,9 +589,9 @@
             this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFMref.Location = new System.Drawing.Point(109, 186);
             this.L_CaliFMref.Name = "L_CaliFMref";
-            this.L_CaliFMref.Size = new System.Drawing.Size(50, 16);
+            this.L_CaliFMref.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFMref.TabIndex = 42;
-            this.L_CaliFMref.Text = "Mref =";
+            this.L_CaliFMref.Text = "Vacio";
             this.L_CaliFMref.Visible = false;
             // 
             // L_CaliFDifLB
@@ -600,9 +600,9 @@
             this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFDifLB.Location = new System.Drawing.Point(109, 262);
             this.L_CaliFDifLB.Name = "L_CaliFDifLB";
-            this.L_CaliFDifLB.Size = new System.Drawing.Size(57, 16);
+            this.L_CaliFDifLB.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFDifLB.TabIndex = 41;
-            this.L_CaliFDifLB.Text = "DifLB =";
+            this.L_CaliFDifLB.Text = "Vacio";
             this.L_CaliFDifLB.Visible = false;
             // 
             // L_CaliFDwZmax
@@ -611,9 +611,9 @@
             this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFDwZmax.Location = new System.Drawing.Point(109, 237);
             this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
-            this.L_CaliFDwZmax.Size = new System.Drawing.Size(76, 16);
+            this.L_CaliFDwZmax.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFDwZmax.TabIndex = 40;
-            this.L_CaliFDwZmax.Text = "Dwzmax =";
+            this.L_CaliFDwZmax.Text = "Vacio";
             this.L_CaliFDwZmax.Visible = false;
             // 
             // L_CaliFDwZref
@@ -622,9 +622,9 @@
             this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFDwZref.Location = new System.Drawing.Point(109, 212);
             this.L_CaliFDwZref.Name = "L_CaliFDwZref";
-            this.L_CaliFDwZref.Size = new System.Drawing.Size(66, 16);
+            this.L_CaliFDwZref.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFDwZref.TabIndex = 39;
-            this.L_CaliFDwZref.Text = "Dwzref =";
+            this.L_CaliFDwZref.Text = "Vacio";
             this.L_CaliFDwZref.Visible = false;
             // 
             // Panel_LecRef
@@ -695,7 +695,7 @@
             this.LB_LecRefProm.Name = "LB_LecRefProm";
             this.LB_LecRefProm.Size = new System.Drawing.Size(66, 13);
             this.LB_LecRefProm.TabIndex = 37;
-            this.LB_LecRefProm.Text = "Lectref prom";
+            this.LB_LecRefProm.Text = "Vacio";
             this.LB_LecRefProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LecRefProm.Visible = false;
             // 
@@ -830,7 +830,7 @@
             this.LB_LectVredProm.Name = "LB_LectVredProm";
             this.LB_LectVredProm.Size = new System.Drawing.Size(66, 13);
             this.LB_LectVredProm.TabIndex = 63;
-            this.LB_LectVredProm.Text = "Lect-Vred";
+            this.LB_LectVredProm.Text = "Vacio";
             this.LB_LectVredProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LectVredProm.Visible = false;
             // 
@@ -902,7 +902,7 @@
             this.LB_lectVtotProm.Name = "LB_lectVtotProm";
             this.LB_lectVtotProm.Size = new System.Drawing.Size(66, 13);
             this.LB_lectVtotProm.TabIndex = 62;
-            this.LB_lectVtotProm.Text = "Lect+Vtot";
+            this.LB_lectVtotProm.Text = "Vacio";
             this.LB_lectVtotProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_lectVtotProm.Visible = false;
             // 
@@ -1139,7 +1139,7 @@
             this.LB_LectmenosVprom.Name = "LB_LectmenosVprom";
             this.LB_LectmenosVprom.Size = new System.Drawing.Size(66, 13);
             this.LB_LectmenosVprom.TabIndex = 60;
-            this.LB_LectmenosVprom.Text = "Lect-Vprom";
+            this.LB_LectmenosVprom.Text = "Vacio";
             this.LB_LectmenosVprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LectmenosVprom.Visible = false;
             // 
@@ -1211,7 +1211,7 @@
             this.LB_LectmasVprom.Name = "LB_LectmasVprom";
             this.LB_LectmasVprom.Size = new System.Drawing.Size(66, 13);
             this.LB_LectmasVprom.TabIndex = 58;
-            this.LB_LectmasVprom.Text = "Lect+Vprom";
+            this.LB_LectmasVprom.Text = "Vacio";
             this.LB_LectmasVprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LectmasVprom.Visible = false;
             // 
@@ -1265,9 +1265,9 @@
             this.L_CaliFTPR2010.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFTPR2010.Location = new System.Drawing.Point(125, 272);
             this.L_CaliFTPR2010.Name = "L_CaliFTPR2010";
-            this.L_CaliFTPR2010.Size = new System.Drawing.Size(83, 16);
+            this.L_CaliFTPR2010.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFTPR2010.TabIndex = 28;
-            this.L_CaliFTPR2010.Text = "TPR2010 =";
+            this.L_CaliFTPR2010.Text = "Vacio";
             this.L_CaliFTPR2010.Visible = false;
             // 
             // L_CaliFKqq0
@@ -1276,9 +1276,9 @@
             this.L_CaliFKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFKqq0.Location = new System.Drawing.Point(125, 296);
             this.L_CaliFKqq0.Name = "L_CaliFKqq0";
-            this.L_CaliFKqq0.Size = new System.Drawing.Size(55, 16);
+            this.L_CaliFKqq0.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFKqq0.TabIndex = 27;
-            this.L_CaliFKqq0.Text = "Kqq0 =";
+            this.L_CaliFKqq0.Text = "Vacio";
             this.L_CaliFKqq0.Visible = false;
             // 
             // label24
@@ -1310,6 +1310,7 @@
             this.RB_CaliFD2010.TabStop = true;
             this.RB_CaliFD2010.Text = "D2010";
             this.RB_CaliFD2010.UseVisualStyleBackColor = true;
+            this.RB_CaliFD2010.CheckedChanged += new System.EventHandler(this.RB_CaliFTPR2010_CheckedChanged);
             // 
             // RB_CaliFTPR2010
             // 
@@ -1321,6 +1322,7 @@
             this.RB_CaliFTPR2010.TabStop = true;
             this.RB_CaliFTPR2010.Text = "TPR2010";
             this.RB_CaliFTPR2010.UseVisualStyleBackColor = true;
+            this.RB_CaliFTPR2010.CheckedChanged += new System.EventHandler(this.RB_CaliFTPR2010_CheckedChanged);
             // 
             // Panel_LecKqq0
             // 
@@ -1403,7 +1405,7 @@
             this.LB_Lect10prom.Name = "LB_Lect10prom";
             this.LB_Lect10prom.Size = new System.Drawing.Size(66, 13);
             this.LB_Lect10prom.TabIndex = 42;
-            this.LB_Lect10prom.Text = "Lect10prom";
+            this.LB_Lect10prom.Text = "Vacio";
             this.LB_Lect10prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_Lect10prom.Visible = false;
             // 
@@ -1475,7 +1477,7 @@
             this.LB_Lect20prom.Name = "LB_Lect20prom";
             this.LB_Lect20prom.Size = new System.Drawing.Size(66, 13);
             this.LB_Lect20prom.TabIndex = 39;
-            this.LB_Lect20prom.Text = "Lect20prom";
+            this.LB_Lect20prom.Text = "Vacio";
             this.LB_Lect20prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_Lect20prom.Visible = false;
             // 
@@ -1580,9 +1582,9 @@
             this.L_CaliFKTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_CaliFKTP.Location = new System.Drawing.Point(94, 96);
             this.L_CaliFKTP.Name = "L_CaliFKTP";
-            this.L_CaliFKTP.Size = new System.Drawing.Size(38, 16);
+            this.L_CaliFKTP.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFKTP.TabIndex = 41;
-            this.L_CaliFKTP.Text = "Ktp=";
+            this.L_CaliFKTP.Text = "Vacio";
             this.L_CaliFKTP.Visible = false;
             // 
             // label17
@@ -3262,14 +3264,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3287,14 +3289,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);

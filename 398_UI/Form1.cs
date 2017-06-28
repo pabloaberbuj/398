@@ -42,6 +42,7 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
             CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
+            RB_CaliFTPR2010.Checked = true;
 
 
 
@@ -134,7 +135,7 @@ namespace _398_UI
                 TPRoD = 2;
             }
             MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
-            if (TPRoD != 0 && LB_Lect10prom.Text != "Lect10prom" && LB_Lect20prom.Text != "Lect20prom")
+            if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
             {
                 L_CaliFTPR2010.Text = Convert.ToString(Math.Round(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD), 2));
                 L_CaliFKqq0.Text = "Falta metodo para Kqq0";
@@ -160,7 +161,32 @@ namespace _398_UI
                 TPRoD = 2;
             }
             MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
-            if (TPRoD != 0 && LB_Lect10prom.Text != "Lect10prom" && LB_Lect20prom.Text != "Lect20prom")
+            if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
+            {
+                L_CaliFTPR2010.Text = CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD).ToString();
+                L_CaliFKqq0.Text = "Falta metodo para Kqq0";
+                L_CaliFTPR2010.Visible = true;
+                L_CaliFKqq0.Visible = true;
+            }
+            else
+            {
+                L_CaliFTPR2010.Visible = false;
+                L_CaliFKqq0.Visible = false;
+            }
+        }
+
+        private void RB_CaliFTPR2010_CheckedChanged(object sender, EventArgs e)
+        {
+            int TPRoD = 0;
+            if (RB_CaliFTPR2010.Checked)
+            {
+                TPRoD = 1;
+            }
+            else if (RB_CaliFD2010.Checked)
+            {
+                TPRoD = 2;
+            }
+            if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
             {
                 L_CaliFTPR2010.Text = CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD).ToString();
                 L_CaliFKqq0.Text = "Falta metodo para Kqq0";
@@ -209,6 +235,7 @@ namespace _398_UI
             else
             {
                 L_CaliFKTP.Visible = false;
+                L_CaliFKTP.Text = "Vacio";
             }
         }
 
@@ -590,6 +617,7 @@ namespace _398_UI
                 if (boton.Name != "Bt_Inicio") { boton.BackColor = SystemColors.ActiveBorder; }
             }
         }
+
 
 
 

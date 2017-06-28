@@ -33,7 +33,7 @@ namespace _398_UI
                 if (tb.Text != "")
                 {
                     bool esnumero = Double.TryParse(tb.Text, out aux);
-                    if (esnumero == true)
+                    if (esnumero)
 
                     { suma += aux; contador++; }
                     else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll(); break; }
@@ -41,8 +41,16 @@ namespace _398_UI
                 if (contador != 0) { promedio = Math.Round(suma / contador, 3); }
 
             }
-            texto.Visible = true;
-            texto.Text = Convert.ToString(promedio);
+            if (promedio != null)
+            {
+                texto.Visible = true;
+                texto.Text = Convert.ToString(promedio);
+            }
+            else
+            {
+                texto.Visible = false;
+                texto.Text = "Vacio";
+            }
         }
 
         public static double interpolar(double x1, double x2, double y1, double y2, double x)

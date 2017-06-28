@@ -133,7 +133,7 @@ namespace _398_UI
         public static double CalcularTPR2010(double LV20, double LV10, int PDDoTPR)
 
         {
-            if (PDDoTPR == 0)//está tildado PDD
+            if (PDDoTPR == 2)//está tildado D2010
             {
                 double PDD20_10 = Math.Abs(LV20 / LV10);
                 return Math.Round(1.2661 * PDD20_10 - 0.0595,3);
