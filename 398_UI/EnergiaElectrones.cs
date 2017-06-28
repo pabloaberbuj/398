@@ -121,10 +121,10 @@ namespace _398_UI
         {
             EnergiaElectrones aux = lista(DGV)[DGV.SelectedRows[0].Index];
             Energia.Text = aux.Energia.ToString();
-            R50Ion.Text = aux.R50ion.ToString();
-            R50D.Text = aux.R50D.ToString();
-            Zref.Text = aux.Zref.ToString();
-            PDDZref.Text = aux.PDDZref.ToString();
+            R50Ion.Text = MetodosCalculos.stringNaN(aux.R50ion);
+            R50D.Text = MetodosCalculos.stringNaN(aux.R50D);
+            Zref.Text = MetodosCalculos.stringNaN(aux.Zref);
+            PDDZref.Text = MetodosCalculos.stringNaN(aux.PDDZref);
         }
 
         public static void hacerPredeterminado(DataGridView DGV)

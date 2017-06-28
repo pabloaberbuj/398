@@ -93,6 +93,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.L_Kpol = new System.Windows.Forms.Label();
             this.LB_KpolRes = new System.Windows.Forms.Label();
             this.CHB_NoUsaKpol = new System.Windows.Forms.CheckBox();
             this.CHB_UsaKpolLB = new System.Windows.Forms.CheckBox();
@@ -174,7 +175,7 @@
             this.BT_PredetEqu = new System.Windows.Forms.Button();
             this.TB_AliasEq = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GB_EquiposEnergias = new System.Windows.Forms.GroupBox();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
             this.label76 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
@@ -312,7 +313,6 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.L_Kpol = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -338,7 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
             this.Panel_TipoHazEq.SuspendLayout();
             this.Panel_FuenteEq.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.GB_EquiposEnergias.SuspendLayout();
             this.Panel_EnElecEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).BeginInit();
             this.Panel_EnFotEquipo.SuspendLayout();
@@ -1026,6 +1026,17 @@
             this.groupBox4.TabIndex = 56;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Kpol";
+            // 
+            // L_Kpol
+            // 
+            this.L_Kpol.AutoSize = true;
+            this.L_Kpol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Kpol.Location = new System.Drawing.Point(124, 294);
+            this.L_Kpol.Name = "L_Kpol";
+            this.L_Kpol.Size = new System.Drawing.Size(48, 16);
+            this.L_Kpol.TabIndex = 35;
+            this.L_Kpol.Text = "Vacio";
+            this.L_Kpol.Visible = false;
             // 
             // LB_KpolRes
             // 
@@ -1734,7 +1745,7 @@
             this.GB_Equipos.Controls.Add(this.BT_PredetEqu);
             this.GB_Equipos.Controls.Add(this.TB_AliasEq);
             this.GB_Equipos.Controls.Add(this.label18);
-            this.GB_Equipos.Controls.Add(this.groupBox2);
+            this.GB_Equipos.Controls.Add(this.GB_EquiposEnergias);
             this.GB_Equipos.Controls.Add(this.label5);
             this.GB_Equipos.Controls.Add(this.BT_EliminarEq);
             this.GB_Equipos.Controls.Add(this.BT_EditarEq);
@@ -1875,18 +1886,19 @@
             this.label18.TabIndex = 63;
             this.label18.Text = "Alias";
             // 
-            // groupBox2
+            // GB_EquiposEnergias
             // 
-            this.groupBox2.Controls.Add(this.Panel_EnElecEquipo);
-            this.groupBox2.Controls.Add(this.Panel_EnFotEquipo);
-            this.groupBox2.Controls.Add(this.CHB_EnElecEquipo);
-            this.groupBox2.Controls.Add(this.CHB_EnFotEquipo);
-            this.groupBox2.Location = new System.Drawing.Point(9, 215);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 271);
-            this.groupBox2.TabIndex = 62;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Energías";
+            this.GB_EquiposEnergias.Controls.Add(this.Panel_EnElecEquipo);
+            this.GB_EquiposEnergias.Controls.Add(this.Panel_EnFotEquipo);
+            this.GB_EquiposEnergias.Controls.Add(this.CHB_EnElecEquipo);
+            this.GB_EquiposEnergias.Controls.Add(this.CHB_EnFotEquipo);
+            this.GB_EquiposEnergias.Enabled = false;
+            this.GB_EquiposEnergias.Location = new System.Drawing.Point(9, 215);
+            this.GB_EquiposEnergias.Name = "GB_EquiposEnergias";
+            this.GB_EquiposEnergias.Size = new System.Drawing.Size(775, 271);
+            this.GB_EquiposEnergias.TabIndex = 62;
+            this.GB_EquiposEnergias.TabStop = false;
+            this.GB_EquiposEnergias.Text = "Energías";
             // 
             // Panel_EnElecEquipo
             // 
@@ -1939,9 +1951,9 @@
             this.L_EnElecR50dosis.AutoSize = true;
             this.L_EnElecR50dosis.Location = new System.Drawing.Point(113, 64);
             this.L_EnElecR50dosis.Name = "L_EnElecR50dosis";
-            this.L_EnElecR50dosis.Size = new System.Drawing.Size(27, 13);
+            this.L_EnElecR50dosis.Size = new System.Drawing.Size(34, 13);
             this.L_EnElecR50dosis.TabIndex = 112;
-            this.L_EnElecR50dosis.Text = "R50";
+            this.L_EnElecR50dosis.Text = "Vacio";
             this.L_EnElecR50dosis.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.L_EnElecR50dosis.Visible = false;
             // 
@@ -1959,9 +1971,9 @@
             this.L_EnElecZref.AutoSize = true;
             this.L_EnElecZref.Location = new System.Drawing.Point(113, 87);
             this.L_EnElecZref.Name = "L_EnElecZref";
-            this.L_EnElecZref.Size = new System.Drawing.Size(26, 13);
+            this.L_EnElecZref.Size = new System.Drawing.Size(34, 13);
             this.L_EnElecZref.TabIndex = 110;
-            this.L_EnElecZref.Text = "Zref";
+            this.L_EnElecZref.Text = "Vacio";
             this.L_EnElecZref.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.L_EnElecZref.Visible = false;
             // 
@@ -3329,25 +3341,14 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
-            // L_Kpol
-            // 
-            this.L_Kpol.AutoSize = true;
-            this.L_Kpol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_Kpol.Location = new System.Drawing.Point(124, 294);
-            this.L_Kpol.Name = "L_Kpol";
-            this.L_Kpol.Size = new System.Drawing.Size(48, 16);
-            this.L_Kpol.TabIndex = 35;
-            this.L_Kpol.Text = "Vacio";
-            this.L_Kpol.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 692);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -3402,8 +3403,8 @@
             this.Panel_TipoHazEq.PerformLayout();
             this.Panel_FuenteEq.ResumeLayout(false);
             this.Panel_FuenteEq.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.GB_EquiposEnergias.ResumeLayout(false);
+            this.GB_EquiposEnergias.PerformLayout();
             this.Panel_EnElecEquipo.ResumeLayout(false);
             this.Panel_EnElecEquipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).EndInit();
@@ -3474,7 +3475,7 @@
         private System.Windows.Forms.Button BT_PredSistDos;
         private System.Windows.Forms.Button BT_EditarSistDos;
         private System.Windows.Forms.GroupBox GB_Equipos;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox GB_EquiposEnergias;
         private System.Windows.Forms.CheckBox CHB_EnElecEquipo;
         private System.Windows.Forms.CheckBox CHB_EnFotEquipo;
         private System.Windows.Forms.Label label5;

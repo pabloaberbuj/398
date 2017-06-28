@@ -304,13 +304,21 @@ namespace _398_UI
         private void RB_FuenteCo_CheckedChanged(object sender, EventArgs e)
         {
             if (RB_FuenteCo.Checked == true)
-            { Panel_TipoHazEq.Enabled = false; LB_TipoHaz.Enabled = false; }
+            {
+                Panel_TipoHazEq.Enabled = false;
+                LB_TipoHaz.Enabled = false;
+                GB_EquiposEnergias.Enabled = false;
+            }
         }
 
         private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
         {
             if (RB_FuenteALE.Checked == true)
-            { Panel_TipoHazEq.Enabled = true; LB_TipoHaz.Enabled = true; }
+            {
+                Panel_TipoHazEq.Enabled = true;
+                LB_TipoHaz.Enabled = true;
+                GB_EquiposEnergias.Enabled = true;
+            }
 
         }
         #endregion
@@ -397,7 +405,7 @@ namespace _398_UI
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Visible = true;
-            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Convert.ToDouble(TB_EnFotZref.Text), Convert.ToDouble(TB_EnFotPDD.Text), Convert.ToDouble(TB_EnFotTMR.Text)), editaEnergiaFot, DGV_EnFot);
+            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), MetodosCalculos.doubleNaN(TB_EnFotZref), MetodosCalculos.doubleNaN(TB_EnFotPDD), MetodosCalculos.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
             LimpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
@@ -437,7 +445,7 @@ namespace _398_UI
         private void BT_EnElecGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnElec.Visible = true;
-            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Convert.ToDouble(TB_EnElecR50ion.Text), Convert.ToDouble(L_EnElecR50dosis.Text), Convert.ToDouble(L_EnElecZref.Text), Convert.ToDouble(TB_EnElecPDDZref.Text)), editaEnergiaElect, DGV_EnElec);
+            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), MetodosCalculos.doubleNaN(TB_EnElecR50ion), MetodosCalculos.doubleNaN(L_EnElecR50dosis), MetodosCalculos.doubleNaN(L_EnElecZref), MetodosCalculos.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
             LimpiarRegistro(Panel_EnElecEquipo);
             L_EnElecR50dosis.Text = null;
             L_EnElecZref.Text = null;
@@ -471,10 +479,20 @@ namespace _398_UI
 
         private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
         {
-            L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
-            L_EnElecR50dosis.Visible = true;
-            L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
-            L_EnElecZref.Visible = true;
+            if (TB_EnElecR50ion.Text != "")
+            {
+                L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
+                L_EnElecR50dosis.Visible = true;
+                L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
+                L_EnElecZref.Visible = true;
+            }
+            else
+            {
+                L_EnElecR50dosis.Text = "Vacio";
+                L_EnElecR50dosis.Visible = false;
+                L_EnElecZref.Text = "Vacio";
+                L_EnElecZref.Visible = false;
+            }
         }
 
         #endregion

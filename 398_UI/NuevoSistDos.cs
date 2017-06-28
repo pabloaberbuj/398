@@ -79,7 +79,7 @@ namespace _398_UI
                 CB_HazRef.Text,
                 Convert.ToDouble(TB_Temp.Text),
                 Convert.ToDouble(TB_Presion.Text),
-                Convert.ToDouble(TB_Humedad.Text),
+                MetodosCalculos.doubleNaN(TB_Humedad),
                 auxFecha,
                 TB_LabCal.Text),editaSD,indice);
             editaSD = false;

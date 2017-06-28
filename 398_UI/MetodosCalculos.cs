@@ -17,13 +17,47 @@ namespace _398_UI
             if (tb.Text != "")
             {
                 esnumero = Double.TryParse(tb.Text, out aux);
-                if (esnumero == true) { }
+                if (esnumero) { }
                 else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll(); }
             }
             return esnumero;
         }
 
+        public static double doubleNaN(TextBox tb)
+        {
+            if (tb.Text == "")
+            {
+                return double.NaN;
+            }
+            else
+            {
+                return Convert.ToDouble(tb.Text);
+            }
+        }
 
+        public static double doubleNaN(Label lb)
+        {
+            if (lb.Text == "Vacio")
+            {
+                return double.NaN;
+            }
+            else
+            {
+                return Convert.ToDouble(lb.Text);
+            }
+        }
+
+        public static string stringNaN(double valor)
+        {
+            if (Double.IsNaN(valor))
+            {
+                return "";
+            }
+            else
+            {
+                return valor.ToString();
+            }
+        }
         public static void promediar(Panel panel, Label texto)
         {
             double suma = 0; double aux; int contador = 0; Nullable<double> promedio = null;
