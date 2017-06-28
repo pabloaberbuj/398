@@ -118,12 +118,8 @@ namespace _398_UI
 
         #region Cali Fotones Calculos
 
-        private void Prom_Lref(object sender, EventArgs e)
-        {
-            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
-        }
-
-        private void Prom_L20(object sender, EventArgs e)
+        //TPR 2010 y Kqq0
+        private void calculoTPR2010()
         {
             int TPRoD = 0;
             if (RB_CaliFTPR2010.Checked)
@@ -134,7 +130,6 @@ namespace _398_UI
             {
                 TPRoD = 2;
             }
-            MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
             if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
             {
                 L_CaliFTPR2010.Text = Convert.ToString(Math.Round(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD), 2));
@@ -148,68 +143,57 @@ namespace _398_UI
                 L_CaliFKqq0.Visible = false;
             }
         }
+        private void Prom_Lref(object sender, EventArgs e)
+        {
+            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
+        }
+
+        private void Prom_L20(object sender, EventArgs e)
+        {
+            MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
+            calculoTPR2010();
+        }
 
         private void Prom_L10(object sender, EventArgs e)
         {
-            int TPRoD = 0;
-            if (RB_CaliFTPR2010.Checked)
-            {
-                TPRoD = 1;
-            }
-            else if (RB_CaliFD2010.Checked)
-            {
-                TPRoD = 2;
-            }
             MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
-            if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
-            {
-                L_CaliFTPR2010.Text = CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD).ToString();
-                L_CaliFKqq0.Text = "Falta metodo para Kqq0";
-                L_CaliFTPR2010.Visible = true;
-                L_CaliFKqq0.Visible = true;
-            }
-            else
-            {
-                L_CaliFTPR2010.Visible = false;
-                L_CaliFKqq0.Visible = false;
-            }
+            calculoTPR2010();
         }
 
         private void RB_CaliFTPR2010_CheckedChanged(object sender, EventArgs e)
         {
-            int TPRoD = 0;
-            if (RB_CaliFTPR2010.Checked)
-            {
-                TPRoD = 1;
-            }
-            else if (RB_CaliFD2010.Checked)
-            {
-                TPRoD = 2;
-            }
-            if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
-            {
-                L_CaliFTPR2010.Text = CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD).ToString();
-                L_CaliFKqq0.Text = "Falta metodo para Kqq0";
-                L_CaliFTPR2010.Visible = true;
-                L_CaliFKqq0.Visible = true;
-            }
-            else
-            {
-                L_CaliFTPR2010.Visible = false;
-                L_CaliFKqq0.Visible = false;
-            }
+            calculoTPR2010();
         }
 
+        //Kpol
+
+        private void calculoKpol()
+        {
+            if (LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio")
+            {
+                int signoTension = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].SignoTension;
+                L_Kpol.Text = CalibracionFot.CalcularKpol(signoTension, Convert.ToDouble(LB_LectmasVprom.Text), Convert.ToDouble(LB_LectmenosVprom.Text)).ToString();
+                L_Kpol.Visible = true;
+            }
+        }
         private void Prom_masV(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_LectmasV, LB_LectmasVprom);
+            calculoKpol();
         }
 
         private void Prom_menosV(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
+            calculoKpol();
         }
 
+        private void CB_CaliSistDosimetrico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calculoKpol();
+        }
+    
+        //Ks
         private void Prom_Vtot(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_lectVtot, LB_lectVtotProm);
@@ -225,6 +209,7 @@ namespace _398_UI
             ((TextBox)sender).SelectAll();
         }
 
+        //KTP
         private void tbKTP_Leave(object sender, EventArgs e)
         {
             if (tbTemp.Text != "" && tbPresion.Text != "")
@@ -617,6 +602,7 @@ namespace _398_UI
                 if (boton.Name != "Bt_Inicio") { boton.BackColor = SystemColors.ActiveBorder; }
             }
         }
+
 
 
 

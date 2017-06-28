@@ -93,15 +93,15 @@ namespace _398_UI
             return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P,3);
         }
 
-        public static double CalcularKpol(bool signopol, double LVmas, double LVmenos)
+        public static double CalcularKpol(int signopol, double LVmas, double LVmenos)
         {
-            if (signopol == true) //polaridad positiva
+            if (signopol == 1) //polaridad positiva
             {
                 return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas),3);
             }
             else
             {
-                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas),3);
+                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmenos),3);
             }
         }
 

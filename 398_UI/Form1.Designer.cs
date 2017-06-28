@@ -312,6 +312,7 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
+            this.L_Kpol = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1014,6 +1015,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.L_Kpol);
             this.groupBox4.Controls.Add(this.LB_KpolRes);
             this.groupBox4.Controls.Add(this.CHB_NoUsaKpol);
             this.groupBox4.Controls.Add(this.CHB_UsaKpolLB);
@@ -1711,6 +1713,7 @@
             this.CB_CaliSistDosimetrico.Name = "CB_CaliSistDosimetrico";
             this.CB_CaliSistDosimetrico.Size = new System.Drawing.Size(231, 21);
             this.CB_CaliSistDosimetrico.TabIndex = 39;
+            this.CB_CaliSistDosimetrico.SelectedIndexChanged += new System.EventHandler(this.CB_CaliSistDosimetrico_SelectedIndexChanged);
             // 
             // Panel_Equipos
             // 
@@ -3326,6 +3329,17 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
+            // L_Kpol
+            // 
+            this.L_Kpol.AutoSize = true;
+            this.L_Kpol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Kpol.Location = new System.Drawing.Point(124, 294);
+            this.L_Kpol.Name = "L_Kpol";
+            this.L_Kpol.Size = new System.Drawing.Size(48, 16);
+            this.L_Kpol.TabIndex = 35;
+            this.L_Kpol.Text = "Vacio";
+            this.L_Kpol.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3709,6 +3723,7 @@
         private System.Windows.Forms.Label L_CaliFTPR2010;
         private System.Windows.Forms.Label L_CaliFKqq0;
         private System.Windows.Forms.Label L_CaliFKTP;
+        private System.Windows.Forms.Label L_Kpol;
     }
 }
 

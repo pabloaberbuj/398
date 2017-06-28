@@ -1,1 +1,0 @@
-[{"MarcaCam":"marca","ModeloCam":"modelo","NumSerieCam":"SN","MarcaElec":"marca","ModeloElec":"modelo","NumSerieElec":"SN","FactorCalibracion":5.0,"SignoTension":1,"Tension":5.0,"HazDeRef":"Co-60","TempRef":5.0,"PresionRef":5.0,"HumedadRef":5.0,"FechaCalibracion":"18/04/2017","LaboCalibracion":"a","EsPredet":false}]
