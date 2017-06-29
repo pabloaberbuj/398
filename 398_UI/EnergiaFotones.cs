@@ -131,7 +131,6 @@ namespace _398_UI
             DGV.Columns[2].Width = 38;
             DGV.Columns[3].Width = 38;
             DGV.Columns[4].Width = 38;
-
         }
 
     }
