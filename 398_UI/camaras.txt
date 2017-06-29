@@ -1,1 +1,1 @@
-[{"Marca":"PTW","Modelo":"454","NumSerie":"12","EtiquetaCam":"PTW 454 12"},{"Marca":"PTW","Modelo":"454","NumSerie":"122","EtiquetaCam":"PTW 454 122"}]
+[{"Marca":"PTW","Modelo":"454","NumSerie":"122","EtiquetaCam":"PTW 454 122"}]
