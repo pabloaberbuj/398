@@ -28,7 +28,6 @@ Corregir nombre a exportar (nombre_fecha + numero) B m
 Dar formato a DGV
 
 Equipo
-Corregir nombre a exportar (nombre_fecha + numero) B m
 Dar formato a DGV
 
 Analisis Registro
