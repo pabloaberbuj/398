@@ -51,8 +51,31 @@ namespace _398_UI
                 return lista;
             }
         }
-        
-
+        /// <summary>
+        /// Devuelve un string con un nombre único para un archivo
+        /// </summary>
+        /// <param name="path">La ruta a la carpeta</param>
+        /// <param name="baseName">El nombre deseado</param>
+        /// <param name="maxAttempts">el número máximo que se le concatenará al baseName</param>
+        /// <returns></returns>
+        public static string GetUniqueFilename(string path, string baseName, string extention = "txt", int maxAttempts = 128)
+        {
+            if (!File.Exists(string.Format("{0}{1}.{2}",path, baseName,extention)))
+            {
+                return string.Format("{0}{1}.{2}", path, baseName, extention);
+            }
+            else
+            {
+                for (int i = 1; i < maxAttempts; i++)
+                {
+                    if (!File.Exists(string.Format("{0}{1} ({2}).{3}", path, baseName, i, extention)))
+                    {
+                        return string.Format("{0}{1} ({2}).{3}", path, baseName, i, extention);
+                    }
+                }
+            }
+            return string.Format("{0}{1} - {2:yyyy-MM-dd_hh-mm-ss}.{3}", path, baseName, DateTime.Now, extention);
+        }
     }
 }
 

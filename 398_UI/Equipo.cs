@@ -168,13 +168,12 @@ namespace _398_UI
                 if (DGV.SelectedRows.Count > 0)
                 {
                     List<Equipo> listaAExportar = new List<Equipo>();
-                    string fileExportar = @"..\..\equipos_" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}.txt",
-                DateTime.Now);
+                    string fileName = IO.GetUniqueFilename(@"..\..\", "equiposExportados");
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
                         listaAExportar.Add(lista()[fila.Index]);
                     }
-                    IO.writeObjectAsJson(fileExportar, listaAExportar);
+                    IO.writeObjectAsJson(fileName, listaAExportar);
                 }
                 MessageBox.Show("Se han exportado " + DGV.SelectedRows.Count.ToString() + " equipos correctamente", "Exportar");
             }
