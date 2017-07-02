@@ -603,7 +603,7 @@ namespace _398_UI
             foreach (TextBox tb in gb.Controls.OfType<TextBox>())
             { tb.Clear(); }
             foreach (ComboBox cb in gb.Controls.OfType<ComboBox>())
-            { cb.SelectedIndex = -1; }
+            { cb.SelectedIndex = 0; }
             foreach (RadioButton rb in gb.Controls.OfType<RadioButton>())
             { rb.Checked = false; }
 
