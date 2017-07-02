@@ -35,7 +35,8 @@ namespace _398_UI
             Equipo.llenarDGV(DGV_Equipo);
 
             //lista de cámaras 398
-            CB_MarcaCam.DataSource = camaras398.listaDeMarcas();
+            CB_MarcaCam.DataSource = camaras398.lista();
+            CB_MarcaCam.DisplayMember = "marca";
             
             
             
@@ -504,7 +505,8 @@ namespace _398_UI
         #region SistDosimetricos UI
         private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CB_ModCam.DataSource = camaras398.listaDeModelos(CB_MarcaCam.SelectedIndex);
+            CB_ModCam.DataSource = camaras398.lista().ElementAt(CB_MarcaCam.SelectedIndex).modelos;
+
         }
         #endregion
 

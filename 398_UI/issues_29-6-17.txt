@@ -6,7 +6,6 @@ Resumen M f
 Historial M m
 
 Calibracion Fotones
-Cambiar registro por reporte A f
 Guardar A f
 Vista previa e imprimir A d
 Establecer como linea base A m
