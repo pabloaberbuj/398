@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace _398_UI
 {
-    static class IO
+    public static class IO
     {
         /// <summary>
         /// Escribe un objeto como Json en un archivo
