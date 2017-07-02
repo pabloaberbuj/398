@@ -21,10 +21,8 @@ Calibracion Electrones
 TODO M d
 
 Sistemas Dosimetricos
-CB Modelo Camara A m
 Aclarar al borrar cámara/electrometro qué el sistema dosim seguirá pero no se podrá editar M f
 No permitir editar un sist dosim al que le borré camara/electrometro M f
-Corregir nombre a exportar (nombre_fecha + numero) B m
 Dar formato a DGV
 
 Equipo
