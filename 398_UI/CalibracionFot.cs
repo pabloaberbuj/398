@@ -87,18 +87,18 @@ namespace _398_UI
 
         public static double CalcularKtp(double T0, double T, double P0, double P)
         {
-            return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P,3);
+            return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P,4);
         }
 
         public static double CalcularKpol(int signopol, double LVmas, double LVmenos)
         {
             if (signopol == 1) //polaridad positiva
             {
-                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas),3);
+                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas),4);
             }
             else
             {
-                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmenos),3);
+                return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmenos),4);
             }
         }
 
@@ -106,7 +106,7 @@ namespace _398_UI
         {
             if (ALEoCo == 1)//Co
             {
-                return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - (LVtot / LVred)),3);
+                return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - (LVtot / LVred)),4);
             }
             else
             {
@@ -114,8 +114,8 @@ namespace _398_UI
                 if (pulsadoOBarrido == 1) //Pulsado
                 {
                     string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsados);
-                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 0);
-                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 1);
+                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
+                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
                     double[,] tabla = Tabla.extraerMatriz(fid, 3, 8, a0a1a2Etiquetas.Count(), v1_v2Etiquetas.Count());
 
                     a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas,a0a1a2Etiquetas, tabla);
@@ -125,15 +125,15 @@ namespace _398_UI
                 else
                 {
                     string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsadosYbarridos);
-                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 0);
-                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 1);
+                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
+                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
                     double[,] tabla = Tabla.extraerMatriz(fid, 3, 8, a0a1a2Etiquetas.Count(), v1_v2Etiquetas.Count());
 
                     a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                     a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                     a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                 }
-                return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2),3);
+                return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2),4);
             }
         }
 
@@ -143,12 +143,21 @@ namespace _398_UI
             if (PDDoTPR == 2)//está tildado D2010
             {
                 double PDD20_10 = Math.Abs(LV20 / LV10);
-                return Math.Round(1.2661 * PDD20_10 - 0.0595,3);
+                return Math.Round(1.2661 * PDD20_10 - 0.0595,4);
             }
             else
             {
-                return Math.Round(Math.Abs(LV20 / LV10),3);
+                return Math.Round(Math.Abs(LV20 / LV10),4);
             }
+        }
+
+       public static double CalcularKqq0 (double TPR2010, Camara camara)
+        {
+            string[] fid = Tabla.Cargar(Tabla.tabla_Kqq0);
+            double[] TPR2010Etiquetas = Tabla.extraerDoubleArray(fid, 0);
+            string[] listacamarasmodelos = camaras398.listaCamaraModelo();
+            double[,] tabla = Tabla.extraerMatriz(fid, 3, 53, TPR2010Etiquetas.Count(), listacamarasmodelos.Count());
+            return Math.Round(MetodosCalculos.interpolatabla(TPR2010, camara.Marca + camara.Modelo, TPR2010Etiquetas, listacamarasmodelos, tabla),4);
         }
     }
 

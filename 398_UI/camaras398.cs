@@ -16,5 +16,19 @@ namespace _398_UI
         {
             return IO.readJsonList<camaras398>(@"..\..\camaras398.txt");
         }
+
+        public static string[] listaCamaraModelo()
+        {
+            List<string> CamaraModelo = new List<string>();
+            foreach (var Marca in (BindingList<camaras398>)lista())
+            {
+                foreach (var Modelo in Marca.modelos)
+                {
+                    CamaraModelo.Add(Marca.marca + Modelo);
+                }
+            }
+            return CamaraModelo.ToArray();
+        }
     }
+            
 }

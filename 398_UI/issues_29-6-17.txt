@@ -13,7 +13,7 @@ Cancelar A f
 Exportar A f
 Metodo Kqq0 A m
 Usar linea base A m
-Metodo Ks A m
+OK Metodo Ks A m
 Calculos en referencia A f
 
 Calibracion Electrones
@@ -31,8 +31,8 @@ Analisis Registro
 CASI TODO M d
 
 Cosas generales
-Cargar tablas A m
-Metodos para leer tablas A f
+OK Cargar tablas A m
+OK Metodos para leer tablas A f
 Revisar metodos para usar datos de tabla A m
 
 Importar

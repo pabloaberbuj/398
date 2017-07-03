@@ -103,7 +103,7 @@ namespace _398_UI
         {
             int iX = Array.IndexOf(etiquetasX, X);
             int iY = Array.IndexOf(etiquetasY, Y);
-            double XY = valores[iY, iX]; //ver que es así y no al revés
+            double XY = valores[iX, iY]; //ver que es así y no al revés
             return XY;
         }
 
@@ -122,7 +122,7 @@ namespace _398_UI
                 double X2 = 0; double Y2;
                 if (iX != -1) //no hace falta interpolar
                 {
-                    XY = valores[iY, iX];
+                    XY = valores[iX, iY];
                 }
                 else
                 {

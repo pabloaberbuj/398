@@ -135,13 +135,27 @@ namespace _398_UI
             if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
             {
                 L_CaliFTPR2010.Text = Convert.ToString(Math.Round(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD), 2));
-                L_CaliFKqq0.Text = "Falta metodo para Kqq0";
                 L_CaliFTPR2010.Visible = true;
+            }
+            else
+            {
+
+                L_CaliFTPR2010.Visible = false;
+                L_CaliFTPR2010.Text = "Vacio";
+            }
+        }
+
+        private void calculokQQ0()
+        {
+            if (L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex!=-1)
+            {
+                Camara camaraSeleccionada = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].camara;
+                L_CaliFKqq0.Text =  CalibracionFot.CalcularKqq0(Convert.ToDouble(L_CaliFTPR2010.Text), camaraSeleccionada).ToString();
                 L_CaliFKqq0.Visible = true;
             }
             else
             {
-                L_CaliFTPR2010.Visible = false;
+                L_CaliFKqq0.Text = "Vacio";
                 L_CaliFKqq0.Visible = false;
             }
         }
@@ -154,17 +168,20 @@ namespace _398_UI
         {
             MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
             calculoTPR2010();
+            calculokQQ0();
         }
 
         private void Prom_L10(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
             calculoTPR2010();
+            calculokQQ0();
         }
 
         private void RB_CaliFTPR2010_CheckedChanged(object sender, EventArgs e)
         {
             calculoTPR2010();
+            calculokQQ0();
         }
 
         //Kpol
@@ -270,6 +287,7 @@ namespace _398_UI
         {
             calculoKpol();
             calculoKs();
+            calculokQQ0();
         }
 
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
