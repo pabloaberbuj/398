@@ -28,10 +28,7 @@ namespace _398_UI
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
 
-        public static double[] Vtot_Vred_Ks = { 2, 2.5, 3, 3.5, 4, 5 };
-        public static string[] a0a1a2 = { "a0", "a1", "a2" };
-        public static double[,] a0a1a2Pulsados = new double[2, 2]; //INVENTADO. CARGAR TABLA
-        public static double[,] a0a1a2Barridos = new double[2, 2]; //INVENTADO. CARGAR TABLA
+        
 
         public static void InicializarComboBoxEquipos(ComboBox CBEquipo)
         {
@@ -109,22 +106,32 @@ namespace _398_UI
         {
             if (ALEoCo == 1)//Co
             {
-                return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - Math.Pow((LVtot / LVred), 2)),3);
+                return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - (LVtot / LVred)),3);
             }
             else
             {
                 double a0 = 0; double a1 = 0; double a2 = 0;
                 if (pulsadoOBarrido == 1) //Pulsado
                 {
-                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", Vtot_Vred_Ks,a0a1a2, a0a1a2Pulsados);
-                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", Vtot_Vred_Ks,a0a1a2, a0a1a2Pulsados);
-                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", Vtot_Vred_Ks,a0a1a2, a0a1a2Pulsados);
+                    string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsados);
+                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 0);
+                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 1);
+                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 8, a0a1a2Etiquetas.Count(), v1_v2Etiquetas.Count());
+
+                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas,a0a1a2Etiquetas, tabla);
+                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                 }
                 else
                 {
-                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
-                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
-                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", Vtot_Vred_Ks,a0a1a2, a0a1a2Barridos);
+                    string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsadosYbarridos);
+                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 0);
+                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 1);
+                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 8, a0a1a2Etiquetas.Count(), v1_v2Etiquetas.Count());
+
+                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                 }
                 return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2),3);
             }

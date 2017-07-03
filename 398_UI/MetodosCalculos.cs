@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,7 +69,7 @@ namespace _398_UI
             {
                 if (tb.Text != "")
                 {
-                    bool esnumero = Double.TryParse(tb.Text, out aux);
+                    bool esnumero = Double.TryParse(tb.Text,NumberStyles.Float,CultureInfo.InvariantCulture, out aux);
                     if (esnumero)
 
                     { suma += aux; contador++; }

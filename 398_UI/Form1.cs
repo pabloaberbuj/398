@@ -18,6 +18,7 @@ namespace _398_UI
         bool editaEquipo = false;
         bool editaEnergiaFot = false;
         bool editaEnergiaElect = false;
+        
 
 
         public Form1()
@@ -37,16 +38,13 @@ namespace _398_UI
             //lista de cámaras 398
             CB_MarcaCam.DataSource = camaras398.lista();
             CB_MarcaCam.DisplayMember = "marca";
-            
-            
-            
+        
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
             CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
-            RB_CaliFTPR2010.Checked = true;
 
 
 
@@ -179,6 +177,11 @@ namespace _398_UI
                 L_Kpol.Text = CalibracionFot.CalcularKpol(signoTension, Convert.ToDouble(LB_LectmasVprom.Text), Convert.ToDouble(LB_LectmenosVprom.Text)).ToString();
                 L_Kpol.Visible = true;
             }
+            else
+            {
+                L_Kpol.Text = "Vacio";
+                L_Kpol.Visible = false;
+            }
         }
         private void Prom_masV(object sender, EventArgs e)
         {
@@ -192,20 +195,39 @@ namespace _398_UI
             calculoKpol();
         }
 
-        private void CB_CaliSistDosimetrico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            calculoKpol();
-        }
-    
         //Ks
+        private void calculoKs()
+        {
+            if (LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "")
+            {
+                double Vtot = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].Tension;
+                int AleoCo = Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente;
+                int pulsadoOBarrido = Equipo.lista()[CB_CaliEquipos.SelectedIndex].TipoDeHaz;
+                L_Ks.Text = CalibracionFot.CalcularKs(Vtot, Convert.ToDouble(TB_Vred.Text), Convert.ToDouble(LB_lectVtotProm.Text), Convert.ToDouble(LB_LectVredProm.Text), AleoCo, pulsadoOBarrido).ToString();
+                L_Ks.Visible = true;
+
+            }
+            else
+            {
+                L_Ks.Text = "Vacio";
+                L_Ks.Visible = false;
+            }
+        }
         private void Prom_Vtot(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_lectVtot, LB_lectVtotProm);
+            calculoKs();
         }
 
         private void Prom_Vred(object sender, EventArgs e)
         {
             MetodosCalculos.promediar(Panel_LectVred, LB_LectVredProm);
+            calculoKs();
+        }
+
+        private void TB_Vred_Leave(object sender, EventArgs e)
+        {
+            calculoKs();
         }
 
         private void textBox_Enter(object sender, EventArgs e)
@@ -236,11 +258,18 @@ namespace _398_UI
         {
             CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
             CalibracionFot.InicializarLadoCampoPredet(TB_CaliLadoCampo);
+            calculoKs();
         }
 
         private void CB_CaliEnergias_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalibracionFot.InicializarProfundidadReferencia(CB_CaliEquipos, CB_CaliEnergias, TB_CaliPRof);
+        }
+
+        private void CB_CaliSistDosimetrico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calculoKpol();
+            calculoKs();
         }
 
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
@@ -260,8 +289,8 @@ namespace _398_UI
         private void CHB_NoUsaKpol_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_NoUsaKpol.Checked == true)
-            { CHB_UsaKpolLB.Checked = false; Panel_LecKpol.Enabled = false; LB_KpolRes.Text = "Kpol = 1"; }
-            else { Panel_LecKpol.Enabled = true; LB_KpolRes.Text = "Kpol = "; }
+            { CHB_UsaKpolLB.Checked = false; Panel_LecKpol.Enabled = false; L_Kpol.Visible = true; L_Kpol.Text = "1"; }
+            else { Panel_LecKpol.Enabled = true; L_Kpol.Visible = false; L_Kpol.Text = "Vacio"; }
         }
 
         private void CHB_UsaKsLB_CheckedChanged(object sender, EventArgs e)
@@ -274,8 +303,8 @@ namespace _398_UI
         private void CHB_NoUsaKs_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_NoUsaKs.Checked == true)
-            { CHB_UsaKsLB.Checked = false; Panel_LecKs.Enabled = false; LB_KsRes.Text = "Ks = 1"; Panel_Vred.Enabled = false; }
-            else { Panel_LecKs.Enabled = true; LB_KsRes.Text = "Ks = "; Panel_Vred.Enabled = false; }
+            { CHB_UsaKsLB.Checked = false; Panel_LecKs.Enabled = false; L_Ks.Text = "1"; L_Ks.Visible = true; Panel_Vred.Enabled = false; }
+            else { Panel_LecKs.Enabled = true; L_Ks.Text = "Vacio"; Panel_Vred.Enabled = true; L_Ks.Visible = false; }
         }
         #endregion
 
@@ -637,9 +666,10 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-        
+
     }
 }
 
