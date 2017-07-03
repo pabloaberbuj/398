@@ -77,6 +77,11 @@ namespace _398_UI
         {
             TB.Text = 10.ToString();
         }
+
+        public static void InicializarUMsPredet(TextBox TB)
+        {
+            TB.Text = 100.ToString();
+        }
         public static void InicializarProfundidadReferencia(ComboBox CBEquipo, ComboBox CBEnergias, TextBox TBProf)
         {
             if (CBEnergias.SelectedIndex != -1)
@@ -116,7 +121,7 @@ namespace _398_UI
                     string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsados);
                     double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
                     string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
-                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 8, a0a1a2Etiquetas.Count(), v1_v2Etiquetas.Count());
+                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
 
                     a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas,a0a1a2Etiquetas, tabla);
                     a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
@@ -127,7 +132,7 @@ namespace _398_UI
                     string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsadosYbarridos);
                     double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
                     string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
-                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 8, a0a1a2Etiquetas.Count(), v1_v2Etiquetas.Count());
+                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
 
                     a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                     a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
@@ -158,6 +163,15 @@ namespace _398_UI
             string[] listacamarasmodelos = camaras398.listaCamaraModelo();
             double[,] tabla = Tabla.extraerMatriz(fid, 3, 53, TPR2010Etiquetas.Count(), listacamarasmodelos.Count());
             return Math.Round(MetodosCalculos.interpolatabla(TPR2010, camara.Marca + camara.Modelo, TPR2010Etiquetas, listacamarasmodelos, tabla),4);
+        }
+        public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
+        {
+            return Math.Round(Lref * Ktp * Ks * Kpol/UM,4);
+        }
+
+        public static double CalcularDwRef(double Mref, SistemaDosimetrico sistDosim)
+        {
+            return Math.Round(Mref * sistDosim.FactorCalibracion,4);
         }
     }
 

@@ -45,6 +45,8 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
             CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
+            CalibracionFot.InicializarLadoCampoPredet(TB_CaliLadoCampo);
+            CalibracionFot.InicializarUMsPredet(TB_UM);
 
 
 
@@ -159,10 +161,7 @@ namespace _398_UI
                 L_CaliFKqq0.Visible = false;
             }
         }
-        private void Prom_Lref(object sender, EventArgs e)
-        {
-            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
-        }
+
 
         private void Prom_L20(object sender, EventArgs e)
         {
@@ -267,6 +266,42 @@ namespace _398_UI
             }
         }
 
+
+        //Referencia
+
+        private void CalculoMref()
+        {
+            if (LB_LecRefProm.Text!="Vacio" && L_CaliFKTP.Text!= "Vacio" && L_CaliFKTP.Text!="Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "")
+            {
+                L_CaliFMref.Text = CalibracionFot.CalcularMref(Convert.ToDouble(LB_LecRefProm.Text), Convert.ToDouble(L_CaliFKTP.Text), Convert.ToDouble(L_Ks.Text), Convert.ToDouble(L_Kpol.Text), Convert.ToDouble(TB_UM.Text)).ToString();
+                L_CaliFMref.Visible = true;
+            }
+            else
+            {
+                L_CaliFMref.Text = "Vacio";
+                L_CaliFMref.Visible = false;
+            }
+        }
+
+        private void CalculoDwRef()
+        {
+            if (L_CaliFMref.Text != "Vacio")
+            {
+                L_CaliFDwZref.Text = CalibracionFot.CalcularDwRef(Convert.ToDouble(L_CaliFMref.Text), SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex]).ToString();
+                L_CaliFDwZref.Visible = true;
+            }
+            else
+            {
+                L_CaliFDwZref.Text = "Vacio";
+                L_CaliFDwZref.Visible = false;
+            }
+        }
+        private void Prom_Lref(object sender, EventArgs e)
+        {
+            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
+            CalculoMref();
+            CalculoDwRef();
+        }
         #endregion
 
         #region Cali Fotones UI
@@ -274,7 +309,6 @@ namespace _398_UI
         private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
-            CalibracionFot.InicializarLadoCampoPredet(TB_CaliLadoCampo);
             calculoKs();
         }
 
