@@ -43,13 +43,9 @@ namespace _398_UI
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
-            CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
-            CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
+            actualizarComboBox();
             CalibracionFot.InicializarLadoCampoPredet(TB_CaliLadoCampo);
             CalibracionFot.InicializarUMsPredet(TB_UM);
-
-
-
         }
 
 
@@ -121,7 +117,25 @@ namespace _398_UI
 
 
         #region Cali Fotones Calculos
+        //KTP
+        private void tbKTP_Leave(object sender, EventArgs e)
+        {
+            calculoKTP();
+        }
 
+        private void calculoKTP()
+        {
+            if (tbTemp.Text != "" && tbPresion.Text != "")
+            {
+                L_CaliFKTP.Text = Convert.ToString(CalibracionFot.CalcularKtp(20, Convert.ToDouble(tbTemp.Text), 1013, Convert.ToDouble(tbPresion.Text)));
+                L_CaliFKTP.Visible = true;
+            }
+            else
+            {
+                L_CaliFKTP.Visible = false;
+                L_CaliFKTP.Text = "Vacio";
+            }
+        }
         //TPR 2010 y Kqq0
         private void calculoTPR2010()
         {
@@ -251,20 +265,7 @@ namespace _398_UI
             ((TextBox)sender).SelectAll();
         }
 
-        //KTP
-        private void tbKTP_Leave(object sender, EventArgs e)
-        {
-            if (tbTemp.Text != "" && tbPresion.Text != "")
-            {
-                L_CaliFKTP.Text = Convert.ToString(CalibracionFot.CalcularKtp(20, Convert.ToDouble(tbTemp.Text), 1013, Convert.ToDouble(tbPresion.Text)));
-                L_CaliFKTP.Visible = true;
-            }
-            else
-            {
-                L_CaliFKTP.Visible = false;
-                L_CaliFKTP.Text = "Vacio";
-            }
-        }
+        
 
 
         //Referencia
@@ -283,7 +284,7 @@ namespace _398_UI
             }
         }
 
-        private void CalculoDwRef()
+        private void calculoDwRef()
         {
             if (L_CaliFMref.Text != "Vacio")
             {
@@ -300,7 +301,18 @@ namespace _398_UI
         {
             MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
             CalculoMref();
-            CalculoDwRef();
+            calculoDwRef();
+        }
+
+        private void actualizarCalculos()
+        {
+            calculoKTP();
+            calculoTPR2010();
+            calculokQQ0();
+            calculoKpol();
+            calculoKs();
+            calculoDwRef();
+            CalculoMref();
         }
         #endregion
 
@@ -309,19 +321,18 @@ namespace _398_UI
         private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
-            calculoKs();
+            actualizarCalculos();
         }
 
         private void CB_CaliEnergias_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalibracionFot.InicializarProfundidadReferencia(CB_CaliEquipos, CB_CaliEnergias, TB_CaliPRof);
+            actualizarCalculos();
         }
 
         private void CB_CaliSistDosimetrico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            calculoKpol();
-            calculoKs();
-            calculokQQ0();
+            actualizarCalculos();
         }
 
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
@@ -358,6 +369,14 @@ namespace _398_UI
             { CHB_UsaKsLB.Checked = false; Panel_LecKs.Enabled = false; L_Ks.Text = "1"; L_Ks.Visible = true; Panel_Vred.Enabled = false; }
             else { Panel_LecKs.Enabled = true; L_Ks.Text = "Vacio"; Panel_Vred.Enabled = true; L_Ks.Visible = false; }
         }
+
+        private void actualizarComboBox()
+        {
+            CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
+            CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
+            CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
+        }
+        
         #endregion
 
 
@@ -586,8 +605,7 @@ namespace _398_UI
         #region SistDosimetricos UI
         private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CB_ModCam.DataSource = camaras398.lista().ElementAt(CB_MarcaCam.SelectedIndex).modelos;
-
+            CB_ModCam.DataSource = ((camaras398)CB_MarcaCam.SelectedItem).modelos;
         }
         #endregion
 

@@ -20,7 +20,6 @@ namespace _398_UI
            
             CB_Tension.SelectedIndex = 0;
             CB_HazRef.SelectedIndex = 0;
-            DTP_FechaCal.Value = new DateTime(1900, 1, 1);
             foreach (var reg in Camara.lista())
             {
                 string aux = reg.EtiquetaCam;

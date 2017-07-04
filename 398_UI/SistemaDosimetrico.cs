@@ -11,18 +11,35 @@ namespace _398_UI
     public class SistemaDosimetrico : Objeto
     {
         public static string file = @"..\..\sistemasdosimetricos.txt";
-        public Camara camara { get; set; }
-        public Electrometro electrometro { get; set; }
-        public double FactorCalibracion { get; set; }
-        public int SignoTension { get; set; } // -1 negativo 1 positivo
-        public double Tension { get; set; }
-        public string HazDeRef { get; set; } //ver si cambiar el nombre
-        public double TempRef { get; set; }
-        public double PresionRef { get; set; }
-        public double HumedadRef { get; set; }
-        public string FechaCalibracion { get; set; }
-        public string LaboCalibracion { get; set; }
+        [DisplayName(" ")]
         public bool EsPredet { get; set; }
+        [Browsable(false)]
+        public Camara camara { get; set; }
+        [DisplayName("Cámara")]
+        public string etiquetaCamara { get; set; }
+        [Browsable(false)]
+        public Electrometro electrometro { get; set; }
+        [DisplayName("Electrómetro")]
+        public string etiquetaElectrometro { get; set; }
+        [DisplayName("NDw [cGy/nC]")]
+        public double FactorCalibracion { get; set; }
+        [Browsable(false)]
+        public int SignoTension { get; set; } // -1 negativo 1 positivo
+        [DisplayName("Tensión [V]")]
+        public double Tension { get; set; }
+        [Browsable(false)]
+        public string HazDeRef { get; set; } //ver si cambiar el nombre
+        [Browsable(false)]
+        public double TempRef { get; set; }
+        [Browsable(false)]
+        public double PresionRef { get; set; }
+        [Browsable(false)]
+        public double HumedadRef { get; set; }
+        [DisplayName("Fecha")]
+        public string FechaCalibracion { get; set; }
+        [Browsable(false)]
+        public string LaboCalibracion { get; set; }
+        
 
         public static SistemaDosimetrico crear(Camara _camara, Electrometro _electrometro, double _factorCal,
             int _signoTension, double _tension, string _hazRef, double _tempRef, double _presionRef, double _humedadRef,
@@ -32,7 +49,9 @@ namespace _398_UI
             return new SistemaDosimetrico()
             {
                 camara = _camara,
+                etiquetaCamara = _camara.EtiquetaCam,
                 electrometro = _electrometro,
+                etiquetaElectrometro = _electrometro.EtiquetaElec,
                 FactorCalibracion = _factorCal,
                 SignoTension = _signoTension,
                 Tension = _tension,
@@ -160,7 +179,8 @@ namespace _398_UI
 
         public static void llenarDGV(DataGridView DGV)
         {
-            DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
+            DGV.DataSource = SistemaDosimetrico.lista();
+            /*   DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
             {
                 SistemaDosimetrico.EsPredet,
                 SistemaDosimetrico.camara.EtiquetaCam,
@@ -169,7 +189,7 @@ namespace _398_UI
                 SistemaDosimetrico.Tension,
                 SistemaDosimetrico.TempRef,
                 SistemaDosimetrico.PresionRef,
-            }).ToList();
+            }).ToList();*/
         }
     }
 }
