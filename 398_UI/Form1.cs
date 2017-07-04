@@ -36,9 +36,10 @@ namespace _398_UI
             Equipo.llenarDGV(DGV_Equipo);
 
             //lista de cámaras 398
-            CB_MarcaCam.DataSource = camaras398.lista();
+            CB_MarcaCam.DataSource = Camara398new.lista().Distinct().ToList();
             CB_MarcaCam.DisplayMember = "marca";
-        
+            CB_MarcaCam.ValueMember = "marca";
+
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
@@ -53,37 +54,37 @@ namespace _398_UI
         //Ir a paneles
         private void Bt_Inicio_Click(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 0, Panel_Inicio, Bt_Inicio, Panel_Botones);
+            panel = traerPanel(panel, 0, Panel_Inicio, Bt_Inicio, Panel_Botones);
         }
         private void Bt_CalFot_Click(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+            panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
         }
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
+            panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
         }
         private void Bt_Equipos_Click(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
+            panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
         }
 
         private void Bt_AnalizarReg_Click(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 4, Panel_AnalizarReg, Bt_AnalizarReg, Panel_Botones);
+            panel = traerPanel(panel, 4, Panel_AnalizarReg, Bt_AnalizarReg, Panel_Botones);
         }
 
         //Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
+            panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
             BT_EqIraCal.Text = "Seleccionar y volver a calibración";
             Panel_Equipos.Visible = true;
         }
 
         private void btCkick_IraSistDos(object sender, EventArgs e)
         {
-            panel = TraerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
+            panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
             BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
             Panel_SistDos.Visible = true;
         }
@@ -96,7 +97,7 @@ namespace _398_UI
                 string aux = seleccionado.Marca + " " + seleccionado.Modelo + " Nº Serie: " + seleccionado.NumSerie;
                 CB_CaliEquipos.SelectedIndex = CB_CaliEquipos.FindStringExact(aux);
                 CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
-                panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
                 BT_EqIraCal.Text = "Seleccionar e ir a calibración";
             }
             
@@ -109,7 +110,7 @@ namespace _398_UI
                 SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
                 string aux = seleccionado.camara.EtiquetaCam + seleccionado.electrometro.EtiquetaElec;
                 CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
-                panel = TraerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
                 BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
             }
         }
@@ -454,9 +455,9 @@ namespace _398_UI
             }
             Equipo.guardar(Equipo.crear(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, auxfuente, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, indiceEquipo);
             Equipo.llenarDGV(DGV_Equipo);
-            LimpiarRegistro(GB_Equipos);
-            LimpiarRegistro(Panel_FuenteEq);
-            LimpiarRegistro(Panel_TipoHazEq);
+            limpiarRegistro(GB_Equipos);
+            limpiarRegistro(Panel_FuenteEq);
+            limpiarRegistro(Panel_TipoHazEq);
             DGV_EnFot.Rows.Clear();
             DGV_EnElec.Rows.Clear();
             CHB_EnFotEquipo.Checked = false;
@@ -510,7 +511,7 @@ namespace _398_UI
         {
             DGV_EnFot.Visible = true;
             EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), MetodosCalculos.doubleNaN(TB_EnFotZref), MetodosCalculos.doubleNaN(TB_EnFotPDD), MetodosCalculos.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
-            LimpiarRegistro(Panel_EnFotEquipo);
+            limpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
         }
@@ -518,7 +519,7 @@ namespace _398_UI
         private void BT_EnFotEliminar_Click(object sender, EventArgs e)
         {
             EnergiaFotones.eliminar(DGV_EnFot);
-            LimpiarRegistro(Panel_EnFotEquipo);
+            limpiarRegistro(Panel_EnFotEquipo);
         }
 
         private void BT_EnFotEditar_Click(object sender, EventArgs e)
@@ -550,7 +551,7 @@ namespace _398_UI
         {
             DGV_EnElec.Visible = true;
             EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), MetodosCalculos.doubleNaN(TB_EnElecR50ion), MetodosCalculos.doubleNaN(L_EnElecR50dosis), MetodosCalculos.doubleNaN(L_EnElecZref), MetodosCalculos.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
-            LimpiarRegistro(Panel_EnElecEquipo);
+            limpiarRegistro(Panel_EnElecEquipo);
             L_EnElecR50dosis.Text = null;
             L_EnElecZref.Text = null;
             TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
@@ -560,7 +561,7 @@ namespace _398_UI
         private void BT_EnElecEliminar_Click(object sender, EventArgs e)
         {
             EnergiaElectrones.eliminar(DGV_EnElec);
-            LimpiarRegistro(Panel_EnElecEquipo);
+            limpiarRegistro(Panel_EnElecEquipo);
         }
 
         private void BT_EnElecEditar_Click(object sender, EventArgs e)
@@ -605,7 +606,8 @@ namespace _398_UI
         #region SistDosimetricos UI
         private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CB_ModCam.DataSource = ((camaras398)CB_MarcaCam.SelectedItem).modelos;
+            CB_ModCam.DataSource = Camara398new.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
+            CB_ModCam.DisplayMember = "modelo";
         }
         #endregion
 
@@ -613,7 +615,7 @@ namespace _398_UI
         private void BT_GuardarCam_Click(object sender, EventArgs e)
         {
             Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text), editaCam, DGV_Cam);
-            LimpiarRegistro(GB_Camaras);
+            limpiarRegistro(GB_Camaras);
         }
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
@@ -632,7 +634,7 @@ namespace _398_UI
         private void BT_GuardarElec_Click(object sender, EventArgs e)
         {
             Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text), editaElec, DGV_Elec);
-            LimpiarRegistro(GB_Electrómetros);
+            limpiarRegistro(GB_Electrómetros);
         }
 
         private void BT_EliminarElec_Click(object sender, EventArgs e)
@@ -687,7 +689,7 @@ namespace _398_UI
 
 
         #region Métodos
-        public static void LimpiarRegistro(Panel panel)
+        public static void limpiarRegistro(Panel panel)
         {
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
@@ -697,7 +699,7 @@ namespace _398_UI
             { rb.Checked = false; }
         }
 
-        public static void LimpiarRegistro(GroupBox gb)
+        public static void limpiarRegistro(GroupBox gb)
         {
             foreach (TextBox tb in gb.Controls.OfType<TextBox>())
             { tb.Clear(); }
@@ -708,16 +710,16 @@ namespace _398_UI
 
         }
 
-        public static int TraerPanel(int indicepanel, int nropanel, Panel nombrepanel, Button boton, Panel panelbotones)
+        public static int traerPanel(int indicepanel, int nropanel, Panel nombrepanel, Button boton, Panel panelbotones)
         {
             if (indicepanel != nropanel)
             {
                 nombrepanel.Visible = true; nombrepanel.BringToFront(); indicepanel = nropanel;
-                ColorBoton(boton, panelbotones);
+                colorBoton(boton, panelbotones);
             };
             return indicepanel;
         }
-        public static void ColorBoton(Button boton, Panel panelbotones)
+        public static void colorBoton(Button boton, Panel panelbotones)
         {
             {
                 foreach (Button bt in panelbotones.Controls)

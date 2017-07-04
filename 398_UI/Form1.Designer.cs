@@ -50,6 +50,9 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.TB_UM = new System.Windows.Forms.TextBox();
+            this.label77 = new System.Windows.Forms.Label();
             this.L_CaliFMref = new System.Windows.Forms.Label();
             this.L_CaliFDifLB = new System.Windows.Forms.Label();
             this.L_CaliFDwZmax = new System.Windows.Forms.Label();
@@ -314,13 +317,11 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.TB_UM = new System.Windows.Forms.TextBox();
-            this.label77 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.Panel_Vred.SuspendLayout();
@@ -365,7 +366,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -589,6 +589,31 @@
             this.gLecturaReferencia.TabIndex = 57;
             this.gLecturaReferencia.TabStop = false;
             this.gLecturaReferencia.Text = "Lectura en referencia";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.TB_UM);
+            this.panel2.Controls.Add(this.label77);
+            this.panel2.Location = new System.Drawing.Point(124, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(115, 30);
+            this.panel2.TabIndex = 43;
+            // 
+            // TB_UM
+            // 
+            this.TB_UM.Location = new System.Drawing.Point(38, 5);
+            this.TB_UM.Name = "TB_UM";
+            this.TB_UM.Size = new System.Drawing.Size(68, 20);
+            this.TB_UM.TabIndex = 34;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(3, 8);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(24, 13);
+            this.label77.TabIndex = 35;
+            this.label77.Text = "UM";
             // 
             // L_CaliFMref
             // 
@@ -3361,38 +3386,13 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.TB_UM);
-            this.panel2.Controls.Add(this.label77);
-            this.panel2.Location = new System.Drawing.Point(124, 17);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(115, 30);
-            this.panel2.TabIndex = 43;
-            // 
-            // TB_UM
-            // 
-            this.TB_UM.Location = new System.Drawing.Point(38, 5);
-            this.TB_UM.Name = "TB_UM";
-            this.TB_UM.Size = new System.Drawing.Size(68, 20);
-            this.TB_UM.TabIndex = 34;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(3, 8);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(24, 13);
-            this.label77.TabIndex = 35;
-            this.label77.Text = "UM";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 692);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
@@ -3408,6 +3408,8 @@
             this.panel1.PerformLayout();
             this.gLecturaReferencia.ResumeLayout(false);
             this.gLecturaReferencia.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.Panel_LecRef.ResumeLayout(false);
             this.Panel_LecRef.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -3481,8 +3483,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
