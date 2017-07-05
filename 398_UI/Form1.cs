@@ -694,7 +694,7 @@ namespace _398_UI
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
             foreach (ComboBox cb in panel.Controls.OfType<ComboBox>())
-            { cb.SelectedIndex = -1; }
+            { cb.SelectedIndex = -1; } // ojo que -1 puede hacer que levante error el evento "on index change" porque se va de rango
             foreach (RadioButton rb in panel.Controls.OfType<RadioButton>())
             { rb.Checked = false; }
         }
