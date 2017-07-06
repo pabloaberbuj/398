@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,6 +50,9 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.TB_UM = new System.Windows.Forms.TextBox();
+            this.label77 = new System.Windows.Forms.Label();
             this.L_CaliFMref = new System.Windows.Forms.Label();
             this.L_CaliFDifLB = new System.Windows.Forms.Label();
             this.L_CaliFDwZmax = new System.Windows.Forms.Label();
@@ -314,13 +317,11 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.TB_UM = new System.Windows.Forms.TextBox();
-            this.label77 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.Panel_Vred.SuspendLayout();
@@ -365,7 +366,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -448,6 +448,7 @@
             this.TB_CaliLadoCampo.Name = "TB_CaliLadoCampo";
             this.TB_CaliLadoCampo.Size = new System.Drawing.Size(76, 20);
             this.TB_CaliLadoCampo.TabIndex = 70;
+            this.TB_CaliLadoCampo.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // label6
             // 
@@ -464,6 +465,7 @@
             this.TB_CaliPRof.Name = "TB_CaliPRof";
             this.TB_CaliPRof.Size = new System.Drawing.Size(76, 20);
             this.TB_CaliPRof.TabIndex = 72;
+            this.TB_CaliPRof.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // panel1
             // 
@@ -589,6 +591,32 @@
             this.gLecturaReferencia.TabIndex = 57;
             this.gLecturaReferencia.TabStop = false;
             this.gLecturaReferencia.Text = "Lectura en referencia";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.TB_UM);
+            this.panel2.Controls.Add(this.label77);
+            this.panel2.Location = new System.Drawing.Point(124, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(115, 30);
+            this.panel2.TabIndex = 43;
+            // 
+            // TB_UM
+            // 
+            this.TB_UM.Location = new System.Drawing.Point(38, 5);
+            this.TB_UM.Name = "TB_UM";
+            this.TB_UM.Size = new System.Drawing.Size(68, 20);
+            this.TB_UM.TabIndex = 34;
+            this.TB_UM.Leave += new System.EventHandler(this.TB_UM_Leave);
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(3, 8);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(24, 13);
+            this.label77.TabIndex = 35;
+            this.label77.Text = "UM";
             // 
             // L_CaliFMref
             // 
@@ -2197,7 +2225,6 @@
             this.TB_EnFotTMR.Name = "TB_EnFotTMR";
             this.TB_EnFotTMR.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotTMR.TabIndex = 12;
-            this.TB_EnFotTMR.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // label72
             // 
@@ -2251,7 +2278,6 @@
             this.TB_EnFotZref.Name = "TB_EnFotZref";
             this.TB_EnFotZref.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotZref.TabIndex = 10;
-            this.TB_EnFotZref.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // TB_EnFotEn
             // 
@@ -2267,7 +2293,6 @@
             this.TB_EnFotPDD.Name = "TB_EnFotPDD";
             this.TB_EnFotPDD.Size = new System.Drawing.Size(59, 20);
             this.TB_EnFotPDD.TabIndex = 11;
-            this.TB_EnFotPDD.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // label28
             // 
@@ -3299,14 +3324,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3324,14 +3349,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3361,31 +3386,6 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.TB_UM);
-            this.panel2.Controls.Add(this.label77);
-            this.panel2.Location = new System.Drawing.Point(124, 17);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(115, 30);
-            this.panel2.TabIndex = 43;
-            // 
-            // TB_UM
-            // 
-            this.TB_UM.Location = new System.Drawing.Point(38, 5);
-            this.TB_UM.Name = "TB_UM";
-            this.TB_UM.Size = new System.Drawing.Size(68, 20);
-            this.TB_UM.TabIndex = 34;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(3, 8);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(24, 13);
-            this.label77.TabIndex = 35;
-            this.label77.Text = "UM";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3408,6 +3408,8 @@
             this.panel1.PerformLayout();
             this.gLecturaReferencia.ResumeLayout(false);
             this.gLecturaReferencia.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.Panel_LecRef.ResumeLayout(false);
             this.Panel_LecRef.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -3481,8 +3483,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

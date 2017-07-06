@@ -254,7 +254,7 @@
             this.TB_Humedad.Name = "TB_Humedad";
             this.TB_Humedad.Size = new System.Drawing.Size(94, 20);
             this.TB_Humedad.TabIndex = 9;
-            this.TB_Humedad.Leave += new System.EventHandler(this.TB_EsNumero);
+            //this.TB_Humedad.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // BT_Guardar
             // 
