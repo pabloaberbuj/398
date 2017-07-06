@@ -517,7 +517,7 @@ namespace _398_UI
         {
             DGV_EnFot.Visible = true;
             EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
-            LimpiarRegistro(Panel_EnFotEquipo);
+            limpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
         }
@@ -553,7 +553,7 @@ namespace _398_UI
             DGV_EnElec.Visible = true;
 
             EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Calcular.doubleNaN(TB_EnElecR50ion), Calcular.doubleNaN(L_EnElecR50dosis), Calcular.doubleNaN(L_EnElecZref), Calcular.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
-            LimpiarRegistro(Panel_EnElecEquipo);
+            limpiarRegistro(Panel_EnElecEquipo);
             L_EnElecR50dosis.Text = null;
             L_EnElecZref.Text = null;
             TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo

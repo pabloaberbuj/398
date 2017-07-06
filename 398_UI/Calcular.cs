@@ -110,9 +110,20 @@ namespace _398_UI
             return XY;
         }
 
+        public static double interpolarLinea(double X, double[] etiquetasX, double [] valores)
+        {
+            double Y = Double.NaN;
+            if (X > etiquetasX.Max()) { MessageBox.Show("El valor es mayor que todos los tabulados. No se puede interpolar"); return Y; }
+            else if (X < etiquetasX.Min()) { MessageBox.Show("El valor es menor que todos los tabulados. No se puede interpolar"); return Y; }
+            else
+            {
+
+
+            }
+        }
         public static double interpolatabla(double X, string Y, double[] etiquetasX, string[] etiquetasY, double[,] valores)
         {
-            double XY = 0;
+            double XY = Double.NaN;
 
             if (X > etiquetasX.Max()) { MessageBox.Show("El valor es mayor que todos los tabulados. No se puede interpolar"); return XY; }
             else if (X < etiquetasX.Min()) { MessageBox.Show("El valor es menor que todos los tabulados. No se puede interpolar"); return XY; }
