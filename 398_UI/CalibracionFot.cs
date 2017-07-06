@@ -123,9 +123,9 @@ namespace _398_UI
                     string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
                     double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
 
-                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas,a0a1a2Etiquetas, tabla);
-                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a0 = Calcular.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas,a0a1a2Etiquetas, tabla);
+                    a1 = Calcular.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a2 = Calcular.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                 }
                 else
                 {
@@ -134,9 +134,9 @@ namespace _398_UI
                     string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
                     double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
 
-                    a0 = MetodosCalculos.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a1 = MetodosCalculos.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a2 = MetodosCalculos.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a0 = Calcular.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a1 = Calcular.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    a2 = Calcular.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
                 }
                 return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2),4);
             }
@@ -162,7 +162,7 @@ namespace _398_UI
             double[] TPR2010Etiquetas = Tabla.extraerDoubleArray(fid, 0);
             string[] listacamarasmodelos = camaras398.listaCamaraModelo();
             double[,] tabla = Tabla.extraerMatriz(fid, 3, 53, TPR2010Etiquetas.Count(), listacamarasmodelos.Count());
-            return Math.Round(MetodosCalculos.interpolatabla(TPR2010, camara.Marca + camara.Modelo, TPR2010Etiquetas, listacamarasmodelos, tabla),4);
+            return Math.Round(Calcular.interpolatabla(TPR2010, camara.Marca + camara.Modelo, TPR2010Etiquetas, listacamarasmodelos, tabla),4);
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
         {

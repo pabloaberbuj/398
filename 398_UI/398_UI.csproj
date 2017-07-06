@@ -73,7 +73,7 @@
     </Compile>
     <Compile Include="MetodosControles.cs" />
     <Compile Include="IO.cs" />
-    <Compile Include="MetodosCalculos.cs" />
+    <Compile Include="Calcular.cs" />
     <Compile Include="NuevoSistDos.cs">
       <SubType>Form</SubType>
     </Compile>

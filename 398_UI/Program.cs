@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _398_UI
@@ -14,9 +15,14 @@ namespace _398_UI
         [STAThread]
         static void Main()
         {
+            CultureInfo current = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            current.NumberFormat.NumberDecimalSeparator = ".";
+            Thread.CurrentThread.CurrentCulture = current;
+            Thread.CurrentThread.CurrentUICulture = current;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
         }
     }
 }

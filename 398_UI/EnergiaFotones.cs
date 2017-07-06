@@ -102,9 +102,9 @@ namespace _398_UI
         {
             EnergiaFotones aux = lista(DGV)[DGV.SelectedRows[0].Index];
             Energia.Text = aux.Energia.ToString();
-            Zref.Text = MetodosCalculos.stringNaN(aux.ZRefFot);
-            PDDZref.Text = MetodosCalculos.stringNaN(aux.PddZrefFot);
-            TMRZref.Text = MetodosCalculos.stringNaN(aux.TmrZrefFot);
+            Zref.Text = Calcular.stringNaN(aux.ZRefFot);
+            PDDZref.Text = Calcular.stringNaN(aux.PddZrefFot);
+            TMRZref.Text = Calcular.stringNaN(aux.TmrZrefFot);
         }
 
         public static void hacerPredeterminado(DataGridView DGV)

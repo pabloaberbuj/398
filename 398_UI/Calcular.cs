@@ -3,26 +3,13 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class MetodosCalculos
+    public class Calcular
     {
-
-        public static bool EsNumero(TextBox tb)
-        {
-            double aux = 0;
-            bool esnumero = true;
-            if (tb.Text != "")
-            {
-                esnumero = Double.TryParse(tb.Text, out aux);
-                if (esnumero) { }
-                else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll(); }
-            }
-            return esnumero;
-        }
 
         public static double doubleNaN(TextBox tb)
         {
@@ -60,34 +47,50 @@ namespace _398_UI
             }
         }
 
-        
-        public static void promediar(Panel panel, Label texto)
+        public static double validarYConvertirADouble(string entrada)
         {
-            double suma = 0; double aux; int contador = 0; Nullable<double> promedio = null;
-            foreach (TextBox tb in panel.Controls.OfType<TextBox>())
-
+            CultureInfo alternative = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            alternative.NumberFormat.NumberDecimalSeparator = ",";
+            bool esNumero; double salida = Double.NaN;
+            esNumero = Double.TryParse(entrada, out salida);
+            if (!esNumero)
             {
-                if (tb.Text != "")
+                esNumero = Double.TryParse(entrada, NumberStyles.Float, alternative, out salida);
+                if (!esNumero)
                 {
-                    bool esnumero = Double.TryParse(tb.Text,NumberStyles.Float,CultureInfo.InvariantCulture, out aux);
-                    if (esnumero)
-
-                    { suma += aux; contador++; }
-                    else { MessageBox.Show("Debe ingresarse un número"); tb.Focus(); tb.SelectAll(); break; }
+                    salida = Double.NaN;
                 }
-                if (contador != 0) { promedio = Math.Round(suma / contador, 3); }
+            }
 
-            }
-            if (promedio != null)
+            return salida;
+        }
+
+        public static bool esNumero(string entrada)
+        {
+            CultureInfo alternative = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            alternative.NumberFormat.NumberDecimalSeparator = ",";
+            bool esNumero; double salida;
+            esNumero = Double.TryParse(entrada, out salida);
+            if (!esNumero)
             {
-                texto.Visible = true;
-                texto.Text = Convert.ToString(promedio);
+                esNumero = Double.TryParse(entrada, NumberStyles.Float, alternative, out salida);
             }
-            else
+            return esNumero;
+        }
+
+        public static double promediar(List<double> valores)
+        {
+            double suma = 0; ; int contador = 0; double promedio = Double.NaN;
+            if (valores.Count > 0)
             {
-                texto.Visible = false;
-                texto.Text = "Vacio";
+                foreach (double valor in valores)
+                {
+                    suma += valor;
+                    contador++;
+                }
+                promedio = suma / contador;
             }
+            return promedio;
         }
 
         public static double interpolar(double x1, double x2, double y1, double y2, double x)
@@ -157,5 +160,6 @@ namespace _398_UI
                 return XY;
             }
         }
+
     }
 }

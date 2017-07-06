@@ -131,7 +131,7 @@ namespace _398_UI
             HazRef.SelectedItem = aux.HazDeRef;
             TempRef.Text = Convert.ToString(aux.TempRef);
             PresRef.Text = Convert.ToString(aux.PresionRef);
-            HumRef.Text = MetodosCalculos.stringNaN(aux.HumedadRef);
+            HumRef.Text = Calcular.stringNaN(aux.HumedadRef);
             FechaCal = Convert.ToDateTime(aux.FechaCalibracion);
             LaboCalibracion.Text = aux.LaboCalibracion;
         }

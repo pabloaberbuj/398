@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
+
     public partial class Form1 : Form
     {
         int panel = 0;
@@ -18,7 +20,7 @@ namespace _398_UI
         bool editaEquipo = false;
         bool editaEnergiaFot = false;
         bool editaEnergiaElect = false;
-        
+
 
 
         public Form1()
@@ -100,7 +102,7 @@ namespace _398_UI
                 panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
                 BT_EqIraCal.Text = "Seleccionar e ir a calibración";
             }
-            
+
         }
 
         private void BT_SistDosIraCal_Click(object sender, EventArgs e)
@@ -121,7 +123,8 @@ namespace _398_UI
         //KTP
         private void tbKTP_Leave(object sender, EventArgs e)
         {
-            calculoKTP();
+            esNumeroTB(sender, e);
+            actualizarCalculos();
         }
 
         private void calculoKTP()
@@ -151,7 +154,7 @@ namespace _398_UI
             }
             if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
             {
-                L_CaliFTPR2010.Text = Convert.ToString(Math.Round(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD), 2));
+                L_CaliFTPR2010.Text = Convert.ToString(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD));
                 L_CaliFTPR2010.Visible = true;
             }
             else
@@ -164,10 +167,10 @@ namespace _398_UI
 
         private void calculokQQ0()
         {
-            if (L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex!=-1)
+            if (L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1)
             {
                 Camara camaraSeleccionada = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].camara;
-                L_CaliFKqq0.Text =  CalibracionFot.CalcularKqq0(Convert.ToDouble(L_CaliFTPR2010.Text), camaraSeleccionada).ToString();
+                L_CaliFKqq0.Text = CalibracionFot.CalcularKqq0(Convert.ToDouble(L_CaliFTPR2010.Text), camaraSeleccionada).ToString();
                 L_CaliFKqq0.Visible = true;
             }
             else
@@ -180,22 +183,19 @@ namespace _398_UI
 
         private void Prom_L20(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_Lect20, LB_Lect20prom);
-            calculoTPR2010();
-            calculokQQ0();
+            escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
+            actualizarCalculos();
         }
 
         private void Prom_L10(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_Lect10, LB_Lect10prom);
-            calculoTPR2010();
-            calculokQQ0();
+            escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
+            actualizarCalculos();
         }
 
         private void RB_CaliFTPR2010_CheckedChanged(object sender, EventArgs e)
         {
-            calculoTPR2010();
-            calculokQQ0();
+            actualizarCalculos();
         }
 
         //Kpol
@@ -216,14 +216,14 @@ namespace _398_UI
         }
         private void Prom_masV(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_LectmasV, LB_LectmasVprom);
-            calculoKpol();
+            escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
+            actualizarCalculos();
         }
 
         private void Prom_menosV(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_LectmenosV, LB_LectmenosVprom);
-            calculoKpol();
+            escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
+            actualizarCalculos();
         }
 
         //Ks
@@ -246,19 +246,20 @@ namespace _398_UI
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_lectVtot, LB_lectVtotProm);
-            calculoKs();
+            escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
+            actualizarCalculos();
         }
 
         private void Prom_Vred(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_LectVred, LB_LectVredProm);
-            calculoKs();
+            escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+            actualizarCalculos();
         }
 
         private void TB_Vred_Leave(object sender, EventArgs e)
         {
-            calculoKs();
+            esNumeroTB(sender, e);
+            actualizarCalculos();
         }
 
         private void textBox_Enter(object sender, EventArgs e)
@@ -266,14 +267,14 @@ namespace _398_UI
             ((TextBox)sender).SelectAll();
         }
 
-        
+
 
 
         //Referencia
 
         private void CalculoMref()
         {
-            if (LB_LecRefProm.Text!="Vacio" && L_CaliFKTP.Text!= "Vacio" && L_CaliFKTP.Text!="Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "")
+            if (LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "")
             {
                 L_CaliFMref.Text = CalibracionFot.CalcularMref(Convert.ToDouble(LB_LecRefProm.Text), Convert.ToDouble(L_CaliFKTP.Text), Convert.ToDouble(L_Ks.Text), Convert.ToDouble(L_Kpol.Text), Convert.ToDouble(TB_UM.Text)).ToString();
                 L_CaliFMref.Visible = true;
@@ -283,6 +284,12 @@ namespace _398_UI
                 L_CaliFMref.Text = "Vacio";
                 L_CaliFMref.Visible = false;
             }
+        }
+
+        private void TB_UM_Leave(object sender, EventArgs e)
+        {
+            esNumeroTB(sender, e);
+            actualizarCalculos();
         }
 
         private void calculoDwRef()
@@ -300,9 +307,8 @@ namespace _398_UI
         }
         private void Prom_Lref(object sender, EventArgs e)
         {
-            MetodosCalculos.promediar(Panel_LecRef, LB_LecRefProm);
-            CalculoMref();
-            calculoDwRef();
+            escribirLabel(promediarPanel(Panel_LecRef), LB_LecRefProm);
+            actualizarCalculos();
         }
 
         private void actualizarCalculos()
@@ -312,8 +318,8 @@ namespace _398_UI
             calculokQQ0();
             calculoKpol();
             calculoKs();
-            calculoDwRef();
             CalculoMref();
+            calculoDwRef();
         }
         #endregion
 
@@ -377,7 +383,7 @@ namespace _398_UI
             CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
             CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
         }
-        
+
         #endregion
 
 
@@ -469,7 +475,7 @@ namespace _398_UI
             editaEquipo = false;
             Panel_TipoHazEq.Enabled = false;
             CalibracionFot.InicializarComboBoxEquipos(CB_CaliEquipos);
-            CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos,CB_CaliEnergias);
+            CalibracionFot.InicializarComboBoxEnergias(CB_CaliEquipos, CB_CaliEnergias);
         }
 
         private void BT_PredetEqu_Click(object sender, EventArgs e)
@@ -510,8 +516,8 @@ namespace _398_UI
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Visible = true;
-            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), MetodosCalculos.doubleNaN(TB_EnFotZref), MetodosCalculos.doubleNaN(TB_EnFotPDD), MetodosCalculos.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
-            limpiarRegistro(Panel_EnFotEquipo);
+            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
+            LimpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnFotGuardar.Enabled = false;
         }
@@ -535,14 +541,9 @@ namespace _398_UI
 
         private void TB_EnFotEnLeave(object sender, EventArgs e)
         {
-            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
-            { BT_EnFotGuardar.Enabled = true; }
+
         }
 
-        private void TB_EsNumero(object sender, EventArgs e)
-        {
-            MetodosCalculos.EsNumero((TextBox)sender);
-        }
         #endregion
 
         #region Equipos EnergiaElectronesBotones
@@ -550,8 +551,9 @@ namespace _398_UI
         private void BT_EnElecGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnElec.Visible = true;
-            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), MetodosCalculos.doubleNaN(TB_EnElecR50ion), MetodosCalculos.doubleNaN(L_EnElecR50dosis), MetodosCalculos.doubleNaN(L_EnElecZref), MetodosCalculos.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
-            limpiarRegistro(Panel_EnElecEquipo);
+
+            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Calcular.doubleNaN(TB_EnElecR50ion), Calcular.doubleNaN(L_EnElecR50dosis), Calcular.doubleNaN(L_EnElecZref), Calcular.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
+            LimpiarRegistro(Panel_EnElecEquipo);
             L_EnElecR50dosis.Text = null;
             L_EnElecZref.Text = null;
             TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
@@ -578,8 +580,7 @@ namespace _398_UI
 
         private void TB_EnElecEn_Leave(object sender, EventArgs e)
         {
-            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
-            { BT_EnElecGuardar.Enabled = true; }
+
         }
 
         private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
@@ -730,18 +731,82 @@ namespace _398_UI
             }
         }
 
+        public static bool estaLleno(TextBox tb)
+        {
+            return tb.Text != "";
+        }
 
+        public static double convertirTBaDouble(TextBox tb)
+        {
+            double salida = Double.NaN;
+            if (estaLleno(tb))
+            {
+                salida = Calcular.validarYConvertirADouble(tb.Text);
+                if (Double.IsNaN(salida))
+                {
+                    MessageBox.Show("Debe ingresar un número");
+                    tb.Focus(); tb.SelectAll();
+                }
+            }
+            return salida;
+        }
+        public static double promediarPanel(Panel panel)
+        {
+            double promedio = Double.NaN; List<double> valores = new List<double>();
+            foreach (TextBox tb in panel.Controls.OfType<TextBox>())
+            {
+                double aux = Double.NaN;
+                aux = convertirTBaDouble(tb);
+                if (!Double.IsNaN(aux))
+                { valores.Add(aux); }
+            }
+            promedio = Calcular.promediar(valores);
+            return promedio;
 
+        }
+        public static void escribirLabel(double valor, Label label)
+        {
+            if (!Double.IsNaN(valor))
+            {
+                label.Text = valor.ToString();
+                label.Visible = true;
+            }
+            else
+            {
+                label.Text = "Vacio";
+                label.Visible = false;
+            }
+        }
 
+        public static void escribirLabel(bool test, double valor, Label label)
+        {
+            if (test)
+            {
+                label.Text = valor.ToString();
+                label.Visible = true;
+            }
+            else
+            {
+                label.Text = "Vacio";
+                label.Visible = false;
+            }
+        }
 
-
-
-
-
+        private void esNumeroTB(object sender, EventArgs e)
+        {
+            if (estaLleno((TextBox)sender))
+            {
+                if (!Calcular.esNumero(((TextBox)sender).Text))
+                {
+                    MessageBox.Show("Debe ingresar un número");
+                    ((TextBox)sender).Focus(); ((TextBox)sender).SelectAll();
+                }
+            }
+        }
 
         #endregion
 
-
+        
     }
 }
 

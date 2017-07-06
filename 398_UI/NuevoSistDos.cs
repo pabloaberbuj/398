@@ -41,29 +41,14 @@ namespace _398_UI
 
         private void Leave_ObligatoriosparaGuardar(object sender, EventArgs e)
         {
-            if (CB_Camara.SelectedIndex!=-1 && CB_Electrometro.SelectedIndex!=-1 &&
-                TB_FCal.Text!="" && CB_Tension.SelectedIndex!=-1 && TB_Tension.Text!="" &&
-                CB_HazRef.SelectedIndex!=-1 && TB_Temp.Text!="" && TB_Presion.Text!="")
-            { BT_Guardar.Enabled = true; }
-            else { BT_Guardar.Enabled = false; }
+            
         }
 
         private void Leave_EsNumeroObligatoriosparaGuardar(object sender, EventArgs e)
         {
-            if (MetodosCalculos.EsNumero((TextBox)sender) == true)
-            {
-                if (CB_Camara.SelectedIndex != -1 && CB_Electrometro.SelectedIndex != -1 &&
-                  TB_FCal.Text != "" && CB_Tension.SelectedIndex != -1 && TB_Tension.Text != "" &&
-                  CB_HazRef.SelectedIndex != -1 && TB_Temp.Text != "" && TB_Presion.Text != "")
-                { BT_Guardar.Enabled = true; }
-                else { BT_Guardar.Enabled = false; }
-            }
+            
+        }
 
-        }
-        private void TB_EsNumero(object sender, EventArgs e)
-        {
-            MetodosCalculos.EsNumero((TextBox)sender);
-        }
 
         private void BT_Guardar_Click(object sender, EventArgs e)
         {
@@ -78,7 +63,7 @@ namespace _398_UI
                 CB_HazRef.Text,
                 Convert.ToDouble(TB_Temp.Text),
                 Convert.ToDouble(TB_Presion.Text),
-                MetodosCalculos.doubleNaN(TB_Humedad),
+                Calcular.doubleNaN(TB_Humedad),
                 auxFecha,
                 TB_LabCal.Text),editaSD,indice);
             editaSD = false;
