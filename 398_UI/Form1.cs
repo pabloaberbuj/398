@@ -132,7 +132,9 @@ namespace _398_UI
         {
             if (tbTemp.Text != "" && tbPresion.Text != "")
             {
-                L_CaliFKTP.Text = Convert.ToString(CalibracionFot.CalcularKtp(20, Convert.ToDouble(tbTemp.Text), 1013, Convert.ToDouble(tbPresion.Text)));
+                double T0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].TempRef;
+                double P0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].PresionRef;
+                L_CaliFKTP.Text = Convert.ToString(CalibracionFot.CalcularKtp(T0, Convert.ToDouble(tbTemp.Text), P0, Convert.ToDouble(tbPresion.Text)));
                 L_CaliFKTP.Visible = true;
             }
             else

@@ -254,11 +254,9 @@
             this.TB_Humedad.Name = "TB_Humedad";
             this.TB_Humedad.Size = new System.Drawing.Size(94, 20);
             this.TB_Humedad.TabIndex = 9;
-            //this.TB_Humedad.Leave += new System.EventHandler(this.TB_EsNumero);
             // 
             // BT_Guardar
             // 
-            this.BT_Guardar.Enabled = false;
             this.BT_Guardar.Location = new System.Drawing.Point(29, 374);
             this.BT_Guardar.Name = "BT_Guardar";
             this.BT_Guardar.Size = new System.Drawing.Size(128, 23);
