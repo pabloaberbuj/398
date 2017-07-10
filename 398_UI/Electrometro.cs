@@ -13,7 +13,9 @@ namespace _398_UI
         public static string file = @"..\..\electrometros.txt";
         public string Marca { get; set; }
         public string Modelo { get; set; }
+        [DisplayName("Nº de serie")]
         public string NumSerie { get; set; }
+        [Browsable(false)]
         public string EtiquetaElec { get; set; }
 
         public static Electrometro crear(string _marca, string _modelo, string _numSerie)
@@ -50,7 +52,7 @@ namespace _398_UI
                 var auxLista = lista();
                 auxLista.Add(_nuevo);
                 IO.writeObjectAsJson(file, auxLista);
-                llenarDGV(DGV);
+                DGV.DataSource = lista();
             }
         }
 
@@ -86,11 +88,5 @@ namespace _398_UI
             NumSerie.Text = aux.NumSerie;
         }
 
-        public static void llenarDGV(DataGridView DGV)
-        {
-            DGV.DataSource = lista();
-            DGV.Columns[3].Visible = false;
-            DGV.Columns[2].Name = "Nº de serie";
-        }
     }
 }

@@ -143,7 +143,6 @@ namespace _398_UI
         }
 
         public static double CalcularTPR2010(double LV20, double LV10, int PDDoTPR)
-
         {
             if (PDDoTPR == 2)//está tildado D2010
             {

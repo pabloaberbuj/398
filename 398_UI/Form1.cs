@@ -32,10 +32,11 @@ namespace _398_UI
         {
 
             //Carga DGV
-            Camara.llenarDGV(DGV_Cam);
-            Electrometro.llenarDGV(DGV_Elec);
-            SistemaDosimetrico.llenarDGV(DGV_SistDos);
-            Equipo.llenarDGV(DGV_Equipo);
+            DGV_Cam.DataSource = Camara.lista();
+            DGV_Elec.DataSource = Electrometro.lista();
+            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
+            DGV_Equipo.DataSource = Equipo.lista();
+
 
             //lista de cámaras 398
             CB_MarcaCam.DataSource = Camara398new.lista().Distinct().ToList();
@@ -459,8 +460,8 @@ namespace _398_UI
                     auxHaz = 2;
                 }
             }
-            Equipo.guardar(Equipo.crear(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, auxfuente, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, indiceEquipo);
-            Equipo.llenarDGV(DGV_Equipo);
+            Equipo.guardar(Equipo.crear(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, auxfuente, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, DGV_Equipo);
+            DGV_Equipo.DataSource = Equipo.lista();
             limpiarRegistro(GB_Equipos);
             limpiarRegistro(Panel_FuenteEq);
             limpiarRegistro(Panel_TipoHazEq);
@@ -656,7 +657,7 @@ namespace _398_UI
         {
             NuevoSistDos nsd = new NuevoSistDos(false, 0);
             nsd.ShowDialog();
-            SistemaDosimetrico.llenarDGV(DGV_SistDos);
+            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
         }
 
@@ -670,7 +671,7 @@ namespace _398_UI
         {
             NuevoSistDos nsd = new NuevoSistDos(true, DGV_SistDos.SelectedRows[0].Index);
             nsd.ShowDialog();
-            SistemaDosimetrico.llenarDGV(DGV_SistDos);
+            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             DGV_SistDos.ClearSelection();
             CalibracionFot.InicializarComboBoxSistDosim(CB_CaliSistDosimetrico);
         }

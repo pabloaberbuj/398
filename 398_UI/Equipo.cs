@@ -5,24 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.IO;
 
 namespace _398_UI
 {
     public class Equipo : Objeto
     {
         public static string file = @"..\..\equipos.txt";
-        public string Marca;
-        public string Modelo;
-        public string NumSerie;
-        public string Alias;
-        public int Fuente; //1 para Co 2 para Ale
+        [DisplayName("Predeterminado")]
+        public bool EsPredet { get; set; }
+        public string Alias { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        [Browsable(false)]
+        public string NumSerie { get; set; }
+        [Browsable(false)]
+        public int Fuente { get; set; } //1 para Co 2 para Ale
+        [Browsable(false)]
         public int TipoDeHaz;//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
-        public BindingList<EnergiaFotones> energiaFot;
-        public string EnergiasFotones;
-        public BindingList<EnergiaElectrones> energiaElec;
-        public string EnergiasElectrones;
-        public bool EsPredet;
+        [Browsable(false)]
+        public BindingList<EnergiaFotones> energiaFot { get; set; }
+        [DisplayName("Energías Fotones")]
+        public string EnergiasFotones { get; set; }
+        [Browsable(false)]
+        public BindingList<EnergiaElectrones> energiaElec { get; set; }
+        [DisplayName("Energías Electrones")]
+        public string EnergiasElectrones { get; set; }
+
 
 
         public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
@@ -57,51 +65,48 @@ namespace _398_UI
         {
             return IO.readJsonList<Equipo>(file);
         }
-        public static void guardar(Equipo _nuevo, bool edita, int indice)
+        public static void guardar(Equipo _nuevo, bool edita, DataGridView DGV)
         {
-            var auxLista = lista();
             if (edita)
             {
-                bool auxPredet = auxLista[indice].EsPredet;
-                auxLista.RemoveAt(indice);
+                int indice = DGV.SelectedRows[0].Index;
+                DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                var auxLista = lista();
                 auxLista.Insert(indice, _nuevo);
-                auxLista[indice].EsPredet = auxPredet;
                 IO.writeObjectAsJson(file, auxLista);
+                DGV.DataSource = lista();
+                DGV.ClearSelection();
+                DGV.Rows[indice].Selected = true;
+                edita = false;
             }
             else
             {
-                if (auxLista.Count() == 0)
-                {
-                    _nuevo.EsPredet = true;
-                }
+                var auxLista = lista();
                 auxLista.Add(_nuevo);
                 IO.writeObjectAsJson(file, auxLista);
+                DGV.DataSource = lista();
             }
         }
 
         public static void eliminar(DataGridView DGV)
         {
 
+            bool hayPredet = false;
             if (DGV.SelectedRows.Count > 0)
             {
                 if (MessageBox.Show("¿Desea borrar el/los registro/s?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    var auxLista = lista();
-                    List<Equipo> elementosARemover = new List<Equipo>();
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        elementosARemover.Add(auxLista[fila.Index]);
-                    }
-                    foreach (Equipo eq in elementosARemover)
-                    {
-                        auxLista.Remove(eq);
-                        if (eq.EsPredet && auxLista.Count > 0)
+                        if((bool)fila.Cells["EsPredet"].Value == true)
                         {
-                            auxLista[0].EsPredet = true;
+                            hayPredet = true;
                         }
+                        DGV.Rows.Remove(fila);
                     }
-                    IO.writeObjectAsJson(file, auxLista);
-                    llenarDGV(DGV);
+                    if (hayPredet && DGV.RowCount>0)
+                    { DGV.Rows[0].Cells["EsPredet"].Value = true; }
+                    IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
         }
@@ -145,19 +150,13 @@ namespace _398_UI
         {
             if (DGV.SelectedRows.Count > 0)
             {
-                var auxLista = lista();
-                foreach (var reg in auxLista)
+                foreach (DataGridViewRow fila in DGV.Rows)
                 {
-                    reg.EsPredet = false;
+                    fila.Cells["EsPredet"].Value = false;
                 }
 
-                int aux = DGV.SelectedRows[0].Index;
-                auxLista[aux].EsPredet = true;
-                IO.writeObjectAsJson(file, auxLista);
-                DGV.DataSource = lista();
-                llenarDGV(DGV);
-                DGV.ClearSelection();
-                DGV.Rows[aux].Selected = true;
+                DGV.SelectedRows[0].Cells["EsPredet"].Value = true;
+                IO.writeObjectAsJson(file, DGV.DataSource);
             }
         }
 
@@ -181,19 +180,6 @@ namespace _398_UI
             {
                 MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
             }
-        }
-        public static void llenarDGV(DataGridView DGV)
-        {
-            DGV.DataSource = lista().Select(Equipo => new
-            {
-                Equipo.EsPredet,
-                Equipo.Alias,
-                Equipo.Marca,
-                Equipo.Modelo,
-                Equipo.NumSerie,
-                Equipo.EnergiasFotones,
-                Equipo.EnergiasElectrones,
-            }).ToList();
         }
     }
 }

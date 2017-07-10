@@ -11,7 +11,7 @@ namespace _398_UI
     public class SistemaDosimetrico : Objeto
     {
         public static string file = @"..\..\sistemasdosimetricos.txt";
-        [DisplayName(" ")]
+        [DisplayName("Predeterminado")]
         public bool EsPredet { get; set; }
         [Browsable(false)]
         public Camara camara { get; set; }
@@ -35,7 +35,7 @@ namespace _398_UI
         public double PresionRef { get; set; }
         [Browsable(false)]
         public double HumedadRef { get; set; }
-        [DisplayName("Fecha")]
+        [DisplayName("Fecha Calibración")]
         public string FechaCalibracion { get; set; }
         [Browsable(false)]
         public string LaboCalibracion { get; set; }
@@ -91,27 +91,22 @@ namespace _398_UI
 
         public static void eliminar(DataGridView DGV)
         {
-
+            bool hayPredet = false;
             if (DGV.SelectedRows.Count > 0)
             {
                 if (MessageBox.Show("¿Desea borrar el/los registro/s?", "Eliminar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    var auxLista = lista();
-                    List<SistemaDosimetrico> elementosARemover = new List<SistemaDosimetrico>();
-                    foreach(DataGridViewRow fila in DGV.SelectedRows)
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        elementosARemover.Add(auxLista[fila.Index]);
-                    }
-                    foreach (SistemaDosimetrico sd in elementosARemover)
-                    {
-                        auxLista.Remove(sd);
-                        if (sd.EsPredet && auxLista.Count > 0)
+                        if ((bool)fila.Cells["EsPredet"].Value == true)
                         {
-                            auxLista[0].EsPredet = true;
+                            hayPredet = true;
                         }
+                        DGV.Rows.Remove(fila);
                     }
-                    IO.writeObjectAsJson(file, auxLista);
-                    llenarDGV(DGV);
+                    if (hayPredet && DGV.RowCount > 0)
+                    { DGV.Rows[0].Cells["EsPredet"].Value = true; }
+                    IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
         }
@@ -140,18 +135,13 @@ namespace _398_UI
         {
             if (DGV.SelectedRows.Count > 0)
             {
-                var auxLista = lista();
-                foreach (var reg in auxLista)
+                foreach (DataGridViewRow fila in DGV.Rows)
                 {
-                    reg.EsPredet = false;
+                    fila.Cells["EsPredet"].Value = false;
                 }
 
-                int aux = DGV.SelectedRows[0].Index;
-                auxLista[aux].EsPredet = true;
-                IO.writeObjectAsJson(file, auxLista);
-                llenarDGV(DGV);
-                DGV.ClearSelection();
-                DGV.Rows[aux].Selected = true;
+                DGV.SelectedRows[0].Cells["EsPredet"].Value = true;
+                IO.writeObjectAsJson(file, DGV.DataSource);
             }
         }
 
@@ -175,21 +165,6 @@ namespace _398_UI
             {
                 MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
             }
-        }
-
-        public static void llenarDGV(DataGridView DGV)
-        {
-            DGV.DataSource = SistemaDosimetrico.lista();
-            /*   DGV.DataSource = SistemaDosimetrico.lista().Select(SistemaDosimetrico => new
-            {
-                SistemaDosimetrico.EsPredet,
-                SistemaDosimetrico.camara.EtiquetaCam,
-                SistemaDosimetrico.electrometro.EtiquetaElec,
-                SistemaDosimetrico.FactorCalibracion,
-                SistemaDosimetrico.Tension,
-                SistemaDosimetrico.TempRef,
-                SistemaDosimetrico.PresionRef,
-            }).ToList();*/
         }
     }
 }
