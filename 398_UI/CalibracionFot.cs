@@ -30,66 +30,6 @@ namespace _398_UI
 
         
 
-        public static void InicializarComboBoxEquipos(ComboBox CBEquipo)
-        {
-
-            CBEquipo.Items.Clear();
-            foreach (var equipo in Equipo.lista())
-            {
-                string aux = equipo.Marca + " " + equipo.Modelo + " Nº Serie: " + equipo.NumSerie;
-                CBEquipo.Items.Add(aux);
-                if (equipo.EsPredet == true)
-                {
-                    CBEquipo.SelectedIndex = CBEquipo.FindStringExact(aux);
-                }
-            }
-        }
-
-        public static void InicializarComboBoxSistDosim(ComboBox CBSistDos)
-        {
-            CBSistDos.Items.Clear();
-            foreach (var sistdos in SistemaDosimetrico.lista())
-            {
-                string aux = sistdos.camara.EtiquetaCam + sistdos.electrometro.EtiquetaElec;
-                CBSistDos.Items.Add(aux);
-                if (sistdos.EsPredet == true)
-                {
-                    CBSistDos.SelectedIndex = CBSistDos.FindStringExact(aux);
-                }
-            }
-        }
-        public static void InicializarComboBoxEnergias(ComboBox CBEquipo, ComboBox CBEnergias)
-        {
-            CBEnergias.Items.Clear();
-            if (CBEquipo.SelectedIndex != -1)
-            {
-                foreach (var energia in Equipo.lista()[CBEquipo.SelectedIndex].energiaFot)
-                {
-                    CBEnergias.Items.Add(energia.Energia.ToString());
-                    if (energia.EsPredet == true)
-                    {
-                        CBEnergias.SelectedIndex = CBEnergias.FindStringExact(energia.Energia.ToString());
-                    }
-                }
-            }
-        }
-        public static void InicializarLadoCampoPredet(TextBox TB)
-        {
-            TB.Text = 10.ToString();
-        }
-
-        public static void InicializarUMsPredet(TextBox TB)
-        {
-            TB.Text = 100.ToString();
-        }
-        public static void InicializarProfundidadReferencia(ComboBox CBEquipo, ComboBox CBEnergias, TextBox TBProf)
-        {
-            if (CBEnergias.SelectedIndex != -1)
-            {
-                TBProf.Text = Equipo.lista()[CBEquipo.SelectedIndex].energiaFot[CBEnergias.SelectedIndex].ZRefFot.ToString();
-            }
-        }
-
         public static double CalcularKtp(double T0, double T, double P0, double P)
         {
             return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P,4);
@@ -170,6 +110,11 @@ namespace _398_UI
         public static double CalcularDwRef(double Mref, SistemaDosimetrico sistDosim)
         {
             return Math.Round(Mref * sistDosim.FactorCalibracion,4);
+        }
+
+        public static double calcularDwZmax(double Dwref, double rendimientoEnRef)
+        {
+            return Math.Round(Dwref * rendimientoEnRef, 4);
         }
     }
 

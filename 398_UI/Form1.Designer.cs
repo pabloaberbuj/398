@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -39,8 +39,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.TB_CaliPRof = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.RB_CaliFIso = new System.Windows.Forms.RadioButton();
+            this.RB_CaliFDFSfija = new System.Windows.Forms.RadioButton();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.CB_CaliEnergias = new System.Windows.Forms.ComboBox();
             this.label64 = new System.Windows.Forms.Label();
@@ -50,6 +50,12 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.TB_CaliFTMRref = new System.Windows.Forms.TextBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.TB_CaliFPDDref = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TB_UM = new System.Windows.Forms.TextBox();
             this.label77 = new System.Windows.Forms.Label();
@@ -321,6 +327,8 @@
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -469,34 +477,36 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.RB_CaliFIso);
+            this.panel1.Controls.Add(this.RB_CaliFDFSfija);
             this.panel1.Location = new System.Drawing.Point(17, 19);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(207, 27);
             this.panel1.TabIndex = 68;
             // 
-            // radioButton1
+            // RB_CaliFIso
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(103, 4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(77, 17);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Isocéntrica";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RB_CaliFIso.AutoSize = true;
+            this.RB_CaliFIso.Location = new System.Drawing.Point(103, 4);
+            this.RB_CaliFIso.Name = "RB_CaliFIso";
+            this.RB_CaliFIso.Size = new System.Drawing.Size(77, 17);
+            this.RB_CaliFIso.TabIndex = 22;
+            this.RB_CaliFIso.TabStop = true;
+            this.RB_CaliFIso.Text = "Isocéntrica";
+            this.RB_CaliFIso.UseVisualStyleBackColor = true;
+            this.RB_CaliFIso.CheckedChanged += new System.EventHandler(this.LeaveCalcularDwzmax);
             // 
-            // radioButton2
+            // RB_CaliFDFSfija
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(23, 4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(62, 17);
-            this.radioButton2.TabIndex = 21;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "DFS fija";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RB_CaliFDFSfija.AutoSize = true;
+            this.RB_CaliFDFSfija.Location = new System.Drawing.Point(23, 4);
+            this.RB_CaliFDFSfija.Name = "RB_CaliFDFSfija";
+            this.RB_CaliFDFSfija.Size = new System.Drawing.Size(62, 17);
+            this.RB_CaliFDFSfija.TabIndex = 21;
+            this.RB_CaliFDFSfija.TabStop = true;
+            this.RB_CaliFDFSfija.Text = "DFS fija";
+            this.RB_CaliFDFSfija.UseVisualStyleBackColor = true;
+            this.RB_CaliFDFSfija.CheckedChanged += new System.EventHandler(this.LeaveCalcularDwzmax);
             // 
             // comboBox4
             // 
@@ -574,6 +584,8 @@
             // 
             // gLecturaReferencia
             // 
+            this.gLecturaReferencia.Controls.Add(this.panel4);
+            this.gLecturaReferencia.Controls.Add(this.panel3);
             this.gLecturaReferencia.Controls.Add(this.panel2);
             this.gLecturaReferencia.Controls.Add(this.L_CaliFMref);
             this.gLecturaReferencia.Controls.Add(this.L_CaliFDifLB);
@@ -592,18 +604,69 @@
             this.gLecturaReferencia.TabStop = false;
             this.gLecturaReferencia.Text = "Lectura en referencia";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.TB_CaliFTMRref);
+            this.panel4.Controls.Add(this.label79);
+            this.panel4.Location = new System.Drawing.Point(109, 124);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(130, 30);
+            this.panel4.TabIndex = 45;
+            // 
+            // TB_CaliFTMRref
+            // 
+            this.TB_CaliFTMRref.Location = new System.Drawing.Point(56, 5);
+            this.TB_CaliFTMRref.Name = "TB_CaliFTMRref";
+            this.TB_CaliFTMRref.Size = new System.Drawing.Size(68, 20);
+            this.TB_CaliFTMRref.TabIndex = 34;
+            this.TB_CaliFTMRref.Leave += new System.EventHandler(this.LeaveCalcularDwzmax);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(3, 8);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(43, 13);
+            this.label79.TabIndex = 35;
+            this.label79.Text = "TMRref";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.TB_CaliFPDDref);
+            this.panel3.Controls.Add(this.label78);
+            this.panel3.Location = new System.Drawing.Point(109, 85);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(130, 30);
+            this.panel3.TabIndex = 44;
+            // 
+            // TB_CaliFPDDref
+            // 
+            this.TB_CaliFPDDref.Location = new System.Drawing.Point(56, 5);
+            this.TB_CaliFPDDref.Name = "TB_CaliFPDDref";
+            this.TB_CaliFPDDref.Size = new System.Drawing.Size(68, 20);
+            this.TB_CaliFPDDref.TabIndex = 34;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(3, 8);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(42, 13);
+            this.label78.TabIndex = 35;
+            this.label78.Text = "PDDref";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.TB_UM);
             this.panel2.Controls.Add(this.label77);
-            this.panel2.Location = new System.Drawing.Point(124, 17);
+            this.panel2.Location = new System.Drawing.Point(109, 17);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(115, 30);
+            this.panel2.Size = new System.Drawing.Size(130, 30);
             this.panel2.TabIndex = 43;
             // 
             // TB_UM
             // 
-            this.TB_UM.Location = new System.Drawing.Point(38, 5);
+            this.TB_UM.Location = new System.Drawing.Point(56, 5);
             this.TB_UM.Name = "TB_UM";
             this.TB_UM.Size = new System.Drawing.Size(68, 20);
             this.TB_UM.TabIndex = 34;
@@ -622,7 +685,7 @@
             // 
             this.L_CaliFMref.AutoSize = true;
             this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFMref.Location = new System.Drawing.Point(109, 186);
+            this.L_CaliFMref.Location = new System.Drawing.Point(109, 209);
             this.L_CaliFMref.Name = "L_CaliFMref";
             this.L_CaliFMref.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFMref.TabIndex = 42;
@@ -633,7 +696,7 @@
             // 
             this.L_CaliFDifLB.AutoSize = true;
             this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDifLB.Location = new System.Drawing.Point(109, 262);
+            this.L_CaliFDifLB.Location = new System.Drawing.Point(109, 285);
             this.L_CaliFDifLB.Name = "L_CaliFDifLB";
             this.L_CaliFDifLB.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFDifLB.TabIndex = 41;
@@ -644,7 +707,7 @@
             // 
             this.L_CaliFDwZmax.AutoSize = true;
             this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDwZmax.Location = new System.Drawing.Point(109, 237);
+            this.L_CaliFDwZmax.Location = new System.Drawing.Point(109, 260);
             this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
             this.L_CaliFDwZmax.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFDwZmax.TabIndex = 40;
@@ -655,7 +718,7 @@
             // 
             this.L_CaliFDwZref.AutoSize = true;
             this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDwZref.Location = new System.Drawing.Point(109, 212);
+            this.L_CaliFDwZref.Location = new System.Drawing.Point(109, 235);
             this.L_CaliFDwZref.Name = "L_CaliFDwZref";
             this.L_CaliFDwZref.Size = new System.Drawing.Size(48, 16);
             this.L_CaliFDwZref.TabIndex = 39;
@@ -738,7 +801,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(23, 186);
+            this.label41.Location = new System.Drawing.Point(23, 209);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(50, 16);
             this.label41.TabIndex = 31;
@@ -748,7 +811,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(23, 262);
+            this.label42.Location = new System.Drawing.Point(23, 285);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(57, 16);
             this.label42.TabIndex = 29;
@@ -758,7 +821,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(23, 237);
+            this.label43.Location = new System.Drawing.Point(23, 260);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(76, 16);
             this.label43.TabIndex = 28;
@@ -768,7 +831,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(23, 212);
+            this.label44.Location = new System.Drawing.Point(23, 235);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(66, 16);
             this.label44.TabIndex = 27;
@@ -3323,14 +3386,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3348,14 +3411,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3390,9 +3453,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 692);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -3407,6 +3470,10 @@
             this.panel1.PerformLayout();
             this.gLecturaReferencia.ResumeLayout(false);
             this.gLecturaReferencia.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.Panel_LecRef.ResumeLayout(false);
@@ -3715,8 +3782,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TB_CaliPRof;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton RB_CaliFIso;
+        private System.Windows.Forms.RadioButton RB_CaliFDFSfija;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label27;
@@ -3775,6 +3842,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox TB_UM;
         private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox TB_CaliFTMRref;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox TB_CaliFPDDref;
+        private System.Windows.Forms.Label label78;
     }
 }
 
