@@ -93,6 +93,10 @@ namespace _398_UI
             DGV.Columns[2].Name = "Nº de serie";
         }
 
+        public static double[] obtenerLineakQQ0(Camara camara)
+        {
+            return Camara398new.lista().SingleOrDefault(c => c.marca == camara.Marca && c.modelo == camara.Modelo).kqq0;
+        }
 
     }
 }

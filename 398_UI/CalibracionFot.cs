@@ -158,12 +158,10 @@ namespace _398_UI
 
        public static double CalcularKqq0 (double TPR2010, Camara camara)
         {
-            /*string[] fid = Tabla.Cargar(Tabla.tabla_Kqq0);
+            string[] fid = Tabla.Cargar(Tabla.tabla_Kqq0);
             double[] TPR2010Etiquetas = Tabla.extraerDoubleArray(fid, 0);
-            string[] listacamarasmodelos = Camara398new.listaCamaraModelo();
-            double[,] tabla = Tabla.extraerMatriz(fid, 3, 53, TPR2010Etiquetas.Count(), listacamarasmodelos.Count());
-            return Math.Round(Calcular.interpolatabla(TPR2010, camara.Marca + camara.Modelo, TPR2010Etiquetas, listacamarasmodelos, tabla),4);*/
-            return TPR2010;
+            double[] valoresKqq0 = Camara.obtenerLineakQQ0(camara);
+            return Math.Round(Calcular.interpolarLinea(TPR2010, TPR2010Etiquetas, valoresKqq0),4);
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
         {
