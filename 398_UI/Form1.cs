@@ -49,7 +49,7 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
-            
+
 
         }
 
@@ -177,7 +177,7 @@ namespace _398_UI
         private void InicializarPDDyTMRref()
         {
             TB_CaliFPDDref.Clear(); TB_CaliFTMRref.Clear();
-            double PDDzref = Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot[CB_CaliEnergias.SelectedIndex].PddZrefFot;
+            /*double PDDzref = Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot[CB_CaliEnergias.SelectedIndex].PddZrefFot;
             double TMRzref = Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot[CB_CaliEnergias.SelectedIndex].TmrZrefFot;
             if (!Double.IsNaN(PDDzref))
             {
@@ -186,7 +186,7 @@ namespace _398_UI
             if (!Double.IsNaN(TMRzref))
             {
                 TB_CaliFTMRref.Text = TMRzref.ToString();
-            }
+            }*/
         }
 
         private void inicializarPredeterminados(double umPred, double ladoCampopred)
@@ -199,29 +199,23 @@ namespace _398_UI
 
         #region Cali Fotones Calculos
         //KTP
+        private double calculoKTP()
+        {
+            double T0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].TempRef;
+            double P0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].PresionRef;
+            return CalibracionFot.CalcularKtp(T0, Convert.ToDouble(tbTemp.Text), P0, Convert.ToDouble(tbPresion.Text));
+        }
+
         private void tbKTP_Leave(object sender, EventArgs e)
         {
             esNumeroTB(sender, e);
             actualizarCalculos();
         }
 
-        private void calculoKTP()
-        {
-            if (tbTemp.Text != "" && tbPresion.Text != "")
-            {
-                double T0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].TempRef;
-                double P0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].PresionRef;
-                L_CaliFKTP.Text = Convert.ToString(CalibracionFot.CalcularKtp(T0, Convert.ToDouble(tbTemp.Text), P0, Convert.ToDouble(tbPresion.Text)));
-                L_CaliFKTP.Visible = true;
-            }
-            else
-            {
-                L_CaliFKTP.Visible = false;
-                L_CaliFKTP.Text = "Vacio";
-            }
-        }
+
+
         //TPR 2010 y Kqq0
-        private void calculoTPR2010()
+        private double calculoTPR2010()
         {
             int TPRoD = 0;
             if (RB_CaliFTPR2010.Checked)
@@ -232,32 +226,13 @@ namespace _398_UI
             {
                 TPRoD = 2;
             }
-            if (TPRoD != 0 && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio")
-            {
-                L_CaliFTPR2010.Text = Convert.ToString(CalibracionFot.CalcularTPR2010(Convert.ToDouble(LB_Lect20prom.Text), Convert.ToDouble(LB_Lect10prom.Text), TPRoD));
-                L_CaliFTPR2010.Visible = true;
-            }
-            else
-            {
-
-                L_CaliFTPR2010.Visible = false;
-                L_CaliFTPR2010.Text = "Vacio";
-            }
+            return CalibracionFot.CalcularTPR2010(promediarPanel(Panel_Lect20), promediarPanel(Panel_Lect10), TPRoD);
         }
 
-        private void calculokQQ0()
+        private double calculokQQ0()
         {
-            if (L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1)
-            {
-                Camara camaraSeleccionada = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].camara;
-                L_CaliFKqq0.Text = CalibracionFot.CalcularKqq0(Convert.ToDouble(L_CaliFTPR2010.Text), camaraSeleccionada).ToString();
-                L_CaliFKqq0.Visible = true;
-            }
-            else
-            {
-                L_CaliFKqq0.Text = "Vacio";
-                L_CaliFKqq0.Visible = false;
-            }
+            Camara camaraSeleccionada = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].camara;
+            return CalibracionFot.CalcularKqq0(calculoTPR2010(), camaraSeleccionada);
         }
 
 
@@ -280,20 +255,12 @@ namespace _398_UI
 
         //Kpol
 
-        private void calculoKpol()
+        private double calculoKpol()
         {
-            if (LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio")
-            {
-                int signoTension = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].SignoTension;
-                L_Kpol.Text = CalibracionFot.CalcularKpol(signoTension, Convert.ToDouble(LB_LectmasVprom.Text), Convert.ToDouble(LB_LectmenosVprom.Text)).ToString();
-                L_Kpol.Visible = true;
-            }
-            else
-            {
-                L_Kpol.Text = "Vacio";
-                L_Kpol.Visible = false;
-            }
+            int signoTension = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].SignoTension;
+            return CalibracionFot.CalcularKpol(signoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV));
         }
+
         private void Prom_masV(object sender, EventArgs e)
         {
             escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
@@ -307,22 +274,12 @@ namespace _398_UI
         }
 
         //Ks
-        private void calculoKs()
+        private double calculoKs()
         {
-            if (LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "")
-            {
-                double Vtot = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].Tension;
-                int AleoCo = Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente;
-                int pulsadoOBarrido = Equipo.lista()[CB_CaliEquipos.SelectedIndex].TipoDeHaz;
-                L_Ks.Text = CalibracionFot.CalcularKs(Vtot, Convert.ToDouble(TB_Vred.Text), Convert.ToDouble(LB_lectVtotProm.Text), Convert.ToDouble(LB_LectVredProm.Text), AleoCo, pulsadoOBarrido).ToString();
-                L_Ks.Visible = true;
-
-            }
-            else
-            {
-                L_Ks.Text = "Vacio";
-                L_Ks.Visible = false;
-            }
+            double Vtot = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].Tension;
+            int AleoCo = Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente;
+            int pulsadoOBarrido = Equipo.lista()[CB_CaliEquipos.SelectedIndex].TipoDeHaz;
+            return CalibracionFot.CalcularKs(Vtot, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), AleoCo, pulsadoOBarrido);
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
@@ -352,50 +309,29 @@ namespace _398_UI
 
         //Referencia
 
-        private void CalculoMref()
+        private double CalculoMref()
         {
-            if (LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "")
-            {
-                L_CaliFMref.Text = CalibracionFot.CalcularMref(Convert.ToDouble(LB_LecRefProm.Text), Convert.ToDouble(L_CaliFKTP.Text), Convert.ToDouble(L_Ks.Text), Convert.ToDouble(L_Kpol.Text), Convert.ToDouble(TB_UM.Text)).ToString();
-                L_CaliFMref.Visible = true;
-            }
-            else
-            {
-                L_CaliFMref.Text = "Vacio";
-                L_CaliFMref.Visible = false;
-            }
+            return CalibracionFot.CalcularMref(promediarPanel(Panel_LecRef), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
+        }
+        
+        private double calculoDwRef()
+        {
+            return CalibracionFot.CalcularDwRef(CalculoMref(), SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex]);
         }
 
-        private void calculoDwRef()
+        private double calculoDwZmax()
         {
-            if (L_CaliFMref.Text != "Vacio")
+            if (RB_CaliFDFSfija.Checked)
             {
-                L_CaliFDwZref.Text = CalibracionFot.CalcularDwRef(Convert.ToDouble(L_CaliFMref.Text), SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex]).ToString();
-                L_CaliFDwZref.Visible = true;
+                return CalibracionFot.calcularDwZmax(calculoDwRef(), Convert.ToDouble(TB_CaliFPDDref.Text));
+            }
+            else if (RB_CaliFIso.Checked)
+            {
+                return CalibracionFot.calcularDwZmax(calculoDwRef(), Convert.ToDouble(TB_CaliFTMRref.Text));
             }
             else
             {
-                L_CaliFDwZref.Text = "Vacio";
-                L_CaliFDwZref.Visible = false;
-            }
-        }
-
-        private void calculoDwZmax()
-        {
-            if (RB_CaliFDFSfija.Checked == true && TB_CaliFPDDref.Text!="" && L_CaliFDwZref.Text !="Vacio")
-            {
-                L_CaliFDwZmax.Text = CalibracionFot.calcularDwZmax(Convert.ToDouble(L_CaliFDwZref.Text), Convert.ToDouble(TB_CaliFPDDref.Text)).ToString();
-                L_CaliFDwZmax.Visible = true;
-            }
-            else if (RB_CaliFIso.Checked == true && TB_CaliFTMRref.Text!="" && L_CaliFDwZref.Text != "Vacio")
-            {
-                L_CaliFDwZmax.Text = CalibracionFot.calcularDwZmax(Convert.ToDouble(L_CaliFDwZref.Text), Convert.ToDouble(TB_CaliFTMRref.Text)).ToString();
-                L_CaliFDwZmax.Visible = true;
-            }
-            else
-            {
-                L_CaliFDwZmax.Text = "Vacio";
-                L_CaliFDwZmax.Visible = false;
+                return double.NaN;
             }
         }
 
@@ -413,20 +349,20 @@ namespace _398_UI
 
         private void LeaveCalcularDwzmax(object sender, EventArgs e)
         {
-            calculoDwZmax();
+            actualizarCalculos();
         }
 
 
         private void actualizarCalculos()
         {
-            calculoKTP();
-            calculoTPR2010();
-            calculokQQ0();
-            calculoKpol();
-            calculoKs();
-            CalculoMref();
-            calculoDwRef();
-            calculoDwZmax();
+            escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
+            escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio", calculoTPR2010, L_CaliFTPR2010);
+            escribirLabel(L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1, calculokQQ0, L_CaliFKqq0);
+            escribirLabel(LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio", calculoKpol, L_Kpol);
+            escribirLabel(LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "", calculoKs, L_Ks);
+            escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
+            escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
+            escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
         }
         #endregion
 
@@ -883,11 +819,11 @@ namespace _398_UI
             }
         }
 
-        public static void escribirLabel(bool test, double valor, Label label)
+        public static void escribirLabel(bool test, Func<double> metodo, Label label)
         {
             if (test)
             {
-                label.Text = valor.ToString();
+                label.Text = metodo().ToString();
                 label.Visible = true;
             }
             else

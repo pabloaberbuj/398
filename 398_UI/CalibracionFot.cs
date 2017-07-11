@@ -114,7 +114,7 @@ namespace _398_UI
 
         public static double calcularDwZmax(double Dwref, double rendimientoEnRef)
         {
-            return Math.Round(Dwref * rendimientoEnRef, 4);
+            return Math.Round(Dwref * rendimientoEnRef/100, 4);
         }
     }
 
