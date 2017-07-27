@@ -107,6 +107,22 @@ namespace _398_UI
             TMRZref.Text = Calcular.stringNaN(aux.TmrZrefFot);
         }
 
+        public static BindingList<EnergiaFotones> energiaCo(double Zref, double PDDZref, double TMRZref)
+        {
+            BindingList<EnergiaFotones> aux = new BindingList<EnergiaFotones>
+            {
+                new EnergiaFotones
+                {
+                    Energia = 1.25,
+                    ZRefFot = Zref,
+                    PddZrefFot = PDDZref,
+                    TmrZrefFot = TMRZref,
+                    EsPredet = true,
+                }
+            };
+            return aux;
+        }
+
         public static void hacerPredeterminado(DataGridView DGV)
         {
             if (DGV.SelectedRows.Count > 0)

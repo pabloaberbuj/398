@@ -33,7 +33,7 @@ namespace _398_UI
 
 
 
-        public static Equipo crear(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
+        public static Equipo crearAle(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
              DataGridView DGVFot, DataGridView DGVElec)
         //EsPredet inicia como false siempre
         {
@@ -61,6 +61,22 @@ namespace _398_UI
                 EnergiasElectrones = auxEnergiasElec,
             };
         }
+
+        public static Equipo crearCo(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
+             double zref, double PDDzref, double TMRzref)
+        {
+            return new Equipo()
+            {
+                Marca = _marca,
+                Modelo = _modelo,
+                NumSerie = _numSerie,
+                Alias = _alias,
+                Fuente = _fuente,
+                TipoDeHaz = _tipoDeHaz,
+                energiaFot = EnergiaFotones.energiaCo(zref, PDDzref, TMRzref),
+                EnergiasFotones = "Co",
+            };
+        }
         public static BindingList<Equipo> lista()
         {
             return IO.readJsonList<Equipo>(file);
@@ -70,7 +86,7 @@ namespace _398_UI
             if (edita)
             {
                 int indice = DGV.SelectedRows[0].Index;
-                DGV.Rows.Remove(DGV.SelectedRows[0]); IO.writeObjectAsJson(file, DGV.DataSource);
+                DGV.Rows.Remove(DGV.Rows[indice]); IO.writeObjectAsJson(file, DGV.DataSource);
                 var auxLista = lista();
                 auxLista.Insert(indice, _nuevo);
                 IO.writeObjectAsJson(file, auxLista);
@@ -82,6 +98,10 @@ namespace _398_UI
             else
             {
                 var auxLista = lista();
+                if (auxLista.Count() == 0)
+                {
+                    _nuevo.EsPredet = true;
+                }
                 auxLista.Add(_nuevo);
                 IO.writeObjectAsJson(file, auxLista);
                 DGV.DataSource = lista();
@@ -98,20 +118,20 @@ namespace _398_UI
                 {
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        if((bool)fila.Cells["EsPredet"].Value == true)
+                        if ((bool)fila.Cells["EsPredet"].Value == true)
                         {
                             hayPredet = true;
                         }
                         DGV.Rows.Remove(fila);
                     }
-                    if (hayPredet && DGV.RowCount>0)
+                    if (hayPredet && DGV.RowCount > 0)
                     { DGV.Rows[0].Cells["EsPredet"].Value = true; }
                     IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
         }
 
-        public static void editar(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, Panel Fuente, Panel TipoHaz,
+        public static void editarAle(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, Panel Fuente, Panel TipoHaz,
             DataGridView DGVEnFot, DataGridView DGVEnElec, DataGridView DGVEquipo)
         {
             Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
@@ -119,17 +139,8 @@ namespace _398_UI
             Modelo.Text = aux.Modelo;
             NumSerie.Text = aux.NumSerie;
             Alias.Text = aux.Alias;
-            if (aux.Fuente == 1)
-            {
-                Fuente.Controls.OfType<RadioButton>().ElementAt(1).Checked = true; //Control ALE
-                Fuente.Controls.OfType<RadioButton>().ElementAt(0).Checked = false; //Control Co
-            }
-            else if (aux.Fuente == 2)
-            {
-                Fuente.Controls.OfType<RadioButton>().ElementAt(1).Checked = false;
-                Fuente.Controls.OfType<RadioButton>().ElementAt(0).Checked = true;
-            }
-
+            Fuente.Controls.OfType<RadioButton>().ElementAt(1).Checked = false; //Control ALE
+            Fuente.Controls.OfType<RadioButton>().ElementAt(0).Checked = true; //Control Co
             if (aux.TipoDeHaz == 1)
             {
                 TipoHaz.Controls.OfType<RadioButton>().ElementAt(1).Checked = true; //pulsado
@@ -144,8 +155,23 @@ namespace _398_UI
             EnergiaFotones.darFormatoADGV(DGVEnFot);
             DGVEnElec.DataSource = aux.energiaElec;
             EnergiaElectrones.darFormatoADGV(DGVEnElec);
-
         }
+
+        public static void editarCo(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, Panel Fuente, Panel TipoHaz,
+            TextBox Zref, TextBox PDDZref, TextBox TMRZref, DataGridView DGVEquipo)
+        {
+            Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
+            Marca.Text = aux.Marca;
+            Modelo.Text = aux.Modelo;
+            NumSerie.Text = aux.NumSerie;
+            Alias.Text = aux.Alias;
+            Fuente.Controls.OfType<RadioButton>().ElementAt(1).Checked = true;
+            Fuente.Controls.OfType<RadioButton>().ElementAt(0).Checked = false;
+            Zref.Text = aux.energiaFot[0].ZRefFot.ToString();
+            PDDZref.Text = aux.energiaFot[0].PddZrefFot.ToString();
+            TMRZref.Text = aux.energiaFot[0].TmrZrefFot.ToString();
+        }
+
         public static void hacerPredeterminado(DataGridView DGV)
         {
             if (DGV.SelectedRows.Count > 0)

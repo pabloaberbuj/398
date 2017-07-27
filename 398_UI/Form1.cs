@@ -155,12 +155,20 @@ namespace _398_UI
             CB_CaliEnergias.Items.Clear();
             if (CB_CaliEquipos.SelectedIndex != -1)
             {
-                foreach (var energia in Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot)
+                if (Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente==1) //Co
                 {
-                    CB_CaliEnergias.Items.Add(energia.Energia.ToString());
-                    if (energia.EsPredet == true)
+                    CB_CaliEnergias.Items.Add("Co");
+                    CB_CaliEnergias.SelectedIndex = 0;
+                }
+                else
+                {
+                    foreach (var energia in Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot)
                     {
-                        CB_CaliEnergias.SelectedIndex = CB_CaliEnergias.FindStringExact(energia.Energia.ToString());
+                        CB_CaliEnergias.Items.Add(energia.Energia.ToString());
+                        if (energia.EsPredet == true)
+                        {
+                            CB_CaliEnergias.SelectedIndex = CB_CaliEnergias.FindStringExact(energia.Energia.ToString());
+                        }
                     }
                 }
             }
@@ -463,7 +471,18 @@ namespace _398_UI
             {
                 Panel_TipoHazEq.Enabled = false;
                 LB_TipoHaz.Enabled = false;
-                GB_EquiposEnergias.Enabled = false;
+                GB_EquiposEnergias.Enabled = true;
+                Panel_EnCoEquipo.Enabled = true;
+                CHB_EnElecEquipo.Enabled = false;
+                CHB_EnFotEquipo.Enabled = false;
+                TB_EnCoZref.Text = 5.ToString();
+                RB_Pulsado.Checked = false;
+                RB_PulsadoYBarrido.Checked = false;
+            }
+            else
+            {
+                Panel_EnCoEquipo.Enabled = false;
+                TB_EnCoZref.Text = "";
             }
         }
 
@@ -474,6 +493,13 @@ namespace _398_UI
                 Panel_TipoHazEq.Enabled = true;
                 LB_TipoHaz.Enabled = true;
                 GB_EquiposEnergias.Enabled = true;
+                CHB_EnElecEquipo.Enabled = true;
+                CHB_EnFotEquipo.Enabled = true;
+            }
+            else
+            {
+                CHB_EnElecEquipo.Enabled = false;
+                CHB_EnFotEquipo.Enabled = false;
             }
 
         }
@@ -487,14 +513,14 @@ namespace _398_UI
             {
                 indiceEquipo = DGV_Equipo.SelectedRows[0].Index;
             }
-            int auxfuente = 0; int auxHaz = 0;
+            int auxHaz = 0;
             if (RB_FuenteCo.Checked == true)
             {
-                auxfuente = 1;
+                Equipo.guardar(Equipo.crearCo(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR)), editaEquipo, DGV_Equipo);
             }
             else if (RB_FuenteALE.Checked == true)
             {
-                auxfuente = 2;
+                
                 if (RB_Pulsado.Checked == true)
                 {
                     auxHaz = 1;
@@ -503,23 +529,32 @@ namespace _398_UI
                 {
                     auxHaz = 2;
                 }
+                Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, DGV_Equipo);
             }
-            Equipo.guardar(Equipo.crear(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, auxfuente, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, DGV_Equipo);
+            
             DGV_Equipo.DataSource = Equipo.lista();
             limpiarRegistro(GB_Equipos);
             limpiarRegistro(Panel_FuenteEq);
             limpiarRegistro(Panel_TipoHazEq);
+            limpiarRegistro(Panel_EnCoEquipo);
             DGV_EnFot.Rows.Clear();
+            DGV_EnFot.Visible = false;
             DGV_EnElec.Rows.Clear();
+            DGV_EnElec.Visible = false;
             CHB_EnFotEquipo.Checked = false;
             CHB_EnElecEquipo.Checked = false;
             if (editaEquipo)
             {
+                foreach(DataGridViewRow row in DGV_Equipo.Rows)
+                {
+                    row.Selected = false;
+                }
                 DGV_Equipo.Rows[indiceEquipo].Selected = true;
             }
             editaEquipo = false;
             Panel_TipoHazEq.Enabled = false;
             actualizarComboBoxCaliFotones();
+            DGV_Equipo.Enabled = true;
         }
 
         private void BT_PredetEqu_Click(object sender, EventArgs e)
@@ -536,11 +571,21 @@ namespace _398_UI
 
         private void BT_EditarEq_Click(object sender, EventArgs e)
         {
-            CHB_EnFotEquipo.Checked = true;
-            CHB_EnElecEquipo.Checked = true;
-            DGV_EnFot.Visible = true;
-            DGV_EnElec.Visible = true;
-            Equipo.editar(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
+            DGV_Equipo.Enabled = false;
+            if (Equipo.lista()[DGV_Equipo.SelectedRows[0].Index].Fuente == 1)
+            {
+                Panel_EnCoEquipo.Enabled = true;
+                Equipo.editarCo(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, TB_EnCoZref, TB_EnCoPDD, TB_EnCoTMR, DGV_Equipo);
+            }
+            else
+            {
+                CHB_EnFotEquipo.Checked = true;
+                CHB_EnElecEquipo.Checked = true;
+                DGV_EnFot.Visible = true;
+                DGV_EnElec.Visible = true;
+
+                Equipo.editarAle(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
+            }
             editaEquipo = true;
             actualizarComboBoxCaliFotones();
         }
@@ -560,7 +605,10 @@ namespace _398_UI
             EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
             limpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-            BT_EnFotGuardar.Enabled = false;
+            if (RB_FuenteCo.Checked == true && DGV_EnFot.ColumnCount>0)
+            {
+                GB_EquiposEnergias.Enabled = false;
+            }
         }
 
         private void BT_EnFotEliminar_Click(object sender, EventArgs e)
@@ -584,6 +632,7 @@ namespace _398_UI
         {
 
         }
+
 
         #endregion
 
@@ -844,6 +893,7 @@ namespace _398_UI
                 }
             }
         }
+
 
 
         #endregion
