@@ -609,6 +609,7 @@ namespace _398_UI
             {
                 GB_EquiposEnergias.Enabled = false;
             }
+            DGV_EnFot.Enabled = true;
         }
 
         private void BT_EnFotEliminar_Click(object sender, EventArgs e)
@@ -619,6 +620,7 @@ namespace _398_UI
 
         private void BT_EnFotEditar_Click(object sender, EventArgs e)
         {
+            DGV_EnFot.Enabled = false;
             EnergiaFotones.editar(TB_EnFotEn, TB_EnFotZref, TB_EnFotPDD, TB_EnFotTMR, DGV_EnFot);
             editaEnergiaFot = true;
         }
@@ -641,13 +643,13 @@ namespace _398_UI
         private void BT_EnElecGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnElec.Visible = true;
-
             EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Calcular.doubleNaN(TB_EnElecR50ion), Calcular.doubleNaN(L_EnElecR50dosis), Calcular.doubleNaN(L_EnElecZref), Calcular.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
             limpiarRegistro(Panel_EnElecEquipo);
             L_EnElecR50dosis.Text = null;
             L_EnElecZref.Text = null;
             TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             BT_EnElecGuardar.Enabled = false;
+            DGV_EnElec.Enabled = true;
         }
 
         private void BT_EnElecEliminar_Click(object sender, EventArgs e)
@@ -658,6 +660,7 @@ namespace _398_UI
 
         private void BT_EnElecEditar_Click(object sender, EventArgs e)
         {
+            DGV_EnElec.Enabled = false;
             EnergiaElectrones.editar(TB_EnElecEn, TB_EnElecR50ion, L_EnElecR50dosis, L_EnElecZref, TB_EnElecPDDZref, DGV_EnElec);
             editaEnergiaElect = true;
         }
@@ -707,6 +710,7 @@ namespace _398_UI
         {
             Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text), editaCam, DGV_Cam);
             limpiarRegistro(GB_Camaras);
+            DGV_Cam.Enabled = true;
         }
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
@@ -715,6 +719,7 @@ namespace _398_UI
 
         private void BT_EditarCam_Click(object sender, EventArgs e)
         {
+            DGV_Cam.Enabled = false;
             Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam);
             editaCam = true;
         }
@@ -726,6 +731,7 @@ namespace _398_UI
         {
             Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text), editaElec, DGV_Elec);
             limpiarRegistro(GB_Electrómetros);
+            DGV_Elec.Enabled = true;
         }
 
         private void BT_EliminarElec_Click(object sender, EventArgs e)
@@ -735,6 +741,7 @@ namespace _398_UI
 
         private void BT_EditarElec_Click(object sender, EventArgs e)
         {
+            DGV_Elec.Enabled = false;
             Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
             editaElec = true;
         }
