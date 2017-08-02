@@ -537,12 +537,16 @@ namespace _398_UI
             limpiarRegistro(Panel_FuenteEq);
             limpiarRegistro(Panel_TipoHazEq);
             limpiarRegistro(Panel_EnCoEquipo);
+            limpiarRegistro(Panel_EnElecEquipo);
+            limpiarRegistro(Panel_EnFotEquipo);
             DGV_EnFot.Rows.Clear();
             DGV_EnFot.Visible = false;
             DGV_EnElec.Rows.Clear();
             DGV_EnElec.Visible = false;
             CHB_EnFotEquipo.Checked = false;
             CHB_EnElecEquipo.Checked = false;
+            TB_EnElecR50ion_Leave(sender, e);
+
             if (editaEquipo)
             {
                 foreach(DataGridViewRow row in DGV_Equipo.Rows)
@@ -595,6 +599,25 @@ namespace _398_UI
             Equipo.exportar(DGV_Equipo);
         }
 
+        private void BT_EquiposCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarRegistro(GB_Equipos);
+            limpiarRegistro(Panel_FuenteEq);
+            limpiarRegistro(Panel_TipoHazEq);
+            limpiarRegistro(Panel_EnCoEquipo);
+            limpiarRegistro(Panel_EnElecEquipo);
+            limpiarRegistro(Panel_EnFotEquipo);
+            DGV_EnFot.Rows.Clear();
+            DGV_EnFot.Visible = false;
+            DGV_EnElec.Rows.Clear();
+            DGV_EnElec.Visible = false;
+            CHB_EnFotEquipo.Checked = false;
+            CHB_EnElecEquipo.Checked = false;
+            editaEquipo = false;
+            DGV_Equipo.Enabled = true;
+            TB_EnElecR50ion_Leave(sender, e);
+        }
+
         #endregion
 
         #region Equipos EnergiaFotonesBotones
@@ -633,6 +656,13 @@ namespace _398_UI
         private void TB_EnFotEnLeave(object sender, EventArgs e)
         {
 
+        }
+
+        private void BT_EqEnergiaFot_Cancelar_Click(object sender, EventArgs e)
+        {
+            limpiarRegistro(Panel_EnFotEquipo);
+            DGV_EnFot.Enabled = true;
+            editaEnergiaFot = false;
         }
 
 
@@ -694,6 +724,14 @@ namespace _398_UI
             }
         }
 
+        private void BT_EqEnergiaElec_Cancelar_Click(object sender, EventArgs e)
+        {
+            limpiarRegistro(Panel_EnElecEquipo);
+            TB_EnElecR50ion_Leave(sender, e);
+            DGV_EnElec.Enabled = true;
+            editaEnergiaElect = false;
+        }
+
         #endregion
 
 
@@ -712,6 +750,7 @@ namespace _398_UI
             limpiarRegistro(GB_Camaras);
             DGV_Cam.Enabled = true;
         }
+
         private void BT_EliminarCam_Click(object sender, EventArgs e)
         {
             Camara.eliminar(DGV_Cam);
@@ -722,6 +761,13 @@ namespace _398_UI
             DGV_Cam.Enabled = false;
             Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam);
             editaCam = true;
+        }
+
+        private void BT_Camara_Cancelar_Click(object sender, EventArgs e)
+        {
+            limpiarRegistro(GB_Camaras);
+            DGV_Cam.Enabled = true;
+            editaCam = false;
         }
 
         #endregion
@@ -744,6 +790,13 @@ namespace _398_UI
             DGV_Elec.Enabled = false;
             Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
             editaElec = true;
+        }
+
+        private void BT_Electrometro_Cancelar_Click(object sender, EventArgs e)
+        {
+            limpiarRegistro(GB_Electrómetros);
+            DGV_Elec.Enabled = true;
+            editaElec = false;
         }
         #endregion
 
@@ -900,6 +953,11 @@ namespace _398_UI
                 }
             }
         }
+
+
+
+
+
 
 
 

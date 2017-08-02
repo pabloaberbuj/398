@@ -82,8 +82,8 @@ namespace _398_UI
         public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV)
         {
             Camara aux = lista()[DGV.SelectedRows[0].Index];
-            Marca.SelectedItem = aux.Marca;
-            Modelo.SelectedItem = aux.Modelo;
+            ((Camara398new)Marca.SelectedItem).marca = aux.Marca;
+            ((Camara398new)Modelo.SelectedItem).modelo = aux.Modelo;
             NumSerie.Text = aux.NumSerie;
 
         }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -186,6 +186,17 @@
             this.TB_AliasEq = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.GB_EquiposEnergias = new System.Windows.Forms.GroupBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.Panel_EnCoEquipo = new System.Windows.Forms.Panel();
+            this.label81 = new System.Windows.Forms.Label();
+            this.TB_EnCoTMR = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.TB_EnCoZref = new System.Windows.Forms.TextBox();
+            this.TB_EnCoPDD = new System.Windows.Forms.TextBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
             this.label76 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
@@ -323,17 +334,11 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.Panel_EnCoEquipo = new System.Windows.Forms.Panel();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.TB_EnCoTMR = new System.Windows.Forms.TextBox();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.TB_EnCoZref = new System.Windows.Forms.TextBox();
-            this.TB_EnCoPDD = new System.Windows.Forms.TextBox();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
+            this.BT_EquiposCancelar = new System.Windows.Forms.Button();
+            this.BT_EqEnergiaFot_Cancelar = new System.Windows.Forms.Button();
+            this.BT_EqEnergiaElec_Cancelar = new System.Windows.Forms.Button();
+            this.BT_Camara_Cancelar = new System.Windows.Forms.Button();
+            this.BT_Electrometro_Cancelar = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -363,6 +368,7 @@
             this.Panel_TipoHazEq.SuspendLayout();
             this.Panel_FuenteEq.SuspendLayout();
             this.GB_EquiposEnergias.SuspendLayout();
+            this.Panel_EnCoEquipo.SuspendLayout();
             this.Panel_EnElecEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).BeginInit();
             this.Panel_EnFotEquipo.SuspendLayout();
@@ -385,7 +391,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            this.Panel_EnCoEquipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -1859,6 +1864,7 @@
             // 
             // GB_Equipos
             // 
+            this.GB_Equipos.Controls.Add(this.BT_EquiposCancelar);
             this.GB_Equipos.Controls.Add(this.DGV_Equipo);
             this.GB_Equipos.Controls.Add(this.Panel_TipoHazEq);
             this.GB_Equipos.Controls.Add(this.Panel_FuenteEq);
@@ -2024,8 +2030,109 @@
             this.GB_EquiposEnergias.TabStop = false;
             this.GB_EquiposEnergias.Text = "Energías";
             // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(4, 16);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(35, 13);
+            this.label80.TabIndex = 0;
+            this.label80.Text = "Co-60";
+            // 
+            // Panel_EnCoEquipo
+            // 
+            this.Panel_EnCoEquipo.Controls.Add(this.label81);
+            this.Panel_EnCoEquipo.Controls.Add(this.TB_EnCoTMR);
+            this.Panel_EnCoEquipo.Controls.Add(this.label82);
+            this.Panel_EnCoEquipo.Controls.Add(this.label83);
+            this.Panel_EnCoEquipo.Controls.Add(this.label84);
+            this.Panel_EnCoEquipo.Controls.Add(this.TB_EnCoZref);
+            this.Panel_EnCoEquipo.Controls.Add(this.TB_EnCoPDD);
+            this.Panel_EnCoEquipo.Controls.Add(this.label85);
+            this.Panel_EnCoEquipo.Controls.Add(this.label86);
+            this.Panel_EnCoEquipo.Location = new System.Drawing.Point(4, 32);
+            this.Panel_EnCoEquipo.Name = "Panel_EnCoEquipo";
+            this.Panel_EnCoEquipo.Size = new System.Drawing.Size(171, 232);
+            this.Panel_EnCoEquipo.TabIndex = 90;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(133, 74);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(15, 13);
+            this.label81.TabIndex = 100;
+            this.label81.Text = "%";
+            // 
+            // TB_EnCoTMR
+            // 
+            this.TB_EnCoTMR.Location = new System.Drawing.Point(84, 72);
+            this.TB_EnCoTMR.Name = "TB_EnCoTMR";
+            this.TB_EnCoTMR.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnCoTMR.TabIndex = 94;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(10, 72);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(68, 13);
+            this.label82.TabIndex = 99;
+            this.label82.Text = "TMR en Zref";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(133, 45);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(15, 13);
+            this.label83.TabIndex = 98;
+            this.label83.Text = "%";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(133, 16);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(21, 13);
+            this.label84.TabIndex = 97;
+            this.label84.Text = "cm";
+            // 
+            // TB_EnCoZref
+            // 
+            this.TB_EnCoZref.Location = new System.Drawing.Point(84, 11);
+            this.TB_EnCoZref.Name = "TB_EnCoZref";
+            this.TB_EnCoZref.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnCoZref.TabIndex = 92;
+            // 
+            // TB_EnCoPDD
+            // 
+            this.TB_EnCoPDD.Location = new System.Drawing.Point(84, 43);
+            this.TB_EnCoPDD.Name = "TB_EnCoPDD";
+            this.TB_EnCoPDD.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnCoPDD.TabIndex = 93;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(10, 43);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(67, 13);
+            this.label85.TabIndex = 96;
+            this.label85.Text = "PDD en Zref";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(10, 14);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(26, 13);
+            this.label86.TabIndex = 95;
+            this.label86.Text = "Zref";
+            // 
             // Panel_EnElecEquipo
             // 
+            this.Panel_EnElecEquipo.Controls.Add(this.BT_EqEnergiaElec_Cancelar);
             this.Panel_EnElecEquipo.Controls.Add(this.label76);
             this.Panel_EnElecEquipo.Controls.Add(this.label67);
             this.Panel_EnElecEquipo.Controls.Add(this.L_EnElecR50dosis);
@@ -2236,7 +2343,6 @@
             // 
             // BT_EnElecGuardar
             // 
-            this.BT_EnElecGuardar.Enabled = false;
             this.BT_EnElecGuardar.Location = new System.Drawing.Point(52, 144);
             this.BT_EnElecGuardar.Name = "BT_EnElecGuardar";
             this.BT_EnElecGuardar.Size = new System.Drawing.Size(97, 23);
@@ -2247,6 +2353,7 @@
             // 
             // Panel_EnFotEquipo
             // 
+            this.Panel_EnFotEquipo.Controls.Add(this.BT_EqEnergiaFot_Cancelar);
             this.Panel_EnFotEquipo.Controls.Add(this.DGV_EnFot);
             this.Panel_EnFotEquipo.Controls.Add(this.label71);
             this.Panel_EnFotEquipo.Controls.Add(this.TB_EnFotTMR);
@@ -2646,6 +2753,7 @@
             // 
             // GB_Electrómetros
             // 
+            this.GB_Electrómetros.Controls.Add(this.BT_Electrometro_Cancelar);
             this.GB_Electrómetros.Controls.Add(this.TB_ModeloElec);
             this.GB_Electrómetros.Controls.Add(this.TB_MarcaElec);
             this.GB_Electrómetros.Controls.Add(this.BT_EliminarElec);
@@ -2699,7 +2807,7 @@
             // 
             // BT_GuardarElec
             // 
-            this.BT_GuardarElec.Location = new System.Drawing.Point(257, 30);
+            this.BT_GuardarElec.Location = new System.Drawing.Point(257, 27);
             this.BT_GuardarElec.Name = "BT_GuardarElec";
             this.BT_GuardarElec.Size = new System.Drawing.Size(119, 23);
             this.BT_GuardarElec.TabIndex = 10;
@@ -2754,6 +2862,7 @@
             // 
             // GB_Camaras
             // 
+            this.GB_Camaras.Controls.Add(this.BT_Camara_Cancelar);
             this.GB_Camaras.Controls.Add(this.BT_EliminarCam);
             this.GB_Camaras.Controls.Add(this.BT_EditarCam);
             this.GB_Camaras.Controls.Add(this.BT_GuardarCam);
@@ -2793,7 +2902,7 @@
             // 
             // BT_GuardarCam
             // 
-            this.BT_GuardarCam.Location = new System.Drawing.Point(252, 30);
+            this.BT_GuardarCam.Location = new System.Drawing.Point(265, 28);
             this.BT_GuardarCam.Name = "BT_GuardarCam";
             this.BT_GuardarCam.Size = new System.Drawing.Size(119, 23);
             this.BT_GuardarCam.TabIndex = 4;
@@ -3400,14 +3509,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle17;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3425,14 +3534,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle18;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3462,105 +3571,55 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
-            // Panel_EnCoEquipo
+            // BT_EquiposCancelar
             // 
-            this.Panel_EnCoEquipo.Controls.Add(this.label81);
-            this.Panel_EnCoEquipo.Controls.Add(this.TB_EnCoTMR);
-            this.Panel_EnCoEquipo.Controls.Add(this.label82);
-            this.Panel_EnCoEquipo.Controls.Add(this.label83);
-            this.Panel_EnCoEquipo.Controls.Add(this.label84);
-            this.Panel_EnCoEquipo.Controls.Add(this.TB_EnCoZref);
-            this.Panel_EnCoEquipo.Controls.Add(this.TB_EnCoPDD);
-            this.Panel_EnCoEquipo.Controls.Add(this.label85);
-            this.Panel_EnCoEquipo.Controls.Add(this.label86);
-            this.Panel_EnCoEquipo.Location = new System.Drawing.Point(4, 32);
-            this.Panel_EnCoEquipo.Name = "Panel_EnCoEquipo";
-            this.Panel_EnCoEquipo.Size = new System.Drawing.Size(171, 232);
-            this.Panel_EnCoEquipo.TabIndex = 90;
+            this.BT_EquiposCancelar.Location = new System.Drawing.Point(346, 56);
+            this.BT_EquiposCancelar.Name = "BT_EquiposCancelar";
+            this.BT_EquiposCancelar.Size = new System.Drawing.Size(119, 23);
+            this.BT_EquiposCancelar.TabIndex = 72;
+            this.BT_EquiposCancelar.Text = "Cancelar";
+            this.BT_EquiposCancelar.UseVisualStyleBackColor = true;
+            this.BT_EquiposCancelar.Click += new System.EventHandler(this.BT_EquiposCancelar_Click);
             // 
-            // label80
+            // BT_EqEnergiaFot_Cancelar
             // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(4, 16);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(35, 13);
-            this.label80.TabIndex = 0;
-            this.label80.Text = "Co-60";
+            this.BT_EqEnergiaFot_Cancelar.Location = new System.Drawing.Point(47, 173);
+            this.BT_EqEnergiaFot_Cancelar.Name = "BT_EqEnergiaFot_Cancelar";
+            this.BT_EqEnergiaFot_Cancelar.Size = new System.Drawing.Size(97, 25);
+            this.BT_EqEnergiaFot_Cancelar.TabIndex = 93;
+            this.BT_EqEnergiaFot_Cancelar.Text = "Cancelar";
+            this.BT_EqEnergiaFot_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_EqEnergiaFot_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaFot_Cancelar_Click);
             // 
-            // label81
+            // BT_EqEnergiaElec_Cancelar
             // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(133, 74);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(15, 13);
-            this.label81.TabIndex = 100;
-            this.label81.Text = "%";
+            this.BT_EqEnergiaElec_Cancelar.Location = new System.Drawing.Point(52, 174);
+            this.BT_EqEnergiaElec_Cancelar.Name = "BT_EqEnergiaElec_Cancelar";
+            this.BT_EqEnergiaElec_Cancelar.Size = new System.Drawing.Size(97, 25);
+            this.BT_EqEnergiaElec_Cancelar.TabIndex = 115;
+            this.BT_EqEnergiaElec_Cancelar.Text = "Cancelar";
+            this.BT_EqEnergiaElec_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_EqEnergiaElec_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaElec_Cancelar_Click);
             // 
-            // TB_EnCoTMR
+            // BT_Camara_Cancelar
             // 
-            this.TB_EnCoTMR.Location = new System.Drawing.Point(84, 72);
-            this.TB_EnCoTMR.Name = "TB_EnCoTMR";
-            this.TB_EnCoTMR.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnCoTMR.TabIndex = 94;
+            this.BT_Camara_Cancelar.Location = new System.Drawing.Point(265, 63);
+            this.BT_Camara_Cancelar.Name = "BT_Camara_Cancelar";
+            this.BT_Camara_Cancelar.Size = new System.Drawing.Size(119, 23);
+            this.BT_Camara_Cancelar.TabIndex = 73;
+            this.BT_Camara_Cancelar.Text = "Cancelar";
+            this.BT_Camara_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_Camara_Cancelar.Click += new System.EventHandler(this.BT_Camara_Cancelar_Click);
             // 
-            // label82
+            // BT_Electrometro_Cancelar
             // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(10, 72);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(68, 13);
-            this.label82.TabIndex = 99;
-            this.label82.Text = "TMR en Zref";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(133, 45);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(15, 13);
-            this.label83.TabIndex = 98;
-            this.label83.Text = "%";
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(133, 16);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(21, 13);
-            this.label84.TabIndex = 97;
-            this.label84.Text = "cm";
-            // 
-            // TB_EnCoZref
-            // 
-            this.TB_EnCoZref.Location = new System.Drawing.Point(84, 11);
-            this.TB_EnCoZref.Name = "TB_EnCoZref";
-            this.TB_EnCoZref.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnCoZref.TabIndex = 92;
-            // 
-            // TB_EnCoPDD
-            // 
-            this.TB_EnCoPDD.Location = new System.Drawing.Point(84, 43);
-            this.TB_EnCoPDD.Name = "TB_EnCoPDD";
-            this.TB_EnCoPDD.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnCoPDD.TabIndex = 93;
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(10, 43);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(67, 13);
-            this.label85.TabIndex = 96;
-            this.label85.Text = "PDD en Zref";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(10, 14);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(26, 13);
-            this.label86.TabIndex = 95;
-            this.label86.Text = "Zref";
+            this.BT_Electrometro_Cancelar.Location = new System.Drawing.Point(257, 63);
+            this.BT_Electrometro_Cancelar.Name = "BT_Electrometro_Cancelar";
+            this.BT_Electrometro_Cancelar.Size = new System.Drawing.Size(119, 23);
+            this.BT_Electrometro_Cancelar.TabIndex = 74;
+            this.BT_Electrometro_Cancelar.Text = "Cancelar";
+            this.BT_Electrometro_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_Electrometro_Cancelar.Click += new System.EventHandler(this.BT_Electrometro_Cancelar_Click);
             // 
             // Form1
             // 
@@ -3568,8 +3627,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
             this.Controls.Add(this.Panel_Equipos);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -3632,6 +3691,8 @@
             this.Panel_FuenteEq.PerformLayout();
             this.GB_EquiposEnergias.ResumeLayout(false);
             this.GB_EquiposEnergias.PerformLayout();
+            this.Panel_EnCoEquipo.ResumeLayout(false);
+            this.Panel_EnCoEquipo.PerformLayout();
             this.Panel_EnElecEquipo.ResumeLayout(false);
             this.Panel_EnElecEquipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_EnElec)).EndInit();
@@ -3663,8 +3724,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            this.Panel_EnCoEquipo.ResumeLayout(false);
-            this.Panel_EnCoEquipo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3975,6 +4034,11 @@
         private System.Windows.Forms.TextBox TB_EnCoPDD;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Button BT_Electrometro_Cancelar;
+        private System.Windows.Forms.Button BT_Camara_Cancelar;
+        private System.Windows.Forms.Button BT_EquiposCancelar;
+        private System.Windows.Forms.Button BT_EqEnergiaElec_Cancelar;
+        private System.Windows.Forms.Button BT_EqEnergiaFot_Cancelar;
     }
 }
 
