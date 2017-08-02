@@ -242,8 +242,14 @@ namespace _398_UI
             if (equipoSeleccionado().Fuente == 1)//Co
             {
                 GB_FactorDeCalidad.Enabled = false;
+                limpiarRegistro(Panel_Lect20);
+                limpiarRegistro(Panel_Lect10);
+                limpiarRegistro(Panel_TPRoPDD);
+                escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
+                escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
                 L_CaliFKqq0.Text = "1";
                 L_CaliFKqq0.Visible = true;
+                CHB_UsarKqq0LB.Checked = false;
                 return 1;
             }
             else
@@ -251,7 +257,21 @@ namespace _398_UI
                 GB_FactorDeCalidad.Enabled = true;
                 L_CaliFKqq0.Text = "Vacio";
                 L_CaliFKqq0.Visible = false;
-                return CalibracionFot.CalcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara);
+                if (CHB_UsarKqq0LB.Checked == true)
+                {
+                    Panel_LecKqq0.Enabled = false;
+                    Panel_TPRoPDD.Enabled = false;
+                    limpiarRegistro(Panel_Lect20);
+                    limpiarRegistro(Panel_Lect10);
+                    limpiarRegistro(Panel_TPRoPDD);
+                    escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
+                    escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
+                    return kqq0LineaBase();
+                }
+                else
+                {
+                    return CalibracionFot.CalcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara);
+                }
             }
         }
 
@@ -371,12 +391,25 @@ namespace _398_UI
         {
             escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
             escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio", calculoTPR2010, L_CaliFTPR2010);
-            escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1, calculokQQ0, L_CaliFKqq0);
+            escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0,GB_FactorDeCalidad);
             escribirLabel(LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio", calculoKpol, L_Kpol);
             escribirLabel(LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "", calculoKs, L_Ks);
             escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
             escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
             escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
+        }
+
+        private double kqq0LineaBase()
+        {
+            return 234324;
+        }
+        private double kpolLineaBase()
+        {
+            return 78237498;
+        }
+        public double ksLineaBase()
+        {
+            return 7432894;
         }
         #endregion
 
@@ -406,30 +439,22 @@ namespace _398_UI
 
         private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_UsarKqq0LB.Checked == true)
-            { Panel_TPRoPDD.Enabled = false; Panel_LecKqq0.Enabled = false; }
-            else { Panel_TPRoPDD.Enabled = true; Panel_LecKqq0.Enabled = true; }
+            actualizarCalculos();
         }
 
         private void CHB_UsaKpolLB_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_UsaKpolLB.Checked == true)
-            { CHB_NoUsaKpol.Checked = false; Panel_LecKpol.Enabled = false; }
-            else { Panel_LecKpol.Enabled = true; }
+
         }
 
         private void CHB_NoUsaKpol_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_NoUsaKpol.Checked == true)
-            { CHB_UsaKpolLB.Checked = false; Panel_LecKpol.Enabled = false; L_Kpol.Visible = true; L_Kpol.Text = "1"; }
-            else { Panel_LecKpol.Enabled = true; L_Kpol.Visible = false; L_Kpol.Text = "Vacio"; }
+
         }
 
         private void CHB_UsaKsLB_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_UsaKsLB.Checked == true)
-            { CHB_NoUsaKs.Checked = false; Panel_LecKs.Enabled = false; Panel_Vred.Enabled = false; }
-            else { Panel_LecKs.Enabled = true; Panel_Vred.Enabled = false; }
+
         }
 
         private void CHB_NoUsaKs_CheckedChanged(object sender, EventArgs e)
@@ -952,6 +977,24 @@ namespace _398_UI
             }
         }
 
+        public static void escribirLabel(bool test, Func<double> metodo, Label label, GroupBox gb)
+        {
+            if (test)
+            {
+                label.Text = metodo().ToString();
+                label.Visible = true;
+            }
+            else
+            {
+                label.Text = "Vacio";
+                label.Visible = false;
+                foreach (Panel panel in gb.Controls.OfType<Panel>())
+                {
+                    panel.Enabled = true;
+                }
+            }
+        }
+
         private void esNumeroTB(object sender, EventArgs e)
         {
             if (estaLleno((TextBox)sender))
@@ -973,14 +1016,6 @@ namespace _398_UI
         {
             return Equipo.lista()[CB_CaliEquipos.SelectedIndex];
         }
-
-        
-
-
-
-
-
-
 
         #endregion
 

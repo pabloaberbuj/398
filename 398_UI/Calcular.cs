@@ -69,8 +69,7 @@ namespace _398_UI
         {
             CultureInfo alternative = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             alternative.NumberFormat.NumberDecimalSeparator = ",";
-            bool esNumero; double salida;
-            esNumero = Double.TryParse(entrada, out salida);
+            bool esNumero = Double.TryParse(entrada, out double salida);
             if (!esNumero)
             {
                 esNumero = Double.TryParse(entrada, NumberStyles.Float, alternative, out salida);
