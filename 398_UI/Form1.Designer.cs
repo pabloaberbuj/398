@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,10 +59,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.TB_UM = new System.Windows.Forms.TextBox();
             this.label77 = new System.Windows.Forms.Label();
-            this.L_CaliFMref = new System.Windows.Forms.Label();
-            this.L_CaliFDifLB = new System.Windows.Forms.Label();
-            this.L_CaliFDwZmax = new System.Windows.Forms.Label();
-            this.L_CaliFDwZref = new System.Windows.Forms.Label();
             this.Panel_LecRef = new System.Windows.Forms.Panel();
             this.textBox39 = new System.Windows.Forms.TextBox();
             this.textBox40 = new System.Windows.Forms.TextBox();
@@ -70,10 +66,6 @@
             this.textBox42 = new System.Windows.Forms.TextBox();
             this.textBox47 = new System.Windows.Forms.TextBox();
             this.LB_LecRefProm = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.L_Ks = new System.Windows.Forms.Label();
             this.Panel_Vred = new System.Windows.Forms.Panel();
@@ -125,9 +117,8 @@
             this.chEditarVKapol = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.gFactorDeCalidad = new System.Windows.Forms.GroupBox();
+            this.GB_FactorDeCalidad = new System.Windows.Forms.GroupBox();
             this.L_CaliFTPR2010 = new System.Windows.Forms.Label();
-            this.L_CaliFKqq0 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.Panel_TPRoPDD = new System.Windows.Forms.Panel();
             this.RB_CaliFD2010 = new System.Windows.Forms.RadioButton();
@@ -150,7 +141,6 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.CHB_UsarKqq0LB = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -339,6 +329,16 @@
             this.BT_EqEnergiaElec_Cancelar = new System.Windows.Forms.Button();
             this.BT_Camara_Cancelar = new System.Windows.Forms.Button();
             this.BT_Electrometro_Cancelar = new System.Windows.Forms.Button();
+            this.L_CaliFKqq0 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.L_CaliFMref = new System.Windows.Forms.Label();
+            this.L_CaliFDifLB = new System.Windows.Forms.Label();
+            this.L_CaliFDwZmax = new System.Windows.Forms.Label();
+            this.L_CaliFDwZref = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -356,7 +356,7 @@
             this.Panel_LecKpol.SuspendLayout();
             this.Panel_LectmenosV.SuspendLayout();
             this.Panel_LectmasV.SuspendLayout();
-            this.gFactorDeCalidad.SuspendLayout();
+            this.GB_FactorDeCalidad.SuspendLayout();
             this.Panel_TPRoPDD.SuspendLayout();
             this.Panel_LecKqq0.SuspendLayout();
             this.Panel_Lect10.SuspendLayout();
@@ -395,10 +395,20 @@
             // 
             // Panel_CalFot
             // 
+            this.Panel_CalFot.Controls.Add(this.L_CaliFMref);
+            this.Panel_CalFot.Controls.Add(this.L_CaliFKqq0);
+            this.Panel_CalFot.Controls.Add(this.L_CaliFDifLB);
             this.Panel_CalFot.Controls.Add(this.GB_CondMed);
+            this.Panel_CalFot.Controls.Add(this.L_CaliFDwZmax);
+            this.Panel_CalFot.Controls.Add(this.label15);
+            this.Panel_CalFot.Controls.Add(this.L_CaliFDwZref);
             this.Panel_CalFot.Controls.Add(this.comboBox4);
+            this.Panel_CalFot.Controls.Add(this.label41);
             this.Panel_CalFot.Controls.Add(this.CB_CaliEnergias);
+            this.Panel_CalFot.Controls.Add(this.label42);
+            this.Panel_CalFot.Controls.Add(this.label43);
             this.Panel_CalFot.Controls.Add(this.label64);
+            this.Panel_CalFot.Controls.Add(this.label44);
             this.Panel_CalFot.Controls.Add(this.BT_ReporteImp);
             this.Panel_CalFot.Controls.Add(this.Bt_ReporteVP);
             this.Panel_CalFot.Controls.Add(this.BT_ExportarCaliFot);
@@ -409,7 +419,7 @@
             this.Panel_CalFot.Controls.Add(this.label14);
             this.Panel_CalFot.Controls.Add(this.dateTimePicker1);
             this.Panel_CalFot.Controls.Add(this.groupBox4);
-            this.Panel_CalFot.Controls.Add(this.gFactorDeCalidad);
+            this.Panel_CalFot.Controls.Add(this.GB_FactorDeCalidad);
             this.Panel_CalFot.Controls.Add(this.label23);
             this.Panel_CalFot.Controls.Add(this.button13);
             this.Panel_CalFot.Controls.Add(this.btnGuardar);
@@ -604,19 +614,11 @@
             this.gLecturaReferencia.Controls.Add(this.panel4);
             this.gLecturaReferencia.Controls.Add(this.panel3);
             this.gLecturaReferencia.Controls.Add(this.panel2);
-            this.gLecturaReferencia.Controls.Add(this.L_CaliFMref);
-            this.gLecturaReferencia.Controls.Add(this.L_CaliFDifLB);
-            this.gLecturaReferencia.Controls.Add(this.L_CaliFDwZmax);
-            this.gLecturaReferencia.Controls.Add(this.L_CaliFDwZref);
             this.gLecturaReferencia.Controls.Add(this.Panel_LecRef);
             this.gLecturaReferencia.Controls.Add(this.LB_LecRefProm);
-            this.gLecturaReferencia.Controls.Add(this.label41);
-            this.gLecturaReferencia.Controls.Add(this.label42);
-            this.gLecturaReferencia.Controls.Add(this.label43);
-            this.gLecturaReferencia.Controls.Add(this.label44);
             this.gLecturaReferencia.Location = new System.Drawing.Point(543, 12);
             this.gLecturaReferencia.Name = "gLecturaReferencia";
-            this.gLecturaReferencia.Size = new System.Drawing.Size(245, 320);
+            this.gLecturaReferencia.Size = new System.Drawing.Size(245, 187);
             this.gLecturaReferencia.TabIndex = 57;
             this.gLecturaReferencia.TabStop = false;
             this.gLecturaReferencia.Text = "Lectura en referencia";
@@ -698,50 +700,6 @@
             this.label77.TabIndex = 35;
             this.label77.Text = "UM";
             // 
-            // L_CaliFMref
-            // 
-            this.L_CaliFMref.AutoSize = true;
-            this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFMref.Location = new System.Drawing.Point(109, 209);
-            this.L_CaliFMref.Name = "L_CaliFMref";
-            this.L_CaliFMref.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFMref.TabIndex = 42;
-            this.L_CaliFMref.Text = "Vacio";
-            this.L_CaliFMref.Visible = false;
-            // 
-            // L_CaliFDifLB
-            // 
-            this.L_CaliFDifLB.AutoSize = true;
-            this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDifLB.Location = new System.Drawing.Point(109, 285);
-            this.L_CaliFDifLB.Name = "L_CaliFDifLB";
-            this.L_CaliFDifLB.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFDifLB.TabIndex = 41;
-            this.L_CaliFDifLB.Text = "Vacio";
-            this.L_CaliFDifLB.Visible = false;
-            // 
-            // L_CaliFDwZmax
-            // 
-            this.L_CaliFDwZmax.AutoSize = true;
-            this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDwZmax.Location = new System.Drawing.Point(109, 260);
-            this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
-            this.L_CaliFDwZmax.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFDwZmax.TabIndex = 40;
-            this.L_CaliFDwZmax.Text = "Vacio";
-            this.L_CaliFDwZmax.Visible = false;
-            // 
-            // L_CaliFDwZref
-            // 
-            this.L_CaliFDwZref.AutoSize = true;
-            this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDwZref.Location = new System.Drawing.Point(109, 235);
-            this.L_CaliFDwZref.Name = "L_CaliFDwZref";
-            this.L_CaliFDwZref.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFDwZref.TabIndex = 39;
-            this.L_CaliFDwZref.Text = "Vacio";
-            this.L_CaliFDwZref.Visible = false;
-            // 
             // Panel_LecRef
             // 
             this.Panel_LecRef.Controls.Add(this.textBox39);
@@ -813,46 +771,6 @@
             this.LB_LecRefProm.Text = "Vacio";
             this.LB_LecRefProm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LecRefProm.Visible = false;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(23, 209);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(50, 16);
-            this.label41.TabIndex = 31;
-            this.label41.Text = "Mref =";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(23, 285);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(57, 16);
-            this.label42.TabIndex = 29;
-            this.label42.Text = "DifLB =";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(23, 260);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(76, 16);
-            this.label43.TabIndex = 28;
-            this.label43.Text = "Dwzmax =";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(23, 235);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(66, 16);
-            this.label44.TabIndex = 27;
-            this.label44.Text = "Dwzref =";
             // 
             // groupBox5
             // 
@@ -1383,21 +1301,19 @@
             this.label30.TabIndex = 8;
             this.label30.Text = "Lecturas a +V";
             // 
-            // gFactorDeCalidad
+            // GB_FactorDeCalidad
             // 
-            this.gFactorDeCalidad.Controls.Add(this.L_CaliFTPR2010);
-            this.gFactorDeCalidad.Controls.Add(this.L_CaliFKqq0);
-            this.gFactorDeCalidad.Controls.Add(this.label24);
-            this.gFactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
-            this.gFactorDeCalidad.Controls.Add(this.Panel_LecKqq0);
-            this.gFactorDeCalidad.Controls.Add(this.CHB_UsarKqq0LB);
-            this.gFactorDeCalidad.Controls.Add(this.label15);
-            this.gFactorDeCalidad.Location = new System.Drawing.Point(297, 12);
-            this.gFactorDeCalidad.Name = "gFactorDeCalidad";
-            this.gFactorDeCalidad.Size = new System.Drawing.Size(233, 320);
-            this.gFactorDeCalidad.TabIndex = 55;
-            this.gFactorDeCalidad.TabStop = false;
-            this.gFactorDeCalidad.Text = "Factor de calidad";
+            this.GB_FactorDeCalidad.Controls.Add(this.L_CaliFTPR2010);
+            this.GB_FactorDeCalidad.Controls.Add(this.label24);
+            this.GB_FactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
+            this.GB_FactorDeCalidad.Controls.Add(this.Panel_LecKqq0);
+            this.GB_FactorDeCalidad.Controls.Add(this.CHB_UsarKqq0LB);
+            this.GB_FactorDeCalidad.Location = new System.Drawing.Point(297, 12);
+            this.GB_FactorDeCalidad.Name = "GB_FactorDeCalidad";
+            this.GB_FactorDeCalidad.Size = new System.Drawing.Size(233, 298);
+            this.GB_FactorDeCalidad.TabIndex = 55;
+            this.GB_FactorDeCalidad.TabStop = false;
+            this.GB_FactorDeCalidad.Text = "Factor de calidad";
             // 
             // L_CaliFTPR2010
             // 
@@ -1409,17 +1325,6 @@
             this.L_CaliFTPR2010.TabIndex = 28;
             this.L_CaliFTPR2010.Text = "Vacio";
             this.L_CaliFTPR2010.Visible = false;
-            // 
-            // L_CaliFKqq0
-            // 
-            this.L_CaliFKqq0.AutoSize = true;
-            this.L_CaliFKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFKqq0.Location = new System.Drawing.Point(125, 296);
-            this.L_CaliFKqq0.Name = "L_CaliFKqq0";
-            this.L_CaliFKqq0.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFKqq0.TabIndex = 27;
-            this.L_CaliFKqq0.Text = "Vacio";
-            this.L_CaliFKqq0.Visible = false;
             // 
             // label24
             // 
@@ -1649,16 +1554,6 @@
             this.CHB_UsarKqq0LB.Text = "Usar factor de calidad de línea base";
             this.CHB_UsarKqq0LB.UseVisualStyleBackColor = true;
             this.CHB_UsarKqq0LB.CheckedChanged += new System.EventHandler(this.CHB_UsarKqq0LB_CheckedChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(39, 296);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 16);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Kqq0 =";
             // 
             // label23
             // 
@@ -3509,14 +3404,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3534,14 +3429,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3621,14 +3516,119 @@
             this.BT_Electrometro_Cancelar.UseVisualStyleBackColor = true;
             this.BT_Electrometro_Cancelar.Click += new System.EventHandler(this.BT_Electrometro_Cancelar_Click);
             // 
+            // L_CaliFKqq0
+            // 
+            this.L_CaliFKqq0.AutoSize = true;
+            this.L_CaliFKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFKqq0.Location = new System.Drawing.Point(425, 314);
+            this.L_CaliFKqq0.Name = "L_CaliFKqq0";
+            this.L_CaliFKqq0.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFKqq0.TabIndex = 30;
+            this.L_CaliFKqq0.Text = "Vacio";
+            this.L_CaliFKqq0.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(339, 314);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(55, 16);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Kqq0 =";
+            // 
+            // L_CaliFMref
+            // 
+            this.L_CaliFMref.AutoSize = true;
+            this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFMref.Location = new System.Drawing.Point(671, 218);
+            this.L_CaliFMref.Name = "L_CaliFMref";
+            this.L_CaliFMref.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFMref.TabIndex = 53;
+            this.L_CaliFMref.Text = "Vacio";
+            this.L_CaliFMref.Visible = false;
+            // 
+            // L_CaliFDifLB
+            // 
+            this.L_CaliFDifLB.AutoSize = true;
+            this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDifLB.Location = new System.Drawing.Point(671, 294);
+            this.L_CaliFDifLB.Name = "L_CaliFDifLB";
+            this.L_CaliFDifLB.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFDifLB.TabIndex = 52;
+            this.L_CaliFDifLB.Text = "Vacio";
+            this.L_CaliFDifLB.Visible = false;
+            // 
+            // L_CaliFDwZmax
+            // 
+            this.L_CaliFDwZmax.AutoSize = true;
+            this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDwZmax.Location = new System.Drawing.Point(671, 269);
+            this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
+            this.L_CaliFDwZmax.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFDwZmax.TabIndex = 51;
+            this.L_CaliFDwZmax.Text = "Vacio";
+            this.L_CaliFDwZmax.Visible = false;
+            // 
+            // L_CaliFDwZref
+            // 
+            this.L_CaliFDwZref.AutoSize = true;
+            this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDwZref.Location = new System.Drawing.Point(671, 244);
+            this.L_CaliFDwZref.Name = "L_CaliFDwZref";
+            this.L_CaliFDwZref.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFDwZref.TabIndex = 50;
+            this.L_CaliFDwZref.Text = "Vacio";
+            this.L_CaliFDwZref.Visible = false;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(585, 218);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(50, 16);
+            this.label41.TabIndex = 49;
+            this.label41.Text = "Mref =";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(585, 294);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(57, 16);
+            this.label42.TabIndex = 48;
+            this.label42.Text = "DifLB =";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(585, 269);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(76, 16);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "Dwzmax =";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(585, 244);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(66, 16);
+            this.label44.TabIndex = 46;
+            this.label44.Text = "Dwzref =";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -3642,7 +3642,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gLecturaReferencia.ResumeLayout(false);
-            this.gLecturaReferencia.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -3669,8 +3668,8 @@
             this.Panel_LectmenosV.PerformLayout();
             this.Panel_LectmasV.ResumeLayout(false);
             this.Panel_LectmasV.PerformLayout();
-            this.gFactorDeCalidad.ResumeLayout(false);
-            this.gFactorDeCalidad.PerformLayout();
+            this.GB_FactorDeCalidad.ResumeLayout(false);
+            this.GB_FactorDeCalidad.PerformLayout();
             this.Panel_TPRoPDD.ResumeLayout(false);
             this.Panel_TPRoPDD.PerformLayout();
             this.Panel_LecKqq0.ResumeLayout(false);
@@ -3789,7 +3788,7 @@
         private System.Windows.Forms.Panel Panel_LecKpol;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.GroupBox gFactorDeCalidad;
+        private System.Windows.Forms.GroupBox GB_FactorDeCalidad;
         private System.Windows.Forms.Panel Panel_TPRoPDD;
         private System.Windows.Forms.RadioButton RB_CaliFD2010;
         private System.Windows.Forms.RadioButton RB_CaliFTPR2010;
@@ -3797,7 +3796,6 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.CheckBox CHB_UsarKqq0LB;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label23;
@@ -3806,10 +3804,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox gLecturaReferencia;
         private System.Windows.Forms.Label LB_LecRefProm;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label LB_KsRes;
         private System.Windows.Forms.Label label40;
@@ -4005,12 +3999,7 @@
         private System.Windows.Forms.Panel Panel_FuenteEq;
         private System.Windows.Forms.RadioButton RB_FuenteALE;
         private System.Windows.Forms.RadioButton RB_FuenteCo;
-        private System.Windows.Forms.Label L_CaliFMref;
-        private System.Windows.Forms.Label L_CaliFDifLB;
-        private System.Windows.Forms.Label L_CaliFDwZmax;
-        private System.Windows.Forms.Label L_CaliFDwZref;
         private System.Windows.Forms.Label L_CaliFTPR2010;
-        private System.Windows.Forms.Label L_CaliFKqq0;
         private System.Windows.Forms.Label L_CaliFKTP;
         private System.Windows.Forms.Label L_Kpol;
         private System.Windows.Forms.Label L_Ks;
@@ -4039,6 +4028,16 @@
         private System.Windows.Forms.Button BT_EquiposCancelar;
         private System.Windows.Forms.Button BT_EqEnergiaElec_Cancelar;
         private System.Windows.Forms.Button BT_EqEnergiaFot_Cancelar;
+        private System.Windows.Forms.Label L_CaliFMref;
+        private System.Windows.Forms.Label L_CaliFKqq0;
+        private System.Windows.Forms.Label L_CaliFDifLB;
+        private System.Windows.Forms.Label L_CaliFDwZmax;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label L_CaliFDwZref;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
     }
 }
 

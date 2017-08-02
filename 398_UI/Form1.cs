@@ -155,7 +155,7 @@ namespace _398_UI
             CB_CaliEnergias.Items.Clear();
             if (CB_CaliEquipos.SelectedIndex != -1)
             {
-                if (Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente==1) //Co
+                if (Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente == 1) //Co
                 {
                     CB_CaliEnergias.Items.Add("Co");
                     CB_CaliEnergias.SelectedIndex = 0;
@@ -209,8 +209,8 @@ namespace _398_UI
         //KTP
         private double calculoKTP()
         {
-            double T0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].TempRef;
-            double P0 = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].PresionRef;
+            double T0 = sistDosimSeleccionado().TempRef;
+            double P0 = sistDosimSeleccionado().PresionRef;
             return CalibracionFot.CalcularKtp(T0, Convert.ToDouble(tbTemp.Text), P0, Convert.ToDouble(tbPresion.Text));
         }
 
@@ -239,8 +239,20 @@ namespace _398_UI
 
         private double calculokQQ0()
         {
-            Camara camaraSeleccionada = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].camara;
-            return CalibracionFot.CalcularKqq0(calculoTPR2010(), camaraSeleccionada);
+            if (equipoSeleccionado().Fuente == 1)//Co
+            {
+                GB_FactorDeCalidad.Enabled = false;
+                L_CaliFKqq0.Text = "1";
+                L_CaliFKqq0.Visible = true;
+                return 1;
+            }
+            else
+            {
+                GB_FactorDeCalidad.Enabled = true;
+                L_CaliFKqq0.Text = "Vacio";
+                L_CaliFKqq0.Visible = false;
+                return CalibracionFot.CalcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara);
+            }
         }
 
 
@@ -265,8 +277,7 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            int signoTension = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].SignoTension;
-            return CalibracionFot.CalcularKpol(signoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV));
+            return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV));
         }
 
         private void Prom_masV(object sender, EventArgs e)
@@ -284,10 +295,7 @@ namespace _398_UI
         //Ks
         private double calculoKs()
         {
-            double Vtot = SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex].Tension;
-            int AleoCo = Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente;
-            int pulsadoOBarrido = Equipo.lista()[CB_CaliEquipos.SelectedIndex].TipoDeHaz;
-            return CalibracionFot.CalcularKs(Vtot, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), AleoCo, pulsadoOBarrido);
+            return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz);
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
@@ -314,17 +322,16 @@ namespace _398_UI
 
 
 
-
         //Referencia
 
         private double CalculoMref()
         {
             return CalibracionFot.CalcularMref(promediarPanel(Panel_LecRef), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
         }
-        
+
         private double calculoDwRef()
         {
-            return CalibracionFot.CalcularDwRef(CalculoMref(), SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex]);
+            return CalibracionFot.CalcularDwRef(CalculoMref(), sistDosimSeleccionado());
         }
 
         private double calculoDwZmax()
@@ -360,12 +367,11 @@ namespace _398_UI
             actualizarCalculos();
         }
 
-
         private void actualizarCalculos()
         {
             escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
             escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio", calculoTPR2010, L_CaliFTPR2010);
-            escribirLabel(L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1, calculokQQ0, L_CaliFKqq0);
+            escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1, calculokQQ0, L_CaliFKqq0);
             escribirLabel(LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio", calculoKpol, L_Kpol);
             escribirLabel(LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "", calculoKs, L_Ks);
             escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
@@ -379,6 +385,10 @@ namespace _398_UI
         private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
             InicializarComboBoxEnergias();
+            if (equipoSeleccionado().Fuente == 2)
+            {
+                GB_FactorDeCalidad.Enabled = true;
+            }
             actualizarCalculos();
         }
 
@@ -520,7 +530,7 @@ namespace _398_UI
             }
             else if (RB_FuenteALE.Checked == true)
             {
-                
+
                 if (RB_Pulsado.Checked == true)
                 {
                     auxHaz = 1;
@@ -531,7 +541,7 @@ namespace _398_UI
                 }
                 Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, DGV_Equipo);
             }
-            
+
             DGV_Equipo.DataSource = Equipo.lista();
             limpiarRegistro(GB_Equipos);
             limpiarRegistro(Panel_FuenteEq);
@@ -549,7 +559,7 @@ namespace _398_UI
 
             if (editaEquipo)
             {
-                foreach(DataGridViewRow row in DGV_Equipo.Rows)
+                foreach (DataGridViewRow row in DGV_Equipo.Rows)
                 {
                     row.Selected = false;
                 }
@@ -628,7 +638,7 @@ namespace _398_UI
             EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
             limpiarRegistro(Panel_EnFotEquipo);
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-            if (RB_FuenteCo.Checked == true && DGV_EnFot.ColumnCount>0)
+            if (RB_FuenteCo.Checked == true && DGV_EnFot.ColumnCount > 0)
             {
                 GB_EquiposEnergias.Enabled = false;
             }
@@ -954,6 +964,17 @@ namespace _398_UI
             }
         }
 
+        private SistemaDosimetrico sistDosimSeleccionado()
+        {
+            return SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex];
+        }
+
+        private Equipo equipoSeleccionado()
+        {
+            return Equipo.lista()[CB_CaliEquipos.SelectedIndex];
+        }
+
+        
 
 
 
