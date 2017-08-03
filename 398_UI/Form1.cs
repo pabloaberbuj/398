@@ -266,12 +266,27 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked);
+            if(!chEditarVKpol.Checked)
+            {
+                return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked);
+            }
+            else
+            {
+                return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked);
+            }
+            
         }
 
         private void Prom_masV(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
+            if (!chEditarVKpol.Checked)
+            {
+                escribirLabel(promediarPanel(Panel_LecRef), LB_LectmasVprom);
+            }
+            else
+            {
+                escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
+            }
             actualizarCalculos();
         }
 
@@ -288,11 +303,26 @@ namespace _398_UI
             {
                 return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Double.NaN, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
             }
-            return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz,CHB_NoUsaKs.Checked,CHB_UsaKsLB.Checked);
+            else if (!chEditarVKs.Checked)
+            {
+                return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
+            }
+            else
+            {
+                return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
+            }
+            
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
+            if (!chEditarVKs.Checked)
+            {
+                escribirLabel(promediarPanel(Panel_LecRef), LB_lectVtotProm);
+            }
+            else
+            {
+                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
+            }
             actualizarCalculos();
         }
 
@@ -346,6 +376,8 @@ namespace _398_UI
         private void Prom_Lref(object sender, EventArgs e)
         {
             escribirLabel(promediarPanel(Panel_LecRef), LB_LecRefProm);
+            Prom_masV(sender, e);
+            Prom_Vtot(sender, e);
             actualizarCalculos();
         }
 
@@ -416,27 +448,7 @@ namespace _398_UI
             actualizarCalculos();
         }
 
-        private void CHB_UsarKqq0LB_CheckedChanged(object sender, EventArgs e)
-        {
-            actualizarCalculos();
-        }
-
-        private void CHB_UsaKpolLB_CheckedChanged(object sender, EventArgs e)
-        {
-            actualizarCalculos();
-        }
-
-        private void CHB_NoUsaKpol_CheckedChanged(object sender, EventArgs e)
-        {
-            actualizarCalculos();
-        }
-
-        private void CHB_UsaKsLB_CheckedChanged(object sender, EventArgs e)
-        {
-            actualizarCalculos();
-        }
-
-        private void CHB_NoUsaKs_CheckedChanged(object sender, EventArgs e)
+        private void actualizarCalculos(object sender, EventArgs e)
         {
             actualizarCalculos();
         }
@@ -460,6 +472,7 @@ namespace _398_UI
                 escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
                 escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
                 CHB_UsarKqq0LB.Checked = false;
+
             }
             else if (CHB_UsarKqq0LB.Checked)
             {
@@ -502,12 +515,30 @@ namespace _398_UI
                 CHB_NoUsaKpol.Enabled = false;
                 CHB_NoUsaKpol.Checked = false;
             }
-            else
+            else 
             {
                 Panel_LecKpol.Enabled = true;
                 CHB_NoUsaKpol.Enabled = true;
                 CHB_UsaKpolLB.Enabled = true;
             }
+            if (!chEditarVKpol.Checked)
+            {
+                limpiarRegistro(Panel_LectmasV);
+                Panel_LectmasV.Enabled = false;
+                escribirLabel(promediarPanel(Panel_LecRef), LB_LectmasVprom);
+            }
+            else
+            {
+                if (L_Kpol.Text == "NaN")
+                {
+                    L_Kpol.Visible = false;
+                    L_Kpol.Text = "Vacio";
+                }
+                escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
+                escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
+                Panel_LectmasV.Enabled = true;
+            }
+            
         }
 
         private void chequearKs()
@@ -543,7 +574,26 @@ namespace _398_UI
                 CHB_NoUsaKs.Enabled = true;
                 CHB_UsaKsLB.Enabled = true;
             }
+            if (!chEditarVKs.Checked)
+            {
+                limpiarRegistro(Panel_lectVtot);
+                Panel_lectVtot.Enabled = false;
+                escribirLabel(promediarPanel(Panel_LecRef), LB_lectVtotProm);
+            }
+            else
+            {
+                if (L_Ks.Text == "NaN")
+                {
+                    L_Ks.Visible = false;
+                    L_Ks.Text = "Vacio";
+                }
+                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
+                escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+                Panel_lectVtot.Enabled = true;
+            }
+            
         }
+        
             #endregion
 
 
@@ -1089,9 +1139,9 @@ namespace _398_UI
             return Equipo.lista()[CB_CaliEquipos.SelectedIndex];
         }
 
+
+
         #endregion
-
-
     }
 }
 

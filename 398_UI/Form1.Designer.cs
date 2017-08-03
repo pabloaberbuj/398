@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
+            this.L_CaliFMref = new System.Windows.Forms.Label();
+            this.L_CaliFKqq0 = new System.Windows.Forms.Label();
+            this.L_CaliFDifLB = new System.Windows.Forms.Label();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -41,9 +44,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.RB_CaliFIso = new System.Windows.Forms.RadioButton();
             this.RB_CaliFDFSfija = new System.Windows.Forms.RadioButton();
+            this.L_CaliFDwZmax = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.L_CaliFDwZref = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.CB_CaliEnergias = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.BT_ReporteImp = new System.Windows.Forms.Button();
             this.Bt_ReporteVP = new System.Windows.Forms.Button();
             this.BT_ExportarCaliFot = new System.Windows.Forms.Button();
@@ -89,7 +99,7 @@
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.textBox37 = new System.Windows.Forms.TextBox();
             this.textBox38 = new System.Windows.Forms.TextBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.chEditarVKs = new System.Windows.Forms.CheckBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -114,7 +124,7 @@
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.LB_LectmasVprom = new System.Windows.Forms.Label();
-            this.chEditarVKapol = new System.Windows.Forms.CheckBox();
+            this.chEditarVKpol = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.GB_FactorDeCalidad = new System.Windows.Forms.GroupBox();
@@ -163,6 +173,7 @@
             this.CB_CaliSistDosimetrico = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
+            this.BT_EquiposCancelar = new System.Windows.Forms.Button();
             this.DGV_Equipo = new System.Windows.Forms.DataGridView();
             this.Panel_TipoHazEq = new System.Windows.Forms.Panel();
             this.RB_PulsadoYBarrido = new System.Windows.Forms.RadioButton();
@@ -188,6 +199,7 @@
             this.label85 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
+            this.BT_EqEnergiaElec_Cancelar = new System.Windows.Forms.Button();
             this.label76 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.L_EnElecR50dosis = new System.Windows.Forms.Label();
@@ -209,6 +221,7 @@
             this.BT_EnElecEliminar = new System.Windows.Forms.Button();
             this.BT_EnElecGuardar = new System.Windows.Forms.Button();
             this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
+            this.BT_EqEnergiaFot_Cancelar = new System.Windows.Forms.Button();
             this.DGV_EnFot = new System.Windows.Forms.DataGridView();
             this.label71 = new System.Windows.Forms.Label();
             this.TB_EnFotTMR = new System.Windows.Forms.TextBox();
@@ -249,6 +262,7 @@
             this.BT_NuevSistDos = new System.Windows.Forms.Button();
             this.DGV_SistDos = new System.Windows.Forms.DataGridView();
             this.GB_Electrómetros = new System.Windows.Forms.GroupBox();
+            this.BT_Electrometro_Cancelar = new System.Windows.Forms.Button();
             this.TB_ModeloElec = new System.Windows.Forms.TextBox();
             this.TB_MarcaElec = new System.Windows.Forms.TextBox();
             this.BT_EliminarElec = new System.Windows.Forms.Button();
@@ -260,6 +274,7 @@
             this.LB_ModeloElec = new System.Windows.Forms.Label();
             this.LB_MarcaElec = new System.Windows.Forms.Label();
             this.GB_Camaras = new System.Windows.Forms.GroupBox();
+            this.BT_Camara_Cancelar = new System.Windows.Forms.Button();
             this.BT_EliminarCam = new System.Windows.Forms.Button();
             this.BT_EditarCam = new System.Windows.Forms.Button();
             this.BT_GuardarCam = new System.Windows.Forms.Button();
@@ -324,21 +339,6 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.BT_EquiposCancelar = new System.Windows.Forms.Button();
-            this.BT_EqEnergiaFot_Cancelar = new System.Windows.Forms.Button();
-            this.BT_EqEnergiaElec_Cancelar = new System.Windows.Forms.Button();
-            this.BT_Camara_Cancelar = new System.Windows.Forms.Button();
-            this.BT_Electrometro_Cancelar = new System.Windows.Forms.Button();
-            this.L_CaliFKqq0 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.L_CaliFMref = new System.Windows.Forms.Label();
-            this.L_CaliFDifLB = new System.Windows.Forms.Label();
-            this.L_CaliFDwZmax = new System.Windows.Forms.Label();
-            this.L_CaliFDwZref = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -433,6 +433,39 @@
             this.Panel_CalFot.Name = "Panel_CalFot";
             this.Panel_CalFot.Size = new System.Drawing.Size(870, 700);
             this.Panel_CalFot.TabIndex = 0;
+            // 
+            // L_CaliFMref
+            // 
+            this.L_CaliFMref.AutoSize = true;
+            this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFMref.Location = new System.Drawing.Point(671, 218);
+            this.L_CaliFMref.Name = "L_CaliFMref";
+            this.L_CaliFMref.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFMref.TabIndex = 53;
+            this.L_CaliFMref.Text = "Vacio";
+            this.L_CaliFMref.Visible = false;
+            // 
+            // L_CaliFKqq0
+            // 
+            this.L_CaliFKqq0.AutoSize = true;
+            this.L_CaliFKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFKqq0.Location = new System.Drawing.Point(425, 314);
+            this.L_CaliFKqq0.Name = "L_CaliFKqq0";
+            this.L_CaliFKqq0.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFKqq0.TabIndex = 30;
+            this.L_CaliFKqq0.Text = "Vacio";
+            this.L_CaliFKqq0.Visible = false;
+            // 
+            // L_CaliFDifLB
+            // 
+            this.L_CaliFDifLB.AutoSize = true;
+            this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDifLB.Location = new System.Drawing.Point(671, 294);
+            this.L_CaliFDifLB.Name = "L_CaliFDifLB";
+            this.L_CaliFDifLB.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFDifLB.TabIndex = 52;
+            this.L_CaliFDifLB.Text = "Vacio";
+            this.L_CaliFDifLB.Visible = false;
             // 
             // GB_CondMed
             // 
@@ -535,6 +568,38 @@
             this.RB_CaliFDFSfija.UseVisualStyleBackColor = true;
             this.RB_CaliFDFSfija.CheckedChanged += new System.EventHandler(this.LeaveCalcularDwzmax);
             // 
+            // L_CaliFDwZmax
+            // 
+            this.L_CaliFDwZmax.AutoSize = true;
+            this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDwZmax.Location = new System.Drawing.Point(671, 269);
+            this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
+            this.L_CaliFDwZmax.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFDwZmax.TabIndex = 51;
+            this.L_CaliFDwZmax.Text = "Vacio";
+            this.L_CaliFDwZmax.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(339, 314);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(55, 16);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Kqq0 =";
+            // 
+            // L_CaliFDwZref
+            // 
+            this.L_CaliFDwZref.AutoSize = true;
+            this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CaliFDwZref.Location = new System.Drawing.Point(671, 244);
+            this.L_CaliFDwZref.Name = "L_CaliFDwZref";
+            this.L_CaliFDwZref.Size = new System.Drawing.Size(48, 16);
+            this.L_CaliFDwZref.TabIndex = 50;
+            this.L_CaliFDwZref.Text = "Vacio";
+            this.L_CaliFDwZref.Visible = false;
+            // 
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
@@ -542,6 +607,16 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(159, 21);
             this.comboBox4.TabIndex = 67;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(585, 218);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(50, 16);
+            this.label41.TabIndex = 49;
+            this.label41.Text = "Mref =";
             // 
             // CB_CaliEnergias
             // 
@@ -553,6 +628,26 @@
             this.CB_CaliEnergias.TabIndex = 66;
             this.CB_CaliEnergias.SelectedIndexChanged += new System.EventHandler(this.CB_CaliEnergias_SelectedIndexChanged);
             // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(585, 294);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(57, 16);
+            this.label42.TabIndex = 48;
+            this.label42.Text = "DifLB =";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(585, 269);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(76, 16);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "Dwzmax =";
+            // 
             // label64
             // 
             this.label64.AutoSize = true;
@@ -561,6 +656,16 @@
             this.label64.Size = new System.Drawing.Size(45, 13);
             this.label64.TabIndex = 65;
             this.label64.Text = "Energía";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(585, 244);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(66, 16);
+            this.label44.TabIndex = 46;
+            this.label44.Text = "Dwzref =";
             // 
             // BT_ReporteImp
             // 
@@ -843,7 +948,7 @@
             this.CHB_NoUsaKs.TabIndex = 33;
             this.CHB_NoUsaKs.Text = "No corregir por ks";
             this.CHB_NoUsaKs.UseVisualStyleBackColor = true;
-            this.CHB_NoUsaKs.CheckedChanged += new System.EventHandler(this.CHB_NoUsaKs_CheckedChanged);
+            this.CHB_NoUsaKs.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // CHB_UsaKsLB
             // 
@@ -854,7 +959,7 @@
             this.CHB_UsaKsLB.TabIndex = 32;
             this.CHB_UsaKsLB.Text = "Usar Ks de línea base";
             this.CHB_UsaKsLB.UseVisualStyleBackColor = true;
-            this.CHB_UsaKsLB.CheckedChanged += new System.EventHandler(this.CHB_UsaKsLB_CheckedChanged);
+            this.CHB_UsaKsLB.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // Panel_LecKs
             // 
@@ -862,7 +967,7 @@
             this.Panel_LecKs.Controls.Add(this.Panel_LectVred);
             this.Panel_LecKs.Controls.Add(this.LB_lectVtotProm);
             this.Panel_LecKs.Controls.Add(this.Panel_lectVtot);
-            this.Panel_LecKs.Controls.Add(this.checkBox7);
+            this.Panel_LecKs.Controls.Add(this.chEditarVKs);
             this.Panel_LecKs.Controls.Add(this.label37);
             this.Panel_LecKs.Controls.Add(this.label38);
             this.Panel_LecKs.Location = new System.Drawing.Point(6, 66);
@@ -1014,15 +1119,16 @@
             this.textBox38.Enter += new System.EventHandler(this.textBox_Enter);
             this.textBox38.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // checkBox7
+            // chEditarVKs
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(10, 192);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(69, 17);
-            this.checkBox7.TabIndex = 57;
-            this.checkBox7.Text = "Editar +V";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chEditarVKs.AutoSize = true;
+            this.chEditarVKs.Location = new System.Drawing.Point(10, 192);
+            this.chEditarVKs.Name = "chEditarVKs";
+            this.chEditarVKs.Size = new System.Drawing.Size(75, 17);
+            this.chEditarVKs.TabIndex = 57;
+            this.chEditarVKs.Text = "Editar Vtot";
+            this.chEditarVKs.UseVisualStyleBackColor = true;
+            this.chEditarVKs.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // label37
             // 
@@ -1038,9 +1144,9 @@
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(3, 5);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(67, 13);
+            this.label38.Size = new System.Drawing.Size(79, 13);
             this.label38.TabIndex = 8;
-            this.label38.Text = "Lecturas a V";
+            this.label38.Text = "Lecturas a Vtot";
             // 
             // label14
             // 
@@ -1102,7 +1208,7 @@
             this.CHB_NoUsaKpol.TabIndex = 33;
             this.CHB_NoUsaKpol.Text = "No corregir por kpol";
             this.CHB_NoUsaKpol.UseVisualStyleBackColor = true;
-            this.CHB_NoUsaKpol.CheckedChanged += new System.EventHandler(this.CHB_NoUsaKpol_CheckedChanged);
+            this.CHB_NoUsaKpol.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // CHB_UsaKpolLB
             // 
@@ -1113,7 +1219,7 @@
             this.CHB_UsaKpolLB.TabIndex = 32;
             this.CHB_UsaKpolLB.Text = "Usar Kpol de línea base";
             this.CHB_UsaKpolLB.UseVisualStyleBackColor = true;
-            this.CHB_UsaKpolLB.CheckedChanged += new System.EventHandler(this.CHB_UsaKpolLB_CheckedChanged);
+            this.CHB_UsaKpolLB.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // Panel_LecKpol
             // 
@@ -1121,7 +1227,7 @@
             this.Panel_LecKpol.Controls.Add(this.LB_LectmenosVprom);
             this.Panel_LecKpol.Controls.Add(this.Panel_LectmasV);
             this.Panel_LecKpol.Controls.Add(this.LB_LectmasVprom);
-            this.Panel_LecKpol.Controls.Add(this.chEditarVKapol);
+            this.Panel_LecKpol.Controls.Add(this.chEditarVKpol);
             this.Panel_LecKpol.Controls.Add(this.label29);
             this.Panel_LecKpol.Controls.Add(this.label30);
             this.Panel_LecKpol.Location = new System.Drawing.Point(18, 67);
@@ -1273,15 +1379,16 @@
             this.LB_LectmasVprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LectmasVprom.Visible = false;
             // 
-            // chEditarVKapol
+            // chEditarVKpol
             // 
-            this.chEditarVKapol.AutoSize = true;
-            this.chEditarVKapol.Location = new System.Drawing.Point(10, 192);
-            this.chEditarVKapol.Name = "chEditarVKapol";
-            this.chEditarVKapol.Size = new System.Drawing.Size(69, 17);
-            this.chEditarVKapol.TabIndex = 57;
-            this.chEditarVKapol.Text = "Editar +V";
-            this.chEditarVKapol.UseVisualStyleBackColor = true;
+            this.chEditarVKpol.AutoSize = true;
+            this.chEditarVKpol.Location = new System.Drawing.Point(10, 192);
+            this.chEditarVKpol.Name = "chEditarVKpol";
+            this.chEditarVKpol.Size = new System.Drawing.Size(69, 17);
+            this.chEditarVKpol.TabIndex = 57;
+            this.chEditarVKpol.Text = "Editar +V";
+            this.chEditarVKpol.UseVisualStyleBackColor = true;
+            this.chEditarVKpol.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // label29
             // 
@@ -1553,7 +1660,7 @@
             this.CHB_UsarKqq0LB.TabIndex = 7;
             this.CHB_UsarKqq0LB.Text = "Usar factor de calidad de línea base";
             this.CHB_UsarKqq0LB.UseVisualStyleBackColor = true;
-            this.CHB_UsarKqq0LB.CheckedChanged += new System.EventHandler(this.CHB_UsarKqq0LB_CheckedChanged);
+            this.CHB_UsarKqq0LB.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // label23
             // 
@@ -1786,6 +1893,16 @@
             this.GB_Equipos.TabIndex = 0;
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
+            // 
+            // BT_EquiposCancelar
+            // 
+            this.BT_EquiposCancelar.Location = new System.Drawing.Point(346, 56);
+            this.BT_EquiposCancelar.Name = "BT_EquiposCancelar";
+            this.BT_EquiposCancelar.Size = new System.Drawing.Size(119, 23);
+            this.BT_EquiposCancelar.TabIndex = 72;
+            this.BT_EquiposCancelar.Text = "Cancelar";
+            this.BT_EquiposCancelar.UseVisualStyleBackColor = true;
+            this.BT_EquiposCancelar.Click += new System.EventHandler(this.BT_EquiposCancelar_Click);
             // 
             // DGV_Equipo
             // 
@@ -2054,6 +2171,16 @@
             this.Panel_EnElecEquipo.Size = new System.Drawing.Size(322, 231);
             this.Panel_EnElecEquipo.TabIndex = 89;
             // 
+            // BT_EqEnergiaElec_Cancelar
+            // 
+            this.BT_EqEnergiaElec_Cancelar.Location = new System.Drawing.Point(52, 174);
+            this.BT_EqEnergiaElec_Cancelar.Name = "BT_EqEnergiaElec_Cancelar";
+            this.BT_EqEnergiaElec_Cancelar.Size = new System.Drawing.Size(97, 25);
+            this.BT_EqEnergiaElec_Cancelar.TabIndex = 115;
+            this.BT_EqEnergiaElec_Cancelar.Text = "Cancelar";
+            this.BT_EqEnergiaElec_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_EqEnergiaElec_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaElec_Cancelar_Click);
+            // 
             // label76
             // 
             this.label76.AutoSize = true;
@@ -2271,6 +2398,16 @@
             this.Panel_EnFotEquipo.Name = "Panel_EnFotEquipo";
             this.Panel_EnFotEquipo.Size = new System.Drawing.Size(322, 231);
             this.Panel_EnFotEquipo.TabIndex = 55;
+            // 
+            // BT_EqEnergiaFot_Cancelar
+            // 
+            this.BT_EqEnergiaFot_Cancelar.Location = new System.Drawing.Point(47, 173);
+            this.BT_EqEnergiaFot_Cancelar.Name = "BT_EqEnergiaFot_Cancelar";
+            this.BT_EqEnergiaFot_Cancelar.Size = new System.Drawing.Size(97, 25);
+            this.BT_EqEnergiaFot_Cancelar.TabIndex = 93;
+            this.BT_EqEnergiaFot_Cancelar.Text = "Cancelar";
+            this.BT_EqEnergiaFot_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_EqEnergiaFot_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaFot_Cancelar_Click);
             // 
             // DGV_EnFot
             // 
@@ -2666,6 +2803,16 @@
             this.GB_Electrómetros.TabStop = false;
             this.GB_Electrómetros.Text = "Electrómetros";
             // 
+            // BT_Electrometro_Cancelar
+            // 
+            this.BT_Electrometro_Cancelar.Location = new System.Drawing.Point(257, 63);
+            this.BT_Electrometro_Cancelar.Name = "BT_Electrometro_Cancelar";
+            this.BT_Electrometro_Cancelar.Size = new System.Drawing.Size(119, 23);
+            this.BT_Electrometro_Cancelar.TabIndex = 74;
+            this.BT_Electrometro_Cancelar.Text = "Cancelar";
+            this.BT_Electrometro_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_Electrometro_Cancelar.Click += new System.EventHandler(this.BT_Electrometro_Cancelar_Click);
+            // 
             // TB_ModeloElec
             // 
             this.TB_ModeloElec.Location = new System.Drawing.Point(121, 64);
@@ -2774,6 +2921,16 @@
             this.GB_Camaras.TabIndex = 8;
             this.GB_Camaras.TabStop = false;
             this.GB_Camaras.Text = "Cámaras";
+            // 
+            // BT_Camara_Cancelar
+            // 
+            this.BT_Camara_Cancelar.Location = new System.Drawing.Point(265, 63);
+            this.BT_Camara_Cancelar.Name = "BT_Camara_Cancelar";
+            this.BT_Camara_Cancelar.Size = new System.Drawing.Size(119, 23);
+            this.BT_Camara_Cancelar.TabIndex = 73;
+            this.BT_Camara_Cancelar.Text = "Cancelar";
+            this.BT_Camara_Cancelar.UseVisualStyleBackColor = true;
+            this.BT_Camara_Cancelar.Click += new System.EventHandler(this.BT_Camara_Cancelar_Click);
             // 
             // BT_EliminarCam
             // 
@@ -3404,14 +3561,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3429,14 +3586,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3465,161 +3622,6 @@
             this.Panel_Botones.Name = "Panel_Botones";
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
-            // 
-            // BT_EquiposCancelar
-            // 
-            this.BT_EquiposCancelar.Location = new System.Drawing.Point(346, 56);
-            this.BT_EquiposCancelar.Name = "BT_EquiposCancelar";
-            this.BT_EquiposCancelar.Size = new System.Drawing.Size(119, 23);
-            this.BT_EquiposCancelar.TabIndex = 72;
-            this.BT_EquiposCancelar.Text = "Cancelar";
-            this.BT_EquiposCancelar.UseVisualStyleBackColor = true;
-            this.BT_EquiposCancelar.Click += new System.EventHandler(this.BT_EquiposCancelar_Click);
-            // 
-            // BT_EqEnergiaFot_Cancelar
-            // 
-            this.BT_EqEnergiaFot_Cancelar.Location = new System.Drawing.Point(47, 173);
-            this.BT_EqEnergiaFot_Cancelar.Name = "BT_EqEnergiaFot_Cancelar";
-            this.BT_EqEnergiaFot_Cancelar.Size = new System.Drawing.Size(97, 25);
-            this.BT_EqEnergiaFot_Cancelar.TabIndex = 93;
-            this.BT_EqEnergiaFot_Cancelar.Text = "Cancelar";
-            this.BT_EqEnergiaFot_Cancelar.UseVisualStyleBackColor = true;
-            this.BT_EqEnergiaFot_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaFot_Cancelar_Click);
-            // 
-            // BT_EqEnergiaElec_Cancelar
-            // 
-            this.BT_EqEnergiaElec_Cancelar.Location = new System.Drawing.Point(52, 174);
-            this.BT_EqEnergiaElec_Cancelar.Name = "BT_EqEnergiaElec_Cancelar";
-            this.BT_EqEnergiaElec_Cancelar.Size = new System.Drawing.Size(97, 25);
-            this.BT_EqEnergiaElec_Cancelar.TabIndex = 115;
-            this.BT_EqEnergiaElec_Cancelar.Text = "Cancelar";
-            this.BT_EqEnergiaElec_Cancelar.UseVisualStyleBackColor = true;
-            this.BT_EqEnergiaElec_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaElec_Cancelar_Click);
-            // 
-            // BT_Camara_Cancelar
-            // 
-            this.BT_Camara_Cancelar.Location = new System.Drawing.Point(265, 63);
-            this.BT_Camara_Cancelar.Name = "BT_Camara_Cancelar";
-            this.BT_Camara_Cancelar.Size = new System.Drawing.Size(119, 23);
-            this.BT_Camara_Cancelar.TabIndex = 73;
-            this.BT_Camara_Cancelar.Text = "Cancelar";
-            this.BT_Camara_Cancelar.UseVisualStyleBackColor = true;
-            this.BT_Camara_Cancelar.Click += new System.EventHandler(this.BT_Camara_Cancelar_Click);
-            // 
-            // BT_Electrometro_Cancelar
-            // 
-            this.BT_Electrometro_Cancelar.Location = new System.Drawing.Point(257, 63);
-            this.BT_Electrometro_Cancelar.Name = "BT_Electrometro_Cancelar";
-            this.BT_Electrometro_Cancelar.Size = new System.Drawing.Size(119, 23);
-            this.BT_Electrometro_Cancelar.TabIndex = 74;
-            this.BT_Electrometro_Cancelar.Text = "Cancelar";
-            this.BT_Electrometro_Cancelar.UseVisualStyleBackColor = true;
-            this.BT_Electrometro_Cancelar.Click += new System.EventHandler(this.BT_Electrometro_Cancelar_Click);
-            // 
-            // L_CaliFKqq0
-            // 
-            this.L_CaliFKqq0.AutoSize = true;
-            this.L_CaliFKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFKqq0.Location = new System.Drawing.Point(425, 314);
-            this.L_CaliFKqq0.Name = "L_CaliFKqq0";
-            this.L_CaliFKqq0.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFKqq0.TabIndex = 30;
-            this.L_CaliFKqq0.Text = "Vacio";
-            this.L_CaliFKqq0.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(339, 314);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 16);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "Kqq0 =";
-            // 
-            // L_CaliFMref
-            // 
-            this.L_CaliFMref.AutoSize = true;
-            this.L_CaliFMref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFMref.Location = new System.Drawing.Point(671, 218);
-            this.L_CaliFMref.Name = "L_CaliFMref";
-            this.L_CaliFMref.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFMref.TabIndex = 53;
-            this.L_CaliFMref.Text = "Vacio";
-            this.L_CaliFMref.Visible = false;
-            // 
-            // L_CaliFDifLB
-            // 
-            this.L_CaliFDifLB.AutoSize = true;
-            this.L_CaliFDifLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDifLB.Location = new System.Drawing.Point(671, 294);
-            this.L_CaliFDifLB.Name = "L_CaliFDifLB";
-            this.L_CaliFDifLB.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFDifLB.TabIndex = 52;
-            this.L_CaliFDifLB.Text = "Vacio";
-            this.L_CaliFDifLB.Visible = false;
-            // 
-            // L_CaliFDwZmax
-            // 
-            this.L_CaliFDwZmax.AutoSize = true;
-            this.L_CaliFDwZmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDwZmax.Location = new System.Drawing.Point(671, 269);
-            this.L_CaliFDwZmax.Name = "L_CaliFDwZmax";
-            this.L_CaliFDwZmax.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFDwZmax.TabIndex = 51;
-            this.L_CaliFDwZmax.Text = "Vacio";
-            this.L_CaliFDwZmax.Visible = false;
-            // 
-            // L_CaliFDwZref
-            // 
-            this.L_CaliFDwZref.AutoSize = true;
-            this.L_CaliFDwZref.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFDwZref.Location = new System.Drawing.Point(671, 244);
-            this.L_CaliFDwZref.Name = "L_CaliFDwZref";
-            this.L_CaliFDwZref.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFDwZref.TabIndex = 50;
-            this.L_CaliFDwZref.Text = "Vacio";
-            this.L_CaliFDwZref.Visible = false;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(585, 218);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(50, 16);
-            this.label41.TabIndex = 49;
-            this.label41.Text = "Mref =";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(585, 294);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(57, 16);
-            this.label42.TabIndex = 48;
-            this.label42.Text = "DifLB =";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(585, 269);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(76, 16);
-            this.label43.TabIndex = 47;
-            this.label43.Text = "Dwzmax =";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(585, 244);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(66, 16);
-            this.label44.TabIndex = 46;
-            this.label44.Text = "Dwzref =";
             // 
             // Form1
             // 
@@ -3811,11 +3813,11 @@
         private System.Windows.Forms.CheckBox CHB_NoUsaKs;
         private System.Windows.Forms.CheckBox CHB_UsaKsLB;
         private System.Windows.Forms.Panel Panel_LecKs;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox chEditarVKs;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label LB_KpolRes;
-        private System.Windows.Forms.CheckBox chEditarVKapol;
+        private System.Windows.Forms.CheckBox chEditarVKpol;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbTemp;
