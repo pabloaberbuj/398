@@ -284,7 +284,11 @@ namespace _398_UI
         //Ks
         private double calculoKs()
         {
-            return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz);
+            if (CHB_NoUsaKs.Checked || CHB_UsaKsLB.Checked)
+            {
+                return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Double.NaN, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
+            }
+            return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz,CHB_NoUsaKs.Checked,CHB_UsaKsLB.Checked);
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
@@ -364,12 +368,13 @@ namespace _398_UI
                 escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio", calculoTPR2010, L_CaliFTPR2010);
                 escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0, GB_FactorDeCalidad);
                 escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
-                escribirLabel(LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "", calculoKs, L_Ks);
+                escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
                 escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
                 escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
                 escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
                 chequearKqq0();
                 chequearKpol();
+                chequearKs();
             }
         }
 
@@ -433,9 +438,7 @@ namespace _398_UI
 
         private void CHB_NoUsaKs_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_NoUsaKs.Checked == true)
-            { CHB_UsaKsLB.Checked = false; Panel_LecKs.Enabled = false; L_Ks.Text = "1"; L_Ks.Visible = true; Panel_Vred.Enabled = false; }
-            else { Panel_LecKs.Enabled = true; L_Ks.Text = "Vacio"; Panel_Vred.Enabled = true; L_Ks.Visible = false; }
+            actualizarCalculos();
         }
 
         private void actualizarComboBoxCaliFotones()
@@ -506,17 +509,52 @@ namespace _398_UI
                 CHB_UsaKpolLB.Enabled = true;
             }
         }
-        #endregion
+
+        private void chequearKs()
+        {
+            if (CHB_NoUsaKs.Checked)
+            {
+                Panel_LecKs.Enabled = false;
+                Panel_Vred.Enabled = false;
+                TB_Vred.Clear();
+                limpiarRegistro(Panel_lectVtot);
+                limpiarRegistro(Panel_LectVred);
+                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
+                escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+                CHB_UsaKsLB.Enabled = false;
+                CHB_UsaKsLB.Checked = false;
+            }
+            else if (CHB_UsaKsLB.Checked)
+            {
+                Panel_LecKs.Enabled = false;
+                Panel_Vred.Enabled = false;
+                TB_Vred.Clear();
+                limpiarRegistro(Panel_lectVtot);
+                limpiarRegistro(Panel_LectVred);
+                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
+                escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+                CHB_NoUsaKs.Enabled = false;
+                CHB_NoUsaKs.Checked = false;
+            }
+            else
+            {
+                Panel_LecKs.Enabled = true;
+                Panel_Vred.Enabled = true;
+                CHB_NoUsaKs.Enabled = true;
+                CHB_UsaKsLB.Enabled = true;
+            }
+        }
+            #endregion
 
 
 
 
 
-        #region Equipos UI
+            #region Equipos UI
 
 
 
-        private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
+            private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnFotEquipo.Checked == true)
             {

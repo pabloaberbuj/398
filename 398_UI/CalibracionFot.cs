@@ -58,38 +58,49 @@ namespace _398_UI
             }
         }
 
-        public static double CalcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido)
+        public static double CalcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido, bool noUsa, bool usaLB)
         {
-            if (ALEoCo == 1)//Co
+            if (noUsa)
             {
-                return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - (LVtot / LVred)), 4);
+                return 1;
+            }
+            else if (usaLB)
+            {
+                return 1235425;
             }
             else
             {
-                double a0 = 0; double a1 = 0; double a2 = 0;
-                if (pulsadoOBarrido == 1) //Pulsado
+                if (ALEoCo == 1)//Co
                 {
-                    string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsados);
-                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
-                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
-                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
-
-                    a0 = Calcular.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a1 = Calcular.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a2 = Calcular.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - (LVtot / LVred)), 4);
                 }
                 else
                 {
-                    string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsadosYbarridos);
-                    double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
-                    string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
-                    double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
+                    double a0 = 0; double a1 = 0; double a2 = 0;
+                    if (pulsadoOBarrido == 1) //Pulsado
+                    {
+                        string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsados);
+                        double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
+                        string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
+                        double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
 
-                    a0 = Calcular.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a1 = Calcular.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
-                    a2 = Calcular.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                        a0 = Calcular.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                        a1 = Calcular.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                        a2 = Calcular.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    }
+                    else
+                    {
+                        string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsadosYbarridos);
+                        double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);
+                        string[] a0a1a2Etiquetas = Tabla.extraerStringArray(fid, 1);
+                        double[,] tabla = Tabla.extraerMatriz(fid, 3, 5, v1_v2Etiquetas.Count(), a0a1a2Etiquetas.Count());
+
+                        a0 = Calcular.interpolatabla(Vtot / Vred, "a0", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                        a1 = Calcular.interpolatabla(Vtot / Vred, "a1", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                        a2 = Calcular.interpolatabla(Vtot / Vred, "a2", v1_v2Etiquetas, a0a1a2Etiquetas, tabla);
+                    }
+                    return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2), 4);
                 }
-                return Math.Round(a0 + a1 * Math.Abs((LVtot / LVred)) + a2 * Math.Pow((LVtot / LVred), 2), 4);
             }
         }
 
