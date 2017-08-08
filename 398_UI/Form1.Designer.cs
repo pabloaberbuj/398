@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.L_CaliFMref = new System.Windows.Forms.Label();
             this.L_CaliFKqq0 = new System.Windows.Forms.Label();
@@ -339,6 +339,8 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
+            this.tb_InstitucionEq = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1866,6 +1868,8 @@
             // 
             // GB_Equipos
             // 
+            this.GB_Equipos.Controls.Add(this.tb_InstitucionEq);
+            this.GB_Equipos.Controls.Add(this.label87);
             this.GB_Equipos.Controls.Add(this.BT_EquiposCancelar);
             this.GB_Equipos.Controls.Add(this.DGV_Equipo);
             this.GB_Equipos.Controls.Add(this.Panel_TipoHazEq);
@@ -1920,7 +1924,7 @@
             this.Panel_TipoHazEq.Controls.Add(this.RB_PulsadoYBarrido);
             this.Panel_TipoHazEq.Controls.Add(this.RB_Pulsado);
             this.Panel_TipoHazEq.Enabled = false;
-            this.Panel_TipoHazEq.Location = new System.Drawing.Point(105, 175);
+            this.Panel_TipoHazEq.Location = new System.Drawing.Point(105, 190);
             this.Panel_TipoHazEq.Name = "Panel_TipoHazEq";
             this.Panel_TipoHazEq.Size = new System.Drawing.Size(174, 19);
             this.Panel_TipoHazEq.TabIndex = 6;
@@ -1951,7 +1955,7 @@
             // 
             this.Panel_FuenteEq.Controls.Add(this.RB_FuenteALE);
             this.Panel_FuenteEq.Controls.Add(this.RB_FuenteCo);
-            this.Panel_FuenteEq.Location = new System.Drawing.Point(105, 150);
+            this.Panel_FuenteEq.Location = new System.Drawing.Point(105, 165);
             this.Panel_FuenteEq.Name = "Panel_FuenteEq";
             this.Panel_FuenteEq.Size = new System.Drawing.Size(174, 19);
             this.Panel_FuenteEq.TabIndex = 5;
@@ -1984,7 +1988,7 @@
             // 
             this.LB_TipoHaz.AutoSize = true;
             this.LB_TipoHaz.Enabled = false;
-            this.LB_TipoHaz.Location = new System.Drawing.Point(17, 180);
+            this.LB_TipoHaz.Location = new System.Drawing.Point(17, 195);
             this.LB_TipoHaz.Name = "LB_TipoHaz";
             this.LB_TipoHaz.Size = new System.Drawing.Size(63, 13);
             this.LB_TipoHaz.TabIndex = 69;
@@ -2012,7 +2016,7 @@
             // 
             // TB_AliasEq
             // 
-            this.TB_AliasEq.Location = new System.Drawing.Point(112, 117);
+            this.TB_AliasEq.Location = new System.Drawing.Point(112, 133);
             this.TB_AliasEq.Name = "TB_AliasEq";
             this.TB_AliasEq.Size = new System.Drawing.Size(100, 20);
             this.TB_AliasEq.TabIndex = 4;
@@ -2020,7 +2024,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 119);
+            this.label18.Location = new System.Drawing.Point(19, 135);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(29, 13);
             this.label18.TabIndex = 63;
@@ -2592,7 +2596,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 153);
+            this.label5.Location = new System.Drawing.Point(17, 168);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 60;
@@ -2630,14 +2634,14 @@
             // 
             // TB_ModeloEq
             // 
-            this.TB_ModeloEq.Location = new System.Drawing.Point(112, 55);
+            this.TB_ModeloEq.Location = new System.Drawing.Point(112, 71);
             this.TB_ModeloEq.Name = "TB_ModeloEq";
             this.TB_ModeloEq.Size = new System.Drawing.Size(100, 20);
             this.TB_ModeloEq.TabIndex = 2;
             // 
             // TB_MarcaEq
             // 
-            this.TB_MarcaEq.Location = new System.Drawing.Point(112, 24);
+            this.TB_MarcaEq.Location = new System.Drawing.Point(112, 40);
             this.TB_MarcaEq.Name = "TB_MarcaEq";
             this.TB_MarcaEq.Size = new System.Drawing.Size(100, 20);
             this.TB_MarcaEq.TabIndex = 1;
@@ -2654,7 +2658,7 @@
             // 
             // TB_NumSerieEq
             // 
-            this.TB_NumSerieEq.Location = new System.Drawing.Point(112, 87);
+            this.TB_NumSerieEq.Location = new System.Drawing.Point(112, 103);
             this.TB_NumSerieEq.Name = "TB_NumSerieEq";
             this.TB_NumSerieEq.Size = new System.Drawing.Size(100, 20);
             this.TB_NumSerieEq.TabIndex = 3;
@@ -2662,7 +2666,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 89);
+            this.label1.Location = new System.Drawing.Point(17, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 49;
@@ -2671,7 +2675,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 60);
+            this.label2.Location = new System.Drawing.Point(17, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 48;
@@ -2680,7 +2684,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 29);
+            this.label3.Location = new System.Drawing.Point(17, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 47;
@@ -3561,14 +3565,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3586,14 +3590,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3623,13 +3627,29 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
+            // tb_InstitucionEq
+            // 
+            this.tb_InstitucionEq.Location = new System.Drawing.Point(112, 14);
+            this.tb_InstitucionEq.Name = "tb_InstitucionEq";
+            this.tb_InstitucionEq.Size = new System.Drawing.Size(167, 20);
+            this.tb_InstitucionEq.TabIndex = 0;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(17, 19);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(55, 13);
+            this.label87.TabIndex = 74;
+            this.label87.Text = "Institución";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
@@ -4040,6 +4060,8 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox tb_InstitucionEq;
+        private System.Windows.Forms.Label label87;
     }
 }
 

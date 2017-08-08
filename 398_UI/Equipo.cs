@@ -30,11 +30,13 @@ namespace _398_UI
         public BindingList<EnergiaElectrones> energiaElec { get; set; }
         [DisplayName("Energías Electrones")]
         public string EnergiasElectrones { get; set; }
+        [DisplayName("Institucion")]
+        public string Institucion { get; set; }
 
 
 
         public static Equipo crearAle(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
-             DataGridView DGVFot, DataGridView DGVElec)
+             DataGridView DGVFot, DataGridView DGVElec, string _institucion)
         //EsPredet inicia como false siempre
         {
             string auxEnergiasFot = "";
@@ -59,11 +61,12 @@ namespace _398_UI
                 EnergiasFotones = auxEnergiasFot,
                 energiaElec = EnergiaElectrones.lista(DGVElec),
                 EnergiasElectrones = auxEnergiasElec,
+                Institucion = _institucion,
             };
         }
 
         public static Equipo crearCo(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
-             double zref, double PDDzref, double TMRzref)
+             double zref, double PDDzref, double TMRzref, string _institucion)
         {
             return new Equipo()
             {
@@ -75,6 +78,7 @@ namespace _398_UI
                 TipoDeHaz = _tipoDeHaz,
                 energiaFot = EnergiaFotones.energiaCo(zref, PDDzref, TMRzref),
                 EnergiasFotones = "Co",
+                Institucion = _institucion,
             };
         }
         public static BindingList<Equipo> lista()
@@ -131,7 +135,7 @@ namespace _398_UI
             }
         }
 
-        public static void editarAle(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, Panel Fuente, Panel TipoHaz,
+        public static void editarAle(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, TextBox Institucion, Panel Fuente, Panel TipoHaz,
             DataGridView DGVEnFot, DataGridView DGVEnElec, DataGridView DGVEquipo)
         {
             Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
@@ -139,6 +143,7 @@ namespace _398_UI
             Modelo.Text = aux.Modelo;
             NumSerie.Text = aux.NumSerie;
             Alias.Text = aux.Alias;
+            Institucion.Text = aux.Institucion;
             Fuente.Controls.OfType<RadioButton>().ElementAt(1).Checked = false; //Control ALE
             Fuente.Controls.OfType<RadioButton>().ElementAt(0).Checked = true; //Control Co
             if (aux.TipoDeHaz == 1)
@@ -157,7 +162,7 @@ namespace _398_UI
             EnergiaElectrones.darFormatoADGV(DGVEnElec);
         }
 
-        public static void editarCo(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, Panel Fuente, Panel TipoHaz,
+        public static void editarCo(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, TextBox Institucion, Panel Fuente, Panel TipoHaz,
             TextBox Zref, TextBox PDDZref, TextBox TMRZref, DataGridView DGVEquipo)
         {
             Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
@@ -165,6 +170,7 @@ namespace _398_UI
             Modelo.Text = aux.Modelo;
             NumSerie.Text = aux.NumSerie;
             Alias.Text = aux.Alias;
+            Institucion.Text = aux.Institucion;
             Fuente.Controls.OfType<RadioButton>().ElementAt(1).Checked = true;
             Fuente.Controls.OfType<RadioButton>().ElementAt(0).Checked = false;
             Zref.Text = aux.energiaFot[0].ZRefFot.ToString();

@@ -647,6 +647,7 @@ namespace _398_UI
         {
             if (RB_FuenteALE.Checked == true)
             {
+                Panel_EnCoEquipo.Enabled = false;
                 Panel_TipoHazEq.Enabled = true;
                 LB_TipoHaz.Enabled = true;
                 GB_EquiposEnergias.Enabled = true;
@@ -673,7 +674,7 @@ namespace _398_UI
             int auxHaz = 0;
             if (RB_FuenteCo.Checked == true)
             {
-                Equipo.guardar(Equipo.crearCo(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR)), editaEquipo, DGV_Equipo);
+                Equipo.guardar(Equipo.crearCo(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR), tb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
             }
             else if (RB_FuenteALE.Checked == true)
             {
@@ -686,7 +687,7 @@ namespace _398_UI
                 {
                     auxHaz = 2;
                 }
-                Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec), editaEquipo, DGV_Equipo);
+                Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec,tb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
             }
 
             DGV_Equipo.DataSource = Equipo.lista();
@@ -736,7 +737,7 @@ namespace _398_UI
             if (Equipo.lista()[DGV_Equipo.SelectedRows[0].Index].Fuente == 1)
             {
                 Panel_EnCoEquipo.Enabled = true;
-                Equipo.editarCo(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, TB_EnCoZref, TB_EnCoPDD, TB_EnCoTMR, DGV_Equipo);
+                Equipo.editarCo(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, tb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, TB_EnCoZref, TB_EnCoPDD, TB_EnCoTMR, DGV_Equipo);
             }
             else
             {
@@ -745,7 +746,7 @@ namespace _398_UI
                 DGV_EnFot.Visible = true;
                 DGV_EnElec.Visible = true;
 
-                Equipo.editarAle(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
+                Equipo.editarAle(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, tb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
             }
             editaEquipo = true;
             actualizarComboBoxCaliFotones();
