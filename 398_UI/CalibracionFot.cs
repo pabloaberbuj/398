@@ -10,15 +10,15 @@ namespace _398_UI
 {
     class CalibracionFot
     {
-        public Equipo EquipoCali { get; set; }
-        public EnergiaFotones EnergiaCali { get; set; }
+        public Equipo Equipo { get; set; }
+        public EnergiaFotones Energia { get; set; }
         public SistemaDosimetrico SistemaDosim { get; set; }
         public double DFSoISO { get; set; } //1 DFSfija 2 ISO
         public double LadoCampo { get; set; }
         public double Profundidad { get; set; }
-        public double Ktp { get; set; }
         public DateTime Fecha { get; set; }
         public string RealizadoPor { get; set; }
+        public double Ktp { get; set; }
         public double TPR2010 { get; set; }
         public double Kqq0 { get; set; }
         public double kpol { get; set; }
@@ -35,6 +35,42 @@ namespace _398_UI
         {
             return IO.readJsonList<CalibracionFot>(file);
         }
+
+        public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, double _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
+            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, double _kpol, double _vred, double _ks, double _mref, double _dwzref, double _dwzmax, bool _esLB)
+        {
+            return new CalibracionFot()
+            {
+                Equipo = _equipo,
+                Energia = _energia,
+                SistemaDosim = _sistdos,
+                DFSoISO = _DFSoISO,
+                LadoCampo = _ladoCampo,
+                Profundidad = _profundidad,
+                Fecha = _fecha,
+                RealizadoPor = _realizadoPor,
+                Ktp = _ktp,
+                TPR2010 = _TPR2010,
+                Kqq0 = _kqq0,
+                kpol = _kpol,
+                Vred = _vred,
+                ks = _ks,
+                Mref = _mref,
+                Dwzref = _dwzref,
+                Dwzmax = _dwzmax,
+                EsLineaBase = _esLB,
+            };
+        }
+
+        public static void guardar(CalibracionFot _nuevo)
+        {
+            var auxLista = lista();
+            auxLista.Add(_nuevo);
+            IO.writeObjectAsJson(file, auxLista);
+        }
+
+
+
 
         public static double CalcularKtp(double T0, double T, double P0, double P)
         {

@@ -13,7 +13,7 @@ namespace _398_UI
             bool hayLB = false;
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.EquipoCali == equipo && cali.EsLineaBase)
+                if (cali.Equipo == equipo && cali.EsLineaBase)
                 {
                     hayLB = true;
                     break;
@@ -27,7 +27,7 @@ namespace _398_UI
             CalibracionFot caliLB = new CalibracionFot();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.EquipoCali == equipo && cali.EsLineaBase)
+                if (cali.Equipo == equipo && cali.EsLineaBase)
                 {
                     caliLB = cali;
                     break;
@@ -40,7 +40,7 @@ namespace _398_UI
         {
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.EquipoCali == equipo)
+                if (cali.Equipo == equipo)
                 {
                     cali.EsLineaBase = false;
                 }
