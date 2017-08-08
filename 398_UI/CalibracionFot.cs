@@ -27,8 +27,14 @@ namespace _398_UI
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
+        public bool EsLineaBase { get; set; }
+        public static string file = @"..\..\caliFotones.txt";
 
 
+        public static BindingList<CalibracionFot> lista()
+        {
+            return IO.readJsonList<CalibracionFot>(file);
+        }
 
         public static double CalcularKtp(double T0, double T, double P0, double P)
         {
