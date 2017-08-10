@@ -9,10 +9,14 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    class ListaElectrones: BindingList<EnergiaElectrones>
+    public class ListaElectrones: BindingList<EnergiaElectrones>
     {
         public override bool Equals(object obj)
         {
+            if (obj == null || this.GetType() != obj.GetType())
+            {
+                return false;
+            }
             BindingList<EnergiaElectrones> other = obj as BindingList<EnergiaElectrones>;
             for (int i=0;i<this.Count();i++)
             {

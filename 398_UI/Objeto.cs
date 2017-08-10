@@ -14,7 +14,7 @@ namespace _398_UI
         public override bool Equals(object obj)
         {
             PropertyInfo[] propiedades = obj.GetType().GetProperties();
-            if (obj == null)
+            if (obj == null || this.GetType() != obj.GetType())
             {
                 return false;
             }
@@ -24,7 +24,7 @@ namespace _398_UI
                 {
                     return false;
                 }
-                
+
             }
             return true;
         }

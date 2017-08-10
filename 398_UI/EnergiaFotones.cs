@@ -34,15 +34,15 @@ namespace _398_UI
             };
         }
 
-        public static BindingList<EnergiaFotones> lista(DataGridView DGV)
+        public static ListaFotones lista(DataGridView DGV)
         {
             if (DGV.Rows.Count == 0)
             {
-                return new BindingList<EnergiaFotones>();
+                return new ListaFotones();
             }
             else
             {
-                return (BindingList<EnergiaFotones>)DGV.DataSource;
+                return (ListaFotones)DGV.DataSource;
             }
 
         }
@@ -108,9 +108,9 @@ namespace _398_UI
             TMRZref.Text = Calcular.stringNaN(aux.TmrZrefFot);
         }
 
-        public static BindingList<EnergiaFotones> energiaCo(double Zref, double PDDZref, double TMRZref)
+        public static ListaFotones energiaCo(double Zref, double PDDZref, double TMRZref)
         {
-            BindingList<EnergiaFotones> aux = new BindingList<EnergiaFotones>
+            ListaFotones aux = new ListaFotones
             {
                 new EnergiaFotones
                 {

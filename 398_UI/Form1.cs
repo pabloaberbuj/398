@@ -599,8 +599,7 @@ namespace _398_UI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada()).ToString());
-            /* double DFSoISO = 0;
+            double DFSoISO = 0;
             if (RB_CaliFDFSfija.Checked)
             {
                 DFSoISO = 1;
@@ -609,14 +608,17 @@ namespace _398_UI
             {
                 DFSoISO = 2;
             }
-            CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+            if (CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
                 Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()),CHB_caliFotEstablecerComoRef.Checked);
-
-            if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()),CHB_caliFotEstablecerComoRef.Checked))
             {
-                limpiarRegistro(Panel_CalFot);
-            }*/
+                if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    limpiarRegistro(Panel_CalFot);
+                }
+            }
+
+            
         }
 
        

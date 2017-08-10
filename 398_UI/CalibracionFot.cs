@@ -64,7 +64,7 @@ namespace _398_UI
             };
         }
 
-        public static void guardar(CalibracionFot _nuevo, bool esRef)
+        public static bool guardar(CalibracionFot _nuevo, bool esRef)
         {
             var auxLista = lista();
             auxLista.Add(_nuevo);
@@ -76,6 +76,10 @@ namespace _398_UI
                     {
                         establecerComoReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo);
                     }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
@@ -83,6 +87,7 @@ namespace _398_UI
                 }
             }
             IO.writeObjectAsJson(file, auxLista);
+            return true;
         }
 
 
@@ -240,7 +245,8 @@ namespace _398_UI
 
         public static void establecerComoReferencia(Equipo equipo, EnergiaFotones energia, CalibracionFot califot)
         {
-            foreach (CalibracionFot cali in lista())
+            var aux = lista();
+            foreach (CalibracionFot cali in aux)
             {
                 if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia))
                 {

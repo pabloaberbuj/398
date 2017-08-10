@@ -24,11 +24,11 @@ namespace _398_UI
         [Browsable(false)]
         public int TipoDeHaz;//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
         [Browsable(false)]
-        public BindingList<EnergiaFotones> energiaFot { get; set; }
+        public ListaFotones energiaFot { get; set; }
         [DisplayName("Energías Fotones")]
         public string EnergiasFotones { get; set; }
         [Browsable(false)]
-        public BindingList<EnergiaElectrones> energiaElec { get; set; }
+        public ListaElectrones energiaElec { get; set; }
         [DisplayName("Energías Electrones")]
         public string EnergiasElectrones { get; set; }
         [DisplayName("Institucion")]

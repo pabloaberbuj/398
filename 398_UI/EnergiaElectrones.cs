@@ -53,15 +53,15 @@ namespace _398_UI
             return Math.Round((0.6 * r50D - 0.1),2).ToString();
         }
 
-        public static BindingList<EnergiaElectrones> lista(DataGridView DGV)
+        public static ListaElectrones lista(DataGridView DGV)
         {
             if (DGV.Rows.Count == 0)
             {
-                return new BindingList<EnergiaElectrones>();
+                return new ListaElectrones();
             }
             else
             {
-                return (BindingList<EnergiaElectrones>)DGV.DataSource;
+                return (ListaElectrones)DGV.DataSource;
             }
 
         }
