@@ -27,9 +27,11 @@ namespace _398_UI
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
-        public bool EsLineaBase { get; set; }
+        public bool EsReferencia { get; set; }
         public static string file = @"..\..\caliFotones.txt";
 
+
+        //operaciones        
 
         public static BindingList<CalibracionFot> lista()
         {
@@ -37,7 +39,7 @@ namespace _398_UI
         }
 
         public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, double _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
-            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, double _kpol, double _vred, double _ks, double _mref, double _dwzref, double _dwzmax, bool _esLB)
+            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, double _kpol, double _vred, double _ks, double _mref, double _dwzref, double _dwzmax)
         {
             return new CalibracionFot()
             {
@@ -58,19 +60,33 @@ namespace _398_UI
                 Mref = _mref,
                 Dwzref = _dwzref,
                 Dwzmax = _dwzmax,
-                EsLineaBase = _esLB,
+                EsReferencia = false,
             };
         }
 
-        public static void guardar(CalibracionFot _nuevo)
+        public static void guardar(CalibracionFot _nuevo, bool esRef)
         {
             var auxLista = lista();
             auxLista.Add(_nuevo);
+            if (esRef)
+            {
+                if (hayReferencia(_nuevo.Equipo,_nuevo.Energia))
+                {
+                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea sobreescribirla?", "Establecer Referencia", MessageBoxButtons.OKCancel)==DialogResult.OK)
+                    {
+                        establecerComoReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo);
+                    }
+                }
+                else
+                {
+                    establecerComoReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo);
+                }
+            }
             IO.writeObjectAsJson(file, auxLista);
         }
 
 
-
+        //calculos
 
         public static double CalcularKtp(double T0, double T, double P0, double P)
         {
@@ -191,7 +207,51 @@ namespace _398_UI
         {
             return Math.Round(Dwref * rendimientoEnRef / 100, 4);
         }
+
+        //linea base
+
+        public static bool hayReferencia(Equipo equipo, EnergiaFotones energia)
+        {
+            bool hayRef = false;
+            foreach (CalibracionFot cali in lista())
+            {
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.EsReferencia)
+                {
+                    hayRef = true;
+                    break;
+                }
+            }
+            return hayRef;
+        }
+
+        public static CalibracionFot obtenerCaliReferencia(Equipo equipo, EnergiaFotones energia)
+        {
+            CalibracionFot caliLB = new CalibracionFot();
+            foreach (CalibracionFot cali in lista())
+            {
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.EsReferencia)
+                {
+                    caliLB = cali;
+                    break;
+                }
+            }
+            return caliLB;
+        }
+
+        public static void establecerComoReferencia(Equipo equipo, EnergiaFotones energia, CalibracionFot califot)
+        {
+            foreach (CalibracionFot cali in lista())
+            {
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia))
+                {
+                    cali.EsReferencia = false;
+                }
+            }
+            califot.EsReferencia = true;
+        }
+
     }
-
-
 }
+
+
+

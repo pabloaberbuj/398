@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.L_CaliFMref = new System.Windows.Forms.Label();
             this.L_CaliFKqq0 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.L_CaliFDwZmax = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.L_CaliFDwZref = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.CB_caliFotRealizadoPor = new System.Windows.Forms.ComboBox();
             this.label41 = new System.Windows.Forms.Label();
             this.CB_CaliEnergias = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -103,7 +103,7 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DTP_FechaCaliFot = new System.Windows.Forms.DateTimePicker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.L_Kpol = new System.Windows.Forms.Label();
             this.LB_KpolRes = new System.Windows.Forms.Label();
@@ -152,8 +152,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.CHB_UsarKqq0LB = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.BT_CaliFGuardar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gCondiciones = new System.Windows.Forms.GroupBox();
             this.L_CaliFKTP = new System.Windows.Forms.Label();
@@ -173,6 +172,8 @@
             this.CB_CaliSistDosimetrico = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
+            this.tb_InstitucionEq = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
             this.BT_EquiposCancelar = new System.Windows.Forms.Button();
             this.DGV_Equipo = new System.Windows.Forms.DataGridView();
             this.Panel_TipoHazEq = new System.Windows.Forms.Panel();
@@ -339,8 +340,7 @@
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.tb_InstitucionEq = new System.Windows.Forms.TextBox();
-            this.label87 = new System.Windows.Forms.Label();
+            this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -397,6 +397,7 @@
             // 
             // Panel_CalFot
             // 
+            this.Panel_CalFot.Controls.Add(this.CHB_caliFotEstablecerComoRef);
             this.Panel_CalFot.Controls.Add(this.L_CaliFMref);
             this.Panel_CalFot.Controls.Add(this.L_CaliFKqq0);
             this.Panel_CalFot.Controls.Add(this.L_CaliFDifLB);
@@ -404,7 +405,7 @@
             this.Panel_CalFot.Controls.Add(this.L_CaliFDwZmax);
             this.Panel_CalFot.Controls.Add(this.label15);
             this.Panel_CalFot.Controls.Add(this.L_CaliFDwZref);
-            this.Panel_CalFot.Controls.Add(this.comboBox4);
+            this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor);
             this.Panel_CalFot.Controls.Add(this.label41);
             this.Panel_CalFot.Controls.Add(this.CB_CaliEnergias);
             this.Panel_CalFot.Controls.Add(this.label42);
@@ -419,12 +420,11 @@
             this.Panel_CalFot.Controls.Add(this.gLecturaReferencia);
             this.Panel_CalFot.Controls.Add(this.groupBox5);
             this.Panel_CalFot.Controls.Add(this.label14);
-            this.Panel_CalFot.Controls.Add(this.dateTimePicker1);
+            this.Panel_CalFot.Controls.Add(this.DTP_FechaCaliFot);
             this.Panel_CalFot.Controls.Add(this.groupBox4);
             this.Panel_CalFot.Controls.Add(this.GB_FactorDeCalidad);
             this.Panel_CalFot.Controls.Add(this.label23);
-            this.Panel_CalFot.Controls.Add(this.button13);
-            this.Panel_CalFot.Controls.Add(this.btnGuardar);
+            this.Panel_CalFot.Controls.Add(this.BT_CaliFGuardar);
             this.Panel_CalFot.Controls.Add(this.btnCancel);
             this.Panel_CalFot.Controls.Add(this.gCondiciones);
             this.Panel_CalFot.Controls.Add(this.CB_CaliEquipos);
@@ -602,13 +602,13 @@
             this.L_CaliFDwZref.Text = "Vacio";
             this.L_CaliFDwZref.Visible = false;
             // 
-            // comboBox4
+            // CB_caliFotRealizadoPor
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(105, 448);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(159, 21);
-            this.comboBox4.TabIndex = 67;
+            this.CB_caliFotRealizadoPor.FormattingEnabled = true;
+            this.CB_caliFotRealizadoPor.Location = new System.Drawing.Point(105, 448);
+            this.CB_caliFotRealizadoPor.Name = "CB_caliFotRealizadoPor";
+            this.CB_caliFotRealizadoPor.Size = new System.Drawing.Size(159, 21);
+            this.CB_caliFotRealizadoPor.TabIndex = 67;
             // 
             // label41
             // 
@@ -1159,12 +1159,12 @@
             this.label14.TabIndex = 54;
             this.label14.Text = "Fecha";
             // 
-            // dateTimePicker1
+            // DTP_FechaCaliFot
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(67, 422);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 53;
+            this.DTP_FechaCaliFot.Location = new System.Drawing.Point(67, 422);
+            this.DTP_FechaCaliFot.Name = "DTP_FechaCaliFot";
+            this.DTP_FechaCaliFot.Size = new System.Drawing.Size(197, 20);
+            this.DTP_FechaCaliFot.TabIndex = 53;
             // 
             // groupBox4
             // 
@@ -1673,23 +1673,15 @@
             this.label23.TabIndex = 52;
             this.label23.Text = "Realizado por";
             // 
-            // button13
+            // BT_CaliFGuardar
             // 
-            this.button13.Location = new System.Drawing.Point(160, 512);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(124, 39);
-            this.button13.TabIndex = 50;
-            this.button13.Text = "Establecer como\r\nlínea base";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(18, 511);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(124, 39);
-            this.btnGuardar.TabIndex = 49;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.BT_CaliFGuardar.Location = new System.Drawing.Point(160, 513);
+            this.BT_CaliFGuardar.Name = "BT_CaliFGuardar";
+            this.BT_CaliFGuardar.Size = new System.Drawing.Size(124, 39);
+            this.BT_CaliFGuardar.TabIndex = 49;
+            this.BT_CaliFGuardar.Text = "Guardar";
+            this.BT_CaliFGuardar.UseVisualStyleBackColor = true;
+            this.BT_CaliFGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancel
             // 
@@ -1897,6 +1889,22 @@
             this.GB_Equipos.TabIndex = 0;
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
+            // 
+            // tb_InstitucionEq
+            // 
+            this.tb_InstitucionEq.Location = new System.Drawing.Point(112, 14);
+            this.tb_InstitucionEq.Name = "tb_InstitucionEq";
+            this.tb_InstitucionEq.Size = new System.Drawing.Size(167, 20);
+            this.tb_InstitucionEq.TabIndex = 0;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(17, 19);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(55, 13);
+            this.label87.TabIndex = 74;
+            this.label87.Text = "Institución";
             // 
             // BT_EquiposCancelar
             // 
@@ -3565,14 +3573,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3590,14 +3598,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3627,21 +3635,15 @@
             this.Panel_Botones.Size = new System.Drawing.Size(134, 697);
             this.Panel_Botones.TabIndex = 11;
             // 
-            // tb_InstitucionEq
+            // CHB_caliFotEstablecerComoRef
             // 
-            this.tb_InstitucionEq.Location = new System.Drawing.Point(112, 14);
-            this.tb_InstitucionEq.Name = "tb_InstitucionEq";
-            this.tb_InstitucionEq.Size = new System.Drawing.Size(167, 20);
-            this.tb_InstitucionEq.TabIndex = 0;
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(17, 19);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(55, 13);
-            this.label87.TabIndex = 74;
-            this.label87.Text = "Institución";
+            this.CHB_caliFotEstablecerComoRef.AutoSize = true;
+            this.CHB_caliFotEstablecerComoRef.Location = new System.Drawing.Point(18, 518);
+            this.CHB_caliFotEstablecerComoRef.Name = "CHB_caliFotEstablecerComoRef";
+            this.CHB_caliFotEstablecerComoRef.Size = new System.Drawing.Size(142, 30);
+            this.CHB_caliFotEstablecerComoRef.TabIndex = 71;
+            this.CHB_caliFotEstablecerComoRef.Text = "Establecer como\r\ncalibración de referencia";
+            this.CHB_caliFotEstablecerComoRef.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -3819,10 +3821,9 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.CheckBox CHB_UsarKqq0LB;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DTP_FechaCaliFot;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button BT_CaliFGuardar;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox gLecturaReferencia;
         private System.Windows.Forms.Label LB_LecRefProm;
@@ -3909,7 +3910,7 @@
         private System.Windows.Forms.ComboBox CB_CaliEnergias;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Button Bt_CalElec;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor;
         private System.Windows.Forms.Panel Panel_LecRef;
         private System.Windows.Forms.TextBox textBox39;
         private System.Windows.Forms.TextBox textBox40;
@@ -4062,6 +4063,7 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox tb_InstitucionEq;
         private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.CheckBox CHB_caliFotEstablecerComoRef;
     }
 }
 

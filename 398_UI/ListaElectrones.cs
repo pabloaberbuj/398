@@ -9,22 +9,17 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class Objeto
+    class ListaElectrones: BindingList<EnergiaElectrones>
     {
         public override bool Equals(object obj)
         {
-            PropertyInfo[] propiedades = obj.GetType().GetProperties();
-            if (obj == null)
+            BindingList<EnergiaElectrones> other = obj as BindingList<EnergiaElectrones>;
+            for (int i=0;i<this.Count();i++)
             {
-                return false;
-            }
-            foreach (PropertyInfo propiedad in propiedades)
-            {
-                if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
+                if (!this[i].Equals(other[i]))
                 {
                     return false;
                 }
-                
             }
             return true;
         }

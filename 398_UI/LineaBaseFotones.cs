@@ -8,12 +8,12 @@ namespace _398_UI
 {
     class LineaBaseFotones
     {
-        public static bool hayLineaBase(Equipo equipo)
+        public static bool hayLineaBase(Equipo equipo, EnergiaFotones energia)
         {
             bool hayLB = false;
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo == equipo && cali.EsLineaBase)
+                if (cali.Equipo == equipo && cali.Energia == energia && cali.EsReferencia)
                 {
                     hayLB = true;
                     break;
@@ -27,7 +27,7 @@ namespace _398_UI
             CalibracionFot caliLB = new CalibracionFot();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo == equipo && cali.EsLineaBase)
+                if (cali.Equipo == equipo && cali.EsReferencia)
                 {
                     caliLB = cali;
                     break;
@@ -42,10 +42,10 @@ namespace _398_UI
             {
                 if (cali.Equipo == equipo)
                 {
-                    cali.EsLineaBase = false;
+                    cali.EsReferencia = false;
                 }
             }
-            califot.EsLineaBase = true;
+            califot.EsReferencia = true;
         }
     }
 }

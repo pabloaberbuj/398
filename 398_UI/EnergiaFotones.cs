@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class EnergiaFotones
+    public class EnergiaFotones : Objeto
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }
@@ -20,7 +21,7 @@ namespace _398_UI
         [DisplayName("TMR")]
         public double TmrZrefFot { get; set; }
 
-        
+
 
         public static EnergiaFotones crear(double _energia, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
         {
@@ -63,7 +64,7 @@ namespace _398_UI
             }
             else
             {
-                if (DGV.RowCount==0)
+                if (DGV.RowCount == 0)
                 {
                     _nuevo.EsPredet = true;
                 }
@@ -81,14 +82,14 @@ namespace _398_UI
                 {
                     var auxLista = lista(DGV);
                     List<EnergiaFotones> elementosARemover = new List<EnergiaFotones>();
-                    foreach(DataGridViewRow fila in DGV.SelectedRows)
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
                         elementosARemover.Add(auxLista[fila.Index]);
                     }
                     foreach (EnergiaFotones ef in elementosARemover)
                     {
                         auxLista.Remove(ef);
-                        if (ef.EsPredet && auxLista.Count>0)
+                        if (ef.EsPredet && auxLista.Count > 0)
                         {
                             auxLista[0].EsPredet = true;
                         }
@@ -149,5 +150,6 @@ namespace _398_UI
             DGV.Columns[4].Width = 38;
         }
 
+        
     }
 }

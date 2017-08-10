@@ -266,7 +266,7 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            if(!chEditarVKpol.Checked)
+            if (!chEditarVKpol.Checked)
             {
                 return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked);
             }
@@ -274,7 +274,7 @@ namespace _398_UI
             {
                 return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked);
             }
-            
+
         }
 
         private void Prom_masV(object sender, EventArgs e)
@@ -311,7 +311,7 @@ namespace _398_UI
             {
                 return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
             }
-            
+
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
@@ -408,6 +408,7 @@ namespace _398_UI
                 chequearKpol();
                 chequearKs();
             }
+            
         }
 
         private double kqq0LineaBase()
@@ -487,8 +488,6 @@ namespace _398_UI
             else
             {
                 GB_FactorDeCalidad.Enabled = true;
-                L_CaliFKqq0.Text = "Vacio";
-                L_CaliFKqq0.Visible = false;
                 CHB_UsarKqq0LB.Enabled = true;
             }
         }
@@ -515,7 +514,7 @@ namespace _398_UI
                 CHB_NoUsaKpol.Enabled = false;
                 CHB_NoUsaKpol.Checked = false;
             }
-            else 
+            else
             {
                 Panel_LecKpol.Enabled = true;
                 CHB_NoUsaKpol.Enabled = true;
@@ -538,7 +537,7 @@ namespace _398_UI
                 escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
                 Panel_LectmasV.Enabled = true;
             }
-            
+
         }
 
         private void chequearKs()
@@ -591,20 +590,45 @@ namespace _398_UI
                 escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
                 Panel_lectVtot.Enabled = true;
             }
-            
+
         }
-        
-            #endregion
+
+        #endregion
+
+        #region Cali Fotones Botones
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada()).ToString());
+            /* double DFSoISO = 0;
+            if (RB_CaliFDFSfija.Checked)
+            {
+                DFSoISO = 1;
+            }
+            else if (RB_CaliFIso.Checked)
+            {
+                DFSoISO = 2;
+            }
+            CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()),CHB_caliFotEstablecerComoRef.Checked);
+
+            if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                limpiarRegistro(Panel_CalFot);
+            }*/
+        }
+
+       
+        #endregion
 
 
 
-
-
-            #region Equipos UI
+        #region Equipos UI
 
 
 
-            private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
+        private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
             if (CHB_EnFotEquipo.Checked == true)
             {
@@ -687,7 +711,7 @@ namespace _398_UI
                 {
                     auxHaz = 2;
                 }
-                Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec,tb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
+                Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec, tb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
             }
 
             DGV_Equipo.DataSource = Equipo.lista();
@@ -1140,9 +1164,16 @@ namespace _398_UI
             return Equipo.lista()[CB_CaliEquipos.SelectedIndex];
         }
 
+        private EnergiaFotones energiaSeleccionada()
+        {
+            return equipoSeleccionado().energiaFot[CB_CaliEnergias.SelectedIndex];
+        }
+
 
 
         #endregion
+
+
     }
 }
 

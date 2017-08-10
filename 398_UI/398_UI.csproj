@@ -72,6 +72,8 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="LineaBaseFotones.cs" />
+    <Compile Include="ListaElectrones.cs" />
+    <Compile Include="ListaFotones.cs" />
     <Compile Include="MetodosControles.cs" />
     <Compile Include="IO.cs" />
     <Compile Include="Calcular.cs" />

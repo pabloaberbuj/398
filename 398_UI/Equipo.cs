@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -213,5 +214,24 @@ namespace _398_UI
                 MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
             }
         }
+
+      /*  public override bool Equals(object obj)
+        {
+            PropertyInfo[] propiedades = obj.GetType().GetProperties();
+            var other = obj as Equipo;
+            if (other == null)
+            {
+                return false;
+            }
+            foreach (PropertyInfo propiedad in propiedades)
+            {
+                if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }*/
+
     }
 }

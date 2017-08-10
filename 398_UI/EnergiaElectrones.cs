@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class EnergiaElectrones
+    public class EnergiaElectrones:Objeto
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }
@@ -154,5 +155,23 @@ namespace _398_UI
             DGV.Columns[5].Width = 38;
 
         }
+
+       /* public override bool Equals(object obj)
+        {
+            PropertyInfo[] propiedades = obj.GetType().GetProperties();
+            var other = obj as EnergiaElectrones;
+            if (other == null)
+            {
+                return false;
+            }
+            foreach (PropertyInfo propiedad in propiedades)
+            {
+                if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }*/
     }
 }
