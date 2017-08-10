@@ -70,11 +70,11 @@ namespace _398_UI
             auxLista.Add(_nuevo);
             if (esRef)
             {
-                if (hayReferencia(_nuevo.Equipo,_nuevo.Energia))
+                if (hayReferencia(_nuevo.Equipo,_nuevo.Energia,_nuevo.DFSoISO))
                 {
                     if (MessageBox.Show("Ya existe una referencia \n ¿Desea sobreescribirla?", "Establecer Referencia", MessageBoxButtons.OKCancel)==DialogResult.OK)
                     {
-                        establecerComoReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo);
+                        establecerComoReferencia(_nuevo,auxLista);
                     }
                     else
                     {
@@ -83,7 +83,7 @@ namespace _398_UI
                 }
                 else
                 {
-                    establecerComoReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo);
+                    establecerComoReferencia(_nuevo,auxLista);
                 }
             }
             IO.writeObjectAsJson(file, auxLista);
@@ -215,12 +215,12 @@ namespace _398_UI
 
         //linea base
 
-        public static bool hayReferencia(Equipo equipo, EnergiaFotones energia)
+        public static bool hayReferencia(Equipo equipo, EnergiaFotones energia, double DFSoISO)
         {
             bool hayRef = false;
             foreach (CalibracionFot cali in lista())
             {
-                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.EsReferencia)
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.DFSoISO.Equals(DFSoISO) && cali.EsReferencia)
                 {
                     hayRef = true;
                     break;
@@ -229,12 +229,12 @@ namespace _398_UI
             return hayRef;
         }
 
-        public static CalibracionFot obtenerCaliReferencia(Equipo equipo, EnergiaFotones energia)
+        public static CalibracionFot obtenerCaliReferencia(Equipo equipo, EnergiaFotones energia, double DFSoISO)
         {
             CalibracionFot caliLB = new CalibracionFot();
             foreach (CalibracionFot cali in lista())
             {
-                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.EsReferencia)
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.DFSoISO.Equals(DFSoISO) && cali.EsReferencia)
                 {
                     caliLB = cali;
                     break;
@@ -243,17 +243,20 @@ namespace _398_UI
             return caliLB;
         }
 
-        public static void establecerComoReferencia(Equipo equipo, EnergiaFotones energia, CalibracionFot califot)
+        public static void establecerComoReferencia(CalibracionFot califot, BindingList<CalibracionFot> auxLista)
         {
-            var aux = lista();
-            foreach (CalibracionFot cali in aux)
+            foreach (CalibracionFot cali in auxLista)
             {
-                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia))
+                if (cali.Equipo.Equals(califot.Equipo) && cali.Energia.Equals(califot.Energia) && cali.DFSoISO.Equals(califot.DFSoISO))
                 {
                     cali.EsReferencia = false;
+                    if (cali.Equals(califot))
+                    {
+                        cali.EsReferencia = true;
+                    }
                 }
             }
-            califot.EsReferencia = true;
+
         }
 
     }
