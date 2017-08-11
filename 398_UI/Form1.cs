@@ -51,6 +51,8 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
+            chEditarVKpol.Checked = false;
+            chEditarVKs.Checked = false;
 
 
         }
@@ -612,16 +614,30 @@ namespace _398_UI
                 Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
                 Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()),CHB_caliFotEstablecerComoRef.Checked))
             {
+                MessageBox.Show("Calibración guardada");
                 if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    limpiarRegistro(Panel_CalFot);
+                    limpiarRegistro2Niveles(Panel_CalFot);
+                    actualizarComboBoxCaliFotones();
+                    inicializarPredeterminados(100, 10);
+                    chEditarVKpol.Checked = false;
+                    chEditarVKs.Checked = false;
+                    actualizarCalculos();
                 }
             }
-
-            
         }
 
-       
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            limpiarRegistro2Niveles(Panel_CalFot);
+            actualizarComboBoxCaliFotones();
+            inicializarPredeterminados(100, 10);
+            chEditarVKpol.Checked = false;
+            chEditarVKs.Checked = false;
+            actualizarCalculos();
+        }
+
+
         #endregion
 
 
@@ -1045,6 +1061,52 @@ namespace _398_UI
 
         }
 
+        public static void limpiarRegistro2Niveles(Panel panel)
+        {
+            foreach (TextBox tb in panel.Controls.OfType<TextBox>())
+            { tb.Clear(); }
+         //   foreach (ComboBox cb in panel.Controls.OfType<ComboBox>())
+          //  { cb.SelectedIndex = -1; } // ojo que -1 puede hacer que levante error el evento "on index change" porque se va de rango
+            foreach (RadioButton rb in panel.Controls.OfType<RadioButton>())
+            { rb.Checked = false; }
+            foreach (CheckBox chb in panel.Controls.OfType<CheckBox>())
+            {
+                chb.Checked = false;
+                chb.Text = "";
+            }
+            foreach (Panel pl in panel.Controls.OfType<Panel>())
+            {
+                limpiarRegistro2Niveles(pl);
+            }
+            foreach (GroupBox gb in panel.Controls.OfType<GroupBox>())
+            {
+                limpiarRegistro2Niveles(gb);
+            }
+        }
+        
+        public static void limpiarRegistro2Niveles(GroupBox grb)
+        {
+            foreach (TextBox tb in grb.Controls.OfType<TextBox>())
+            { tb.Clear(); }
+            foreach (ComboBox cb in grb.Controls.OfType<ComboBox>())
+            { cb.SelectedIndex = -1; } // ojo que -1 puede hacer que levante error el evento "on index change" porque se va de rango
+            foreach (RadioButton rb in grb.Controls.OfType<RadioButton>())
+            { rb.Checked = false; }
+            foreach (CheckBox chb in grb.Controls.OfType<CheckBox>())
+            {
+                chb.Checked = false;
+                chb.Text = "";
+            }
+            foreach (Panel pl in grb.Controls.OfType<Panel>())
+            {
+                limpiarRegistro2Niveles(pl);
+            }
+            foreach (GroupBox gb in grb.Controls.OfType<GroupBox>())
+            {
+                limpiarRegistro2Niveles(gb);
+            }
+        }
+
         public static int traerPanel(int indicepanel, int nropanel, Panel nombrepanel, Button boton, Panel panelbotones)
         {
             if (indicepanel != nropanel)
@@ -1173,9 +1235,10 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-
+        
     }
 }
 
