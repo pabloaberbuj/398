@@ -623,6 +623,7 @@ namespace _398_UI
                     chEditarVKpol.Checked = false;
                     chEditarVKs.Checked = false;
                     actualizarCalculos();
+                    CB_caliFotRealizadoPor.Text = "";
                 }
             }
         }
@@ -635,6 +636,7 @@ namespace _398_UI
             chEditarVKpol.Checked = false;
             chEditarVKs.Checked = false;
             actualizarCalculos();
+            CB_caliFotRealizadoPor.Text = "";
         }
 
 
@@ -1065,14 +1067,11 @@ namespace _398_UI
         {
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
-         //   foreach (ComboBox cb in panel.Controls.OfType<ComboBox>())
-          //  { cb.SelectedIndex = -1; } // ojo que -1 puede hacer que levante error el evento "on index change" porque se va de rango
             foreach (RadioButton rb in panel.Controls.OfType<RadioButton>())
             { rb.Checked = false; }
             foreach (CheckBox chb in panel.Controls.OfType<CheckBox>())
             {
                 chb.Checked = false;
-                chb.Text = "";
             }
             foreach (Panel pl in panel.Controls.OfType<Panel>())
             {
@@ -1088,14 +1087,11 @@ namespace _398_UI
         {
             foreach (TextBox tb in grb.Controls.OfType<TextBox>())
             { tb.Clear(); }
-            foreach (ComboBox cb in grb.Controls.OfType<ComboBox>())
-            { cb.SelectedIndex = -1; } // ojo que -1 puede hacer que levante error el evento "on index change" porque se va de rango
             foreach (RadioButton rb in grb.Controls.OfType<RadioButton>())
             { rb.Checked = false; }
             foreach (CheckBox chb in grb.Controls.OfType<CheckBox>())
             {
                 chb.Checked = false;
-                chb.Text = "";
             }
             foreach (Panel pl in grb.Controls.OfType<Panel>())
             {
