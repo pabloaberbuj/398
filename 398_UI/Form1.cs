@@ -180,25 +180,40 @@ namespace _398_UI
 
         private void inicializarProfundidadReferencia()
         {
-            if (CB_CaliEnergias.SelectedIndex != -1)
+            if (CB_CaliEnergias.SelectedIndex != -1 && !Double.IsNaN(profundidadDeReferencia()))
             {
-                TB_CaliPRof.Text = Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot[CB_CaliEnergias.SelectedIndex].ZRefFot.ToString();
+                TB_CaliPRof.Text = profundidadDeReferencia().ToString();
+            }
+            else
+            {
+                TB_CaliPRof.Text = "";
             }
         }
 
+
         private void InicializarPDDyTMRref()
         {
-            TB_CaliFPDDref.Clear(); TB_CaliFTMRref.Clear();
-            /*double PDDzref = Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot[CB_CaliEnergias.SelectedIndex].PddZrefFot;
-            double TMRzref = Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot[CB_CaliEnergias.SelectedIndex].TmrZrefFot;
-            if (!Double.IsNaN(PDDzref))
+            if (!Double.IsNaN(PDDref()))
             {
-                TB_CaliFPDDref.Text = PDDzref.ToString();
+                TB_CaliFPDDref.Text = PDDref().ToString();
+                TB_CaliFPDDref.Enabled = false;
             }
-            if (!Double.IsNaN(TMRzref))
+            else
             {
-                TB_CaliFTMRref.Text = TMRzref.ToString();
-            }*/
+                TB_CaliFPDDref.Text = "";
+                TB_CaliFPDDref.Enabled = true;
+            }
+
+            if (!Double.IsNaN(TMRref()))
+            {
+                TB_CaliFTMRref.Text = TMRref().ToString();
+                TB_CaliFTMRref.Enabled = false;
+            }
+            else
+            {
+                TB_CaliFTMRref.Text = "";
+                TB_CaliFTMRref.Enabled = true;
+            }
         }
 
         private void inicializarPredeterminados(double umPred, double ladoCampopred)
@@ -410,7 +425,7 @@ namespace _398_UI
                 chequearKpol();
                 chequearKs();
             }
-            
+
         }
 
         private double kqq0LineaBase()
@@ -612,7 +627,7 @@ namespace _398_UI
             }
             if (CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
                 Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()),CHB_caliFotEstablecerComoRef.Checked))
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked))
             {
                 MessageBox.Show("Calibración guardada");
                 if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -1082,7 +1097,7 @@ namespace _398_UI
                 limpiarRegistro2Niveles(gb);
             }
         }
-        
+
         public static void limpiarRegistro2Niveles(GroupBox grb)
         {
             foreach (TextBox tb in grb.Controls.OfType<TextBox>())
@@ -1229,12 +1244,28 @@ namespace _398_UI
             return equipoSeleccionado().energiaFot[CB_CaliEnergias.SelectedIndex];
         }
 
+        private double profundidadDeReferencia()
+        {
+            return energiaSeleccionada().ZRefFot;
+        }
+
+        private double PDDref()
+        {
+            return energiaSeleccionada().PddZrefFot;
+        }
+
+        private double TMRref()
+        {
+            return energiaSeleccionada().TmrZrefFot;
+        }
+
+
 
 
 
         #endregion
 
-        
+
     }
 }
 
