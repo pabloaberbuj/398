@@ -178,6 +178,19 @@ namespace _398_UI
             }
         }
 
+        private void InicializarRealizadoPor()
+        {
+            foreach (CalibracionFot cali in CalibracionFot.lista())
+            {
+                string realizador = cali.RealizadoPor;
+                if (realizador!="" && !CB_caliFotRealizadoPor.Items.Contains(realizador))
+                {
+                    CB_caliFotRealizadoPor.Items.Add(cali.RealizadoPor);
+                }
+            }
+        }
+    
+
         private void inicializarProfundidadReferencia()
         {
             if (CB_CaliEnergias.SelectedIndex != -1 && !Double.IsNaN(profundidadDeReferencia()))
@@ -476,6 +489,7 @@ namespace _398_UI
             InicializarComboBoxSistDosim();
             InicializarComboBoxEquipos();
             InicializarComboBoxEnergias();
+            InicializarRealizadoPor();
             InicializarPDDyTMRref();
         }
 
