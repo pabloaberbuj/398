@@ -82,10 +82,28 @@ namespace _398_UI
         public static void editar(ComboBox Marca, ComboBox Modelo, TextBox NumSerie, DataGridView DGV)
         {
             Camara aux = lista()[DGV.SelectedRows[0].Index];
-            ((Camara398new)Marca.SelectedItem).marca = aux.Marca;
-            ((Camara398new)Modelo.SelectedItem).modelo = aux.Modelo;
+            for (int i=0;i<Marca.Items.Count;i++)
+            {
+                Camara398new item = (Camara398new)Marca.Items[i];
+                if (item.marca==aux.Marca)
+                {
+                    Marca.SelectedIndex = i;
+                    break;
+                }
+            }
+            var auxLista = Camara398new.lista().Where(elemento => elemento.marca == aux.Marca).ToList();
+            Modelo.DataSource = auxLista;
+            Modelo.DisplayMember = "modelo";
+            for (int i = 0; i < Modelo.Items.Count; i++)
+            {
+                Camara398new item = (Camara398new)Modelo.Items[i];
+                if (item.modelo == aux.Modelo)
+                {
+                    Modelo.SelectedIndex = i;
+                    break;
+                }
+            }
             NumSerie.Text = aux.NumSerie;
-
         }
 
         public static double[] obtenerLineakQQ0(Camara camara)

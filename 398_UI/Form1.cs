@@ -44,6 +44,7 @@ namespace _398_UI
             CB_MarcaCam.DataSource = Camara398new.lista().Distinct().ToList();
             CB_MarcaCam.DisplayMember = "marca";
             CB_MarcaCam.ValueMember = "marca";
+            CB_MarcaCam.SelectedIndex = -1;
 
 
             //Carga UI
@@ -53,6 +54,7 @@ namespace _398_UI
             inicializarPredeterminados(100, 10);
             chEditarVKpol.Checked = false;
             chEditarVKs.Checked = false;
+            InicializarInstitucionYMarcaEquipo();
 
 
         }
@@ -675,7 +677,20 @@ namespace _398_UI
 
         #region Equipos UI
 
-
+        private void InicializarInstitucionYMarcaEquipo()
+        {
+            foreach (Equipo equipo in Equipo.lista())
+            {
+                if (equipo.Institucion != "" && !cb_InstitucionEq.Items.Contains(equipo.Institucion))
+                {
+                    cb_InstitucionEq.Items.Add(equipo.Institucion);
+                }
+                if (equipo.Marca != "" && !cb_MarcaEq.Items.Contains(equipo.Marca))
+                {
+                    cb_MarcaEq.Items.Add(equipo.Marca);
+                }
+            }
+        }
 
         private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
         {
@@ -734,6 +749,7 @@ namespace _398_UI
             }
 
         }
+
         #endregion
 
         #region Equipos EquipoBotones
@@ -747,7 +763,7 @@ namespace _398_UI
             int auxHaz = 0;
             if (RB_FuenteCo.Checked == true)
             {
-                Equipo.guardar(Equipo.crearCo(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR), tb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
+                Equipo.guardar(Equipo.crearCo(cb_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR), cb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
             }
             else if (RB_FuenteALE.Checked == true)
             {
@@ -760,7 +776,7 @@ namespace _398_UI
                 {
                     auxHaz = 2;
                 }
-                Equipo.guardar(Equipo.crearAle(TB_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec, tb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
+                Equipo.guardar(Equipo.crearAle(cb_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec, cb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
             }
 
             DGV_Equipo.DataSource = Equipo.lista();
@@ -810,7 +826,7 @@ namespace _398_UI
             if (Equipo.lista()[DGV_Equipo.SelectedRows[0].Index].Fuente == 1)
             {
                 Panel_EnCoEquipo.Enabled = true;
-                Equipo.editarCo(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, tb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, TB_EnCoZref, TB_EnCoPDD, TB_EnCoTMR, DGV_Equipo);
+                Equipo.editarCo(cb_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, cb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, TB_EnCoZref, TB_EnCoPDD, TB_EnCoTMR, DGV_Equipo);
             }
             else
             {
@@ -819,7 +835,7 @@ namespace _398_UI
                 DGV_EnFot.Visible = true;
                 DGV_EnElec.Visible = true;
 
-                Equipo.editarAle(TB_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, tb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
+                Equipo.editarAle(cb_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, cb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
             }
             editaEquipo = true;
             actualizarComboBoxCaliFotones();
@@ -969,8 +985,15 @@ namespace _398_UI
         #region SistDosimetricos UI
         private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CB_ModCam.DataSource = Camara398new.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
-            CB_ModCam.DisplayMember = "modelo";
+            if (CB_MarcaCam.SelectedIndex!=-1)
+            {
+                CB_ModCam.DataSource = Camara398new.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
+                CB_ModCam.DisplayMember = "modelo";
+            }
+            else
+            {
+                CB_ModCam.SelectedIndex = -1;
+            }
         }
         #endregion
 
@@ -1086,7 +1109,7 @@ namespace _398_UI
             foreach (TextBox tb in gb.Controls.OfType<TextBox>())
             { tb.Clear(); }
             foreach (ComboBox cb in gb.Controls.OfType<ComboBox>())
-            { cb.SelectedIndex = 0; }
+            { cb.SelectedIndex = -1; }
             foreach (RadioButton rb in gb.Controls.OfType<RadioButton>())
             { rb.Checked = false; }
 

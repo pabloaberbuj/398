@@ -136,7 +136,7 @@ namespace _398_UI
             }
         }
 
-        public static void editarAle(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, TextBox Institucion, Panel Fuente, Panel TipoHaz,
+        public static void editarAle(ComboBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, ComboBox Institucion, Panel Fuente, Panel TipoHaz,
             DataGridView DGVEnFot, DataGridView DGVEnElec, DataGridView DGVEquipo)
         {
             Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
@@ -163,7 +163,7 @@ namespace _398_UI
             EnergiaElectrones.darFormatoADGV(DGVEnElec);
         }
 
-        public static void editarCo(TextBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, TextBox Institucion, Panel Fuente, Panel TipoHaz,
+        public static void editarCo(ComboBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, ComboBox Institucion, Panel Fuente, Panel TipoHaz,
             TextBox Zref, TextBox PDDZref, TextBox TMRZref, DataGridView DGVEquipo)
         {
             Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];

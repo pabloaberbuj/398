@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
             this.L_CaliFMref = new System.Windows.Forms.Label();
@@ -173,7 +173,8 @@
             this.CB_CaliSistDosimetrico = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
-            this.tb_InstitucionEq = new System.Windows.Forms.TextBox();
+            this.cb_MarcaEq = new System.Windows.Forms.ComboBox();
+            this.cb_InstitucionEq = new System.Windows.Forms.ComboBox();
             this.label87 = new System.Windows.Forms.Label();
             this.BT_EquiposCancelar = new System.Windows.Forms.Button();
             this.DGV_Equipo = new System.Windows.Forms.DataGridView();
@@ -248,7 +249,6 @@
             this.BT_EditarEq = new System.Windows.Forms.Button();
             this.BT_ExportarEq = new System.Windows.Forms.Button();
             this.TB_ModeloEq = new System.Windows.Forms.TextBox();
-            this.TB_MarcaEq = new System.Windows.Forms.TextBox();
             this.BT_GuardarEq = new System.Windows.Forms.Button();
             this.TB_NumSerieEq = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -1871,7 +1871,8 @@
             // 
             // GB_Equipos
             // 
-            this.GB_Equipos.Controls.Add(this.tb_InstitucionEq);
+            this.GB_Equipos.Controls.Add(this.cb_MarcaEq);
+            this.GB_Equipos.Controls.Add(this.cb_InstitucionEq);
             this.GB_Equipos.Controls.Add(this.label87);
             this.GB_Equipos.Controls.Add(this.BT_EquiposCancelar);
             this.GB_Equipos.Controls.Add(this.DGV_Equipo);
@@ -1888,7 +1889,6 @@
             this.GB_Equipos.Controls.Add(this.BT_EditarEq);
             this.GB_Equipos.Controls.Add(this.BT_ExportarEq);
             this.GB_Equipos.Controls.Add(this.TB_ModeloEq);
-            this.GB_Equipos.Controls.Add(this.TB_MarcaEq);
             this.GB_Equipos.Controls.Add(this.BT_GuardarEq);
             this.GB_Equipos.Controls.Add(this.TB_NumSerieEq);
             this.GB_Equipos.Controls.Add(this.label1);
@@ -1901,12 +1901,27 @@
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
             // 
-            // tb_InstitucionEq
+            // cb_MarcaEq
             // 
-            this.tb_InstitucionEq.Location = new System.Drawing.Point(112, 14);
-            this.tb_InstitucionEq.Name = "tb_InstitucionEq";
-            this.tb_InstitucionEq.Size = new System.Drawing.Size(167, 20);
-            this.tb_InstitucionEq.TabIndex = 0;
+            this.cb_MarcaEq.FormattingEnabled = true;
+            this.cb_MarcaEq.Items.AddRange(new object[] {
+            "Varian",
+            "Siemens",
+            "Elekta",
+            "Theratron",
+            "Teradi"});
+            this.cb_MarcaEq.Location = new System.Drawing.Point(112, 43);
+            this.cb_MarcaEq.Name = "cb_MarcaEq";
+            this.cb_MarcaEq.Size = new System.Drawing.Size(167, 21);
+            this.cb_MarcaEq.TabIndex = 76;
+            // 
+            // cb_InstitucionEq
+            // 
+            this.cb_InstitucionEq.FormattingEnabled = true;
+            this.cb_InstitucionEq.Location = new System.Drawing.Point(112, 16);
+            this.cb_InstitucionEq.Name = "cb_InstitucionEq";
+            this.cb_InstitucionEq.Size = new System.Drawing.Size(167, 21);
+            this.cb_InstitucionEq.TabIndex = 75;
             // 
             // label87
             // 
@@ -2037,7 +2052,7 @@
             // 
             this.TB_AliasEq.Location = new System.Drawing.Point(112, 133);
             this.TB_AliasEq.Name = "TB_AliasEq";
-            this.TB_AliasEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_AliasEq.Size = new System.Drawing.Size(167, 20);
             this.TB_AliasEq.TabIndex = 4;
             // 
             // label18
@@ -2655,15 +2670,8 @@
             // 
             this.TB_ModeloEq.Location = new System.Drawing.Point(112, 71);
             this.TB_ModeloEq.Name = "TB_ModeloEq";
-            this.TB_ModeloEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_ModeloEq.Size = new System.Drawing.Size(167, 20);
             this.TB_ModeloEq.TabIndex = 2;
-            // 
-            // TB_MarcaEq
-            // 
-            this.TB_MarcaEq.Location = new System.Drawing.Point(112, 40);
-            this.TB_MarcaEq.Name = "TB_MarcaEq";
-            this.TB_MarcaEq.Size = new System.Drawing.Size(100, 20);
-            this.TB_MarcaEq.TabIndex = 1;
             // 
             // BT_GuardarEq
             // 
@@ -2679,7 +2687,7 @@
             // 
             this.TB_NumSerieEq.Location = new System.Drawing.Point(112, 103);
             this.TB_NumSerieEq.Name = "TB_NumSerieEq";
-            this.TB_NumSerieEq.Size = new System.Drawing.Size(100, 20);
+            this.TB_NumSerieEq.Size = new System.Drawing.Size(167, 20);
             this.TB_NumSerieEq.TabIndex = 3;
             // 
             // label1
@@ -3584,14 +3592,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3609,14 +3617,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3651,8 +3659,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
@@ -3795,7 +3803,6 @@
         private System.Windows.Forms.Button BT_EditarEq;
         private System.Windows.Forms.Button BT_ExportarEq;
         private System.Windows.Forms.TextBox TB_ModeloEq;
-        private System.Windows.Forms.TextBox TB_MarcaEq;
         private System.Windows.Forms.Button BT_GuardarEq;
         private System.Windows.Forms.TextBox TB_NumSerieEq;
         private System.Windows.Forms.Label label1;
@@ -4062,9 +4069,10 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox tb_InstitucionEq;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.CheckBox CHB_caliFotEstablecerComoRef;
+        private System.Windows.Forms.ComboBox cb_MarcaEq;
+        private System.Windows.Forms.ComboBox cb_InstitucionEq;
     }
 }
 
