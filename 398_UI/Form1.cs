@@ -670,6 +670,21 @@ namespace _398_UI
             CB_caliFotRealizadoPor.Text = "";
         }
 
+        private void BT_ExportarCaliFot_Click(object sender, EventArgs e)
+        {
+            double DFSoISO = 0;
+            if (RB_CaliFDFSfija.Checked)
+            {
+                DFSoISO = 1;
+            }
+            else if (RB_CaliFIso.Checked)
+            {
+                DFSoISO = 2;
+            }
+            CalibracionFot.exportarUnaCalibracion(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()));
+        }
 
         #endregion
 
@@ -806,6 +821,7 @@ namespace _398_UI
             Panel_TipoHazEq.Enabled = false;
             actualizarComboBoxCaliFotones();
             DGV_Equipo.Enabled = true;
+            InicializarInstitucionYMarcaEquipo();
         }
 
         private void BT_PredetEqu_Click(object sender, EventArgs e)
@@ -1300,9 +1316,10 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-
+        
     }
 }
 

@@ -705,6 +705,7 @@
             this.BT_ExportarCaliFot.TabIndex = 62;
             this.BT_ExportarCaliFot.Text = "Exportar";
             this.BT_ExportarCaliFot.UseVisualStyleBackColor = true;
+            this.BT_ExportarCaliFot.Click += new System.EventHandler(this.BT_ExportarCaliFot_Click);
             // 
             // button15
             // 
@@ -3659,8 +3660,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_CalFot);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);

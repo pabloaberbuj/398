@@ -70,11 +70,11 @@ namespace _398_UI
             auxLista.Add(_nuevo);
             if (esRef)
             {
-                if (hayReferencia(_nuevo.Equipo,_nuevo.Energia,_nuevo.DFSoISO))
+                if (hayReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo.DFSoISO))
                 {
-                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea sobreescribirla?", "Establecer Referencia", MessageBoxButtons.OKCancel)==DialogResult.OK)
+                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea sobreescribirla?", "Establecer Referencia", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
-                        establecerComoReferencia(_nuevo,auxLista);
+                        establecerComoReferencia(_nuevo, auxLista);
                     }
                     else
                     {
@@ -83,13 +83,27 @@ namespace _398_UI
                 }
                 else
                 {
-                    establecerComoReferencia(_nuevo,auxLista);
+                    establecerComoReferencia(_nuevo, auxLista);
                 }
             }
             IO.writeObjectAsJson(file, auxLista);
             return true;
         }
 
+        public static void exportarUnaCalibracion(CalibracionFot _nuevo)
+        {
+            try
+            {
+                string fileName = IO.GetUniqueFilename(@"..\..\", "calibracionesExportadas");
+                IO.writeObjectAsJson(fileName, _nuevo);
+
+                MessageBox.Show("Se ha exportado equipos correctamente", "Exportar");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
+            }
+        }
 
         //calculos
 
