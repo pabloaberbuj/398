@@ -185,13 +185,13 @@ namespace _398_UI
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
                 string realizador = cali.RealizadoPor;
-                if (realizador!="" && !CB_caliFotRealizadoPor.Items.Contains(realizador))
+                if (realizador != "" && !CB_caliFotRealizadoPor.Items.Contains(realizador))
                 {
                     CB_caliFotRealizadoPor.Items.Add(cali.RealizadoPor);
                 }
             }
         }
-    
+
 
         private void inicializarProfundidadReferencia()
         {
@@ -657,6 +657,7 @@ namespace _398_UI
                     CB_caliFotRealizadoPor.Text = "";
                 }
             }
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -1001,7 +1002,7 @@ namespace _398_UI
         #region SistDosimetricos UI
         private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CB_MarcaCam.SelectedIndex!=-1)
+            if (CB_MarcaCam.SelectedIndex != -1)
             {
                 CB_ModCam.DataSource = Camara398new.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
                 CB_ModCam.DisplayMember = "modelo";
@@ -1319,7 +1320,35 @@ namespace _398_UI
 
         #endregion
 
-        
+        #region Imprimir
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int posicionlinea = 30;
+            Imprimir.imprimirTituloCaliFotones(e, posicionlinea,printDocument1);
+            posicionlinea += Imprimir.altoTitulo;
+            Imprimir.imprimirUsuarioYFecha(e, posicionlinea, "Pablo", DTP_FechaCaliFot.Value,printDocument1);
+        }
+
+        #endregion
+
+        private void Bt_ReporteVP_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+
+            { printDocument1.Print(); }
+        }
+
+        private void BT_ReporteImp_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            printDocument1.PrinterSettings = printDialog1.PrinterSettings;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+
+            { printDocument1.Print(); }
+        }
     }
 }
 
