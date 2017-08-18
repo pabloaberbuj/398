@@ -14,16 +14,28 @@ namespace _398_UI
 {
     class Imprimir
     {
-        public static Font fuenteTitulo { get; set; }
-        public static Font fuenteSubtitulo { get; set; }
-        public static Font fuenteTexto { get; set; }
-        public static Font fuenteTextoNegrita { get; set; }
-        public static Font fuenteTabla { get; set; }
-        public static Font fuenteTablaHeader { get; set; }
-        public static SolidBrush negro { get; set; }
-        public static StringFormat centro { get; set; }
-        public static StringFormat izquierda { get; set; }
-        public static StringFormat derecha { get; set; }
+        public static Font fuenteTitulo = new Font("Arial", 18, FontStyle.Bold);
+        public static Font fuenteSubtitulo = new Font("Arial", 14, FontStyle.Bold);
+        public static Font fuenteTexto = new Font("Arial", 11, FontStyle.Regular);
+        public static Font fuenteTextoNegrita = new Font("Arial", 11, FontStyle.Bold);
+        public static Font fuenteTabla = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+        public static Font fuenteTablaHeader = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+        public static SolidBrush negro = new SolidBrush(Color.Black);
+        public static StringFormat centro = new StringFormat
+        {
+            Alignment = StringAlignment.Center,
+            LineAlignment = StringAlignment.Center,
+        };
+        public static StringFormat izquierda = new StringFormat
+        {
+            Alignment = StringAlignment.Near,
+            LineAlignment = StringAlignment.Center,
+        };
+        public static StringFormat derecha = new StringFormat
+        {
+            Alignment = StringAlignment.Far,
+            LineAlignment = StringAlignment.Center,
+        };
 
         public static int altoTexto { get; set; }
         public static int altoTitulo { get; set; }
@@ -32,40 +44,31 @@ namespace _398_UI
         public static int altoTotal { get; set; }
 
 
-        public static void cargarFormatos(PrintDocument printDocument1)
+
+            public static PrintDocument cargarConfiguracion()
         {
-            fuenteTitulo = new Font("Arial", 18, FontStyle.Bold);
-            fuenteSubtitulo = new Font("Arial", 14, FontStyle.Bold);
-            fuenteTexto = new Font("Arial", 11, FontStyle.Regular);
-            fuenteTextoNegrita = new Font("Arial", 11, FontStyle.Bold);
-            fuenteTabla = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
-            fuenteTablaHeader = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-
-            negro = new SolidBrush(Color.Black);
-
-            centro.Alignment = StringAlignment.Center;
-            centro.LineAlignment = StringAlignment.Center;
-            izquierda.Alignment = StringAlignment.Near;
-            izquierda.LineAlignment = StringAlignment.Center;
-            derecha.Alignment = StringAlignment.Far;
-            derecha.LineAlignment = StringAlignment.Center;
-
             altoTexto = fuenteTexto.Height;
             altoTitulo = fuenteTitulo.Height;
             altoSubtitulo = fuenteSubtitulo.Height;
 
+            PrintDocument printDocument1 = new PrintDocument();
             printDocument1.OriginAtMargins = true;
             printDocument1.DefaultPageSettings.Landscape = false;
             printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
-            printDocument1.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(50, 50, 50, 50);
+            //printDocument1.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(300, 150, 500, 50);
 
             anchoTotal = Convert.ToInt32(printDocument1.DefaultPageSettings.PrintableArea.Width) - printDocument1.DefaultPageSettings.Margins.Left - printDocument1.DefaultPageSettings.Margins.Right;
             altoTotal = Convert.ToInt32(printDocument1.DefaultPageSettings.PrintableArea.Height) - printDocument1.DefaultPageSettings.Margins.Top - printDocument1.DefaultPageSettings.Margins.Bottom;
+
+            return printDocument1;
         }
 
-        public static void imprimirTitulo(PrintPageEventArgs e, string titulo, int posicionlinea)
+            
+        
+
+        public static void imprimirTitulo(PrintPageEventArgs e, string titulo, int posicionlinea,int numlineas)
         {
-            Rectangle rect = new Rectangle(0, posicionlinea, anchoTotal, altoTitulo);
+            Rectangle rect = new Rectangle(0, posicionlinea, anchoTotal, altoTitulo*numlineas);
             e.Graphics.DrawString(titulo, fuenteTitulo, negro, rect, centro);
         }
 
@@ -75,22 +78,28 @@ namespace _398_UI
             e.Graphics.DrawString(subtitulo, fuenteSubtitulo, negro, rect, izquierda);
         }
 
-        public static void imprimirTexto(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
+        public static int imprimirTexto(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
         {
             Rectangle rect = new Rectangle(x, posicionlinea, anchoTotal, altoTexto * numlineas);
             e.Graphics.DrawString(texto, fuenteTexto, negro, rect, izquierda);
+            SizeF largoString = e.Graphics.MeasureString(texto, fuenteTexto);
+            return Convert.ToInt32(largoString.Width)+1;
         }
 
-        public static void imprimirTextoNegrita(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
+        public static int imprimirTextoNegrita(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
         {
             Rectangle rect = new Rectangle(x, posicionlinea, anchoTotal, altoTexto * numlineas);
             e.Graphics.DrawString(texto, fuenteTextoNegrita, negro, rect, izquierda);
+            SizeF largoString = e.Graphics.MeasureString(texto, fuenteTextoNegrita);
+            return Convert.ToInt32(largoString.Width) + 1;
         }
 
-        public static void imprimirTextoDerecha(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
+        public static int imprimirTextoDerecha(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
         {
             Rectangle rect = new Rectangle(x, posicionlinea, anchoTotal, altoTexto * numlineas);
             e.Graphics.DrawString(texto, fuenteTexto, negro, rect, derecha);
+            SizeF largoString = e.Graphics.MeasureString(texto, fuenteTexto);
+            return Convert.ToInt32(largoString.Width) + 1;
         }
 
         public static void imprimirGraficoChico(PrintPageEventArgs e, Chart grafico, int x, int y, int ancho, int alto)
@@ -138,19 +147,29 @@ namespace _398_UI
         // generacion reporte
 
 
-        public static void imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea, PrintDocument printDocument1)
+        public static void imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea)
         {
-            cargarFormatos(printDocument1);
-            imprimirTitulo(e, "Determinación de dosis absorbida en agua según protocolo 398 - IAEA", posicionlinea);
+            imprimirTitulo(e, "Determinación de dosis absorbida en agua \n según protocolo 398 - IAEA", posicionlinea,2);
         }
 
-        public static void imprimirUsuarioYFecha(PrintPageEventArgs e,int posicionlinea,string usuario, DateTime fecha, PrintDocument printDocument1)
+        public static void imprimirUsuarioYFecha(PrintPageEventArgs e,int posicionlinea,string usuario, DateTime fecha)
         {
-            cargarFormatos(printDocument1);
-            imprimirTextoNegrita(e, "Usuario:", posicionlinea, 1, 0);
-            imprimirTexto(e, usuario, posicionlinea, 1, 50);
-            imprimirTextoNegrita(e, "Fecha:", posicionlinea, 1, 200);
-            imprimirTexto(e, fecha.ToShortDateString(), posicionlinea, 1, 250);
+            imprimirEtiquetaYValorx2(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
+        }
+
+        public static int imprimirEtiquetaYValor(PrintPageEventArgs e, int posicionlinea, string etiqueta, string valor, int x)
+        {
+            x += imprimirTextoNegrita(e, etiqueta, posicionlinea, 1, x);
+            x += imprimirTexto(e, valor, posicionlinea, 1, x);
+            return x;
+        }
+
+        public static void imprimirEtiquetaYValorx2(PrintPageEventArgs e, int posicionlinea, string etiqueta1, string valor1, string etiqueta2, string valor2)
+        {
+            int x = 0;
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta1, valor1, x);
+            x += Convert.ToInt32(anchoTotal / 2);
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta2, valor2, x);
         }
         public static void imprimirReporteCaliFotones(string Usuario, DateTime fecha, Equipo equipo, SistemaDosimetrico sistDosim,
             int DFSoISO, double tamCampo, double profundidad, double UM, double Temp, double Presion, double Humedad, double KTP,

@@ -1325,12 +1325,15 @@ namespace _398_UI
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             int posicionlinea = 30;
-            Imprimir.imprimirTituloCaliFotones(e, posicionlinea,printDocument1);
-            posicionlinea += Imprimir.altoTitulo;
-            Imprimir.imprimirUsuarioYFecha(e, posicionlinea, "Pablo", DTP_FechaCaliFot.Value,printDocument1);
+
+            printDocument1 = Imprimir.cargarConfiguracion();
+
+            Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
+            posicionlinea += (Imprimir.altoTitulo) * 3;
+            Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
         }
 
-        #endregion
+
 
         private void Bt_ReporteVP_Click(object sender, EventArgs e)
         {
@@ -1349,6 +1352,8 @@ namespace _398_UI
 
             { printDocument1.Print(); }
         }
+        #endregion
+
     }
 }
 
