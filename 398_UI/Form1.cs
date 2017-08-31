@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -198,10 +199,12 @@ namespace _398_UI
             if (CB_CaliEnergias.SelectedIndex != -1 && !Double.IsNaN(profundidadDeReferencia()))
             {
                 TB_CaliPRof.Text = profundidadDeReferencia().ToString();
+                TB_CaliPRof.Enabled = false;
             }
             else
             {
                 TB_CaliPRof.Text = "";
+                TB_CaliPRof.Enabled = true;
             }
         }
 
@@ -1322,7 +1325,7 @@ namespace _398_UI
 
         #region Imprimir
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+     /*   private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             int posicionlinea = 30;
 
@@ -1331,29 +1334,61 @@ namespace _398_UI
             Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
             posicionlinea += (Imprimir.altoTitulo) * 3;
             Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
-        }
+        }*/
 
 
 
         private void Bt_ReporteVP_Click(object sender, EventArgs e)
         {
-            printPreviewDialog1.Document = printDocument1;
 
-            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            PrintDocument pd = new PrintDocument();
+            pd = Imprimir.cargarConfiguracion();
+            printPreviewDialog1.Document = pd;
+            pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_1);
+            
+            printPreviewDialog1.ShowDialog();
+            
 
-            { printDocument1.Print(); }
         }
 
         private void BT_ReporteImp_Click(object sender, EventArgs e)
         {
-            printDialog1.Document = printDocument1;
-            printDocument1.PrinterSettings = printDialog1.PrinterSettings;
+            PrintDocument pd = new PrintDocument();
+            pd = Imprimir.cargarConfiguracion();
+            printDialog1.Document = pd;
+            pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_1);
+            pd.PrinterSettings = printDialog1.PrinterSettings;
             if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pd.Print();
+            }
+           // printDialog1.ShowDialog();
+        }
 
-            { printDocument1.Print(); }
+        private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
+        {
+            int DFSoISO = 0;
+            string TPRoPDD="";
+            if (RB_CaliFDFSfija.Checked)
+            {
+                DFSoISO = 1;
+                TPRoPDD = TB_CaliFPDDref.Text;
+            }
+            else if (RB_CaliFIso.Checked)
+            {
+                DFSoISO = 2;
+                TPRoPDD = TB_CaliFTMRref.Text;
+            }
+            int posicionlinea = 30;
+            Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
+            posicionlinea += (Imprimir.altoTitulo) * 3;
+            posicionlinea += Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea += Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado().Institucion, equipoSeleccionado().Marca, equipoSeleccionado().Modelo, equipoSeleccionado().NumSerie, energiaSeleccionada().Energia.ToString());
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea += Imprimir.imprimirCondiciones(e, posicionlinea, DFSoISO, TB_CaliLadoCampo.Text, TB_CaliPRof.Text, TPRoPDD);
         }
         #endregion
-
     }
 }
 

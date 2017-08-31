@@ -152,9 +152,49 @@ namespace _398_UI
             imprimirTitulo(e, "Determinación de dosis absorbida en agua \n según protocolo 398 - IAEA", posicionlinea,2);
         }
 
-        public static void imprimirUsuarioYFecha(PrintPageEventArgs e,int posicionlinea,string usuario, DateTime fecha)
+        public static int imprimirUsuarioYFecha(PrintPageEventArgs e,int posicionlinea,string usuario, DateTime fecha)
         {
-            imprimirEtiquetaYValorx2(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
+            imprimirEtiquetaYValorx2Sep(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
+            return altoTexto;
+        }
+
+        public static int imprimirEquipo(PrintPageEventArgs e, int posicionlinea, string institucion, string marca, string modelo, string nSerie, string energia)
+        {
+            imprimirSubtitulo(e, "Equipo", posicionlinea);
+            posicionlinea += altoSubtitulo;
+            imprimirEtiquetaYValor(e, posicionlinea, "Institución: ", institucion, 0);
+            posicionlinea += altoTexto;
+            imprimirEtiquetaYValorx3(e, posicionlinea, "Marca: ", marca, "Modelo: ", modelo, "Nº de serie: ", nSerie);
+            posicionlinea += altoTexto;
+            imprimirEtiquetaYValor(e, posicionlinea, "Energía: ", energia + "MV", 0); //falta corregir si es Co
+            posicionlinea += altoTexto;
+            return posicionlinea;
+        }
+
+        public static int imprimirCondiciones(PrintPageEventArgs e, int posicionlinea, int DFSoISO, string tamCampo, string prof, string TPRoPDD)
+        {
+            imprimirSubtitulo(e, "Condiciones de medición", posicionlinea);
+            posicionlinea += altoSubtitulo;
+            if (DFSoISO == 1)
+            {
+                imprimirEtiquetaYValor(e, posicionlinea, "Set up: ", "DFS fija", 0);
+                posicionlinea += altoTexto;
+                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo, 0);
+                posicionlinea += altoTexto;
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof, "PDD: ", TPRoPDD+"%");
+                posicionlinea += altoTexto;
+            }
+            else if (DFSoISO == 2)
+            {
+                imprimirEtiquetaYValor(e, posicionlinea, "Set up: ", "Isocéntrico", 0);
+                posicionlinea += altoTexto;
+                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo, 0);
+                posicionlinea += altoTexto;
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof, "TPR: ", TPRoPDD);
+                posicionlinea += altoTexto;
+            }
+
+            return posicionlinea;            
         }
 
         public static int imprimirEtiquetaYValor(PrintPageEventArgs e, int posicionlinea, string etiqueta, string valor, int x)
@@ -164,13 +204,35 @@ namespace _398_UI
             return x;
         }
 
-        public static void imprimirEtiquetaYValorx2(PrintPageEventArgs e, int posicionlinea, string etiqueta1, string valor1, string etiqueta2, string valor2)
+        public static int imprimirEtiquetaYValorx2(PrintPageEventArgs e, int posicionlinea, string etiqueta1, string valor1, string etiqueta2, string valor2)
+        {
+            int x = 0;
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta1, valor1, x);
+            x += 10;
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta2, valor2, x);
+            return x;
+        }
+
+        public static int imprimirEtiquetaYValorx2Sep(PrintPageEventArgs e, int posicionlinea, string etiqueta1, string valor1, string etiqueta2, string valor2)
         {
             int x = 0;
             x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta1, valor1, x);
             x += Convert.ToInt32(anchoTotal / 2);
             x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta2, valor2, x);
+            return x;
         }
+
+        public static int imprimirEtiquetaYValorx3(PrintPageEventArgs e, int posicionlinea, string etiqueta1, string valor1, string etiqueta2, string valor2, string etiqueta3, string valor3)
+        {
+            int x = 0;
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta1, valor1, x);
+            x += 10;
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta2, valor2, x);
+            x += 10;
+            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta3, valor3, x);
+            return x;
+        }
+
         public static void imprimirReporteCaliFotones(string Usuario, DateTime fecha, Equipo equipo, SistemaDosimetrico sistDosim,
             int DFSoISO, double tamCampo, double profundidad, double UM, double Temp, double Presion, double Humedad, double KTP,
             double LectVmas, double LectVmenos, double kpol, bool kpolNo, bool kpolUsaLB,
