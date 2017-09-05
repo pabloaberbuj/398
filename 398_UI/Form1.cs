@@ -1380,13 +1380,13 @@ namespace _398_UI
                 TPRoPDD = TB_CaliFTMRref.Text;
             }
             int posicionlinea = 30;
-            Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
-            posicionlinea += (Imprimir.altoTitulo) * 3;
-            posicionlinea += Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
+            posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
+            
+            posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
             posicionlinea += Imprimir.altoTexto;
-            posicionlinea += Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado().Institucion, equipoSeleccionado().Marca, equipoSeleccionado().Modelo, equipoSeleccionado().NumSerie, energiaSeleccionada().Energia.ToString());
+            posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado().Institucion, equipoSeleccionado().Fuente,equipoSeleccionado().Marca, equipoSeleccionado().Modelo, equipoSeleccionado().NumSerie, energiaSeleccionada().Energia.ToString());
             posicionlinea += Imprimir.altoTexto;
-            posicionlinea += Imprimir.imprimirCondiciones(e, posicionlinea, DFSoISO, TB_CaliLadoCampo.Text, TB_CaliPRof.Text, TPRoPDD);
+            posicionlinea = Imprimir.imprimirCondiciones(e, posicionlinea, DFSoISO, TB_CaliLadoCampo.Text, TB_CaliPRof.Text, TPRoPDD);
         }
         #endregion
     }

@@ -21,6 +21,7 @@ namespace _398_UI
         public static Font fuenteTabla = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
         public static Font fuenteTablaHeader = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         public static SolidBrush negro = new SolidBrush(Color.Black);
+        public static Pen penNegra = new Pen(Color.Black,2);
         public static StringFormat centro = new StringFormat
         {
             Alignment = StringAlignment.Center,
@@ -63,19 +64,25 @@ namespace _398_UI
             return printDocument1;
         }
 
-            
-        
 
-        public static void imprimirTitulo(PrintPageEventArgs e, string titulo, int posicionlinea,int numlineas)
+
+        public static void imprimirLinea(PrintPageEventArgs e,int posicionlinea)
+        {
+            e.Graphics.DrawLine(penNegra, new Point(0, posicionlinea), new Point(anchoTotal - 100, posicionlinea));
+        }
+
+        public static int imprimirTitulo(PrintPageEventArgs e, string titulo, int posicionlinea,int numlineas)
         {
             Rectangle rect = new Rectangle(0, posicionlinea, anchoTotal, altoTitulo*numlineas);
             e.Graphics.DrawString(titulo, fuenteTitulo, negro, rect, centro);
+            return posicionlinea + altoTitulo * numlineas + 10;
         }
 
-        public static void imprimirSubtitulo(PrintPageEventArgs e, string subtitulo, int posicionlinea)
+        public static int imprimirSubtitulo(PrintPageEventArgs e, string subtitulo, int posicionlinea)
         {
             Rectangle rect = new Rectangle(0, posicionlinea, anchoTotal, altoSubtitulo);
             e.Graphics.DrawString(subtitulo, fuenteSubtitulo, negro, rect, izquierda);
+            return posicionlinea + altoSubtitulo + 10;
         }
 
         public static int imprimirTexto(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
@@ -91,7 +98,7 @@ namespace _398_UI
             Rectangle rect = new Rectangle(x, posicionlinea, anchoTotal, altoTexto * numlineas);
             e.Graphics.DrawString(texto, fuenteTextoNegrita, negro, rect, izquierda);
             SizeF largoString = e.Graphics.MeasureString(texto, fuenteTextoNegrita);
-            return Convert.ToInt32(largoString.Width) + 1;
+            return Convert.ToInt32(largoString.Width)+1;
         }
 
         public static int imprimirTextoDerecha(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
@@ -147,27 +154,40 @@ namespace _398_UI
         // generacion reporte
 
 
-        public static void imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea)
+        public static int imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea)
         {
-            imprimirTitulo(e, "Determinación de dosis absorbida en agua \n según protocolo 398 - IAEA", posicionlinea,2);
+            posicionlinea += imprimirTitulo(e, "Determinación de dosis absorbida en agua \n según protocolo 398 - IAEA", posicionlinea,2);
+            return posicionlinea;
         }
 
         public static int imprimirUsuarioYFecha(PrintPageEventArgs e,int posicionlinea,string usuario, DateTime fecha)
         {
             imprimirEtiquetaYValorx2Sep(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
-            return altoTexto;
+            posicionlinea += altoTexto + 10;
+            return posicionlinea;
         }
 
-        public static int imprimirEquipo(PrintPageEventArgs e, int posicionlinea, string institucion, string marca, string modelo, string nSerie, string energia)
+        public static int imprimirEquipo(PrintPageEventArgs e, int posicionlinea, string institucion, int ALEoCo, string marca, string modelo, string nSerie, string energia)
         {
-            imprimirSubtitulo(e, "Equipo", posicionlinea);
+            imprimirSubtitulo(e, "Unidad de tratamiento", posicionlinea);
             posicionlinea += altoSubtitulo;
+            imprimirLinea(e, posicionlinea);
+            posicionlinea += 10;
             imprimirEtiquetaYValor(e, posicionlinea, "Institución: ", institucion, 0);
-            posicionlinea += altoTexto;
+            posicionlinea += altoTexto + 5;
+            if (ALEoCo==1)
+            {
+                imprimirEtiquetaYValor(e, posicionlinea, "Tipo de equipo: ", "Co-60",0);
+            }
+            else if (ALEoCo==2)
+            {
+                imprimirEtiquetaYValor(e, posicionlinea, "Tipo de equipo: ", "Acelerador Lineal de Electrones", 0);
+            }
+            posicionlinea += altoTexto + 5;
             imprimirEtiquetaYValorx3(e, posicionlinea, "Marca: ", marca, "Modelo: ", modelo, "Nº de serie: ", nSerie);
-            posicionlinea += altoTexto;
-            imprimirEtiquetaYValor(e, posicionlinea, "Energía: ", energia + "MV", 0); //falta corregir si es Co
-            posicionlinea += altoTexto;
+            posicionlinea += altoTexto + 5;
+            imprimirEtiquetaYValor(e, posicionlinea, "Energía Nominal: ", energia + "MV", 0); //falta corregir si es Co
+            posicionlinea += altoTexto + 5;
             return posicionlinea;
         }
 
@@ -175,23 +195,25 @@ namespace _398_UI
         {
             imprimirSubtitulo(e, "Condiciones de medición", posicionlinea);
             posicionlinea += altoSubtitulo;
+            imprimirLinea(e, posicionlinea);
+            posicionlinea += 10;
             if (DFSoISO == 1)
             {
-                imprimirEtiquetaYValor(e, posicionlinea, "Set up: ", "DFS fija", 0);
-                posicionlinea += altoTexto;
-                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo, 0);
-                posicionlinea += altoTexto;
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof, "PDD: ", TPRoPDD+"%");
-                posicionlinea += altoTexto;
+                imprimirEtiquetaYValor(e, posicionlinea, "Técnica: ", "DFS fija", 0);
+                posicionlinea += altoTexto + 5;
+                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo + "cm", 0);
+                posicionlinea += altoTexto + 5;
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof + "cm", "PDD: ", TPRoPDD+"%");
+                posicionlinea += altoTexto + 5;
             }
             else if (DFSoISO == 2)
             {
-                imprimirEtiquetaYValor(e, posicionlinea, "Set up: ", "Isocéntrico", 0);
-                posicionlinea += altoTexto;
-                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo, 0);
-                posicionlinea += altoTexto;
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof, "TPR: ", TPRoPDD);
-                posicionlinea += altoTexto;
+                imprimirEtiquetaYValor(e, posicionlinea, "Técnica: ", "Isocéntrico", 0);
+                posicionlinea += altoTexto + 5;
+                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo+"cm", 0);
+                posicionlinea += altoTexto + 5;
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof+"cm", "TPR: ", TPRoPDD+"%");
+                posicionlinea += altoTexto + 5;
             }
 
             return posicionlinea;            
@@ -225,11 +247,11 @@ namespace _398_UI
         public static int imprimirEtiquetaYValorx3(PrintPageEventArgs e, int posicionlinea, string etiqueta1, string valor1, string etiqueta2, string valor2, string etiqueta3, string valor3)
         {
             int x = 0;
-            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta1, valor1, x);
+            x = imprimirEtiquetaYValor(e, posicionlinea, etiqueta1, valor1, x);
             x += 10;
-            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta2, valor2, x);
+            x = imprimirEtiquetaYValor(e, posicionlinea, etiqueta2, valor2, x);
             x += 10;
-            x += imprimirEtiquetaYValor(e, posicionlinea, etiqueta3, valor3, x);
+            x = imprimirEtiquetaYValor(e, posicionlinea, etiqueta3, valor3, x);
             return x;
         }
 
