@@ -328,6 +328,26 @@ namespace _398_UI
             return posicionlinea;
         }
 
+        public static int imprimirKs(PrintPageEventArgs e, int posicionlinea, double Ltot, double Lred, string Vred, double Ks, int medido)
+        {
+            if (medido == 1)
+            {
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", Ltot.ToString(), "Lect(Vred=" + Vred + "V) = ", Lred.ToString());
+                posicionlinea += altoTexto + espacioParrafo;
+                imprimirFactor(e, posicionlinea, "Ks", Ks);
+            }
+            else if (medido == 2) //usa LB
+            {
+                imprimirFactor(e, posicionlinea, "Ks", Ks, "(extraído de calibración de referencia)");
+            }
+            else if (medido == 3) //no corrige
+            {
+                imprimirFactor(e, posicionlinea, "Ks", Ks, "(no se corrigió por ese factor)");
+            }
+            posicionlinea += altoTexto + espacioParrafo;
+            return posicionlinea;
+        }
+
         public static int imprimirEtiquetaYValor(PrintPageEventArgs e, int posicionlinea, string etiqueta, string valor, int x)
         {
             x += imprimirTextoNegrita(e, etiqueta, posicionlinea, 1, x);

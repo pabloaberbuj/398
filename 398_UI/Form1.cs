@@ -1380,7 +1380,6 @@ namespace _398_UI
                 TPRoPDD = TB_CaliFTMRref.Text;
             }
             int corrigeKpol=1;
-            int corrigeKs=1;
             if (CHB_UsaKpolLB.Checked)
             {
                 corrigeKpol = 2;
@@ -1389,6 +1388,16 @@ namespace _398_UI
             {
                 corrigeKpol = 3;
             }
+            int corrigeKs = 1;
+            if (CHB_UsaKsLB.Checked)
+            {
+                corrigeKs = 2;
+            }
+            else if (CHB_NoUsaKs.Checked)
+            {
+                corrigeKs = 3;
+            }
+
             int posicionlinea = 30;
             posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
             
@@ -1409,6 +1418,15 @@ namespace _398_UI
             else
             {
                 posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
+            }
+            posicionlinea += Imprimir.altoTexto;
+            if (chb_EditarVKs.Checked)
+            {
+                posicionlinea = Imprimir.imprimirKs(e, posicionlinea, promediarPanel(Panel_lectVtot),promediarPanel(Panel_LectVred), TB_Vred.Text, calculoKs(), corrigeKs);
+            }
+            else
+            {
+                posicionlinea = Imprimir.imprimirKs(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), TB_Vred.Text, calculoKs(), corrigeKs);
             }
         }
         #endregion
