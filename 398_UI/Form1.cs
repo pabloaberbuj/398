@@ -1379,14 +1379,31 @@ namespace _398_UI
                 DFSoISO = 2;
                 TPRoPDD = TB_CaliFTMRref.Text;
             }
+            int corrigeKpol=1;
+            int corrigeKs=1;
+            if (CHB_UsaKpolLB.Checked)
+            {
+                corrigeKpol = 2;
+            }
+            else if (CHB_NoUsaKpol.Checked)
+            {
+                corrigeKpol = 3;
+            }
             int posicionlinea = 30;
             posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
             
             posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
             posicionlinea += Imprimir.altoTexto;
-            posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado().Institucion, equipoSeleccionado().Fuente,equipoSeleccionado().Marca, equipoSeleccionado().Modelo, equipoSeleccionado().NumSerie, energiaSeleccionada().Energia.ToString());
+            posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado(), energiaSeleccionada());
             posicionlinea += Imprimir.altoTexto;
             posicionlinea = Imprimir.imprimirCondiciones(e, posicionlinea, DFSoISO, TB_CaliLadoCampo.Text, TB_CaliPRof.Text, TPRoPDD);
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea = Imprimir.imprimirSistemaDosimetrico(e, posicionlinea, sistDosimSeleccionado());
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea = Imprimir.imprimirUMyKTP(e, posicionlinea, TB_UM.Text, tbTemp.Text, tbPresion.Text, tbHumedad.Text, calculoKTP());
+            posicionlinea += Imprimir.altoTexto;
+
+            posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), calculoKpol(),corrigeKpol);
         }
         #endregion
     }
