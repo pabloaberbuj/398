@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -101,7 +101,7 @@
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.textBox37 = new System.Windows.Forms.TextBox();
             this.textBox38 = new System.Windows.Forms.TextBox();
-            this.chEditarVKs = new System.Windows.Forms.CheckBox();
+            this.chb_EditarVKs = new System.Windows.Forms.CheckBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -126,7 +126,7 @@
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.LB_LectmasVprom = new System.Windows.Forms.Label();
-            this.chEditarVKpol = new System.Windows.Forms.CheckBox();
+            this.chb_EditarVKpol = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.GB_FactorDeCalidad = new System.Windows.Forms.GroupBox();
@@ -985,7 +985,7 @@
             this.Panel_LecKs.Controls.Add(this.Panel_LectVred);
             this.Panel_LecKs.Controls.Add(this.LB_lectVtotProm);
             this.Panel_LecKs.Controls.Add(this.Panel_lectVtot);
-            this.Panel_LecKs.Controls.Add(this.chEditarVKs);
+            this.Panel_LecKs.Controls.Add(this.chb_EditarVKs);
             this.Panel_LecKs.Controls.Add(this.label37);
             this.Panel_LecKs.Controls.Add(this.label38);
             this.Panel_LecKs.Location = new System.Drawing.Point(6, 66);
@@ -1137,16 +1137,16 @@
             this.textBox38.Enter += new System.EventHandler(this.textBox_Enter);
             this.textBox38.Leave += new System.EventHandler(this.Prom_Vtot);
             // 
-            // chEditarVKs
+            // chb_EditarVKs
             // 
-            this.chEditarVKs.AutoSize = true;
-            this.chEditarVKs.Location = new System.Drawing.Point(10, 192);
-            this.chEditarVKs.Name = "chEditarVKs";
-            this.chEditarVKs.Size = new System.Drawing.Size(75, 17);
-            this.chEditarVKs.TabIndex = 57;
-            this.chEditarVKs.Text = "Editar Vtot";
-            this.chEditarVKs.UseVisualStyleBackColor = true;
-            this.chEditarVKs.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
+            this.chb_EditarVKs.AutoSize = true;
+            this.chb_EditarVKs.Location = new System.Drawing.Point(10, 192);
+            this.chb_EditarVKs.Name = "chb_EditarVKs";
+            this.chb_EditarVKs.Size = new System.Drawing.Size(75, 17);
+            this.chb_EditarVKs.TabIndex = 57;
+            this.chb_EditarVKs.Text = "Editar Vtot";
+            this.chb_EditarVKs.UseVisualStyleBackColor = true;
+            this.chb_EditarVKs.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // label37
             // 
@@ -1245,7 +1245,7 @@
             this.Panel_LecKpol.Controls.Add(this.LB_LectmenosVprom);
             this.Panel_LecKpol.Controls.Add(this.Panel_LectmasV);
             this.Panel_LecKpol.Controls.Add(this.LB_LectmasVprom);
-            this.Panel_LecKpol.Controls.Add(this.chEditarVKpol);
+            this.Panel_LecKpol.Controls.Add(this.chb_EditarVKpol);
             this.Panel_LecKpol.Controls.Add(this.label29);
             this.Panel_LecKpol.Controls.Add(this.label30);
             this.Panel_LecKpol.Location = new System.Drawing.Point(18, 67);
@@ -1397,16 +1397,16 @@
             this.LB_LectmasVprom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LB_LectmasVprom.Visible = false;
             // 
-            // chEditarVKpol
+            // chb_EditarVKpol
             // 
-            this.chEditarVKpol.AutoSize = true;
-            this.chEditarVKpol.Location = new System.Drawing.Point(10, 192);
-            this.chEditarVKpol.Name = "chEditarVKpol";
-            this.chEditarVKpol.Size = new System.Drawing.Size(63, 17);
-            this.chEditarVKpol.TabIndex = 57;
-            this.chEditarVKpol.Text = "Editar V";
-            this.chEditarVKpol.UseVisualStyleBackColor = true;
-            this.chEditarVKpol.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
+            this.chb_EditarVKpol.AutoSize = true;
+            this.chb_EditarVKpol.Location = new System.Drawing.Point(10, 192);
+            this.chb_EditarVKpol.Name = "chb_EditarVKpol";
+            this.chb_EditarVKpol.Size = new System.Drawing.Size(63, 17);
+            this.chb_EditarVKpol.TabIndex = 57;
+            this.chb_EditarVKpol.Text = "Editar V";
+            this.chb_EditarVKpol.UseVisualStyleBackColor = true;
+            this.chb_EditarVKpol.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // label29
             // 
@@ -3598,14 +3598,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3623,14 +3623,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3862,11 +3862,11 @@
         private System.Windows.Forms.CheckBox CHB_NoUsaKs;
         private System.Windows.Forms.CheckBox CHB_UsaKsLB;
         private System.Windows.Forms.Panel Panel_LecKs;
-        private System.Windows.Forms.CheckBox chEditarVKs;
+        private System.Windows.Forms.CheckBox chb_EditarVKs;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label LB_KpolRes;
-        private System.Windows.Forms.CheckBox chEditarVKpol;
+        private System.Windows.Forms.CheckBox chb_EditarVKpol;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbTemp;

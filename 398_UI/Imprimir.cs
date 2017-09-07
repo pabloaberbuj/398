@@ -23,7 +23,7 @@ namespace _398_UI
         public static Font fuenteTabla = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
         public static Font fuenteTablaHeader = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
         public static SolidBrush negro = new SolidBrush(Color.Black);
-        public static Pen penNegra = new Pen(Color.Black,2);
+        public static Pen penNegra = new Pen(Color.Black, 2);
         public static StringFormat centro = new StringFormat
         {
             Alignment = StringAlignment.Center,
@@ -72,14 +72,14 @@ namespace _398_UI
 
 
 
-        public static void imprimirLinea(PrintPageEventArgs e,int posicionlinea)
+        public static void imprimirLinea(PrintPageEventArgs e, int posicionlinea)
         {
             e.Graphics.DrawLine(penNegra, new Point(0, posicionlinea), new Point(anchoTotal, posicionlinea));
         }
 
-        public static int imprimirTitulo(PrintPageEventArgs e, string titulo, int posicionlinea,int numlineas)
+        public static int imprimirTitulo(PrintPageEventArgs e, string titulo, int posicionlinea, int numlineas)
         {
-            Rectangle rect = new Rectangle(0, posicionlinea, anchoTotal, altoTitulo*numlineas);
+            Rectangle rect = new Rectangle(0, posicionlinea, anchoTotal, altoTitulo * numlineas);
             e.Graphics.DrawString(titulo, fuenteTitulo, negro, rect, centro);
             return posicionlinea + altoTitulo * numlineas + espacioTitulo;
         }
@@ -103,7 +103,23 @@ namespace _398_UI
             Rectangle rect = new Rectangle(x, posicionlinea, anchoTotal, altoTexto * numlineas);
             e.Graphics.DrawString(texto, fuenteTexto, negro, rect, izquierda);
             SizeF largoString = e.Graphics.MeasureString(texto, fuenteTexto);
-            return Convert.ToInt32(largoString.Width)+1;
+            return Convert.ToInt32(largoString.Width) + 1;
+        }
+
+        public static int imprimirFactor(PrintPageEventArgs e, int posicionlinea, string nombreFactor, double valor, string nota = "")
+        {
+            int margen = 4;
+            int x = 10;
+            posicionlinea += Convert.ToInt32(altoTexto / 2);
+            string aux = "  " + nombreFactor + " = " + valor.ToString();
+            imprimirSubtitulo2(e,aux , posicionlinea);
+            SizeF largoString = e.Graphics.MeasureString(aux, fuenteSubtitulo2);
+            x += Convert.ToInt32(largoString.Width) + 10;
+            imprimirTexto(e, nota, posicionlinea, 1, x);
+            Rectangle rect = new Rectangle(0, posicionlinea-margen, Convert.ToInt32(largoString.Width)+margen*2, altoTexto+ margen * 2);
+            e.Graphics.DrawRectangle(penNegra, rect);
+            posicionlinea += Convert.ToInt32(altoTexto / 2);
+            return posicionlinea;
         }
 
         public static int imprimirTextoNegrita(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
@@ -188,7 +204,6 @@ namespace _398_UI
             return posicionlinea;
         }
 
-        //public static int imprimirEquipo(PrintPageEventArgs e, int posicionlinea, string institucion, int ALEoCo, string marca, string modelo, string nSerie, string energia)
         public static int imprimirEquipo(PrintPageEventArgs e, int posicionlinea, Equipo equipo, EnergiaFotones energia)
         {
             imprimirSubtitulo(e, "Unidad de tratamiento", posicionlinea);
@@ -288,25 +303,27 @@ namespace _398_UI
             posicionlinea += altoSubtitulo+ espacioParrafo;
             imprimirEtiquetaYValorx3(e, posicionlinea, "Temp: ", T, "Presión: ", P, "Humedad: ", Hum);
             posicionlinea += altoTexto+ espacioParrafo;
-            imprimirSubtitulo2(e, "KTP =" + KTP.ToString(), posicionlinea);
+            imprimirFactor(e, posicionlinea, "KTP", KTP);
             posicionlinea += altoTexto + espacioParrafo;
             return posicionlinea;
         }
 
         public static int imprimirKpol(PrintPageEventArgs e,int posicionlinea, double LMasV, double LMenosV, double Kpol, int medido)
         {
-            imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", LMasV.ToString(), "Lect(-V) = ", LMenosV.ToString());
-            posicionlinea += altoTexto + espacioParrafo;
-            string aux = "Kpol = " + Kpol.ToString();
-            if (medido == 2) //usa LB
+            if (medido==1)
             {
-                aux += " (kpol extraído de calibración de referencia)";
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", LMasV.ToString(), "Lect(-V) = ", LMenosV.ToString());
+                posicionlinea += altoTexto + espacioParrafo;
+                imprimirFactor(e, posicionlinea, "Kpol", Kpol);
             }
-            if (medido == 3) //no corrige
+            else if (medido == 2) //usa LB
             {
-                aux += " (no corrige por kpol)";
+                imprimirFactor(e, posicionlinea, "Kpol", Kpol,"(extraído de calibración de referencia)");
             }
-            imprimirSubtitulo(e, aux, posicionlinea);
+            else if (medido == 3) //no corrige
+            {
+                imprimirFactor(e, posicionlinea, "Kpol", Kpol, "(no se corrigió por ese factor)");
+            }
             posicionlinea += altoTexto + espacioParrafo;
             return posicionlinea;
         }
@@ -349,15 +366,6 @@ namespace _398_UI
             return x;
         }
 
-        public static void imprimirReporteCaliFotones(string Usuario, DateTime fecha, Equipo equipo, SistemaDosimetrico sistDosim,
-            int DFSoISO, double tamCampo, double profundidad, double UM, double Temp, double Presion, double Humedad, double KTP,
-            double LectVmas, double LectVmenos, double kpol, bool kpolNo, bool kpolUsaLB,
-            double LectVtot, double LectVred, double Vred, double ks, bool ksNo, bool ksUsaLB,
-            double L20, double L10, int TPRoPDD, double TPR210, double kqq0,
-            double Lref, double Mref, double Dwref, double Dwmax, double LB, double difLB, string nota, PrintEventArgs e, PrintDocument printDocument1)
-        {
-
-
-        }
+        
     }
 }

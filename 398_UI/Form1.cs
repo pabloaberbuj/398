@@ -53,8 +53,8 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
-            chEditarVKpol.Checked = false;
-            chEditarVKs.Checked = false;
+            chb_EditarVKpol.Checked = false;
+            chb_EditarVKs.Checked = false;
             InicializarInstitucionYMarcaEquipo();
 
 
@@ -301,7 +301,7 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            if (!chEditarVKpol.Checked)
+            if (!chb_EditarVKpol.Checked)
             {
                 return CalibracionFot.CalcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked);
             }
@@ -314,7 +314,7 @@ namespace _398_UI
 
         private void Prom_masV(object sender, EventArgs e)
         {
-            if (!chEditarVKpol.Checked)
+            if (!chb_EditarVKpol.Checked)
             {
                 escribirLabel(promediarPanel(Panel_LecRef), LB_LectmasVprom);
             }
@@ -338,7 +338,7 @@ namespace _398_UI
             {
                 return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Double.NaN, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
             }
-            else if (!chEditarVKs.Checked)
+            else if (!chb_EditarVKs.Checked)
             {
                 return CalibracionFot.CalcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked);
             }
@@ -350,7 +350,7 @@ namespace _398_UI
         }
         private void Prom_Vtot(object sender, EventArgs e)
         {
-            if (!chEditarVKs.Checked)
+            if (!chb_EditarVKs.Checked)
             {
                 escribirLabel(promediarPanel(Panel_LecRef), LB_lectVtotProm);
             }
@@ -556,7 +556,7 @@ namespace _398_UI
                 CHB_NoUsaKpol.Enabled = true;
                 CHB_UsaKpolLB.Enabled = true;
             }
-            if (!chEditarVKpol.Checked)
+            if (!chb_EditarVKpol.Checked)
             {
                 limpiarRegistro(Panel_LectmasV);
                 Panel_LectmasV.Enabled = false;
@@ -609,7 +609,7 @@ namespace _398_UI
                 CHB_NoUsaKs.Enabled = true;
                 CHB_UsaKsLB.Enabled = true;
             }
-            if (!chEditarVKs.Checked)
+            if (!chb_EditarVKs.Checked)
             {
                 limpiarRegistro(Panel_lectVtot);
                 Panel_lectVtot.Enabled = false;
@@ -654,8 +654,8 @@ namespace _398_UI
                     limpiarRegistro2Niveles(Panel_CalFot);
                     actualizarComboBoxCaliFotones();
                     inicializarPredeterminados(100, 10);
-                    chEditarVKpol.Checked = false;
-                    chEditarVKs.Checked = false;
+                    chb_EditarVKpol.Checked = false;
+                    chb_EditarVKs.Checked = false;
                     actualizarCalculos();
                     CB_caliFotRealizadoPor.Text = "";
                 }
@@ -668,8 +668,8 @@ namespace _398_UI
             limpiarRegistro2Niveles(Panel_CalFot);
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
-            chEditarVKpol.Checked = false;
-            chEditarVKs.Checked = false;
+            chb_EditarVKpol.Checked = false;
+            chb_EditarVKs.Checked = false;
             actualizarCalculos();
             CB_caliFotRealizadoPor.Text = "";
         }
@@ -1402,8 +1402,14 @@ namespace _398_UI
             posicionlinea += Imprimir.altoTexto;
             posicionlinea = Imprimir.imprimirUMyKTP(e, posicionlinea, TB_UM.Text, tbTemp.Text, tbPresion.Text, tbHumedad.Text, calculoKTP());
             posicionlinea += Imprimir.altoTexto;
-
-            posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), calculoKpol(),corrigeKpol);
+            if (chb_EditarVKpol.Checked)
+            {
+                posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
+            }
+            else
+            {
+                posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
+            }
         }
         #endregion
     }
