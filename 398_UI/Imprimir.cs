@@ -15,13 +15,14 @@ namespace _398_UI
     class Imprimir
     {
 
-        public static Font fuenteTitulo = new Font("Arial", 18, FontStyle.Bold);
-        public static Font fuenteSubtitulo = new Font("Arial", 14, FontStyle.Bold);
-        public static Font fuenteSubtitulo2 = new Font("Arial", 12, FontStyle.Bold);
-        public static Font fuenteTexto = new Font("Arial", 11, FontStyle.Regular);
-        public static Font fuenteTextoNegrita = new Font("Arial", 11, FontStyle.Bold);
-        public static Font fuenteTabla = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
-        public static Font fuenteTablaHeader = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+        public static Font fuenteTitulo = new Font("Arial", 14, FontStyle.Bold);
+        public static Font fuenteSubtitulo = new Font("Arial", 11, FontStyle.Bold);
+        public static Font fuenteSubtitulo2 = new Font("Arial", 10, FontStyle.Bold);
+        public static Font fuenteTexto = new Font("Arial", 9, FontStyle.Regular);
+        public static Font fuenteSubindice = new Font("Arial", 5, FontStyle.Regular);
+        public static Font fuenteTextoNegrita = new Font("Arial", 9, FontStyle.Bold);
+        public static Font fuenteTabla = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+        public static Font fuenteTablaHeader = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
         public static SolidBrush negro = new SolidBrush(Color.Black);
         public static Pen penNegra = new Pen(Color.Black, 2);
         public static StringFormat centro = new StringFormat
@@ -62,7 +63,7 @@ namespace _398_UI
             printDocument1.OriginAtMargins = true;
             printDocument1.DefaultPageSettings.Landscape = false;
             printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A4;
-            //printDocument1.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(300, 150, 500, 50);
+            printDocument1.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(100, 100, 50, 50);
 
             anchoTotal = Convert.ToInt32(printDocument1.DefaultPageSettings.PrintableArea.Width) - printDocument1.DefaultPageSettings.Margins.Left - printDocument1.DefaultPageSettings.Margins.Right;
             altoTotal = Convert.ToInt32(printDocument1.DefaultPageSettings.PrintableArea.Height) - printDocument1.DefaultPageSettings.Margins.Top - printDocument1.DefaultPageSettings.Margins.Bottom;
@@ -71,6 +72,28 @@ namespace _398_UI
         }
 
 
+
+        public static int imprimirTextoSubindice(PrintPageEventArgs e, string textoNormal, string textoSubindice, int posicionlinea, int x)
+        {
+            int largoTexto = Convert.ToInt32(e.Graphics.MeasureString(textoNormal, fuenteTexto).Width);
+            Rectangle rectTexto = new Rectangle(0, posicionlinea, anchoTotal, altoTexto);
+            e.Graphics.DrawString(textoNormal, fuenteTexto, negro, rectTexto);
+            int largoSubindice = Convert.ToInt32(e.Graphics.MeasureString(textoSubindice, fuenteSubindice).Width);
+            Rectangle rectSubindice = new Rectangle(largoTexto-3, posicionlinea + 5, anchoTotal, altoTexto);
+            e.Graphics.DrawString(textoSubindice, fuenteSubindice, negro, rectSubindice);
+            return largoTexto + largoSubindice;
+        }
+
+        public static int imprimirSubti2Subindice(PrintPageEventArgs e, string textoNormal, string textoSubindice, int posicionlinea, int x)
+        {
+            int largoTexto = Convert.ToInt32(e.Graphics.MeasureString(textoNormal, fuenteSubtitulo2).Width);
+            Rectangle rectTexto = new Rectangle(0, posicionlinea, anchoTotal, altoSubtitulo2);
+            e.Graphics.DrawString(textoNormal, fuenteSubtitulo2, negro, rectTexto);
+            int largoSubindice = Convert.ToInt32(e.Graphics.MeasureString(textoSubindice, fuenteSubindice).Width);
+            Rectangle rectSubindice = new Rectangle(largoTexto - 3, posicionlinea + 5, anchoTotal, altoTexto);
+            e.Graphics.DrawString(textoSubindice, fuenteSubindice, negro, rectSubindice);
+            return largoTexto + largoSubindice;
+        }
 
         public static void imprimirLinea(PrintPageEventArgs e, int posicionlinea)
         {
@@ -121,6 +144,7 @@ namespace _398_UI
             posicionlinea += Convert.ToInt32(altoTexto / 2);
             return posicionlinea;
         }
+                
 
         public static int imprimirTextoNegrita(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
         {
@@ -241,18 +265,14 @@ namespace _398_UI
             {
                 imprimirEtiquetaYValor(e, posicionlinea, "Técnica: ", "DFS fija", 0);
                 posicionlinea += altoTexto + espacioParrafo;
-                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo + "cm", 0);
-                posicionlinea += altoTexto + espacioParrafo;
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof + "cm", "PDD: ", TPRoPDD+"%");
+                imprimirEtiquetaYValorx3(e, posicionlinea, "Tamaño de campo: ", tamCampo + "cm x " + tamCampo + "cm", "Profundidad: ", prof + "cm", "PDD(zref): ", TPRoPDD + "%");
                 posicionlinea += altoTexto + espacioParrafo;
             }
             else if (DFSoISO == 2)
             {
                 imprimirEtiquetaYValor(e, posicionlinea, "Técnica: ", "Isocéntrico", 0);
                 posicionlinea += altoTexto + espacioParrafo;
-                imprimirEtiquetaYValor(e, posicionlinea, "Tamaño de campo: ", tamCampo+"cm", 0);
-                posicionlinea += altoTexto + espacioParrafo;
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Profundidad: ", prof+"cm", "TPR: ", TPRoPDD+"%");
+                imprimirEtiquetaYValorx3(e, posicionlinea, "Tamaño de campo: ", tamCampo + "cm x " + tamCampo + "cm", "Profundidad: ", prof + "cm", "TPR(zref): ", TPRoPDD + "%");
                 posicionlinea += altoTexto + espacioParrafo;
             }
 
@@ -279,15 +299,15 @@ namespace _398_UI
             posicionlinea += altoTexto + espacioParrafo;
             imprimirEtiquetaYValorx2(e, posicionlinea, "Factor de calibración: ", sistemaDosimetrico.FactorCalibracion.ToString() + "cGy/nC", "Haz de referencia: ", sistemaDosimetrico.HazDeRef);
             posicionlinea += altoTexto + espacioParrafo;
-            imprimirEtiquetaYValorx3(e, posicionlinea, "T0: ", sistemaDosimetrico.TempRef.ToString() + "ºC", "P0: ", sistemaDosimetrico.PresionRef.ToString() + "hPa", "Humedad: ", sistemaDosimetrico.HumedadRef.ToString()+"%");
+            imprimirEtiquetaYValorx3(e, posicionlinea, "T0: ", sistemaDosimetrico.TempRef.ToString() + "ºC", "P0: ", sistemaDosimetrico.PresionRef.ToString() + "hPa", "Hum: ", sistemaDosimetrico.HumedadRef.ToString()+"%");
             posicionlinea += altoTexto + espacioParrafo;
             if (sistemaDosimetrico.SignoTension==+1)
             {
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Tensión: ", sistemaDosimetrico.Tension.ToString()+"V", "Signo: ", "+");
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Tensión: ", sistemaDosimetrico.Tension.ToString()+"V", "Signo: ", "Positivo");
             }
             else
             {
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Tensión: ", sistemaDosimetrico.Tension.ToString() + "V", "Signo: ", "-");
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Tensión: ", sistemaDosimetrico.Tension.ToString() + "V", "Signo: ", "Negativo");
             }
             posicionlinea += altoTexto + espacioParrafo;
             return posicionlinea;
@@ -301,7 +321,7 @@ namespace _398_UI
             posicionlinea += espacioTitulo;
             imprimirEtiquetaYValor(e, posicionlinea, "UM: ", UM, 0);
             posicionlinea += altoSubtitulo+ espacioParrafo;
-            imprimirEtiquetaYValorx3(e, posicionlinea, "Temp: ", T, "Presión: ", P, "Humedad: ", Hum);
+            imprimirEtiquetaYValorx3(e, posicionlinea, "T: ", T + "ºC", "P: ", P + "hPa", "Hum: ", Hum + "%");
             posicionlinea += altoTexto+ espacioParrafo;
             imprimirFactor(e, posicionlinea, "KTP", KTP);
             posicionlinea += altoTexto + espacioParrafo;
@@ -312,7 +332,7 @@ namespace _398_UI
         {
             if (medido==1)
             {
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", LMasV.ToString(), "Lect(-V) = ", LMenosV.ToString());
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", LMasV.ToString() + "nC", "Lect(-V) = ", LMenosV.ToString() + "nC");
                 posicionlinea += altoTexto + espacioParrafo;
                 imprimirFactor(e, posicionlinea, "Kpol", Kpol);
             }
@@ -332,7 +352,7 @@ namespace _398_UI
         {
             if (medido == 1)
             {
-                imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", Ltot.ToString(), "Lect(Vred=" + Vred + "V) = ", Lred.ToString());
+                imprimirEtiquetaYValorx2(e, posicionlinea, "Lect(V) = ", Ltot.ToString() + "nC", "Lect(Vred=" + Vred + "V) = ", Lred.ToString() + "nC");
                 posicionlinea += altoTexto + espacioParrafo;
                 imprimirFactor(e, posicionlinea, "Ks", Ks);
             }
@@ -345,6 +365,72 @@ namespace _398_UI
                 imprimirFactor(e, posicionlinea, "Ks", Ks, "(no se corrigió por ese factor)");
             }
             posicionlinea += altoTexto + espacioParrafo;
+            return posicionlinea;
+        }
+
+        public static int imprimirTPRyKqq0(PrintPageEventArgs e,int posicionlinea, double L20, double L10, double TPR2010, double kqq0, int medido, int DoTPR)
+        {
+            if (medido ==1)
+            {
+                if (DoTPR==1)//D2010
+                {
+                    imprimirEtiquetaYValorx3(e, posicionlinea, "Lect20 = ", L20.ToString() + "nC", "Lect10 = ", L10.ToString() + "nC", "", " (medidos a DFS fija)");
+                }
+                else if (DoTPR==2)//TPR2010
+                {
+                    imprimirEtiquetaYValorx3(e, posicionlinea, "Lect20 = ", L20.ToString() + "nC", "Lect10 = ", L10.ToString() + "nC", "", " (medidos en isocentro)");
+                }
+                posicionlinea += altoTexto + espacioParrafo;
+                imprimirFactor(e, posicionlinea, "TPR2010", TPR2010);
+                posicionlinea += altoTexto + espacioParrafo*3;
+                imprimirFactor(e, posicionlinea, "Kqq0", kqq0);
+            }
+            else if (medido ==2) //usa LB
+            {
+                imprimirFactor(e, posicionlinea, "Kqq0", kqq0, "(extraído de calibración de referencia)");
+            }
+            posicionlinea += altoTexto + espacioParrafo;
+            return posicionlinea;
+        }
+
+        public static int imprimirTodoEnRef(PrintPageEventArgs e, int posicionlinea, double Lref, double Mref, double DwzRef, double DwzMax, double DifLB, bool hayPDDoTPR, bool hayLB)
+        {
+            imprimirEtiquetaYValor(e, posicionlinea, "Lectref: ", Lref.ToString() + "nC", 0);
+            posicionlinea += altoTexto + espacioParrafo;
+            int inicio = posicionlinea;
+            int margen = 2;
+            int x = 10;
+            //int x = 10+anchoTotal/3;
+            int numeroLineas = 2;
+            posicionlinea += Convert.ToInt32(altoTexto / 2);
+            string aux = "  Mref  = " + Mref.ToString();
+            imprimirSubtitulo(e, aux, posicionlinea);
+            double largoMax = e.Graphics.MeasureString(aux, fuenteSubtitulo2).Width;
+            posicionlinea += altoTexto + espacioParrafo;
+            aux = "  Dwzref  = " + DwzRef.ToString() + "cGy/UM";
+            imprimirSubtitulo(e, aux, posicionlinea);
+            largoMax = Math.Max(largoMax, e.Graphics.MeasureString(aux, fuenteSubtitulo2).Width);
+            if (hayPDDoTPR)
+            {
+                posicionlinea += altoTexto + espacioParrafo;
+                aux = "  Dwzmax  = " + DwzMax.ToString() + "cGy/UM";
+                imprimirSubtitulo(e, aux, posicionlinea);
+                largoMax = Math.Max(largoMax, e.Graphics.MeasureString(aux, fuenteSubtitulo2).Width);
+                numeroLineas++;
+            }
+            if (hayLB)
+            {
+                posicionlinea += altoTexto + espacioParrafo;
+                aux = "  Dif con referencia  = " + DifLB.ToString() + "%";
+                imprimirSubtitulo(e, aux, posicionlinea);
+                largoMax = Math.Max(largoMax, e.Graphics.MeasureString(aux, fuenteSubtitulo2).Width);
+                numeroLineas++;
+            }
+
+            x += Convert.ToInt32(largoMax) + 10;
+            Rectangle rect = new Rectangle(0, inicio  - margen, x + margen * 2, numeroLineas*(altoSubtitulo+espacioParrafo) + margen * 2);
+            e.Graphics.DrawRectangle(penNegra, rect);
+            posicionlinea += Convert.ToInt32(altoTexto / 2);
             return posicionlinea;
         }
 
