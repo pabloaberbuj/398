@@ -1325,16 +1325,16 @@ namespace _398_UI
 
         #region Imprimir
 
-     /*   private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            int posicionlinea = 30;
+        /*   private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+           {
+               int posicionlinea = 30;
 
-            printDocument1 = Imprimir.cargarConfiguracion();
+               printDocument1 = Imprimir.cargarConfiguracion();
 
-            Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
-            posicionlinea += (Imprimir.altoTitulo) * 3;
-            Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
-        }*/
+               Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
+               posicionlinea += (Imprimir.altoTitulo) * 3;
+               Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
+           }*/
 
 
 
@@ -1345,9 +1345,9 @@ namespace _398_UI
             pd = Imprimir.cargarConfiguracion();
             printPreviewDialog1.Document = pd;
             pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_1);
-            
+
             printPreviewDialog1.ShowDialog();
-            
+
 
         }
 
@@ -1362,117 +1362,113 @@ namespace _398_UI
             {
                 pd.Print();
             }
-           // printDialog1.ShowDialog();
+            // printDialog1.ShowDialog();
         }
 
         private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
         {
-            Imprimir.imprimirTextoSubindice(e, "texto", "subindice", 0, 0);
-            Imprimir.imprimirTextoSubindice(e, "V", "red", 50, 0);
-            Imprimir.imprimirTextoSubindice(e, "K", "qq0", 100, 0);
-            Imprimir.imprimirTextoSubindice(e, "K", "pol", 150, 0);
-            /*     int DFSoISO = 0;
-                 string TPRoPDD="";
-                 if (RB_CaliFDFSfija.Checked)
-                 {
-                     DFSoISO = 1;
-                     TPRoPDD = TB_CaliFPDDref.Text;
-                 }
-                 else if (RB_CaliFIso.Checked)
-                 {
-                     DFSoISO = 2;
-                     TPRoPDD = TB_CaliFTMRref.Text;
-                 }
-                 int corrigeKpol=1;
-                 if (CHB_UsaKpolLB.Checked)
-                 {
-                     corrigeKpol = 2;
-                 }
-                 else if (CHB_NoUsaKpol.Checked)
-                 {
-                     corrigeKpol = 3;
-                 }
-                 int corrigeKs = 1;
-                 if (CHB_UsaKsLB.Checked)
-                 {
-                     corrigeKs = 2;
-                 }
-                 else if (CHB_NoUsaKs.Checked)
-                 {
-                     corrigeKs = 3;
-                 }
-                 int corrigeKqq0 = 1;
-                 double TPR2010reporte = 0;
-                 int DoTPR2010 = 1;
-                 if (RB_CaliFD2010.Checked)
-                 {
-                     DoTPR2010 = 1;
-                 }
-                 if (RB_CaliFTPR2010.Checked)
-                 {
-                     DoTPR2010 = 2;
-                 }
-                 if (CHB_UsarKqq0LB.Checked)
-                 {
-                     corrigeKqq0 = 2;
-                 }
-                 else
-                 {
-                     TPR2010reporte = calculoTPR2010();
-                 }
-                 bool hayPDDoTPR = false;
-                 double dwzmaxreporte = 0;
-                 bool hayLB = false;
-                 double difLBreporte = 0;
-                 if (TB_CaliFPDDref.Text!="" || TB_CaliFTMRref.Text!="")
-                 {
-                     hayPDDoTPR = true;
-                     dwzmaxreporte = calculoDwZmax();
-                 }
-                 if (true)//falta armar bien los métodos
-                 //if (LineaBaseFotones.hayLineaBase(equipoSeleccionado(), energiaSeleccionada())) 
-                 {
-                     hayLB = true;
-                     difLBreporte = 5;
-                 }
+            int DFSoISO = 0;
+            string TPRoPDD = "";
+            if (RB_CaliFDFSfija.Checked)
+            {
+                DFSoISO = 1;
+                TPRoPDD = TB_CaliFPDDref.Text;
+            }
+            else if (RB_CaliFIso.Checked)
+            {
+                DFSoISO = 2;
+                TPRoPDD = TB_CaliFTMRref.Text;
+            }
+            int corrigeKpol = 1;
+            if (CHB_UsaKpolLB.Checked)
+            {
+                corrigeKpol = 2;
+            }
+            else if (CHB_NoUsaKpol.Checked)
+            {
+                corrigeKpol = 3;
+            }
+            int corrigeKs = 1;
+            if (CHB_UsaKsLB.Checked)
+            {
+                corrigeKs = 2;
+            }
+            else if (CHB_NoUsaKs.Checked)
+            {
+                corrigeKs = 3;
+            }
+            int corrigeKqq0 = 1;
+            double TPR2010reporte = 0;
+            int DoTPR2010 = 1;
+            if (RB_CaliFD2010.Checked)
+            {
+                DoTPR2010 = 1;
+            }
+            if (RB_CaliFTPR2010.Checked)
+            {
+                DoTPR2010 = 2;
+            }
+            if (CHB_UsarKqq0LB.Checked)
+            {
+                corrigeKqq0 = 2;
+            }
+            else
+            {
+                TPR2010reporte = calculoTPR2010();
+            }
+            bool hayPDDoTPR = false;
+            double dwzmaxreporte = 0;
+            bool hayLB = false;
+            double difLBreporte = 0;
+            if (TB_CaliFPDDref.Text != "" || TB_CaliFTMRref.Text != "")
+            {
+                hayPDDoTPR = true;
+                dwzmaxreporte = calculoDwZmax();
+            }
+            if (true)//falta armar bien los métodos
+                     //if (LineaBaseFotones.hayLineaBase(equipoSeleccionado(), energiaSeleccionada())) 
+            {
+                hayLB = true;
+                difLBreporte = 5;
+            }
 
-                 int posicionlinea = 30;
-                 posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
+            int posicionlinea = 30;
+            posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
 
-                 posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
-                 posicionlinea += Imprimir.altoTexto;
-                 posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado(), energiaSeleccionada());
-                 posicionlinea += Imprimir.altoTexto;
-                 posicionlinea = Imprimir.imprimirCondiciones(e, posicionlinea, DFSoISO, TB_CaliLadoCampo.Text, TB_CaliPRof.Text, TPRoPDD);
-                 posicionlinea += Imprimir.altoTexto;
-                 posicionlinea = Imprimir.imprimirSistemaDosimetrico(e, posicionlinea, sistDosimSeleccionado());
-                 posicionlinea += Imprimir.altoTexto;
-                 posicionlinea = Imprimir.imprimirUMyKTP(e, posicionlinea, TB_UM.Text, tbTemp.Text, tbPresion.Text, tbHumedad.Text, calculoKTP());
-                 posicionlinea += Imprimir.altoTexto;
-                 if (chb_EditarVKpol.Checked)
-                 {
-                     posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
-                 }
-                 else
-                 {
-                     posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
-                 }
-                 posicionlinea += Imprimir.altoTexto;
-                 if (chb_EditarVKs.Checked)
-                 {
-                     posicionlinea = Imprimir.imprimirKs(e, posicionlinea, promediarPanel(Panel_lectVtot),promediarPanel(Panel_LectVred), TB_Vred.Text, calculoKs(), corrigeKs);
-                 }
-                 else
-                 {
-                     posicionlinea = Imprimir.imprimirKs(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), TB_Vred.Text, calculoKs(), corrigeKs);
-                 }
-                 posicionlinea += Imprimir.altoTexto;
-                 if (equipoSeleccionado().Fuente==2) //ALE
-                 {
-                     posicionlinea = Imprimir.imprimirTPRyKqq0(e, posicionlinea, promediarPanel(Panel_Lect20), promediarPanel(Panel_Lect10), TPR2010reporte, calculokQQ0(), corrigeKqq0, DoTPR2010);
-                     posicionlinea += Imprimir.altoTexto;
-                 }
-                 posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB);*/
+            posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado(), energiaSeleccionada());
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea = Imprimir.imprimirCondiciones(e, posicionlinea, DFSoISO, TB_CaliLadoCampo.Text, TB_CaliPRof.Text, TPRoPDD);
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea = Imprimir.imprimirSistemaDosimetrico(e, posicionlinea, sistDosimSeleccionado());
+            posicionlinea += Imprimir.altoTexto;
+            posicionlinea = Imprimir.imprimirUMyKTP(e, posicionlinea, TB_UM.Text, tbTemp.Text, tbPresion.Text, tbHumedad.Text, calculoKTP());
+            posicionlinea += Imprimir.altoTexto;
+            if (chb_EditarVKpol.Checked)
+            {
+                posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
+            }
+            else
+            {
+                posicionlinea = Imprimir.imprimirKpol(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), calculoKpol(), corrigeKpol);
+            }
+            posicionlinea += Imprimir.altoTexto;
+            if (chb_EditarVKs.Checked)
+            {
+                posicionlinea = Imprimir.imprimirKs(e, posicionlinea, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), TB_Vred.Text, calculoKs(), corrigeKs);
+            }
+            else
+            {
+                posicionlinea = Imprimir.imprimirKs(e, posicionlinea, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), TB_Vred.Text, calculoKs(), corrigeKs);
+            }
+            posicionlinea += Imprimir.altoTexto;
+            if (equipoSeleccionado().Fuente == 2) //ALE
+            {
+                posicionlinea = Imprimir.imprimirTPRyKqq0(e, posicionlinea, promediarPanel(Panel_Lect20), promediarPanel(Panel_Lect10), TPR2010reporte, calculokQQ0(), corrigeKqq0, DoTPR2010);
+                posicionlinea += Imprimir.altoTexto;
+            }
+            posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB); 
         }
 
         #endregion
