@@ -181,8 +181,7 @@ namespace _398_UI
             posicionlinea += Convert.ToInt32(altoTexto / 2);
             return posicionlinea;
         }
-
-
+        
         public static int imprimirTextoNegrita(PrintPageEventArgs e, string texto, int posicionlinea, int numlineas, int x)
         {
             Rectangle rect = new Rectangle(x, posicionlinea, anchoTotal, altoTexto * numlineas);

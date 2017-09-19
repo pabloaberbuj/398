@@ -181,9 +181,13 @@ namespace _398_UI
             }
         }
 
-        public static double CalcularTPR2010(double LV20, double LV10, int PDDoTPR)
+        public static double CalcularTPR2010(double LV20, double LV10, int PDDoTPR, bool usarLB)
         {
-            if (PDDoTPR == 2)//está tildado D2010
+            if (usarLB)
+            {
+                return 3156;
+            }
+            else if (PDDoTPR == 2)//está tildado D2010
             {
                 double PDD20_10 = Math.Abs(LV20 / LV10);
                 return Math.Round(1.2661 * PDD20_10 - 0.0595, 4);
