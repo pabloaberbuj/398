@@ -21,9 +21,12 @@ namespace _398_UI
         public double Ktp { get; set; }
         public double TPR2010 { get; set; }
         public double Kqq0 { get; set; }
+        public int mideKqq0 { get; set; } //1 si 2 usaLB
         public double kpol { get; set; }
+        public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
         public double Vred { get; set; }
         public double ks { get; set; }
+        public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
@@ -39,7 +42,7 @@ namespace _398_UI
         }
 
         public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, double _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
-            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, double _kpol, double _vred, double _ks, double _mref, double _dwzref, double _dwzmax)
+            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, int _mideKqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax)
         {
             return new CalibracionFot()
             {
@@ -54,9 +57,12 @@ namespace _398_UI
                 Ktp = _ktp,
                 TPR2010 = _TPR2010,
                 Kqq0 = _kqq0,
+                mideKqq0 = _mideKqq0,
                 kpol = _kpol,
+                mideKpol = _mideKpol,
                 Vred = _vred,
                 ks = _ks,
+                mideKs = _mideKs,
                 Mref = _mref,
                 Dwzref = _dwzref,
                 Dwzmax = _dwzmax,

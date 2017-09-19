@@ -636,6 +636,9 @@ namespace _398_UI
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             double DFSoISO = 0;
+            int mideKqq0 = 1;
+            int mideKpol = 1;
+            int mideKs = 1;
             if (RB_CaliFDFSfija.Checked)
             {
                 DFSoISO = 1;
@@ -644,9 +647,29 @@ namespace _398_UI
             {
                 DFSoISO = 2;
             }
+            if (CHB_UsarKqq0LB.Checked)
+            {
+                mideKqq0 = 2;
+            }
+            if (CHB_UsaKpolLB.Checked)
+            {
+                mideKpol = 2;
+            }
+            else if (CHB_NoUsaKpol.Checked)
+            {
+                mideKpol = 3;
+            }
+            if (CHB_UsaKsLB.Checked)
+            {
+                mideKs = 2;
+            }
+            else if (CHB_NoUsaKs.Checked)
+            {
+                mideKs = 3;
+            }
             if (CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked))
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0, calculoKpol(), mideKpol,
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs, CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked))
             {
                 MessageBox.Show("Calibración guardada");
                 if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -677,6 +700,9 @@ namespace _398_UI
         private void BT_ExportarCaliFot_Click(object sender, EventArgs e)
         {
             double DFSoISO = 0;
+            int mideKqq0 = 1;
+            int mideKpol = 1;
+            int mideKs = 1;
             if (RB_CaliFDFSfija.Checked)
             {
                 DFSoISO = 1;
@@ -685,9 +711,29 @@ namespace _398_UI
             {
                 DFSoISO = 2;
             }
-            CalibracionFot.exportarUnaCalibracion(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), calculoKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()));
+            if (CHB_UsarKqq0LB.Checked)
+            {
+                mideKqq0 = 2;
+            }
+            if (CHB_UsaKpolLB.Checked)
+            {
+                mideKpol = 2;
+            }
+            else if (CHB_NoUsaKpol.Checked)
+            {
+                mideKpol = 3;
+            }
+            if (CHB_UsaKsLB.Checked)
+            {
+                mideKs = 2;
+            }
+            else if (CHB_NoUsaKs.Checked)
+            {
+                mideKs = 3;
+            }
+            CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0, calculoKpol(), mideKpol,
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs, CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked);
         }
 
         #endregion
