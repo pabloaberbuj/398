@@ -262,40 +262,13 @@ namespace _398_UI
         //TPR 2010 y Kqq0
         private double calculoTPR2010()
         {
-            int TPRoD = 0;
-            int DFSoISO = 0;
-            if (RB_CaliFTPR2010.Checked)
-            {
-                TPRoD = 1;
-            }
-            else if (RB_CaliFD2010.Checked)
-            {
-                TPRoD = 2;
-            }
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
-
-            return CalibracionFot.calcularTPR2010(promediarPanel(Panel_Lect20), promediarPanel(Panel_Lect10), TPRoD, CHB_UsarKqq0LB.Checked, equipoSeleccionado(), energiaSeleccionada(),DFSoISO);
+            return CalibracionFot.calcularTPR2010(promediarPanel(Panel_Lect20), promediarPanel(Panel_Lect10), TPRoD2010(), CHB_UsarKqq0LB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
         }
 
         private double calculokQQ0()
         {
-            int DFSoISO = 0;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
-            return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO);
+            
+            return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO());
         }
 
 
@@ -320,22 +293,13 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            int DFSoISO = 0;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
             if (!chb_EditarVKpol.Checked)
             {
-                return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(),DFSoISO);
+                return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
             }
             else
             {
-                return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(),DFSoISO);
+                return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
             }
         }
 
@@ -361,26 +325,17 @@ namespace _398_UI
         //Ks
         private double calculoKs()
         {
-            int DFSoISO = 0;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
             if (CHB_NoUsaKs.Checked || CHB_UsaKsLB.Checked)
             {
-                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Double.NaN, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(),DFSoISO);
+                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Double.NaN, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
             }
             else if (!chb_EditarVKs.Checked)
             {
-                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO);
+                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
             }
             else
             {
-                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO);
+                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
             }
 
         }
@@ -479,20 +434,6 @@ namespace _398_UI
                 chequearKpol();
                 chequearKs();
             }
-
-        }
-
-        private double kqq0LineaBase()
-        {
-            return 234324;
-        }
-        private double kpolLineaBase()
-        {
-            return 78237498;
-        }
-        public double ksLineaBase()
-        {
-            return 7432894;
         }
         #endregion
 
@@ -549,16 +490,7 @@ namespace _398_UI
             }
             else if (CHB_UsarKqq0LB.Checked)
             {
-                int DFSoISO = 0;
-                if (RB_CaliFDFSfija.Checked)
-                {
-                    DFSoISO = 1;
-                }
-                else if (RB_CaliFIso.Checked)
-                {
-                    DFSoISO = 2;
-                }
-                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(),DFSoISO))
+               if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
                 {
                     CHB_UsarKqq0LB.Checked = false;
                     L_CaliFTPR2010.Visible = false;
@@ -587,15 +519,6 @@ namespace _398_UI
 
         private void chequearKpol()
         {
-            int DFSoISO = 0;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
             if (CHB_NoUsaKpol.Checked)
             {
                 Panel_LecKpol.Enabled = false;
@@ -608,7 +531,7 @@ namespace _398_UI
             }
             else if (CHB_UsaKpolLB.Checked)
             {
-                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO))
+                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
                 {
                     CHB_UsaKpolLB.Checked = false;
                     L_Kpol.Visible = false;
@@ -655,15 +578,6 @@ namespace _398_UI
 
         private void chequearKs()
         {
-            int DFSoISO = 0;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
             if (CHB_NoUsaKs.Checked)
             {
                 Panel_LecKs.Enabled = false;
@@ -678,7 +592,7 @@ namespace _398_UI
             }
             else if (CHB_UsaKsLB.Checked)
             {
-                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(),DFSoISO))
+                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
                 {
                     CHB_UsaKsLB.Checked = false;
                     L_Ks.Visible = false;
@@ -697,7 +611,7 @@ namespace _398_UI
                     CHB_NoUsaKs.Enabled = false;
                     CHB_NoUsaKs.Checked = false;
                 }
-                
+
             }
             else
             {
@@ -723,7 +637,14 @@ namespace _398_UI
                 escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
                 Panel_lectVtot.Enabled = true;
             }
+        }
 
+        private void chequearLB()
+        {
+            if (!(RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) || CB_CaliEquipos.SelectedIndex ==-1 || CB_CaliEnergias.SelectedIndex ==-1)
+            {
+                MessageBox.Show("Debe elegir equipo, energía y condiciones de medición \n para poder cargar valores de referencia");
+            }
         }
 
         #endregion
@@ -732,41 +653,9 @@ namespace _398_UI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            double DFSoISO = 0;
-            int mideKqq0 = 1;
-            int mideKpol = 1;
-            int mideKs = 1;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
-            if (CHB_UsarKqq0LB.Checked)
-            {
-                mideKqq0 = 2;
-            }
-            if (CHB_UsaKpolLB.Checked)
-            {
-                mideKpol = 2;
-            }
-            else if (CHB_NoUsaKpol.Checked)
-            {
-                mideKpol = 3;
-            }
-            if (CHB_UsaKsLB.Checked)
-            {
-                mideKs = 2;
-            }
-            else if (CHB_NoUsaKs.Checked)
-            {
-                mideKs = 3;
-            }
-            if (CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0, calculoKpol(), mideKpol,
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs, CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked))
+            if (CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked))
             {
                 MessageBox.Show("Calibración guardada");
                 if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -796,41 +685,9 @@ namespace _398_UI
 
         private void BT_ExportarCaliFot_Click(object sender, EventArgs e)
         {
-            double DFSoISO = 0;
-            int mideKqq0 = 1;
-            int mideKpol = 1;
-            int mideKs = 1;
-            if (RB_CaliFDFSfija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_CaliFIso.Checked)
-            {
-                DFSoISO = 2;
-            }
-            if (CHB_UsarKqq0LB.Checked)
-            {
-                mideKqq0 = 2;
-            }
-            if (CHB_UsaKpolLB.Checked)
-            {
-                mideKpol = 2;
-            }
-            else if (CHB_NoUsaKpol.Checked)
-            {
-                mideKpol = 3;
-            }
-            if (CHB_UsaKsLB.Checked)
-            {
-                mideKs = 2;
-            }
-            else if (CHB_NoUsaKs.Checked)
-            {
-                mideKs = 3;
-            }
-            CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO, Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0, calculoKpol(), mideKpol,
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs, CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked);
+            CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked);
         }
 
         #endregion
@@ -1459,9 +1316,69 @@ namespace _398_UI
             return energiaSeleccionada().TmrZrefFot;
         }
 
+        private int DFSoISO()
+        {
+            int DFSoISO = 0;
+            if (RB_CaliFDFSfija.Checked)
+            {
+                DFSoISO = 1;
+            }
+            else if (RB_CaliFIso.Checked)
+            {
+                DFSoISO = 2;
+            }
+            return DFSoISO;
+        }
+        private int TPRoD2010()
+        {
+            int TPRoD = 0;
+            if (RB_CaliFTPR2010.Checked)
+            {
+                TPRoD = 1;
+            }
+            else if (RB_CaliFD2010.Checked)
+            {
+                TPRoD = 2;
+            }
+            return TPRoD;
+        }
 
+        private int mideKqq0()
+        {
+            int mideKqq0 = 1;
+            if (CHB_UsarKqq0LB.Checked)
+            {
+                mideKqq0 = 2;
+            }
+            return mideKqq0;
+        }
+        private int mideKs()
+        {
+            int mideKs = 1;
+            if (CHB_UsaKsLB.Checked)
+            {
+                mideKs = 2;
+            }
+            else if (CHB_NoUsaKs.Checked)
+            {
+                mideKs = 3;
+            }
+            return mideKs;
+        }
 
-
+        private int mideKpol()
+        {
+            int mideKpol = 1;
+            if (CHB_UsaKpolLB.Checked)
+            {
+                mideKpol = 2;
+            }
+            else if (CHB_NoUsaKpol.Checked)
+            {
+                mideKpol = 3;
+            }
+            return mideKpol;
+        }
 
 
         #endregion
