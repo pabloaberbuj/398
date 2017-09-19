@@ -13,7 +13,7 @@ namespace _398_UI
             bool hayLB = false;
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo == equipo && cali.Energia == energia && cali.EsReferencia)
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.EsReferencia)
                 {
                     hayLB = true;
                     break;
@@ -22,12 +22,12 @@ namespace _398_UI
             return hayLB;
         }
 
-        public static CalibracionFot obtenerCaliLineaBase(Equipo equipo)
+        public static CalibracionFot obtenerCaliLineaBase(Equipo equipo, EnergiaFotones energia)
         {
             CalibracionFot caliLB = new CalibracionFot();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo == equipo && cali.EsReferencia)
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.EsReferencia)
                 {
                     caliLB = cali;
                     break;
@@ -40,12 +40,13 @@ namespace _398_UI
         {
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo == equipo)
+                if (cali.Equipo.Equals(equipo))
                 {
                     cali.EsReferencia = false;
                 }
             }
             califot.EsReferencia = true;
         }
+
     }
 }
