@@ -118,7 +118,7 @@ namespace _398_UI
             return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P, 4);
         }
 
-        public static double calcularKpol(int signopol, double LVmas, double LVmenos, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia)
+        public static double calcularKpol(int signopol, double LVmas, double LVmenos, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, double DFSoISO)
         {
             if (noUsa)
             {
@@ -126,7 +126,7 @@ namespace _398_UI
             }
             else if (usaLB)
             {
-                return LineaBaseFotones.obtenerCaliLineaBase(equipo, energia).kpol;
+                return obtenerCaliReferencia(equipo, energia, DFSoISO).kpol;
             }
             else
             {
@@ -141,7 +141,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia)
+        public static double calcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, double DFSoISO)
         {
             if (noUsa)
             {
@@ -149,7 +149,7 @@ namespace _398_UI
             }
             else if (usaLB)
             {
-                return LineaBaseFotones.obtenerCaliLineaBase(equipo, energia).ks;
+                return obtenerCaliReferencia(equipo, energia, DFSoISO).ks;
             }
             else
             {
@@ -187,11 +187,11 @@ namespace _398_UI
             }
         }
 
-        public static double calcularTPR2010(double LV20, double LV10, int PDDoTPR, bool usarLB, Equipo equipo, EnergiaFotones energia)
+        public static double calcularTPR2010(double LV20, double LV10, int PDDoTPR, bool usarLB, Equipo equipo, EnergiaFotones energia, double DFSoISO)
         {
             if (usarLB)
             {
-                return LineaBaseFotones.obtenerCaliLineaBase(equipo, energia).TPR2010;
+                return obtenerCaliReferencia(equipo, energia, DFSoISO).TPR2010;
             }
             else if (PDDoTPR == 2)//está tildado D2010
             {
@@ -204,7 +204,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKqq0(double TPR2010, Camara camara, Equipo equipo, bool usarLB, EnergiaFotones energia)
+        public static double calcularKqq0(double TPR2010, Camara camara, Equipo equipo, bool usarLB, EnergiaFotones energia, double DFSoISO)
         {
             if (equipo.Fuente == 1)
             {
@@ -212,7 +212,7 @@ namespace _398_UI
             }
             else if (usarLB)
             {
-                return LineaBaseFotones.obtenerCaliLineaBase(equipo, energia).Kqq0;
+                return obtenerCaliReferencia(equipo, energia, DFSoISO).Kqq0;
             }
             else
             {
