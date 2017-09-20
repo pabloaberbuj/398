@@ -21,6 +21,16 @@ namespace _398_UI
         bool editaEquipo = false;
         bool editaEnergiaFot = false;
         bool editaEnergiaElect = false;
+        bool calculaKtpFot = false;
+        bool calculaTPR2010Fot = false;
+        bool calculaKqq0Fot = false;
+        bool calculaKsFot = false;
+        bool calculaKpolFot = false;
+        bool calculaMrefFot = false;
+        bool calculaDwzrefFot = false;
+        bool calculaDwzmaxFot = false;
+        bool calculaDifLBFot = false;
+
 
 
 
@@ -422,17 +432,18 @@ namespace _398_UI
         {
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
-                escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
-                escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio" || CHB_UsarKqq0LB.Checked == true, calculoTPR2010, L_CaliFTPR2010);
-                escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0, GB_FactorDeCalidad);
-                escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
-                escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
-                escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
-                escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
-                escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
+               calculaKtpFot= escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
+               calculaTPR2010Fot = escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio" || CHB_UsarKqq0LB.Checked == true, calculoTPR2010, L_CaliFTPR2010);
+               calculaKqq0Fot = escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0, GB_FactorDeCalidad);
+               calculaKpolFot = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
+               calculaKsFot =  escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
+               calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
+               calculaDwzrefFot = escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
+               calculaDwzmaxFot = escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
                 chequearKqq0();
                 chequearKpol();
                 chequearKs();
+                habilitarBotonesCaliFotones();
             }
         }
         #endregion
@@ -652,7 +663,6 @@ namespace _398_UI
             {
                 return true;
             }
-
         }
 
         #endregion
@@ -696,6 +706,14 @@ namespace _398_UI
             CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
                 Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
                 Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked);
+        }
+
+        private void habilitarBotonesCaliFotones()
+        {
+            habilitarBoton(calculaDwzrefFot, BT_CaliFGuardar);
+            habilitarBoton(calculaDwzrefFot, Bt_ReporteVP);
+            habilitarBoton(calculaDwzrefFot, BT_ReporteImp);
+            habilitarBoton(calculaDwzrefFot, BT_ExportarCaliFot);
         }
 
         #endregion
@@ -1236,40 +1254,45 @@ namespace _398_UI
             return promedio;
 
         }
-        public static void escribirLabel(double valor, Label label)
+        public static bool escribirLabel(double valor, Label label)
         {
             if (!Double.IsNaN(valor))
             {
                 label.Text = valor.ToString();
                 label.Visible = true;
+                return true;
             }
             else
             {
                 label.Text = "Vacio";
                 label.Visible = false;
+                return false;
             }
         }
 
-        public static void escribirLabel(bool test, Func<double> metodo, Label label)
+        public static bool escribirLabel(bool test, Func<double> metodo, Label label)
         {
             if (test)
             {
                 label.Text = metodo().ToString();
                 label.Visible = true;
+                return true;
             }
             else
             {
                 label.Text = "Vacio";
                 label.Visible = false;
+                return false;
             }
         }
 
-        public static void escribirLabel(bool test, Func<double> metodo, Label label, GroupBox gb)
+        public static bool escribirLabel(bool test, Func<double> metodo, Label label, GroupBox gb)
         {
             if (test)
             {
                 label.Text = metodo().ToString();
                 label.Visible = true;
+                return true;
             }
             else
             {
@@ -1279,6 +1302,7 @@ namespace _398_UI
                 {
                     panel.Enabled = true;
                 }
+                return false;
             }
         }
 
@@ -1291,6 +1315,18 @@ namespace _398_UI
                     MessageBox.Show("Debe ingresar un número");
                     ((TextBox)sender).Focus(); ((TextBox)sender).SelectAll();
                 }
+            }
+        }
+
+        private void habilitarBoton(bool test, Button bt)
+        {
+            if (test)
+            {
+                bt.Enabled = true;
+            }
+            else
+            {
+                bt.Enabled = false;
             }
         }
 
