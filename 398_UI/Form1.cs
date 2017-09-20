@@ -277,7 +277,7 @@ namespace _398_UI
 
         private double calculokQQ0()
         {
-            
+
             return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO());
         }
 
@@ -409,6 +409,11 @@ namespace _398_UI
             }
         }
 
+        private double calculoDifConRef()
+        {
+            return CalibracionFot.calcularDifConRef(calculoDwRef(), equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+        }
+
         private void Prom_Lref(object sender, EventArgs e)
         {
             escribirLabel(promediarPanel(Panel_LecRef), LB_LecRefProm);
@@ -432,14 +437,15 @@ namespace _398_UI
         {
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
-               calculaKtpFot= escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
-               calculaTPR2010Fot = escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio" || CHB_UsarKqq0LB.Checked == true, calculoTPR2010, L_CaliFTPR2010);
-               calculaKqq0Fot = escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0, GB_FactorDeCalidad);
-               calculaKpolFot = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
-               calculaKsFot =  escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
-               calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
-               calculaDwzrefFot = escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
-               calculaDwzmaxFot = escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
+                calculaKtpFot = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
+                calculaTPR2010Fot = escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio" || CHB_UsarKqq0LB.Checked == true, calculoTPR2010, L_CaliFTPR2010);
+                calculaKqq0Fot = escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0, GB_FactorDeCalidad);
+                calculaKpolFot = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
+                calculaKsFot = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
+                calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
+                calculaDwzrefFot = escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
+                calculaDwzmaxFot = escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
+                calculaDifLBFot = escribirLabel(calculaDwzrefFot && hayLB(), calculoDifConRef, L_CaliFDifLB);
                 chequearKqq0();
                 chequearKpol();
                 chequearKs();
@@ -649,7 +655,7 @@ namespace _398_UI
 
         private bool hayLB()
         {
-            if (!(RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) || CB_CaliEquipos.SelectedIndex ==-1 || CB_CaliEnergias.SelectedIndex ==-1)
+            if (!(RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) || CB_CaliEquipos.SelectedIndex == -1 || CB_CaliEnergias.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe elegir equipo, energía y condiciones de medición \npara poder cargar valores de referencia");
                 return false;

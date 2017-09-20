@@ -237,6 +237,12 @@ namespace _398_UI
             return Math.Round(Dwref * rendimientoEnRef / 100, 4);
         }
 
+        public static double calcularDifConRef(double Dwref, Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        {
+            double DwrefLB = obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref;
+            return Math.Round((Dwref - DwrefLB) / DwrefLB * 100,4);
+        }
+
         //linea base
 
         public static bool hayReferencia(Equipo equipo, EnergiaFotones energia, double DFSoISO)
