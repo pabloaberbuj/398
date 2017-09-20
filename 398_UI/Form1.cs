@@ -490,14 +490,13 @@ namespace _398_UI
             }
             else if (CHB_UsarKqq0LB.Checked)
             {
-               if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
+                if (!hayLB())
                 {
                     CHB_UsarKqq0LB.Checked = false;
                     L_CaliFTPR2010.Visible = false;
                     L_CaliFKqq0.Visible = false;
                     L_CaliFTPR2010.Text = "Vacio";
                     L_CaliFKqq0.Text = "Vacio";
-                    MessageBox.Show("No se registra una calibración de referencia para este equipo, energía y condición");
                 }
                 else
                 {
@@ -531,12 +530,11 @@ namespace _398_UI
             }
             else if (CHB_UsaKpolLB.Checked)
             {
-                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
+                if (!hayLB())
                 {
                     CHB_UsaKpolLB.Checked = false;
                     L_Kpol.Visible = false;
                     L_Kpol.Text = "Vacio";
-                    MessageBox.Show("No se registra una calibración de referencia para este equipo, energía y condición");
                 }
                 else
                 {
@@ -592,12 +590,11 @@ namespace _398_UI
             }
             else if (CHB_UsaKsLB.Checked)
             {
-                if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
+                if (!hayLB())
                 {
                     CHB_UsaKsLB.Checked = false;
                     L_Ks.Visible = false;
                     L_Ks.Text = "Vacio";
-                    MessageBox.Show("No se registra una calibración de referencia para este equipo, energía y condición");
                 }
                 else
                 {
@@ -639,12 +636,23 @@ namespace _398_UI
             }
         }
 
-        private void chequearLB()
+        private bool hayLB()
         {
             if (!(RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) || CB_CaliEquipos.SelectedIndex ==-1 || CB_CaliEnergias.SelectedIndex ==-1)
             {
-                MessageBox.Show("Debe elegir equipo, energía y condiciones de medición \n para poder cargar valores de referencia");
+                MessageBox.Show("Debe elegir equipo, energía y condiciones de medición \npara poder cargar valores de referencia");
+                return false;
             }
+            else if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
+            {
+                MessageBox.Show("No se registra una calibración de referencia para este equipo, energía y condición");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
 
         #endregion
