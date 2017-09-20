@@ -2856,6 +2856,7 @@
             this.TB_ModeloElec.Name = "TB_ModeloElec";
             this.TB_ModeloElec.Size = new System.Drawing.Size(100, 20);
             this.TB_ModeloElec.TabIndex = 8;
+            this.TB_ModeloElec.TextChanged += new System.EventHandler(this.habilitarElecBotones);
             // 
             // TB_MarcaElec
             // 
@@ -2863,6 +2864,7 @@
             this.TB_MarcaElec.Name = "TB_MarcaElec";
             this.TB_MarcaElec.Size = new System.Drawing.Size(100, 20);
             this.TB_MarcaElec.TabIndex = 7;
+            this.TB_MarcaElec.TextChanged += new System.EventHandler(this.habilitarElecBotones);
             // 
             // BT_EliminarElec
             // 
@@ -2904,6 +2906,7 @@
             this.DGV_Elec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Elec.Size = new System.Drawing.Size(362, 150);
             this.DGV_Elec.TabIndex = 19;
+            this.DGV_Elec.SelectionChanged += new System.EventHandler(this.habilitarElecBotones);
             // 
             // TB_SNElec
             // 
@@ -2911,6 +2914,7 @@
             this.TB_SNElec.Name = "TB_SNElec";
             this.TB_SNElec.Size = new System.Drawing.Size(100, 20);
             this.TB_SNElec.TabIndex = 9;
+            this.TB_SNElec.TextChanged += new System.EventHandler(this.habilitarElecBotones);
             // 
             // LB_SNElec
             // 
@@ -3009,6 +3013,7 @@
             this.DGV_Cam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Cam.Size = new System.Drawing.Size(362, 150);
             this.DGV_Cam.TabIndex = 7;
+            this.DGV_Cam.SelectionChanged += new System.EventHandler(this.habilitarCamBotones);
             // 
             // CB_ModCam
             // 
@@ -3018,6 +3023,7 @@
             this.CB_ModCam.Name = "CB_ModCam";
             this.CB_ModCam.Size = new System.Drawing.Size(132, 21);
             this.CB_ModCam.TabIndex = 2;
+            this.CB_ModCam.SelectedIndexChanged += new System.EventHandler(this.habilitarCamBotones);
             // 
             // CB_MarcaCam
             // 
@@ -3035,6 +3041,7 @@
             this.TB_SNCam.Name = "TB_SNCam";
             this.TB_SNCam.Size = new System.Drawing.Size(100, 20);
             this.TB_SNCam.TabIndex = 3;
+            this.TB_SNCam.TextChanged += new System.EventHandler(this.habilitarCamBotones);
             // 
             // LB_SNCam
             // 
@@ -3679,8 +3686,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_SistDos);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);

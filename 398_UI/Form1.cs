@@ -1046,6 +1046,7 @@ namespace _398_UI
             {
                 CB_ModCam.SelectedIndex = -1;
             }
+            habilitarCamBotones(sender, e);
         }
         #endregion
 
@@ -1067,6 +1068,7 @@ namespace _398_UI
             DGV_Cam.Enabled = false;
             Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam);
             editaCam = true;
+            habilitarCamBotones(sender, e);
         }
 
         private void BT_Camara_Cancelar_Click(object sender, EventArgs e)
@@ -1074,6 +1076,13 @@ namespace _398_UI
             limpiarRegistro(GB_Camaras);
             DGV_Cam.Enabled = true;
             editaCam = false;
+        }
+
+        private void habilitarCamBotones(object sender, EventArgs e)
+        {
+            habilitarBoton(CB_MarcaCam.SelectedIndex != -1 && CB_ModCam.SelectedIndex != -1 && TB_SNCam.Text != "", BT_GuardarCam);
+            habilitarBoton(DGV_Cam.SelectedRows.Count == 1, BT_EditarCam);
+            habilitarBoton(DGV_Cam.SelectedRows.Count > 0, BT_EliminarCam);
         }
 
         #endregion
@@ -1096,6 +1105,7 @@ namespace _398_UI
             DGV_Elec.Enabled = false;
             Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
             editaElec = true;
+            habilitarElecBotones(sender,e);
         }
 
         private void BT_Electrometro_Cancelar_Click(object sender, EventArgs e)
@@ -1103,6 +1113,13 @@ namespace _398_UI
             limpiarRegistro(GB_Electrómetros);
             DGV_Elec.Enabled = true;
             editaElec = false;
+        }
+
+        private void habilitarElecBotones(object sender, EventArgs e)
+        {
+            habilitarBoton(TB_MarcaElec.Text != "" && TB_ModeloElec.Text != "" && TB_SNElec.Text != "", BT_GuardarElec);
+            habilitarBoton(DGV_Elec.SelectedRows.Count == 1, BT_EditarElec);
+            habilitarBoton(DGV_Elec.SelectedRows.Count > 0, BT_EliminarElec);
         }
         #endregion
 

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class Electrometro:Objeto
+    public class Electrometro : Objeto
     {
         public static string file = @"..\..\electrometros.txt";
         public string Marca { get; set; }
@@ -64,7 +64,7 @@ namespace _398_UI
             {
                 foreach (DataGridViewRow fila in DGV.SelectedRows)
                 {
-                    if (SistemaDosimetrico.lista().SingleOrDefault(s => s.electrometro.EtiquetaElec == lista()[fila.Index].EtiquetaElec) != null)
+                    if (SistemaDosimetrico.lista().FirstOrDefault(s => s.electrometro.Equals(lista()[fila.Index])) != null)
                     {
                         mensaje = "Al menos una de los electrómetros seleccionados pertenece a un sistema dosimétrico \n ¿Desea borrar el/los registro/s?";
                     }
