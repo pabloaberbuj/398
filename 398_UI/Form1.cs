@@ -1131,6 +1131,7 @@ namespace _398_UI
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             actualizarComboBoxCaliFotones();
+            habilitarSistDosBotones(sender, e);
         }
 
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
@@ -1157,6 +1158,15 @@ namespace _398_UI
         private void BT_ExportarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.exportar(DGV_SistDos);
+        }
+
+        private void habilitarSistDosBotones(object sender, EventArgs e)
+        {
+            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_ExportarSistDos);
+            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_EditarSistDos);
+            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_PredSistDos);
+            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_SistDosIraCal);
+            habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_EliminarSistDos);
         }
 
         #endregion

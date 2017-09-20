@@ -2819,6 +2819,7 @@
             this.DGV_SistDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_SistDos.Size = new System.Drawing.Size(594, 220);
             this.DGV_SistDos.TabIndex = 13;
+            this.DGV_SistDos.SelectionChanged += new System.EventHandler(this.habilitarSistDosBotones);
             // 
             // GB_Electrómetros
             // 
