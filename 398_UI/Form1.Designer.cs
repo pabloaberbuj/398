@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -1920,6 +1920,7 @@
             this.cb_MarcaEq.Name = "cb_MarcaEq";
             this.cb_MarcaEq.Size = new System.Drawing.Size(167, 21);
             this.cb_MarcaEq.TabIndex = 76;
+            this.cb_MarcaEq.TextChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // cb_InstitucionEq
             // 
@@ -1928,6 +1929,7 @@
             this.cb_InstitucionEq.Name = "cb_InstitucionEq";
             this.cb_InstitucionEq.Size = new System.Drawing.Size(167, 21);
             this.cb_InstitucionEq.TabIndex = 75;
+            this.cb_InstitucionEq.TextChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // label87
             // 
@@ -1958,6 +1960,7 @@
             this.DGV_Equipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Equipo.Size = new System.Drawing.Size(643, 171);
             this.DGV_Equipo.TabIndex = 71;
+            this.DGV_Equipo.SelectionChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // Panel_TipoHazEq
             // 
@@ -1979,6 +1982,7 @@
             this.RB_PulsadoYBarrido.TabStop = true;
             this.RB_PulsadoYBarrido.Text = "Pulsado y Barrido";
             this.RB_PulsadoYBarrido.UseVisualStyleBackColor = true;
+            this.RB_PulsadoYBarrido.CheckedChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // RB_Pulsado
             // 
@@ -1990,6 +1994,7 @@
             this.RB_Pulsado.TabStop = true;
             this.RB_Pulsado.Text = "Pulsado";
             this.RB_Pulsado.UseVisualStyleBackColor = true;
+            this.RB_Pulsado.CheckedChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // Panel_FuenteEq
             // 
@@ -2060,6 +2065,7 @@
             this.TB_AliasEq.Name = "TB_AliasEq";
             this.TB_AliasEq.Size = new System.Drawing.Size(167, 20);
             this.TB_AliasEq.TabIndex = 4;
+            this.TB_AliasEq.TextChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // label18
             // 
@@ -2290,6 +2296,7 @@
             this.DGV_EnElec.Size = new System.Drawing.Size(156, 134);
             this.DGV_EnElec.TabIndex = 109;
             this.DGV_EnElec.Visible = false;
+            this.DGV_EnElec.SelectionChanged += new System.EventHandler(this.habilitarEqEnElecBotones);
             // 
             // label65
             // 
@@ -2306,6 +2313,7 @@
             this.TB_EnElecPDDZref.Name = "TB_EnElecPDDZref";
             this.TB_EnElecPDDZref.Size = new System.Drawing.Size(43, 20);
             this.TB_EnElecPDDZref.TabIndex = 16;
+            this.TB_EnElecPDDZref.TextChanged += new System.EventHandler(this.habilitarEqEnElecBotones);
             // 
             // label66
             // 
@@ -2350,6 +2358,7 @@
             this.TB_EnElecR50ion.Name = "TB_EnElecR50ion";
             this.TB_EnElecR50ion.Size = new System.Drawing.Size(43, 20);
             this.TB_EnElecR50ion.TabIndex = 15;
+            this.TB_EnElecR50ion.TextChanged += new System.EventHandler(this.habilitarEqEnElecBotones);
             this.TB_EnElecR50ion.Leave += new System.EventHandler(this.TB_EnElecR50ion_Leave);
             // 
             // TB_EnElecEn
@@ -2358,6 +2367,7 @@
             this.TB_EnElecEn.Name = "TB_EnElecEn";
             this.TB_EnElecEn.Size = new System.Drawing.Size(43, 20);
             this.TB_EnElecEn.TabIndex = 14;
+            this.TB_EnElecEn.TextChanged += new System.EventHandler(this.habilitarEqEnElecBotones);
             this.TB_EnElecEn.Leave += new System.EventHandler(this.TB_EnElecEn_Leave);
             // 
             // label70
@@ -2469,6 +2479,7 @@
             this.DGV_EnFot.Size = new System.Drawing.Size(156, 134);
             this.DGV_EnFot.TabIndex = 92;
             this.DGV_EnFot.Visible = false;
+            this.DGV_EnFot.SelectionChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             // 
             // label71
             // 
@@ -2485,6 +2496,7 @@
             this.TB_EnFotTMR.Name = "TB_EnFotTMR";
             this.TB_EnFotTMR.Size = new System.Drawing.Size(43, 20);
             this.TB_EnFotTMR.TabIndex = 12;
+            this.TB_EnFotTMR.TextChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             // 
             // label72
             // 
@@ -2538,6 +2550,7 @@
             this.TB_EnFotZref.Name = "TB_EnFotZref";
             this.TB_EnFotZref.Size = new System.Drawing.Size(43, 20);
             this.TB_EnFotZref.TabIndex = 10;
+            this.TB_EnFotZref.TextChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             // 
             // TB_EnFotEn
             // 
@@ -2545,7 +2558,7 @@
             this.TB_EnFotEn.Name = "TB_EnFotEn";
             this.TB_EnFotEn.Size = new System.Drawing.Size(43, 20);
             this.TB_EnFotEn.TabIndex = 9;
-            this.TB_EnFotEn.Leave += new System.EventHandler(this.TB_EnFotEnLeave);
+            this.TB_EnFotEn.TextChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             // 
             // TB_EnFotPDD
             // 
@@ -2553,6 +2566,7 @@
             this.TB_EnFotPDD.Name = "TB_EnFotPDD";
             this.TB_EnFotPDD.Size = new System.Drawing.Size(43, 20);
             this.TB_EnFotPDD.TabIndex = 11;
+            this.TB_EnFotPDD.TextChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             // 
             // label28
             // 
@@ -2678,6 +2692,7 @@
             this.TB_ModeloEq.Name = "TB_ModeloEq";
             this.TB_ModeloEq.Size = new System.Drawing.Size(167, 20);
             this.TB_ModeloEq.TabIndex = 2;
+            this.TB_ModeloEq.TextChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // BT_GuardarEq
             // 
@@ -2695,6 +2710,7 @@
             this.TB_NumSerieEq.Name = "TB_NumSerieEq";
             this.TB_NumSerieEq.Size = new System.Drawing.Size(167, 20);
             this.TB_NumSerieEq.TabIndex = 3;
+            this.TB_NumSerieEq.TextChanged += new System.EventHandler(this.habilitarEquipoBotones);
             // 
             // label1
             // 
@@ -3606,14 +3622,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle7;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3631,14 +3647,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle8;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3687,15 +3703,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_CalFot);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.TextChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             this.Panel_CalFot.ResumeLayout(false);
             this.Panel_CalFot.PerformLayout();
             this.GB_CondMed.ResumeLayout(false);

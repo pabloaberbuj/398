@@ -780,6 +780,7 @@ namespace _398_UI
                 Panel_EnCoEquipo.Enabled = false;
                 TB_EnCoZref.Text = "";
             }
+            habilitarEquipoBotones(sender,e);
         }
 
         private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
@@ -798,7 +799,7 @@ namespace _398_UI
                 CHB_EnElecEquipo.Enabled = false;
                 CHB_EnFotEquipo.Enabled = false;
             }
-
+            habilitarEquipoBotones(sender, e);
         }
 
         #endregion
@@ -917,11 +918,39 @@ namespace _398_UI
             TB_EnElecR50ion_Leave(sender, e);
         }
 
-        #endregion
+        private void habilitarEquipoBotones(object sender, EventArgs e)
+        {
+            bool tieneFuente = RB_FuenteCo.Checked || RB_FuenteALE.Checked;
+            bool tieneTipoDeHaz = false;
+            bool tieneEnergia = false;
+            if (RB_FuenteALE.Checked)
+            {
+                tieneTipoDeHaz = RB_Pulsado.Checked || RB_PulsadoYBarrido.Checked;
+                if (DGV_EnFot.Rows.Count + DGV_EnElec.Rows.Count > 0)
+                {
+                    tieneEnergia = true;
+                }
+            }
+            if (RB_FuenteCo.Checked)
+            {
+                tieneTipoDeHaz = true;
+                tieneEnergia = true;
+            }
 
-        #region Equipos EnergiaFotonesBotones
+            habilitarBoton(cb_InstitucionEq.Text != "" && cb_MarcaEq.Text != "" && TB_ModeloEq.Text != "" &&
+                tieneFuente && tieneTipoDeHaz && tieneEnergia, BT_GuardarEq);
+            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EditarEq);
+            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_PredetEqu);
+            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_ExportarEq);
+            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EqIraCal);
+            habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_EliminarEq);
+        }
 
-        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
+            #endregion
+
+            #region Equipos EnergiaFotonesBotones
+
+            private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Visible = true;
             EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
@@ -964,7 +993,13 @@ namespace _398_UI
             editaEnergiaFot = false;
         }
 
-
+        private void habilitarEqEnFotBotones(object sender, EventArgs e)
+        { 
+            habilitarBoton(TB_EnFotEn.Text != "", BT_EnFotGuardar);
+            habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotEditar);
+            habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotPredet);
+            habilitarBoton(DGV_EnFot.SelectedRows.Count > 0, BT_EnFotEliminar);
+        }
         #endregion
 
         #region Equipos EnergiaElectronesBotones
@@ -1029,6 +1064,14 @@ namespace _398_UI
             TB_EnElecR50ion_Leave(sender, e);
             DGV_EnElec.Enabled = true;
             editaEnergiaElect = false;
+        }
+
+        private void habilitarEqEnElecBotones(object sender, EventArgs e)
+        {
+            habilitarBoton(TB_EnElecEn.Text != "", BT_EnElecGuardar);
+            habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecEditar);
+            habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecPredet);
+            habilitarBoton(DGV_EnElec.SelectedRows.Count > 0, BT_EnElecEliminar);
         }
 
         #endregion
@@ -1105,7 +1148,7 @@ namespace _398_UI
             DGV_Elec.Enabled = false;
             Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
             editaElec = true;
-            habilitarElecBotones(sender,e);
+            habilitarElecBotones(sender, e);
         }
 
         private void BT_Electrometro_Cancelar_Click(object sender, EventArgs e)
