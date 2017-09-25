@@ -981,11 +981,7 @@ namespace _398_UI
             EnergiaFotones.hacerPredeterminado(DGV_EnFot);
         }
 
-        private void TB_EnFotEnLeave(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void BT_EqEnergiaFot_Cancelar_Click(object sender, EventArgs e)
         {
             limpiarRegistro(Panel_EnFotEquipo);
@@ -1032,12 +1028,6 @@ namespace _398_UI
         private void BT_EnElecPredet_Click(object sender, EventArgs e)
         {
             EnergiaElectrones.hacerPredeterminado(DGV_EnElec);
-        }
-
-
-        private void TB_EnElecEn_Leave(object sender, EventArgs e)
-        {
-
         }
 
         private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
