@@ -112,8 +112,7 @@
             this.CB_Camara.Name = "CB_Camara";
             this.CB_Camara.Size = new System.Drawing.Size(173, 21);
             this.CB_Camara.TabIndex = 1;
-            this.CB_Camara.SelectedValueChanged += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
-            this.CB_Camara.Leave += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
+            this.CB_Camara.SelectedIndexChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 
             // CB_Electrometro
             // 
@@ -123,8 +122,7 @@
             this.CB_Electrometro.Name = "CB_Electrometro";
             this.CB_Electrometro.Size = new System.Drawing.Size(173, 21);
             this.CB_Electrometro.TabIndex = 2;
-            this.CB_Electrometro.SelectedValueChanged += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
-            this.CB_Electrometro.Leave += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
+            this.CB_Electrometro.SelectedIndexChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 
             // TB_FCal
             // 
@@ -132,7 +130,8 @@
             this.TB_FCal.Name = "TB_FCal";
             this.TB_FCal.Size = new System.Drawing.Size(121, 20);
             this.TB_FCal.TabIndex = 3;
-            this.TB_FCal.Leave += new System.EventHandler(this.Leave_EsNumeroObligatoriosparaGuardar);
+            this.TB_FCal.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
+            this.TB_FCal.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // LB_FCalUnidad
             // 
@@ -149,6 +148,7 @@
             this.DTP_FechaCal.Name = "DTP_FechaCal";
             this.DTP_FechaCal.Size = new System.Drawing.Size(173, 20);
             this.DTP_FechaCal.TabIndex = 10;
+            this.DTP_FechaCal.ValueChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 
             // LB_HazRef
             // 
@@ -192,6 +192,7 @@
             this.TB_LabCal.Name = "TB_LabCal";
             this.TB_LabCal.Size = new System.Drawing.Size(173, 20);
             this.TB_LabCal.TabIndex = 11;
+            this.TB_LabCal.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 
             // CB_HazRef
             // 
@@ -203,7 +204,7 @@
             this.CB_HazRef.Name = "CB_HazRef";
             this.CB_HazRef.Size = new System.Drawing.Size(173, 21);
             this.CB_HazRef.TabIndex = 6;
-            this.CB_HazRef.Leave += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
+            this.CB_HazRef.SelectedIndexChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 
             // LB_TempUnid
             // 
@@ -220,7 +221,8 @@
             this.TB_Temp.Name = "TB_Temp";
             this.TB_Temp.Size = new System.Drawing.Size(94, 20);
             this.TB_Temp.TabIndex = 7;
-            this.TB_Temp.Leave += new System.EventHandler(this.Leave_EsNumeroObligatoriosparaGuardar);
+            this.TB_Temp.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
+            this.TB_Temp.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // LB_PresionUnid
             // 
@@ -237,7 +239,8 @@
             this.TB_Presion.Name = "TB_Presion";
             this.TB_Presion.Size = new System.Drawing.Size(94, 20);
             this.TB_Presion.TabIndex = 8;
-            this.TB_Presion.Leave += new System.EventHandler(this.Leave_EsNumeroObligatoriosparaGuardar);
+            this.TB_Presion.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
+            this.TB_Presion.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // LB_HumedadUnid
             // 
@@ -254,6 +257,8 @@
             this.TB_Humedad.Name = "TB_Humedad";
             this.TB_Humedad.Size = new System.Drawing.Size(94, 20);
             this.TB_Humedad.TabIndex = 9;
+            this.TB_Humedad.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
+            this.TB_Humedad.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // BT_Guardar
             // 
@@ -290,7 +295,8 @@
             this.TB_Tension.Name = "TB_Tension";
             this.TB_Tension.Size = new System.Drawing.Size(74, 20);
             this.TB_Tension.TabIndex = 5;
-            this.TB_Tension.Leave += new System.EventHandler(this.Leave_EsNumeroObligatoriosparaGuardar);
+            this.TB_Tension.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
+            this.TB_Tension.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // label2
             // 
@@ -312,7 +318,7 @@
             this.CB_Tension.Name = "CB_Tension";
             this.CB_Tension.Size = new System.Drawing.Size(41, 21);
             this.CB_Tension.TabIndex = 4;
-            this.CB_Tension.Leave += new System.EventHandler(this.Leave_ObligatoriosparaGuardar);
+            this.CB_Tension.SelectedIndexChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 
             // label3
             // 
@@ -359,6 +365,7 @@
             this.Controls.Add(this.LB_Camara);
             this.Name = "NuevoSistDos";
             this.Text = "NuevoSistDos";
+            this.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             this.ResumeLayout(false);
             this.PerformLayout();
 

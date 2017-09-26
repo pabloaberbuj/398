@@ -6,21 +6,21 @@ Resumen M f
 Historial M m
 
 Calibracion Fotones
-Guardar A f
-Vista previa e imprimir A d
-Establecer como linea base A m
-Cancelar A f
-Exportar A f
+OK Guardar A f
+OK Vista previa e imprimir A d
+OK Establecer como linea base A m
+OK Cancelar A f
+OK Exportar A f
 OK Metodo Kqq0 A m
-Usar linea base A m
+OK Usar linea base A m
 OK Metodo Ks A m
-Calculos en referencia A f
+OK Calculos en referencia A f
 
 Calibracion Electrones
 TODO M d
 
 Sistemas Dosimetricos
-Aclarar al borrar cámara/electrometro qué el sistema dosim seguirá pero no se podrá editar M f
+OK Aclarar al borrar cámara/electrometro qué el sistema dosim seguirá pero no se podrá editar M f
 No permitir editar un sist dosim al que le borré camara/electrometro M f
 Dar formato a DGV
 

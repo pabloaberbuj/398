@@ -17,7 +17,7 @@ namespace _398_UI
         public NuevoSistDos(bool editaSistDos, int indiceEditar)
         {
             InitializeComponent();
-           
+
             CB_Tension.SelectedIndex = 0;
             CB_HazRef.SelectedIndex = 0;
             foreach (var reg in Camara.lista())
@@ -39,16 +39,6 @@ namespace _398_UI
             }
         }
 
-        private void Leave_ObligatoriosparaGuardar(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Leave_EsNumeroObligatoriosparaGuardar(object sender, EventArgs e)
-        {
-            
-        }
-
 
         private void BT_Guardar_Click(object sender, EventArgs e)
         {
@@ -56,8 +46,8 @@ namespace _398_UI
             string auxFecha = DTP_FechaCal.Value.ToShortDateString();
             if (CB_Tension.Text == "+") { auxSignoTension = 1; }
             else { auxSignoTension = -1; }
-            
-            SistemaDosimetrico.guardar(SistemaDosimetrico.crear(Camara.lista()[CB_Camara.SelectedIndex],Electrometro.lista()[CB_Electrometro.SelectedIndex],
+
+            SistemaDosimetrico.guardar(SistemaDosimetrico.crear(Camara.lista()[CB_Camara.SelectedIndex], Electrometro.lista()[CB_Electrometro.SelectedIndex],
                 Convert.ToDouble(TB_FCal.Text),
                 auxSignoTension, Convert.ToDouble(TB_Tension.Text),
                 CB_HazRef.Text,
@@ -65,7 +55,7 @@ namespace _398_UI
                 Convert.ToDouble(TB_Presion.Text),
                 Calcular.doubleNaN(TB_Humedad),
                 auxFecha,
-                TB_LabCal.Text),editaSD,indice);
+                TB_LabCal.Text), editaSD, indice);
             editaSD = false;
 
             Close();
@@ -74,6 +64,42 @@ namespace _398_UI
         private void BT_Cancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void habilitarBoton(bool test, Button bt)
+        {
+            if (test)
+            {
+                bt.Enabled = true;
+            }
+            else
+            {
+                bt.Enabled = false;
+            }
+        }
+
+        private void esNumeroTB(object sender, EventArgs e)
+        {
+            if (estaLleno((TextBox)sender))
+            {
+                if (!Calcular.esNumero(((TextBox)sender).Text))
+                {
+                    MessageBox.Show("Debe ingresar un número");
+                    ((TextBox)sender).Focus(); ((TextBox)sender).SelectAll();
+                }
+            }
+        }
+
+        public static bool estaLleno(TextBox tb)
+        {
+            return tb.Text != "";
+        }
+
+        private void habilitarNuevoSistDosBotones(object sender, EventArgs e)
+        {
+            habilitarBoton(CB_Camara.SelectedIndex != -1 && CB_Electrometro.SelectedIndex != -1 && TB_FCal.Text != "" &&
+                CB_Tension.SelectedIndex != -1 && TB_Tension.Text != "" && CB_HazRef.SelectedIndex != -1 &&
+                TB_Temp.Text != "" && TB_Presion.Text != "", BT_Guardar);
         }
     }
 }
