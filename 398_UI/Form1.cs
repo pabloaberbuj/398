@@ -1217,11 +1217,11 @@ namespace _398_UI
 
         private void habilitarSistDosBotones(object sender, EventArgs e)
         {
-            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_ExportarSistDos);
             habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_EditarSistDos);
             habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_PredSistDos);
             habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_SistDosIraCal);
             habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_EliminarSistDos);
+            habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_ExportarSistDos);
         }
 
         #endregion

@@ -153,7 +153,7 @@ namespace _398_UI
             {
                 foreach (SistemaDosimetrico sdImp in listaImportada)
                 {
-                    if (!lista().Contains(sdImp))
+                    if (!(lista().Any(sd=>sdImp.EqualsSinEsPredet(sd))))
                     {
                         listaFiltrada.Add(sdImp);
                     }
@@ -173,12 +173,17 @@ namespace _398_UI
         {
             try
             {
-                
                 foreach (SistemaDosimetrico sd in listaFiltrada)
                 {
+                    sd.EsPredet = false;
                     ((BindingList<SistemaDosimetrico>)DGV.DataSource).Add(sd);
                 }
+                if (DGV.Rows.Count == listaFiltrada.Count()) //no había elementos antes
+                {
+                    ((BindingList<SistemaDosimetrico>)DGV.DataSource).ElementAt(0).EsPredet = true;
+                }
                 MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " Sistemas Dosimetricos");
+                IO.writeObjectAsJson(file,DGV.DataSource);
 
             }
             catch (Exception)
