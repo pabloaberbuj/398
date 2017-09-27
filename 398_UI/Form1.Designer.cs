@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -344,6 +344,8 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.BT_ImportarEq = new System.Windows.Forms.Button();
+            this.BT_ImportarSistDos = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1877,6 +1879,7 @@
             // 
             // GB_Equipos
             // 
+            this.GB_Equipos.Controls.Add(this.BT_ImportarEq);
             this.GB_Equipos.Controls.Add(this.cb_MarcaEq);
             this.GB_Equipos.Controls.Add(this.cb_InstitucionEq);
             this.GB_Equipos.Controls.Add(this.label87);
@@ -2041,9 +2044,9 @@
             // 
             // BT_EqIraCal
             // 
-            this.BT_EqIraCal.Location = new System.Drawing.Point(720, 584);
+            this.BT_EqIraCal.Location = new System.Drawing.Point(718, 598);
             this.BT_EqIraCal.Name = "BT_EqIraCal";
-            this.BT_EqIraCal.Size = new System.Drawing.Size(108, 39);
+            this.BT_EqIraCal.Size = new System.Drawing.Size(110, 39);
             this.BT_EqIraCal.TabIndex = 28;
             this.BT_EqIraCal.Text = "Seleccionar e ir a Calibración";
             this.BT_EqIraCal.UseVisualStyleBackColor = true;
@@ -2657,7 +2660,7 @@
             // 
             // BT_EliminarEq
             // 
-            this.BT_EliminarEq.Location = new System.Drawing.Point(720, 643);
+            this.BT_EliminarEq.Location = new System.Drawing.Point(718, 643);
             this.BT_EliminarEq.Name = "BT_EliminarEq";
             this.BT_EliminarEq.Size = new System.Drawing.Size(110, 23);
             this.BT_EliminarEq.TabIndex = 29;
@@ -2667,7 +2670,7 @@
             // 
             // BT_EditarEq
             // 
-            this.BT_EditarEq.Location = new System.Drawing.Point(719, 552);
+            this.BT_EditarEq.Location = new System.Drawing.Point(718, 569);
             this.BT_EditarEq.Name = "BT_EditarEq";
             this.BT_EditarEq.Size = new System.Drawing.Size(110, 23);
             this.BT_EditarEq.TabIndex = 27;
@@ -2677,7 +2680,7 @@
             // 
             // BT_ExportarEq
             // 
-            this.BT_ExportarEq.Location = new System.Drawing.Point(719, 523);
+            this.BT_ExportarEq.Location = new System.Drawing.Point(718, 543);
             this.BT_ExportarEq.Name = "BT_ExportarEq";
             this.BT_ExportarEq.Size = new System.Drawing.Size(110, 23);
             this.BT_ExportarEq.TabIndex = 26;
@@ -2750,6 +2753,7 @@
             // 
             // GB_SistDos
             // 
+            this.GB_SistDos.Controls.Add(this.BT_ImportarSistDos);
             this.GB_SistDos.Controls.Add(this.BT_SistDosIraCal);
             this.GB_SistDos.Controls.Add(this.BT_PredSistDos);
             this.GB_SistDos.Controls.Add(this.BT_EditarSistDos);
@@ -2766,7 +2770,7 @@
             // 
             // BT_SistDosIraCal
             // 
-            this.BT_SistDosIraCal.Location = new System.Drawing.Point(620, 176);
+            this.BT_SistDosIraCal.Location = new System.Drawing.Point(619, 183);
             this.BT_SistDosIraCal.Name = "BT_SistDosIraCal";
             this.BT_SistDosIraCal.Size = new System.Drawing.Size(157, 44);
             this.BT_SistDosIraCal.TabIndex = 18;
@@ -2776,7 +2780,7 @@
             // 
             // BT_PredSistDos
             // 
-            this.BT_PredSistDos.Location = new System.Drawing.Point(619, 141);
+            this.BT_PredSistDos.Location = new System.Drawing.Point(619, 157);
             this.BT_PredSistDos.Name = "BT_PredSistDos";
             this.BT_PredSistDos.Size = new System.Drawing.Size(157, 23);
             this.BT_PredSistDos.TabIndex = 17;
@@ -2786,7 +2790,7 @@
             // 
             // BT_EditarSistDos
             // 
-            this.BT_EditarSistDos.Location = new System.Drawing.Point(619, 112);
+            this.BT_EditarSistDos.Location = new System.Drawing.Point(619, 128);
             this.BT_EditarSistDos.Name = "BT_EditarSistDos";
             this.BT_EditarSistDos.Size = new System.Drawing.Size(157, 23);
             this.BT_EditarSistDos.TabIndex = 16;
@@ -2796,7 +2800,7 @@
             // 
             // BT_ExportarSistDos
             // 
-            this.BT_ExportarSistDos.Location = new System.Drawing.Point(619, 83);
+            this.BT_ExportarSistDos.Location = new System.Drawing.Point(619, 99);
             this.BT_ExportarSistDos.Name = "BT_ExportarSistDos";
             this.BT_ExportarSistDos.Size = new System.Drawing.Size(157, 23);
             this.BT_ExportarSistDos.TabIndex = 15;
@@ -2818,7 +2822,7 @@
             // 
             this.BT_NuevSistDos.Location = new System.Drawing.Point(619, 33);
             this.BT_NuevSistDos.Name = "BT_NuevSistDos";
-            this.BT_NuevSistDos.Size = new System.Drawing.Size(157, 44);
+            this.BT_NuevSistDos.Size = new System.Drawing.Size(157, 35);
             this.BT_NuevSistDos.TabIndex = 14;
             this.BT_NuevSistDos.Text = "Crear nuevo sistema dosimetrico";
             this.BT_NuevSistDos.UseVisualStyleBackColor = true;
@@ -3621,14 +3625,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3646,14 +3650,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3697,13 +3701,32 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // BT_ImportarEq
+            // 
+            this.BT_ImportarEq.Location = new System.Drawing.Point(718, 518);
+            this.BT_ImportarEq.Name = "BT_ImportarEq";
+            this.BT_ImportarEq.Size = new System.Drawing.Size(110, 23);
+            this.BT_ImportarEq.TabIndex = 77;
+            this.BT_ImportarEq.Text = "Importar";
+            this.BT_ImportarEq.UseVisualStyleBackColor = true;
+            // 
+            // BT_ImportarSistDos
+            // 
+            this.BT_ImportarSistDos.Location = new System.Drawing.Point(619, 73);
+            this.BT_ImportarSistDos.Name = "BT_ImportarSistDos";
+            this.BT_ImportarSistDos.Size = new System.Drawing.Size(157, 23);
+            this.BT_ImportarSistDos.TabIndex = 20;
+            this.BT_ImportarSistDos.Text = "Importar";
+            this.BT_ImportarSistDos.UseVisualStyleBackColor = true;
+            this.BT_ImportarSistDos.Click += new System.EventHandler(this.BT_ImportarSistDos_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
@@ -4119,6 +4142,8 @@
         private System.Windows.Forms.ComboBox cb_InstitucionEq;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button BT_ImportarEq;
+        private System.Windows.Forms.Button BT_ImportarSistDos;
     }
 }
 

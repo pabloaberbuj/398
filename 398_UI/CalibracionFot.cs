@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    class CalibracionFot
+    public class CalibracionFot
     {
         public Equipo Equipo { get; set; }
         public EnergiaFotones Energia { get; set; }

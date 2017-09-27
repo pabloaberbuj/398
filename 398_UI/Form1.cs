@@ -1188,6 +1188,28 @@ namespace _398_UI
             actualizarComboBoxCaliFotones();
         }
 
+        private void BT_ImportarSistDos_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            {
+                Filter = "Archivos txt(.txt)|*.txt|All Files (*.*)|*.*"
+            };
+            openFileDialog1.ShowDialog();
+            BindingList<SistemaDosimetrico> listaImportada = SistemaDosimetrico.importar(openFileDialog1.FileName);
+            if (listaImportada.Count()==0)
+            {
+                MessageBox.Show("No hay nuevos sistemas dosimétricos para importar en el archivo seleccionado");
+            }
+            else
+            {
+                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " sistemas dosimétricos. ¿Continuar?","Importar",MessageBoxButtons.OKCancel)==DialogResult.OK)
+                {
+                    SistemaDosimetrico.agregarImportados(listaImportada,DGV_SistDos);
+                }
+            }
+            
+        }
+
         private void BT_ExportarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.exportar(DGV_SistDos);
@@ -1642,6 +1664,8 @@ namespace _398_UI
         }
 
         #endregion
+
+        
     }
 }
 

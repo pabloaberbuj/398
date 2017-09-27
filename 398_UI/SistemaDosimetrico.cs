@@ -145,6 +145,51 @@ namespace _398_UI
             }
         }
 
+        public static BindingList<SistemaDosimetrico> importar(string file)
+        {
+            BindingList<SistemaDosimetrico> listaImportada = IO.readJsonList<SistemaDosimetrico>(file);
+            BindingList<SistemaDosimetrico> listaFiltrada = new BindingList<SistemaDosimetrico>();
+            try
+            {
+                foreach (SistemaDosimetrico sdImp in listaImportada)
+                {
+                    if (!lista().Contains(sdImp))
+                    {
+                        listaFiltrada.Add(sdImp);
+                    }
+                }
+                return listaFiltrada;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido importar desde el archivo seleccionado.\nEs posible que el archivo no tenga el formato correcto");
+                throw;
+            }
+
+            
+        }
+
+        public static void agregarImportados(BindingList<SistemaDosimetrico>listaFiltrada, DataGridView DGV)
+        {
+            try
+            {
+                
+                foreach (SistemaDosimetrico sd in listaFiltrada)
+                {
+                    ((BindingList<SistemaDosimetrico>)DGV.DataSource).Add(sd);
+                }
+                MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " Sistemas Dosimetricos");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se han podido importar");
+                throw;
+            }
+        }
+
+        
+
         public static void exportar(DataGridView DGV)
         {
             try
