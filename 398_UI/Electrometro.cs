@@ -88,5 +88,25 @@ namespace _398_UI
             NumSerie.Text = aux.NumSerie;
         }
 
+        public static void importar(BindingList<SistemaDosimetrico> listSd, DataGridView DGV)
+        {
+            int count = 0;
+            foreach (SistemaDosimetrico sd in listSd)
+            {
+                if (!lista().Any(elec => sd.electrometro.Equals(elec)))
+                {
+                    ((BindingList<Electrometro>)DGV.DataSource).Add(sd.electrometro);
+                    count++;
+                }
+            }
+            if (count > 0)
+            {
+                MessageBox.Show("Se han importado " + count + "electrómetros");
+            }
+            else
+            {
+                MessageBox.Show("No hay nuevos electrómetros para importar");
+            }
+        }
     }
 }

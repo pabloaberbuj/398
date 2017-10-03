@@ -106,6 +106,27 @@ namespace _398_UI
             NumSerie.Text = aux.NumSerie;
         }
 
+        public static void importar(BindingList<SistemaDosimetrico> listSd, DataGridView DGV)
+        {
+            int count = 0;
+            foreach (SistemaDosimetrico sd in listSd)
+            {
+                if (!lista().Any(cam => sd.camara.Equals(cam)))
+                {
+                    ((BindingList<Camara>)DGV.DataSource).Add(sd.camara);
+                    count++;
+                }
+            }
+            if (count>0)
+            {
+                MessageBox.Show("Se han importado " + count + "cámaras");
+            }
+            else
+            {
+                MessageBox.Show("No hay nuevas cámaras para importar");
+            }
+        }
+
         public static double[] obtenerLineakQQ0(Camara camara)
         {
             return Camara398new.lista().SingleOrDefault(c => c.marca == camara.Marca && c.modelo == camara.Modelo).kqq0;

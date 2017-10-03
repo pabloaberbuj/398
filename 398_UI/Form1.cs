@@ -1227,6 +1227,11 @@ namespace _398_UI
                 {
                     SistemaDosimetrico.agregarImportados(listaImportada,DGV_SistDos);
                 }
+                if (MessageBox.Show("¿Desea agregar también las cámaras y electrómetros a sus listas? ", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    Camara.importar(listaImportada, DGV_Cam);
+                    Electrometro.importar(listaImportada, DGV_Elec);
+                }
             }
             
         }

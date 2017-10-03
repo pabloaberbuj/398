@@ -182,7 +182,6 @@ namespace _398_UI
                 }
                 MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " sistemas dosimétricos");
                 IO.writeObjectAsJson(file,DGV.DataSource);
-
             }
             catch (Exception)
             {
