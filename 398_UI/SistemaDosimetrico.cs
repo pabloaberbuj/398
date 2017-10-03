@@ -165,8 +165,6 @@ namespace _398_UI
                 MessageBox.Show("No se ha podido importar desde el archivo seleccionado.\nEs posible que el archivo no tenga el formato correcto");
                 throw;
             }
-
-            
         }
 
         public static void agregarImportados(BindingList<SistemaDosimetrico>listaFiltrada, DataGridView DGV)
@@ -182,7 +180,7 @@ namespace _398_UI
                 {
                     ((BindingList<SistemaDosimetrico>)DGV.DataSource).ElementAt(0).EsPredet = true;
                 }
-                MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " Sistemas Dosimetricos");
+                MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " sistemas dosimétricos");
                 IO.writeObjectAsJson(file,DGV.DataSource);
 
             }

@@ -899,6 +899,27 @@ namespace _398_UI
             Equipo.exportar(DGV_Equipo);
         }
 
+        private void BT_ImportarEq_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            {
+                Filter = "Archivos txt(.txt)|*.txt|All Files (*.*)|*.*"
+            };
+            openFileDialog1.ShowDialog();
+            BindingList<Equipo> listaImportada = Equipo.importar(openFileDialog1.FileName);
+            if (listaImportada.Count() == 0)
+            {
+                MessageBox.Show("No hay nuevos equipos para importar en el archivo seleccionado");
+            }
+            else
+            {
+                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " equipos. ¿Continuar?", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    Equipo.agregarImportados(listaImportada, DGV_Equipo);
+                }
+            }
+        }
+
         private void BT_EquiposCancelar_Click(object sender, EventArgs e)
         {
             limpiarRegistro(GB_Equipos);
@@ -941,9 +962,9 @@ namespace _398_UI
                 tieneFuente && tieneTipoDeHaz && tieneEnergia, BT_GuardarEq);
             habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EditarEq);
             habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_PredetEqu);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_ExportarEq);
             habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EqIraCal);
             habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_EliminarEq);
+            habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_ExportarEq);
         }
 
             #endregion
@@ -1662,6 +1683,8 @@ namespace _398_UI
             }
             posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB);
         }
+
+
 
         #endregion
 

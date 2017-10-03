@@ -42,8 +42,17 @@ namespace _398_UI
                 {
 
                 }
+                else if (propiedad.Name == "energiaElec" && propiedad.GetValue(this) == null && propiedad.GetValue(this) == null)
+                {
+                    
+                }
+                else if (propiedad.Name == "EnergiasElectrones" && propiedad.GetValue(this) == null && propiedad.GetValue(this) == null)
+                {
+
+                }
                 else if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
                 {
+                    
                     return false;
                 }
 

@@ -215,23 +215,52 @@ namespace _398_UI
             }
         }
 
-      /*  public override bool Equals(object obj)
+        public static BindingList<Equipo> importar(string file)
         {
-            PropertyInfo[] propiedades = obj.GetType().GetProperties();
-            var other = obj as Equipo;
-            if (other == null)
+            BindingList<Equipo> listaImportada = IO.readJsonList<Equipo>(file);
+            BindingList<Equipo> listaFiltrada = new BindingList<Equipo>();
+            try
             {
-                return false;
-            }
-            foreach (PropertyInfo propiedad in propiedades)
-            {
-                if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
+                foreach (Equipo eqImp in listaImportada)
                 {
-                    return false;
+                    if (!(lista().Any(eq => eqImp.EqualsSinEsPredet(eq))))
+                    {
+                        listaFiltrada.Add(eqImp);
+                    }
                 }
+                return listaFiltrada;
             }
-            return true;
-        }*/
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido importar desde el archivo seleccionado.\nEs posible que el archivo no tenga el formato correcto");
+                throw;
+            }
+
+        }
+
+        public static void agregarImportados(BindingList<Equipo> listaFiltrada, DataGridView DGV)
+        {
+            try
+            {
+                foreach (Equipo eq in listaFiltrada)
+                {
+                    eq.EsPredet = false;
+                    ((BindingList<Equipo>)DGV.DataSource).Add(eq);
+                }
+                if (DGV.Rows.Count == listaFiltrada.Count()) //no había elementos antes
+                {
+                    ((BindingList<Equipo>)DGV.DataSource).ElementAt(0).EsPredet = true;
+                }
+                MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " equipos");
+                IO.writeObjectAsJson(file, DGV.DataSource);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se han podido importar");
+                throw;
+            }
+        }
 
     }
 }

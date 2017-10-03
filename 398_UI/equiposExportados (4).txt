@@ -1,0 +1,1 @@
+[{"TipoDeHaz":0,"EsPredet":false,"Alias":"","Marca":"Theratron","Modelo":"780","NumSerie":"02","Fuente":1,"energiaFot":[{"EsPredet":true,"Energia":1.25,"ZRefFot":5.0,"PddZrefFot":50.0,"TmrZrefFot":50.0}],"EnergiasFotones":"Co","energiaElec":null,"EnergiasElectrones":null,"Institucion":"Instituto de Oncología Roffo"}]

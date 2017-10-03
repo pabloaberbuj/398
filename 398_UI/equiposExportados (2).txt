@@ -1,0 +1,1 @@
+[{"TipoDeHaz":1,"EsPredet":true,"Alias":"Unique","Marca":"Varian","Modelo":"Unique","NumSerie":"2055","Fuente":2,"energiaFot":[{"EsPredet":true,"Energia":6.0,"ZRefFot":5.0,"PddZrefFot":75.0,"TmrZrefFot":70.0}],"EnergiasFotones":"6 ","energiaElec":[],"EnergiasElectrones":"","Institucion":"Instituto de Oncología Roffo"}]
