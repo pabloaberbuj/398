@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -174,6 +174,7 @@
             this.CB_CaliSistDosimetrico = new System.Windows.Forms.ComboBox();
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
+            this.BT_ImportarEq = new System.Windows.Forms.Button();
             this.cb_MarcaEq = new System.Windows.Forms.ComboBox();
             this.cb_InstitucionEq = new System.Windows.Forms.ComboBox();
             this.label87 = new System.Windows.Forms.Label();
@@ -257,6 +258,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Panel_SistDos = new System.Windows.Forms.Panel();
             this.GB_SistDos = new System.Windows.Forms.GroupBox();
+            this.BT_ImportarSistDos = new System.Windows.Forms.Button();
             this.BT_SistDosIraCal = new System.Windows.Forms.Button();
             this.BT_PredSistDos = new System.Windows.Forms.Button();
             this.BT_EditarSistDos = new System.Windows.Forms.Button();
@@ -344,8 +346,6 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.BT_ImportarEq = new System.Windows.Forms.Button();
-            this.BT_ImportarSistDos = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1910,6 +1910,16 @@
             this.GB_Equipos.TabStop = false;
             this.GB_Equipos.Text = "Equipos";
             // 
+            // BT_ImportarEq
+            // 
+            this.BT_ImportarEq.Location = new System.Drawing.Point(718, 518);
+            this.BT_ImportarEq.Name = "BT_ImportarEq";
+            this.BT_ImportarEq.Size = new System.Drawing.Size(110, 23);
+            this.BT_ImportarEq.TabIndex = 77;
+            this.BT_ImportarEq.Text = "Importar";
+            this.BT_ImportarEq.UseVisualStyleBackColor = true;
+            this.BT_ImportarEq.Click += new System.EventHandler(this.BT_ImportarEq_Click);
+            // 
             // cb_MarcaEq
             // 
             this.cb_MarcaEq.FormattingEnabled = true;
@@ -1956,9 +1966,12 @@
             // DGV_Equipo
             // 
             this.DGV_Equipo.AllowUserToAddRows = false;
+            this.DGV_Equipo.AllowUserToResizeColumns = false;
+            this.DGV_Equipo.AllowUserToResizeRows = false;
             this.DGV_Equipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Equipo.Location = new System.Drawing.Point(38, 495);
             this.DGV_Equipo.Name = "DGV_Equipo";
+            this.DGV_Equipo.ReadOnly = true;
             this.DGV_Equipo.RowHeadersVisible = false;
             this.DGV_Equipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Equipo.Size = new System.Drawing.Size(643, 171);
@@ -2476,6 +2489,7 @@
             this.DGV_EnFot.Margin = new System.Windows.Forms.Padding(1);
             this.DGV_EnFot.Name = "DGV_EnFot";
             this.DGV_EnFot.ReadOnly = true;
+            this.DGV_EnFot.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGV_EnFot.RowHeadersVisible = false;
             this.DGV_EnFot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_EnFot.Size = new System.Drawing.Size(156, 134);
@@ -2768,6 +2782,16 @@
             this.GB_SistDos.TabStop = false;
             this.GB_SistDos.Text = "Sistemas dosimétricos";
             // 
+            // BT_ImportarSistDos
+            // 
+            this.BT_ImportarSistDos.Location = new System.Drawing.Point(619, 73);
+            this.BT_ImportarSistDos.Name = "BT_ImportarSistDos";
+            this.BT_ImportarSistDos.Size = new System.Drawing.Size(157, 23);
+            this.BT_ImportarSistDos.TabIndex = 20;
+            this.BT_ImportarSistDos.Text = "Importar";
+            this.BT_ImportarSistDos.UseVisualStyleBackColor = true;
+            this.BT_ImportarSistDos.Click += new System.EventHandler(this.BT_ImportarSistDos_Click);
+            // 
             // BT_SistDosIraCal
             // 
             this.BT_SistDosIraCal.Location = new System.Drawing.Point(619, 183);
@@ -2831,9 +2855,12 @@
             // DGV_SistDos
             // 
             this.DGV_SistDos.AllowUserToAddRows = false;
+            this.DGV_SistDos.AllowUserToResizeColumns = false;
+            this.DGV_SistDos.AllowUserToResizeRows = false;
             this.DGV_SistDos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_SistDos.Location = new System.Drawing.Point(19, 33);
             this.DGV_SistDos.Name = "DGV_SistDos";
+            this.DGV_SistDos.ReadOnly = true;
             this.DGV_SistDos.RowHeadersVisible = false;
             this.DGV_SistDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_SistDos.Size = new System.Drawing.Size(594, 220);
@@ -2919,9 +2946,12 @@
             // DGV_Elec
             // 
             this.DGV_Elec.AllowUserToAddRows = false;
+            this.DGV_Elec.AllowUserToResizeColumns = false;
+            this.DGV_Elec.AllowUserToResizeRows = false;
             this.DGV_Elec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Elec.Location = new System.Drawing.Point(14, 150);
             this.DGV_Elec.Name = "DGV_Elec";
+            this.DGV_Elec.ReadOnly = true;
             this.DGV_Elec.RowHeadersVisible = false;
             this.DGV_Elec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Elec.Size = new System.Drawing.Size(362, 150);
@@ -3026,9 +3056,12 @@
             // DGV_Cam
             // 
             this.DGV_Cam.AllowUserToAddRows = false;
+            this.DGV_Cam.AllowUserToResizeColumns = false;
+            this.DGV_Cam.AllowUserToResizeRows = false;
             this.DGV_Cam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Cam.Location = new System.Drawing.Point(9, 150);
             this.DGV_Cam.Name = "DGV_Cam";
+            this.DGV_Cam.ReadOnly = true;
             this.DGV_Cam.RowHeadersVisible = false;
             this.DGV_Cam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Cam.Size = new System.Drawing.Size(362, 150);
@@ -3625,14 +3658,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3650,14 +3683,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
@@ -3700,26 +3733,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // BT_ImportarEq
-            // 
-            this.BT_ImportarEq.Location = new System.Drawing.Point(718, 518);
-            this.BT_ImportarEq.Name = "BT_ImportarEq";
-            this.BT_ImportarEq.Size = new System.Drawing.Size(110, 23);
-            this.BT_ImportarEq.TabIndex = 77;
-            this.BT_ImportarEq.Text = "Importar";
-            this.BT_ImportarEq.UseVisualStyleBackColor = true;
-            this.BT_ImportarEq.Click += new System.EventHandler(this.BT_ImportarEq_Click);
-            // 
-            // BT_ImportarSistDos
-            // 
-            this.BT_ImportarSistDos.Location = new System.Drawing.Point(619, 73);
-            this.BT_ImportarSistDos.Name = "BT_ImportarSistDos";
-            this.BT_ImportarSistDos.Size = new System.Drawing.Size(157, 23);
-            this.BT_ImportarSistDos.TabIndex = 20;
-            this.BT_ImportarSistDos.Text = "Importar";
-            this.BT_ImportarSistDos.UseVisualStyleBackColor = true;
-            this.BT_ImportarSistDos.Click += new System.EventHandler(this.BT_ImportarSistDos_Click);
             // 
             // Form1
             // 
