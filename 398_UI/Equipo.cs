@@ -18,6 +18,8 @@ namespace _398_UI
         public string Marca { get; set; }
         public string Modelo { get; set; }
         [Browsable(false)]
+        public string Etiqueta { get; set; }
+        [Browsable(false)]
         public string NumSerie { get; set; }
         [Browsable(false)]
         public int Fuente { get; set; } //1 para Co 2 para Ale
@@ -33,6 +35,8 @@ namespace _398_UI
         public string EnergiasElectrones { get; set; }
         [DisplayName("Institucion")]
         public string Institucion { get; set; }
+        [Browsable(false)]
+        public string Nota { get; set; }
 
 
 
@@ -63,6 +67,7 @@ namespace _398_UI
                 energiaElec = EnergiaElectrones.lista(DGVElec),
                 EnergiasElectrones = auxEnergiasElec,
                 Institucion = _institucion,
+                Etiqueta = _marca + " " + _modelo + " " + _alias,
             };
         }
 

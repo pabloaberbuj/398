@@ -22,7 +22,7 @@ namespace _398_UI
             CB_HazRef.SelectedIndex = 0;
             foreach (var reg in Camara.lista())
             {
-                string aux = reg.EtiquetaCam;
+                string aux = reg.Etiqueta;
                 CB_Camara.Items.Add(aux);
             }
             foreach (var reg in Electrometro.lista())

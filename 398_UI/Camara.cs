@@ -17,7 +17,7 @@ namespace _398_UI
         [DisplayName("Nº de serie")]
         public string NumSerie { get; set; }
         [Browsable(false)]
-        public string EtiquetaCam { get; set; }
+        public string Etiqueta { get; set; }
 
         public static Camara crear(string _marca, string _modelo, string _numSerie)
         {
@@ -26,7 +26,7 @@ namespace _398_UI
                 Marca = _marca,
                 Modelo = _modelo,
                 NumSerie = _numSerie,
-                EtiquetaCam = _marca + " " + _modelo + " " + _numSerie,
+                Etiqueta = _marca + " " + _modelo + " " + _numSerie,
             };
         }
         public static BindingList<Camara> lista()

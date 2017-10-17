@@ -49,7 +49,7 @@ namespace _398_UI
             return new SistemaDosimetrico()
             {
                 camara = _camara,
-                etiquetaCamara = _camara.EtiquetaCam,
+                etiquetaCamara = _camara.Etiqueta,
                 electrometro = _electrometro,
                 etiquetaElectrometro = _electrometro.EtiquetaElec,
                 FactorCalibracion = _factorCal,
@@ -116,7 +116,7 @@ namespace _398_UI
             int indice)
         {
             SistemaDosimetrico aux = lista()[indice];
-            Camara.SelectedItem = aux.camara.EtiquetaCam;
+            Camara.SelectedItem = aux.camara.Etiqueta;
             Electrometro.SelectedItem = aux.electrometro.EtiquetaElec;
             FactorCali.Text = Convert.ToString(aux.FactorCalibracion);
             if (aux.SignoTension == 1)

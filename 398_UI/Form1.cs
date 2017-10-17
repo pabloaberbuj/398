@@ -129,7 +129,7 @@ namespace _398_UI
             if (DGV_SistDos.SelectedRows.Count == 1)
             {
                 SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
-                string aux = seleccionado.camara.EtiquetaCam + seleccionado.electrometro.EtiquetaElec;
+                string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.EtiquetaElec;
                 CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
                 panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
                 BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
@@ -159,7 +159,7 @@ namespace _398_UI
             CB_CaliSistDosimetrico.Items.Clear();
             foreach (var sistdos in SistemaDosimetrico.lista())
             {
-                string aux = sistdos.camara.EtiquetaCam + sistdos.electrometro.EtiquetaElec;
+                string aux = sistdos.camara.Etiqueta + sistdos.electrometro.EtiquetaElec;
                 CB_CaliSistDosimetrico.Items.Add(aux);
                 if (sistdos.EsPredet == true)
                 {
@@ -1252,9 +1252,15 @@ namespace _398_UI
 
         #endregion
 
+        #region Analizar Registros Inicializaciones
 
-        #region Métodos
-        public static void limpiarRegistro(Panel panel)
+        
+
+#endregion
+
+
+#region Métodos
+public static void limpiarRegistro(Panel panel)
         {
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
