@@ -10,7 +10,7 @@ namespace _398_UI
 {
     public class SistemaDosimetrico : Objeto
     {
-        public static string file = @"..\..\sistemasdosimetricos.txt";
+        public static string file = @"sistemasdosimetricos.txt";
         [DisplayName("Predeterminado")]
         public bool EsPredet { get; set; }
         [Browsable(false)]
@@ -39,7 +39,9 @@ namespace _398_UI
         public string FechaCalibracion { get; set; }
         [Browsable(false)]
         public string LaboCalibracion { get; set; }
-        
+        [Browsable(false)]
+        public string Nota { get; set; }
+
 
         public static SistemaDosimetrico crear(Camara _camara, Electrometro _electrometro, double _factorCal,
             int _signoTension, double _tension, string _hazRef, double _tempRef, double _presionRef, double _humedadRef,
@@ -51,7 +53,7 @@ namespace _398_UI
                 camara = _camara,
                 etiquetaCamara = _camara.Etiqueta,
                 electrometro = _electrometro,
-                etiquetaElectrometro = _electrometro.EtiquetaElec,
+                etiquetaElectrometro = _electrometro.Etiqueta,
                 FactorCalibracion = _factorCal,
                 SignoTension = _signoTension,
                 Tension = _tension,
@@ -61,6 +63,7 @@ namespace _398_UI
                 HumedadRef = _humedadRef,
                 FechaCalibracion = _fechaCal,
                 LaboCalibracion = _laboCal,
+                Nota = "",
             };
         }
         public static BindingList<SistemaDosimetrico> lista()
@@ -117,7 +120,7 @@ namespace _398_UI
         {
             SistemaDosimetrico aux = lista()[indice];
             Camara.SelectedItem = aux.camara.Etiqueta;
-            Electrometro.SelectedItem = aux.electrometro.EtiquetaElec;
+            Electrometro.SelectedItem = aux.electrometro.Etiqueta;
             FactorCali.Text = Convert.ToString(aux.FactorCalibracion);
             if (aux.SignoTension == 1)
             { SignoTension.SelectedItem = "+"; }

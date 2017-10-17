@@ -13,7 +13,10 @@ namespace _398_UI
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }
+        [Browsable(false)]
         public double Energia { get; set; }
+        [DisplayName("Energía")]
+        public string Etiqueta { get; set; }
         [DisplayName("R50 I")]
         public double R50ion { get; set; }
         [DisplayName("R50 D")]
@@ -29,6 +32,7 @@ namespace _398_UI
             return new EnergiaElectrones()
             {
                 Energia = _energia,
+                Etiqueta = _energia.ToString(),
                 R50ion = _r50Ion,
                 R50D = _r50D,
                 Zref = _zRef,

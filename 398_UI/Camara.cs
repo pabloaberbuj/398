@@ -10,8 +10,7 @@ namespace _398_UI
 {
     public class Camara : Objeto
     {
-
-        public static string file = @"..\..\camaras.txt";
+        public static string file = @"camaras.txt";
         public string Marca { get; set; }
         public string Modelo { get; set; }
         [DisplayName("Nº de serie")]

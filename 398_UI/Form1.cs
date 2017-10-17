@@ -129,7 +129,7 @@ namespace _398_UI
             if (DGV_SistDos.SelectedRows.Count == 1)
             {
                 SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
-                string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.EtiquetaElec;
+                string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.Etiqueta;
                 CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
                 panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
                 BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
@@ -143,13 +143,18 @@ namespace _398_UI
         private void InicializarComboBoxEquipos()
         {
             CB_CaliEquipos.Items.Clear();
-            foreach (var equipo in Equipo.lista())
+            if (Equipo.lista().Count>0)
             {
-                string aux = equipo.Marca + " " + equipo.Modelo + " Nº Serie: " + equipo.NumSerie;
-                CB_CaliEquipos.Items.Add(aux);
-                if (equipo.EsPredet == true)
+                foreach (var equipo in Equipo.lista())
                 {
-                    CB_CaliEquipos.SelectedIndex = CB_CaliEquipos.FindStringExact(aux);
+                    CB_CaliEquipos.Items.Add(equipo);
+                    CB_CaliEquipos.DisplayMember = "Etiqueta";
+                    //string aux = equipo.Marca + " " + equipo.Modelo + " Nº Serie: " + equipo.NumSerie;
+                    //CB_CaliEquipos.Items.Add(aux);
+                    if (equipo.EsPredet == true)
+                    {
+                        CB_CaliEquipos.SelectedItem = equipo;
+                    }
                 }
             }
         }
@@ -157,37 +162,47 @@ namespace _398_UI
         private void InicializarComboBoxSistDosim()
         {
             CB_CaliSistDosimetrico.Items.Clear();
-            foreach (var sistdos in SistemaDosimetrico.lista())
+            if (SistemaDosimetrico.lista().Count>0)
             {
-                string aux = sistdos.camara.Etiqueta + sistdos.electrometro.EtiquetaElec;
-                CB_CaliSistDosimetrico.Items.Add(aux);
-                if (sistdos.EsPredet == true)
+                foreach (var sistdos in SistemaDosimetrico.lista())
                 {
-                    CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
+                    //string aux = sistdos.camara.Etiqueta + sistdos.electrometro.Etiqueta;
+                    //CB_CaliSistDosimetrico.Items.Add(aux);
+                    CB_CaliSistDosimetrico.Items.Add(sistdos);
+                    CB_CaliSistDosimetrico.DisplayMember = "Etiqueta";
+                    if (sistdos.EsPredet == true)
+                    {
+                        CB_CaliSistDosimetrico.SelectedItem = sistdos;
+                    }
                 }
             }
         }
         private void InicializarComboBoxEnergias()
         {
             CB_CaliEnergias.Items.Clear();
+
             if (CB_CaliEquipos.SelectedIndex != -1)
             {
-                if (Equipo.lista()[CB_CaliEquipos.SelectedIndex].Fuente == 1) //Co
+                if (equipoSeleccionado().Fuente == 1) //Co
                 {
-                    CB_CaliEnergias.Items.Add("Co");
+                    CB_CaliEnergias.Items.Add(equipoSeleccionado().energiaFot[0]);
                     CB_CaliEnergias.SelectedIndex = 0;
+                    CB_CaliEnergias.Enabled = false;
                 }
-                else
+                else if (equipoSeleccionado().Fuente == 2)
                 {
-                    foreach (var energia in Equipo.lista()[CB_CaliEquipos.SelectedIndex].energiaFot)
+                    foreach (var energia in equipoSeleccionado().energiaFot)
                     {
-                        CB_CaliEnergias.Items.Add(energia.Energia.ToString());
+                        CB_CaliEnergias.Items.Add(energia);
+                        CB_CaliEnergias.DisplayMember = "Etiqueta";
                         if (energia.EsPredet == true)
                         {
-                            CB_CaliEnergias.SelectedIndex = CB_CaliEnergias.FindStringExact(energia.Energia.ToString());
+                            CB_CaliEnergias.SelectedItem = energia;
                         }
                     }
+                    CB_CaliEnergias.Enabled = true;
                 }
+                CB_CaliEnergias.DisplayMember = "Etiqueta";
             }
         }
 
@@ -1452,17 +1467,39 @@ public static void limpiarRegistro(Panel panel)
 
         private SistemaDosimetrico sistDosimSeleccionado()
         {
-            return SistemaDosimetrico.lista()[CB_CaliSistDosimetrico.SelectedIndex];
+            if (SistemaDosimetrico.lista().Count>0)
+            {
+                return (SistemaDosimetrico)CB_CaliSistDosimetrico.SelectedItem;
+            }
+            else
+            {
+                return new SistemaDosimetrico();
+            }
+            
         }
 
         private Equipo equipoSeleccionado()
         {
-            return Equipo.lista()[CB_CaliEquipos.SelectedIndex];
+            if (Equipo.lista().Count>0)
+            {
+                return (Equipo)CB_CaliEquipos.SelectedItem;
+            }
+            else
+            {
+                return new Equipo();
+            }
         }
 
         private EnergiaFotones energiaSeleccionada()
         {
-            return equipoSeleccionado().energiaFot[CB_CaliEnergias.SelectedIndex];
+            if (equipoSeleccionado().energiaFot != null && equipoSeleccionado().energiaFot.Count>0)
+            {
+                return (EnergiaFotones)CB_CaliEnergias.SelectedItem;
+            }
+            else
+            {
+                return new EnergiaFotones();
+            }
         }
 
         private double profundidadDeReferencia()

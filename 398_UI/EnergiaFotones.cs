@@ -13,7 +13,10 @@ namespace _398_UI
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }
+        [Browsable(false)]
         public double Energia { get; set; }
+        [DisplayName("Energía")]
+        public string Etiqueta { get; set; }
         [DisplayName("Zref")]
         public double ZRefFot { get; set; }
         [DisplayName("PDD")]
@@ -28,6 +31,7 @@ namespace _398_UI
             return new EnergiaFotones()
             {
                 Energia = _energia,
+                Etiqueta = _energia.ToString(),
                 ZRefFot = _zRefFot,
                 PddZrefFot = _pddZrefFot,
                 TmrZrefFot = _tmrZrefFot,
@@ -115,6 +119,7 @@ namespace _398_UI
                 new EnergiaFotones
                 {
                     Energia = 1.25,
+                    Etiqueta = "Co",
                     ZRefFot = Zref,
                     PddZrefFot = PDDZref,
                     TmrZrefFot = TMRZref,
@@ -150,6 +155,6 @@ namespace _398_UI
             DGV.Columns[4].Width = 38;
         }
 
-        
+
     }
 }

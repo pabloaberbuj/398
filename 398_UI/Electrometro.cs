@@ -10,13 +10,13 @@ namespace _398_UI
 {
     public class Electrometro : Objeto
     {
-        public static string file = @"..\..\electrometros.txt";
+        public static string file = @"electrometros.txt";
         public string Marca { get; set; }
         public string Modelo { get; set; }
         [DisplayName("Nº de serie")]
         public string NumSerie { get; set; }
         [Browsable(false)]
-        public string EtiquetaElec { get; set; }
+        public string Etiqueta { get; set; }
 
         public static Electrometro crear(string _marca, string _modelo, string _numSerie)
         {
@@ -25,7 +25,7 @@ namespace _398_UI
                 Marca = _marca,
                 Modelo = _modelo,
                 NumSerie = _numSerie,
-                EtiquetaElec = _marca + " " + _modelo + " " + _numSerie,
+                Etiqueta = _marca + " " + _modelo + " " + _numSerie,
             };
         }
 

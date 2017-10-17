@@ -27,7 +27,7 @@ namespace _398_UI
             }
             foreach (var reg in Electrometro.lista())
             {
-                string aux = reg.EtiquetaElec;
+                string aux = reg.Etiqueta;
                 CB_Electrometro.Items.Add(aux);
             }
             if (editaSistDos == true)

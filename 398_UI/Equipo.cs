@@ -11,7 +11,7 @@ namespace _398_UI
 {
     public class Equipo : Objeto
     {
-        public static string file = @"..\..\equipos.txt";
+        public static string file = @"equipos.txt";
         [DisplayName("Predeterminado")]
         public bool EsPredet { get; set; }
         public string Alias { get; set; }
@@ -46,6 +46,16 @@ namespace _398_UI
         {
             string auxEnergiasFot = "";
             string auxEnergiasElec = "";
+            ListaFotones listaF = new ListaFotones();
+            if (EnergiaFotones.lista(DGVFot).Count>0)
+            {
+                listaF = EnergiaFotones.lista(DGVFot);
+            }
+            ListaElectrones listaE = new ListaElectrones();
+            if (EnergiaElectrones.lista(DGVElec).Count > 0)
+            {
+                listaE = EnergiaElectrones.lista(DGVElec);
+            }
             foreach (var energia in EnergiaFotones.lista(DGVFot))
             {
                 auxEnergiasFot += energia.Energia + " ";
@@ -62,12 +72,13 @@ namespace _398_UI
                 Alias = _alias,
                 Fuente = _fuente,
                 TipoDeHaz = _tipoDeHaz,
-                energiaFot = EnergiaFotones.lista(DGVFot),
+                energiaFot = listaF,
                 EnergiasFotones = auxEnergiasFot,
-                energiaElec = EnergiaElectrones.lista(DGVElec),
+                energiaElec = listaE,
                 EnergiasElectrones = auxEnergiasElec,
                 Institucion = _institucion,
                 Etiqueta = _marca + " " + _modelo + " " + _alias,
+                Nota = "",
             };
         }
 
@@ -84,7 +95,11 @@ namespace _398_UI
                 TipoDeHaz = _tipoDeHaz,
                 energiaFot = EnergiaFotones.energiaCo(zref, PDDzref, TMRzref),
                 EnergiasFotones = "Co",
+                energiaElec = new ListaElectrones(),
+                EnergiasElectrones = "",
                 Institucion = _institucion,
+                Etiqueta = _marca + " " + _modelo + " " + _alias,
+                Nota = "",
             };
         }
         public static BindingList<Equipo> lista()
@@ -98,6 +113,10 @@ namespace _398_UI
                 int indice = DGV.SelectedRows[0].Index;
                 DGV.Rows.Remove(DGV.Rows[indice]); IO.writeObjectAsJson(file, DGV.DataSource);
                 var auxLista = lista();
+                if (auxLista.Count() == 0)
+                {
+                    _nuevo.EsPredet = true;
+                }
                 auxLista.Insert(indice, _nuevo);
                 IO.writeObjectAsJson(file, auxLista);
                 DGV.DataSource = lista();
