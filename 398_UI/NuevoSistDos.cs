@@ -20,15 +20,15 @@ namespace _398_UI
 
             CB_Tension.SelectedIndex = 0;
             CB_HazRef.SelectedIndex = 0;
-            foreach (var reg in Camara.lista())
+            foreach (var cam in Camara.lista())
             {
-                string aux = reg.Etiqueta;
-                CB_Camara.Items.Add(aux);
+                CB_Camara.Items.Add(cam);
+                CB_Camara.DisplayMember = "Etiqueta";
             }
-            foreach (var reg in Electrometro.lista())
+            foreach (var elec in Electrometro.lista())
             {
-                string aux = reg.Etiqueta;
-                CB_Electrometro.Items.Add(aux);
+                CB_Electrometro.Items.Add(elec);
+                CB_Electrometro.DisplayMember = "Etiqueta";
             }
             if (editaSistDos == true)
             {
@@ -47,7 +47,7 @@ namespace _398_UI
             if (CB_Tension.Text == "+") { auxSignoTension = 1; }
             else { auxSignoTension = -1; }
 
-            SistemaDosimetrico.guardar(SistemaDosimetrico.crear(Camara.lista()[CB_Camara.SelectedIndex], Electrometro.lista()[CB_Electrometro.SelectedIndex],
+            SistemaDosimetrico.guardar(SistemaDosimetrico.crear((Camara)CB_Camara.SelectedItem, (Electrometro)CB_Electrometro.SelectedItem,
                 Convert.ToDouble(TB_FCal.Text),
                 auxSignoTension, Convert.ToDouble(TB_Tension.Text),
                 CB_HazRef.Text,
