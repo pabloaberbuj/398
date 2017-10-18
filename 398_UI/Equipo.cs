@@ -111,6 +111,10 @@ namespace _398_UI
             if (edita)
             {
                 int indice = DGV.SelectedRows[0].Index;
+                if (((Equipo)DGV.SelectedRows[0].DataBoundItem).EsPredet)
+                {
+                    _nuevo.EsPredet = true;
+                }
                 DGV.Rows.Remove(DGV.Rows[indice]); IO.writeObjectAsJson(file, DGV.DataSource);
                 var auxLista = lista();
                 if (auxLista.Count() == 0)

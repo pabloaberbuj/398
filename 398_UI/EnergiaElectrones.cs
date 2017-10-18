@@ -17,10 +17,10 @@ namespace _398_UI
         public double Energia { get; set; }
         [DisplayName("Energía")]
         public string Etiqueta { get; set; }
-        [DisplayName("Lado")]
-        public double LadoCampo { get; set; }
         [DisplayName("R50 I")]
         public double R50ion { get; set; }
+        [DisplayName("Lado")]
+        public double LadoCampo { get; set; }
         [DisplayName("R50 D")]
         public double R50D { get; set; }
         [DisplayName("Zref")]

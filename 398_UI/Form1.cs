@@ -233,6 +233,20 @@ namespace _398_UI
             }
         }
 
+        private void inicializarLadoCampoReferencia()
+        {
+            if (CB_CaliEnergias.SelectedIndex != -1 && !Double.IsNaN(ladoCampoReferencia()))
+            {
+                TB_CaliLadoCampo.Text = ladoCampoReferencia().ToString();
+                TB_CaliLadoCampo.Enabled = false;
+            }
+            else
+            {
+                TB_CaliLadoCampo.Text = "";
+                TB_CaliPRof.Enabled = true;
+            }
+        }
+
 
         private void InicializarPDDyTMRref()
         {
@@ -916,12 +930,29 @@ namespace _398_UI
             }
             else
             {
-                CHB_EnFotEquipo.Checked = true;
-                CHB_EnElecEquipo.Checked = true;
-                DGV_EnFot.Visible = true;
-                DGV_EnElec.Visible = true;
-
                 Equipo.editarAle(cb_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, cb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
+                CHB_EnElecEquipo.Checked = true;
+                if (DGV_EnFot.Rows.Count>0)
+                {
+                    CHB_EnFotEquipo.Checked = true;
+                    DGV_EnFot.Visible = true;
+                }
+                else
+                {
+                    CHB_EnFotEquipo.Checked = false;
+                    DGV_EnFot.Visible = false;
+                }
+                if (DGV_EnElec.Rows.Count > 0)
+                {
+                    CHB_EnElecEquipo.Checked = true;
+                    DGV_EnElec.Visible = true;
+                }
+                else
+                {
+                    CHB_EnElecEquipo.Checked = false;
+                    DGV_EnElec.Visible = false;
+                }
+                
             }
             editaEquipo = true;
             actualizarComboBoxCaliFotones();
@@ -1050,6 +1081,7 @@ namespace _398_UI
             habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotEditar);
             habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotPredet);
             habilitarBoton(DGV_EnFot.SelectedRows.Count > 0, BT_EnFotEliminar);
+            habilitarEquipoBotones(sender, e);
         }
         #endregion
 
@@ -1118,6 +1150,7 @@ namespace _398_UI
             habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecEditar);
             habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecPredet);
             habilitarBoton(DGV_EnElec.SelectedRows.Count > 0, BT_EnElecEliminar);
+            habilitarEquipoBotones(sender, e);
         }
 
         #endregion
@@ -1532,6 +1565,10 @@ namespace _398_UI
             }
         }
 
+        private double ladoCampoReferencia()
+        {
+            return energiaSeleccionada().LadoCampo;
+        }
         private double profundidadDeReferencia()
         {
             return energiaSeleccionada().ZRefFot;
