@@ -55,6 +55,7 @@
     <Compile Include="CalibracionSistDos.cs" />
     <Compile Include="Camara.cs" />
     <Compile Include="camara398new.cs" />
+    <Compile Include="Configuracion.cs" />
     <Compile Include="Electrometro.cs" />
     <Compile Include="EnergiaElectrones.cs" />
     <Compile Include="EnergiaFotones.cs" />

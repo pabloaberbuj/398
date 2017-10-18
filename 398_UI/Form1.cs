@@ -261,8 +261,7 @@ namespace _398_UI
 
         private void inicializarPredeterminados(double umPred, double ladoCampopred)
         {
-            TB_UM.Text = umPred.ToString();
-            TB_CaliLadoCampo.Text = ladoCampopred.ToString();
+            TB_UM.Text = Configuracion.umPredet.ToString();
         }
 
         #endregion
@@ -779,6 +778,7 @@ namespace _398_UI
             if (CHB_EnFotEquipo.Checked == true)
             {
                 Panel_EnFotEquipo.Enabled = true;
+                TB_EnFotLado.Text = Configuracion.ladoCampoPredetFot.ToString();
             }
             else { Panel_EnFotEquipo.Enabled = false; }
         }
@@ -788,6 +788,7 @@ namespace _398_UI
             if (CHB_EnElecEquipo.Checked == true)
             {
                 Panel_EnElecEquipo.Enabled = true;
+                TB_EnElecLado.Text = Configuracion.ladoCampoPredetElec.ToString();
             }
             else { Panel_EnElecEquipo.Enabled = false; }
         }
@@ -802,9 +803,10 @@ namespace _398_UI
                 Panel_EnCoEquipo.Enabled = true;
                 CHB_EnElecEquipo.Enabled = false;
                 CHB_EnFotEquipo.Enabled = false;
-                TB_EnCoZref.Text = 5.ToString();
+                TB_EnCoZref.Text = Configuracion.profPredetCo.ToString();
                 RB_Pulsado.Checked = false;
                 RB_PulsadoYBarrido.Checked = false;
+                TB_EnCoLado.Text = Configuracion.ladoCampoPredetFot.ToString();
             }
             else
             {
@@ -846,7 +848,7 @@ namespace _398_UI
             int auxHaz = 0;
             if (RB_FuenteCo.Checked == true)
             {
-                Equipo.guardar(Equipo.crearCo(cb_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR), cb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
+                Equipo.guardar(Equipo.crearCo(cb_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoLado), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR), cb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
             }
             else if (RB_FuenteALE.Checked == true)
             {
@@ -1005,8 +1007,9 @@ namespace _398_UI
         private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Visible = true;
-            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
+            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotLado), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
             limpiarRegistro(Panel_EnFotEquipo);
+            TB_EnFotLado.Text = Configuracion.ladoCampoPredetFot.ToString();
             TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
             if (RB_FuenteCo.Checked == true && DGV_EnFot.ColumnCount > 0)
             {
@@ -1055,8 +1058,9 @@ namespace _398_UI
         private void BT_EnElecGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnElec.Visible = true;
-            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Calcular.doubleNaN(TB_EnElecR50ion), Calcular.doubleNaN(L_EnElecR50dosis), Calcular.doubleNaN(L_EnElecZref), Calcular.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
+            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Calcular.doubleNaN(TB_EnElecLado), Calcular.doubleNaN(TB_EnElecR50ion), Calcular.doubleNaN(L_EnElecR50dosis), Calcular.doubleNaN(L_EnElecZref), Calcular.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
             limpiarRegistro(Panel_EnElecEquipo);
+            TB_EnElecLado.Text = Configuracion.ladoCampoPredetElec.ToString();
             L_EnElecR50dosis.Text = null;
             L_EnElecZref.Text = null;
             TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo

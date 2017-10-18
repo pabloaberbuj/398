@@ -83,7 +83,7 @@ namespace _398_UI
         }
 
         public static Equipo crearCo(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
-             double zref, double PDDzref, double TMRzref, string _institucion)
+             double zref, double lado, double PDDzref, double TMRzref, string _institucion)
         {
             return new Equipo()
             {
@@ -93,7 +93,7 @@ namespace _398_UI
                 Alias = _alias,
                 Fuente = _fuente,
                 TipoDeHaz = _tipoDeHaz,
-                energiaFot = EnergiaFotones.energiaCo(zref, PDDzref, TMRzref),
+                energiaFot = EnergiaFotones.energiaCo(zref, lado,PDDzref, TMRzref),
                 EnergiasFotones = "Co",
                 energiaElec = new ListaElectrones(),
                 EnergiasElectrones = "",

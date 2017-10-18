@@ -17,6 +17,8 @@ namespace _398_UI
         public double Energia { get; set; }
         [DisplayName("Energía")]
         public string Etiqueta { get; set; }
+        [DisplayName("Lado")]
+        public double LadoCampo { get; set; }
         [DisplayName("Zref")]
         public double ZRefFot { get; set; }
         [DisplayName("PDD")]
@@ -26,12 +28,13 @@ namespace _398_UI
 
 
 
-        public static EnergiaFotones crear(double _energia, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
+        public static EnergiaFotones crear(double _energia, double _lado, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
         {
             return new EnergiaFotones()
             {
                 Energia = _energia,
                 Etiqueta = _energia.ToString(),
+                LadoCampo = _lado,
                 ZRefFot = _zRefFot,
                 PddZrefFot = _pddZrefFot,
                 TmrZrefFot = _tmrZrefFot,
@@ -112,13 +115,14 @@ namespace _398_UI
             TMRZref.Text = Calcular.stringNaN(aux.TmrZrefFot);
         }
 
-        public static ListaFotones energiaCo(double Zref, double PDDZref, double TMRZref)
+        public static ListaFotones energiaCo(double Zref, double Lado, double PDDZref, double TMRZref)
         {
             ListaFotones aux = new ListaFotones
             {
                 new EnergiaFotones
                 {
                     Energia = 1.25,
+                    LadoCampo = Lado,
                     Etiqueta = "Co",
                     ZRefFot = Zref,
                     PddZrefFot = PDDZref,

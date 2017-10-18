@@ -17,6 +17,8 @@ namespace _398_UI
         public double Energia { get; set; }
         [DisplayName("Energía")]
         public string Etiqueta { get; set; }
+        [DisplayName("Lado")]
+        public double LadoCampo { get; set; }
         [DisplayName("R50 I")]
         public double R50ion { get; set; }
         [DisplayName("R50 D")]
@@ -27,12 +29,13 @@ namespace _398_UI
         public double PDDZref { get; set; }
 
 
-        public static EnergiaElectrones crear(double _energia, double _r50Ion, double _r50D, double _zRef, double _pddZref)
+        public static EnergiaElectrones crear(double _energia, double _lado, double _r50Ion, double _r50D, double _zRef, double _pddZref)
         {
             return new EnergiaElectrones()
             {
                 Energia = _energia,
                 Etiqueta = _energia.ToString(),
+                LadoCampo = _lado,
                 R50ion = _r50Ion,
                 R50D = _r50D,
                 Zref = _zRef,
