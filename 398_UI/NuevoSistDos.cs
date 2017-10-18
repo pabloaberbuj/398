@@ -23,12 +23,10 @@ namespace _398_UI
             foreach (var cam in Camara.lista())
             {
                 CB_Camara.Items.Add(cam);
-                CB_Camara.DisplayMember = "Etiqueta";
             }
             foreach (var elec in Electrometro.lista())
             {
                 CB_Electrometro.Items.Add(elec);
-                CB_Electrometro.DisplayMember = "Etiqueta";
             }
             if (editaSistDos == true)
             {
@@ -37,6 +35,8 @@ namespace _398_UI
                 SistemaDosimetrico.editar(CB_Camara, CB_Electrometro, TB_FCal, CB_Tension, TB_Tension, CB_HazRef,
                     TB_Temp, TB_Presion, TB_Humedad, DTP_FechaCal.Value, TB_LabCal, indiceEditar);
             }
+            CB_Camara.DisplayMember = "Etiqueta";
+            CB_Electrometro.DisplayMember = "Etiqueta";
         }
 
 

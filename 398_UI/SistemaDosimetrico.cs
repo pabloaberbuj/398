@@ -123,8 +123,16 @@ namespace _398_UI
             int indice)
         {
             SistemaDosimetrico aux = lista()[indice];
-            Camara.SelectedItem = aux.camara.Etiqueta;
-            Electrometro.SelectedItem = aux.electrometro.Etiqueta;
+            if (!Camara.Items.Contains(aux.camara))
+            {
+                Camara.Items.Add(aux.camara);
+            }
+            Camara.SelectedItem = aux.camara;
+            if (!Electrometro.Items.Contains(aux.electrometro))
+            {
+                Electrometro.Items.Add(aux.electrometro);
+            }
+            Electrometro.SelectedItem = aux.electrometro;
             FactorCali.Text = Convert.ToString(aux.FactorCalibracion);
             if (aux.SignoTension == 1)
             { SignoTension.SelectedItem = "+"; }
