@@ -143,7 +143,7 @@ namespace _398_UI
         private void InicializarComboBoxEquipos()
         {
             CB_CaliEquipos.Items.Clear();
-            if (Equipo.lista().Count>0)
+            if (Equipo.lista().Count > 0)
             {
                 foreach (var equipo in Equipo.lista())
                 {
@@ -162,7 +162,7 @@ namespace _398_UI
         private void InicializarComboBoxSistDosim()
         {
             CB_CaliSistDosimetrico.Items.Clear();
-            if (SistemaDosimetrico.lista().Count>0)
+            if (SistemaDosimetrico.lista().Count > 0)
             {
                 foreach (var sistdos in SistemaDosimetrico.lista())
                 {
@@ -460,7 +460,7 @@ namespace _398_UI
                 calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
                 calculaDwzrefFot = escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
                 calculaDwzmaxFot = escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
-                calculaDifLBFot = escribirLabel(calculaDwzrefFot && hayLB(), calculoDifConRef, L_CaliFDifLB);
+                calculaDifLBFot = escribirLabel(calculaDwzrefFot && hayLBsinCartel(), calculoDifConRef, L_CaliFDifLB);
                 chequearKqq0();
                 chequearKpol();
                 chequearKs();
@@ -686,6 +686,22 @@ namespace _398_UI
             }
         }
 
+        private bool hayLBsinCartel()
+        {
+            if (!(RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) || CB_CaliEquipos.SelectedIndex == -1 || CB_CaliEnergias.SelectedIndex == -1)
+            {
+                return false;
+            }
+            else if (!CalibracionFot.hayReferencia(equipoSeleccionado(), energiaSeleccionada(), DFSoISO()))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         #endregion
 
         #region Cali Fotones Botones
@@ -795,7 +811,7 @@ namespace _398_UI
                 Panel_EnCoEquipo.Enabled = false;
                 TB_EnCoZref.Text = "";
             }
-            habilitarEquipoBotones(sender,e);
+            habilitarEquipoBotones(sender, e);
         }
 
         private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
@@ -982,11 +998,11 @@ namespace _398_UI
             habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_ExportarEq);
         }
 
-            #endregion
+        #endregion
 
-            #region Equipos EnergiaFotonesBotones
+        #region Equipos EnergiaFotonesBotones
 
-            private void BT_EnFotGuardar_Click(object sender, EventArgs e)
+        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Visible = true;
             EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
@@ -1017,7 +1033,7 @@ namespace _398_UI
             EnergiaFotones.hacerPredeterminado(DGV_EnFot);
         }
 
-        
+
         private void BT_EqEnergiaFot_Cancelar_Click(object sender, EventArgs e)
         {
             limpiarRegistro(Panel_EnFotEquipo);
@@ -1026,7 +1042,7 @@ namespace _398_UI
         }
 
         private void habilitarEqEnFotBotones(object sender, EventArgs e)
-        { 
+        {
             habilitarBoton(TB_EnFotEn.Text != "", BT_EnFotGuardar);
             habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotEditar);
             habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotPredet);
@@ -1232,15 +1248,15 @@ namespace _398_UI
             };
             openFileDialog1.ShowDialog();
             BindingList<SistemaDosimetrico> listaImportada = SistemaDosimetrico.importar(openFileDialog1.FileName);
-            if (listaImportada.Count()==0)
+            if (listaImportada.Count() == 0)
             {
                 MessageBox.Show("No hay nuevos sistemas dosimétricos para importar en el archivo seleccionado");
             }
             else
             {
-                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " sistemas dosimétricos. ¿Continuar?","Importar",MessageBoxButtons.OKCancel)==DialogResult.OK)
+                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " sistemas dosimétricos. ¿Continuar?", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    SistemaDosimetrico.agregarImportados(listaImportada,DGV_SistDos);
+                    SistemaDosimetrico.agregarImportados(listaImportada, DGV_SistDos);
                 }
                 if (MessageBox.Show("¿Desea agregar también las cámaras y electrómetros a sus listas? ", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
@@ -1248,7 +1264,7 @@ namespace _398_UI
                     Electrometro.importar(listaImportada, DGV_Elec);
                 }
             }
-            
+
         }
 
         private void BT_ExportarSistDos_Click(object sender, EventArgs e)
@@ -1269,13 +1285,23 @@ namespace _398_UI
 
         #region Analizar Registros Inicializaciones
 
-        
+        private void InicializarRegistrosEquipos()
+        {
+            foreach (CalibracionFot cali in CalibracionFot.lista())
+            {
+                if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
+                {
+                    ListBox_RegistrosEquipos.Items.Add(cali.Equipo);
+                    ListBox_RegistrosEquipos.DisplayMember = "Etiqueta";
+                }
+            }
+        }
 
-#endregion
+        #endregion
 
 
-#region Métodos
-public static void limpiarRegistro(Panel panel)
+        #region Métodos
+        public static void limpiarRegistro(Panel panel)
         {
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
@@ -1467,7 +1493,7 @@ public static void limpiarRegistro(Panel panel)
 
         private SistemaDosimetrico sistDosimSeleccionado()
         {
-            if (SistemaDosimetrico.lista().Count>0)
+            if (SistemaDosimetrico.lista().Count > 0)
             {
                 return (SistemaDosimetrico)CB_CaliSistDosimetrico.SelectedItem;
             }
@@ -1475,12 +1501,12 @@ public static void limpiarRegistro(Panel panel)
             {
                 return new SistemaDosimetrico();
             }
-            
+
         }
 
         private Equipo equipoSeleccionado()
         {
-            if (Equipo.lista().Count>0)
+            if (Equipo.lista().Count > 0)
             {
                 return (Equipo)CB_CaliEquipos.SelectedItem;
             }
@@ -1492,7 +1518,7 @@ public static void limpiarRegistro(Panel panel)
 
         private EnergiaFotones energiaSeleccionada()
         {
-            if (equipoSeleccionado().energiaFot != null && equipoSeleccionado().energiaFot.Count>0)
+            if (equipoSeleccionado().energiaFot != null && equipoSeleccionado().energiaFot.Count > 0)
             {
                 return (EnergiaFotones)CB_CaliEnergias.SelectedItem;
             }
@@ -1736,7 +1762,7 @@ public static void limpiarRegistro(Panel panel)
 
         #endregion
 
-        
+
     }
 }
 

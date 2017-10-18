@@ -21,6 +21,9 @@ namespace _398_UI
         public Electrometro electrometro { get; set; }
         [DisplayName("Electrómetro")]
         public string etiquetaElectrometro { get; set; }
+        [Browsable(false)]
+        public string Etiqueta { get; set; }
+        //public List<CalibracionSistDos> calibraciones { get; set; }
         [DisplayName("NDw [cGy/nC]")]
         public double FactorCalibracion { get; set; }
         [Browsable(false)]
@@ -64,6 +67,7 @@ namespace _398_UI
                 FechaCalibracion = _fechaCal,
                 LaboCalibracion = _laboCal,
                 Nota = "",
+                Etiqueta = _camara.Etiqueta + " " + _electrometro.Etiqueta,
             };
         }
         public static BindingList<SistemaDosimetrico> lista()

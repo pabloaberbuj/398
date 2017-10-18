@@ -31,7 +31,7 @@ namespace _398_UI
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
         public bool EsReferencia { get; set; }
-        public static string file = @"..\..\caliFotones.txt";
+        public static string file = @"caliFotones.txt";
 
 
         //operaciones        
