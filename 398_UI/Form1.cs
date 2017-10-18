@@ -952,7 +952,6 @@ namespace _398_UI
                     CHB_EnElecEquipo.Checked = false;
                     DGV_EnElec.Visible = false;
                 }
-                
             }
             editaEquipo = true;
             actualizarComboBoxCaliFotones();
@@ -1058,7 +1057,7 @@ namespace _398_UI
         private void BT_EnFotEditar_Click(object sender, EventArgs e)
         {
             DGV_EnFot.Enabled = false;
-            EnergiaFotones.editar(TB_EnFotEn, TB_EnFotZref, TB_EnFotPDD, TB_EnFotTMR, DGV_EnFot);
+            EnergiaFotones.editar(TB_EnFotEn, TB_EnFotZref, TB_EnFotLado, TB_EnFotPDD, TB_EnFotTMR, DGV_EnFot);
             editaEnergiaFot = true;
         }
 
@@ -1109,7 +1108,7 @@ namespace _398_UI
         private void BT_EnElecEditar_Click(object sender, EventArgs e)
         {
             DGV_EnElec.Enabled = false;
-            EnergiaElectrones.editar(TB_EnElecEn, TB_EnElecR50ion, L_EnElecR50dosis, L_EnElecZref, TB_EnElecPDDZref, DGV_EnElec);
+            EnergiaElectrones.editar(TB_EnElecEn, TB_EnElecR50ion, TB_EnElecLado, L_EnElecR50dosis, L_EnElecZref, TB_EnElecPDDZref, DGV_EnElec);
             editaEnergiaElect = true;
         }
 

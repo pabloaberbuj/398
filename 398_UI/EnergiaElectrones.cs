@@ -125,11 +125,12 @@ namespace _398_UI
             }
         }
 
-        public static void editar(TextBox Energia, TextBox R50Ion, Label R50D, Label Zref, TextBox PDDZref, DataGridView DGV)
+        public static void editar(TextBox Energia, TextBox R50Ion, TextBox Lado, Label R50D, Label Zref, TextBox PDDZref, DataGridView DGV)
         {
             EnergiaElectrones aux = lista(DGV)[DGV.SelectedRows[0].Index];
             Energia.Text = aux.Energia.ToString();
             R50Ion.Text = Calcular.stringNaN(aux.R50ion);
+            Lado.Text = Calcular.stringNaN(aux.LadoCampo);
             R50D.Text = Calcular.stringNaN(aux.R50D);
             Zref.Text = Calcular.stringNaN(aux.Zref);
             PDDZref.Text = Calcular.stringNaN(aux.PDDZref);
