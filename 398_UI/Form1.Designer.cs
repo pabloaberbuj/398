@@ -194,6 +194,9 @@
             this.GB_EquiposEnergias = new System.Windows.Forms.GroupBox();
             this.label80 = new System.Windows.Forms.Label();
             this.Panel_EnCoEquipo = new System.Windows.Forms.Panel();
+            this.label88 = new System.Windows.Forms.Label();
+            this.TB_EnCoLado = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.TB_EnCoTMR = new System.Windows.Forms.TextBox();
             this.label82 = new System.Windows.Forms.Label();
@@ -204,8 +207,11 @@
             this.label85 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.Panel_EnElecEquipo = new System.Windows.Forms.Panel();
+            this.label92 = new System.Windows.Forms.Label();
             this.BT_EqEnergiaElec_Cancelar = new System.Windows.Forms.Button();
+            this.TB_EnElecLado = new System.Windows.Forms.TextBox();
             this.label76 = new System.Windows.Forms.Label();
+            this.label93 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.L_EnElecR50dosis = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
@@ -226,8 +232,11 @@
             this.BT_EnElecEliminar = new System.Windows.Forms.Button();
             this.BT_EnElecGuardar = new System.Windows.Forms.Button();
             this.Panel_EnFotEquipo = new System.Windows.Forms.Panel();
+            this.label90 = new System.Windows.Forms.Label();
             this.BT_EqEnergiaFot_Cancelar = new System.Windows.Forms.Button();
+            this.TB_EnFotLado = new System.Windows.Forms.TextBox();
             this.DGV_EnFot = new System.Windows.Forms.DataGridView();
+            this.label91 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.TB_EnFotTMR = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
@@ -323,7 +332,6 @@
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button23 = new System.Windows.Forms.Button();
             this.ListBox_RegistrosEquipos = new System.Windows.Forms.ListBox();
             this.label50 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -346,15 +354,9 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label88 = new System.Windows.Forms.Label();
-            this.TB_EnCoLado = new System.Windows.Forms.TextBox();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.TB_EnFotLado = new System.Windows.Forms.TextBox();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label92 = new System.Windows.Forms.Label();
-            this.TB_EnElecLado = new System.Windows.Forms.TextBox();
-            this.label93 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -407,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -2145,6 +2148,31 @@
             this.Panel_EnCoEquipo.Size = new System.Drawing.Size(171, 232);
             this.Panel_EnCoEquipo.TabIndex = 90;
             // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(133, 72);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(21, 13);
+            this.label88.TabIndex = 103;
+            this.label88.Text = "cm";
+            // 
+            // TB_EnCoLado
+            // 
+            this.TB_EnCoLado.Location = new System.Drawing.Point(84, 70);
+            this.TB_EnCoLado.Name = "TB_EnCoLado";
+            this.TB_EnCoLado.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnCoLado.TabIndex = 101;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(10, 70);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(66, 13);
+            this.label89.TabIndex = 102;
+            this.label89.Text = "Lado campo";
+            // 
             // label81
             // 
             this.label81.AutoSize = true;
@@ -2252,6 +2280,15 @@
             this.Panel_EnElecEquipo.Size = new System.Drawing.Size(322, 231);
             this.Panel_EnElecEquipo.TabIndex = 89;
             // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(127, 72);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(21, 13);
+            this.label92.TabIndex = 109;
+            this.label92.Text = "cm";
+            // 
             // BT_EqEnergiaElec_Cancelar
             // 
             this.BT_EqEnergiaElec_Cancelar.Location = new System.Drawing.Point(53, 197);
@@ -2262,6 +2299,13 @@
             this.BT_EqEnergiaElec_Cancelar.UseVisualStyleBackColor = true;
             this.BT_EqEnergiaElec_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaElec_Cancelar_Click);
             // 
+            // TB_EnElecLado
+            // 
+            this.TB_EnElecLado.Location = new System.Drawing.Point(80, 69);
+            this.TB_EnElecLado.Name = "TB_EnElecLado";
+            this.TB_EnElecLado.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnElecLado.TabIndex = 107;
+            // 
             // label76
             // 
             this.label76.AutoSize = true;
@@ -2270,6 +2314,15 @@
             this.label76.Size = new System.Drawing.Size(21, 13);
             this.label76.TabIndex = 114;
             this.label76.Text = "cm";
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(4, 70);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(66, 13);
+            this.label93.TabIndex = 108;
+            this.label93.Text = "Lado campo";
             // 
             // label67
             // 
@@ -2486,6 +2539,15 @@
             this.Panel_EnFotEquipo.Size = new System.Drawing.Size(322, 231);
             this.Panel_EnFotEquipo.TabIndex = 55;
             // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(129, 71);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(21, 13);
+            this.label90.TabIndex = 106;
+            this.label90.Text = "cm";
+            // 
             // BT_EqEnergiaFot_Cancelar
             // 
             this.BT_EqEnergiaFot_Cancelar.Location = new System.Drawing.Point(47, 196);
@@ -2495,6 +2557,13 @@
             this.BT_EqEnergiaFot_Cancelar.Text = "Cancelar";
             this.BT_EqEnergiaFot_Cancelar.UseVisualStyleBackColor = true;
             this.BT_EqEnergiaFot_Cancelar.Click += new System.EventHandler(this.BT_EqEnergiaFot_Cancelar_Click);
+            // 
+            // TB_EnFotLado
+            // 
+            this.TB_EnFotLado.Location = new System.Drawing.Point(80, 69);
+            this.TB_EnFotLado.Name = "TB_EnFotLado";
+            this.TB_EnFotLado.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnFotLado.TabIndex = 104;
             // 
             // DGV_EnFot
             // 
@@ -2514,6 +2583,15 @@
             this.DGV_EnFot.TabIndex = 92;
             this.DGV_EnFot.Visible = false;
             this.DGV_EnFot.SelectionChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(6, 69);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(66, 13);
+            this.label91.TabIndex = 105;
+            this.label91.Text = "Lado campo";
             // 
             // label71
             // 
@@ -3486,6 +3564,8 @@
             // 
             // Panel_AnalizarReg
             // 
+            this.Panel_AnalizarReg.Controls.Add(this.groupBox7);
+            this.Panel_AnalizarReg.Controls.Add(this.groupBox2);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox1);
             this.Panel_AnalizarReg.Controls.Add(this.label50);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox6);
@@ -3502,23 +3582,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button23);
             this.groupBox1.Controls.Add(this.ListBox_RegistrosEquipos);
-            this.groupBox1.Location = new System.Drawing.Point(614, 257);
+            this.groupBox1.Location = new System.Drawing.Point(9, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 179);
+            this.groupBox1.Size = new System.Drawing.Size(159, 152);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar equipos";
-            // 
-            // button23
-            // 
-            this.button23.Location = new System.Drawing.Point(15, 153);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(125, 21);
-            this.button23.TabIndex = 73;
-            this.button23.Text = "Actualizar";
-            this.button23.UseVisualStyleBackColor = true;
             // 
             // ListBox_RegistrosEquipos
             // 
@@ -3533,7 +3603,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(601, 150);
+            this.label50.Location = new System.Drawing.Point(531, 143);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(187, 39);
             this.label50.TabIndex = 68;
@@ -3548,7 +3618,7 @@
             this.groupBox6.Controls.Add(this.label52);
             this.groupBox6.Controls.Add(this.DTPRegHasta);
             this.groupBox6.Controls.Add(this.DTPRegDesde);
-            this.groupBox6.Location = new System.Drawing.Point(614, 16);
+            this.groupBox6.Location = new System.Drawing.Point(544, 9);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(159, 126);
             this.groupBox6.TabIndex = 65;
@@ -3658,7 +3728,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(11, 466);
+            this.label21.Location = new System.Drawing.Point(548, 200);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 64;
@@ -3667,7 +3737,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 7);
+            this.label19.Location = new System.Drawing.Point(11, 456);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 63;
@@ -3691,9 +3761,9 @@
             // 
             // GBGrafReg
             // 
-            this.GBGrafReg.Location = new System.Drawing.Point(12, 243);
+            this.GBGrafReg.Location = new System.Drawing.Point(9, 209);
             this.GBGrafReg.Name = "GBGrafReg";
-            this.GBGrafReg.Size = new System.Drawing.Size(564, 210);
+            this.GBGrafReg.Size = new System.Drawing.Size(521, 210);
             this.GBGrafReg.TabIndex = 61;
             this.GBGrafReg.TabStop = false;
             this.GBGrafReg.Text = "Graficos";
@@ -3709,9 +3779,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVRegistros.Location = new System.Drawing.Point(14, 26);
+            this.DGVRegistros.Location = new System.Drawing.Point(543, 218);
             this.DGVRegistros.Name = "DGVRegistros";
-            this.DGVRegistros.Size = new System.Drawing.Size(564, 210);
+            this.DGVRegistros.Size = new System.Drawing.Size(310, 199);
             this.DGVRegistros.TabIndex = 60;
             // 
             // Bt_CalElec
@@ -3752,88 +3822,42 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // label88
+            // groupBox2
             // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(133, 72);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(21, 13);
-            this.label88.TabIndex = 103;
-            this.label88.Text = "cm";
+            this.groupBox2.Controls.Add(this.listBox1);
+            this.groupBox2.Location = new System.Drawing.Point(183, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(159, 152);
+            this.groupBox2.TabIndex = 72;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filtrar equipos";
             // 
-            // TB_EnCoLado
+            // listBox1
             // 
-            this.TB_EnCoLado.Location = new System.Drawing.Point(84, 70);
-            this.TB_EnCoLado.Name = "TB_EnCoLado";
-            this.TB_EnCoLado.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnCoLado.TabIndex = 101;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "(Lista de equipos)"});
+            this.listBox1.Location = new System.Drawing.Point(15, 26);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(125, 108);
+            this.listBox1.TabIndex = 71;
             // 
-            // label89
+            // groupBox7
             // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(10, 70);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(66, 13);
-            this.label89.TabIndex = 102;
-            this.label89.Text = "Lado campo";
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(129, 71);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(21, 13);
-            this.label90.TabIndex = 106;
-            this.label90.Text = "cm";
-            // 
-            // TB_EnFotLado
-            // 
-            this.TB_EnFotLado.Location = new System.Drawing.Point(80, 69);
-            this.TB_EnFotLado.Name = "TB_EnFotLado";
-            this.TB_EnFotLado.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnFotLado.TabIndex = 104;
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(6, 69);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(66, 13);
-            this.label91.TabIndex = 105;
-            this.label91.Text = "Lado campo";
-            // 
-            // label92
-            // 
-            this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(127, 72);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(21, 13);
-            this.label92.TabIndex = 109;
-            this.label92.Text = "cm";
-            // 
-            // TB_EnElecLado
-            // 
-            this.TB_EnElecLado.Location = new System.Drawing.Point(80, 69);
-            this.TB_EnElecLado.Name = "TB_EnElecLado";
-            this.TB_EnElecLado.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnElecLado.TabIndex = 107;
-            // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(4, 70);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(66, 13);
-            this.label93.TabIndex = 108;
-            this.label93.Text = "Lado campo";
+            this.groupBox7.Location = new System.Drawing.Point(369, 11);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(159, 152);
+            this.groupBox7.TabIndex = 73;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Filtrar equipos";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_AnalizarReg);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
@@ -3930,6 +3954,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4064,7 +4089,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button23;
         private System.Windows.Forms.ListBox ListBox_RegistrosEquipos;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -4260,6 +4284,9 @@
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.TextBox TB_EnFotLado;
         private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
