@@ -167,7 +167,7 @@ namespace _398_UI
         public static void editarAle(ComboBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, ComboBox Institucion, Panel Fuente, Panel TipoHaz,
             DataGridView DGVEnFot, DataGridView DGVEnElec, DataGridView DGVEquipo)
         {
-            Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
+            Equipo aux = (Equipo)DGVEquipo.SelectedRows[0].DataBoundItem;
             Marca.Text = aux.Marca;
             Modelo.Text = aux.Modelo;
             NumSerie.Text = aux.NumSerie;
@@ -194,7 +194,7 @@ namespace _398_UI
         public static void editarCo(ComboBox Marca, TextBox Modelo, TextBox NumSerie, TextBox Alias, ComboBox Institucion, Panel Fuente, Panel TipoHaz,
             TextBox Zref, TextBox PDDZref, TextBox TMRZref, DataGridView DGVEquipo)
         {
-            Equipo aux = lista()[DGVEquipo.SelectedRows[0].Index];
+            Equipo aux = (Equipo)DGVEquipo.SelectedRows[0].DataBoundItem;
             Marca.Text = aux.Marca;
             Modelo.Text = aux.Modelo;
             NumSerie.Text = aux.NumSerie;
@@ -209,14 +209,14 @@ namespace _398_UI
 
         public static void hacerPredeterminado(DataGridView DGV)
         {
-            if (DGV.SelectedRows.Count > 0)
+            if (DGV.SelectedRows.Count == 1)
             {
                 foreach (DataGridViewRow fila in DGV.Rows)
                 {
-                    fila.Cells["EsPredet"].Value = false;
+                    ((Equipo)fila.DataBoundItem).EsPredet = false;
                 }
 
-                DGV.SelectedRows[0].Cells["EsPredet"].Value = true;
+                ((Equipo)DGV.SelectedRows[0].DataBoundItem).EsPredet= true;
                 IO.writeObjectAsJson(file, DGV.DataSource);
             }
         }
@@ -231,7 +231,7 @@ namespace _398_UI
                     string fileName = IO.GetUniqueFilename(@"..\..\", "equiposExportados");
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        listaAExportar.Add(lista()[fila.Index]);
+                        listaAExportar.Add((Equipo)fila.DataBoundItem);
                     }
                     IO.writeObjectAsJson(fileName, listaAExportar);
                 }
@@ -239,7 +239,7 @@ namespace _398_UI
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
+                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar\n" + e.ToString());
             }
         }
 
