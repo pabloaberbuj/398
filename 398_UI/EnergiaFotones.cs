@@ -26,8 +26,6 @@ namespace _398_UI
         [DisplayName("TMR")]
         public double TmrZrefFot { get; set; }
 
-
-
         public static EnergiaFotones crear(double _energia, double _lado, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
         {
             return new EnergiaFotones()
@@ -160,6 +158,26 @@ namespace _398_UI
             DGV.Columns[4].Width = 38;
         }
 
+        public bool EqualsParaCali(EnergiaFotones ef)
+        {
+            PropertyInfo[] propiedades = ef.GetType().GetProperties();
+            if (ef == null || this.GetType() != ef.GetType())
+            {
+                return false;
+            }
+            foreach (PropertyInfo propiedad in propiedades)
+            {
+                  
+                if (propiedad.Name == "Energia" || propiedad.Name == "ZRefFot" || propiedad.Name == "LadoCampo")
+                {
+                    if ((!propiedad.GetValue(this).Equals(propiedad.GetValue(ef))))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
     }
 }

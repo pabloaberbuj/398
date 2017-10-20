@@ -24,7 +24,7 @@ namespace _398_UI
         [Browsable(false)]
         public int Fuente { get; set; } //1 para Co 2 para Ale
         [Browsable(false)]
-        public int TipoDeHaz;//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
+        public int TipoDeHaz { get; set; }//inicializa 0, 0 para Co, 1 para Ale pulsado, 2 para Ale barrido y pulsado
         [Browsable(false)]
         public ListaFotones energiaFot { get; set; }
         [DisplayName("Energías Fotones")]
@@ -38,7 +38,7 @@ namespace _398_UI
         [Browsable(false)]
         public string Nota { get; set; }
 
-
+        
 
         public static Equipo crearAle(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
              DataGridView DGVFot, DataGridView DGVElec, string _institucion)
@@ -47,7 +47,7 @@ namespace _398_UI
             string auxEnergiasFot = "";
             string auxEnergiasElec = "";
             ListaFotones listaF = new ListaFotones();
-            if (EnergiaFotones.lista(DGVFot).Count>0)
+            if (EnergiaFotones.lista(DGVFot).Count > 0)
             {
                 listaF = EnergiaFotones.lista(DGVFot);
             }
@@ -93,7 +93,7 @@ namespace _398_UI
                 Alias = _alias,
                 Fuente = _fuente,
                 TipoDeHaz = _tipoDeHaz,
-                energiaFot = EnergiaFotones.energiaCo(zref, lado,PDDzref, TMRzref),
+                energiaFot = EnergiaFotones.energiaCo(zref, lado, PDDzref, TMRzref),
                 EnergiasFotones = "Co",
                 energiaElec = new ListaElectrones(),
                 EnergiasElectrones = "",
@@ -216,7 +216,7 @@ namespace _398_UI
                     ((Equipo)fila.DataBoundItem).EsPredet = false;
                 }
 
-                ((Equipo)DGV.SelectedRows[0].DataBoundItem).EsPredet= true;
+                ((Equipo)DGV.SelectedRows[0].DataBoundItem).EsPredet = true;
                 IO.writeObjectAsJson(file, DGV.DataSource);
             }
         }
@@ -290,5 +290,28 @@ namespace _398_UI
             }
         }
 
+
+
+        public bool EqualsParaCali(Equipo eq)
+        {
+            PropertyInfo[] propiedades = eq.GetType().GetProperties();
+            if (eq == null || this.GetType() != eq.GetType())
+            {
+                return false;
+            }
+            foreach (PropertyInfo propiedad in propiedades)
+            {
+                      
+                if (propiedad.Name == "Alias" || propiedad.Name == "Marca" || propiedad.Name == "Modelo" ||
+                    propiedad.Name == "NumSerie" || propiedad.Name == "Fuente" || propiedad.Name == "TipoDeHaz" || propiedad.Name == "Institucion")
+                {
+                    if ((!propiedad.GetValue(this).Equals(propiedad.GetValue(eq))))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 }

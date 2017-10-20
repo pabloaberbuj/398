@@ -516,6 +516,7 @@ namespace _398_UI
             InicializarComboBoxSistDosim();
             InicializarComboBoxEquipos();
             InicializarComboBoxEnergias();
+            inicializarLadoCampoReferencia();
             InicializarRealizadoPor();
             InicializarPDDyTMRref();
         }

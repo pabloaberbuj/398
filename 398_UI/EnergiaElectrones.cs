@@ -26,7 +26,7 @@ namespace _398_UI
         [DisplayName("Zref")]
         public double Zref { get; set; }
         [DisplayName("PDD")]
-        public double PDDZref { get; set; }
+        public double PDDZrefElec { get; set; }
 
 
         public static EnergiaElectrones crear(double _energia, double _lado, double _r50Ion, double _r50D, double _zRef, double _pddZref)
@@ -39,7 +39,7 @@ namespace _398_UI
                 R50ion = _r50Ion,
                 R50D = _r50D,
                 Zref = _zRef,
-                PDDZref = _pddZref,
+                PDDZrefElec = _pddZref,
             };
         }
         
@@ -133,7 +133,7 @@ namespace _398_UI
             Lado.Text = Calcular.stringNaN(aux.LadoCampo);
             R50D.Text = Calcular.stringNaN(aux.R50D);
             Zref.Text = Calcular.stringNaN(aux.Zref);
-            PDDZref.Text = Calcular.stringNaN(aux.PDDZref);
+            PDDZref.Text = Calcular.stringNaN(aux.PDDZrefElec);
         }
 
         public static void hacerPredeterminado(DataGridView DGV)
@@ -164,22 +164,25 @@ namespace _398_UI
 
         }
 
-       /* public override bool Equals(object obj)
+        public bool EqualsParaCali(EnergiaElectrones el)
         {
-            PropertyInfo[] propiedades = obj.GetType().GetProperties();
-            var other = obj as EnergiaElectrones;
-            if (other == null)
+            PropertyInfo[] propiedades = el.GetType().GetProperties();
+            if (el == null || this.GetType() != el.GetType())
             {
                 return false;
             }
             foreach (PropertyInfo propiedad in propiedades)
             {
-                if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
+
+                if (propiedad.Name == "Energia" || propiedad.Name == "R50ion" || propiedad.Name == "LadoCampo")
                 {
-                    return false;
+                    if ((!propiedad.GetValue(this).Equals(propiedad.GetValue(el))))
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
-        }*/
+        }
     }
 }
