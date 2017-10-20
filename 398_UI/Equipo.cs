@@ -151,14 +151,14 @@ namespace _398_UI
                 {
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        if ((bool)fila.Cells["EsPredet"].Value == true)
+                        if (((Equipo)fila.DataBoundItem).EsPredet)
                         {
                             hayPredet = true;
                         }
                         DGV.Rows.Remove(fila);
                     }
                     if (hayPredet && DGV.RowCount > 0)
-                    { DGV.Rows[0].Cells["EsPredet"].Value = true; }
+                    { ((Equipo)DGV.Rows[0].DataBoundItem).EsPredet = true; }
                     IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
