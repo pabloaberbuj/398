@@ -84,6 +84,10 @@ namespace _398_UI
                 auxLista.Insert(indice, _nuevo);
                 auxLista[indice].EsPredet = auxPredet;
                 IO.writeObjectAsJson(file, auxLista);
+                if (auxLista.Count() == 1) //está solo este elemento, ya debería ser predeterminado. No debería hacer falta
+                {
+                    _nuevo.EsPredet = true;
+                }
             }
             else
             {
@@ -105,14 +109,14 @@ namespace _398_UI
                 {
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        if ((bool)fila.Cells["EsPredet"].Value == true)
+                        if (((SistemaDosimetrico)fila.DataBoundItem).EsPredet)
                         {
                             hayPredet = true;
                         }
                         DGV.Rows.Remove(fila);
                     }
                     if (hayPredet && DGV.RowCount > 0)
-                    { DGV.Rows[0].Cells["EsPredet"].Value = true; }
+                    { ((Equipo)DGV.Rows[0].DataBoundItem).EsPredet = true; }
                     IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }
@@ -148,14 +152,14 @@ namespace _398_UI
 
         public static void hacerPredeterminado(DataGridView DGV)
         {
-            if (DGV.SelectedRows.Count > 0)
+            if (DGV.SelectedRows.Count == 1)
             {
                 foreach (DataGridViewRow fila in DGV.Rows)
                 {
-                    fila.Cells["EsPredet"].Value = false;
+                    ((SistemaDosimetrico)fila.DataBoundItem).EsPredet = false;
                 }
 
-                DGV.SelectedRows[0].Cells["EsPredet"].Value = true;
+                ((SistemaDosimetrico)DGV.SelectedRows[0].DataBoundItem).EsPredet = true;
                 IO.writeObjectAsJson(file, DGV.DataSource);
             }
         }
@@ -217,7 +221,7 @@ namespace _398_UI
                     string fileName = IO.GetUniqueFilename(@"..\..\", "sistemasDosimetricosExportados");
                     foreach (DataGridViewRow fila in DGV.SelectedRows)
                     {
-                        listaAExportar.Add(lista()[fila.Index]);
+                        listaAExportar.Add((SistemaDosimetrico)fila.DataBoundItem);
                     }
                     IO.writeObjectAsJson(fileName, listaAExportar);
                 }
@@ -225,7 +229,7 @@ namespace _398_UI
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
+                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar:\n" + e.ToString());
             }
         }
     }
