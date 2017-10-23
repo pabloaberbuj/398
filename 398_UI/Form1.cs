@@ -66,6 +66,7 @@ namespace _398_UI
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
             InicializarInstitucionYMarcaEquipo();
+            inicializacionesRegistro();
 
 
         }
@@ -933,7 +934,7 @@ namespace _398_UI
             {
                 Equipo.editarAle(cb_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, cb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
                 CHB_EnElecEquipo.Checked = true;
-                if (DGV_EnFot.Rows.Count>0)
+                if (DGV_EnFot.Rows.Count > 0)
                 {
                     CHB_EnFotEquipo.Checked = true;
                     DGV_EnFot.Visible = true;
@@ -1322,8 +1323,9 @@ namespace _398_UI
 
         #region Analizar Registros Inicializaciones
 
-        private void InicializarRegistrosEquipos()
+        private void inicializarRegistrosEquipos()
         {
+            //ListBox_RegistrosEquipos.Items.Clear();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
                 if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
@@ -1333,6 +1335,59 @@ namespace _398_UI
                 }
             }
         }
+
+        private void inicializarRegistrosEnergias()
+        {
+            TV_RegistrosEnergia.Nodes.Clear();
+            if (ListBox_RegistrosEquipos.SelectedIndex != -1)
+            {
+                if (registroEquipoSeleccionado().energiaFot.Count > 0)
+                {
+                    TreeNode tnFot = new TreeNode("Fotones");
+                    tnFot.Name = "Fotones";
+                    TV_RegistrosEnergia.Nodes.Add(tnFot);
+                    foreach (EnergiaFotones ef in registroEquipoSeleccionado().energiaFot)
+                    {
+                        TreeNode _nuevaEF = new TreeNode(ef.Etiqueta);
+                        _nuevaEF.Tag = ef;
+                        TV_RegistrosEnergia.Nodes["Fotones"].Nodes.Add(_nuevaEF);
+                    }
+                    TV_RegistrosEnergia.Nodes["Fotones"].ExpandAll();
+                }
+
+                if (registroEquipoSeleccionado().energiaElec.Count > 0)
+                {
+                    TreeNode tnElec = new TreeNode("Electrones");
+                    tnElec.Name = "Electrones";
+                    TV_RegistrosEnergia.Nodes.Add(tnElec);
+                    foreach (EnergiaElectrones eel in registroEquipoSeleccionado().energiaElec)
+                    {
+                        TreeNode _nuevaeEl = new TreeNode(eel.Etiqueta);
+                        _nuevaeEl.Tag = eel;
+                        TV_RegistrosEnergia.Nodes["Electrones"].Nodes.Add(_nuevaeEl);
+                    }
+                    TV_RegistrosEnergia.Nodes["Electrones"].ExpandAll();
+                }
+            }
+        }
+        private Equipo registroEquipoSeleccionado()
+        {
+            return (Equipo)ListBox_RegistrosEquipos.SelectedItem;
+        }
+
+
+
+        private void inicializacionesRegistro()
+        {
+            inicializarRegistrosEquipos();
+            inicializarRegistrosEnergias();
+        }
+
+        private void ListBox_RegistrosEquipos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            inicializacionesRegistro();
+        }
+
 
         #endregion
 
@@ -1798,6 +1853,7 @@ namespace _398_UI
             }
             posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB);
         }
+
 
 
 
