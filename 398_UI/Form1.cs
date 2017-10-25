@@ -1336,11 +1336,78 @@ namespace _398_UI
             }
         }
 
+        private void registroChequeoEnergias(object sender, EventArgs e)
+        {
+            inicializarRegistrosEnergias();
+            if (RB_RegistroEnergiaFot.Checked)
+            {
+                CB_RegistroEnergiaFot.Enabled = true;
+                CB_RegistroEnergiaFot.SelectedIndex = 0;
+            }
+            else
+            {
+                CB_RegistroEnergiaFot.Enabled = false;
+                CB_RegistroEnergiaFot.SelectedIndex = -1;
+            }
+            if (RB_RegistroEnergiaElec.Checked)
+            {
+                CB_RegistroEnergiaElec.Enabled = true;
+                CB_RegistroEnergiaElec.SelectedIndex = 0;
+            }
+            else
+            {
+                CB_RegistroEnergiaElec.Enabled = false;
+                CB_RegistroEnergiaElec.SelectedIndex = -1;
+            }
+        }
         private void inicializarRegistrosEnergias()
+        {
+            CB_RegistroEnergiaFot.Items.Clear();
+            CB_RegistroEnergiaElec.Items.Clear();
+            if (ListBox_RegistrosEquipos.SelectedIndex!=-1)
+            {
+                if (registroEquipoSeleccionado().energiaFot.Count() > 0)
+                {
+                    foreach (EnergiaFotones eF in registroEquipoSeleccionado().energiaFot)
+                    {
+                        CB_RegistroEnergiaFot.Items.Add(eF);
+                    }
+                    RB_RegistroEnergiaFot.Enabled = true;
+                    if (registroEquipoSeleccionado().energiaElec.Count==0)
+                    {
+                        RB_RegistroEnergiaFot.Checked = true;
+                    }
+                }
+                else
+                {
+                    RB_RegistroEnergiaFot.Enabled = false;
+                }
+                if (registroEquipoSeleccionado().energiaElec.Count() > 0)
+                {
+                    foreach (EnergiaElectrones eE in registroEquipoSeleccionado().energiaElec)
+                    {
+                        CB_RegistroEnergiaElec.Items.Add(eE);
+                    }
+                    RB_RegistroEnergiaElec.Enabled = true;
+                    if (registroEquipoSeleccionado().energiaFot.Count == 0)
+                    {
+                        RB_RegistroEnergiaElec.Checked = true;
+                    }
+                }
+                else
+                {
+                    RB_RegistroEnergiaElec.Enabled = false;
+                }
+                CB_RegistroEnergiaFot.DisplayMember = "Etiqueta";
+                CB_RegistroEnergiaElec.DisplayMember = "Etiqueta";
+            }
+        }
+        /*private void inicializarRegistrosEnergias() //La opción con TreeView
         {
             TV_RegistrosEnergia.Nodes.Clear();
             if (ListBox_RegistrosEquipos.SelectedIndex != -1)
             {
+                //if (registroEquipoSeleccionado().Fuente ==1 )
                 if (registroEquipoSeleccionado().energiaFot.Count > 0)
                 {
                     TreeNode tnFot = new TreeNode("Fotones");
@@ -1348,7 +1415,7 @@ namespace _398_UI
                     TV_RegistrosEnergia.Nodes.Add(tnFot);
                     foreach (EnergiaFotones ef in registroEquipoSeleccionado().energiaFot)
                     {
-                        TreeNode _nuevaEF = new TreeNode(ef.Etiqueta);
+                        TreeNode _nuevaEF = new TreeNode(ef.Etiqueta+ " MV");
                         _nuevaEF.Tag = ef;
                         TV_RegistrosEnergia.Nodes["Fotones"].Nodes.Add(_nuevaEF);
                     }
@@ -1362,20 +1429,20 @@ namespace _398_UI
                     TV_RegistrosEnergia.Nodes.Add(tnElec);
                     foreach (EnergiaElectrones eel in registroEquipoSeleccionado().energiaElec)
                     {
-                        TreeNode _nuevaeEl = new TreeNode(eel.Etiqueta);
+                        TreeNode _nuevaeEl = new TreeNode(eel.Etiqueta + " MeV");
                         _nuevaeEl.Tag = eel;
                         TV_RegistrosEnergia.Nodes["Electrones"].Nodes.Add(_nuevaeEl);
                     }
                     TV_RegistrosEnergia.Nodes["Electrones"].ExpandAll();
                 }
             }
-        }
+        }*/
         private Equipo registroEquipoSeleccionado()
         {
             return (Equipo)ListBox_RegistrosEquipos.SelectedItem;
         }
 
-
+        
 
         private void inicializacionesRegistro()
         {
@@ -1386,9 +1453,28 @@ namespace _398_UI
         private void ListBox_RegistrosEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
             inicializacionesRegistro();
+            registroChequeoEnergias(sender, e);
         }
 
+        /*private void TV_RegistrosEnergia_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (TV_RegistrosEnergia.SelectedNode == TV_RegistrosEnergia.Nodes["Fotones"] || TV_RegistrosEnergia.SelectedNode == TV_RegistrosEnergia.Nodes["Electrones"])
+            {
+                TV_RegistrosEnergia.SelectedNode = null;
+            }
+        }*/
 
+
+    /*    private List<CalibracionFot> listaCalibracionesRegistro()
+        {
+            bool esDFSfija = RB_RegistroDFSFija.Checked;
+            bool esIso = RB_RegistroIso.Checked;
+            List<CalibracionFot> lista = new List<CalibracionFot>();
+            foreach (CalibracionFot cali in CalibracionFot.lista())
+            {
+                if (cali.Equipo.EqualsParaCali(registroEquipoSeleccionado()) && cali.Energia.EqualsParaCali((EnergiaFotones)TV_RegistrosEnergia.SelectedNode.Tag) && )
+            }
+        }*/
         #endregion
 
 
@@ -1708,19 +1794,6 @@ namespace _398_UI
 
         #region Imprimir
 
-        /*   private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-           {
-               int posicionlinea = 30;
-
-               printDocument1 = Imprimir.cargarConfiguracion();
-
-               Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
-               posicionlinea += (Imprimir.altoTitulo) * 3;
-               Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
-           }*/
-
-
-
         private void Bt_ReporteVP_Click(object sender, EventArgs e)
         {
 
@@ -1857,9 +1930,10 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-
+  
     }
 }
 

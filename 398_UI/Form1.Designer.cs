@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -355,9 +355,14 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.TV_RegistrosEnergia = new System.Windows.Forms.TreeView();
             this.RB_RegistroDFSFija = new System.Windows.Forms.RadioButton();
             this.RB_RegistroIso = new System.Windows.Forms.RadioButton();
+            this.RB_RegistroEnergiaFot = new System.Windows.Forms.RadioButton();
+            this.RB_RegistroEnergiaElec = new System.Windows.Forms.RadioButton();
+            this.CB_RegistroEnergiaFot = new System.Windows.Forms.ComboBox();
+            this.CB_RegistroEnergiaElec = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3585,7 +3590,7 @@
             // 
             this.groupBox7.Controls.Add(this.RB_RegistroIso);
             this.groupBox7.Controls.Add(this.RB_RegistroDFSFija);
-            this.groupBox7.Location = new System.Drawing.Point(369, 11);
+            this.groupBox7.Location = new System.Drawing.Point(451, 11);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(159, 152);
             this.groupBox7.TabIndex = 73;
@@ -3594,10 +3599,15 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.TV_RegistrosEnergia);
+            this.groupBox2.Controls.Add(this.label94);
+            this.groupBox2.Controls.Add(this.label50);
+            this.groupBox2.Controls.Add(this.CB_RegistroEnergiaElec);
+            this.groupBox2.Controls.Add(this.CB_RegistroEnergiaFot);
+            this.groupBox2.Controls.Add(this.RB_RegistroEnergiaElec);
+            this.groupBox2.Controls.Add(this.RB_RegistroEnergiaFot);
             this.groupBox2.Location = new System.Drawing.Point(183, 9);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(159, 152);
+            this.groupBox2.Size = new System.Drawing.Size(223, 152);
             this.groupBox2.TabIndex = 72;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Elegir Energia";
@@ -3629,7 +3639,7 @@
             this.groupBox6.Controls.Add(this.label52);
             this.groupBox6.Controls.Add(this.DTPRegHasta);
             this.groupBox6.Controls.Add(this.DTPRegDesde);
-            this.groupBox6.Location = new System.Drawing.Point(544, 9);
+            this.groupBox6.Location = new System.Drawing.Point(626, 9);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(159, 157);
             this.groupBox6.TabIndex = 65;
@@ -3757,14 +3767,14 @@
             // DGVAnalisis
             // 
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
@@ -3782,14 +3792,14 @@
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(543, 218);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.Size = new System.Drawing.Size(310, 199);
@@ -3833,13 +3843,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // TV_RegistrosEnergia
-            // 
-            this.TV_RegistrosEnergia.Location = new System.Drawing.Point(17, 26);
-            this.TV_RegistrosEnergia.Name = "TV_RegistrosEnergia";
-            this.TV_RegistrosEnergia.Size = new System.Drawing.Size(129, 108);
-            this.TV_RegistrosEnergia.TabIndex = 72;
-            // 
             // RB_RegistroDFSFija
             // 
             this.RB_RegistroDFSFija.AutoSize = true;
@@ -3861,6 +3864,70 @@
             this.RB_RegistroIso.TabStop = true;
             this.RB_RegistroIso.Text = "Isocentríca";
             this.RB_RegistroIso.UseVisualStyleBackColor = true;
+            // 
+            // RB_RegistroEnergiaFot
+            // 
+            this.RB_RegistroEnergiaFot.AutoSize = true;
+            this.RB_RegistroEnergiaFot.Enabled = false;
+            this.RB_RegistroEnergiaFot.Location = new System.Drawing.Point(9, 30);
+            this.RB_RegistroEnergiaFot.Name = "RB_RegistroEnergiaFot";
+            this.RB_RegistroEnergiaFot.Size = new System.Drawing.Size(63, 17);
+            this.RB_RegistroEnergiaFot.TabIndex = 0;
+            this.RB_RegistroEnergiaFot.TabStop = true;
+            this.RB_RegistroEnergiaFot.Text = "Fotones";
+            this.RB_RegistroEnergiaFot.UseVisualStyleBackColor = true;
+            this.RB_RegistroEnergiaFot.CheckedChanged += new System.EventHandler(this.registroChequeoEnergias);
+            // 
+            // RB_RegistroEnergiaElec
+            // 
+            this.RB_RegistroEnergiaElec.AutoSize = true;
+            this.RB_RegistroEnergiaElec.Enabled = false;
+            this.RB_RegistroEnergiaElec.Location = new System.Drawing.Point(9, 73);
+            this.RB_RegistroEnergiaElec.Name = "RB_RegistroEnergiaElec";
+            this.RB_RegistroEnergiaElec.Size = new System.Drawing.Size(75, 17);
+            this.RB_RegistroEnergiaElec.TabIndex = 1;
+            this.RB_RegistroEnergiaElec.TabStop = true;
+            this.RB_RegistroEnergiaElec.Text = "Electrones";
+            this.RB_RegistroEnergiaElec.UseVisualStyleBackColor = true;
+            this.RB_RegistroEnergiaElec.CheckedChanged += new System.EventHandler(this.registroChequeoEnergias);
+            // 
+            // CB_RegistroEnergiaFot
+            // 
+            this.CB_RegistroEnergiaFot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_RegistroEnergiaFot.Enabled = false;
+            this.CB_RegistroEnergiaFot.FormattingEnabled = true;
+            this.CB_RegistroEnergiaFot.Location = new System.Drawing.Point(94, 29);
+            this.CB_RegistroEnergiaFot.Name = "CB_RegistroEnergiaFot";
+            this.CB_RegistroEnergiaFot.Size = new System.Drawing.Size(52, 21);
+            this.CB_RegistroEnergiaFot.TabIndex = 2;
+            // 
+            // CB_RegistroEnergiaElec
+            // 
+            this.CB_RegistroEnergiaElec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_RegistroEnergiaElec.Enabled = false;
+            this.CB_RegistroEnergiaElec.FormattingEnabled = true;
+            this.CB_RegistroEnergiaElec.Location = new System.Drawing.Point(94, 72);
+            this.CB_RegistroEnergiaElec.Name = "CB_RegistroEnergiaElec";
+            this.CB_RegistroEnergiaElec.Size = new System.Drawing.Size(52, 21);
+            this.CB_RegistroEnergiaElec.TabIndex = 3;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(157, 34);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(23, 13);
+            this.label50.TabIndex = 65;
+            this.label50.Text = "MV";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(157, 77);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(29, 13);
+            this.label94.TabIndex = 66;
+            this.label94.Text = "MeV";
             // 
             // Form1
             // 
@@ -3961,6 +4028,7 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -4300,7 +4368,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton RB_RegistroIso;
         private System.Windows.Forms.RadioButton RB_RegistroDFSFija;
-        private System.Windows.Forms.TreeView TV_RegistrosEnergia;
+        private System.Windows.Forms.ComboBox CB_RegistroEnergiaElec;
+        private System.Windows.Forms.ComboBox CB_RegistroEnergiaFot;
+        private System.Windows.Forms.RadioButton RB_RegistroEnergiaElec;
+        private System.Windows.Forms.RadioButton RB_RegistroEnergiaFot;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Label label50;
     }
 }
 
