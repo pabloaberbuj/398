@@ -1364,7 +1364,7 @@ namespace _398_UI
         {
             CB_RegistroEnergiaFot.Items.Clear();
             CB_RegistroEnergiaElec.Items.Clear();
-            if (ListBox_RegistrosEquipos.SelectedIndex!=-1)
+            if (ListBox_RegistrosEquipos.SelectedIndex != -1)
             {
                 if (registroEquipoSeleccionado().energiaFot.Count() > 0)
                 {
@@ -1373,7 +1373,7 @@ namespace _398_UI
                         CB_RegistroEnergiaFot.Items.Add(eF);
                     }
                     RB_RegistroEnergiaFot.Enabled = true;
-                    if (registroEquipoSeleccionado().energiaElec.Count==0)
+                    if (registroEquipoSeleccionado().energiaElec.Count == 0)
                     {
                         RB_RegistroEnergiaFot.Checked = true;
                     }
@@ -1442,12 +1442,24 @@ namespace _398_UI
             return (Equipo)ListBox_RegistrosEquipos.SelectedItem;
         }
 
-        
+        private EnergiaFotones registroEnergiaFotonesSeleccionada()
+        {
+            return (EnergiaFotones)CB_RegistroEnergiaFot.SelectedItem;
+        }
+
+        private EnergiaElectrones registroEnergiaElectronesSeleccionada()
+        {
+            return (EnergiaElectrones)CB_RegistroEnergiaElec.SelectedItem;
+        }
+
+
 
         private void inicializacionesRegistro()
         {
             inicializarRegistrosEquipos();
             inicializarRegistrosEnergias();
+            DTPRegDesde.Value = primerFechaCali();
+            DTPRegHasta.Value = ultimaFechaCali();
         }
 
         private void ListBox_RegistrosEquipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -1456,6 +1468,14 @@ namespace _398_UI
             registroChequeoEnergias(sender, e);
         }
 
+        private DateTime primerFechaCali()
+        {
+            return (CalibracionFot.lista().OrderBy(c => c.Fecha).First()).Fecha;
+        }
+        private DateTime ultimaFechaCali()
+        {
+            return (CalibracionFot.lista().OrderByDescending(c => c.Fecha).First()).Fecha;
+        }
         /*private void TV_RegistrosEnergia_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (TV_RegistrosEnergia.SelectedNode == TV_RegistrosEnergia.Nodes["Fotones"] || TV_RegistrosEnergia.SelectedNode == TV_RegistrosEnergia.Nodes["Electrones"])
@@ -1465,16 +1485,28 @@ namespace _398_UI
         }*/
 
 
-    /*    private List<CalibracionFot> listaCalibracionesRegistro()
+        private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
         {
-            bool esDFSfija = RB_RegistroDFSFija.Checked;
-            bool esIso = RB_RegistroIso.Checked;
-            List<CalibracionFot> lista = new List<CalibracionFot>();
+            double DFSoISO = 0;
+            if (RB_RegistroDFSFija.Checked)
+            {
+                DFSoISO = 1;
+            }
+            else if (RB_RegistroIso.Checked)
+            {
+                DFSoISO = 2;
+            }
+            BindingList<CalibracionFot> lista = new BindingList<CalibracionFot>();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo.EqualsParaCali(registroEquipoSeleccionado()) && cali.Energia.EqualsParaCali((EnergiaFotones)TV_RegistrosEnergia.SelectedNode.Tag) && )
+                if (cali.Equipo.EqualsParaCali(registroEquipoSeleccionado()) && cali.Energia.EqualsParaCali(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO == DFSoISO
+                    && DateTime.Compare(cali.Fecha,DTPRegDesde.Value)>=0 && DateTime.Compare(cali.Fecha,DTPRegHasta.Value)<=0)
+                {
+                    lista.Add(cali);
+                }
             }
-        }*/
+            return lista;
+        }
         #endregion
 
 
@@ -1931,9 +1963,13 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-  
+        private void BtActualizar_Click(object sender, EventArgs e)
+        {
+            DGVRegistros.DataSource = listaCalibracionesFotonesRegistro();
+        }
     }
 }
 
