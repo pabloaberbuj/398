@@ -1969,6 +1969,7 @@ namespace _398_UI
         private void BtActualizar_Click(object sender, EventArgs e)
         {
             DGVRegistros.DataSource = listaCalibracionesFotonesRegistro();
+            Graficar.graficarRegistrosCaliFotones(listaCalibracionesFotonesRegistro(), Chart_Registros);
         }
     }
 }
