@@ -7,6 +7,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
+//using System.Web.UI.DataVisualization.Charting;
 
 
 namespace _398_UI
@@ -35,8 +36,8 @@ namespace _398_UI
                 yMin = Math.Min(yMin, punto.YValues[0]);
                 yMax = Math.Max(yMax, punto.YValues[0]);
             }
-            area.AxisX = crearEje(xMin, xMax);
-            area.AxisY = crearEje(yMin, yMax);
+            area.AxisX = crearEje(xMin, xMax,10);
+            area.AxisY = crearEje(yMin, yMax,10);
             
         }
 
@@ -59,18 +60,20 @@ namespace _398_UI
             return serie;
         }
 
-        public static Axis crearEje(double min, double max)
+        public static Axis crearEje(double min, double max, double escala)
         {
             Axis eje = new Axis()
             {
-                Minimum = min - (max - min) / 50,
-                Maximum = max + (max - min) / 50,
+                Minimum = min - (max - min) / escala,
+                //Minimum = min,
+                Maximum = max + (max - min) / escala,
+                //Maximum = max,
                 LineColor = Color.Black,
             };
-            eje.MajorGrid.Interval = Math.Ceiling(5 / (max - min));
-            eje.MajorTickMark.Interval = Math.Ceiling(5 / (max - min));
-            eje.LabelStyle.Interval = Math.Ceiling(5 / (max - min));
-            eje.IsLabelAutoFit = false;
+            //eje.MajorGrid.Interval = Math.Ceiling(5 / (max - min));
+            //eje.MajorTickMark.Interval = Math.Ceiling(5 / (max - min));
+            //eje.LabelStyle.Interval = Math.Ceiling(5 / (max - min));
+            //eje.IsLabelAutoFit = false;
             eje.MajorGrid.LineColor = Color.FromArgb(240, 240, 240);
             eje.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
             return eje;
@@ -78,13 +81,15 @@ namespace _398_UI
 
         public static void graficarRegistrosCaliFotones(BindingList<CalibracionFot> calibraciones, Chart grafico)
         {
+            grafico.ChartAreas.Clear(); grafico.Series.Clear();
             List<DataPoint> puntos = new List<DataPoint>();
             foreach (CalibracionFot cali in calibraciones)
             {
                 DataPoint punto = new DataPoint()
                 {
                     XValue = cali.Fecha.ToOADate(),
-                    Label = cali.Fecha.ToShortDateString(),
+                    //Label = cali.Fecha.ToShortDateString(),
+                    //AxisLabel = cali.Fecha.ToShortDateString(),
                 };
                 punto.YValues[0] = cali.Dwzref;
                 puntos.Add(punto);
@@ -92,6 +97,7 @@ namespace _398_UI
             List<Series> series = new List<Series>();
             Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis en referencia", true, puntos);
             series.Add(serie);
+            series[0].XValueType = ChartValueType.DateTime;
             graficarXY("Titulo", series, grafico);
         }
      /*   public static void graficarregistros(string nombre, DateTime[] DTFecha, double[] dFecha, double[] Variable, double LBValor, Chart Grafico, double Tol, int ancho, int alto, int x, int y)
