@@ -1470,20 +1470,27 @@ namespace _398_UI
 
         private DateTime primerFechaCali()
         {
-            return (CalibracionFot.lista().OrderBy(c => c.Fecha).First()).Fecha;
+            if (CalibracionFot.lista().Count > 0)
+            {
+                return (CalibracionFot.lista().OrderBy(c => c.Fecha).First()).Fecha;
+            }
+            else
+            {
+                return new DateTime(2017, 11, 8);
+            }
         }
         private DateTime ultimaFechaCali()
         {
-            return (CalibracionFot.lista().OrderByDescending(c => c.Fecha).First()).Fecha;
-        }
-        /*private void TV_RegistrosEnergia_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            if (TV_RegistrosEnergia.SelectedNode == TV_RegistrosEnergia.Nodes["Fotones"] || TV_RegistrosEnergia.SelectedNode == TV_RegistrosEnergia.Nodes["Electrones"])
+            if (CalibracionFot.lista().Count > 0)
             {
-                TV_RegistrosEnergia.SelectedNode = null;
+                return (CalibracionFot.lista().OrderByDescending(c => c.Fecha).First()).Fecha;
             }
-        }*/
-
+            else
+            {
+                return new DateTime(2017, 11, 8);
+            }
+            
+        }
 
         private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
         {
@@ -1971,6 +1978,24 @@ namespace _398_UI
             BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
             DGVRegistros.DataSource = lista;
             Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
+        }
+
+        private void ChBRegRango_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChBRegRango.Checked)
+            {
+                L_RegFechaHasta.Enabled = true;
+                L_regFechaDesde.Enabled = true;
+                DTPRegDesde.Enabled = true;
+                DTPRegHasta.Enabled = true;
+            }
+            else
+            {
+                L_RegFechaHasta.Enabled = false;
+                L_regFechaDesde.Enabled = false;
+                DTPRegDesde.Enabled = false;
+                DTPRegHasta.Enabled = false;
+            }
         }
     }
 }

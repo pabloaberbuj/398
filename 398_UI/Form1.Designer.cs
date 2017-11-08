@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
             this.L_CaliFMref = new System.Windows.Forms.Label();
@@ -332,15 +332,23 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.BtActualizar = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.RB_RegistroIso = new System.Windows.Forms.RadioButton();
+            this.RB_RegistroDFSFija = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.CB_RegistroEnergiaElec = new System.Windows.Forms.ComboBox();
+            this.CB_RegistroEnergiaFot = new System.Windows.Forms.ComboBox();
+            this.RB_RegistroEnergiaElec = new System.Windows.Forms.RadioButton();
+            this.RB_RegistroEnergiaFot = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ListBox_RegistrosEquipos = new System.Windows.Forms.ListBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.BtActualizar = new System.Windows.Forms.Button();
             this.ChBRegRango = new System.Windows.Forms.CheckBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
+            this.L_RegFechaHasta = new System.Windows.Forms.Label();
+            this.L_regFechaDesde = new System.Windows.Forms.Label();
             this.DTPRegHasta = new System.Windows.Forms.DateTimePicker();
             this.DTPRegDesde = new System.Windows.Forms.DateTimePicker();
             this.GBConfiguracionReporte = new System.Windows.Forms.GroupBox();
@@ -351,20 +359,12 @@
             this.label19 = new System.Windows.Forms.Label();
             this.DGVAnalisis = new System.Windows.Forms.DataGridView();
             this.GBGrafReg = new System.Windows.Forms.GroupBox();
+            this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.RB_RegistroDFSFija = new System.Windows.Forms.RadioButton();
-            this.RB_RegistroIso = new System.Windows.Forms.RadioButton();
-            this.RB_RegistroEnergiaFot = new System.Windows.Forms.RadioButton();
-            this.RB_RegistroEnergiaElec = new System.Windows.Forms.RadioButton();
-            this.CB_RegistroEnergiaFot = new System.Windows.Forms.ComboBox();
-            this.CB_RegistroEnergiaElec = new System.Windows.Forms.ComboBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
-            this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -418,9 +418,9 @@
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             this.GBGrafReg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -3591,6 +3591,16 @@
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
+            // BtActualizar
+            // 
+            this.BtActualizar.Location = new System.Drawing.Point(621, 172);
+            this.BtActualizar.Name = "BtActualizar";
+            this.BtActualizar.Size = new System.Drawing.Size(125, 21);
+            this.BtActualizar.TabIndex = 44;
+            this.BtActualizar.Text = "Actualizar";
+            this.BtActualizar.UseVisualStyleBackColor = true;
+            this.BtActualizar.Click += new System.EventHandler(this.BtActualizar_Click);
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.RB_RegistroIso);
@@ -3601,6 +3611,28 @@
             this.groupBox7.TabIndex = 73;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Elegir condición";
+            // 
+            // RB_RegistroIso
+            // 
+            this.RB_RegistroIso.AutoSize = true;
+            this.RB_RegistroIso.Location = new System.Drawing.Point(15, 52);
+            this.RB_RegistroIso.Name = "RB_RegistroIso";
+            this.RB_RegistroIso.Size = new System.Drawing.Size(79, 17);
+            this.RB_RegistroIso.TabIndex = 1;
+            this.RB_RegistroIso.TabStop = true;
+            this.RB_RegistroIso.Text = "Isocentríca";
+            this.RB_RegistroIso.UseVisualStyleBackColor = true;
+            // 
+            // RB_RegistroDFSFija
+            // 
+            this.RB_RegistroDFSFija.AutoSize = true;
+            this.RB_RegistroDFSFija.Location = new System.Drawing.Point(15, 25);
+            this.RB_RegistroDFSFija.Name = "RB_RegistroDFSFija";
+            this.RB_RegistroDFSFija.Size = new System.Drawing.Size(65, 17);
+            this.RB_RegistroDFSFija.TabIndex = 0;
+            this.RB_RegistroDFSFija.TabStop = true;
+            this.RB_RegistroDFSFija.Text = "DFS Fija";
+            this.RB_RegistroDFSFija.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -3616,6 +3648,70 @@
             this.groupBox2.TabIndex = 72;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Elegir Energia";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(157, 77);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(29, 13);
+            this.label94.TabIndex = 66;
+            this.label94.Text = "MeV";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(157, 34);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(23, 13);
+            this.label50.TabIndex = 65;
+            this.label50.Text = "MV";
+            // 
+            // CB_RegistroEnergiaElec
+            // 
+            this.CB_RegistroEnergiaElec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_RegistroEnergiaElec.Enabled = false;
+            this.CB_RegistroEnergiaElec.FormattingEnabled = true;
+            this.CB_RegistroEnergiaElec.Location = new System.Drawing.Point(94, 72);
+            this.CB_RegistroEnergiaElec.Name = "CB_RegistroEnergiaElec";
+            this.CB_RegistroEnergiaElec.Size = new System.Drawing.Size(52, 21);
+            this.CB_RegistroEnergiaElec.TabIndex = 3;
+            // 
+            // CB_RegistroEnergiaFot
+            // 
+            this.CB_RegistroEnergiaFot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_RegistroEnergiaFot.Enabled = false;
+            this.CB_RegistroEnergiaFot.FormattingEnabled = true;
+            this.CB_RegistroEnergiaFot.Location = new System.Drawing.Point(94, 29);
+            this.CB_RegistroEnergiaFot.Name = "CB_RegistroEnergiaFot";
+            this.CB_RegistroEnergiaFot.Size = new System.Drawing.Size(52, 21);
+            this.CB_RegistroEnergiaFot.TabIndex = 2;
+            // 
+            // RB_RegistroEnergiaElec
+            // 
+            this.RB_RegistroEnergiaElec.AutoSize = true;
+            this.RB_RegistroEnergiaElec.Enabled = false;
+            this.RB_RegistroEnergiaElec.Location = new System.Drawing.Point(9, 73);
+            this.RB_RegistroEnergiaElec.Name = "RB_RegistroEnergiaElec";
+            this.RB_RegistroEnergiaElec.Size = new System.Drawing.Size(75, 17);
+            this.RB_RegistroEnergiaElec.TabIndex = 1;
+            this.RB_RegistroEnergiaElec.TabStop = true;
+            this.RB_RegistroEnergiaElec.Text = "Electrones";
+            this.RB_RegistroEnergiaElec.UseVisualStyleBackColor = true;
+            this.RB_RegistroEnergiaElec.CheckedChanged += new System.EventHandler(this.registroChequeoEnergias);
+            // 
+            // RB_RegistroEnergiaFot
+            // 
+            this.RB_RegistroEnergiaFot.AutoSize = true;
+            this.RB_RegistroEnergiaFot.Enabled = false;
+            this.RB_RegistroEnergiaFot.Location = new System.Drawing.Point(9, 30);
+            this.RB_RegistroEnergiaFot.Name = "RB_RegistroEnergiaFot";
+            this.RB_RegistroEnergiaFot.Size = new System.Drawing.Size(63, 17);
+            this.RB_RegistroEnergiaFot.TabIndex = 0;
+            this.RB_RegistroEnergiaFot.TabStop = true;
+            this.RB_RegistroEnergiaFot.Text = "Fotones";
+            this.RB_RegistroEnergiaFot.UseVisualStyleBackColor = true;
+            this.RB_RegistroEnergiaFot.CheckedChanged += new System.EventHandler(this.registroChequeoEnergias);
             // 
             // groupBox1
             // 
@@ -3639,8 +3735,8 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.ChBRegRango);
-            this.groupBox6.Controls.Add(this.label51);
-            this.groupBox6.Controls.Add(this.label52);
+            this.groupBox6.Controls.Add(this.L_RegFechaHasta);
+            this.groupBox6.Controls.Add(this.L_regFechaDesde);
             this.groupBox6.Controls.Add(this.DTPRegHasta);
             this.groupBox6.Controls.Add(this.DTPRegDesde);
             this.groupBox6.Location = new System.Drawing.Point(598, 9);
@@ -3649,16 +3745,6 @@
             this.groupBox6.TabIndex = 65;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Filtrar fechas";
-            // 
-            // BtActualizar
-            // 
-            this.BtActualizar.Location = new System.Drawing.Point(621, 172);
-            this.BtActualizar.Name = "BtActualizar";
-            this.BtActualizar.Size = new System.Drawing.Size(125, 21);
-            this.BtActualizar.TabIndex = 44;
-            this.BtActualizar.Text = "Actualizar";
-            this.BtActualizar.UseVisualStyleBackColor = true;
-            this.BtActualizar.Click += new System.EventHandler(this.BtActualizar_Click);
             // 
             // ChBRegRango
             // 
@@ -3669,26 +3755,27 @@
             this.ChBRegRango.TabIndex = 39;
             this.ChBRegRango.Text = "Elegir un rango de fechas";
             this.ChBRegRango.UseVisualStyleBackColor = true;
+            this.ChBRegRango.CheckedChanged += new System.EventHandler(this.ChBRegRango_CheckedChanged);
             // 
-            // label51
+            // L_RegFechaHasta
             // 
-            this.label51.AutoSize = true;
-            this.label51.Enabled = false;
-            this.label51.Location = new System.Drawing.Point(12, 68);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(35, 13);
-            this.label51.TabIndex = 43;
-            this.label51.Text = "Hasta";
+            this.L_RegFechaHasta.AutoSize = true;
+            this.L_RegFechaHasta.Enabled = false;
+            this.L_RegFechaHasta.Location = new System.Drawing.Point(12, 68);
+            this.L_RegFechaHasta.Name = "L_RegFechaHasta";
+            this.L_RegFechaHasta.Size = new System.Drawing.Size(35, 13);
+            this.L_RegFechaHasta.TabIndex = 43;
+            this.L_RegFechaHasta.Text = "Hasta";
             // 
-            // label52
+            // L_regFechaDesde
             // 
-            this.label52.AutoSize = true;
-            this.label52.Enabled = false;
-            this.label52.Location = new System.Drawing.Point(12, 42);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(38, 13);
-            this.label52.TabIndex = 42;
-            this.label52.Text = "Desde";
+            this.L_regFechaDesde.AutoSize = true;
+            this.L_regFechaDesde.Enabled = false;
+            this.L_regFechaDesde.Location = new System.Drawing.Point(12, 42);
+            this.L_regFechaDesde.Name = "L_regFechaDesde";
+            this.L_regFechaDesde.Size = new System.Drawing.Size(38, 13);
+            this.L_regFechaDesde.TabIndex = 42;
+            this.L_regFechaDesde.Text = "Desde";
             // 
             // DTPRegHasta
             // 
@@ -3795,6 +3882,16 @@
             this.GBGrafReg.TabStop = false;
             this.GBGrafReg.Text = "Graficos";
             // 
+            // Chart_Registros
+            // 
+            this.Chart_Registros.Location = new System.Drawing.Point(19, 29);
+            this.Chart_Registros.Name = "Chart_Registros";
+            series1.Name = "Series1";
+            this.Chart_Registros.Series.Add(series1);
+            this.Chart_Registros.Size = new System.Drawing.Size(483, 167);
+            this.Chart_Registros.TabIndex = 0;
+            this.Chart_Registros.Text = "chart2";
+            // 
             // DGVRegistros
             // 
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -3848,102 +3945,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // RB_RegistroDFSFija
-            // 
-            this.RB_RegistroDFSFija.AutoSize = true;
-            this.RB_RegistroDFSFija.Location = new System.Drawing.Point(15, 25);
-            this.RB_RegistroDFSFija.Name = "RB_RegistroDFSFija";
-            this.RB_RegistroDFSFija.Size = new System.Drawing.Size(65, 17);
-            this.RB_RegistroDFSFija.TabIndex = 0;
-            this.RB_RegistroDFSFija.TabStop = true;
-            this.RB_RegistroDFSFija.Text = "DFS Fija";
-            this.RB_RegistroDFSFija.UseVisualStyleBackColor = true;
-            // 
-            // RB_RegistroIso
-            // 
-            this.RB_RegistroIso.AutoSize = true;
-            this.RB_RegistroIso.Location = new System.Drawing.Point(15, 52);
-            this.RB_RegistroIso.Name = "RB_RegistroIso";
-            this.RB_RegistroIso.Size = new System.Drawing.Size(79, 17);
-            this.RB_RegistroIso.TabIndex = 1;
-            this.RB_RegistroIso.TabStop = true;
-            this.RB_RegistroIso.Text = "Isocentríca";
-            this.RB_RegistroIso.UseVisualStyleBackColor = true;
-            // 
-            // RB_RegistroEnergiaFot
-            // 
-            this.RB_RegistroEnergiaFot.AutoSize = true;
-            this.RB_RegistroEnergiaFot.Enabled = false;
-            this.RB_RegistroEnergiaFot.Location = new System.Drawing.Point(9, 30);
-            this.RB_RegistroEnergiaFot.Name = "RB_RegistroEnergiaFot";
-            this.RB_RegistroEnergiaFot.Size = new System.Drawing.Size(63, 17);
-            this.RB_RegistroEnergiaFot.TabIndex = 0;
-            this.RB_RegistroEnergiaFot.TabStop = true;
-            this.RB_RegistroEnergiaFot.Text = "Fotones";
-            this.RB_RegistroEnergiaFot.UseVisualStyleBackColor = true;
-            this.RB_RegistroEnergiaFot.CheckedChanged += new System.EventHandler(this.registroChequeoEnergias);
-            // 
-            // RB_RegistroEnergiaElec
-            // 
-            this.RB_RegistroEnergiaElec.AutoSize = true;
-            this.RB_RegistroEnergiaElec.Enabled = false;
-            this.RB_RegistroEnergiaElec.Location = new System.Drawing.Point(9, 73);
-            this.RB_RegistroEnergiaElec.Name = "RB_RegistroEnergiaElec";
-            this.RB_RegistroEnergiaElec.Size = new System.Drawing.Size(75, 17);
-            this.RB_RegistroEnergiaElec.TabIndex = 1;
-            this.RB_RegistroEnergiaElec.TabStop = true;
-            this.RB_RegistroEnergiaElec.Text = "Electrones";
-            this.RB_RegistroEnergiaElec.UseVisualStyleBackColor = true;
-            this.RB_RegistroEnergiaElec.CheckedChanged += new System.EventHandler(this.registroChequeoEnergias);
-            // 
-            // CB_RegistroEnergiaFot
-            // 
-            this.CB_RegistroEnergiaFot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_RegistroEnergiaFot.Enabled = false;
-            this.CB_RegistroEnergiaFot.FormattingEnabled = true;
-            this.CB_RegistroEnergiaFot.Location = new System.Drawing.Point(94, 29);
-            this.CB_RegistroEnergiaFot.Name = "CB_RegistroEnergiaFot";
-            this.CB_RegistroEnergiaFot.Size = new System.Drawing.Size(52, 21);
-            this.CB_RegistroEnergiaFot.TabIndex = 2;
-            // 
-            // CB_RegistroEnergiaElec
-            // 
-            this.CB_RegistroEnergiaElec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_RegistroEnergiaElec.Enabled = false;
-            this.CB_RegistroEnergiaElec.FormattingEnabled = true;
-            this.CB_RegistroEnergiaElec.Location = new System.Drawing.Point(94, 72);
-            this.CB_RegistroEnergiaElec.Name = "CB_RegistroEnergiaElec";
-            this.CB_RegistroEnergiaElec.Size = new System.Drawing.Size(52, 21);
-            this.CB_RegistroEnergiaElec.TabIndex = 3;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(157, 34);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(23, 13);
-            this.label50.TabIndex = 65;
-            this.label50.Text = "MV";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(157, 77);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(29, 13);
-            this.label94.TabIndex = 66;
-            this.label94.Text = "MeV";
-            // 
-            // Chart_Registros
-            // 
-            this.Chart_Registros.Location = new System.Drawing.Point(19, 29);
-            this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
-            this.Chart_Registros.Size = new System.Drawing.Size(483, 167);
-            this.Chart_Registros.TabIndex = 0;
-            this.Chart_Registros.Text = "chart2";
             // 
             // Form1
             // 
@@ -4051,9 +4052,9 @@
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             this.GBGrafReg.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4167,8 +4168,8 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button BtActualizar;
         private System.Windows.Forms.CheckBox ChBRegRango;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label L_RegFechaHasta;
+        private System.Windows.Forms.Label L_regFechaDesde;
         private System.Windows.Forms.DateTimePicker DTPRegHasta;
         private System.Windows.Forms.DateTimePicker DTPRegDesde;
         private System.Windows.Forms.GroupBox GBConfiguracionReporte;

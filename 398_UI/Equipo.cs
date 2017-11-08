@@ -303,7 +303,8 @@ namespace _398_UI
             {
                       
                 if (propiedad.Name == "Alias" || propiedad.Name == "Marca" || propiedad.Name == "Modelo" ||
-                    propiedad.Name == "NumSerie" || propiedad.Name == "Fuente" || propiedad.Name == "TipoDeHaz" || propiedad.Name == "Institucion")
+                    propiedad.Name == "NumSerie" || propiedad.Name == "Fuente" || propiedad.Name == "TipoDeHaz" || propiedad.Name == "Institucion" ||
+                    propiedad.Name == "EnergiasFotones" || propiedad.Name == "EnergiasElectrones")
                 {
                     if ((!propiedad.GetValue(this).Equals(propiedad.GetValue(eq))))
                     {
