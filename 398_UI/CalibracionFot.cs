@@ -10,27 +10,44 @@ namespace _398_UI
 {
     public class CalibracionFot
     {
+        [Browsable(false)]
         public Equipo Equipo { get; set; }
+        [Browsable(false)]
         public EnergiaFotones Energia { get; set; }
+        [Browsable(false)]
         public SistemaDosimetrico SistemaDosim { get; set; }
-        public double DFSoISO { get; set; } //1 DFSfija 2 ISO
-        public double LadoCampo { get; set; }
-        public double Profundidad { get; set; }
-        public DateTime Fecha { get; set; }
-        public string RealizadoPor { get; set; }
-        public double Ktp { get; set; }
-        public double TPR2010 { get; set; }
-        public double Kqq0 { get; set; }
-        public int mideKqq0 { get; set; } //1 si 2 usaLB
-        public double kpol { get; set; }
-        public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
-        public double Vred { get; set; }
-        public double ks { get; set; }
-        public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
+        
+        [DisplayName("Referencia")]
+        public bool EsReferencia { get; set; }
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
-        public bool EsReferencia { get; set; }
+        public double Ktp { get; set; }
+        public double TPR2010 { get; set; }
+        public double Kqq0 { get; set; }
+        [Browsable(false)]
+        public int mideKqq0 { get; set; } //1 si 2 usaLB
+        public double kpol { get; set; }
+        [Browsable(false)]
+        public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
+        [Browsable(false)]
+        public double Vred { get; set; }
+        public double ks { get; set; }
+        [Browsable(false)]
+        public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
+        [Browsable(false)]
+        public double DFSoISO { get; set; } //1 DFSfija 2 ISO
+        [DisplayName("Lado Campo")]
+        public double LadoCampo { get; set; }
+        [DisplayName("Profundidad")]
+        public double Profundidad { get; set; }
+        [DisplayName("Fecha")]
+        public DateTime Fecha { get; set; }
+        [DisplayName("Realizado Por")]
+        public string RealizadoPor { get; set; }
+        
+        
+        
         public static string file = @"caliFotones.txt";
 
 

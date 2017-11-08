@@ -36,8 +36,8 @@ namespace _398_UI
                 yMin = Math.Min(yMin, punto.YValues[0]);
                 yMax = Math.Max(yMax, punto.YValues[0]);
             }
-            area.AxisX = crearEje(xMin, xMax,10);
-            area.AxisY = crearEje(yMin, yMax,10);
+            area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
+            area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
             
         }
 
@@ -60,19 +60,19 @@ namespace _398_UI
             return serie;
         }
 
-        public static Axis crearEje(double min, double max, double escala)
+        public static Axis crearEje(double min, double max, int numPuntos, double escala)
         {
             Axis eje = new Axis()
             {
-                Minimum = min - (max - min) / escala,
+                Minimum = Math.Floor(min - (max - min) / escala),
                 //Minimum = min,
-                Maximum = max + (max - min) / escala,
+                Maximum = Math.Ceiling(max + (max - min) / escala),
                 //Maximum = max,
                 LineColor = Color.Black,
             };
-            //eje.MajorGrid.Interval = Math.Ceiling(5 / (max - min));
-            //eje.MajorTickMark.Interval = Math.Ceiling(5 / (max - min));
-            //eje.LabelStyle.Interval = Math.Ceiling(5 / (max - min));
+            eje.MajorGrid.Interval = Math.Ceiling((max-min)/numPuntos);
+            eje.MajorTickMark.Interval = Math.Ceiling((max-min)/numPuntos);
+            eje.LabelStyle.Interval = Math.Ceiling((max-min)/numPuntos);
             //eje.IsLabelAutoFit = false;
             eje.MajorGrid.LineColor = Color.FromArgb(240, 240, 240);
             eje.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
