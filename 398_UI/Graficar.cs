@@ -51,6 +51,10 @@ namespace _398_UI
             }
             area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
             area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
+            Legend leyenda = new Legend();
+            grafico.Legends.Add(leyenda);
+            grafico.Legends[0].Enabled = true;
+            grafico.Legends[0].Docking = Docking.Bottom;
         }
 
         public static Series crearSerie(SeriesChartType tipo, Color color, string leyenda, bool hayLeyenda, List<DataPoint> puntos)
@@ -116,34 +120,27 @@ namespace _398_UI
                 if (cali.EsReferencia)
                 {
                     DwZRef = cali.Dwzref;
+                    DataPoint puntoRef = new DataPoint();
+                    puntoRef.YValues[0] = cali.Dwzref;
+                    referencia.Add(puntoRef);
                 }
                 DataPoint punto = new DataPoint()
                 {
                     XValue = cali.Fecha.ToOADate(),
                 };
-                /*DataPoint puntoRef = new DataPoint()
-                {
-                    XValue = cali.Fecha.ToOADate(),
-                };*/
+                
                 punto.YValues[0] = cali.Dwzref;
                 puntos.Add(punto);
-                //referencia.Add(puntoRef);
+                
             }
             List<Series> series = new List<Series>();
             Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis en referencia", true, puntos);
             series.Add(serie);
             series[0].XValueType = ChartValueType.DateTime;
-          /*  if (!Double.IsNaN(DwZRef))
-            {
-                foreach (DataPoint puntoRef in referencia)
-                {
-                    puntoRef.YValues[0] = DwZRef;
-                }
-
-                Series serieRef = crearSerie(SeriesChartType.Line, Color.Orange, "Referencia", true, referencia);
-                series.Add(serieRef);
-                series[1].XValueType = ChartValueType.DateTime;
-            }*/
+            Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Calibración Referencia", true, referencia);
+            serieRef.MarkerSize = 15;
+            series.Add(serieRef);
+            series[1].XValueType = ChartValueType.DateTime;
             graficarXY("Titulo", series, grafico, DwZRef,2);
         }
      /*   public static void graficarregistros(string nombre, DateTime[] DTFecha, double[] dFecha, double[] Variable, double LBValor, Chart Grafico, double Tol, int ancho, int alto, int x, int y)
