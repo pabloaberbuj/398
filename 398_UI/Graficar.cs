@@ -46,6 +46,8 @@ namespace _398_UI
                 grafico.Series[0].XValueType = ChartValueType.DateTime;
                 yMin = Math.Min(yMin, referencia * (1 - tolerancia / 100));
                 yMax = Math.Max(yMax, referencia * (1 + tolerancia / 100));
+                yMin = referencia - Math.Max(yMax - referencia, referencia - yMin);
+                yMax = referencia + Math.Max(yMax - referencia, referencia - yMin);
             }
             area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
             area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
