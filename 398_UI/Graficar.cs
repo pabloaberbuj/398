@@ -16,7 +16,7 @@ namespace _398_UI
     {
         public static FontFamily fuente = new FontFamily("Segoe UI");
 
-        public static void graficarXY(string titulo, List<Series> series, Chart grafico, double referencia)
+        public static void graficarXY(string titulo, List<Series> series, Chart grafico, double referencia, double tolerancia)
         {
             ChartArea area = new ChartArea();
             grafico.ChartAreas.Add(area);
@@ -36,19 +36,19 @@ namespace _398_UI
                 yMin = Math.Min(yMin, punto.YValues[0]);
                 yMax = Math.Max(yMax, punto.YValues[0]);
             }
-            area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
-            area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
             if (!Double.IsNaN(referencia))
             {
-                Series serieReferencia = new Series();
-                serieReferencia.Points.Add(new DataPoint(xMin-5, referencia));
-                serieReferencia.Points.Add(new DataPoint(xMax+5, referencia));
-                serieReferencia.MarkerSize = 0;
-                
-                serieReferencia.ChartType = SeriesChartType.Line;
-                serieReferencia.Color = Color.Orange;
-                grafico.Series.Insert(0, serieReferencia); //para que vaya al fondo y no tape
+                grafico.Series.Insert(0, crearSerieLinea(Color.Orange,xMin,xMax,referencia)); //para que vaya al fondo y no tape
+                grafico.Series[0].XValueType = ChartValueType.DateTime;
+                grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 - tolerancia/100)));
+                grafico.Series[0].XValueType = ChartValueType.DateTime;
+                grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 + tolerancia/100)));
+                grafico.Series[0].XValueType = ChartValueType.DateTime;
+                yMin = Math.Min(yMin, referencia * (1 - tolerancia / 100));
+                yMax = Math.Max(yMax, referencia * (1 + tolerancia / 100));
             }
+            area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
+            area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
         }
 
         public static Series crearSerie(SeriesChartType tipo, Color color, string leyenda, bool hayLeyenda, List<DataPoint> puntos)
@@ -69,6 +69,20 @@ namespace _398_UI
             }
             return serie;
         }
+
+        public static Series crearSerieLinea(Color color, double xMin, double xMax, double valor)
+        {
+            Series serie = new Series();
+            serie.Points.Add(new DataPoint(xMin - 5, valor));
+            serie.Points.Add(new DataPoint(xMax + 5, valor));
+            serie.MarkerSize = 0;
+
+            serie.ChartType = SeriesChartType.Line;
+            serie.Color = color;
+            return serie;
+        }
+            
+
 
         public static Axis crearEje(double min, double max, int numPuntos, double escala)
         {
@@ -128,7 +142,7 @@ namespace _398_UI
                 series.Add(serieRef);
                 series[1].XValueType = ChartValueType.DateTime;
             }*/
-            graficarXY("Titulo", series, grafico, DwZRef);
+            graficarXY("Titulo", series, grafico, DwZRef,2);
         }
      /*   public static void graficarregistros(string nombre, DateTime[] DTFecha, double[] dFecha, double[] Variable, double LBValor, Chart Grafico, double Tol, int ancho, int alto, int x, int y)
         {
