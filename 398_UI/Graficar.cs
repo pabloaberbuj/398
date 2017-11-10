@@ -16,7 +16,7 @@ namespace _398_UI
     {
         public static FontFamily fuente = new FontFamily("Segoe UI");
 
-        public static void graficarXY(string titulo, List<Series> series, Chart grafico)
+        public static void graficarXY(string titulo, List<Series> series, Chart grafico, double referencia)
         {
             ChartArea area = new ChartArea();
             grafico.ChartAreas.Add(area);
@@ -38,7 +38,17 @@ namespace _398_UI
             }
             area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
             area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
-            
+            if (!Double.IsNaN(referencia))
+            {
+                Series serieReferencia = new Series();
+                serieReferencia.Points.Add(new DataPoint(xMin-5, referencia));
+                serieReferencia.Points.Add(new DataPoint(xMax+5, referencia));
+                serieReferencia.MarkerSize = 0;
+                
+                serieReferencia.ChartType = SeriesChartType.Line;
+                serieReferencia.Color = Color.Orange;
+                grafico.Series.Insert(0, serieReferencia); //para que vaya al fondo y no tape
+            }
         }
 
         public static Series crearSerie(SeriesChartType tipo, Color color, string leyenda, bool hayLeyenda, List<DataPoint> puntos)
@@ -83,22 +93,42 @@ namespace _398_UI
         {
             grafico.ChartAreas.Clear(); grafico.Series.Clear();
             List<DataPoint> puntos = new List<DataPoint>();
+            List<DataPoint> referencia = new List<DataPoint>();
+            double DwZRef = Double.NaN;
             foreach (CalibracionFot cali in calibraciones)
             {
+                if (cali.EsReferencia)
+                {
+                    DwZRef = cali.Dwzref;
+                }
                 DataPoint punto = new DataPoint()
                 {
                     XValue = cali.Fecha.ToOADate(),
-                    //Label = cali.Fecha.ToShortDateString(),
-                    //AxisLabel = cali.Fecha.ToShortDateString(),
                 };
+                /*DataPoint puntoRef = new DataPoint()
+                {
+                    XValue = cali.Fecha.ToOADate(),
+                };*/
                 punto.YValues[0] = cali.Dwzref;
                 puntos.Add(punto);
+                //referencia.Add(puntoRef);
             }
             List<Series> series = new List<Series>();
             Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis en referencia", true, puntos);
             series.Add(serie);
             series[0].XValueType = ChartValueType.DateTime;
-            graficarXY("Titulo", series, grafico);
+          /*  if (!Double.IsNaN(DwZRef))
+            {
+                foreach (DataPoint puntoRef in referencia)
+                {
+                    puntoRef.YValues[0] = DwZRef;
+                }
+
+                Series serieRef = crearSerie(SeriesChartType.Line, Color.Orange, "Referencia", true, referencia);
+                series.Add(serieRef);
+                series[1].XValueType = ChartValueType.DateTime;
+            }*/
+            graficarXY("Titulo", series, grafico, DwZRef);
         }
      /*   public static void graficarregistros(string nombre, DateTime[] DTFecha, double[] dFecha, double[] Variable, double LBValor, Chart Grafico, double Tol, int ancho, int alto, int x, int y)
         {
