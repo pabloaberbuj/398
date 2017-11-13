@@ -1973,10 +1973,11 @@ namespace _398_UI
 
         #endregion
 
-        private void BtActualizar_Click(object sender, EventArgs e)
+        private void BtAnalizar_Click(object sender, EventArgs e)
         {
             BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
             DGVRegistros.DataSource = lista;
+            DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
         }
 

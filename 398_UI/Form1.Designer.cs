@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
             this.L_CaliFMref = new System.Windows.Forms.Label();
@@ -332,6 +332,8 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.label51 = new System.Windows.Forms.Label();
+            this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.BtAnalizar = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.RB_RegistroIso = new System.Windows.Forms.RadioButton();
@@ -363,8 +365,6 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label51 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -411,6 +411,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Panel_AnalizarReg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -419,7 +420,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -3591,6 +3591,25 @@
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(223, 12);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(41, 13);
+            this.label51.TabIndex = 74;
+            this.label51.Text = "Gráifco";
+            // 
+            // Chart_Registros
+            // 
+            this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
+            this.Chart_Registros.Name = "Chart_Registros";
+            series1.Name = "Series1";
+            this.Chart_Registros.Series.Add(series1);
+            this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
+            this.Chart_Registros.TabIndex = 0;
+            this.Chart_Registros.Text = "chart2";
+            // 
             // BtAnalizar
             // 
             this.BtAnalizar.Location = new System.Drawing.Point(9, 451);
@@ -3599,7 +3618,7 @@
             this.BtAnalizar.TabIndex = 44;
             this.BtAnalizar.Text = "Analizar";
             this.BtAnalizar.UseVisualStyleBackColor = true;
-            this.BtAnalizar.Click += new System.EventHandler(this.BtActualizar_Click);
+            this.BtAnalizar.Click += new System.EventHandler(this.BtAnalizar_Click);
             // 
             // groupBox7
             // 
@@ -3858,6 +3877,10 @@
             // 
             // DGVAnalisis
             // 
+            this.DGVAnalisis.AllowUserToAddRows = false;
+            this.DGVAnalisis.AllowUserToDeleteRows = false;
+            this.DGVAnalisis.AllowUserToResizeColumns = false;
+            this.DGVAnalisis.AllowUserToResizeRows = false;
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -3869,11 +3892,16 @@
             this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(225, 494);
             this.DGVAnalisis.Name = "DGVAnalisis";
+            this.DGVAnalisis.ReadOnly = true;
             this.DGVAnalisis.Size = new System.Drawing.Size(628, 180);
             this.DGVAnalisis.TabIndex = 62;
             // 
             // DGVRegistros
             // 
+            this.DGVRegistros.AllowUserToAddRows = false;
+            this.DGVRegistros.AllowUserToDeleteRows = false;
+            this.DGVRegistros.AllowUserToResizeColumns = false;
+            this.DGVRegistros.AllowUserToResizeRows = false;
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -3885,6 +3913,7 @@
             this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
             this.DGVRegistros.Name = "DGVRegistros";
+            this.DGVRegistros.ReadOnly = true;
             this.DGVRegistros.Size = new System.Drawing.Size(628, 199);
             this.DGVRegistros.TabIndex = 60;
             // 
@@ -3925,25 +3954,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // Chart_Registros
-            // 
-            this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
-            this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
-            this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
-            this.Chart_Registros.TabIndex = 0;
-            this.Chart_Registros.Text = "chart2";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(223, 12);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(41, 13);
-            this.label51.TabIndex = 74;
-            this.label51.Text = "Gráifco";
             // 
             // Form1
             // 
@@ -4041,6 +4051,7 @@
             this.groupBox3.PerformLayout();
             this.Panel_AnalizarReg.ResumeLayout(false);
             this.Panel_AnalizarReg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -4052,7 +4063,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             this.ResumeLayout(false);
 
         }

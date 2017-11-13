@@ -17,8 +17,9 @@ namespace _398_UI
         [Browsable(false)]
         public SistemaDosimetrico SistemaDosim { get; set; }
         
-        [DisplayName("Referencia")]
+        [DisplayName("Ref")]
         public bool EsReferencia { get; set; }
+        [Browsable(false)]
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }

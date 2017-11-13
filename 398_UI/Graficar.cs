@@ -51,8 +51,10 @@ namespace _398_UI
             Legend leyenda = new Legend()
             {
                 Enabled = true,
-                Docking = Docking.Bottom,
+                Docking = Docking.Right,
+                MaximumAutoSize = 20,
             };
+            grafico.Legends.Add(leyenda);
 
             foreach (Series serie in grafico.Series)
             {
@@ -138,9 +140,9 @@ namespace _398_UI
 
             }
             List<Series> series = new List<Series>();
-            Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis en referencia", true, puntos);
+            Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis\nen zref", true, puntos);
             series.Add(serie);
-            Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Calibración Referencia", true, referencia);
+            Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Referencia", true, referencia);
             serieRef.MarkerSize = 10;
             series.Add(serieRef);
             graficarXY("Titulo", series, grafico, DwZRef, 2);
