@@ -1466,6 +1466,7 @@ namespace _398_UI
         {
             inicializacionesRegistro();
             registroChequeoEnergias(sender, e);
+            habilitarBotonAnalizar(sender, e);
         }
 
         private DateTime primerFechaCali()
@@ -1515,6 +1516,12 @@ namespace _398_UI
             lista.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
             BindingList<CalibracionFot> lista2 = new BindingList<CalibracionFot>(lista);
             return lista2;
+        }
+
+        private void habilitarBotonAnalizar(object sender, EventArgs e)
+        {
+            bool test = (ListBox_RegistrosEquipos.SelectedIndex != -1 && (CB_RegistroEnergiaElec.SelectedIndex >-1 || CB_RegistroEnergiaFot.SelectedIndex > -1) && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked));
+            habilitarBoton(test, BtAnalizar);
         }
         #endregion
 
@@ -1978,9 +1985,20 @@ namespace _398_UI
         private void BtAnalizar_Click(object sender, EventArgs e)
         {
             BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
-            DGVRegistros.DataSource = lista;
-            DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
+            if (lista.Count()>0)
+            {
+                DGVRegistros.DataSource = lista;
+                DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
+            }
+            else
+            {
+                MessageBox.Show("No existen calibraciones con las condiciones descriptas");
+                DGVRegistros.DataSource = null;
+                DGVAnalisis.DataSource = null;
+                Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
+            }
+            
         }
 
         private void ChBRegRango_CheckedChanged(object sender, EventArgs e)

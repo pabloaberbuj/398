@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -3604,14 +3604,15 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
             this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
+            series2.Name = "Series1";
+            this.Chart_Registros.Series.Add(series2);
             this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
             // 
             // BtAnalizar
             // 
+            this.BtAnalizar.Enabled = false;
             this.BtAnalizar.Location = new System.Drawing.Point(9, 451);
             this.BtAnalizar.Name = "BtAnalizar";
             this.BtAnalizar.Size = new System.Drawing.Size(180, 35);
@@ -3641,6 +3642,7 @@
             this.RB_RegistroIso.TabStop = true;
             this.RB_RegistroIso.Text = "Isocentríca";
             this.RB_RegistroIso.UseVisualStyleBackColor = true;
+            this.RB_RegistroIso.CheckedChanged += new System.EventHandler(this.habilitarBotonAnalizar);
             // 
             // RB_RegistroDFSFija
             // 
@@ -3652,6 +3654,7 @@
             this.RB_RegistroDFSFija.TabStop = true;
             this.RB_RegistroDFSFija.Text = "DFS Fija";
             this.RB_RegistroDFSFija.UseVisualStyleBackColor = true;
+            this.RB_RegistroDFSFija.CheckedChanged += new System.EventHandler(this.habilitarBotonAnalizar);
             // 
             // groupBox2
             // 
@@ -3695,6 +3698,7 @@
             this.CB_RegistroEnergiaElec.Name = "CB_RegistroEnergiaElec";
             this.CB_RegistroEnergiaElec.Size = new System.Drawing.Size(52, 21);
             this.CB_RegistroEnergiaElec.TabIndex = 3;
+            this.CB_RegistroEnergiaElec.SelectedIndexChanged += new System.EventHandler(this.habilitarBotonAnalizar);
             // 
             // CB_RegistroEnergiaFot
             // 
@@ -3705,6 +3709,7 @@
             this.CB_RegistroEnergiaFot.Name = "CB_RegistroEnergiaFot";
             this.CB_RegistroEnergiaFot.Size = new System.Drawing.Size(52, 21);
             this.CB_RegistroEnergiaFot.TabIndex = 2;
+            this.CB_RegistroEnergiaFot.SelectedIndexChanged += new System.EventHandler(this.habilitarBotonAnalizar);
             // 
             // RB_RegistroEnergiaElec
             // 
@@ -3882,14 +3887,14 @@
             this.DGVAnalisis.AllowUserToResizeColumns = false;
             this.DGVAnalisis.AllowUserToResizeRows = false;
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVAnalisis.Location = new System.Drawing.Point(225, 494);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.ReadOnly = true;
@@ -3903,14 +3908,14 @@
             this.DGVRegistros.AllowUserToResizeColumns = false;
             this.DGVRegistros.AllowUserToResizeRows = false;
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.ReadOnly = true;
