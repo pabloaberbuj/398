@@ -1503,16 +1503,18 @@ namespace _398_UI
             {
                 DFSoISO = 2;
             }
-            BindingList<CalibracionFot> lista = new BindingList<CalibracionFot>();
+            List<CalibracionFot> lista = new List<CalibracionFot>();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
                 if (cali.Equipo.EqualsParaCali(registroEquipoSeleccionado()) && cali.Energia.EqualsParaCali(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO == DFSoISO
-                    && DateTime.Compare(cali.Fecha,DTPRegDesde.Value)>=0 && DateTime.Compare(cali.Fecha,DTPRegHasta.Value)<=0)
+                    && DateTime.Compare(cali.Fecha.Date,DTPRegDesde.Value.Date)>=0 && DateTime.Compare(cali.Fecha.Date,DTPRegHasta.Value.Date)<=0)
                 {
                     lista.Add(cali);
                 }
             }
-            return lista;
+            lista.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
+            BindingList<CalibracionFot> lista2 = new BindingList<CalibracionFot>(lista);
+            return lista2;
         }
         #endregion
 

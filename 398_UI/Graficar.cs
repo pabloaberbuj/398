@@ -18,6 +18,7 @@ namespace _398_UI
 
         public static void graficarXY(string titulo, List<Series> series, Chart grafico, double referencia, double tolerancia)
         {
+            grafico.Legends.Clear(); grafico.ChartAreas.Clear(); grafico.Series.Clear();
             ChartArea area = new ChartArea();
             grafico.ChartAreas.Add(area);
             double xMin = series[0].Points[0].XValue;
@@ -116,7 +117,6 @@ namespace _398_UI
 
         public static void graficarRegistrosCaliFotones(BindingList<CalibracionFot> calibraciones, Chart grafico)
         {
-            grafico.ChartAreas.Clear(); grafico.Series.Clear();
             List<DataPoint> puntos = new List<DataPoint>();
             List<DataPoint> referencia = new List<DataPoint>();
             double DwZRef = Double.NaN;
@@ -142,9 +142,12 @@ namespace _398_UI
             List<Series> series = new List<Series>();
             Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis\nen zref", true, puntos);
             series.Add(serie);
-            Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Referencia", true, referencia);
-            serieRef.MarkerSize = 10;
-            series.Add(serieRef);
+            if (!Double.IsNaN(DwZRef))
+            {
+                Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Referencia", true, referencia);
+                serieRef.MarkerSize = 10;
+                series.Add(serieRef);
+            }
             graficarXY("Titulo", series, grafico, DwZRef, 2);
         }
     }
