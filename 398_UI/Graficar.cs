@@ -39,11 +39,8 @@ namespace _398_UI
             if (!Double.IsNaN(referencia))
             {
                 grafico.Series.Insert(0, crearSerieLinea(Color.Orange,xMin,xMax,referencia)); //para que vaya al fondo y no tape
-                grafico.Series[0].XValueType = ChartValueType.DateTime;
                 grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 - tolerancia/100)));
-                grafico.Series[0].XValueType = ChartValueType.DateTime;
                 grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 + tolerancia/100)));
-                grafico.Series[0].XValueType = ChartValueType.DateTime;
                 yMin = Math.Min(yMin, referencia * (1 - tolerancia / 100));
                 yMax = Math.Max(yMax, referencia * (1 + tolerancia / 100));
                 yMin = referencia - Math.Max(yMax - referencia, referencia - yMin);
@@ -51,10 +48,16 @@ namespace _398_UI
             }
             area.AxisX = crearEje(xMin, xMax, series[0].Points.Count(), 10);
             area.AxisY = crearEje(yMin, yMax, series[0].Points.Count(), 10);
-            Legend leyenda = new Legend();
-            grafico.Legends.Add(leyenda);
-            grafico.Legends[0].Enabled = true;
-            grafico.Legends[0].Docking = Docking.Bottom;
+            Legend leyenda = new Legend()
+            {
+                Enabled = true,
+                Docking = Docking.Bottom,
+            };
+
+            foreach (Series serie in grafico.Series)
+            {
+                serie.XValueType = ChartValueType.DateTime;
+            }
         }
 
         public static Series crearSerie(SeriesChartType tipo, Color color, string leyenda, bool hayLeyenda, List<DataPoint> puntos)
@@ -82,6 +85,7 @@ namespace _398_UI
             serie.Points.Add(new DataPoint(xMin - 5, valor));
             serie.Points.Add(new DataPoint(xMax + 5, valor));
             serie.MarkerSize = 0;
+            serie.IsVisibleInLegend = false;
 
             serie.ChartType = SeriesChartType.Line;
             serie.Color = color;
@@ -95,14 +99,13 @@ namespace _398_UI
             Axis eje = new Axis()
             {
                 Minimum = Math.Floor(min - (max - min) / escala),
-                //Minimum = min,
                 Maximum = Math.Ceiling(max + (max - min) / escala),
-                //Maximum = max,
                 LineColor = Color.Black,
             };
-            eje.MajorGrid.Interval = Math.Ceiling((max-min)/numPuntos);
-            eje.MajorTickMark.Interval = Math.Ceiling((max-min)/numPuntos);
-            eje.LabelStyle.Interval = Math.Ceiling((max-min)/numPuntos);
+            double intervalo = Math.Min(Math.Ceiling((max - min) / numPuntos)+1,5);
+            eje.MajorGrid.Interval = intervalo;
+            eje.MajorTickMark.Interval = intervalo;
+            eje.LabelStyle.Interval = intervalo;
             //eje.IsLabelAutoFit = false;
             eje.MajorGrid.LineColor = Color.FromArgb(240, 240, 240);
             eje.LabelStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
@@ -121,6 +124,7 @@ namespace _398_UI
                 {
                     DwZRef = cali.Dwzref;
                     DataPoint puntoRef = new DataPoint();
+                    puntoRef.XValue = cali.Fecha.ToOADate();
                     puntoRef.YValues[0] = cali.Dwzref;
                     referencia.Add(puntoRef);
                 }
@@ -136,11 +140,9 @@ namespace _398_UI
             List<Series> series = new List<Series>();
             Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis en referencia", true, puntos);
             series.Add(serie);
-            series[0].XValueType = ChartValueType.DateTime;
             Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Calibración Referencia", true, referencia);
-            serieRef.MarkerSize = 15;
+            serieRef.MarkerSize = 10;
             series.Add(serieRef);
-            series[1].XValueType = ChartValueType.DateTime;
             graficarXY("Titulo", series, grafico, DwZRef,2);
         }
      /*   public static void graficarregistros(string nombre, DateTime[] DTFecha, double[] dFecha, double[] Variable, double LBValor, Chart Grafico, double Tol, int ancho, int alto, int x, int y)
