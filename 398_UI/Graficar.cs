@@ -38,9 +38,9 @@ namespace _398_UI
             }
             if (!Double.IsNaN(referencia))
             {
-                grafico.Series.Insert(0, crearSerieLinea(Color.Orange,xMin,xMax,referencia)); //para que vaya al fondo y no tape
-                grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 - tolerancia/100)));
-                grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 + tolerancia/100)));
+                grafico.Series.Insert(0, crearSerieLinea(Color.Orange, xMin, xMax, referencia)); //para que vaya al fondo y no tape
+                grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 - tolerancia / 100)));
+                grafico.Series.Insert(0, crearSerieLinea(Color.Gray, xMin, xMax, referencia * (1 + tolerancia / 100)));
                 yMin = Math.Min(yMin, referencia * (1 - tolerancia / 100));
                 yMax = Math.Max(yMax, referencia * (1 + tolerancia / 100));
                 yMin = referencia - Math.Max(yMax - referencia, referencia - yMin);
@@ -91,7 +91,7 @@ namespace _398_UI
             serie.Color = color;
             return serie;
         }
-            
+
 
 
         public static Axis crearEje(double min, double max, int numPuntos, double escala)
@@ -102,7 +102,7 @@ namespace _398_UI
                 Maximum = Math.Ceiling(max + (max - min) / escala),
                 LineColor = Color.Black,
             };
-            double intervalo = Math.Min(Math.Ceiling((max - min) / numPuntos)+1,5);
+            double intervalo = Math.Min(Math.Ceiling((max - min) / numPuntos) + 1, 5);
             eje.MajorGrid.Interval = intervalo;
             eje.MajorTickMark.Interval = intervalo;
             eje.LabelStyle.Interval = intervalo;
@@ -132,10 +132,10 @@ namespace _398_UI
                 {
                     XValue = cali.Fecha.ToOADate(),
                 };
-                
+
                 punto.YValues[0] = cali.Dwzref;
                 puntos.Add(punto);
-                
+
             }
             List<Series> series = new List<Series>();
             Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis en referencia", true, puntos);
@@ -143,88 +143,7 @@ namespace _398_UI
             Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Calibración Referencia", true, referencia);
             serieRef.MarkerSize = 10;
             series.Add(serieRef);
-            graficarXY("Titulo", series, grafico, DwZRef,2);
+            graficarXY("Titulo", series, grafico, DwZRef, 2);
         }
-     /*   public static void graficarregistros(string nombre, DateTime[] DTFecha, double[] dFecha, double[] Variable, double LBValor, Chart Grafico, double Tol, int ancho, int alto, int x, int y)
-        {
-            if (nombre == "Dosis Central") { Tol = Tol * LBValor / 100; }
-            FontFamily fuente = new FontFamily("Segoe UI");
-
-            Grafico.Titles.Clear(); Grafico.ChartAreas.Clear(); Grafico.Series.Clear(); Grafico.Legends.Clear();
-            ChartArea Area = new ChartArea(); Grafico.ChartAreas.Add(Area);
-
-            double Xmin; double Xmax;
-            if (dFecha.Min() == dFecha.Max()) { Xmin = dFecha.Min() * 0.95; Xmax = dFecha.Min() * 1.05; }
-            else { Xmin = dFecha.Min(); Xmax = dFecha.Max(); }
-            double Ymin = Math.Min(Variable.Min(), LBValor - Tol); double Ymax = Math.Max(Variable.Max(), LBValor + Tol);
-
-
-            Area.AxisX.Minimum = Xmin - (Xmax - Xmin) / 50;
-            Area.AxisX.Maximum = Xmax + (Xmax - Xmin) / 50;
-            Area.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Regular);
-            Area.AxisX.LineColor = System.Drawing.Color.Black;
-            Area.AxisX.MajorGrid.Interval = Math.Ceiling(5 / (Xmax - Xmin));
-            Area.AxisX.MajorTickMark.Interval = Math.Ceiling(5 / (Xmax - Xmin));
-            Area.AxisX.LabelStyle.Interval = Math.Ceiling(5 / (Xmax - Xmin));
-            Area.AxisX.LabelStyle.Angle = 45;
-            Area.AxisX.IsLabelAutoFit = false;
-            Area.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(240, 240, 240);
-            Area.AxisY.Minimum = Ymin - (Ymax - Ymin) / 10;
-            Area.AxisY.Maximum = Ymax + (Ymax - Ymin) / 10;
-            Area.AxisY.LineColor = System.Drawing.Color.Black;
-            Area.AxisY.IsLabelAutoFit = false;
-            Area.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(240, 240, 240);
-            Area.AxisY.LabelStyle.Format = "F3";
-            Area.Position.Height = alto;
-            Area.Position.Width = ancho;
-            Area.Position.X = x;
-            Area.Position.Y = y;
-
-
-
-
-            Series SerieLB = new Series(); Grafico.Series.Add(SerieLB);
-            double[] LBarray = Enumerable.Repeat(LBValor, Variable.Count()).ToArray();
-            SerieLB.Points.DataBindXY(DTFecha, LBarray);
-            SerieLB.ChartType = SeriesChartType.Line;
-            SerieLB.Color = Color.Orange;
-            SerieLB.LegendText = "Linea Base";
-            SerieLB.IsVisibleInLegend = true;
-
-            Series SerieMTol = new Series(); Grafico.Series.Add(SerieMTol);
-            double[] MTolarray = Enumerable.Repeat(LBValor + Tol, Variable.Count()).ToArray();
-            SerieMTol.Points.DataBindXY(DTFecha, MTolarray);
-            SerieMTol.ChartType = SeriesChartType.Line;
-            SerieMTol.Color = Color.Gray;
-            SerieMTol.BorderDashStyle = ChartDashStyle.Dash;
-            SerieMTol.LegendText = "Margenes de \n tolerancia";
-            SerieMTol.IsVisibleInLegend = true;
-
-            Series SeriemTol = new Series(); Grafico.Series.Add(SeriemTol);
-            double[] mTolarray = Enumerable.Repeat(LBValor - Tol, Variable.Count()).ToArray();
-            SeriemTol.Points.DataBindXY(DTFecha, mTolarray);
-            SeriemTol.ChartType = SeriesChartType.Line;
-            SeriemTol.Color = Color.Gray;
-            SeriemTol.BorderDashStyle = ChartDashStyle.Dash;
-            // SeriemTol.LegendText = "LB-Tol";
-            SeriemTol.IsVisibleInLegend = false;
-
-            Series Serievariable = new Series(); Grafico.Series.Add(Serievariable);
-            Serievariable.Points.DataBindXY(DTFecha, Variable);
-            Serievariable.ChartType = SeriesChartType.Point;
-            Serievariable.MarkerColor = System.Drawing.Color.Blue;
-            Serievariable.MarkerSize = 8;
-            Serievariable.MarkerStyle = MarkerStyle.Circle;
-            Serievariable.ToolTip = "#VALY \n #VALX";
-            Serievariable.LegendText = "Registro";
-            Serievariable.IsVisibleInLegend = true;
-
-            Grafico.Titles.Add(nombre);
-            Grafico.Titles[0].Font = new System.Drawing.Font("Segoe UI", 13, System.Drawing.FontStyle.Regular);
-            Grafico.Visible = true;
-            Legend leyenda = new Legend(); Grafico.Legends.Add(leyenda);
-            leyenda.Docking = Docking.Right;
-            leyenda.Alignment = StringAlignment.Center;
-        }*/
     }
 }

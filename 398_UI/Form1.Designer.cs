@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
             this.L_CaliFMref = new System.Windows.Forms.Label();
@@ -332,7 +332,7 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
-            this.BtActualizar = new System.Windows.Forms.Button();
+            this.BtAnalizar = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.RB_RegistroIso = new System.Windows.Forms.RadioButton();
             this.RB_RegistroDFSFija = new System.Windows.Forms.RadioButton();
@@ -358,13 +358,13 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.DGVAnalisis = new System.Windows.Forms.DataGridView();
-            this.GBGrafReg = new System.Windows.Forms.GroupBox();
-            this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
             this.Bt_CalElec = new System.Windows.Forms.Button();
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label51 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -417,10 +417,9 @@
             this.groupBox6.SuspendLayout();
             this.GBConfiguracionReporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
-            this.GBGrafReg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -3575,7 +3574,9 @@
             // 
             // Panel_AnalizarReg
             // 
-            this.Panel_AnalizarReg.Controls.Add(this.BtActualizar);
+            this.Panel_AnalizarReg.Controls.Add(this.label51);
+            this.Panel_AnalizarReg.Controls.Add(this.Chart_Registros);
+            this.Panel_AnalizarReg.Controls.Add(this.BtAnalizar);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox7);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox2);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox1);
@@ -3584,33 +3585,32 @@
             this.Panel_AnalizarReg.Controls.Add(this.label21);
             this.Panel_AnalizarReg.Controls.Add(this.label19);
             this.Panel_AnalizarReg.Controls.Add(this.DGVAnalisis);
-            this.Panel_AnalizarReg.Controls.Add(this.GBGrafReg);
             this.Panel_AnalizarReg.Controls.Add(this.DGVRegistros);
             this.Panel_AnalizarReg.Location = new System.Drawing.Point(0, 0);
             this.Panel_AnalizarReg.Name = "Panel_AnalizarReg";
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
-            // BtActualizar
+            // BtAnalizar
             // 
-            this.BtActualizar.Location = new System.Drawing.Point(621, 172);
-            this.BtActualizar.Name = "BtActualizar";
-            this.BtActualizar.Size = new System.Drawing.Size(125, 21);
-            this.BtActualizar.TabIndex = 44;
-            this.BtActualizar.Text = "Actualizar";
-            this.BtActualizar.UseVisualStyleBackColor = true;
-            this.BtActualizar.Click += new System.EventHandler(this.BtActualizar_Click);
+            this.BtAnalizar.Location = new System.Drawing.Point(9, 451);
+            this.BtAnalizar.Name = "BtAnalizar";
+            this.BtAnalizar.Size = new System.Drawing.Size(180, 35);
+            this.BtAnalizar.TabIndex = 44;
+            this.BtAnalizar.Text = "Analizar";
+            this.BtAnalizar.UseVisualStyleBackColor = true;
+            this.BtAnalizar.Click += new System.EventHandler(this.BtActualizar_Click);
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.RB_RegistroIso);
             this.groupBox7.Controls.Add(this.RB_RegistroDFSFija);
-            this.groupBox7.Location = new System.Drawing.Point(418, 9);
+            this.groupBox7.Location = new System.Drawing.Point(9, 261);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(159, 152);
+            this.groupBox7.Size = new System.Drawing.Size(180, 79);
             this.groupBox7.TabIndex = 73;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Elegir condición";
+            this.groupBox7.Text = "3. Elegir condición";
             // 
             // RB_RegistroIso
             // 
@@ -3642,17 +3642,17 @@
             this.groupBox2.Controls.Add(this.CB_RegistroEnergiaFot);
             this.groupBox2.Controls.Add(this.RB_RegistroEnergiaElec);
             this.groupBox2.Controls.Add(this.RB_RegistroEnergiaFot);
-            this.groupBox2.Location = new System.Drawing.Point(183, 9);
+            this.groupBox2.Location = new System.Drawing.Point(9, 167);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(223, 152);
+            this.groupBox2.Size = new System.Drawing.Size(180, 87);
             this.groupBox2.TabIndex = 72;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Elegir Energia";
+            this.groupBox2.Text = "2. Elegir Energia";
             // 
             // label94
             // 
             this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(157, 77);
+            this.label94.Location = new System.Drawing.Point(148, 49);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(29, 13);
             this.label94.TabIndex = 66;
@@ -3661,7 +3661,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(157, 34);
+            this.label50.Location = new System.Drawing.Point(148, 23);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(23, 13);
             this.label50.TabIndex = 65;
@@ -3672,7 +3672,7 @@
             this.CB_RegistroEnergiaElec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_RegistroEnergiaElec.Enabled = false;
             this.CB_RegistroEnergiaElec.FormattingEnabled = true;
-            this.CB_RegistroEnergiaElec.Location = new System.Drawing.Point(94, 72);
+            this.CB_RegistroEnergiaElec.Location = new System.Drawing.Point(93, 45);
             this.CB_RegistroEnergiaElec.Name = "CB_RegistroEnergiaElec";
             this.CB_RegistroEnergiaElec.Size = new System.Drawing.Size(52, 21);
             this.CB_RegistroEnergiaElec.TabIndex = 3;
@@ -3682,7 +3682,7 @@
             this.CB_RegistroEnergiaFot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_RegistroEnergiaFot.Enabled = false;
             this.CB_RegistroEnergiaFot.FormattingEnabled = true;
-            this.CB_RegistroEnergiaFot.Location = new System.Drawing.Point(94, 29);
+            this.CB_RegistroEnergiaFot.Location = new System.Drawing.Point(93, 17);
             this.CB_RegistroEnergiaFot.Name = "CB_RegistroEnergiaFot";
             this.CB_RegistroEnergiaFot.Size = new System.Drawing.Size(52, 21);
             this.CB_RegistroEnergiaFot.TabIndex = 2;
@@ -3691,7 +3691,7 @@
             // 
             this.RB_RegistroEnergiaElec.AutoSize = true;
             this.RB_RegistroEnergiaElec.Enabled = false;
-            this.RB_RegistroEnergiaElec.Location = new System.Drawing.Point(9, 73);
+            this.RB_RegistroEnergiaElec.Location = new System.Drawing.Point(9, 47);
             this.RB_RegistroEnergiaElec.Name = "RB_RegistroEnergiaElec";
             this.RB_RegistroEnergiaElec.Size = new System.Drawing.Size(75, 17);
             this.RB_RegistroEnergiaElec.TabIndex = 1;
@@ -3704,7 +3704,7 @@
             // 
             this.RB_RegistroEnergiaFot.AutoSize = true;
             this.RB_RegistroEnergiaFot.Enabled = false;
-            this.RB_RegistroEnergiaFot.Location = new System.Drawing.Point(9, 30);
+            this.RB_RegistroEnergiaFot.Location = new System.Drawing.Point(9, 21);
             this.RB_RegistroEnergiaFot.Name = "RB_RegistroEnergiaFot";
             this.RB_RegistroEnergiaFot.Size = new System.Drawing.Size(63, 17);
             this.RB_RegistroEnergiaFot.TabIndex = 0;
@@ -3718,17 +3718,17 @@
             this.groupBox1.Controls.Add(this.ListBox_RegistrosEquipos);
             this.groupBox1.Location = new System.Drawing.Point(9, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 152);
+            this.groupBox1.Size = new System.Drawing.Size(180, 152);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Elegir Equipo";
+            this.groupBox1.Text = "1. Elegir Equipo";
             // 
             // ListBox_RegistrosEquipos
             // 
             this.ListBox_RegistrosEquipos.FormattingEnabled = true;
             this.ListBox_RegistrosEquipos.Location = new System.Drawing.Point(15, 26);
             this.ListBox_RegistrosEquipos.Name = "ListBox_RegistrosEquipos";
-            this.ListBox_RegistrosEquipos.Size = new System.Drawing.Size(125, 108);
+            this.ListBox_RegistrosEquipos.Size = new System.Drawing.Size(146, 108);
             this.ListBox_RegistrosEquipos.TabIndex = 71;
             this.ListBox_RegistrosEquipos.SelectedIndexChanged += new System.EventHandler(this.ListBox_RegistrosEquipos_SelectedIndexChanged);
             // 
@@ -3739,12 +3739,12 @@
             this.groupBox6.Controls.Add(this.L_regFechaDesde);
             this.groupBox6.Controls.Add(this.DTPRegHasta);
             this.groupBox6.Controls.Add(this.DTPRegDesde);
-            this.groupBox6.Location = new System.Drawing.Point(598, 9);
+            this.groupBox6.Location = new System.Drawing.Point(9, 349);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(159, 151);
+            this.groupBox6.Size = new System.Drawing.Size(180, 92);
             this.groupBox6.TabIndex = 65;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Filtrar fechas";
+            this.groupBox6.Text = "4. Filtrar fechas";
             // 
             // ChBRegRango
             // 
@@ -3801,9 +3801,9 @@
             this.GBConfiguracionReporte.Controls.Add(this.BtnImprimir);
             this.GBConfiguracionReporte.Controls.Add(this.BtnVistaPrevia);
             this.GBConfiguracionReporte.Enabled = false;
-            this.GBConfiguracionReporte.Location = new System.Drawing.Point(614, 471);
+            this.GBConfiguracionReporte.Location = new System.Drawing.Point(9, 492);
             this.GBConfiguracionReporte.Name = "GBConfiguracionReporte";
-            this.GBConfiguracionReporte.Size = new System.Drawing.Size(159, 202);
+            this.GBConfiguracionReporte.Size = new System.Drawing.Size(180, 202);
             this.GBConfiguracionReporte.TabIndex = 66;
             this.GBConfiguracionReporte.TabStop = false;
             this.GBConfiguracionReporte.Text = "Configuración Reporte";
@@ -3817,14 +3817,14 @@
             "Análisis"});
             this.checkedListBox1.Location = new System.Drawing.Point(15, 28);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(128, 94);
+            this.checkedListBox1.Size = new System.Drawing.Size(142, 94);
             this.checkedListBox1.TabIndex = 55;
             // 
             // BtnImprimir
             // 
             this.BtnImprimir.Location = new System.Drawing.Point(15, 165);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(128, 23);
+            this.BtnImprimir.Size = new System.Drawing.Size(142, 23);
             this.BtnImprimir.TabIndex = 54;
             this.BtnImprimir.Text = "Imprimir";
             this.BtnImprimir.UseVisualStyleBackColor = true;
@@ -3833,7 +3833,7 @@
             // 
             this.BtnVistaPrevia.Location = new System.Drawing.Point(15, 128);
             this.BtnVistaPrevia.Name = "BtnVistaPrevia";
-            this.BtnVistaPrevia.Size = new System.Drawing.Size(128, 23);
+            this.BtnVistaPrevia.Size = new System.Drawing.Size(142, 23);
             this.BtnVistaPrevia.TabIndex = 53;
             this.BtnVistaPrevia.Text = "Vista Previa";
             this.BtnVistaPrevia.UseVisualStyleBackColor = true;
@@ -3841,7 +3841,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(548, 200);
+            this.label21.Location = new System.Drawing.Point(222, 235);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 64;
@@ -3850,7 +3850,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 456);
+            this.label19.Location = new System.Drawing.Point(222, 473);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 63;
@@ -3867,30 +3867,10 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DGVAnalisis.Location = new System.Drawing.Point(16, 482);
+            this.DGVAnalisis.Location = new System.Drawing.Point(225, 494);
             this.DGVAnalisis.Name = "DGVAnalisis";
-            this.DGVAnalisis.Size = new System.Drawing.Size(560, 180);
+            this.DGVAnalisis.Size = new System.Drawing.Size(628, 180);
             this.DGVAnalisis.TabIndex = 62;
-            // 
-            // GBGrafReg
-            // 
-            this.GBGrafReg.Controls.Add(this.Chart_Registros);
-            this.GBGrafReg.Location = new System.Drawing.Point(9, 209);
-            this.GBGrafReg.Name = "GBGrafReg";
-            this.GBGrafReg.Size = new System.Drawing.Size(521, 210);
-            this.GBGrafReg.TabIndex = 61;
-            this.GBGrafReg.TabStop = false;
-            this.GBGrafReg.Text = "Graficos";
-            // 
-            // Chart_Registros
-            // 
-            this.Chart_Registros.Location = new System.Drawing.Point(19, 29);
-            this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
-            this.Chart_Registros.Size = new System.Drawing.Size(483, 167);
-            this.Chart_Registros.TabIndex = 0;
-            this.Chart_Registros.Text = "chart2";
             // 
             // DGVRegistros
             // 
@@ -3903,9 +3883,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVRegistros.Location = new System.Drawing.Point(543, 218);
+            this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
             this.DGVRegistros.Name = "DGVRegistros";
-            this.DGVRegistros.Size = new System.Drawing.Size(310, 199);
+            this.DGVRegistros.Size = new System.Drawing.Size(628, 199);
             this.DGVRegistros.TabIndex = 60;
             // 
             // Bt_CalElec
@@ -3945,6 +3925,25 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // Chart_Registros
+            // 
+            this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
+            this.Chart_Registros.Name = "Chart_Registros";
+            series1.Name = "Series1";
+            this.Chart_Registros.Series.Add(series1);
+            this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
+            this.Chart_Registros.TabIndex = 0;
+            this.Chart_Registros.Text = "chart2";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(223, 12);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(41, 13);
+            this.label51.TabIndex = 74;
+            this.label51.Text = "Gráifco";
             // 
             // Form1
             // 
@@ -4051,10 +4050,9 @@
             this.groupBox6.PerformLayout();
             this.GBConfiguracionReporte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
-            this.GBGrafReg.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4166,7 +4164,7 @@
         private System.Windows.Forms.Button Bt_Inicio;
         private System.Windows.Forms.Panel Panel_AnalizarReg;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button BtActualizar;
+        private System.Windows.Forms.Button BtAnalizar;
         private System.Windows.Forms.CheckBox ChBRegRango;
         private System.Windows.Forms.Label L_RegFechaHasta;
         private System.Windows.Forms.Label L_regFechaDesde;
@@ -4178,7 +4176,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridView DGVAnalisis;
-        private System.Windows.Forms.GroupBox GBGrafReg;
         private System.Windows.Forms.DataGridView DGVRegistros;
         private System.Windows.Forms.Button BT_SistDosIraCal;
         private System.Windows.Forms.Button BT_EqIraCal;
@@ -4393,6 +4390,7 @@
         private System.Windows.Forms.RadioButton RB_RegistroEnergiaFot;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_Registros;
     }
 }
