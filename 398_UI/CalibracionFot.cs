@@ -307,8 +307,63 @@ namespace _398_UI
 
         }
 
+        public static string resumenCalibracion(CalibracionFot cali) //funciona. COMPLETAR
+        {
+            return "Equipo: " + cali.Equipo.Etiqueta + "\n" +
+                "Energia: " + cali.Energia.Energia.ToString() + "MV \n" +
+                "Sistema Dosimétrico: " + cali.SistemaDosim.Etiqueta + "\n" +
+                "Indice de calidad:\n" +
+                "TPR2010 = " + cali.TPR2010.ToString() + "\n" +
+                "kQQ0 = " + cali.Kqq0.ToString() + "\n" +
+                "Factores:\n" +
+                "kTP= " + cali.Ktp.ToString() + "\n" +
+                "kpol= " + cali.kpol.ToString() + "\n" +
+                "ks= " + cali.ks.ToString() + "\n\n" +
+
+                "Mref= " + cali.Mref.ToString() + "\n" +
+                "Dwzref= " + cali.Dwzref.ToString();
+
+        }
+
     }
 }
+
+/*[Browsable(false)]
+        public Equipo Equipo { get; set; }
+        [Browsable(false)]
+        public EnergiaFotones Energia { get; set; }
+        [Browsable(false)]
+        public SistemaDosimetrico SistemaDosim { get; set; }
+        
+        [DisplayName("Ref")]
+        public bool EsReferencia { get; set; }
+        [Browsable(false)]
+        public double Mref { get; set; }
+        public double Dwzref { get; set; }
+        public double Dwzmax { get; set; }
+        public double Ktp { get; set; }
+        public double TPR2010 { get; set; }
+        public double Kqq0 { get; set; }
+        [Browsable(false)]
+        public int mideKqq0 { get; set; } //1 si 2 usaLB
+        public double kpol { get; set; }
+        [Browsable(false)]
+        public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
+        [Browsable(false)]
+        public double Vred { get; set; }
+        public double ks { get; set; }
+        [Browsable(false)]
+        public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
+        [Browsable(false)]
+        public double DFSoISO { get; set; } //1 DFSfija 2 ISO
+        [DisplayName("Lado Campo")]
+        public double LadoCampo { get; set; }
+        [DisplayName("Profundidad")]
+        public double Profundidad { get; set; }
+        [DisplayName("Fecha")]
+        public DateTime Fecha { get; set; }
+        [DisplayName("Realizado Por")]
+        public string RealizadoPor { get; set; }*/
 
 
 

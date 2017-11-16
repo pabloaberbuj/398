@@ -1325,8 +1325,7 @@ namespace _398_UI
 
         private void inicializarRegistrosEquipos()
         {
-            //ListBox_RegistrosEquipos.Items.Clear();
-            foreach (CalibracionFot cali in CalibracionFot.lista())
+             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
                 if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
                 {
@@ -1402,41 +1401,7 @@ namespace _398_UI
                 CB_RegistroEnergiaElec.DisplayMember = "Etiqueta";
             }
         }
-        /*private void inicializarRegistrosEnergias() //La opción con TreeView
-        {
-            TV_RegistrosEnergia.Nodes.Clear();
-            if (ListBox_RegistrosEquipos.SelectedIndex != -1)
-            {
-                //if (registroEquipoSeleccionado().Fuente ==1 )
-                if (registroEquipoSeleccionado().energiaFot.Count > 0)
-                {
-                    TreeNode tnFot = new TreeNode("Fotones");
-                    tnFot.Name = "Fotones";
-                    TV_RegistrosEnergia.Nodes.Add(tnFot);
-                    foreach (EnergiaFotones ef in registroEquipoSeleccionado().energiaFot)
-                    {
-                        TreeNode _nuevaEF = new TreeNode(ef.Etiqueta+ " MV");
-                        _nuevaEF.Tag = ef;
-                        TV_RegistrosEnergia.Nodes["Fotones"].Nodes.Add(_nuevaEF);
-                    }
-                    TV_RegistrosEnergia.Nodes["Fotones"].ExpandAll();
-                }
-
-                if (registroEquipoSeleccionado().energiaElec.Count > 0)
-                {
-                    TreeNode tnElec = new TreeNode("Electrones");
-                    tnElec.Name = "Electrones";
-                    TV_RegistrosEnergia.Nodes.Add(tnElec);
-                    foreach (EnergiaElectrones eel in registroEquipoSeleccionado().energiaElec)
-                    {
-                        TreeNode _nuevaeEl = new TreeNode(eel.Etiqueta + " MeV");
-                        _nuevaeEl.Tag = eel;
-                        TV_RegistrosEnergia.Nodes["Electrones"].Nodes.Add(_nuevaeEl);
-                    }
-                    TV_RegistrosEnergia.Nodes["Electrones"].ExpandAll();
-                }
-            }
-        }*/
+    
         private Equipo registroEquipoSeleccionado()
         {
             return (Equipo)ListBox_RegistrosEquipos.SelectedItem;
@@ -1523,11 +1488,49 @@ namespace _398_UI
             bool test = (ListBox_RegistrosEquipos.SelectedIndex != -1 && (CB_RegistroEnergiaElec.SelectedIndex >-1 || CB_RegistroEnergiaFot.SelectedIndex > -1) && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked));
             habilitarBoton(test, BtAnalizar);
         }
-        #endregion
+
+        private void BtAnalizar_Click(object sender, EventArgs e)
+        {
+            BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
+            if (lista.Count() > 0)
+            {
+                DGVRegistros.DataSource = lista;
+                DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
+            }
+            else
+            {
+                MessageBox.Show("No existen calibraciones con las condiciones descriptas");
+                DGVRegistros.DataSource = null;
+                DGVAnalisis.DataSource = null;
+                Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
+            }
+
+        }
+
+        private void ChBRegRango_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChBRegRango.Checked)
+            {
+                L_RegFechaHasta.Enabled = true;
+                L_regFechaDesde.Enabled = true;
+                DTPRegDesde.Enabled = true;
+                DTPRegHasta.Enabled = true;
+            }
+            else
+            {
+                L_RegFechaHasta.Enabled = false;
+                L_regFechaDesde.Enabled = false;
+                DTPRegDesde.Enabled = false;
+                DTPRegHasta.Enabled = false;
+            }
+        }
+    
+    #endregion
 
 
-        #region Métodos
-        public static void limpiarRegistro(Panel panel)
+    #region Métodos
+    public static void limpiarRegistro(Panel panel)
         {
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
@@ -1982,42 +1985,12 @@ namespace _398_UI
 
         #endregion
 
-        private void BtAnalizar_Click(object sender, EventArgs e)
+        private void BT_RegistrosResumen_Click(object sender, EventArgs e)
         {
-            BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
-            if (lista.Count()>0)
-            {
-                DGVRegistros.DataSource = lista;
-                DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
-            }
-            else
-            {
-                MessageBox.Show("No existen calibraciones con las condiciones descriptas");
-                DGVRegistros.DataSource = null;
-                DGVAnalisis.DataSource = null;
-                Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
-            }
-            
+            MessageBox.Show(CalibracionFot.resumenCalibracion((CalibracionFot)DGVRegistros.SelectedRows[0].DataBoundItem));
         }
 
-        private void ChBRegRango_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ChBRegRango.Checked)
-            {
-                L_RegFechaHasta.Enabled = true;
-                L_regFechaDesde.Enabled = true;
-                DTPRegDesde.Enabled = true;
-                DTPRegHasta.Enabled = true;
-            }
-            else
-            {
-                L_RegFechaHasta.Enabled = false;
-                L_regFechaDesde.Enabled = false;
-                DTPRegDesde.Enabled = false;
-                DTPRegHasta.Enabled = false;
-            }
-        }
+
     }
 }
 

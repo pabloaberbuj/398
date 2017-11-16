@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -365,6 +365,9 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.BT_RegistrosResumen = new System.Windows.Forms.Button();
+            this.BT_RegistroImprimir = new System.Windows.Forms.Button();
+            this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3574,6 +3577,9 @@
             // 
             // Panel_AnalizarReg
             // 
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistrosResumen);
             this.Panel_AnalizarReg.Controls.Add(this.label51);
             this.Panel_AnalizarReg.Controls.Add(this.Chart_Registros);
             this.Panel_AnalizarReg.Controls.Add(this.BtAnalizar);
@@ -3604,8 +3610,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
             this.Chart_Registros.Name = "Chart_Registros";
-            series2.Name = "Series1";
-            this.Chart_Registros.Series.Add(series2);
+            series1.Name = "Series1";
+            this.Chart_Registros.Series.Add(series1);
             this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3887,14 +3893,14 @@
             this.DGVAnalisis.AllowUserToResizeColumns = false;
             this.DGVAnalisis.AllowUserToResizeRows = false;
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVAnalisis.Location = new System.Drawing.Point(225, 494);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.ReadOnly = true;
@@ -3908,18 +3914,18 @@
             this.DGVRegistros.AllowUserToResizeColumns = false;
             this.DGVRegistros.AllowUserToResizeRows = false;
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.ReadOnly = true;
-            this.DGVRegistros.Size = new System.Drawing.Size(628, 199);
+            this.DGVRegistros.Size = new System.Drawing.Size(502, 199);
             this.DGVRegistros.TabIndex = 60;
             // 
             // Bt_CalElec
@@ -3959,6 +3965,34 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // BT_RegistrosResumen
+            // 
+            this.BT_RegistrosResumen.Location = new System.Drawing.Point(743, 256);
+            this.BT_RegistrosResumen.Name = "BT_RegistrosResumen";
+            this.BT_RegistrosResumen.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistrosResumen.TabIndex = 75;
+            this.BT_RegistrosResumen.Text = "Ver resumen";
+            this.BT_RegistrosResumen.UseVisualStyleBackColor = true;
+            this.BT_RegistrosResumen.Click += new System.EventHandler(this.BT_RegistrosResumen_Click);
+            // 
+            // BT_RegistroImprimir
+            // 
+            this.BT_RegistroImprimir.Location = new System.Drawing.Point(743, 343);
+            this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
+            this.BT_RegistroImprimir.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistroImprimir.TabIndex = 76;
+            this.BT_RegistroImprimir.Text = "Imprimir Reporte";
+            this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistroVPImpresion
+            // 
+            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(743, 299);
+            this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
+            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistroVPImpresion.TabIndex = 77;
+            this.BT_RegistroVPImpresion.Text = "Vista Previa Reporte";
+            this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -4407,6 +4441,9 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_Registros;
+        private System.Windows.Forms.Button BT_RegistrosResumen;
+        private System.Windows.Forms.Button BT_RegistroVPImpresion;
+        private System.Windows.Forms.Button BT_RegistroImprimir;
     }
 }
 
