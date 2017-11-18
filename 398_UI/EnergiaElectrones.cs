@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class EnergiaElectrones:Objeto
+    public class EnergiaElectrones : Objeto
     {
         [DisplayName(" ")]
         public bool EsPredet { get; set; }
@@ -42,22 +42,22 @@ namespace _398_UI
                 PDDZrefElec = _pddZref,
             };
         }
-        
+
         public static string calcularR50D(double R50ion)
         {
-            if (R50ion<=10)
+            if (R50ion <= 10)
             {
-                return (Math.Round(1.029 * R50ion - 0.06,2)).ToString();
+                return (Math.Round(1.029 * R50ion - 0.06, 2)).ToString();
             }
             else
             {
-                return Math.Round((1.059 * R50ion - 0.37),2).ToString();
+                return Math.Round((1.059 * R50ion - 0.37), 2).ToString();
             }
         }
 
         public static string calcularZref(double r50D)
         {
-            return Math.Round((0.6 * r50D - 0.1),2).ToString();
+            return Math.Round((0.6 * r50D - 0.1), 2).ToString();
         }
 
         public static ListaElectrones lista(DataGridView DGV)
@@ -164,25 +164,24 @@ namespace _398_UI
 
         }
 
-        public bool EqualsParaCali(EnergiaElectrones el)
+        public override bool Equals(object obj)
         {
-            PropertyInfo[] propiedades = el.GetType().GetProperties();
-            if (el == null || this.GetType() != el.GetType())
+
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
             {
                 return false;
             }
-            foreach (PropertyInfo propiedad in propiedades)
+            if (Energia == ((EnergiaElectrones)obj).Energia &&
+                 R50ion == ((EnergiaElectrones)obj).R50ion &&
+                 LadoCampo == ((EnergiaElectrones)obj).LadoCampo)
             {
-
-                if (propiedad.Name == "Energia" || propiedad.Name == "R50ion" || propiedad.Name == "LadoCampo")
-                {
-                    if ((!propiedad.GetValue(this).Equals(propiedad.GetValue(el))))
-                    {
-                        return false;
-                    }
-                }
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

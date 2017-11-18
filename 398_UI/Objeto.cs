@@ -28,28 +28,5 @@ namespace _398_UI
             }
             return true;
         }
-
-        public bool EqualsSinEsPredet(object obj)
-        {
-            PropertyInfo[] propiedades = obj.GetType().GetProperties();
-            if (obj == null || this.GetType() != obj.GetType())
-            {
-                return false;
-            }
-            foreach (PropertyInfo propiedad in propiedades)
-            {
-                if (propiedad.Name == "EsPredet")
-                {
-
-                }
-                else if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)))
-                {
-                    
-                    return false;
-                }
-
-            }
-            return true;
-        }
     }
 }

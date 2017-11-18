@@ -261,7 +261,7 @@ namespace _398_UI
             {
                 foreach (Equipo eqImp in listaImportada)
                 {
-                    if (!(lista().Any(eq => eqImp.EqualsSinEsPredet(eq))))
+                    if (!(lista().Any(eq => eqImp.Equals(eq))))
                     {
                         listaFiltrada.Add(eqImp);
                     }

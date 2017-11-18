@@ -172,7 +172,7 @@ namespace _398_UI
             {
                 foreach (SistemaDosimetrico sdImp in listaImportada)
                 {
-                    if (!(lista().Any(sd=>sdImp.EqualsSinEsPredet(sd))))
+                    if (!(lista().Any(sd=>sdImp.Equals(sd))))
                     {
                         listaFiltrada.Add(sdImp);
                     }
@@ -230,6 +230,23 @@ namespace _398_UI
             catch (Exception e)
             {
                 MessageBox.Show("Ha ocurrido un error. No se ha podido exportar:\n" + e.ToString());
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
+            {
+                return false;
+            }
+            if (camara.Equals(((SistemaDosimetrico)obj).camara) &&
+                electrometro.Equals(((SistemaDosimetrico)obj).electrometro))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
