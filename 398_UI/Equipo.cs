@@ -90,6 +90,11 @@ namespace _398_UI
         public static Equipo crearCo(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
              double zref, double lado, double PDDzref, double TMRzref, string _institucion)
         {
+            string auxEtiqueta = "";
+            if (_alias != "")
+            {
+                auxEtiqueta += " (" + _alias + ")";
+            }
             return new Equipo()
             {
                 Marca = _marca,
@@ -103,7 +108,7 @@ namespace _398_UI
                 energiaElec = new ListaElectrones(),
                 EnergiasElectrones = "",
                 Institucion = _institucion,
-                Etiqueta = _marca + " " + _modelo + " " + _alias,
+                Etiqueta = _marca + " " + _modelo + " " + auxEtiqueta,
                 Nota = "",
             };
         }
