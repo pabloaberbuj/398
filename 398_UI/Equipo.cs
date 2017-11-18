@@ -64,6 +64,11 @@ namespace _398_UI
             {
                 auxEnergiasElec += energia.Energia + "";
             }
+            string auxEtiqueta = "";
+            if (_alias!="")
+            {
+                auxEtiqueta += " (" + _alias + ")";
+            }
             return new Equipo()
             {
                 Marca = _marca,
@@ -77,7 +82,7 @@ namespace _398_UI
                 energiaElec = listaE,
                 EnergiasElectrones = auxEnergiasElec,
                 Institucion = _institucion,
-                Etiqueta = _marca + " " + _modelo + " " + _alias,
+                Etiqueta = _marca + " " + _modelo + " " + auxEtiqueta,
                 Nota = "",
             };
         }
