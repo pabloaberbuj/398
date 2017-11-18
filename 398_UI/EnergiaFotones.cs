@@ -158,26 +158,27 @@ namespace _398_UI
             DGV.Columns[4].Width = 38;
         }
 
-        public bool EqualsParaCali(EnergiaFotones ef)
+        public override bool Equals(object obj)
         {
-            PropertyInfo[] propiedades = ef.GetType().GetProperties();
-            if (ef == null || this.GetType() != ef.GetType())
+
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
             {
                 return false;
             }
-            foreach (PropertyInfo propiedad in propiedades)
+            if (Energia == ((EnergiaFotones)obj).Energia &&
+                 ZRefFot == ((EnergiaFotones)obj).ZRefFot &&
+                 LadoCampo == ((EnergiaFotones)obj).LadoCampo)
             {
-                  
-                if (propiedad.Name == "Energia" || propiedad.Name == "ZRefFot" || propiedad.Name == "LadoCampo")
-                {
-                    if ((!propiedad.GetValue(this).Equals(propiedad.GetValue(ef))))
-                    {
-                        return false;
-                    }
-                }
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
+
         }
+
+
 
     }
 }

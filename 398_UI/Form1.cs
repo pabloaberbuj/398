@@ -1472,7 +1472,7 @@ namespace _398_UI
             List<CalibracionFot> lista = new List<CalibracionFot>();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo.EqualsParaCali(registroEquipoSeleccionado()) && cali.Energia.EqualsParaCali(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO == DFSoISO
+                if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO == DFSoISO
                     && DateTime.Compare(cali.Fecha.Date,DTPRegDesde.Value.Date)>=0 && DateTime.Compare(cali.Fecha.Date,DTPRegHasta.Value.Date)<=0)
                 {
                     lista.Add(cali);

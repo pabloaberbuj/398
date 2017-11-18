@@ -268,7 +268,7 @@ namespace _398_UI
             bool hayRef = false;
             foreach (CalibracionFot cali in lista())
             {
-                if (cali.Equipo.EqualsParaCali(equipo) && cali.Energia.EqualsParaCali(energia) && cali.DFSoISO.Equals(DFSoISO) && cali.EsReferencia)
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.DFSoISO.Equals(DFSoISO) && cali.EsReferencia)
                 {
                     hayRef = true;
                     break;
@@ -282,7 +282,7 @@ namespace _398_UI
             CalibracionFot caliLB = new CalibracionFot();
             foreach (CalibracionFot cali in lista())
             {
-                if (cali.Equipo.EqualsParaCali(equipo) && cali.Energia.EqualsParaCali(energia) && cali.DFSoISO.Equals(DFSoISO) && cali.EsReferencia)
+                if (cali.Equipo.Equals(equipo) && cali.Energia.Equals(energia) && cali.DFSoISO.Equals(DFSoISO) && cali.EsReferencia)
                 {
                     caliLB = cali;
                     break;

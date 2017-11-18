@@ -302,7 +302,7 @@ namespace _398_UI
 
 
 
-        public bool EqualsParaCali(Equipo eq)
+   /*     public bool EqualsParaCali(Equipo eq)
         {
             PropertyInfo[] propiedades = eq.GetType().GetProperties();
             if (eq == null || this.GetType() != eq.GetType())
@@ -323,6 +323,41 @@ namespace _398_UI
                 }
             }
             return true;
+        }*/
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
+            {
+                return false;
+            }
+            if (Marca==((Equipo)obj).Marca &&
+                    Modelo == ((Equipo)obj).Modelo &&
+                NumSerie == ((Equipo)obj).NumSerie)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool mismasEnergias(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
+            {
+                return false;
+            }
+            if (EnergiasFotones == ((Equipo)obj).EnergiasFotones &&
+                EnergiasElectrones == ((Equipo)obj).EnergiasElectrones)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
