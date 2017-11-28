@@ -723,13 +723,14 @@ namespace _398_UI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked))
+            if (CalibracionFot.guardar(calibracionActual(), CHB_caliFotEstablecerComoRef.Checked))
             {
                 MessageBox.Show("Calibración guardada");
                 if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
+                    CHB_UsarKqq0LB.Checked = false;
+                    CHB_UsaKpolLB.Checked = false;
+                    CHB_UsaKsLB.Checked = false;                
                     limpiarRegistro2Niveles(Panel_CalFot);
                     actualizarComboBoxCaliFotones();
                     inicializarPredeterminados(100, 10);
@@ -742,6 +743,12 @@ namespace _398_UI
 
         }
 
+        private CalibracionFot calibracionActual()
+        {
+            return CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax());
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             limpiarRegistro2Niveles(Panel_CalFot);
@@ -755,9 +762,7 @@ namespace _398_UI
 
         private void BT_ExportarCaliFot_Click(object sender, EventArgs e)
         {
-            CalibracionFot.guardar(CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax()), CHB_caliFotEstablecerComoRef.Checked);
+            CalibracionFot.exportarUnaCalibracion(calibracionActual());
         }
 
         private void habilitarBotonesCaliFotones()

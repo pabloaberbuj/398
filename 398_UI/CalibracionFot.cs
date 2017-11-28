@@ -121,7 +121,7 @@ namespace _398_UI
                 string fileName = IO.GetUniqueFilename(@"..\..\", "calibracionesExportadas");
                 IO.writeObjectAsJson(fileName, _nuevo);
 
-                MessageBox.Show("Se ha exportado equipos correctamente", "Exportar");
+                MessageBox.Show("Se ha exportado la calibracion correctamente", "Exportar");
             }
             catch (Exception e)
             {
@@ -307,7 +307,7 @@ namespace _398_UI
 
         }
 
-        public static string resumenCalibracion(CalibracionFot cali) //funciona. COMPLETAR
+        public static string resumenCalibracion(CalibracionFot cali) //funciona. COMPLETAR. Ver si vale la pena
         {
             return "Equipo: " + cali.Equipo.Etiqueta + "\n" +
                 "Energia: " + cali.Energia.Energia.ToString() + "MV \n" +
@@ -327,43 +327,5 @@ namespace _398_UI
 
     }
 }
-
-/*[Browsable(false)]
-        public Equipo Equipo { get; set; }
-        [Browsable(false)]
-        public EnergiaFotones Energia { get; set; }
-        [Browsable(false)]
-        public SistemaDosimetrico SistemaDosim { get; set; }
-        
-        [DisplayName("Ref")]
-        public bool EsReferencia { get; set; }
-        [Browsable(false)]
-        public double Mref { get; set; }
-        public double Dwzref { get; set; }
-        public double Dwzmax { get; set; }
-        public double Ktp { get; set; }
-        public double TPR2010 { get; set; }
-        public double Kqq0 { get; set; }
-        [Browsable(false)]
-        public int mideKqq0 { get; set; } //1 si 2 usaLB
-        public double kpol { get; set; }
-        [Browsable(false)]
-        public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
-        [Browsable(false)]
-        public double Vred { get; set; }
-        public double ks { get; set; }
-        [Browsable(false)]
-        public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
-        [Browsable(false)]
-        public double DFSoISO { get; set; } //1 DFSfija 2 ISO
-        [DisplayName("Lado Campo")]
-        public double LadoCampo { get; set; }
-        [DisplayName("Profundidad")]
-        public double Profundidad { get; set; }
-        [DisplayName("Fecha")]
-        public DateTime Fecha { get; set; }
-        [DisplayName("Realizado Por")]
-        public string RealizadoPor { get; set; }*/
-
 
 
