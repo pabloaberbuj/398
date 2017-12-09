@@ -508,6 +508,41 @@ namespace _398_UI
             return x;
         }
 
-        
+        public void imprimirCaliFotones(object sender, PrintPageEventArgs e, CalibracionFot cali)
+        {
+            string TPRoPDD = "";
+            if (cali.DFSoISO==1)
+            {
+                TPRoPDD = cali.Energia.PddZrefFot.ToString();
+            }
+            else if (cali.DFSoISO==2)
+            {
+                TPRoPDD = cali.Energia.TmrZrefFot.ToString();
+            }
+            int posicionlinea = 30;
+            posicionlinea = imprimirTituloCaliFotones(e, posicionlinea);
+
+            posicionlinea = imprimirUsuarioYFecha(e, posicionlinea, cali.RealizadoPor, cali.Fecha);
+            posicionlinea +=altoTexto;
+            posicionlinea = imprimirEquipo(e, posicionlinea, cali.Equipo, cali.Energia);
+            posicionlinea +=altoTexto;
+            posicionlinea = imprimirCondiciones(e, posicionlinea, cali.DFSoISO, cali.LadoCampo.ToString(), cali.Profundidad.ToString(), TPRoPDD);
+            posicionlinea +=altoTexto;
+            posicionlinea = imprimirSistemaDosimetrico(e, posicionlinea, cali.SistemaDosim);
+            posicionlinea +=altoTexto;
+            posicionlinea = imprimirUMyKTP(e, posicionlinea, cali.UM.ToString(), cali.temperatura.ToString(), cali.presion.ToString(), cali.humedad.ToString(), cali.Ktp);
+            posicionlinea +=altoTexto;
+            posicionlinea = imprimirKpol(e, posicionlinea, cali.lectVmas, cali.lectVmenos, cali.kpol, cali.mideKpol);
+            posicionlinea +=altoTexto;
+            posicionlinea = imprimirKs(e, posicionlinea, cali.lectVtot, cali.lectVred, cali.Vred.ToString(), cali.ks, cali.mideKs);
+            posicionlinea += altoTexto;
+            if (cali.Equipo.Fuente == 2) //ALE
+            {
+                posicionlinea = imprimirTPRyKqq0(e, posicionlinea, cali.lect20, cali.lect10, cali.TPR2010, cali.Kqq0, cali.mideKqq0, cali.DoTPR2010);
+                posicionlinea += altoTexto;
+            }
+            posicionlinea = imprimirTodoEnRef(e, posicionlinea, cali.lectRef, cali.Mref, cali.Dwzref, cali.Dwzmax, cali.DifLB, !Double.IsNaN(cali.Dwzmax), !Double.IsNaN(cali.DifLB)); //mejorar acá. No deberían hacer falta los bool
+        }
+
     }
 }

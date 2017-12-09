@@ -23,6 +23,7 @@ namespace _398_UI
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
+        public double DifLB { get; set; }
         public double Ktp { get; set; }
         public double TPR2010 { get; set; }
         public double Kqq0 { get; set; }
@@ -37,7 +38,7 @@ namespace _398_UI
         [Browsable(false)]
         public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
         [Browsable(false)]
-        public double DFSoISO { get; set; } //1 DFSfija 2 ISO
+        public int DFSoISO { get; set; } //1 DFSfija 2 ISO
         [DisplayName("Lado Campo")]
         public double LadoCampo { get; set; }
         [DisplayName("Profundidad")]
@@ -46,9 +47,32 @@ namespace _398_UI
         public DateTime Fecha { get; set; }
         [DisplayName("Realizado Por")]
         public string RealizadoPor { get; set; }
-        
-        
-        
+        [Browsable(false)]
+        public double UM { get; set; }
+        [Browsable(false)]
+        public double temperatura { get; set; }
+        [Browsable(false)]
+        public double presion { get; set; }
+        [Browsable(false)]
+        public double humedad { get; set; }
+        [Browsable(false)]
+        public double lectVmas { get; set; }
+        [Browsable(false)]
+        public double lectVmenos { get; set; }
+        [Browsable(false)]
+        public double lectVtot { get; set; }
+        [Browsable(false)]
+        public double lectVred { get; set; }
+        [Browsable(false)]
+        public double lect20 { get; set; }
+        [Browsable(false)]
+        public double lect10 { get; set; }
+        [Browsable(false)]
+        public double lectRef { get; set; }
+        [Browsable(false)]
+        public int DoTPR2010 { get; set; }
+
+
         public static string file = @"caliFotones.txt";
 
 
@@ -59,7 +83,7 @@ namespace _398_UI
             return IO.readJsonList<CalibracionFot>(file);
         }
 
-        public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, double _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
+        public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, int _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
             string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, int _mideKqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax)
         {
             return new CalibracionFot()

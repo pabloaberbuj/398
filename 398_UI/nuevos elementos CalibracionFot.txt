@@ -1,0 +1,14 @@
+UM
+Temp
+Presion
+Humedad
+PromV+
+PromV-
+PromVtot
+PromVred
+¿Vred?
+PromLectRef
+PromLec20
+PromLec10
+int DoTPR2010 1 D2010 2 TPR2010
+DifLB VER DESPUES COMO CARGAR EN TABLA
