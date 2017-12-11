@@ -84,7 +84,9 @@ namespace _398_UI
         }
 
         public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, int _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
-            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, int _mideKqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax)
+            string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, int _mideKqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax,
+            double _um, double _temperatura, double _presion, double _humedad, double _lectVmas, double _lectVmenos, double _lectVtot, double _lectVred,
+            double _lectRef, double _lect20, double _lect10, int _DoTPR2010, double _difLB)
         {
             return new CalibracionFot()
             {
@@ -96,18 +98,31 @@ namespace _398_UI
                 Profundidad = _profundidad,
                 Fecha = _fecha,
                 RealizadoPor = _realizadoPor,
+                UM = _um,
+                temperatura = _temperatura,
+                presion = _presion,
+                humedad = _humedad,
                 Ktp = _ktp,
+                lect10 = _lect10,
+                lect20 = _lect20,
+                DoTPR2010 = _DoTPR2010,
                 TPR2010 = _TPR2010,
                 Kqq0 = _kqq0,
                 mideKqq0 = _mideKqq0,
+                lectVmas = _lectVmas,
+                lectVmenos = _lectVmenos,
                 kpol = _kpol,
                 mideKpol = _mideKpol,
                 Vred = _vred,
+                lectVtot = _lectVtot,
+                lectVred = _lectVred,
                 ks = _ks,
                 mideKs = _mideKs,
+                lectRef = _lectRef,
                 Mref = _mref,
                 Dwzref = _dwzref,
                 Dwzmax = _dwzmax,
+                DifLB = _difLB,
                 EsReferencia = false,
             };
         }
