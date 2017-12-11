@@ -198,7 +198,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKs(double Vtot, double Vred, double LVtot, double LVred, int ALEoCo, int pulsadoOBarrido, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        public static double calcularKs(double Vtot, double LVtot, double LVred, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, double DFSoISO, double Vred)
         {
             if (noUsa)
             {
@@ -210,14 +210,14 @@ namespace _398_UI
             }
             else
             {
-                if (ALEoCo == 1)//Co
+                if (equipo.Fuente == 1)//Co
                 {
                     return Math.Round((Math.Pow((Vtot / Vred), 2) - 1) / (Math.Pow((Vtot / Vred), 2) - (LVtot / LVred)), 4);
                 }
                 else
                 {
                     double a0 = 0; double a1 = 0; double a2 = 0;
-                    if (pulsadoOBarrido == 1) //Pulsado
+                    if (equipo.TipoDeHaz == 1) //Pulsado
                     {
                         string[] fid = Tabla.Cargar(Tabla.tabla_Ks_pulsados);
                         double[] v1_v2Etiquetas = Tabla.extraerDoubleArray(fid, 0);

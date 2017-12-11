@@ -301,7 +301,7 @@ namespace _398_UI
         //TPR 2010 y Kqq0
         private double calculoTPR2010()
         {
-            return CalibracionFot.calcularTPR2010(promediarPanel(Panel_Lect20), promediarPanel(Panel_Lect10), TPRoD2010(), CHB_UsarKqq0LB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+            return CalibracionFot.calcularTPR2010(lec20(), lec10(), TPRoD2010(), CHB_UsarKqq0LB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
         }
 
         private double calculokQQ0()
@@ -310,16 +310,37 @@ namespace _398_UI
             return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO());
         }
 
-
+        private double lec20()
+        {
+            if (CHB_UsarKqq0LB.Checked)
+            {
+                return Double.NaN;
+            }
+            else
+            {
+                return promediarPanel(Panel_Lect20);
+            }
+        }
         private void Prom_L20(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
+            escribirLabel(lec20(), LB_Lect20prom);
             actualizarCalculos();
         }
 
+        private double lec10()
+        {
+            if (CHB_UsarKqq0LB.Checked)
+            {
+                return Double.NaN;
+            }
+            else
+            {
+                return promediarPanel(Panel_Lect10);
+            }
+        }
         private void Prom_L10(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
+            escribirLabel(lec10(), LB_Lect10prom);
             actualizarCalculos();
         }
 
@@ -332,68 +353,99 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            if (!chb_EditarVKpol.Checked)
+            return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, lecVmas(),lecVmenos(), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+        }
+
+        private double lecVmas()
+        {
+            if (CHB_NoUsaKpol.Checked || CHB_UsaKpolLB.Checked)
             {
-                return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LecRef), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+                return Double.NaN;
+            }
+            if (sistDosimSeleccionado().SignoTension == 1 && !chb_EditarVKpol.Checked)
+            {
+                return promediarPanel(Panel_LecRef);
             }
             else
             {
-                return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, promediarPanel(Panel_LectmasV), promediarPanel(Panel_LectmenosV), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+                return promediarPanel(Panel_LectmasV);
             }
         }
 
+
         private void Prom_masV(object sender, EventArgs e)
         {
-            if (!chb_EditarVKpol.Checked)
+            escribirLabel(lecVmas(), LB_LectmasVprom);
+            actualizarCalculos();
+        }
+
+        private double lecVmenos()
+        {
+            if (CHB_NoUsaKpol.Checked || CHB_UsaKpolLB.Checked)
             {
-                escribirLabel(promediarPanel(Panel_LecRef), LB_LectmasVprom);
+                return Double.NaN;
+            }
+            if (sistDosimSeleccionado().SignoTension == -1 && !chb_EditarVKpol.Checked)
+            {
+                return promediarPanel(Panel_LecRef);
             }
             else
             {
-                escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
+                return promediarPanel(Panel_LectmenosV);
             }
-            actualizarCalculos();
         }
 
         private void Prom_menosV(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
+            escribirLabel(lecVmenos(), LB_LectmenosVprom);
             actualizarCalculos();
         }
 
         //Ks
         private double calculoKs()
         {
+            double Vred = Double.NaN;
+            if (!CHB_NoUsaKs.Checked || !CHB_UsaKsLB.Checked)
+            {
+                Vred = Convert.ToDouble(TB_Vred.Text);
+            }
+            return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, lecVTotal(), lecVred(), CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO(), Vred);
+        }
+
+
+        private double lecVTotal()
+        {
             if (CHB_NoUsaKs.Checked || CHB_UsaKsLB.Checked)
             {
-                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Double.NaN, promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+                return Double.NaN;
             }
-            else if (!chb_EditarVKs.Checked)
+            if (chb_EditarVKs.Checked)
             {
-                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_LecRef), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+                return promediarPanel(Panel_lectVtot);
             }
             else
             {
-                return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, Convert.ToDouble(TB_Vred.Text), promediarPanel(Panel_lectVtot), promediarPanel(Panel_LectVred), equipoSeleccionado().Fuente, equipoSeleccionado().TipoDeHaz, CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+                return promediarPanel(Panel_LecRef);
             }
-
         }
+
         private void Prom_Vtot(object sender, EventArgs e)
         {
-            if (!chb_EditarVKs.Checked)
-            {
-                escribirLabel(promediarPanel(Panel_LecRef), LB_lectVtotProm);
-            }
-            else
-            {
-                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
-            }
+            escribirLabel(lecVTotal(), LB_lectVtotProm);
             actualizarCalculos();
         }
 
+        private double lecVred()
+        {
+            if (CHB_NoUsaKs.Checked || CHB_UsaKsLB.Checked)
+            {
+                return Double.NaN;
+            }
+            return promediarPanel(Panel_LectVred);
+        }
         private void Prom_Vred(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+            escribirLabel(lecVred(), LB_LectVredProm);
             actualizarCalculos();
         }
 
@@ -412,9 +464,10 @@ namespace _398_UI
 
         //Referencia
 
+
         private double CalculoMref()
         {
-            return CalibracionFot.CalcularMref(promediarPanel(Panel_LecRef), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
+            return CalibracionFot.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
         }
 
         private double calculoDwRef()
@@ -443,9 +496,13 @@ namespace _398_UI
             return CalibracionFot.calcularDifConRef(calculoDwRef(), equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
         }
 
+        private double lecRef()
+        {
+            return promediarPanel(Panel_LecRef);
+        }
         private void Prom_Lref(object sender, EventArgs e)
         {
-            escribirLabel(promediarPanel(Panel_LecRef), LB_LecRefProm);
+            escribirLabel(lecRef(), LB_LecRefProm);
             Prom_masV(sender, e);
             Prom_Vtot(sender, e);
             actualizarCalculos();
@@ -745,9 +802,16 @@ namespace _398_UI
 
         private CalibracionFot calibracionActual()
         {
+            double difConRef = Double.NaN;
+            if (hayLBsinCartel())
+            {
+                difConRef = calculoDifConRef();
+            }
             return CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
                 Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
-                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax());
+                Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax(),
+                Convert.ToDouble(TB_UM.Text), Convert.ToDouble(tbTemp.Text), Convert.ToDouble(tbPresion.Text), Convert.ToDouble(tbHumedad.Text),
+                lecVmas(), lecVmenos(), lecVTotal(), lecVred(), lecRef(), lec20(), lec10(), TPRoD2010(), difConRef);
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -1647,8 +1711,8 @@ namespace _398_UI
             }
             promedio = Calcular.promediar(valores);
             return promedio;
-
         }
+        
         public static bool escribirLabel(double valor, Label label)
         {
             if (!Double.IsNaN(valor))
