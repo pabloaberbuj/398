@@ -587,8 +587,8 @@ namespace _398_UI
                 limpiarRegistro(Panel_Lect20);
                 limpiarRegistro(Panel_Lect10);
                 limpiarRegistro(Panel_TPRoPDD);
-                escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
-                escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
+                escribirLabel(lec20(), LB_Lect20prom);
+                escribirLabel(lec10(), LB_Lect10prom);
                 CHB_UsarKqq0LB.Checked = false;
 
             }
@@ -609,8 +609,8 @@ namespace _398_UI
                     limpiarRegistro(Panel_Lect20);
                     limpiarRegistro(Panel_Lect10);
                     limpiarRegistro(Panel_TPRoPDD);
-                    escribirLabel(promediarPanel(Panel_Lect20), LB_Lect20prom);
-                    escribirLabel(promediarPanel(Panel_Lect10), LB_Lect10prom);
+                    escribirLabel(lec20(), LB_Lect20prom);
+                    escribirLabel(lec10(), LB_Lect10prom);
                 }
             }
             else
@@ -627,8 +627,8 @@ namespace _398_UI
                 Panel_LecKpol.Enabled = false;
                 limpiarRegistro(Panel_LectmasV);
                 limpiarRegistro(Panel_LectmenosV);
-                escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
-                escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
+                escribirLabel(lecVmas(), LB_LectmasVprom);
+                escribirLabel(lecVmenos(), LB_LectmenosVprom);
                 CHB_UsaKpolLB.Enabled = false;
                 CHB_UsaKpolLB.Checked = false;
             }
@@ -645,8 +645,8 @@ namespace _398_UI
                     Panel_LecKpol.Enabled = false;
                     limpiarRegistro(Panel_LectmasV);
                     limpiarRegistro(Panel_LectmenosV);
-                    escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
-                    escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
+                    escribirLabel(lecVmas(), LB_LectmasVprom);
+                    escribirLabel(lecVmenos(), LB_LectmenosVprom);
                     CHB_NoUsaKpol.Enabled = false;
                     CHB_NoUsaKpol.Checked = false;
                 }
@@ -660,9 +660,20 @@ namespace _398_UI
             }
             if (!chb_EditarVKpol.Checked)
             {
-                limpiarRegistro(Panel_LectmasV);
-                Panel_LectmasV.Enabled = false;
-                escribirLabel(promediarPanel(Panel_LecRef), LB_LectmasVprom);
+                if (sistDosimSeleccionado().SignoTension==1)
+                {
+                    Panel_LectmenosV.Enabled = true;
+                    limpiarRegistro(Panel_LectmasV);
+                    Panel_LectmasV.Enabled = false;
+                }
+                else
+                {
+                    Panel_LectmasV.Enabled = true;
+                    limpiarRegistro(Panel_LectmenosV);
+                    Panel_LectmenosV.Enabled = false;
+                }
+                escribirLabel(lecVmas(), LB_LectmasVprom);
+                escribirLabel(lecVmenos(), LB_LectmenosVprom);
             }
             else
             {
@@ -671,8 +682,8 @@ namespace _398_UI
                     L_Kpol.Visible = false;
                     L_Kpol.Text = "Vacio";
                 }
-                escribirLabel(promediarPanel(Panel_LectmasV), LB_LectmasVprom);
-                escribirLabel(promediarPanel(Panel_LectmenosV), LB_LectmenosVprom);
+                escribirLabel(lecVmas(), LB_LectmasVprom);
+                escribirLabel(lecVmenos(), LB_LectmenosVprom);
                 Panel_LectmasV.Enabled = true;
             }
 
@@ -687,8 +698,8 @@ namespace _398_UI
                 TB_Vred.Clear();
                 limpiarRegistro(Panel_lectVtot);
                 limpiarRegistro(Panel_LectVred);
-                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
-                escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+                escribirLabel(lecVTotal(), LB_lectVtotProm);
+                escribirLabel(lecVred(), LB_LectVredProm);
                 CHB_UsaKsLB.Enabled = false;
                 CHB_UsaKsLB.Checked = false;
             }
@@ -707,8 +718,8 @@ namespace _398_UI
                     TB_Vred.Clear();
                     limpiarRegistro(Panel_lectVtot);
                     limpiarRegistro(Panel_LectVred);
-                    escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
-                    escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+                    escribirLabel(lecVTotal(), LB_lectVtotProm);
+                    escribirLabel(lecVred(), LB_LectVredProm);
                     CHB_NoUsaKs.Enabled = false;
                     CHB_NoUsaKs.Checked = false;
                 }
@@ -725,7 +736,7 @@ namespace _398_UI
             {
                 limpiarRegistro(Panel_lectVtot);
                 Panel_lectVtot.Enabled = false;
-                escribirLabel(promediarPanel(Panel_LecRef), LB_lectVtotProm);
+                escribirLabel(lecVTotal(), LB_lectVtotProm);
             }
             else
             {
@@ -734,8 +745,8 @@ namespace _398_UI
                     L_Ks.Visible = false;
                     L_Ks.Text = "Vacio";
                 }
-                escribirLabel(promediarPanel(Panel_lectVtot), LB_lectVtotProm);
-                escribirLabel(promediarPanel(Panel_LectVred), LB_LectVredProm);
+                escribirLabel(lecVTotal(), LB_lectVtotProm);
+                escribirLabel(lecVred(), LB_LectVredProm);
                 Panel_lectVtot.Enabled = true;
             }
         }

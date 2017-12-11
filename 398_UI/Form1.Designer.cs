@@ -332,6 +332,9 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
+            this.BT_RegistroImprimir = new System.Windows.Forms.Button();
+            this.BT_RegistrosResumen = new System.Windows.Forms.Button();
             this.label51 = new System.Windows.Forms.Label();
             this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.BtAnalizar = new System.Windows.Forms.Button();
@@ -365,9 +368,6 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.BT_RegistrosResumen = new System.Windows.Forms.Button();
-            this.BT_RegistroImprimir = new System.Windows.Forms.Button();
-            this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1442,16 +1442,16 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(70, 13);
             this.label29.TabIndex = 9;
-            this.label29.Text = "Lecturas a -V";
+            this.label29.Text = "Lecturas a V-";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(3, 5);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(67, 13);
+            this.label30.Size = new System.Drawing.Size(73, 13);
             this.label30.TabIndex = 8;
-            this.label30.Text = "Lecturas a V";
+            this.label30.Text = "Lecturas a V+";
             // 
             // GB_FactorDeCalidad
             // 
@@ -3597,6 +3597,34 @@
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
+            // BT_RegistroVPImpresion
+            // 
+            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(743, 299);
+            this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
+            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistroVPImpresion.TabIndex = 77;
+            this.BT_RegistroVPImpresion.Text = "Vista Previa Reporte";
+            this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistroImprimir
+            // 
+            this.BT_RegistroImprimir.Location = new System.Drawing.Point(743, 343);
+            this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
+            this.BT_RegistroImprimir.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistroImprimir.TabIndex = 76;
+            this.BT_RegistroImprimir.Text = "Imprimir Reporte";
+            this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistrosResumen
+            // 
+            this.BT_RegistrosResumen.Location = new System.Drawing.Point(743, 256);
+            this.BT_RegistrosResumen.Name = "BT_RegistrosResumen";
+            this.BT_RegistrosResumen.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistrosResumen.TabIndex = 75;
+            this.BT_RegistrosResumen.Text = "Ver resumen";
+            this.BT_RegistrosResumen.UseVisualStyleBackColor = true;
+            this.BT_RegistrosResumen.Click += new System.EventHandler(this.BT_RegistrosResumen_Click);
+            // 
             // label51
             // 
             this.label51.AutoSize = true;
@@ -3966,43 +3994,15 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // BT_RegistrosResumen
-            // 
-            this.BT_RegistrosResumen.Location = new System.Drawing.Point(743, 256);
-            this.BT_RegistrosResumen.Name = "BT_RegistrosResumen";
-            this.BT_RegistrosResumen.Size = new System.Drawing.Size(110, 35);
-            this.BT_RegistrosResumen.TabIndex = 75;
-            this.BT_RegistrosResumen.Text = "Ver resumen";
-            this.BT_RegistrosResumen.UseVisualStyleBackColor = true;
-            this.BT_RegistrosResumen.Click += new System.EventHandler(this.BT_RegistrosResumen_Click);
-            // 
-            // BT_RegistroImprimir
-            // 
-            this.BT_RegistroImprimir.Location = new System.Drawing.Point(743, 343);
-            this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
-            this.BT_RegistroImprimir.Size = new System.Drawing.Size(110, 35);
-            this.BT_RegistroImprimir.TabIndex = 76;
-            this.BT_RegistroImprimir.Text = "Imprimir Reporte";
-            this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
-            // 
-            // BT_RegistroVPImpresion
-            // 
-            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(743, 299);
-            this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
-            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(110, 35);
-            this.BT_RegistroVPImpresion.TabIndex = 77;
-            this.BT_RegistroVPImpresion.Text = "Vista Previa Reporte";
-            this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_AnalizarReg);
             this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
             this.Name = "Form1";
