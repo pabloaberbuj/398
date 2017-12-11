@@ -368,6 +368,9 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.BT_RegistroExportar = new System.Windows.Forms.Button();
+            this.BT_RegistroImportar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3577,6 +3580,9 @@
             // 
             // Panel_AnalizarReg
             // 
+            this.Panel_AnalizarReg.Controls.Add(this.button1);
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImportar);
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroExportar);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistrosResumen);
@@ -3599,27 +3605,27 @@
             // 
             // BT_RegistroVPImpresion
             // 
-            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(743, 299);
+            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(725, 288);
             this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
-            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistroVPImpresion.TabIndex = 77;
             this.BT_RegistroVPImpresion.Text = "Vista Previa Reporte";
             this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
             // 
             // BT_RegistroImprimir
             // 
-            this.BT_RegistroImprimir.Location = new System.Drawing.Point(743, 343);
+            this.BT_RegistroImprimir.Location = new System.Drawing.Point(725, 318);
             this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
-            this.BT_RegistroImprimir.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistroImprimir.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistroImprimir.TabIndex = 76;
             this.BT_RegistroImprimir.Text = "Imprimir Reporte";
             this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
             // 
             // BT_RegistrosResumen
             // 
-            this.BT_RegistrosResumen.Location = new System.Drawing.Point(743, 256);
+            this.BT_RegistrosResumen.Location = new System.Drawing.Point(725, 256);
             this.BT_RegistrosResumen.Name = "BT_RegistrosResumen";
-            this.BT_RegistrosResumen.Size = new System.Drawing.Size(110, 35);
+            this.BT_RegistrosResumen.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistrosResumen.TabIndex = 75;
             this.BT_RegistrosResumen.Text = "Ver resumen";
             this.BT_RegistrosResumen.UseVisualStyleBackColor = true;
@@ -3953,7 +3959,7 @@
             this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.ReadOnly = true;
-            this.DGVRegistros.Size = new System.Drawing.Size(502, 199);
+            this.DGVRegistros.Size = new System.Drawing.Size(478, 199);
             this.DGVRegistros.TabIndex = 60;
             // 
             // Bt_CalElec
@@ -3994,13 +4000,40 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // BT_RegistroExportar
+            // 
+            this.BT_RegistroExportar.Location = new System.Drawing.Point(725, 380);
+            this.BT_RegistroExportar.Name = "BT_RegistroExportar";
+            this.BT_RegistroExportar.Size = new System.Drawing.Size(128, 25);
+            this.BT_RegistroExportar.TabIndex = 78;
+            this.BT_RegistroExportar.Text = "Exportar Calibración";
+            this.BT_RegistroExportar.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistroImportar
+            // 
+            this.BT_RegistroImportar.Location = new System.Drawing.Point(727, 349);
+            this.BT_RegistroImportar.Name = "BT_RegistroImportar";
+            this.BT_RegistroImportar.Size = new System.Drawing.Size(128, 25);
+            this.BT_RegistroImportar.TabIndex = 79;
+            this.BT_RegistroImportar.Text = "Importar Calibración";
+            this.BT_RegistroImportar.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(723, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 25);
+            this.button1.TabIndex = 80;
+            this.button1.Text = "Establecer como Ref";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_AnalizarReg);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
@@ -4444,6 +4477,9 @@
         private System.Windows.Forms.Button BT_RegistrosResumen;
         private System.Windows.Forms.Button BT_RegistroVPImpresion;
         private System.Windows.Forms.Button BT_RegistroImprimir;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_RegistroImportar;
+        private System.Windows.Forms.Button BT_RegistroExportar;
     }
 }
 
