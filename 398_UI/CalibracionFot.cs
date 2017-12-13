@@ -23,6 +23,7 @@ namespace _398_UI
         public double Mref { get; set; }
         public double Dwzref { get; set; }
         public double Dwzmax { get; set; }
+        [Browsable(false)]
         public double DifLB { get; set; }
         public double Ktp { get; set; }
         public double TPR2010 { get; set; }
@@ -39,9 +40,9 @@ namespace _398_UI
         public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
         [Browsable(false)]
         public int DFSoISO { get; set; } //1 DFSfija 2 ISO
-        [DisplayName("Lado Campo")]
+        [DisplayName("Lado")]
         public double LadoCampo { get; set; }
-        [DisplayName("Profundidad")]
+        [DisplayName("Prof.")]
         public double Profundidad { get; set; }
         [DisplayName("Fecha")]
         public DateTime Fecha { get; set; }
@@ -175,7 +176,7 @@ namespace _398_UI
             return Math.Round((273.2 + T) * P0 / (273.2 + T0) / P, 4);
         }
 
-        public static double calcularKpol(int signopol, double LVmas, double LVmenos, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        public static double calcularKpol(int signopol, double LVmas, double LVmenos, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, int DFSoISO)
         {
             if (noUsa)
             {
@@ -198,7 +199,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKs(double Vtot, double LVtot, double LVred, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, double DFSoISO, double Vred)
+        public static double calcularKs(double Vtot, double LVtot, double LVred, bool noUsa, bool usaLB, Equipo equipo, EnergiaFotones energia, int DFSoISO, double Vred)
         {
             if (noUsa)
             {
@@ -244,7 +245,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularTPR2010(double LV20, double LV10, int PDDoTPR, bool usarLB, Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        public static double calcularTPR2010(double LV20, double LV10, int PDDoTPR, bool usarLB, Equipo equipo, EnergiaFotones energia, int DFSoISO)
         {
             if (usarLB)
             {
@@ -261,7 +262,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKqq0(double TPR2010, Camara camara, Equipo equipo, bool usarLB, EnergiaFotones energia, double DFSoISO)
+        public static double calcularKqq0(double TPR2010, Camara camara, Equipo equipo, bool usarLB, EnergiaFotones energia, int DFSoISO)
         {
             if (equipo.Fuente == 1)
             {
@@ -294,7 +295,7 @@ namespace _398_UI
             return Math.Round(Dwref * rendimientoEnRef / 100, 4);
         }
 
-        public static double calcularDifConRef(double Dwref, Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        public static double calcularDifConRef(double Dwref, Equipo equipo, EnergiaFotones energia, int DFSoISO)
         {
             double DwrefLB = obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref;
             return Math.Round((Dwref - DwrefLB) / DwrefLB * 100,4);
@@ -302,7 +303,7 @@ namespace _398_UI
 
         //linea base
 
-        public static bool hayReferencia(Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        public static bool hayReferencia(Equipo equipo, EnergiaFotones energia, int DFSoISO)
         {
             bool hayRef = false;
             foreach (CalibracionFot cali in lista())
@@ -316,7 +317,7 @@ namespace _398_UI
             return hayRef;
         }
 
-        public static CalibracionFot obtenerCaliReferencia(Equipo equipo, EnergiaFotones energia, double DFSoISO)
+        public static CalibracionFot obtenerCaliReferencia(Equipo equipo, EnergiaFotones energia, int DFSoISO)
         {
             CalibracionFot caliLB = new CalibracionFot();
             foreach (CalibracionFot cali in lista())
@@ -340,6 +341,7 @@ namespace _398_UI
                     if (cali.Equals(califot))
                     {
                         cali.EsReferencia = true;
+                        cali.DifLB = Double.NaN;
                     }
                 }
             }

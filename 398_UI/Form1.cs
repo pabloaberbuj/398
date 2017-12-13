@@ -407,7 +407,7 @@ namespace _398_UI
         private double calculoKs()
         {
             double Vred = Double.NaN;
-            if (!CHB_NoUsaKs.Checked || !CHB_UsaKsLB.Checked)
+            if (!CHB_NoUsaKs.Checked && !CHB_UsaKsLB.Checked)
             {
                 Vred = Convert.ToDouble(TB_Vred.Text);
             }
@@ -1542,7 +1542,7 @@ namespace _398_UI
 
         private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
         {
-            double DFSoISO = 0;
+            int DFSoISO = 0;
             if (RB_RegistroDFSFija.Checked)
             {
                 DFSoISO = 1;
