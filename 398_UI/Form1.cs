@@ -1499,6 +1499,19 @@ namespace _398_UI
             return (EnergiaElectrones)CB_RegistroEnergiaElec.SelectedItem;
         }
 
+        private int registroDFSoISO()
+        {
+            int DFSoISO = 0;
+            if (RB_RegistroDFSFija.Checked)
+            {
+                DFSoISO = 1;
+            }
+            else if (RB_RegistroIso.Checked)
+            {
+                DFSoISO = 2;
+            }
+            return DFSoISO;
+        }
 
 
         private void inicializacionesRegistro()
@@ -1542,19 +1555,11 @@ namespace _398_UI
 
         private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
         {
-            int DFSoISO = 0;
-            if (RB_RegistroDFSFija.Checked)
-            {
-                DFSoISO = 1;
-            }
-            else if (RB_RegistroIso.Checked)
-            {
-                DFSoISO = 2;
-            }
+            
             List<CalibracionFot> lista = new List<CalibracionFot>();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO == DFSoISO
+                if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO.Equals(registroDFSoISO())
                     && DateTime.Compare(cali.Fecha.Date,DTPRegDesde.Value.Date)>=0 && DateTime.Compare(cali.Fecha.Date,DTPRegHasta.Value.Date)<=0)
                 {
                     lista.Add(cali);
@@ -1574,10 +1579,12 @@ namespace _398_UI
         private void BtAnalizar_Click(object sender, EventArgs e)
         {
             BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
+            BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
             if (lista.Count() > 0)
             {
                 DGVRegistros.DataSource = lista;
                 DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                DGVAnalisis.DataSource = analisis;
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
             }
             else
