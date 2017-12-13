@@ -42,6 +42,8 @@ namespace _398_UI
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            MinimizeBox = false;
+            MaximizeBox = false;
             //Carga DGV
             DGV_Cam.DataSource = Camara.lista();
             DGV_Elec.DataSource = Electrometro.lista();

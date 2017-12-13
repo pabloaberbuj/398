@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -332,9 +332,11 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BT_RegistroImportar = new System.Windows.Forms.Button();
+            this.BT_RegistroExportar = new System.Windows.Forms.Button();
             this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
             this.BT_RegistroImprimir = new System.Windows.Forms.Button();
-            this.BT_RegistrosResumen = new System.Windows.Forms.Button();
             this.label51 = new System.Windows.Forms.Label();
             this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.BtAnalizar = new System.Windows.Forms.Button();
@@ -368,9 +370,7 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.BT_RegistroExportar = new System.Windows.Forms.Button();
-            this.BT_RegistroImportar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3580,12 +3580,12 @@
             // 
             // Panel_AnalizarReg
             // 
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
+            this.Panel_AnalizarReg.Controls.Add(this.button2);
             this.Panel_AnalizarReg.Controls.Add(this.button1);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImportar);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroExportar);
-            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
-            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
-            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistrosResumen);
             this.Panel_AnalizarReg.Controls.Add(this.label51);
             this.Panel_AnalizarReg.Controls.Add(this.Chart_Registros);
             this.Panel_AnalizarReg.Controls.Add(this.BtAnalizar);
@@ -3603,33 +3603,50 @@
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(734, 345);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 38);
+            this.button1.TabIndex = 80;
+            this.button1.Text = "Establecer como\r\nreferencia";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistroImportar
+            // 
+            this.BT_RegistroImportar.Location = new System.Drawing.Point(734, 257);
+            this.BT_RegistroImportar.Name = "BT_RegistroImportar";
+            this.BT_RegistroImportar.Size = new System.Drawing.Size(128, 25);
+            this.BT_RegistroImportar.TabIndex = 79;
+            this.BT_RegistroImportar.Text = "Importar";
+            this.BT_RegistroImportar.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistroExportar
+            // 
+            this.BT_RegistroExportar.Location = new System.Drawing.Point(734, 286);
+            this.BT_RegistroExportar.Name = "BT_RegistroExportar";
+            this.BT_RegistroExportar.Size = new System.Drawing.Size(128, 25);
+            this.BT_RegistroExportar.TabIndex = 78;
+            this.BT_RegistroExportar.Text = "Exportar";
+            this.BT_RegistroExportar.UseVisualStyleBackColor = true;
+            // 
             // BT_RegistroVPImpresion
             // 
-            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(725, 288);
+            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(734, 404);
             this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
             this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistroVPImpresion.TabIndex = 77;
-            this.BT_RegistroVPImpresion.Text = "Vista Previa Reporte";
+            this.BT_RegistroVPImpresion.Text = "Vista Previa";
             this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
             // 
             // BT_RegistroImprimir
             // 
-            this.BT_RegistroImprimir.Location = new System.Drawing.Point(725, 318);
+            this.BT_RegistroImprimir.Location = new System.Drawing.Point(734, 432);
             this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
             this.BT_RegistroImprimir.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistroImprimir.TabIndex = 76;
-            this.BT_RegistroImprimir.Text = "Imprimir Reporte";
+            this.BT_RegistroImprimir.Text = "Imprimir";
             this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
-            // 
-            // BT_RegistrosResumen
-            // 
-            this.BT_RegistrosResumen.Location = new System.Drawing.Point(725, 256);
-            this.BT_RegistrosResumen.Name = "BT_RegistrosResumen";
-            this.BT_RegistrosResumen.Size = new System.Drawing.Size(128, 25);
-            this.BT_RegistrosResumen.TabIndex = 75;
-            this.BT_RegistrosResumen.Text = "Ver resumen";
-            this.BT_RegistrosResumen.UseVisualStyleBackColor = true;
-            this.BT_RegistrosResumen.Click += new System.EventHandler(this.BT_RegistrosResumen_Click);
             // 
             // label51
             // 
@@ -3644,8 +3661,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
             this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
+            series3.Name = "Series1";
+            this.Chart_Registros.Series.Add(series3);
             this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3653,7 +3670,7 @@
             // BtAnalizar
             // 
             this.BtAnalizar.Enabled = false;
-            this.BtAnalizar.Location = new System.Drawing.Point(9, 451);
+            this.BtAnalizar.Location = new System.Drawing.Point(9, 537);
             this.BtAnalizar.Name = "BtAnalizar";
             this.BtAnalizar.Size = new System.Drawing.Size(180, 35);
             this.BtAnalizar.TabIndex = 44;
@@ -3665,7 +3682,7 @@
             // 
             this.groupBox7.Controls.Add(this.RB_RegistroIso);
             this.groupBox7.Controls.Add(this.RB_RegistroDFSFija);
-            this.groupBox7.Location = new System.Drawing.Point(9, 261);
+            this.groupBox7.Location = new System.Drawing.Point(9, 321);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(180, 79);
             this.groupBox7.TabIndex = 73;
@@ -3704,7 +3721,7 @@
             this.groupBox2.Controls.Add(this.CB_RegistroEnergiaFot);
             this.groupBox2.Controls.Add(this.RB_RegistroEnergiaElec);
             this.groupBox2.Controls.Add(this.RB_RegistroEnergiaFot);
-            this.groupBox2.Location = new System.Drawing.Point(9, 167);
+            this.groupBox2.Location = new System.Drawing.Point(9, 202);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(180, 87);
             this.groupBox2.TabIndex = 72;
@@ -3803,7 +3820,7 @@
             this.groupBox6.Controls.Add(this.L_regFechaDesde);
             this.groupBox6.Controls.Add(this.DTPRegHasta);
             this.groupBox6.Controls.Add(this.DTPRegDesde);
-            this.groupBox6.Location = new System.Drawing.Point(9, 349);
+            this.groupBox6.Location = new System.Drawing.Point(9, 435);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(180, 92);
             this.groupBox6.TabIndex = 65;
@@ -3865,9 +3882,9 @@
             this.GBConfiguracionReporte.Controls.Add(this.BtnImprimir);
             this.GBConfiguracionReporte.Controls.Add(this.BtnVistaPrevia);
             this.GBConfiguracionReporte.Enabled = false;
-            this.GBConfiguracionReporte.Location = new System.Drawing.Point(9, 492);
+            this.GBConfiguracionReporte.Location = new System.Drawing.Point(723, 494);
             this.GBConfiguracionReporte.Name = "GBConfiguracionReporte";
-            this.GBConfiguracionReporte.Size = new System.Drawing.Size(180, 202);
+            this.GBConfiguracionReporte.Size = new System.Drawing.Size(147, 179);
             this.GBConfiguracionReporte.TabIndex = 66;
             this.GBConfiguracionReporte.TabStop = false;
             this.GBConfiguracionReporte.Text = "Configuración Reporte";
@@ -3879,25 +3896,25 @@
             "Lista Calibraciones",
             "Gráfico tasa de dosis ",
             "Análisis"});
-            this.checkedListBox1.Location = new System.Drawing.Point(15, 28);
+            this.checkedListBox1.Location = new System.Drawing.Point(11, 28);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(142, 94);
+            this.checkedListBox1.Size = new System.Drawing.Size(124, 79);
             this.checkedListBox1.TabIndex = 55;
             // 
             // BtnImprimir
             // 
-            this.BtnImprimir.Location = new System.Drawing.Point(15, 165);
+            this.BtnImprimir.Location = new System.Drawing.Point(11, 150);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(142, 23);
+            this.BtnImprimir.Size = new System.Drawing.Size(124, 23);
             this.BtnImprimir.TabIndex = 54;
             this.BtnImprimir.Text = "Imprimir";
             this.BtnImprimir.UseVisualStyleBackColor = true;
             // 
             // BtnVistaPrevia
             // 
-            this.BtnVistaPrevia.Location = new System.Drawing.Point(15, 128);
+            this.BtnVistaPrevia.Location = new System.Drawing.Point(11, 121);
             this.BtnVistaPrevia.Name = "BtnVistaPrevia";
-            this.BtnVistaPrevia.Size = new System.Drawing.Size(142, 23);
+            this.BtnVistaPrevia.Size = new System.Drawing.Size(124, 23);
             this.BtnVistaPrevia.TabIndex = 53;
             this.BtnVistaPrevia.Text = "Vista Previa";
             this.BtnVistaPrevia.UseVisualStyleBackColor = true;
@@ -3905,7 +3922,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(222, 235);
+            this.label21.Location = new System.Drawing.Point(227, 473);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 64;
@@ -3914,7 +3931,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(222, 473);
+            this.label19.Location = new System.Drawing.Point(223, 241);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 63;
@@ -3927,18 +3944,18 @@
             this.DGVAnalisis.AllowUserToResizeColumns = false;
             this.DGVAnalisis.AllowUserToResizeRows = false;
             this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGVAnalisis.Location = new System.Drawing.Point(225, 494);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.ReadOnly = true;
-            this.DGVAnalisis.Size = new System.Drawing.Size(628, 180);
+            this.DGVAnalisis.Size = new System.Drawing.Size(492, 180);
             this.DGVAnalisis.TabIndex = 62;
             // 
             // DGVRegistros
@@ -3948,18 +3965,18 @@
             this.DGVRegistros.AllowUserToResizeColumns = false;
             this.DGVRegistros.AllowUserToResizeRows = false;
             this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.ReadOnly = true;
-            this.DGVRegistros.Size = new System.Drawing.Size(478, 199);
+            this.DGVRegistros.Size = new System.Drawing.Size(492, 199);
             this.DGVRegistros.TabIndex = 60;
             // 
             // Bt_CalElec
@@ -4000,32 +4017,14 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // BT_RegistroExportar
+            // button2
             // 
-            this.BT_RegistroExportar.Location = new System.Drawing.Point(725, 380);
-            this.BT_RegistroExportar.Name = "BT_RegistroExportar";
-            this.BT_RegistroExportar.Size = new System.Drawing.Size(128, 25);
-            this.BT_RegistroExportar.TabIndex = 78;
-            this.BT_RegistroExportar.Text = "Exportar Calibración";
-            this.BT_RegistroExportar.UseVisualStyleBackColor = true;
-            // 
-            // BT_RegistroImportar
-            // 
-            this.BT_RegistroImportar.Location = new System.Drawing.Point(727, 349);
-            this.BT_RegistroImportar.Name = "BT_RegistroImportar";
-            this.BT_RegistroImportar.Size = new System.Drawing.Size(128, 25);
-            this.BT_RegistroImportar.TabIndex = 79;
-            this.BT_RegistroImportar.Text = "Importar Calibración";
-            this.BT_RegistroImportar.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(723, 413);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 25);
-            this.button1.TabIndex = 80;
-            this.button1.Text = "Establecer como Ref";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(734, 316);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 25);
+            this.button2.TabIndex = 81;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -4038,6 +4037,7 @@
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -4474,12 +4474,12 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_Registros;
-        private System.Windows.Forms.Button BT_RegistrosResumen;
         private System.Windows.Forms.Button BT_RegistroVPImpresion;
         private System.Windows.Forms.Button BT_RegistroImprimir;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BT_RegistroImportar;
         private System.Windows.Forms.Button BT_RegistroExportar;
+        private System.Windows.Forms.Button button2;
     }
 }
 
