@@ -1584,7 +1584,8 @@ namespace _398_UI
             {
                 DGVRegistros.DataSource = lista;
                 DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGVAnalisis.DataSource = analisis;
+                //DGVAnalisis.DataSource = analisis;
+                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGVAnalisis);
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
             }
             else
