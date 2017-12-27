@@ -250,5 +250,16 @@ namespace _398_UI
                 }
                 return interpolarLinea(X, etiquetasX, valoresLinea);
             }
+
+        public static double desvEstandar(List<double> lista)
+        {
+            double promedio = lista.Average();
+            double varianza = 0;
+            foreach (double valor in lista)
+            {
+                varianza += Math.Pow((valor - promedio), 2);
+            }
+            return Math.Round(Math.Sqrt(varianza / lista.Count()),2);
+        }
         }
     }

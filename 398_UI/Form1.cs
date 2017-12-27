@@ -1584,8 +1584,18 @@ namespace _398_UI
             {
                 DGVRegistros.DataSource = lista;
                 DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                //DGVAnalisis.DataSource = analisis;
-                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGVAnalisis);
+                DGVAnalisis.DataSource = analisis;
+                DGVAnalisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                int tam = 0;
+                foreach (DataGridViewColumn col in DGVAnalisis.Columns)
+                {
+                    tam += col.Width;
+                }
+                DGVAnalisis.Width = tam+10;
+                DGVAnalisis.Height = DGVAnalisis.Rows[0].Height * 5;
+                DGVAnalisis.BackgroundColor = Form1.DefaultBackColor;
+                DGVAnalisis.BorderStyle = BorderStyle.None;
+                //Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGVAnalisis);
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
             }
             else

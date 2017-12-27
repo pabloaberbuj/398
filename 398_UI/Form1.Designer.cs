@@ -332,12 +332,12 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.BT_RegistroImprimir = new System.Windows.Forms.Button();
+            this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.BT_RegistroImportar = new System.Windows.Forms.Button();
             this.BT_RegistroExportar = new System.Windows.Forms.Button();
-            this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
-            this.BT_RegistroImprimir = new System.Windows.Forms.Button();
-            this.label51 = new System.Windows.Forms.Label();
             this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.BtAnalizar = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -362,7 +362,6 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.BtnVistaPrevia = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.DGVAnalisis = new System.Windows.Forms.DataGridView();
             this.DGVRegistros = new System.Windows.Forms.DataGridView();
@@ -370,7 +369,6 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.button2 = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -3586,7 +3584,6 @@
             this.Panel_AnalizarReg.Controls.Add(this.button1);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImportar);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroExportar);
-            this.Panel_AnalizarReg.Controls.Add(this.label51);
             this.Panel_AnalizarReg.Controls.Add(this.Chart_Registros);
             this.Panel_AnalizarReg.Controls.Add(this.BtAnalizar);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox7);
@@ -3594,7 +3591,6 @@
             this.Panel_AnalizarReg.Controls.Add(this.groupBox1);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox6);
             this.Panel_AnalizarReg.Controls.Add(this.GBConfiguracionReporte);
-            this.Panel_AnalizarReg.Controls.Add(this.label21);
             this.Panel_AnalizarReg.Controls.Add(this.label19);
             this.Panel_AnalizarReg.Controls.Add(this.DGVAnalisis);
             this.Panel_AnalizarReg.Controls.Add(this.DGVRegistros);
@@ -3603,9 +3599,36 @@
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
+            // BT_RegistroImprimir
+            // 
+            this.BT_RegistroImprimir.Location = new System.Drawing.Point(736, 200);
+            this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
+            this.BT_RegistroImprimir.Size = new System.Drawing.Size(128, 25);
+            this.BT_RegistroImprimir.TabIndex = 76;
+            this.BT_RegistroImprimir.Text = "Imprimir";
+            this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
+            // 
+            // BT_RegistroVPImpresion
+            // 
+            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(736, 172);
+            this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
+            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(128, 25);
+            this.BT_RegistroVPImpresion.TabIndex = 77;
+            this.BT_RegistroVPImpresion.Text = "Vista Previa";
+            this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(736, 84);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 25);
+            this.button2.TabIndex = 81;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(734, 345);
+            this.button1.Location = new System.Drawing.Point(736, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 38);
             this.button1.TabIndex = 80;
@@ -3614,7 +3637,7 @@
             // 
             // BT_RegistroImportar
             // 
-            this.BT_RegistroImportar.Location = new System.Drawing.Point(734, 257);
+            this.BT_RegistroImportar.Location = new System.Drawing.Point(736, 25);
             this.BT_RegistroImportar.Name = "BT_RegistroImportar";
             this.BT_RegistroImportar.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistroImportar.TabIndex = 79;
@@ -3623,47 +3646,20 @@
             // 
             // BT_RegistroExportar
             // 
-            this.BT_RegistroExportar.Location = new System.Drawing.Point(734, 286);
+            this.BT_RegistroExportar.Location = new System.Drawing.Point(736, 54);
             this.BT_RegistroExportar.Name = "BT_RegistroExportar";
             this.BT_RegistroExportar.Size = new System.Drawing.Size(128, 25);
             this.BT_RegistroExportar.TabIndex = 78;
             this.BT_RegistroExportar.Text = "Exportar";
             this.BT_RegistroExportar.UseVisualStyleBackColor = true;
             // 
-            // BT_RegistroVPImpresion
-            // 
-            this.BT_RegistroVPImpresion.Location = new System.Drawing.Point(734, 404);
-            this.BT_RegistroVPImpresion.Name = "BT_RegistroVPImpresion";
-            this.BT_RegistroVPImpresion.Size = new System.Drawing.Size(128, 25);
-            this.BT_RegistroVPImpresion.TabIndex = 77;
-            this.BT_RegistroVPImpresion.Text = "Vista Previa";
-            this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
-            // 
-            // BT_RegistroImprimir
-            // 
-            this.BT_RegistroImprimir.Location = new System.Drawing.Point(734, 432);
-            this.BT_RegistroImprimir.Name = "BT_RegistroImprimir";
-            this.BT_RegistroImprimir.Size = new System.Drawing.Size(128, 25);
-            this.BT_RegistroImprimir.TabIndex = 76;
-            this.BT_RegistroImprimir.Text = "Imprimir";
-            this.BT_RegistroImprimir.UseVisualStyleBackColor = true;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(223, 12);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(41, 13);
-            this.label51.TabIndex = 74;
-            this.label51.Text = "Gráifco";
-            // 
             // Chart_Registros
             // 
-            this.Chart_Registros.Location = new System.Drawing.Point(225, 30);
+            this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
             series1.Name = "Series1";
             this.Chart_Registros.Series.Add(series1);
-            this.Chart_Registros.Size = new System.Drawing.Size(628, 198);
+            this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
             // 
@@ -3882,7 +3878,7 @@
             this.GBConfiguracionReporte.Controls.Add(this.BtnImprimir);
             this.GBConfiguracionReporte.Controls.Add(this.BtnVistaPrevia);
             this.GBConfiguracionReporte.Enabled = false;
-            this.GBConfiguracionReporte.Location = new System.Drawing.Point(723, 494);
+            this.GBConfiguracionReporte.Location = new System.Drawing.Point(668, 546);
             this.GBConfiguracionReporte.Name = "GBConfiguracionReporte";
             this.GBConfiguracionReporte.Size = new System.Drawing.Size(147, 179);
             this.GBConfiguracionReporte.TabIndex = 66;
@@ -3919,19 +3915,10 @@
             this.BtnVistaPrevia.Text = "Vista Previa";
             this.BtnVistaPrevia.UseVisualStyleBackColor = true;
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(227, 473);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(42, 13);
-            this.label21.TabIndex = 64;
-            this.label21.Text = "Análisis";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(223, 241);
+            this.label19.Location = new System.Drawing.Point(225, 9);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 63;
@@ -3952,10 +3939,11 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DGVAnalisis.Location = new System.Drawing.Point(225, 494);
+            this.DGVAnalisis.Location = new System.Drawing.Point(228, 454);
             this.DGVAnalisis.Name = "DGVAnalisis";
             this.DGVAnalisis.ReadOnly = true;
-            this.DGVAnalisis.Size = new System.Drawing.Size(492, 180);
+            this.DGVAnalisis.RowHeadersVisible = false;
+            this.DGVAnalisis.Size = new System.Drawing.Size(634, 65);
             this.DGVAnalisis.TabIndex = 62;
             // 
             // DGVRegistros
@@ -3973,7 +3961,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGVRegistros.Location = new System.Drawing.Point(225, 258);
+            this.DGVRegistros.Location = new System.Drawing.Point(227, 26);
             this.DGVRegistros.Name = "DGVRegistros";
             this.DGVRegistros.ReadOnly = true;
             this.DGVRegistros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -4017,15 +4005,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(734, 316);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 25);
-            this.button2.TabIndex = 81;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -4256,7 +4235,6 @@
         private System.Windows.Forms.GroupBox GBConfiguracionReporte;
         private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.Button BtnVistaPrevia;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridView DGVAnalisis;
         private System.Windows.Forms.DataGridView DGVRegistros;
@@ -4473,7 +4451,6 @@
         private System.Windows.Forms.RadioButton RB_RegistroEnergiaFot;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_Registros;
         private System.Windows.Forms.Button BT_RegistroVPImpresion;
         private System.Windows.Forms.Button BT_RegistroImprimir;
