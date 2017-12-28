@@ -1577,23 +1577,15 @@ namespace _398_UI
         private void BtAnalizar_Click(object sender, EventArgs e)
         {
             BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
-            BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
+            //BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
             if (lista.Count() > 0)
             {
                 DGVRegistros.DataSource = lista;
                 DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGVAnalisis.DataSource = analisis;
                 DGVAnalisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                int tam = 0;
-                foreach (DataGridViewColumn col in DGVAnalisis.Columns)
-                {
-                    tam += col.Width;
-                }
-                DGVAnalisis.Width = tam+10;
-                DGVAnalisis.Height = DGVAnalisis.Rows[0].Height * 5;
-                DGVAnalisis.BackgroundColor = Form1.DefaultBackColor;
+                DGVAnalisis.BackgroundColor = DefaultBackColor;
                 DGVAnalisis.BorderStyle = BorderStyle.None;
-                //Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGVAnalisis);
+                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGVAnalisis, L_Tendencia);
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
             }
             else
