@@ -69,8 +69,6 @@ namespace _398_UI
             chb_EditarVKs.Checked = false;
             InicializarInstitucionYMarcaEquipo();
             inicializacionesRegistro();
-
-
         }
 
 
