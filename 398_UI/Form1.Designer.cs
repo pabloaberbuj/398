@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -332,10 +332,12 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.L_Tendencia = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.BT_RegistroImprimir = new System.Windows.Forms.Button();
             this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BT_RegistroReferencia = new System.Windows.Forms.Button();
             this.BT_RegistroImportar = new System.Windows.Forms.Button();
             this.BT_RegistroExportar = new System.Windows.Forms.Button();
             this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -363,18 +365,16 @@
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.BtnVistaPrevia = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.DGVAnalisis = new System.Windows.Forms.DataGridView();
-            this.DGVRegistros = new System.Windows.Forms.DataGridView();
-            this.Bt_CalElec = new System.Windows.Forms.Button();
-            this.Panel_Botones = new System.Windows.Forms.Panel();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label21 = new System.Windows.Forms.Label();
+            this.DGV_Analisis = new System.Windows.Forms.DataGridView();
             this.Variable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.absoluto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_Tendencia = new System.Windows.Forms.Label();
+            this.DGV_Registros = new System.Windows.Forms.DataGridView();
+            this.Bt_CalElec = new System.Windows.Forms.Button();
+            this.Panel_Botones = new System.Windows.Forms.Panel();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -427,8 +427,8 @@
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.GBConfiguracionReporte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Analisis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Registros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -3589,7 +3589,7 @@
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
             this.Panel_AnalizarReg.Controls.Add(this.button2);
-            this.Panel_AnalizarReg.Controls.Add(this.button1);
+            this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroReferencia);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImportar);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroExportar);
             this.Panel_AnalizarReg.Controls.Add(this.Chart_Registros);
@@ -3600,12 +3600,31 @@
             this.Panel_AnalizarReg.Controls.Add(this.groupBox6);
             this.Panel_AnalizarReg.Controls.Add(this.GBConfiguracionReporte);
             this.Panel_AnalizarReg.Controls.Add(this.label19);
-            this.Panel_AnalizarReg.Controls.Add(this.DGVAnalisis);
-            this.Panel_AnalizarReg.Controls.Add(this.DGVRegistros);
+            this.Panel_AnalizarReg.Controls.Add(this.DGV_Analisis);
+            this.Panel_AnalizarReg.Controls.Add(this.DGV_Registros);
             this.Panel_AnalizarReg.Location = new System.Drawing.Point(0, 0);
             this.Panel_AnalizarReg.Name = "Panel_AnalizarReg";
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
+            // 
+            // L_Tendencia
+            // 
+            this.L_Tendencia.AutoSize = true;
+            this.L_Tendencia.Location = new System.Drawing.Point(637, 457);
+            this.L_Tendencia.Name = "L_Tendencia";
+            this.L_Tendencia.Size = new System.Drawing.Size(61, 13);
+            this.L_Tendencia.TabIndex = 83;
+            this.L_Tendencia.Text = "Tendencia:";
+            this.L_Tendencia.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(228, 454);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(86, 13);
+            this.label21.TabIndex = 82;
+            this.label21.Text = "Analisis Dw(Zref)";
             // 
             // BT_RegistroImprimir
             // 
@@ -3634,14 +3653,15 @@
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BT_RegistroReferencia
             // 
-            this.button1.Location = new System.Drawing.Point(736, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 38);
-            this.button1.TabIndex = 80;
-            this.button1.Text = "Establecer como\r\nreferencia";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_RegistroReferencia.Location = new System.Drawing.Point(736, 113);
+            this.BT_RegistroReferencia.Name = "BT_RegistroReferencia";
+            this.BT_RegistroReferencia.Size = new System.Drawing.Size(128, 38);
+            this.BT_RegistroReferencia.TabIndex = 80;
+            this.BT_RegistroReferencia.Text = "Establecer como\r\nreferencia";
+            this.BT_RegistroReferencia.UseVisualStyleBackColor = true;
+            this.BT_RegistroReferencia.Click += new System.EventHandler(this.BT_RegistroReferencia_Click);
             // 
             // BT_RegistroImportar
             // 
@@ -3651,6 +3671,7 @@
             this.BT_RegistroImportar.TabIndex = 79;
             this.BT_RegistroImportar.Text = "Importar";
             this.BT_RegistroImportar.UseVisualStyleBackColor = true;
+            this.BT_RegistroImportar.Click += new System.EventHandler(this.BT_RegistroImportar_Click);
             // 
             // BT_RegistroExportar
             // 
@@ -3660,13 +3681,14 @@
             this.BT_RegistroExportar.TabIndex = 78;
             this.BT_RegistroExportar.Text = "Exportar";
             this.BT_RegistroExportar.UseVisualStyleBackColor = true;
+            this.BT_RegistroExportar.Click += new System.EventHandler(this.BT_RegistroExportar_Click);
             // 
             // Chart_Registros
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series2.Name = "Series1";
-            this.Chart_Registros.Series.Add(series2);
+            series1.Name = "Series1";
+            this.Chart_Registros.Series.Add(series1);
             this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3932,55 +3954,79 @@
             this.label19.TabIndex = 63;
             this.label19.Text = "Calibraciones";
             // 
-            // DGVAnalisis
+            // DGV_Analisis
             // 
-            this.DGVAnalisis.AllowUserToAddRows = false;
-            this.DGVAnalisis.AllowUserToDeleteRows = false;
-            this.DGVAnalisis.AllowUserToResizeColumns = false;
-            this.DGVAnalisis.AllowUserToResizeRows = false;
-            this.DGVAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVAnalisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_Analisis.AllowUserToAddRows = false;
+            this.DGV_Analisis.AllowUserToDeleteRows = false;
+            this.DGV_Analisis.AllowUserToResizeColumns = false;
+            this.DGV_Analisis.AllowUserToResizeRows = false;
+            this.DGV_Analisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Analisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Variable,
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVAnalisis.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DGVAnalisis.Location = new System.Drawing.Point(228, 478);
-            this.DGVAnalisis.Name = "DGVAnalisis";
-            this.DGVAnalisis.ReadOnly = true;
-            this.DGVAnalisis.RowHeadersVisible = false;
-            this.DGVAnalisis.Size = new System.Drawing.Size(397, 201);
-            this.DGVAnalisis.TabIndex = 62;
-            this.DGVAnalisis.Visible = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_Analisis.Location = new System.Drawing.Point(228, 478);
+            this.DGV_Analisis.Name = "DGV_Analisis";
+            this.DGV_Analisis.ReadOnly = true;
+            this.DGV_Analisis.RowHeadersVisible = false;
+            this.DGV_Analisis.Size = new System.Drawing.Size(397, 201);
+            this.DGV_Analisis.TabIndex = 62;
+            this.DGV_Analisis.Visible = false;
             // 
-            // DGVRegistros
+            // Variable
             // 
-            this.DGVRegistros.AllowUserToAddRows = false;
-            this.DGVRegistros.AllowUserToDeleteRows = false;
-            this.DGVRegistros.AllowUserToResizeColumns = false;
-            this.DGVRegistros.AllowUserToResizeRows = false;
-            this.DGVRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVRegistros.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DGVRegistros.Location = new System.Drawing.Point(227, 26);
-            this.DGVRegistros.Name = "DGVRegistros";
-            this.DGVRegistros.ReadOnly = true;
-            this.DGVRegistros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVRegistros.Size = new System.Drawing.Size(492, 199);
-            this.DGVRegistros.TabIndex = 60;
+            this.Variable.HeaderText = "";
+            this.Variable.Name = "Variable";
+            this.Variable.ReadOnly = true;
+            // 
+            // absoluto
+            // 
+            this.absoluto.HeaderText = "[cGy/UM]";
+            this.absoluto.Name = "absoluto";
+            this.absoluto.ReadOnly = true;
+            // 
+            // relativo
+            // 
+            this.relativo.HeaderText = "Diferencia [%]";
+            this.relativo.Name = "relativo";
+            this.relativo.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // DGV_Registros
+            // 
+            this.DGV_Registros.AllowUserToAddRows = false;
+            this.DGV_Registros.AllowUserToDeleteRows = false;
+            this.DGV_Registros.AllowUserToResizeColumns = false;
+            this.DGV_Registros.AllowUserToResizeRows = false;
+            this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_Registros.Location = new System.Drawing.Point(227, 26);
+            this.DGV_Registros.Name = "DGV_Registros";
+            this.DGV_Registros.ReadOnly = true;
+            this.DGV_Registros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_Registros.Size = new System.Drawing.Size(492, 199);
+            this.DGV_Registros.TabIndex = 60;
             // 
             // Bt_CalElec
             // 
@@ -4019,49 +4065,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(228, 454);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 13);
-            this.label21.TabIndex = 82;
-            this.label21.Text = "Analisis Dw(Zref)";
-            // 
-            // Variable
-            // 
-            this.Variable.HeaderText = "";
-            this.Variable.Name = "Variable";
-            this.Variable.ReadOnly = true;
-            // 
-            // absoluto
-            // 
-            this.absoluto.HeaderText = "[cGy/UM]";
-            this.absoluto.Name = "absoluto";
-            this.absoluto.ReadOnly = true;
-            // 
-            // relativo
-            // 
-            this.relativo.HeaderText = "Diferencia [%]";
-            this.relativo.Name = "relativo";
-            this.relativo.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // L_Tendencia
-            // 
-            this.L_Tendencia.AutoSize = true;
-            this.L_Tendencia.Location = new System.Drawing.Point(637, 457);
-            this.L_Tendencia.Name = "L_Tendencia";
-            this.L_Tendencia.Size = new System.Drawing.Size(61, 13);
-            this.L_Tendencia.TabIndex = 83;
-            this.L_Tendencia.Text = "Tendencia:";
-            this.L_Tendencia.Visible = false;
             // 
             // Form1
             // 
@@ -4169,8 +4172,8 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.GBConfiguracionReporte.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGVAnalisis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Analisis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Registros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -4293,7 +4296,7 @@
         private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.Button BtnVistaPrevia;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridView DGVRegistros;
+        private System.Windows.Forms.DataGridView DGV_Registros;
         private System.Windows.Forms.Button BT_SistDosIraCal;
         private System.Windows.Forms.Button BT_EqIraCal;
         private System.Windows.Forms.Button BT_ReporteImp;
@@ -4510,12 +4513,12 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_Registros;
         private System.Windows.Forms.Button BT_RegistroVPImpresion;
         private System.Windows.Forms.Button BT_RegistroImprimir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_RegistroReferencia;
         private System.Windows.Forms.Button BT_RegistroImportar;
         private System.Windows.Forms.Button BT_RegistroExportar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DataGridView DGVAnalisis;
+        private System.Windows.Forms.DataGridView DGV_Analisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Variable;
         private System.Windows.Forms.DataGridViewTextBoxColumn absoluto;
         private System.Windows.Forms.DataGridViewTextBoxColumn relativo;

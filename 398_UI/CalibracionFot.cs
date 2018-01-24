@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class CalibracionFot
+    public class CalibracionFot : Objeto
     {
         [Browsable(false)]
         public Equipo Equipo { get; set; }
@@ -16,7 +17,7 @@ namespace _398_UI
         public EnergiaFotones Energia { get; set; }
         [Browsable(false)]
         public SistemaDosimetrico SistemaDosim { get; set; }
-        
+
         [DisplayName("Ref")]
         public bool EsReferencia { get; set; }
         [Browsable(false)]
@@ -154,6 +155,71 @@ namespace _398_UI
             return true;
         }
 
+        public static BindingList<CalibracionFot> importar(string file)
+        {
+            BindingList<CalibracionFot> listaImportada = IO.readJsonList<CalibracionFot>(file);
+            BindingList<CalibracionFot> listaFiltrada = new BindingList<CalibracionFot>();
+            try
+            {
+                foreach (CalibracionFot caliImp in listaImportada)
+                {
+                    if (!(lista().Any(cali => caliImp.Equals(cali))))
+                    {
+                        listaFiltrada.Add(caliImp);
+                    }
+                }
+                return listaFiltrada;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha podido importar desde el archivo seleccionado.\nEs posible que el archivo no tenga el formato correcto");
+                throw;
+            }
+        }
+
+        public static void agregarImportados(BindingList<CalibracionFot> listaFiltrada)
+        {
+            BindingList<CalibracionFot> listaAux = lista();
+            try
+            {
+                foreach (CalibracionFot cali in listaFiltrada)
+                {
+                    cali.EsReferencia = false; //las calibraciones importadas no entran como referencia
+                    listaAux.Add(cali);
+                }
+                MessageBox.Show("Se han agregado " + listaFiltrada.Count().ToString() + " calibraciones");
+                IO.writeObjectAsJson(file, listaAux);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se han podido importar");
+                throw;
+            }
+        }
+
+        public static void exportar(DataGridView DGV)
+        {
+            try
+            {
+                if (DGV.SelectedRows.Count > 0)
+                {
+                    List<CalibracionFot> listaAExportar = new List<CalibracionFot>();
+                    string fileName = IO.GetUniqueFilename(@"..\..\", "caliFotonesExportadas");
+                    foreach (DataGridViewRow fila in DGV.SelectedRows)
+                    {
+                        listaAExportar.Add((CalibracionFot)fila.DataBoundItem);
+                    }
+                    IO.writeObjectAsJson(fileName, listaAExportar);
+                }
+                MessageBox.Show("Se han exportado " + DGV.SelectedRows.Count.ToString() + " calibraciones correctamente", "Exportar");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error. No se ha podido exportar\n" + e.ToString());
+            }
+        }
+
         public static void exportarUnaCalibracion(CalibracionFot _nuevo)
         {
             try
@@ -166,6 +232,20 @@ namespace _398_UI
             catch (Exception e)
             {
                 MessageBox.Show("Ha ocurrido un error. No se ha podido exportar: " + e.ToString());
+            }
+        }
+
+        public static void hacerReferencia(DataGridView DGV)
+        {
+            if (DGV.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow fila in DGV.Rows)
+                {
+                    ((CalibracionFot)fila.DataBoundItem).EsReferencia = false;
+                }
+
+                ((CalibracionFot)DGV.SelectedRows[0].DataBoundItem).EsReferencia = true;
+                IO.writeObjectAsJson(file, DGV.DataSource);
             }
         }
 
@@ -298,7 +378,7 @@ namespace _398_UI
         public static double calcularDifConRef(double Dwref, Equipo equipo, EnergiaFotones energia, int DFSoISO)
         {
             double DwrefLB = obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref;
-            return Math.Round((Dwref - DwrefLB) / DwrefLB * 100,4);
+            return Math.Round((Dwref - DwrefLB) / DwrefLB * 100, 4);
         }
 
         //linea base
@@ -364,6 +444,23 @@ namespace _398_UI
                 "Mref= " + cali.Mref.ToString() + "\n" +
                 "Dwzref= " + cali.Dwzref.ToString();
 
+        }
+
+        public override bool Equals(object obj)
+        {
+            PropertyInfo[] propiedades = obj.GetType().GetProperties();
+            if (obj == null || this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+            foreach (PropertyInfo propiedad in propiedades)
+            {
+                if (!propiedad.GetValue(this).Equals(propiedad.GetValue(obj)) && !(propiedad.Name == "EsReferencia"))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
     }

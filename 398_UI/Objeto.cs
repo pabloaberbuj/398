@@ -24,7 +24,6 @@ namespace _398_UI
                 {
                     return false;
                 }
-
             }
             return true;
         }

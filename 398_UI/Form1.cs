@@ -1580,19 +1580,19 @@ namespace _398_UI
             //BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
             if (lista.Count() > 0)
             {
-                DGVRegistros.DataSource = lista;
-                DGVRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGVAnalisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGVAnalisis.BackgroundColor = DefaultBackColor;
-                DGVAnalisis.BorderStyle = BorderStyle.None;
-                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGVAnalisis, L_Tendencia);
+                DGV_Registros.DataSource = lista;
+                DGV_Registros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                DGV_Analisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                DGV_Analisis.BackgroundColor = DefaultBackColor;
+                DGV_Analisis.BorderStyle = BorderStyle.None;
+                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGV_Analisis, L_Tendencia);
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
             }
             else
             {
                 MessageBox.Show("No existen calibraciones con las condiciones descriptas");
-                DGVRegistros.DataSource = null;
-                DGVAnalisis.DataSource = null;
+                DGV_Registros.DataSource = null;
+                DGV_Analisis.DataSource = null;
                 Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
             }
 
@@ -1615,12 +1615,55 @@ namespace _398_UI
                 DTPRegHasta.Enabled = false;
             }
         }
-    
-    #endregion
 
 
-    #region Métodos
-    public static void limpiarRegistro(Panel panel)
+        #endregion
+
+        #region Analizar Registros Botones
+
+        private void BT_RegistrosResumen_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(CalibracionFot.resumenCalibracion((CalibracionFot)DGV_Registros.SelectedRows[0].DataBoundItem));
+        }
+
+        private void BT_RegistroImportar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            {
+                Filter = "Archivos txt(.txt)|*.txt|All Files (*.*)|*.*"
+            };
+            openFileDialog1.ShowDialog();
+            BindingList<CalibracionFot> listaImportada = CalibracionFot.importar(openFileDialog1.FileName);
+            if (listaImportada.Count() == 0)
+            {
+                MessageBox.Show("No hay nuevas calibraciones para importar en el archivo seleccionado");
+            }
+            else
+            {
+                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " calibraciones. ¿Continuar?", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    CalibracionFot.agregarImportados(listaImportada);
+                }
+            }
+            BtAnalizar_Click(sender, e);
+        }
+
+        private void BT_RegistroExportar_Click(object sender, EventArgs e)
+        {
+            CalibracionFot.exportar(DGV_Registros);
+        }
+
+        private void BT_RegistroReferencia_Click(object sender, EventArgs e)
+        {
+            CalibracionFot.hacerReferencia(DGV_Registros);
+            BtAnalizar_Click(sender, e);
+        }
+
+        #endregion
+
+
+        #region Métodos
+        public static void limpiarRegistro(Panel panel)
         {
             foreach (TextBox tb in panel.Controls.OfType<TextBox>())
             { tb.Clear(); }
@@ -2073,14 +2116,10 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-        private void BT_RegistrosResumen_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(CalibracionFot.resumenCalibracion((CalibracionFot)DGVRegistros.SelectedRows[0].DataBoundItem));
-        }
-
-
+        
     }
 }
 
