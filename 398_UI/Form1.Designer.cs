@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -336,7 +336,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.BT_RegistroImprimir = new System.Windows.Forms.Button();
             this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.BT_RegistroReferencia = new System.Windows.Forms.Button();
             this.BT_RegistroImportar = new System.Windows.Forms.Button();
             this.BT_RegistroExportar = new System.Windows.Forms.Button();
@@ -364,7 +363,7 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.BtnVistaPrevia = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
+            this.L_RegistroCalibraciones = new System.Windows.Forms.Label();
             this.DGV_Analisis = new System.Windows.Forms.DataGridView();
             this.Variable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.absoluto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -3588,7 +3587,6 @@
             this.Panel_AnalizarReg.Controls.Add(this.label21);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
-            this.Panel_AnalizarReg.Controls.Add(this.button2);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroReferencia);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImportar);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroExportar);
@@ -3599,7 +3597,7 @@
             this.Panel_AnalizarReg.Controls.Add(this.groupBox1);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox6);
             this.Panel_AnalizarReg.Controls.Add(this.GBConfiguracionReporte);
-            this.Panel_AnalizarReg.Controls.Add(this.label19);
+            this.Panel_AnalizarReg.Controls.Add(this.L_RegistroCalibraciones);
             this.Panel_AnalizarReg.Controls.Add(this.DGV_Analisis);
             this.Panel_AnalizarReg.Controls.Add(this.DGV_Registros);
             this.Panel_AnalizarReg.Location = new System.Drawing.Point(0, 0);
@@ -3644,18 +3642,9 @@
             this.BT_RegistroVPImpresion.Text = "Vista Previa";
             this.BT_RegistroVPImpresion.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(736, 84);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 25);
-            this.button2.TabIndex = 81;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // BT_RegistroReferencia
             // 
-            this.BT_RegistroReferencia.Location = new System.Drawing.Point(736, 113);
+            this.BT_RegistroReferencia.Location = new System.Drawing.Point(736, 83);
             this.BT_RegistroReferencia.Name = "BT_RegistroReferencia";
             this.BT_RegistroReferencia.Size = new System.Drawing.Size(128, 38);
             this.BT_RegistroReferencia.TabIndex = 80;
@@ -3687,8 +3676,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
+            series2.Name = "Series1";
+            this.Chart_Registros.Series.Add(series2);
             this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3945,14 +3934,14 @@
             this.BtnVistaPrevia.Text = "Vista Previa";
             this.BtnVistaPrevia.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // L_RegistroCalibraciones
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(225, 9);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(70, 13);
-            this.label19.TabIndex = 63;
-            this.label19.Text = "Calibraciones";
+            this.L_RegistroCalibraciones.AutoSize = true;
+            this.L_RegistroCalibraciones.Location = new System.Drawing.Point(225, 9);
+            this.L_RegistroCalibraciones.Name = "L_RegistroCalibraciones";
+            this.L_RegistroCalibraciones.Size = new System.Drawing.Size(70, 13);
+            this.L_RegistroCalibraciones.TabIndex = 63;
+            this.L_RegistroCalibraciones.Text = "Calibraciones";
             // 
             // DGV_Analisis
             // 
@@ -3966,14 +3955,14 @@
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_Analisis.Location = new System.Drawing.Point(228, 478);
             this.DGV_Analisis.Name = "DGV_Analisis";
             this.DGV_Analisis.ReadOnly = true;
@@ -4013,14 +4002,14 @@
             this.DGV_Registros.AllowUserToResizeColumns = false;
             this.DGV_Registros.AllowUserToResizeRows = false;
             this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle4;
             this.DGV_Registros.Location = new System.Drawing.Point(227, 26);
             this.DGV_Registros.Name = "DGV_Registros";
             this.DGV_Registros.ReadOnly = true;
@@ -4295,7 +4284,7 @@
         private System.Windows.Forms.GroupBox GBConfiguracionReporte;
         private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.Button BtnVistaPrevia;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label L_RegistroCalibraciones;
         private System.Windows.Forms.DataGridView DGV_Registros;
         private System.Windows.Forms.Button BT_SistDosIraCal;
         private System.Windows.Forms.Button BT_EqIraCal;
@@ -4516,7 +4505,6 @@
         private System.Windows.Forms.Button BT_RegistroReferencia;
         private System.Windows.Forms.Button BT_RegistroImportar;
         private System.Windows.Forms.Button BT_RegistroExportar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView DGV_Analisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Variable;

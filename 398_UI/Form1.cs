@@ -1587,6 +1587,16 @@ namespace _398_UI
                 DGV_Analisis.BorderStyle = BorderStyle.None;
                 Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGV_Analisis, L_Tendencia);
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
+                string aux = "";
+                if (registroDFSoISO()==1)
+                {
+                    aux = "DFS fija";
+                }
+                else
+                {
+                    aux = "Isocéntrica";
+                }
+                L_RegistroCalibraciones.Text = "Calibraciones" + stringEtiquetaLista();
             }
             else
             {
@@ -1594,10 +1604,30 @@ namespace _398_UI
                 DGV_Registros.DataSource = null;
                 DGV_Analisis.DataSource = null;
                 Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
+                L_RegistroCalibraciones.Text = "Calibraciones";
             }
 
         }
+        
+        private string stringEtiquetaLista()
+        {
+            string sDFSoISO = "";
+            if (registroDFSoISO() == 1)
+            {
+                sDFSoISO = "DFS fija";
+            }
+            else
+            {
+                sDFSoISO = "Isocéntrica";
+            }
+            string fechas = "";
+            if (ChBRegRango.Checked)
+            {
+                fechas = " desde: " + DTPRegDesde.Value.ToShortDateString() + " hasta: " + DTPRegHasta.Value.ToShortDateString();
+            }
 
+            return " (" + registroEquipoSeleccionado().Etiqueta + " " + registroEnergiaFotonesSeleccionada().Etiqueta + "MV " + sDFSoISO + fechas + ")";
+        }
         private void ChBRegRango_CheckedChanged(object sender, EventArgs e)
         {
             if (ChBRegRango.Checked)
