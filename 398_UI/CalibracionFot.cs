@@ -137,7 +137,7 @@ namespace _398_UI
             {
                 if (hayReferencia(_nuevo.Equipo, _nuevo.Energia, _nuevo.DFSoISO))
                 {
-                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea sobreescribirla?", "Establecer Referencia", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea continuar?", "Establecer Referencia", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
                         establecerComoReferencia(_nuevo, auxLista);
                     }
@@ -237,16 +237,24 @@ namespace _398_UI
 
         public static void hacerReferencia(DataGridView DGV)
         {
-            if (DGV.SelectedRows.Count == 1)
+            var auxLista = lista();
+            CalibracionFot cali = (CalibracionFot)DGV.SelectedRows[0].DataBoundItem;
+            if (cali.EsReferencia)
             {
-                foreach (DataGridViewRow fila in DGV.Rows)
-                {
-                    ((CalibracionFot)fila.DataBoundItem).EsReferencia = false;
-                }
-
-                ((CalibracionFot)DGV.SelectedRows[0].DataBoundItem).EsReferencia = true;
-                IO.writeObjectAsJson(file, DGV.DataSource);
+                return;
             }
+            if (hayReferencia(cali.Equipo, cali.Energia, cali.DFSoISO))
+                {
+                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea continuar?", "Establecer Referencia", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        establecerComoReferencia(cali, auxLista);
+                    }
+                }
+                else
+                {
+                    establecerComoReferencia(cali, auxLista);
+                }
+            IO.writeObjectAsJson(file, auxLista);
         }
 
         //calculos
