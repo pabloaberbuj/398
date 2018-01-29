@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
+
 namespace _398_UI
 {
     public class Calcular
@@ -262,16 +263,16 @@ namespace _398_UI
             return Math.Round(Math.Sqrt(varianza / lista.Count()), 2);
         }
 
-        public static double pendienteCuadradosMinimos(List<double> xLista, List<double> yLista)
+        public static Tuple<double,double> cuadradosMinimos(List<double> xLista, List<double> yLista)
         {
             if (xLista.Count!=yLista.Count)
             {
                 MessageBox.Show("Las listas no tienen el mismo numero de elementos");
-                return double.NaN;
+                return Tuple.Create<double,double>(double.NaN,double.NaN);
             }
             if (xLista.Count()==1)
             {
-                return 0;
+                return Tuple.Create<double, double>(0, 0);
             }
             double sumaXY = 0;
             double sumaX = 0;
@@ -284,7 +285,11 @@ namespace _398_UI
                 sumaY += yLista[i];
                 sumaXcuadrado += Math.Pow(xLista[i], 2);
             }
-            return (xLista.Count * sumaXY - sumaX * sumaY) / (xLista.Count * sumaXcuadrado - Math.Pow(sumaX, 2));
+            double pendiente = (xLista.Count * sumaXY - sumaX * sumaY) / (xLista.Count * sumaXcuadrado - Math.Pow(sumaX, 2));
+            double ordenada = (xLista.Count*sumaXcuadrado*sumaY-sumaX*sumaXY) / (xLista.Count * sumaXcuadrado - Math.Pow(sumaX, 2));
+            return Tuple.Create<double, double>(pendiente, ordenada);
         }
+
+        
     }
 }

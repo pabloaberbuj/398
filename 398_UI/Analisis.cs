@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -90,7 +91,7 @@ namespace _398_UI
             tendencia.Visible = true;
         }
 
-        public static double calcularTendencia(BindingList<CalibracionFot> lista, bool fechas, DateTime desde, DateTime hasta, Equipo equipo, EnergiaFotones energia, int DFSoISO)
+        public static double calcularTendencia(BindingList<CalibracionFot> lista, bool fechas, DateTime desde, DateTime hasta, Equipo equipo, EnergiaFotones energia, int DFSoISO, Chart grafico)
         {
             BindingList<CalibracionFot> listaFiltrada = new BindingList<CalibracionFot>();
             if (fechas)
@@ -121,14 +122,16 @@ namespace _398_UI
             {
                 List<Double> valores = listaFiltrada.Select(q => q.Dwzref).ToList();
                 List<Double> fechasDouble = listaFiltrada.Select(q => q.Fecha.ToOADate()).ToList();
+                Graficar.agregarLineaTendencia(grafico, Calcular.cuadradosMinimos(fechasDouble, valores), desde, hasta);
                 if (CalibracionFot.hayReferencia(equipo, energia, DFSoISO))
                 {
-                    return Math.Round(Calcular.pendienteCuadradosMinimos(fechasDouble, valores) / CalibracionFot.obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref * 100, 2);
+                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / CalibracionFot.obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref * 100, 2);
                 }
                 else
                 {
-                    return Math.Round(Calcular.pendienteCuadradosMinimos(fechasDouble, valores) / valores.Average() * 100, 2);
+                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / valores.Average() * 100, 2);
                 }
+                
             }
         }
     }

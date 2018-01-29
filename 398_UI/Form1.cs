@@ -1704,7 +1704,7 @@ namespace _398_UI
 
         private void BT_AnalisisRegistroTendencia_Click(object sender, EventArgs e)
         {
-           double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
+           double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO(),Chart_Registros);
             if (!Double.IsNaN(valor))
             {
                 L_Tendencia.Visible = true;
