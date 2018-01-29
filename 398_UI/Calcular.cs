@@ -269,6 +269,10 @@ namespace _398_UI
                 MessageBox.Show("Las listas no tienen el mismo numero de elementos");
                 return double.NaN;
             }
+            if (xLista.Count()==1)
+            {
+                return 0;
+            }
             double sumaXY = 0;
             double sumaX = 0;
             double sumaY = 0;

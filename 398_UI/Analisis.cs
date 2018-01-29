@@ -16,7 +16,6 @@ namespace _398_UI
         public ValorARF Minimo { get; set; }
         public ValorARF Promedio { get; set; }
         public ValorARF DesvEst { get; set; }
-        public double Tendencia { get; set; }
 
 
         /*  public static BindingList<Analisis> analizar(BindingList<CalibracionFot> lista, Equipo equipo, EnergiaFotones energia, int DFSoISO)
@@ -47,12 +46,10 @@ namespace _398_UI
         {
             Analisis analisis = new Analisis();
             List<Double> valores = lista.Select(q => q.Dwzref).ToList();
-            List<Double> fechasDouble = lista.Select(q => q.Fecha.ToOADate()).ToList();
             if (CalibracionFot.hayReferencia(equipo, energia, DFSoISO))
             {
                 CalibracionFot caliRef = CalibracionFot.obtenerCaliReferencia(equipo, energia, DFSoISO);
                 analisis.Referencia = ValorARF.crear(caliRef.Dwzref, caliRef.Dwzref, caliRef.Fecha);
-                analisis.Tendencia = Math.Round(Calcular.pendienteCuadradosMinimos(fechasDouble, valores)/analisis.Referencia.absoluto*100,2);
             }
             else
             {
@@ -63,7 +60,6 @@ namespace _398_UI
                     fecha = "",
 
                 };
-                analisis.Tendencia = Calcular.pendienteCuadradosMinimos(fechasDouble, valores) / valores.Average()* 100;
             }
             analisis.Maximo = ValorARF.crear(valores.Max(), analisis.Referencia.absoluto, (lista[valores.IndexOf(valores.Max())].Fecha));
             analisis.Minimo = ValorARF.crear(valores.Min(), analisis.Referencia.absoluto, (lista[valores.IndexOf(valores.Min())].Fecha));
@@ -90,8 +86,45 @@ namespace _398_UI
                 }
             }
             DGV.Visible = true;
-            tendencia.Text += "\n" + analisis.Tendencia.ToString() + "%/día \n " + (analisis.Tendencia*30).ToString() + "%/mes";
+            //tendencia.Text += "\n" + analisis.Tendencia.ToString() + "%/día \n " + (analisis.Tendencia*30).ToString() + "%/mes";
             tendencia.Visible = true;
+        }
+
+        public static double calcularTendencia(BindingList<CalibracionFot> lista, bool fechas, DateTime desde, DateTime hasta, Equipo equipo, EnergiaFotones energia, int DFSoISO)
+        {
+            BindingList<CalibracionFot> listaFiltrada = new BindingList<CalibracionFot>();
+            if (fechas)
+            {
+                foreach (CalibracionFot cali in lista)
+                {
+                    if (DateTime.Compare(cali.Fecha.Date, desde.Date) >= 0 && DateTime.Compare(cali.Fecha.Date, hasta.Date) <= 0)
+                    {
+                        listaFiltrada.Add(cali);
+                    }
+                }
+            }
+            else
+            {
+                listaFiltrada = lista;
+            }
+            if (listaFiltrada.Count()==0)
+            {
+                MessageBox.Show("No hay calibraciones en el rango de fechas seleccionado");
+                return Double.NaN;
+            }
+            else
+            {
+                List<Double> valores = listaFiltrada.Select(q => q.Dwzref).ToList();
+                List<Double> fechasDouble = listaFiltrada.Select(q => q.Fecha.ToOADate()).ToList();
+                if (CalibracionFot.hayReferencia(equipo, energia, DFSoISO))
+                {
+                    return Math.Round(Calcular.pendienteCuadradosMinimos(fechasDouble, valores) / CalibracionFot.obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref * 100, 2);
+                }
+                else
+                {
+                    return Math.Round(Calcular.pendienteCuadradosMinimos(fechasDouble, valores) / valores.Average() * 100, 2);
+                }
+            }
         }
     }
 }

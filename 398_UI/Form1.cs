@@ -1518,6 +1518,8 @@ namespace _398_UI
             inicializarRegistrosEnergias();
             DTPRegDesde.Value = primerFechaCali();
             DTPRegHasta.Value = ultimaFechaCali();
+            DTP_TendenciaDesde.Value = primerFechaCali();
+            DTP_TendenciaHasta.Value = ultimaFechaCali();
         }
 
         private void ListBox_RegistrosEquipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -1574,40 +1576,7 @@ namespace _398_UI
             habilitarBoton(test, BtAnalizar);
         }
 
-        private void BtAnalizar_Click(object sender, EventArgs e)
-        {
-            BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
-            //BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
-            if (lista.Count() > 0)
-            {
-                DGV_Registros.DataSource = lista;
-                DGV_Registros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGV_Analisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGV_Analisis.BackgroundColor = DefaultBackColor;
-                DGV_Analisis.BorderStyle = BorderStyle.None;
-                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGV_Analisis, L_Tendencia);
-                Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
-                string aux = "";
-                if (registroDFSoISO()==1)
-                {
-                    aux = "DFS fija";
-                }
-                else
-                {
-                    aux = "Isocéntrica";
-                }
-                L_RegistroCalibraciones.Text = "Calibraciones" + stringEtiquetaLista();
-            }
-            else
-            {
-                MessageBox.Show("No existen calibraciones con las condiciones descriptas");
-                DGV_Registros.DataSource = null;
-                DGV_Analisis.DataSource = null;
-                Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
-                L_RegistroCalibraciones.Text = "Calibraciones";
-            }
-
-        }
+        
         
         private string stringEtiquetaLista()
         {
@@ -1687,6 +1656,38 @@ namespace _398_UI
         {
             CalibracionFot.hacerReferencia(DGV_Registros);
             BtAnalizar_Click(sender, e);
+        }
+
+        private void BtAnalizar_Click(object sender, EventArgs e)
+        {
+            BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
+            //BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
+            if (lista.Count() > 0)
+            {
+                DGV_Registros.DataSource = lista;
+                DGV_Registros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                DGV_Analisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                DGV_Analisis.BackgroundColor = DefaultBackColor;
+                DGV_Analisis.BorderStyle = BorderStyle.None;
+                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGV_Analisis, L_Tendencia);
+                Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
+                L_RegistroCalibraciones.Text = "Calibraciones" + stringEtiquetaLista();
+            }
+            else
+            {
+                MessageBox.Show("No existen calibraciones con las condiciones descriptas");
+                DGV_Registros.DataSource = null;
+                DGV_Analisis.DataSource = null;
+                Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
+                L_RegistroCalibraciones.Text = "Calibraciones";
+            }
+
+        }
+
+        private void BT_AnalisisRegistroTendencia_Click(object sender, EventArgs e)
+        {
+           double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
+            L_Tendencia.Text += valor.ToString();
         }
 
         #endregion
@@ -2140,6 +2141,7 @@ namespace _398_UI
             }
             posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB);
         }
+
 
 
 
