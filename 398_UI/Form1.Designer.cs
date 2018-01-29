@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -374,6 +374,14 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.GB_Tendencia = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.CHB_RangoTendenciaRegistros = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.BT_AnalisisRegistroTendencia = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -429,6 +437,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Analisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Registros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
+            this.GB_Tendencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -3583,7 +3592,7 @@
             // 
             // Panel_AnalizarReg
             // 
-            this.Panel_AnalizarReg.Controls.Add(this.L_Tendencia);
+            this.Panel_AnalizarReg.Controls.Add(this.GB_Tendencia);
             this.Panel_AnalizarReg.Controls.Add(this.label21);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroImprimir);
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroVPImpresion);
@@ -3608,7 +3617,7 @@
             // L_Tendencia
             // 
             this.L_Tendencia.AutoSize = true;
-            this.L_Tendencia.Location = new System.Drawing.Point(637, 457);
+            this.L_Tendencia.Location = new System.Drawing.Point(33, 132);
             this.L_Tendencia.Name = "L_Tendencia";
             this.L_Tendencia.Size = new System.Drawing.Size(61, 13);
             this.L_Tendencia.TabIndex = 83;
@@ -3676,8 +3685,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series2.Name = "Series1";
-            this.Chart_Registros.Series.Add(series2);
+            series3.Name = "Series1";
+            this.Chart_Registros.Series.Add(series3);
             this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3857,7 +3866,7 @@
             // 
             this.L_RegFechaHasta.AutoSize = true;
             this.L_RegFechaHasta.Enabled = false;
-            this.L_RegFechaHasta.Location = new System.Drawing.Point(12, 68);
+            this.L_RegFechaHasta.Location = new System.Drawing.Point(15, 69);
             this.L_RegFechaHasta.Name = "L_RegFechaHasta";
             this.L_RegFechaHasta.Size = new System.Drawing.Size(35, 13);
             this.L_RegFechaHasta.TabIndex = 43;
@@ -3867,7 +3876,7 @@
             // 
             this.L_regFechaDesde.AutoSize = true;
             this.L_regFechaDesde.Enabled = false;
-            this.L_regFechaDesde.Location = new System.Drawing.Point(12, 42);
+            this.L_regFechaDesde.Location = new System.Drawing.Point(13, 45);
             this.L_regFechaDesde.Name = "L_regFechaDesde";
             this.L_regFechaDesde.Size = new System.Drawing.Size(38, 13);
             this.L_regFechaDesde.TabIndex = 42;
@@ -3897,7 +3906,7 @@
             this.GBConfiguracionReporte.Controls.Add(this.BtnImprimir);
             this.GBConfiguracionReporte.Controls.Add(this.BtnVistaPrevia);
             this.GBConfiguracionReporte.Enabled = false;
-            this.GBConfiguracionReporte.Location = new System.Drawing.Point(698, 600);
+            this.GBConfiguracionReporte.Location = new System.Drawing.Point(717, 636);
             this.GBConfiguracionReporte.Name = "GBConfiguracionReporte";
             this.GBConfiguracionReporte.Size = new System.Drawing.Size(147, 179);
             this.GBConfiguracionReporte.TabIndex = 66;
@@ -3955,14 +3964,14 @@
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Analisis.Location = new System.Drawing.Point(228, 478);
             this.DGV_Analisis.Name = "DGV_Analisis";
             this.DGV_Analisis.ReadOnly = true;
@@ -4002,14 +4011,14 @@
             this.DGV_Registros.AllowUserToResizeColumns = false;
             this.DGV_Registros.AllowUserToResizeRows = false;
             this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGV_Registros.Location = new System.Drawing.Point(227, 26);
             this.DGV_Registros.Name = "DGV_Registros";
             this.DGV_Registros.ReadOnly = true;
@@ -4054,6 +4063,79 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // GB_Tendencia
+            // 
+            this.GB_Tendencia.Controls.Add(this.L_Tendencia);
+            this.GB_Tendencia.Controls.Add(this.BT_AnalisisRegistroTendencia);
+            this.GB_Tendencia.Controls.Add(this.CHB_RangoTendenciaRegistros);
+            this.GB_Tendencia.Controls.Add(this.label19);
+            this.GB_Tendencia.Controls.Add(this.label51);
+            this.GB_Tendencia.Controls.Add(this.dateTimePicker1);
+            this.GB_Tendencia.Controls.Add(this.dateTimePicker2);
+            this.GB_Tendencia.Location = new System.Drawing.Point(643, 454);
+            this.GB_Tendencia.Name = "GB_Tendencia";
+            this.GB_Tendencia.Size = new System.Drawing.Size(200, 163);
+            this.GB_Tendencia.TabIndex = 84;
+            this.GB_Tendencia.TabStop = false;
+            this.GB_Tendencia.Text = "Tendencia";
+            // 
+            // CHB_RangoTendenciaRegistros
+            // 
+            this.CHB_RangoTendenciaRegistros.AutoSize = true;
+            this.CHB_RangoTendenciaRegistros.Location = new System.Drawing.Point(27, 16);
+            this.CHB_RangoTendenciaRegistros.Name = "CHB_RangoTendenciaRegistros";
+            this.CHB_RangoTendenciaRegistros.Size = new System.Drawing.Size(161, 17);
+            this.CHB_RangoTendenciaRegistros.TabIndex = 44;
+            this.CHB_RangoTendenciaRegistros.Text = "Acotar a un rango de fechas";
+            this.CHB_RangoTendenciaRegistros.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Enabled = false;
+            this.label19.Location = new System.Drawing.Point(30, 69);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 48;
+            this.label19.Text = "Hasta";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Enabled = false;
+            this.label51.Location = new System.Drawing.Point(30, 43);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(38, 13);
+            this.label51.TabIndex = 47;
+            this.label51.Text = "Desde";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(77, 65);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(84, 20);
+            this.dateTimePicker1.TabIndex = 46;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Enabled = false;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(77, 39);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(84, 20);
+            this.dateTimePicker2.TabIndex = 45;
+            // 
+            // BT_AnalisisRegistroTendencia
+            // 
+            this.BT_AnalisisRegistroTendencia.Location = new System.Drawing.Point(36, 96);
+            this.BT_AnalisisRegistroTendencia.Name = "BT_AnalisisRegistroTendencia";
+            this.BT_AnalisisRegistroTendencia.Size = new System.Drawing.Size(125, 23);
+            this.BT_AnalisisRegistroTendencia.TabIndex = 49;
+            this.BT_AnalisisRegistroTendencia.Text = "Analizar tendencia";
+            this.BT_AnalisisRegistroTendencia.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -4164,6 +4246,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Analisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Registros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
+            this.GB_Tendencia.ResumeLayout(false);
+            this.GB_Tendencia.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4512,6 +4596,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn relativo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.Label L_Tendencia;
+        private System.Windows.Forms.GroupBox GB_Tendencia;
+        private System.Windows.Forms.CheckBox CHB_RangoTendenciaRegistros;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button BT_AnalisisRegistroTendencia;
     }
 }
 
