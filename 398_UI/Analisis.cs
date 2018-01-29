@@ -112,6 +112,11 @@ namespace _398_UI
                 MessageBox.Show("No hay calibraciones en el rango de fechas seleccionado");
                 return Double.NaN;
             }
+            if (listaFiltrada.Count()==1)
+            {
+                MessageBox.Show("En el rango de fechas seleccionado hay una única calibración.\nNo se puede realizar el análisis");
+                return Double.NaN;
+            }
             else
             {
                 List<Double> valores = listaFiltrada.Select(q => q.Dwzref).ToList();

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -377,8 +377,8 @@
             this.GB_Tendencia = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.CHB_RangoTendenciaRegistros = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
+            this.L_TendenciaHasta = new System.Windows.Forms.Label();
+            this.L_TendenciaDesde = new System.Windows.Forms.Label();
             this.DTP_TendenciaHasta = new System.Windows.Forms.DateTimePicker();
             this.DTP_TendenciaDesde = new System.Windows.Forms.DateTimePicker();
             this.BT_AnalisisRegistroTendencia = new System.Windows.Forms.Button();
@@ -3617,11 +3617,12 @@
             // L_Tendencia
             // 
             this.L_Tendencia.AutoSize = true;
-            this.L_Tendencia.Location = new System.Drawing.Point(33, 132);
+            this.L_Tendencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_Tendencia.Location = new System.Drawing.Point(9, 128);
             this.L_Tendencia.Name = "L_Tendencia";
-            this.L_Tendencia.Size = new System.Drawing.Size(61, 13);
+            this.L_Tendencia.Size = new System.Drawing.Size(84, 17);
             this.L_Tendencia.TabIndex = 83;
-            this.L_Tendencia.Text = "Tendencia:";
+            this.L_Tendencia.Text = "Tendencia";
             this.L_Tendencia.Visible = false;
             // 
             // label21
@@ -3685,8 +3686,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
+            series3.Name = "Series1";
+            this.Chart_Registros.Series.Add(series3);
             this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3964,14 +3965,14 @@
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Analisis.Location = new System.Drawing.Point(228, 478);
             this.DGV_Analisis.Name = "DGV_Analisis";
             this.DGV_Analisis.ReadOnly = true;
@@ -4011,14 +4012,14 @@
             this.DGV_Registros.AllowUserToResizeColumns = false;
             this.DGV_Registros.AllowUserToResizeRows = false;
             this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGV_Registros.Location = new System.Drawing.Point(227, 26);
             this.DGV_Registros.Name = "DGV_Registros";
             this.DGV_Registros.ReadOnly = true;
@@ -4069,10 +4070,11 @@
             this.GB_Tendencia.Controls.Add(this.L_Tendencia);
             this.GB_Tendencia.Controls.Add(this.BT_AnalisisRegistroTendencia);
             this.GB_Tendencia.Controls.Add(this.CHB_RangoTendenciaRegistros);
-            this.GB_Tendencia.Controls.Add(this.label19);
-            this.GB_Tendencia.Controls.Add(this.label51);
+            this.GB_Tendencia.Controls.Add(this.L_TendenciaHasta);
+            this.GB_Tendencia.Controls.Add(this.L_TendenciaDesde);
             this.GB_Tendencia.Controls.Add(this.DTP_TendenciaHasta);
             this.GB_Tendencia.Controls.Add(this.DTP_TendenciaDesde);
+            this.GB_Tendencia.Enabled = false;
             this.GB_Tendencia.Location = new System.Drawing.Point(643, 454);
             this.GB_Tendencia.Name = "GB_Tendencia";
             this.GB_Tendencia.Size = new System.Drawing.Size(200, 163);
@@ -4089,27 +4091,31 @@
             this.CHB_RangoTendenciaRegistros.TabIndex = 44;
             this.CHB_RangoTendenciaRegistros.Text = "Acotar a un rango de fechas";
             this.CHB_RangoTendenciaRegistros.UseVisualStyleBackColor = true;
+            this.CHB_RangoTendenciaRegistros.CheckedChanged += new System.EventHandler(this.CHB_RangoTendenciaRegistros_CheckedChanged);
             // 
-            // label19
+            // L_TendenciaHasta
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(30, 69);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
-            this.label19.TabIndex = 48;
-            this.label19.Text = "Hasta";
+            this.L_TendenciaHasta.AutoSize = true;
+            this.L_TendenciaHasta.Enabled = false;
+            this.L_TendenciaHasta.Location = new System.Drawing.Point(30, 69);
+            this.L_TendenciaHasta.Name = "L_TendenciaHasta";
+            this.L_TendenciaHasta.Size = new System.Drawing.Size(35, 13);
+            this.L_TendenciaHasta.TabIndex = 48;
+            this.L_TendenciaHasta.Text = "Hasta";
             // 
-            // label51
+            // L_TendenciaDesde
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(30, 43);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(38, 13);
-            this.label51.TabIndex = 47;
-            this.label51.Text = "Desde";
+            this.L_TendenciaDesde.AutoSize = true;
+            this.L_TendenciaDesde.Enabled = false;
+            this.L_TendenciaDesde.Location = new System.Drawing.Point(30, 43);
+            this.L_TendenciaDesde.Name = "L_TendenciaDesde";
+            this.L_TendenciaDesde.Size = new System.Drawing.Size(38, 13);
+            this.L_TendenciaDesde.TabIndex = 47;
+            this.L_TendenciaDesde.Text = "Desde";
             // 
             // DTP_TendenciaHasta
             // 
+            this.DTP_TendenciaHasta.Enabled = false;
             this.DTP_TendenciaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_TendenciaHasta.Location = new System.Drawing.Point(77, 65);
             this.DTP_TendenciaHasta.Name = "DTP_TendenciaHasta";
@@ -4118,6 +4124,7 @@
             // 
             // DTP_TendenciaDesde
             // 
+            this.DTP_TendenciaDesde.Enabled = false;
             this.DTP_TendenciaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_TendenciaDesde.Location = new System.Drawing.Point(77, 39);
             this.DTP_TendenciaDesde.Name = "DTP_TendenciaDesde";
@@ -4595,8 +4602,8 @@
         private System.Windows.Forms.Label L_Tendencia;
         private System.Windows.Forms.GroupBox GB_Tendencia;
         private System.Windows.Forms.CheckBox CHB_RangoTendenciaRegistros;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label L_TendenciaHasta;
+        private System.Windows.Forms.Label L_TendenciaDesde;
         private System.Windows.Forms.DateTimePicker DTP_TendenciaHasta;
         private System.Windows.Forms.DateTimePicker DTP_TendenciaDesde;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

@@ -1518,8 +1518,6 @@ namespace _398_UI
             inicializarRegistrosEnergias();
             DTPRegDesde.Value = primerFechaCali();
             DTPRegHasta.Value = ultimaFechaCali();
-            DTP_TendenciaDesde.Value = primerFechaCali();
-            DTP_TendenciaHasta.Value = ultimaFechaCali();
         }
 
         private void ListBox_RegistrosEquipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -1550,7 +1548,6 @@ namespace _398_UI
             {
                 return new DateTime(2017, 11, 8);
             }
-            
         }
 
         private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
@@ -1615,12 +1612,30 @@ namespace _398_UI
             }
         }
 
+        private void CHB_RangoTendenciaRegistros_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHB_RangoTendenciaRegistros.Checked)
+            {
+                DTP_TendenciaDesde.Enabled = true;
+                DTP_TendenciaDesde.Value = DTPRegDesde.Value;
+                DTP_TendenciaHasta.Enabled = true;
+                DTP_TendenciaHasta.Value = DTPRegHasta.Value;
+                L_regFechaDesde.Enabled = true;
+                L_RegFechaHasta.Enabled = true;
+            }
+            else
+            {
+                DTP_TendenciaDesde.Enabled = false;
+                DTP_TendenciaHasta.Enabled = false;
+                L_regFechaDesde.Enabled = false;
+                L_RegFechaHasta.Enabled = false;
+            }
+        }
+            #endregion
 
-        #endregion
+            #region Analizar Registros Botones
 
-        #region Analizar Registros Botones
-
-        private void BT_RegistrosResumen_Click(object sender, EventArgs e)
+            private void BT_RegistrosResumen_Click(object sender, EventArgs e)
         {
             MessageBox.Show(CalibracionFot.resumenCalibracion((CalibracionFot)DGV_Registros.SelectedRows[0].DataBoundItem));
         }
@@ -1672,6 +1687,7 @@ namespace _398_UI
                 Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGV_Analisis, L_Tendencia);
                 Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
                 L_RegistroCalibraciones.Text = "Calibraciones" + stringEtiquetaLista();
+                GB_Tendencia.Enabled = true;
             }
             else
             {
@@ -1680,14 +1696,25 @@ namespace _398_UI
                 DGV_Analisis.DataSource = null;
                 Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
                 L_RegistroCalibraciones.Text = "Calibraciones";
+                GB_Tendencia.Enabled = false;
             }
+            L_Tendencia.Visible = false;
 
         }
 
         private void BT_AnalisisRegistroTendencia_Click(object sender, EventArgs e)
         {
            double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
-            L_Tendencia.Text += valor.ToString();
+            if (!Double.IsNaN(valor))
+            {
+                L_Tendencia.Visible = true;
+                L_Tendencia.Text = "Tendencia: " + valor.ToString() + "%/dia";
+            }
+            else
+            {
+                L_Tendencia.Visible = false;
+            }
+            
         }
 
         #endregion
@@ -2149,9 +2176,12 @@ namespace _398_UI
 
 
 
+
         #endregion
 
-        
+       
+               
+
     }
 }
 
