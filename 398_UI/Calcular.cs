@@ -286,7 +286,7 @@ namespace _398_UI
                 sumaXcuadrado += Math.Pow(xLista[i], 2);
             }
             double pendiente = (xLista.Count * sumaXY - sumaX * sumaY) / (xLista.Count * sumaXcuadrado - Math.Pow(sumaX, 2));
-            double ordenada = (xLista.Count*sumaXcuadrado*sumaY-sumaX*sumaXY) / (xLista.Count * sumaXcuadrado - Math.Pow(sumaX, 2));
+            double ordenada = (sumaXcuadrado*sumaY-sumaX*sumaXY) / (xLista.Count * sumaXcuadrado - Math.Pow(sumaX, 2));
             return Tuple.Create<double, double>(pendiente, ordenada);
         }
 

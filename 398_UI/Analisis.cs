@@ -122,14 +122,14 @@ namespace _398_UI
             {
                 List<Double> valores = listaFiltrada.Select(q => q.Dwzref).ToList();
                 List<Double> fechasDouble = listaFiltrada.Select(q => q.Fecha.ToOADate()).ToList();
-                Graficar.agregarLineaTendencia(grafico, Calcular.cuadradosMinimos(fechasDouble, valores), desde, hasta);
+                Graficar.agregarLineaTendencia(grafico, Calcular.cuadradosMinimos(fechasDouble, valores), fechasDouble.Min(), fechasDouble.Max());
                 if (CalibracionFot.hayReferencia(equipo, energia, DFSoISO))
                 {
-                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / CalibracionFot.obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref * 100, 2);
+                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / CalibracionFot.obtenerCaliReferencia(equipo, energia, DFSoISO).Dwzref * 100*30, 2); //mensual
                 }
                 else
                 {
-                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / valores.Average() * 100, 2);
+                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / valores.Average() * 100*30, 2); //mensual
                 }
                 
             }

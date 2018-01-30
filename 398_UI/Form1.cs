@@ -1708,7 +1708,7 @@ namespace _398_UI
             if (!Double.IsNaN(valor))
             {
                 L_Tendencia.Visible = true;
-                L_Tendencia.Text = "Tendencia: " + valor.ToString() + "%/dia";
+                L_Tendencia.Text = "Tendencia: " + valor.ToString() + " %/mes";
             }
             else
             {

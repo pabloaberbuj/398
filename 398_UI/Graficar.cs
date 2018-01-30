@@ -82,20 +82,22 @@ namespace _398_UI
             return serie;
         }
 
-        public static void agregarLineaTendencia(Chart grafico, Tuple<double,double> parametros, DateTime desde, DateTime hasta)
+        public static void agregarLineaTendencia(Chart grafico, Tuple<double,double> parametros, double desde, double hasta)
         {
             Series serie = new Series()
             {
                 ChartType = SeriesChartType.Line,
                 LegendText = "tendencia",
                 IsVisibleInLegend = true,
-                MarkerSize = 3,
+                BorderWidth = 1,
+                BorderDashStyle = ChartDashStyle.Dash,
+                Color = Color.Black,
                 
             };
-            double desdeDouble = Convert.ToDouble(desde.ToOADate());
-            double hastaDouble = Convert.ToDouble(hasta.ToOADate());
-            DataPoint p1 = new DataPoint(desde.ToOADate(), parametros.Item1 * desde.ToOADate() + parametros.Item2);
-            DataPoint p2 = new DataPoint(hasta.ToOADate(), parametros.Item1 * hasta.ToOADate() + parametros.Item2);
+            desde = desde - (hasta - desde) / 5;
+            hasta = hasta + (hasta - desde) / 5;
+            DataPoint p1 = new DataPoint(desde, parametros.Item1 * desde + parametros.Item2);
+            DataPoint p2 = new DataPoint(hasta, parametros.Item1 * hasta + parametros.Item2);
             serie.Points.Add(p1);
             serie.Points.Add(p2);
             grafico.Series.Add(serie);
