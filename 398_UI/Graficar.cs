@@ -84,8 +84,15 @@ namespace _398_UI
 
         public static void agregarLineaTendencia(Chart grafico, Tuple<double,double> parametros, double desde, double hasta)
         {
+
+            if (grafico.Series.IndexOf("tendencia")!=-1)
+            {
+                grafico.Series.Remove(grafico.Series["tendencia"]);
+            }
+              
             Series serie = new Series()
             {
+                Name = "tendencia",
                 ChartType = SeriesChartType.Line,
                 LegendText = "tendencia",
                 IsVisibleInLegend = true,
