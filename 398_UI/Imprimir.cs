@@ -248,7 +248,7 @@ namespace _398_UI
             return y;
         }
 
-        // generacion reporte
+        #region reporteCaliFotones
 
 
         public static int imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea)
@@ -542,6 +542,21 @@ namespace _398_UI
                 posicionlinea += altoTexto;
             }
             posicionlinea = imprimirTodoEnRef(e, posicionlinea, cali.lectRef, cali.Mref, cali.Dwzref, cali.Dwzmax, cali.DifLB, !Double.IsNaN(cali.Dwzmax), !Double.IsNaN(cali.DifLB)); //mejorar acá. No deberían hacer falta los bool
+        }
+        #endregion
+
+        #region reporteAnalisisCalibraciones
+        public static int imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea)
+        {
+            posicionlinea += imprimirTitulo(e, "Determinación de dosis absorbida en agua \n según protocolo 398 - IAEA", posicionlinea, 2);
+            return posicionlinea;
+        }
+
+        public static int imprimirUsuarioYFecha(PrintPageEventArgs e, int posicionlinea, string usuario, DateTime fecha)
+        {
+            imprimirEtiquetaYValorx2Sep(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
+            posicionlinea += altoTexto + espacioTitulo;
+            return posicionlinea;
         }
 
     }
