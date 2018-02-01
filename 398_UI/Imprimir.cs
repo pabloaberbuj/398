@@ -546,18 +546,32 @@ namespace _398_UI
         #endregion
 
         #region reporteAnalisisCalibraciones
-        public static int imprimirTituloCaliFotones(PrintPageEventArgs e, int posicionlinea)
+        public static int tituloAnalisis(PrintPageEventArgs e, int posicionlinea)
         {
-            posicionlinea += imprimirTitulo(e, "Determinación de dosis absorbida en agua \n según protocolo 398 - IAEA", posicionlinea, 2);
+            posicionlinea += imprimirTitulo(e, "Análisis de calibraciones", posicionlinea, 2);
             return posicionlinea;
         }
 
-        public static int imprimirUsuarioYFecha(PrintPageEventArgs e, int posicionlinea, string usuario, DateTime fecha)
+        public static int fechaAnalisis(PrintPageEventArgs e, int posicionlinea)
         {
-            imprimirEtiquetaYValorx2Sep(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
-            posicionlinea += altoTexto + espacioTitulo;
-            return posicionlinea;
+            imprimirEtiquetaYValor(e, posicionlinea, "Fecha: ", DateTime.Today.ToShortDateString(), anchoTotal / 2);
+            return posicionlinea + altoTexto + espacioParrafo;
         }
+
+        public void analisis(object sender, PrintPageEventArgs e, Equipo equipo, EnergiaFotones energia, Chart grafico, DataGridView tablaCalibraciones, DataGrid tablaAnalisis)
+        {
+            int posicionlinea = 30;
+            posicionlinea = tituloAnalisis(e, posicionlinea);
+            posicionlinea = fechaAnalisis(e, posicionlinea);
+            posicionlinea += altoTexto;
+            posicionlinea = imprimirEquipo(e, posicionlinea, equipo, energia);
+            posicionlinea += altoTexto;
+            posicionlinea = imprimirCondiciones(e, posicionlinea, cali.DFSoISO, cali.LadoCampo.ToString(), cali.Profundidad.ToString(), TPRoPDD);
+            posicionlinea += altoTexto;
+
+        }
+
+        #endregion
 
     }
 }
