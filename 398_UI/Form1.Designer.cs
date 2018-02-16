@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
@@ -332,7 +332,14 @@
             this.Bt_AnalizarReg = new System.Windows.Forms.Button();
             this.Bt_Inicio = new System.Windows.Forms.Button();
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
+            this.GB_Tendencia = new System.Windows.Forms.GroupBox();
             this.L_Tendencia = new System.Windows.Forms.Label();
+            this.BT_AnalisisRegistroTendencia = new System.Windows.Forms.Button();
+            this.CHB_RangoTendenciaRegistros = new System.Windows.Forms.CheckBox();
+            this.L_TendenciaHasta = new System.Windows.Forms.Label();
+            this.L_TendenciaDesde = new System.Windows.Forms.Label();
+            this.DTP_TendenciaHasta = new System.Windows.Forms.DateTimePicker();
+            this.DTP_TendenciaDesde = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.BT_RegistroImprimir = new System.Windows.Forms.Button();
             this.BT_RegistroVPImpresion = new System.Windows.Forms.Button();
@@ -374,14 +381,7 @@
             this.Panel_Botones = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.GB_Tendencia = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.CHB_RangoTendenciaRegistros = new System.Windows.Forms.CheckBox();
-            this.L_TendenciaHasta = new System.Windows.Forms.Label();
-            this.L_TendenciaDesde = new System.Windows.Forms.Label();
-            this.DTP_TendenciaHasta = new System.Windows.Forms.DateTimePicker();
-            this.DTP_TendenciaDesde = new System.Windows.Forms.DateTimePicker();
-            this.BT_AnalisisRegistroTendencia = new System.Windows.Forms.Button();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -428,6 +428,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Panel_AnalizarReg.SuspendLayout();
+            this.GB_Tendencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -437,7 +438,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Analisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Registros)).BeginInit();
             this.Panel_Botones.SuspendLayout();
-            this.GB_Tendencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
@@ -3614,6 +3614,23 @@
             this.Panel_AnalizarReg.Size = new System.Drawing.Size(870, 700);
             this.Panel_AnalizarReg.TabIndex = 2;
             // 
+            // GB_Tendencia
+            // 
+            this.GB_Tendencia.Controls.Add(this.L_Tendencia);
+            this.GB_Tendencia.Controls.Add(this.BT_AnalisisRegistroTendencia);
+            this.GB_Tendencia.Controls.Add(this.CHB_RangoTendenciaRegistros);
+            this.GB_Tendencia.Controls.Add(this.L_TendenciaHasta);
+            this.GB_Tendencia.Controls.Add(this.L_TendenciaDesde);
+            this.GB_Tendencia.Controls.Add(this.DTP_TendenciaHasta);
+            this.GB_Tendencia.Controls.Add(this.DTP_TendenciaDesde);
+            this.GB_Tendencia.Enabled = false;
+            this.GB_Tendencia.Location = new System.Drawing.Point(643, 454);
+            this.GB_Tendencia.Name = "GB_Tendencia";
+            this.GB_Tendencia.Size = new System.Drawing.Size(200, 163);
+            this.GB_Tendencia.TabIndex = 84;
+            this.GB_Tendencia.TabStop = false;
+            this.GB_Tendencia.Text = "Tendencia";
+            // 
             // L_Tendencia
             // 
             this.L_Tendencia.AutoSize = true;
@@ -3624,6 +3641,65 @@
             this.L_Tendencia.TabIndex = 83;
             this.L_Tendencia.Text = "Tendencia";
             this.L_Tendencia.Visible = false;
+            // 
+            // BT_AnalisisRegistroTendencia
+            // 
+            this.BT_AnalisisRegistroTendencia.Location = new System.Drawing.Point(36, 96);
+            this.BT_AnalisisRegistroTendencia.Name = "BT_AnalisisRegistroTendencia";
+            this.BT_AnalisisRegistroTendencia.Size = new System.Drawing.Size(125, 23);
+            this.BT_AnalisisRegistroTendencia.TabIndex = 49;
+            this.BT_AnalisisRegistroTendencia.Text = "Analizar tendencia";
+            this.BT_AnalisisRegistroTendencia.UseVisualStyleBackColor = true;
+            this.BT_AnalisisRegistroTendencia.Click += new System.EventHandler(this.BT_AnalisisRegistroTendencia_Click);
+            // 
+            // CHB_RangoTendenciaRegistros
+            // 
+            this.CHB_RangoTendenciaRegistros.AutoSize = true;
+            this.CHB_RangoTendenciaRegistros.Location = new System.Drawing.Point(27, 16);
+            this.CHB_RangoTendenciaRegistros.Name = "CHB_RangoTendenciaRegistros";
+            this.CHB_RangoTendenciaRegistros.Size = new System.Drawing.Size(161, 17);
+            this.CHB_RangoTendenciaRegistros.TabIndex = 44;
+            this.CHB_RangoTendenciaRegistros.Text = "Acotar a un rango de fechas";
+            this.CHB_RangoTendenciaRegistros.UseVisualStyleBackColor = true;
+            this.CHB_RangoTendenciaRegistros.CheckedChanged += new System.EventHandler(this.CHB_RangoTendenciaRegistros_CheckedChanged);
+            // 
+            // L_TendenciaHasta
+            // 
+            this.L_TendenciaHasta.AutoSize = true;
+            this.L_TendenciaHasta.Enabled = false;
+            this.L_TendenciaHasta.Location = new System.Drawing.Point(30, 69);
+            this.L_TendenciaHasta.Name = "L_TendenciaHasta";
+            this.L_TendenciaHasta.Size = new System.Drawing.Size(35, 13);
+            this.L_TendenciaHasta.TabIndex = 48;
+            this.L_TendenciaHasta.Text = "Hasta";
+            // 
+            // L_TendenciaDesde
+            // 
+            this.L_TendenciaDesde.AutoSize = true;
+            this.L_TendenciaDesde.Enabled = false;
+            this.L_TendenciaDesde.Location = new System.Drawing.Point(30, 43);
+            this.L_TendenciaDesde.Name = "L_TendenciaDesde";
+            this.L_TendenciaDesde.Size = new System.Drawing.Size(38, 13);
+            this.L_TendenciaDesde.TabIndex = 47;
+            this.L_TendenciaDesde.Text = "Desde";
+            // 
+            // DTP_TendenciaHasta
+            // 
+            this.DTP_TendenciaHasta.Enabled = false;
+            this.DTP_TendenciaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTP_TendenciaHasta.Location = new System.Drawing.Point(77, 65);
+            this.DTP_TendenciaHasta.Name = "DTP_TendenciaHasta";
+            this.DTP_TendenciaHasta.Size = new System.Drawing.Size(84, 20);
+            this.DTP_TendenciaHasta.TabIndex = 46;
+            // 
+            // DTP_TendenciaDesde
+            // 
+            this.DTP_TendenciaDesde.Enabled = false;
+            this.DTP_TendenciaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTP_TendenciaDesde.Location = new System.Drawing.Point(77, 39);
+            this.DTP_TendenciaDesde.Name = "DTP_TendenciaDesde";
+            this.DTP_TendenciaDesde.Size = new System.Drawing.Size(84, 20);
+            this.DTP_TendenciaDesde.TabIndex = 45;
             // 
             // label21
             // 
@@ -3686,8 +3762,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series3.Name = "Series1";
-            this.Chart_Registros.Series.Add(series3);
+            series4.Name = "Series1";
+            this.Chart_Registros.Series.Add(series4);
             this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -3695,7 +3771,7 @@
             // BtAnalizar
             // 
             this.BtAnalizar.Enabled = false;
-            this.BtAnalizar.Location = new System.Drawing.Point(9, 537);
+            this.BtAnalizar.Location = new System.Drawing.Point(9, 477);
             this.BtAnalizar.Name = "BtAnalizar";
             this.BtAnalizar.Size = new System.Drawing.Size(180, 35);
             this.BtAnalizar.TabIndex = 44;
@@ -3707,7 +3783,7 @@
             // 
             this.groupBox7.Controls.Add(this.RB_RegistroIso);
             this.groupBox7.Controls.Add(this.RB_RegistroDFSFija);
-            this.groupBox7.Location = new System.Drawing.Point(9, 321);
+            this.groupBox7.Location = new System.Drawing.Point(9, 280);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(180, 79);
             this.groupBox7.TabIndex = 73;
@@ -3746,7 +3822,7 @@
             this.groupBox2.Controls.Add(this.CB_RegistroEnergiaFot);
             this.groupBox2.Controls.Add(this.RB_RegistroEnergiaElec);
             this.groupBox2.Controls.Add(this.RB_RegistroEnergiaFot);
-            this.groupBox2.Location = new System.Drawing.Point(9, 202);
+            this.groupBox2.Location = new System.Drawing.Point(9, 175);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(180, 87);
             this.groupBox2.TabIndex = 72;
@@ -3845,7 +3921,7 @@
             this.groupBox6.Controls.Add(this.L_regFechaDesde);
             this.groupBox6.Controls.Add(this.DTPRegHasta);
             this.groupBox6.Controls.Add(this.DTPRegDesde);
-            this.groupBox6.Location = new System.Drawing.Point(9, 435);
+            this.groupBox6.Location = new System.Drawing.Point(9, 375);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(180, 92);
             this.groupBox6.TabIndex = 65;
@@ -3906,10 +3982,9 @@
             this.GBConfiguracionReporte.Controls.Add(this.checkedListBox1);
             this.GBConfiguracionReporte.Controls.Add(this.BtnImprimir);
             this.GBConfiguracionReporte.Controls.Add(this.BtnVistaPrevia);
-            this.GBConfiguracionReporte.Enabled = false;
-            this.GBConfiguracionReporte.Location = new System.Drawing.Point(717, 636);
+            this.GBConfiguracionReporte.Location = new System.Drawing.Point(11, 537);
             this.GBConfiguracionReporte.Name = "GBConfiguracionReporte";
-            this.GBConfiguracionReporte.Size = new System.Drawing.Size(147, 179);
+            this.GBConfiguracionReporte.Size = new System.Drawing.Size(178, 136);
             this.GBConfiguracionReporte.TabIndex = 66;
             this.GBConfiguracionReporte.TabStop = false;
             this.GBConfiguracionReporte.Text = "Configuración Reporte";
@@ -3921,28 +3996,30 @@
             "Lista Calibraciones",
             "Gráfico tasa de dosis ",
             "Análisis"});
-            this.checkedListBox1.Location = new System.Drawing.Point(11, 28);
+            this.checkedListBox1.Location = new System.Drawing.Point(13, 16);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(124, 79);
+            this.checkedListBox1.Size = new System.Drawing.Size(150, 64);
             this.checkedListBox1.TabIndex = 55;
             // 
             // BtnImprimir
             // 
-            this.BtnImprimir.Location = new System.Drawing.Point(11, 150);
+            this.BtnImprimir.Location = new System.Drawing.Point(91, 103);
             this.BtnImprimir.Name = "BtnImprimir";
-            this.BtnImprimir.Size = new System.Drawing.Size(124, 23);
+            this.BtnImprimir.Size = new System.Drawing.Size(84, 23);
             this.BtnImprimir.TabIndex = 54;
             this.BtnImprimir.Text = "Imprimir";
             this.BtnImprimir.UseVisualStyleBackColor = true;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // BtnVistaPrevia
             // 
-            this.BtnVistaPrevia.Location = new System.Drawing.Point(11, 121);
+            this.BtnVistaPrevia.Location = new System.Drawing.Point(4, 103);
             this.BtnVistaPrevia.Name = "BtnVistaPrevia";
-            this.BtnVistaPrevia.Size = new System.Drawing.Size(124, 23);
+            this.BtnVistaPrevia.Size = new System.Drawing.Size(81, 23);
             this.BtnVistaPrevia.TabIndex = 53;
             this.BtnVistaPrevia.Text = "Vista Previa";
             this.BtnVistaPrevia.UseVisualStyleBackColor = true;
+            this.BtnVistaPrevia.Click += new System.EventHandler(this.BtnVistaPrevia_Click);
             // 
             // L_RegistroCalibraciones
             // 
@@ -3965,14 +4042,14 @@
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle7;
             this.DGV_Analisis.Location = new System.Drawing.Point(228, 478);
             this.DGV_Analisis.Name = "DGV_Analisis";
             this.DGV_Analisis.ReadOnly = true;
@@ -4012,14 +4089,14 @@
             this.DGV_Registros.AllowUserToResizeColumns = false;
             this.DGV_Registros.AllowUserToResizeRows = false;
             this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle8;
             this.DGV_Registros.Location = new System.Drawing.Point(227, 26);
             this.DGV_Registros.Name = "DGV_Registros";
             this.DGV_Registros.ReadOnly = true;
@@ -4064,82 +4141,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // GB_Tendencia
-            // 
-            this.GB_Tendencia.Controls.Add(this.L_Tendencia);
-            this.GB_Tendencia.Controls.Add(this.BT_AnalisisRegistroTendencia);
-            this.GB_Tendencia.Controls.Add(this.CHB_RangoTendenciaRegistros);
-            this.GB_Tendencia.Controls.Add(this.L_TendenciaHasta);
-            this.GB_Tendencia.Controls.Add(this.L_TendenciaDesde);
-            this.GB_Tendencia.Controls.Add(this.DTP_TendenciaHasta);
-            this.GB_Tendencia.Controls.Add(this.DTP_TendenciaDesde);
-            this.GB_Tendencia.Enabled = false;
-            this.GB_Tendencia.Location = new System.Drawing.Point(643, 454);
-            this.GB_Tendencia.Name = "GB_Tendencia";
-            this.GB_Tendencia.Size = new System.Drawing.Size(200, 163);
-            this.GB_Tendencia.TabIndex = 84;
-            this.GB_Tendencia.TabStop = false;
-            this.GB_Tendencia.Text = "Tendencia";
-            // 
-            // CHB_RangoTendenciaRegistros
-            // 
-            this.CHB_RangoTendenciaRegistros.AutoSize = true;
-            this.CHB_RangoTendenciaRegistros.Location = new System.Drawing.Point(27, 16);
-            this.CHB_RangoTendenciaRegistros.Name = "CHB_RangoTendenciaRegistros";
-            this.CHB_RangoTendenciaRegistros.Size = new System.Drawing.Size(161, 17);
-            this.CHB_RangoTendenciaRegistros.TabIndex = 44;
-            this.CHB_RangoTendenciaRegistros.Text = "Acotar a un rango de fechas";
-            this.CHB_RangoTendenciaRegistros.UseVisualStyleBackColor = true;
-            this.CHB_RangoTendenciaRegistros.CheckedChanged += new System.EventHandler(this.CHB_RangoTendenciaRegistros_CheckedChanged);
-            // 
-            // L_TendenciaHasta
-            // 
-            this.L_TendenciaHasta.AutoSize = true;
-            this.L_TendenciaHasta.Enabled = false;
-            this.L_TendenciaHasta.Location = new System.Drawing.Point(30, 69);
-            this.L_TendenciaHasta.Name = "L_TendenciaHasta";
-            this.L_TendenciaHasta.Size = new System.Drawing.Size(35, 13);
-            this.L_TendenciaHasta.TabIndex = 48;
-            this.L_TendenciaHasta.Text = "Hasta";
-            // 
-            // L_TendenciaDesde
-            // 
-            this.L_TendenciaDesde.AutoSize = true;
-            this.L_TendenciaDesde.Enabled = false;
-            this.L_TendenciaDesde.Location = new System.Drawing.Point(30, 43);
-            this.L_TendenciaDesde.Name = "L_TendenciaDesde";
-            this.L_TendenciaDesde.Size = new System.Drawing.Size(38, 13);
-            this.L_TendenciaDesde.TabIndex = 47;
-            this.L_TendenciaDesde.Text = "Desde";
-            // 
-            // DTP_TendenciaHasta
-            // 
-            this.DTP_TendenciaHasta.Enabled = false;
-            this.DTP_TendenciaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTP_TendenciaHasta.Location = new System.Drawing.Point(77, 65);
-            this.DTP_TendenciaHasta.Name = "DTP_TendenciaHasta";
-            this.DTP_TendenciaHasta.Size = new System.Drawing.Size(84, 20);
-            this.DTP_TendenciaHasta.TabIndex = 46;
-            // 
-            // DTP_TendenciaDesde
-            // 
-            this.DTP_TendenciaDesde.Enabled = false;
-            this.DTP_TendenciaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTP_TendenciaDesde.Location = new System.Drawing.Point(77, 39);
-            this.DTP_TendenciaDesde.Name = "DTP_TendenciaDesde";
-            this.DTP_TendenciaDesde.Size = new System.Drawing.Size(84, 20);
-            this.DTP_TendenciaDesde.TabIndex = 45;
-            // 
-            // BT_AnalisisRegistroTendencia
-            // 
-            this.BT_AnalisisRegistroTendencia.Location = new System.Drawing.Point(36, 96);
-            this.BT_AnalisisRegistroTendencia.Name = "BT_AnalisisRegistroTendencia";
-            this.BT_AnalisisRegistroTendencia.Size = new System.Drawing.Size(125, 23);
-            this.BT_AnalisisRegistroTendencia.TabIndex = 49;
-            this.BT_AnalisisRegistroTendencia.Text = "Analizar tendencia";
-            this.BT_AnalisisRegistroTendencia.UseVisualStyleBackColor = true;
-            this.BT_AnalisisRegistroTendencia.Click += new System.EventHandler(this.BT_AnalisisRegistroTendencia_Click);
             // 
             // Form1
             // 
@@ -4238,6 +4239,8 @@
             this.groupBox3.PerformLayout();
             this.Panel_AnalizarReg.ResumeLayout(false);
             this.Panel_AnalizarReg.PerformLayout();
+            this.GB_Tendencia.ResumeLayout(false);
+            this.GB_Tendencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -4250,8 +4253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Analisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Registros)).EndInit();
             this.Panel_Botones.ResumeLayout(false);
-            this.GB_Tendencia.ResumeLayout(false);
-            this.GB_Tendencia.PerformLayout();
             this.ResumeLayout(false);
 
         }

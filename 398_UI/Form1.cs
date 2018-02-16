@@ -2035,7 +2035,7 @@ namespace _398_UI
         #endregion
 
         #region Imprimir
-
+        #region imprimir CaliFotones
         private void Bt_ReporteVP_Click(object sender, EventArgs e)
         {
 
@@ -2060,7 +2060,7 @@ namespace _398_UI
             {
                 pd.Print();
             }
-            // printDialog1.ShowDialog();
+
         }
 
         private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
@@ -2169,6 +2169,40 @@ namespace _398_UI
             posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB);
         }
 
+        #endregion
+
+        #region imprimir Analisis
+
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            PrintDocument pd = new PrintDocument();
+            pd = Imprimir.cargarConfiguracion();
+            printDialog1.Document = pd;
+            pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_2);
+            pd.PrinterSettings = printDialog1.PrinterSettings;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pd.Print();
+            }
+        }
+
+        private void BtnVistaPrevia_Click(object sender, EventArgs e)
+        {
+            PrintDocument pd = new PrintDocument();
+            pd = Imprimir.cargarConfiguracion();
+            printPreviewDialog1.Document = pd;
+            pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage_2);
+
+            printPreviewDialog1.ShowDialog();
+        }
+        private void printDocument1_PrintPage_2(object sender, PrintPageEventArgs e)
+        {
+            Imprimir.analisis(sender, e, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), Chart_Registros, DGV_Registros, DGV_Analisis, registroDFSoISO());
+        }
+        #endregion
+
+
+
 
 
 
@@ -2179,8 +2213,6 @@ namespace _398_UI
 
         #endregion
 
-       
-               
 
     }
 }

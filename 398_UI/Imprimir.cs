@@ -558,17 +558,25 @@ namespace _398_UI
             return posicionlinea + altoTexto + espacioParrafo;
         }
 
-        public void analisis(object sender, PrintPageEventArgs e, Equipo equipo, EnergiaFotones energia, Chart grafico, DataGridView tablaCalibraciones, DataGrid tablaAnalisis)
+        public static void analisis(object sender, PrintPageEventArgs e, Equipo equipo, EnergiaFotones energia, Chart grafico, DataGridView tablaCalibraciones, DataGridView tablaAnalisis, int DFSoISO)
         {
+            string TMRoPDD = "";
+            if (DFSoISO==1)
+            {
+                TMRoPDD = energia.PddZrefFot.ToString();
+            }
+            else
+            {
+                TMRoPDD = energia.TmrZrefFot.ToString();
+            }
             int posicionlinea = 30;
             posicionlinea = tituloAnalisis(e, posicionlinea);
             posicionlinea = fechaAnalisis(e, posicionlinea);
             posicionlinea += altoTexto;
             posicionlinea = imprimirEquipo(e, posicionlinea, equipo, energia);
             posicionlinea += altoTexto;
-            posicionlinea = imprimirCondiciones(e, posicionlinea, cali.DFSoISO, cali.LadoCampo.ToString(), cali.Profundidad.ToString(), TPRoPDD);
+           posicionlinea = imprimirCondiciones(e, posicionlinea, DFSoISO, energia.LadoCampo.ToString(), energia.ZRefFot.ToString(), TMRoPDD);
             posicionlinea += altoTexto;
-
         }
 
         #endregion
