@@ -789,12 +789,12 @@ namespace _398_UI
 
         #region Cali Fotones Botones
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e) //Deshabilité limpiar después de guardar. No es útil si quiero imprimir por ejemplo
         {
             if (CalibracionFot.guardar(calibracionActual(), CHB_caliFotEstablecerComoRef.Checked))
             {
                 MessageBox.Show("Calibración guardada");
-                if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                /*if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     CHB_UsarKqq0LB.Checked = false;
                     CHB_UsaKpolLB.Checked = false;
@@ -806,7 +806,7 @@ namespace _398_UI
                     chb_EditarVKs.Checked = false;
                     actualizarCalculos();
                     CB_caliFotRealizadoPor.Text = "";
-                }
+                }*/
             }
 
         }
