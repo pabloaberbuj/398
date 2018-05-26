@@ -73,6 +73,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_CaliFotones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CaliFotones.designer.cs">
+      <DependentUpon>Form_CaliFotones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Graficar.cs" />
     <Compile Include="Imprimir.cs" />
     <Compile Include="ListaElectrones.cs" />
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CaliFotones.resx">
+      <DependentUpon>Form_CaliFotones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoSistDos.resx">
       <DependentUpon>NuevoSistDos.cs</DependentUpon>
