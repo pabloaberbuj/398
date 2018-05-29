@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace _398_UI
 {
 
-    public partial class Form_CaliFotones : Form
+    public partial class F_CaliFotones : Form
     {
         bool calculaKtpFot = false;
         bool calculaTPR2010Fot = false;
@@ -24,19 +24,21 @@ namespace _398_UI
         bool calculaDwzmaxFot = false;
         bool calculaDifLBFot = false;
 
-        public Form_CaliFotones()
+
+
+
+        public F_CaliFotones()
         {
             InitializeComponent();
         }
 
-        private void Form_CaliFotones_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
             MinimizeBox = false;
             MaximizeBox = false;
             
-            
-                        
+
 
 
             //Carga UI
@@ -44,19 +46,52 @@ namespace _398_UI
             inicializarPredeterminados(100, 10);
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
+            //InicializarInstitucionYMarcaEquipo();
+            //inicializacionesRegistro();
         }
 
 
-        #region Pestana
+        #region Paneles
 
-        private void actualizarNombrePestana()
+        //Ir y volver de calibración
+        private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            string nombrePestana = equipoSeleccionado().Marca + " " + equipoSeleccionado().Modelo;
-            if (equipoSeleccionado().Fuente==2)
+            /*panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
+            BT_EqIraCal.Text = "Seleccionar y volver a calibración";
+            Panel_Equipos.Visible = true;*/
+        }
+
+        private void btCkick_IraSistDos(object sender, EventArgs e)
+        {
+           /* panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
+            BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
+            Panel_SistDos.Visible = true;*/
+        }
+
+        private void BT_EqIraCal_Click(object sender, EventArgs e)
+        {
+          /*  if (DGV_Equipo.SelectedRows.Count == 1)
             {
-                nombrePestana += " " + energiaSeleccionada().Etiqueta + "MV";
-            }
-            this.Parent.Text = nombrePestana;
+                Equipo seleccionado = Equipo.lista()[DGV_Equipo.SelectedRows[0].Index];
+                string aux = seleccionado.Marca + " " + seleccionado.Modelo + " Nº Serie: " + seleccionado.NumSerie;
+                CB_CaliEquipos.SelectedIndex = CB_CaliEquipos.FindStringExact(aux);
+                actualizarComboBoxCaliFotones();
+                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+                BT_EqIraCal.Text = "Seleccionar e ir a calibración";
+            }*/
+
+        }
+
+        private void BT_SistDosIraCal_Click(object sender, EventArgs e)
+        {
+          /*  if (DGV_SistDos.SelectedRows.Count == 1)
+            {
+                SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
+                string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.Etiqueta;
+                CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
+                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+                BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
+            }*/
         }
         #endregion
 
@@ -443,7 +478,6 @@ namespace _398_UI
 
         private void actualizarCalculos()
         {
-            
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpFot = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
@@ -459,7 +493,6 @@ namespace _398_UI
                 chequearKpol();
                 chequearKs();
                 habilitarBotonesCaliFotones();
-                actualizarNombrePestana();
             }
         }
         #endregion
@@ -713,12 +746,12 @@ namespace _398_UI
 
         #region Cali Fotones Botones
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e) //Deshabilité limpiar después de guardar. No es útil si quiero imprimir por ejemplo
         {
             if (CalibracionFot.guardar(calibracionActual(), CHB_caliFotEstablecerComoRef.Checked))
             {
                 MessageBox.Show("Calibración guardada");
-                if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                /*if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     CHB_UsarKqq0LB.Checked = false;
                     CHB_UsaKpolLB.Checked = false;
@@ -730,7 +763,7 @@ namespace _398_UI
                     chb_EditarVKs.Checked = false;
                     actualizarCalculos();
                     CB_caliFotRealizadoPor.Text = "";
-                }
+                }*/
             }
 
         }
@@ -750,7 +783,7 @@ namespace _398_UI
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            limpiarRegistro2Niveles(Panel_CalFot);
+            //limpiarRegistro2Niveles(Panel_CalFot);
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
             chb_EditarVKpol.Checked = false;
@@ -776,7 +809,8 @@ namespace _398_UI
 
 
 
-        
+
+
         #region Métodos
         public static void limpiarRegistro(Panel panel)
         {
@@ -1092,7 +1126,7 @@ namespace _398_UI
         #endregion
 
         #region Imprimir
-
+        #region imprimir CaliFotones
         private void Bt_ReporteVP_Click(object sender, EventArgs e)
         {
 
@@ -1117,7 +1151,7 @@ namespace _398_UI
             {
                 pd.Print();
             }
-            // printDialog1.ShowDialog();
+
         }
 
         private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
@@ -1226,6 +1260,12 @@ namespace _398_UI
             posicionlinea = Imprimir.imprimirTodoEnRef(e, posicionlinea, promediarPanel(Panel_LecRef), CalculoMref(), calculoDwRef(), dwzmaxreporte, difLBreporte, hayPDDoTPR, hayLB);
         }
 
+        #endregion
+
+       
+
+
+
 
 
 
@@ -1236,8 +1276,6 @@ namespace _398_UI
 
         #endregion
 
-       
-               
 
     }
 }
