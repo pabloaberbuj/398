@@ -71,7 +71,10 @@ namespace _398_UI
         private void Bt_CalFot_Click(object sender, EventArgs e)
         {
             panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
-            nuevaTabCaliFotones();
+            if (numeroPestanasCaliFotones==0)
+            {
+                nuevaTabCaliFotones();
+            }
         }
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
@@ -151,6 +154,31 @@ namespace _398_UI
             TabC_CaliFotones.SelectedTab = TabC_CaliFotones.TabPages[nombrePestana];
             numeroPestanasCaliFotones++;
         }
+
+        private void cerrarTabCaliFotones()
+        {
+            if (MessageBox.Show("¿Desea cerrar la calibracion","Cerrar calibracion",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                TabC_CaliFotones.TabPages.Remove(TabC_CaliFotones.SelectedTab);
+                numeroPestanasCaliFotones--;
+            }
+            if (numeroPestanasCaliFotones==0)
+            {
+                nuevaTabCaliFotones();
+            }
+
+        }
+
+        private void BT_NuevaCalFotones_Click(object sender, EventArgs e)
+        {
+            nuevaTabCaliFotones();
+        }
+
+        private void BT_CerrarCalFotones_Click(object sender, EventArgs e)
+        {
+            cerrarTabCaliFotones();
+        }
+
 
 
         #endregion
@@ -1251,17 +1279,18 @@ namespace _398_UI
         {
             Imprimir.analisis(sender, e, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), Chart_Registros, DGV_Registros, DGV_Analisis, registroDFSoISO());
         }
+
+
+
+
+
+
+
+
+
+
+
         #endregion
-
-
-
-
-
-
-
-
-
-
 
         #endregion
 
