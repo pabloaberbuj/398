@@ -108,10 +108,13 @@ namespace _398_UI
 
         private void BT_EqIraCal_Click(object sender, EventArgs e)
         {
-         /*   if (DGV_Equipo.SelectedRows.Count == 1)
+            /*if (DGV_Equipo.SelectedRows.Count == 1)
             {
                 Equipo seleccionado = Equipo.lista()[DGV_Equipo.SelectedRows[0].Index];
-                string aux = seleccionado.Marca + " " + seleccionado.Modelo + " Nº Serie: " + seleccionado.NumSerie;
+                //string aux = seleccionado.Marca + " " + seleccionado.Modelo + " Nº Serie: " + seleccionado.NumSerie;
+                //Form_CaliFotones fcf = TabC_CaliFotones.SelectedTab.Controls.OfType<Form_CaliFotones>().FirstOrDefault();
+
+
                 CB_CaliEquipos.SelectedIndex = CB_CaliEquipos.FindStringExact(aux);
                 actualizarComboBoxCaliFotones();
                 panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);

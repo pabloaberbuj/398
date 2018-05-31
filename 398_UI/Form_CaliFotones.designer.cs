@@ -520,7 +520,6 @@
             this.button15.TabIndex = 59;
             this.button15.Text = "Nuevo...";
             this.button15.UseVisualStyleBackColor = true;
-           // this.button15.Click += new System.EventHandler(this.btCkick_IraSistDos);
             // 
             // button14
             // 
@@ -530,7 +529,6 @@
             this.button14.TabIndex = 58;
             this.button14.Text = "Nuevo...";
             this.button14.UseVisualStyleBackColor = true;
-            //this.button14.Click += new System.EventHandler(this.btClick_IraEquipo);
             // 
             // gLecturaReferencia
             // 
@@ -1690,7 +1688,6 @@
             this.Name = "Form_CaliFotones";
             this.Text = "Form_CaliFotones";
             this.Load += new System.EventHandler(this.Form_CaliFotones_Load);
-            //this.TextChanged += new System.EventHandler(this.habilitarEqEnFotBotones);
             this.Panel_CalFot.ResumeLayout(false);
             this.Panel_CalFot.PerformLayout();
             this.GB_CondMed.ResumeLayout(false);
