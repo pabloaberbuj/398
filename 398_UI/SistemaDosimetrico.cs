@@ -24,8 +24,8 @@ namespace _398_UI
         [Browsable(false)]
         public string Etiqueta { get; set; }
         //public List<CalibracionSistDos> calibraciones { get; set; }
-        [DisplayName("NDw [cGy/nC]")]
-        public double FactorCalibracion { get; set; }
+        [DisplayName("NDw [Gy/nC]")] //siempre guarda en Gy/nC (unidades del 398)
+        public double FactorCalibracion { get; set; } 
         [Browsable(false)]
         public int SignoTension { get; set; } // -1 negativo 1 positivo
         [DisplayName("Tensión [V]")]

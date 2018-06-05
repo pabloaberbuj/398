@@ -36,7 +36,6 @@
             this.CB_Camara = new System.Windows.Forms.ComboBox();
             this.CB_Electrometro = new System.Windows.Forms.ComboBox();
             this.TB_FCal = new System.Windows.Forms.TextBox();
-            this.LB_FCalUnidad = new System.Windows.Forms.Label();
             this.DTP_FechaCal = new System.Windows.Forms.DateTimePicker();
             this.LB_HazRef = new System.Windows.Forms.Label();
             this.LB_Temp = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CB_Tension = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.CB_FactorCalibracionUnidades = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LB_Camara
@@ -128,19 +128,10 @@
             // 
             this.TB_FCal.Location = new System.Drawing.Point(165, 82);
             this.TB_FCal.Name = "TB_FCal";
-            this.TB_FCal.Size = new System.Drawing.Size(121, 20);
+            this.TB_FCal.Size = new System.Drawing.Size(95, 20);
             this.TB_FCal.TabIndex = 3;
             this.TB_FCal.TextChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             this.TB_FCal.Leave += new System.EventHandler(this.esNumeroTB);
-            // 
-            // LB_FCalUnidad
-            // 
-            this.LB_FCalUnidad.AutoSize = true;
-            this.LB_FCalUnidad.Location = new System.Drawing.Point(292, 85);
-            this.LB_FCalUnidad.Name = "LB_FCalUnidad";
-            this.LB_FCalUnidad.Size = new System.Drawing.Size(46, 13);
-            this.LB_FCalUnidad.TabIndex = 8;
-            this.LB_FCalUnidad.Text = "mGy/nC";
             // 
             // DTP_FechaCal
             // 
@@ -329,11 +320,26 @@
             this.label3.TabIndex = 28;
             this.label3.Text = "(*) Obligatorios";
             // 
+            // CB_FactorCalibracionUnidades
+            // 
+            this.CB_FactorCalibracionUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_FactorCalibracionUnidades.FormattingEnabled = true;
+            this.CB_FactorCalibracionUnidades.Items.AddRange(new object[] {
+            "mGy/nC",
+            "cGy/nC",
+            "Gy/nC"});
+            this.CB_FactorCalibracionUnidades.Location = new System.Drawing.Point(266, 82);
+            this.CB_FactorCalibracionUnidades.Name = "CB_FactorCalibracionUnidades";
+            this.CB_FactorCalibracionUnidades.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CB_FactorCalibracionUnidades.Size = new System.Drawing.Size(72, 21);
+            this.CB_FactorCalibracionUnidades.TabIndex = 29;
+            // 
             // NuevoSistDos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 409);
+            this.Controls.Add(this.CB_FactorCalibracionUnidades);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CB_Tension);
             this.Controls.Add(this.label1);
@@ -354,7 +360,6 @@
             this.Controls.Add(this.LB_Temp);
             this.Controls.Add(this.LB_HazRef);
             this.Controls.Add(this.DTP_FechaCal);
-            this.Controls.Add(this.LB_FCalUnidad);
             this.Controls.Add(this.TB_FCal);
             this.Controls.Add(this.CB_Electrometro);
             this.Controls.Add(this.CB_Camara);
@@ -381,7 +386,6 @@
         private System.Windows.Forms.ComboBox CB_Camara;
         private System.Windows.Forms.ComboBox CB_Electrometro;
         private System.Windows.Forms.TextBox TB_FCal;
-        private System.Windows.Forms.Label LB_FCalUnidad;
         private System.Windows.Forms.DateTimePicker DTP_FechaCal;
         private System.Windows.Forms.Label LB_HazRef;
         private System.Windows.Forms.Label LB_Temp;
@@ -402,5 +406,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CB_Tension;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CB_FactorCalibracionUnidades;
     }
 }

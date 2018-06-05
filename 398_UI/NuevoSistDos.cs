@@ -20,6 +20,7 @@ namespace _398_UI
 
             CB_Tension.SelectedIndex = 0;
             CB_HazRef.SelectedIndex = 0;
+            CB_FactorCalibracionUnidades.SelectedIndex = 0;
             foreach (var cam in Camara.lista())
             {
                 CB_Camara.Items.Add(cam);
@@ -47,8 +48,18 @@ namespace _398_UI
             if (CB_Tension.Text == "+") { auxSignoTension = 1; }
             else { auxSignoTension = -1; }
 
+            double factorCalibracion = Convert.ToDouble(TB_FCal.Text); //
+            if (CB_FactorCalibracionUnidades.SelectedText== "mGy/nC")
+            {
+                factorCalibracion = factorCalibracion / 1000;
+            }
+            else if (CB_FactorCalibracionUnidades.SelectedText == "cGy/nC")
+            {
+                factorCalibracion = factorCalibracion / 100;
+            }
+            MessageBox.Show(factorCalibracion.ToString());
             SistemaDosimetrico.guardar(SistemaDosimetrico.crear((Camara)CB_Camara.SelectedItem, (Electrometro)CB_Electrometro.SelectedItem,
-                Convert.ToDouble(TB_FCal.Text),
+                factorCalibracion,
                 auxSignoTension, Convert.ToDouble(TB_Tension.Text),
                 CB_HazRef.Text,
                 Convert.ToDouble(TB_Temp.Text),
@@ -101,5 +112,7 @@ namespace _398_UI
                 CB_Tension.SelectedIndex != -1 && TB_Tension.Text != "" && CB_HazRef.SelectedIndex != -1 &&
                 TB_Temp.Text != "" && TB_Presion.Text != "", BT_Guardar);
         }
+
+        
     }
 }
