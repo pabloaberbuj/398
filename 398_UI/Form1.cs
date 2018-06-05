@@ -22,7 +22,9 @@ namespace _398_UI
         bool editaEnergiaFot = false;
         bool editaEnergiaElect = false;
         int numeroPestanasCaliFotones = 0;
-        
+        string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
+
+
 
 
 
@@ -1053,6 +1055,11 @@ namespace _398_UI
             
         }
 
+        private void BT_RegistroExportarLista_Click(object sender, EventArgs e)
+        {
+            IO.tablaaString(pathExportarTablaCalibraciones, DGV_Registros);
+        }
+
         #endregion
 
 
@@ -1293,11 +1300,12 @@ namespace _398_UI
 
 
 
-        #endregion
 
         #endregion
 
+        #endregion
 
+       
     }
 }
 

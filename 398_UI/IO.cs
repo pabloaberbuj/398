@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 
 namespace _398_UI
@@ -76,6 +77,19 @@ namespace _398_UI
             }
             return string.Format("{0}{1} - {2:yyyy-MM-dd_hh-mm-ss}.{3}", path, baseName, DateTime.Now, extention);
         }
+
+        public static void tablaaString(string archivo, DataGridView tabla)
+        {
+            tabla.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            tabla.SelectAll();
+            DataObject dataObject = tabla.GetClipboardContent();
+            string aux = dataObject.GetText(TextDataFormat.CommaSeparatedValue);
+            aux=aux.Replace(",", "\t");
+            File.WriteAllText(archivo, aux);
+            tabla.ClearSelection();
+            MessageBox.Show("Se exportaron los datos a un archivo separado por tabulaciones");
+        }
+    
     }
 }
 
