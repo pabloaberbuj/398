@@ -135,9 +135,10 @@
             // 
             // DTP_FechaCal
             // 
+            this.DTP_FechaCal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_FechaCal.Location = new System.Drawing.Point(167, 271);
             this.DTP_FechaCal.Name = "DTP_FechaCal";
-            this.DTP_FechaCal.Size = new System.Drawing.Size(173, 20);
+            this.DTP_FechaCal.Size = new System.Drawing.Size(134, 20);
             this.DTP_FechaCal.TabIndex = 10;
             this.DTP_FechaCal.ValueChanged += new System.EventHandler(this.habilitarNuevoSistDosBotones);
             // 

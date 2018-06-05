@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel_Equipos = new System.Windows.Forms.Panel();
             this.GB_Equipos = new System.Windows.Forms.GroupBox();
@@ -242,9 +242,9 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Panel_CalFot = new System.Windows.Forms.Panel();
-            this.TabC_CaliFotones = new System.Windows.Forms.TabControl();
-            this.BT_NuevaCalFotones = new System.Windows.Forms.Button();
             this.BT_CerrarCalFotones = new System.Windows.Forms.Button();
+            this.BT_NuevaCalFotones = new System.Windows.Forms.Button();
+            this.TabC_CaliFotones = new System.Windows.Forms.TabControl();
             this.Panel_Equipos.SuspendLayout();
             this.GB_Equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
@@ -907,7 +907,7 @@
             this.BT_EnElecGuardar.Name = "BT_EnElecGuardar";
             this.BT_EnElecGuardar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnElecGuardar.TabIndex = 17;
-            this.BT_EnElecGuardar.Text = "Guardar";
+            this.BT_EnElecGuardar.Text = "Agregar";
             this.BT_EnElecGuardar.UseVisualStyleBackColor = true;
             this.BT_EnElecGuardar.Click += new System.EventHandler(this.BT_EnElecGuardar_Click);
             // 
@@ -1134,7 +1134,7 @@
             this.BT_EnFotGuardar.Name = "BT_EnFotGuardar";
             this.BT_EnFotGuardar.Size = new System.Drawing.Size(97, 23);
             this.BT_EnFotGuardar.TabIndex = 13;
-            this.BT_EnFotGuardar.Text = "Guardar";
+            this.BT_EnFotGuardar.Text = "Agregar";
             this.BT_EnFotGuardar.UseVisualStyleBackColor = true;
             this.BT_EnFotGuardar.Click += new System.EventHandler(this.BT_EnFotGuardar_Click);
             // 
@@ -2135,8 +2135,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(227, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series2.Name = "Series1";
-            this.Chart_Registros.Series.Add(series2);
+            series1.Name = "Series1";
+            this.Chart_Registros.Series.Add(series1);
             this.Chart_Registros.Size = new System.Drawing.Size(635, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -2415,14 +2415,14 @@
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_Analisis.Location = new System.Drawing.Point(228, 478);
             this.DGV_Analisis.Name = "DGV_Analisis";
             this.DGV_Analisis.ReadOnly = true;
@@ -2462,14 +2462,14 @@
             this.DGV_Registros.AllowUserToResizeColumns = false;
             this.DGV_Registros.AllowUserToResizeRows = false;
             this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_Registros.Location = new System.Drawing.Point(227, 26);
             this.DGV_Registros.Name = "DGV_Registros";
             this.DGV_Registros.ReadOnly = true;
@@ -2525,13 +2525,15 @@
             this.Panel_CalFot.Size = new System.Drawing.Size(870, 700);
             this.Panel_CalFot.TabIndex = 0;
             // 
-            // TabC_CaliFotones
+            // BT_CerrarCalFotones
             // 
-            this.TabC_CaliFotones.Location = new System.Drawing.Point(0, 0);
-            this.TabC_CaliFotones.Name = "TabC_CaliFotones";
-            this.TabC_CaliFotones.SelectedIndex = 0;
-            this.TabC_CaliFotones.Size = new System.Drawing.Size(804, 700);
-            this.TabC_CaliFotones.TabIndex = 0;
+            this.BT_CerrarCalFotones.Location = new System.Drawing.Point(786, 56);
+            this.BT_CerrarCalFotones.Name = "BT_CerrarCalFotones";
+            this.BT_CerrarCalFotones.Size = new System.Drawing.Size(72, 37);
+            this.BT_CerrarCalFotones.TabIndex = 2;
+            this.BT_CerrarCalFotones.Text = "Cerrar Calibración";
+            this.BT_CerrarCalFotones.UseVisualStyleBackColor = true;
+            this.BT_CerrarCalFotones.Click += new System.EventHandler(this.BT_CerrarCalFotones_Click);
             // 
             // BT_NuevaCalFotones
             // 
@@ -2543,24 +2545,22 @@
             this.BT_NuevaCalFotones.UseVisualStyleBackColor = true;
             this.BT_NuevaCalFotones.Click += new System.EventHandler(this.BT_NuevaCalFotones_Click);
             // 
-            // BT_CerrarCalFotones
+            // TabC_CaliFotones
             // 
-            this.BT_CerrarCalFotones.Location = new System.Drawing.Point(786, 56);
-            this.BT_CerrarCalFotones.Name = "BT_CerrarCalFotones";
-            this.BT_CerrarCalFotones.Size = new System.Drawing.Size(72, 37);
-            this.BT_CerrarCalFotones.TabIndex = 2;
-            this.BT_CerrarCalFotones.Text = "Cerrar Calibración";
-            this.BT_CerrarCalFotones.UseVisualStyleBackColor = true;
-            this.BT_CerrarCalFotones.Click += new System.EventHandler(this.BT_CerrarCalFotones_Click);
+            this.TabC_CaliFotones.Location = new System.Drawing.Point(0, 0);
+            this.TabC_CaliFotones.Name = "TabC_CaliFotones";
+            this.TabC_CaliFotones.SelectedIndex = 0;
+            this.TabC_CaliFotones.Size = new System.Drawing.Size(804, 700);
+            this.TabC_CaliFotones.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_AnalizarReg);
-            this.Controls.Add(this.Panel_Equipos);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Botones);
             this.Controls.Add(this.Panel_Inicio);

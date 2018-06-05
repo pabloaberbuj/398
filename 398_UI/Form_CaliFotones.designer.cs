@@ -47,7 +47,7 @@
             this.L_CaliFDwZmax = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.L_CaliFDwZref = new System.Windows.Forms.Label();
-            this.CB_caliFotRealizadoPor = new System.Windows.Forms.ComboBox();
+            this.CB_caliFotRealizadoPor1 = new System.Windows.Forms.ComboBox();
             this.label41 = new System.Windows.Forms.Label();
             this.CB_CaliEnergias = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -60,6 +60,9 @@
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
+            this.Panel_Tiempo = new System.Windows.Forms.Panel();
+            this.TB_tiempo = new System.Windows.Forms.TextBox();
+            this.L_tiempo = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.TB_CaliFTMRref = new System.Windows.Forms.TextBox();
             this.label79 = new System.Windows.Forms.Label();
@@ -173,13 +176,13 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.Panel_Tiempo = new System.Windows.Forms.Panel();
-            this.TB_tiempo = new System.Windows.Forms.TextBox();
-            this.L_tiempo = new System.Windows.Forms.Label();
+            this.CB_caliFotRealizadoPor2 = new System.Windows.Forms.ComboBox();
+            this.CB_caliFotRealizadoPor3 = new System.Windows.Forms.ComboBox();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
+            this.Panel_Tiempo.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.Panel_UM.SuspendLayout();
@@ -199,11 +202,12 @@
             this.Panel_Lect10.SuspendLayout();
             this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
-            this.Panel_Tiempo.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalFot
             // 
+            this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor3);
+            this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor2);
             this.Panel_CalFot.Controls.Add(this.CHB_caliFotEstablecerComoRef);
             this.Panel_CalFot.Controls.Add(this.L_CaliFMref);
             this.Panel_CalFot.Controls.Add(this.L_CaliFKqq0);
@@ -212,7 +216,7 @@
             this.Panel_CalFot.Controls.Add(this.L_CaliFDwZmax);
             this.Panel_CalFot.Controls.Add(this.label15);
             this.Panel_CalFot.Controls.Add(this.L_CaliFDwZref);
-            this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor);
+            this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor1);
             this.Panel_CalFot.Controls.Add(this.label41);
             this.Panel_CalFot.Controls.Add(this.CB_CaliEnergias);
             this.Panel_CalFot.Controls.Add(this.label42);
@@ -419,13 +423,13 @@
             this.L_CaliFDwZref.Text = "Vacio";
             this.L_CaliFDwZref.Visible = false;
             // 
-            // CB_caliFotRealizadoPor
+            // CB_caliFotRealizadoPor1
             // 
-            this.CB_caliFotRealizadoPor.FormattingEnabled = true;
-            this.CB_caliFotRealizadoPor.Location = new System.Drawing.Point(105, 448);
-            this.CB_caliFotRealizadoPor.Name = "CB_caliFotRealizadoPor";
-            this.CB_caliFotRealizadoPor.Size = new System.Drawing.Size(159, 21);
-            this.CB_caliFotRealizadoPor.TabIndex = 67;
+            this.CB_caliFotRealizadoPor1.FormattingEnabled = true;
+            this.CB_caliFotRealizadoPor1.Location = new System.Drawing.Point(157, 422);
+            this.CB_caliFotRealizadoPor1.Name = "CB_caliFotRealizadoPor1";
+            this.CB_caliFotRealizadoPor1.Size = new System.Drawing.Size(127, 21);
+            this.CB_caliFotRealizadoPor1.TabIndex = 67;
             // 
             // label41
             // 
@@ -548,6 +552,32 @@
             this.gLecturaReferencia.TabIndex = 57;
             this.gLecturaReferencia.TabStop = false;
             this.gLecturaReferencia.Text = "Lectura en referencia";
+            // 
+            // Panel_Tiempo
+            // 
+            this.Panel_Tiempo.Controls.Add(this.TB_tiempo);
+            this.Panel_Tiempo.Controls.Add(this.L_tiempo);
+            this.Panel_Tiempo.Location = new System.Drawing.Point(109, 49);
+            this.Panel_Tiempo.Name = "Panel_Tiempo";
+            this.Panel_Tiempo.Size = new System.Drawing.Size(130, 30);
+            this.Panel_Tiempo.TabIndex = 44;
+            // 
+            // TB_tiempo
+            // 
+            this.TB_tiempo.Location = new System.Drawing.Point(76, 5);
+            this.TB_tiempo.Name = "TB_tiempo";
+            this.TB_tiempo.Size = new System.Drawing.Size(48, 20);
+            this.TB_tiempo.TabIndex = 34;
+            this.TB_tiempo.Leave += new System.EventHandler(this.TB_UM_Leave);
+            // 
+            // L_tiempo
+            // 
+            this.L_tiempo.AutoSize = true;
+            this.L_tiempo.Location = new System.Drawing.Point(3, 8);
+            this.L_tiempo.Name = "L_tiempo";
+            this.L_tiempo.Size = new System.Drawing.Size(67, 13);
+            this.L_tiempo.TabIndex = 35;
+            this.L_tiempo.Text = "Tiempo [min]";
             // 
             // panel4
             // 
@@ -973,7 +1003,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 425);
+            this.label14.Location = new System.Drawing.Point(25, 406);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 13);
             this.label14.TabIndex = 54;
@@ -981,9 +1011,10 @@
             // 
             // DTP_FechaCaliFot
             // 
-            this.DTP_FechaCaliFot.Location = new System.Drawing.Point(67, 422);
+            this.DTP_FechaCaliFot.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTP_FechaCaliFot.Location = new System.Drawing.Point(28, 423);
             this.DTP_FechaCaliFot.Name = "DTP_FechaCaliFot";
-            this.DTP_FechaCaliFot.Size = new System.Drawing.Size(197, 20);
+            this.DTP_FechaCaliFot.Size = new System.Drawing.Size(84, 20);
             this.DTP_FechaCaliFot.TabIndex = 53;
             // 
             // groupBox4
@@ -1487,7 +1518,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(24, 456);
+            this.label23.Location = new System.Drawing.Point(154, 406);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(72, 13);
             this.label23.TabIndex = 52;
@@ -1684,31 +1715,21 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // Panel_Tiempo
+            // CB_caliFotRealizadoPor2
             // 
-            this.Panel_Tiempo.Controls.Add(this.TB_tiempo);
-            this.Panel_Tiempo.Controls.Add(this.L_tiempo);
-            this.Panel_Tiempo.Location = new System.Drawing.Point(109, 49);
-            this.Panel_Tiempo.Name = "Panel_Tiempo";
-            this.Panel_Tiempo.Size = new System.Drawing.Size(130, 30);
-            this.Panel_Tiempo.TabIndex = 44;
+            this.CB_caliFotRealizadoPor2.FormattingEnabled = true;
+            this.CB_caliFotRealizadoPor2.Location = new System.Drawing.Point(157, 449);
+            this.CB_caliFotRealizadoPor2.Name = "CB_caliFotRealizadoPor2";
+            this.CB_caliFotRealizadoPor2.Size = new System.Drawing.Size(127, 21);
+            this.CB_caliFotRealizadoPor2.TabIndex = 72;
             // 
-            // TB_tiempo
+            // CB_caliFotRealizadoPor3
             // 
-            this.TB_tiempo.Location = new System.Drawing.Point(76, 5);
-            this.TB_tiempo.Name = "TB_tiempo";
-            this.TB_tiempo.Size = new System.Drawing.Size(48, 20);
-            this.TB_tiempo.TabIndex = 34;
-            this.TB_tiempo.Leave += new System.EventHandler(this.TB_UM_Leave);
-            // 
-            // L_tiempo
-            // 
-            this.L_tiempo.AutoSize = true;
-            this.L_tiempo.Location = new System.Drawing.Point(3, 8);
-            this.L_tiempo.Name = "L_tiempo";
-            this.L_tiempo.Size = new System.Drawing.Size(67, 13);
-            this.L_tiempo.TabIndex = 35;
-            this.L_tiempo.Text = "Tiempo [min]";
+            this.CB_caliFotRealizadoPor3.FormattingEnabled = true;
+            this.CB_caliFotRealizadoPor3.Location = new System.Drawing.Point(157, 476);
+            this.CB_caliFotRealizadoPor3.Name = "CB_caliFotRealizadoPor3";
+            this.CB_caliFotRealizadoPor3.Size = new System.Drawing.Size(127, 21);
+            this.CB_caliFotRealizadoPor3.TabIndex = 73;
             // 
             // Form_CaliFotones
             // 
@@ -1727,6 +1748,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gLecturaReferencia.ResumeLayout(false);
+            this.Panel_Tiempo.ResumeLayout(false);
+            this.Panel_Tiempo.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -1765,8 +1788,6 @@
             this.Panel_Lect20.PerformLayout();
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
-            this.Panel_Tiempo.ResumeLayout(false);
-            this.Panel_Tiempo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1826,7 +1847,7 @@
         private System.Windows.Forms.Button Bt_ReporteVP;
         private System.Windows.Forms.ComboBox CB_CaliEnergias;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor;
+        private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor1;
         private System.Windows.Forms.Panel Panel_LecRef;
         private System.Windows.Forms.TextBox textBox39;
         private System.Windows.Forms.TextBox textBox40;
@@ -1920,6 +1941,8 @@
         private System.Windows.Forms.Panel Panel_Tiempo;
         private System.Windows.Forms.TextBox TB_tiempo;
         private System.Windows.Forms.Label L_tiempo;
+        private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor3;
+        private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor2;
     }
 }
 

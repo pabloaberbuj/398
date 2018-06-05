@@ -134,9 +134,9 @@ namespace _398_UI
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
                 string realizador = cali.RealizadoPor;
-                if (realizador != "" && !CB_caliFotRealizadoPor.Items.Contains(realizador))
+                if (realizador != "" && !CB_caliFotRealizadoPor1.Items.Contains(realizador))
                 {
-                    CB_caliFotRealizadoPor.Items.Add(cali.RealizadoPor);
+                    CB_caliFotRealizadoPor1.Items.Add(cali.RealizadoPor);
                 }
             }
         }
@@ -753,7 +753,7 @@ namespace _398_UI
                     chb_EditarVKpol.Checked = false;
                     chb_EditarVKs.Checked = false;
                     actualizarCalculos();
-                    CB_caliFotRealizadoPor.Text = "";
+                    CB_caliFotRealizadoPor1.Text = "";
                 }
             }
 
@@ -767,7 +767,7 @@ namespace _398_UI
                 difConRef = calculoDifConRef();
             }
             return CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor1.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
                 Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax(),
                 Convert.ToDouble(TB_UM.Text), Convert.ToDouble(tbTemp.Text), Convert.ToDouble(tbPresion.Text), Convert.ToDouble(tbHumedad.Text),
                 lecVmas(), lecVmenos(), lecVTotal(), lecVred(), lecRef(), lec20(), lec10(), TPRoD2010(), difConRef);
@@ -780,7 +780,7 @@ namespace _398_UI
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
             actualizarCalculos();
-            CB_caliFotRealizadoPor.Text = "";
+            CB_caliFotRealizadoPor1.Text = "";
         }
 
         private void BT_ExportarCaliFot_Click(object sender, EventArgs e)
@@ -1214,7 +1214,7 @@ namespace _398_UI
             int posicionlinea = 30;
             posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
 
-            posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor.Text, DTP_FechaCaliFot.Value);
+            posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor1.Text, DTP_FechaCaliFot.Value);
             posicionlinea += Imprimir.altoTexto;
             posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado(), energiaSeleccionada());
             posicionlinea += Imprimir.altoTexto;
