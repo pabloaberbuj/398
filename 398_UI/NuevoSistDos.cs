@@ -57,7 +57,6 @@ namespace _398_UI
             {
                 factorCalibracion = factorCalibracion / 100;
             }
-            MessageBox.Show(factorCalibracion.ToString());
             SistemaDosimetrico.guardar(SistemaDosimetrico.crear((Camara)CB_Camara.SelectedItem, (Electrometro)CB_Electrometro.SelectedItem,
                 factorCalibracion,
                 auxSignoTension, Convert.ToDouble(TB_Tension.Text),

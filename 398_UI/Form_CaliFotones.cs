@@ -199,6 +199,7 @@ namespace _398_UI
         private void inicializarPredeterminados(double umPred, double ladoCampopred)
         {
             TB_UM.Text = Configuracion.umPredet.ToString();
+            TB_tiempo.Text = Configuracion.tiempoPredet.ToString();
         }
 
         #endregion
@@ -389,7 +390,15 @@ namespace _398_UI
 
         private double CalculoMref()
         {
-            return CalibracionFot.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
+            if (equipoSeleccionado().Fuente==1)//Co
+            {
+                return CalibracionFot.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_tiempo.Text));
+            }
+            else //ALE
+            {
+                return CalibracionFot.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
+            }
+            
         }
 
         private double calculoDwRef()
@@ -460,6 +469,7 @@ namespace _398_UI
                 chequearKs();
                 habilitarBotonesCaliFotones();
                 actualizarNombrePestana();
+                UMoTiempo();
             }
         }
         #endregion
@@ -501,6 +511,20 @@ namespace _398_UI
             inicializarLadoCampoReferencia();
             InicializarRealizadoPor();
             InicializarPDDyTMRref();
+        }
+
+        private void UMoTiempo()
+        {
+            if (equipoSeleccionado().Fuente==1) //Co
+            {
+                Panel_UM.Enabled = false;
+                Panel_Tiempo.Enabled = true;
+            }
+            else if (equipoSeleccionado().Fuente == 2) //ALE
+            {
+                Panel_UM.Enabled = true;
+                Panel_Tiempo.Enabled = false;
+            }
         }
 
         private void chequearKqq0()

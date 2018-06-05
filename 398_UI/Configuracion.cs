@@ -9,6 +9,7 @@ namespace _398_UI
     public class Configuracion
     {
         public static double umPredet = 100;
+        public static double tiempoPredet = 1; //minutos
         public static double ladoCampoPredetFot = 10;
         public static double profPredetCo = 5;
         public static double ladoCampoPredetElec = 15;

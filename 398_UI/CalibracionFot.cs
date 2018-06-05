@@ -368,9 +368,9 @@ namespace _398_UI
                 return Math.Round(Calcular.interpolarLinea(TPR2010, TPR2010Etiquetas, valoresKqq0), 4);
             }
         }
-        public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
+        public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UMoTiempo)
         {
-            return Math.Round(Lref * Ktp * Ks * Kpol / UM, 4);
+            return Math.Round(Lref * Ktp * Ks * Kpol / UMoTiempo, 4);
         }
 
         public static double CalcularDwRef(double Mref, SistemaDosimetrico sistDosim)
