@@ -34,11 +34,7 @@ namespace _398_UI
 
             MinimizeBox = false;
             MaximizeBox = false;
-            
-            
-                        
-
-
+  
             //Carga UI
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);

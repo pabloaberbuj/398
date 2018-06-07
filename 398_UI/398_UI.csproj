@@ -53,8 +53,15 @@
   <ItemGroup>
     <Compile Include="Analisis.cs" />
     <Compile Include="Archivos.cs" />
+    <Compile Include="Auxiliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxiliar.Designer.cs">
+      <DependentUpon>Auxiliar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalibracionSistDos.cs" />
     <Compile Include="Camara.cs" />
+    <Compile Include="camaras398FotyElec.cs" />
     <Compile Include="camara398new.cs" />
     <Compile Include="Configuracion.cs" />
     <Compile Include="Electrometro.cs" />
@@ -99,6 +106,9 @@
     <Compile Include="SistemaDosimetrico.cs" />
     <Compile Include="Tabla.cs" />
     <Compile Include="ValorARF.cs" />
+    <EmbeddedResource Include="Auxiliar.resx">
+      <DependentUpon>Auxiliar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
