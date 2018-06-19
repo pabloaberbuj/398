@@ -11,6 +11,7 @@ namespace _398_UI
     {
         public string marca { get; set; }
         public string modelo { get; set; }
+        public string submodelo { get; set; }
         public bool paraFotones { get; set; }
         public double[] kqq0Fot { get; set; }
         public bool paraElectrones { get; set; }

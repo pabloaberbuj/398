@@ -1,0 +1,514 @@
+[{
+		"marca": "Capintec",
+		"modelo": "PR-05P",
+		"submodelo": "mini",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.002, 1.001, 1.0, 0.998, 0.996, 0.994, 0.991, 0.987, 0.983, 0.975, 0.968, 0.96, 0.949],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Capintec",
+		"modelo": "PR-05",
+		"submodelo": "mini",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.002, 1.001, 1.0, 0.998, 0.996, 0.994, 0.991, 0.987, 0.983, 0.975, 0.968, 0.96, 0.949],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Capintec",
+		"modelo": "PR-06C/G",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.998, 0.998, 0.995, 0.992, 0.99, 0.988, 0.984, 0.98, 0.972, 0.965, 0.956, 0.944],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.916, 0.914, 0.912, 0.911, 0.909, 0.906, 0.904, 0.899, 0.891, 0.884, 0.874]
+	}, {
+		"marca": "Exradin",
+		"modelo": "A2",
+		"submodelo": "Spokas",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.001, 1.0, 0.999, 0.997, 0.996, 0.994, 0.992, 0.989, 0.986, 0.979, 0.971, 0.962, 0.949],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.914, 0.913, 0.913, 0.913, 0.912, 0.911, 0.91, 0.908, 0.903, 0.897, 0.888]
+	}, {
+		"marca": "Exradin",
+		"modelo": "T2",
+		"submodelo": "Spokas",
+		"paraFotones": true,
+		"kqq0Fot": [1.002, 1.001, 0.999, 0.996, 0.993, 0.988, 0.984, 0.98, 0.977, 0.973, 0.969, 0.962, 0.954, 0.946, 0.934],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.882, 0.881, 0.881, 0.881, 0.88, 0.879, 0.878, 0.876, 0.871, 0.865, 0.857]
+	}, {
+		"marca": "Exradin",
+		"modelo": "A1",
+		"submodelo": "mini Shonka",
+		"paraFotones": true,
+		"kqq0Fot": [1.002, 1.002, 1.001, 1.0, 1.0, 0.998, 0.996, 0.994, 0.991, 0.986, 0.982, 0.974, 0.966, 0.957, 0.945],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Exradin",
+		"modelo": "Tl",
+		"submodelo": "mini Shonka",
+		"paraFotones": true,
+		"kqq0Fot": [1.003, 1.001, 0.999, 0.996, 0.993, 0.988, 0.984, 0.98, 0.975, 0.97, 0.965, 0.957, 0.949, 0.942, 0.93],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Exradin",
+		"modelo": "A12",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 1.0, 0.999, 0.997, 0.994, 0.992, 0.99, 0.986, 0.981, 0.974, 0.966, 0.957, 0.944],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.921, 0.919, 0.918, 0.916, 0.914, 0.911, 0.909, 0.903, 0.896, 0.888, 0.878]
+	}, {
+		"marca": "Far West Tech.",
+		"modelo": "1C-18",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.003, 1.0, 0.997, 0.993, 0.988, 0.983, 0.979, 0.976, 0.971, 0.966, 0.959, 0.953, 0.945, 0.934],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "FZHTK01",
+		"modelo": "",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.002, 1.001, 1.0, 0.998, 0.996, 0.993, 0.99, 0.987, 0.984, 0.98, 0.975, 0.968, 0.96, 0.952, 0.939],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-750",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.998, 0.996, 0.994, 0.991, 0.988, 0.984, 0.979, 0.971, 0.963, 0.954, 0.941],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-749",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.0, 1.0, 0.999, 0.998, 0.996, 0.994, 0.992, 0.989, 0.984, 0.98, 0.972, 0.964, 0.956, 0.942],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-744",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.0, 1.0, 0.999, 0.998, 0.996, 0.994, 0.992, 0.989, 0.984, 0.98, 0.972, 0.964, 0.956, 0.942],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-716",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.0, 1.0, 0.999, 0.998, 0.996, 0.994, 0.992, 0.989, 0.984, 0.98, 0.972, 0.964, 0.956, 0.942],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-753",
+		"submodelo": "Farmer shortened",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.0, 1.0, 0.999, 0.998, 0.996, 0.994, 0.992, 0.989, 0.985, 0.98, 0.973, 0.965, 0.956, 0.943],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-751",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.002, 1.002, 1.0, 0.999, 0.997, 0.994, 0.991, 0.989, 0.985, 0.981, 0.977, 0.969, 0.961, 0.953, 0.94],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Nuclear Assoc.",
+		"modelo": "30-752",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 1.0, 0.998, 0.996, 0.993, 0.991, 0.989, 0.985, 0.981, 0.974, 0.967, 0.959, 0.947],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2515",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.997, 0.994, 0.991, 0.988, 0.984, 0.98, 0.975, 0.967, 0.959, 0.95, 0.937],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2515/3",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.002, 1.0, 0.998, 0.995, 0.993, 0.991, 0.989, 0.986, 0.982, 0.975, 0.969, 0.961, 0.949],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2577",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.002, 1.0, 0.998, 0.995, 0.993, 0.991, 0.989, 0.986, 0.982, 0.975, 0.969, 0.961, 0.949],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2505",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.997, 0.994, 0.991, 0.988, 0.984, 0.98, 0.975, 0.967, 0.959, 0.95, 0.937],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2505/A",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.003, 1.001, 0.997, 0.995, 0.99, 0.985, 0.982, 0.978, 0.974, 0.969, 0.962, 0.955, 0.947, 0.936],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2505/3,3A",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.002, 1.0, 0.998, 0.995, 0.993, 0.991, 0.989, 0.986, 0.982, 0.975, 0.969, 0.961, 0.949],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2505/3,3B",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.006, 1.004, 1.001, 0.999, 0.996, 0.991, 0.987, 0.984, 0.98, 0.976, 0.971, 0.964, 0.957, 0.95, 0.938],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "NE",
+		"modelo": "2571",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.002, 1.0, 0.998, 0.995, 0.993, 0.991, 0.989, 0.986, 0.982, 0.975, 0.969, 0.961, 0.949],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.918, 0.916, 0.915, 0.913, 0.911, 0.909, 0.906, 0.901, 0.893, 0.886, 0.876]
+	}, {
+		"marca": "NE",
+		"modelo": "2581",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.003, 1.001, 0.998, 0.995, 0.991, 0.986, 0.983, 0.98, 0.975, 0.97, 0.963, 0.956, 0.949, 0.937],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.899, 0.898, 0.896, 0.894, 0.893, 0.89, 0.888, 0.882, 0.875, 0.868, 0.859]
+	}, {
+		"marca": "NE",
+		"modelo": "2561/2611",
+		"submodelo": "Sec.Std",
+		"paraFotones": true,
+		"kqq0Fot": [1.006, 1.004, 1.001, 0.999, 0.998, 0.994, 0.992, 0.99, 0.988, 0.985, 0.982, 0.975, 0.969, 0.961, 0.949],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "PTW",
+		"modelo": "23323",
+		"submodelo": "micro",
+		"paraFotones": true,
+		"kqq0Fot": [1.003, 1.003, 1.0, 0.999, 0.997, 0.993, 0.99, 0.987, 0.984, 0.98, 0.975, 0.967, 0.96, 0.953, 0.941],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "PTW",
+		"modelo": "23331",
+		"submodelo": "rigid",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.0, 0.999, 0.997, 0.993, 0.99, 0.988, 0.985, 0.982, 0.978, 0.971, 0.964, 0.956, 0.945],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "PTW",
+		"modelo": "23332",
+		"submodelo": "rigid",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 0.999, 0.997, 0.994, 0.99, 0.988, 0.984, 0.98, 0.976, 0.968, 0.961, 0.954, 0.943],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "PTW",
+		"modelo": "23333",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 0.999, 0.997, 0.994, 0.99, 0.988, 0.985, 0.981, 0.976, 0.969, 0.963, 0.955, 0.943],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "PTW",
+		"modelo": "30001/30010",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 0.999, 0.997, 0.994, 0.99, 0.988, 0.985, 0.981, 0.976, 0.969, 0.962, 0.955, 0.943],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.911, 0.909, 0.907, 0.905, 0.904, 0.901, 0.898, 0.893, 0.885, 0.877, 0.868]
+	}, {
+		"marca": "PTW",
+		"modelo": "30002/30011",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.006, 1.004, 1.001, 0.999, 0.997, 0.994, 0.992, 0.99, 0.987, 0.984, 0.98, 0.973, 0.967, 0.959, 0.948],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.916, 0.914, 0.912, 0.91, 0.909, 0.906, 0.903, 0.897, 0.89, 0.882, 0.873]
+	}, {
+		"marca": "PTW",
+		"modelo": "30004/30012",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.006, 1.005, 1.002, 1.0, 0.999, 0.996, 0.994, 0.992, 0.989, 0.986, 0.982, 0.976, 0.969, 0.962, 0.95],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.92, 0.918, 0.916, 0.915, 0.913, 0.91, 0.907, 0.902, 0.894, 0.887, 0.877]
+	}, {
+		"marca": "PTW",
+		"modelo": "30006/30013",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.002, 1.002, 1.0, 0.999, 0.997, 0.994, 0.99, 0.988, 0.984, 0.98, 0.975, 0.968, 0.96, 0.952, 0.94],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.911, 0.909, 0.907, 0.906, 0.904, 0.901, 0.898, 0.893, 0.885, 0.878, 0.868]
+	}, {
+		"marca": "PTW",
+		"modelo": "31002",
+		"submodelo": "flexible",
+		"paraFotones": true,
+		"kqq0Fot": [1.003, 1.002, 1.0, 0.999, 0.997, 0.994, 0.99, 0.988, 0.984, 0.98, 0.975, 0.968, 0.96, 0.952, 0.94],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.912, 0.91, 0.908, 0.906, 0.905, 0.901, 0.898, 0.893, 0.885, 0.877, 0.867]
+	}, {
+		"marca": "PTW",
+		"modelo": "31003",
+		"submodelo": "flexible",
+		"paraFotones": true,
+		"kqq0Fot": [1.003, 1.002, 1.0, 0.999, 0.997, 0.994, 0.99, 0.988, 0.984, 0.98, 0.975, 0.968, 0.96, 0.952, 0.94],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.912, 0.91, 0.908, 0.906, 0.905, 0.901, 0.898, 0.893, 0.885, 0.877, 0.867]
+	}, {
+		"marca": "PTW",
+		"modelo": "31006",
+		"submodelo": "PinPoint",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 0.999, 0.998, 0.995, 0.992, 0.989, 0.985, 0.98, 0.974, 0.966, 0.959, 0.951, 0.94],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.928, 0.924, 0.921, 0.918, 0.915, 0.91, 0.905, 0.896, 0.885, 0.876, 0.865]
+	}, {
+		"marca": "PTW",
+		"modelo": "31014",
+		"submodelo": "PinPoint",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 0.999, 0.998, 0.995, 0.992, 0.989, 0.985, 0.98, 0.975, 0.967, 0.959, 0.952, 0.941],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.929, 0.925, 0.922, 0.919, 0.916, 0.91, 0.905, 0.897, 0.886, 0.876, 0.865]
+	}, {
+		"marca": "SNC",
+		"modelo": "100700-0",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.001, 0.999, 0.998, 0.995, 0.992, 0.989, 0.986, 0.981, 0.976, 0.969, 0.962, 0.954, 0.943],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "SNC",
+		"modelo": "100700-1",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.007, 1.006, 1.003, 1.001, 0.999, 0.997, 0.995, 0.993, 0.99, 0.986, 0.983, 0.976, 0.969, 0.961, 0.951],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "SNC",
+		"modelo": "100730",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.001, 0.999, 0.997, 0.993, 0.99, 0.988, 0.985, 0.981, 0.977, 0.97, 0.963, 0.956, 0.944],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "SNC",
+		"modelo": "100740",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.006, 1.005, 1.002, 1.0, 0.999, 0.996, 0.994, 0.992, 0.99, 0.987, 0.983, 0.977, 0.971, 0.963, 0.951],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Victoreen",
+		"modelo": "Radocon III 550",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.001, 0.998, 0.996, 0.993, 0.989, 0.986, 0.983, 0.979, 0.975, 0.968, 0.961, 0.954, 0.943],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Victoreen",
+		"modelo": "Radocon II 555",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.003, 1.0, 0.997, 0.995, 0.99, 0.986, 0.983, 0.979, 0.975, 0.97, 0.963, 0.956, 0.949, 0.938],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Victoreen",
+		"modelo": "30-348",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.0, 0.998, 0.996, 0.992, 0.989, 0.986, 0.982, 0.978, 0.973, 0.966, 0.959, 0.951, 0.94],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.91, 0.908, 0.906, 0.903, 0.902, 0.898, 0.895, 0.888, 0.88, 0.872, 0.862]
+	}, {
+		"marca": "Victoreen",
+		"modelo": "30-351",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.002, 1.0, 0.998, 0.996, 0.992, 0.989, 0.986, 0.983, 0.979, 0.974, 0.967, 0.96, 0.952, 0.941],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.906, 0.904, 0.902, 0.901, 0.899, 0.896, 0.893, 0.888, 0.88, 0.873, 0.864]
+	}, {
+		"marca": "Victoreen",
+		"modelo": "30-349",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.003, 1.002, 1.0, 0.998, 0.996, 0.992, 0.989, 0.986, 0.983, 0.98, 0.976, 0.969, 0.962, 0.954, 0.942],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.899, 0.898, 0.897, 0.896, 0.895, 0.893, 0.891, 0.888, 0.881, 0.875, 0.866]
+	}, {
+		"marca": "Victoreen",
+		"modelo": "30-361",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.004, 1.003, 1.0, 0.998, 0.996, 0.992, 0.989, 0.986, 0.983, 0.979, 0.974, 0.967, 0.96, 0.953, 0.942],
+		"paraElectrones": false,
+		"kqq0Elec": null
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "CC01",
+		"submodelo": "",
+		"paraFotones": true,
+		"kqq0Fot": [1.002, 1.002, 1.002, 1.001, 1.0, 0.999, 0.996, 0.994, 0.991, 0.986, 0.981, 0.972, 0.964, 0.956, 0.944],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.942, 0.938, 0.935, 0.932, 0.929, 0.923, 0.918, 0.909, 0.898, 0.889, 0.878]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "CC04/IC04",
+		"submodelo": "1.001",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.997, 0.995, 0.992, 0.989, 0.984, 0.979, 0.97, 0.962, 0.953, 0.941],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.928, 0.925, 0.922, 0.92, 0.918, 0.913, 0.91, 0.902, 0.893, 0.884, 0.874]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "CC08/IC05/IC06",
+		"submodelo": "1.001",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.997, 0.995, 0.993, 0.989, 0.985, 0.98, 0.972, 0.964, 0.955, 0.943],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.92, 0.918, 0.917, 0.915, 0.913, 0.91, 0.907, 0.902, 0.894, 0.886, 0.877]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "CC13/IC10/IC15",
+		"submodelo": "1.001",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.997, 0.995, 0.993, 0.989, 0.985, 0.98, 0.972, 0.964, 0.955, 0.943],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.92, 0.918, 0.917, 0.915, 0.913, 0.91, 0.907, 0.902, 0.894, 0.886, 0.877]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "CC25/IC25",
+		"submodelo": "1.001",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.0, 0.999, 0.997, 0.995, 0.993, 0.989, 0.985, 0.98, 0.972, 0.964, 0.955, 0.943],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.92, 0.918, 0.917, 0.915, 0.913, 0.91, 0.907, 0.902, 0.894, 0.886, 0.877]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "FC23-C/IC28",
+		"submodelo": "Farmer shortened",
+		"paraFotones": true,
+		"kqq0Fot": [1.001, 1.001, 1.001, 1.0, 0.999, 0.997, 0.995, 0.993, 0.99, 0.985, 0.98, 0.972, 0.964, 0.955, 0.943],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.92, 0.918, 0.916, 0.914, 0.913, 0.91, 0.907, 0.902, 0.894, 0.886, 0.877]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "FC65-P/IC69",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.003, 1.002, 1.001, 0.999, 0.998, 0.995, 0.993, 0.99, 0.986, 0.981, 0.976, 0.968, 0.96, 0.952, 0.94],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.914, 0.912, 0.911, 0.909, 0.907, 0.904, 0.902, 0.896, 0.889, 0.881, 0.872]
+	}, {
+		"marca": "Scdx Wellhöfer",
+		"modelo": "FC65-G/IC70",
+		"submodelo": "Farmer",
+		"paraFotones": true,
+		"kqq0Fot": [1.005, 1.004, 1.002, 1.0, 0.998, 0.997, 0.995, 0.992, 0.989, 0.985, 0.981, 0.973, 0.966, 0.958, 0.947],
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", "NaN", "NaN", "NaN", "NaN", 0.92, 0.918, 0.916, 0.914, 0.913, 0.91, 0.907, 0.902, 0.894, 0.887, 0.877]
+	}, {
+		"marca": "Attix",
+		"modelo": "RMI 449",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": [0.953, 0.943, 0.932, 0.925, 0.919, 0.913, 0.908, 0.904, 0.9, 0.896, 0.893, 0.886, 0.881, 0.871, 0.859, 0.849, 0.837]
+	}, {
+		"marca": "Capintec",
+		"modelo": "PS-033",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", 0.921, 0.92, 0.919, 0.918, 0.917, 0.916, 0.915, 0.913, 0.912, 0.908, 0.905, 0.898, 0.887, 0.877, 0.866]
+	}, {
+		"marca": "Exradin",
+		"modelo": "P11",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": [0.958, 0.948, 0.937, 0.93, 0.923, 0.918, 0.913, 0.908, 0.904, 0.901, 0.897, 0.891, 0.885, 0.875, 0.863, 0.853, 0.841]
+	}, {
+		"marca": "Holt",
+		"modelo": "Memorial",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": [0.971, 0.961, 0.95, 0.942, 0.936, 0.931, 0.926, 0.921, 0.917, 0.913, 0.91, 0.903, 0.897, 0.887, 0.875, 0.865, 0.853]
+	}, {
+		"marca": "NACP/Calcam",
+		"modelo": "",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": [0.952, 0.942, 0.931, 0.924, 0.918, 0.912, 0.908, 0.903, 0.899, 0.895, 0.892, 0.886, 0.88, 0.87, 0.858, 0.848, 0.836]
+	}, {
+		"marca": "PTW",
+		"modelo": "Markus",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": ["NaN", "NaN", 0.925, 0.92, 0.916, 0.913, 0.91, 0.907, 0.904, 0.901, 0.899, 0.894, 0.889, 0.881, 0.87, 0.86, 0.849]
+	}, {
+		"marca": "PTW",
+		"modelo": "Roos",
+		"submodelo": "",
+		"paraFotones": false,
+		"kqq0Fot": null,
+		"paraElectrones": true,
+		"kqq0Elec": [0.965, 0.955, 0.944, 0.937, 0.931, 0.925, 0.92, 0.916, 0.912, 0.908, 0.904, 0.898, 0.892, 0.882, 0.87, 0.86, 0.848]
+	}
+]

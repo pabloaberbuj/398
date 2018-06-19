@@ -48,11 +48,12 @@ namespace _398_UI
             {
                 marca = aux[0],
                 modelo = aux[1],
+                submodelo = aux[2],
                 paraFotones = true,
-                kqq0Fot = new double[aux.Length - 2],
+                kqq0Fot = new double[aux.Length -3],
             };
-            string[] auxString = new string[aux.Length - 2];
-            Array.Copy(aux, 2, auxString, 0, aux.Length - 2);
+            string[] auxString = new string[aux.Length - 3];
+            Array.Copy(aux, 3, auxString, 0, aux.Length - 3);
             for (int j = 0; j < auxString.Length; j++)
             {
                 camaraFot.kqq0Fot[j] = Convert.ToDouble(auxString[j]);
@@ -66,11 +67,12 @@ namespace _398_UI
             {
                 marca = aux[0],
                 modelo = aux[1],
+                submodelo = aux[2],
                 paraElectrones = true,
-                kqq0Elec = new double[aux.Length - 2],
+                kqq0Elec = new double[aux.Length - 3],
             };
-            string[] auxString = new string[aux.Length - 2];
-            Array.Copy(aux, 2, auxString, 0, aux.Length - 2);
+            string[] auxString = new string[aux.Length - 3];
+            Array.Copy(aux, 3, auxString, 0, aux.Length - 3);
             for (int j = 0; j < auxString.Length; j++)
             {
                 if (auxString[j]=="")
@@ -104,11 +106,19 @@ namespace _398_UI
             }
         }
 
+        private void escribirArchivoJson(List<Camaras398FotyElec> lista, string path)
+        {
+            IO.writeObjectAsJson(path, lista);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            string archivo = @"..\..\camaras398FotyElec.txt";
             List<Camaras398FotyElec> lista = new List<Camaras398FotyElec>();
             levantarListaCam398Fot(lista);
             levantarListaCam398Elec(lista);
+            escribirArchivoJson(lista, archivo);
+
         }
     }
 }
