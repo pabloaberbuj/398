@@ -13,8 +13,18 @@ namespace _398_UI
         public static string file = @"camaras.txt";
         public string Marca { get; set; }
         public string Modelo { get; set; }
+        [Browsable(false)]
+        public string submodelo { get; set; }
         [DisplayName("Nº de serie")]
         public string NumSerie { get; set; }
+        [Browsable(false)]
+        public bool paraFotones { get; set; }
+        [Browsable(false)]
+        public double[] kqq0Fot { get; set; }
+        [Browsable(false)]
+        public bool paraElectrones { get; set; }
+        [Browsable(false)]
+        public double[] kqq0Elec { get; set; }
         [Browsable(false)]
         public string Etiqueta { get; set; }
 

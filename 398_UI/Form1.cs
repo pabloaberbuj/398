@@ -15,16 +15,13 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
-        int indiceEquipo = 0;
+        //int indiceEquipo = 0;
         bool editaCam = false;
         bool editaElec = false;
-        bool editaEquipo = false;
-        bool editaEnergiaFot = false;
-        bool editaEnergiaElect = false;
         int numeroPestanasCaliFotones = 0;
         string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
 
-
+        
 
 
 
@@ -42,9 +39,12 @@ namespace _398_UI
             DGV_Cam.DataSource = Camara.lista();
             DGV_Elec.DataSource = Electrometro.lista();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
-            DGV_Equipo.DataSource = Equipo.lista();
 
-            //inicializar combobox
+            //inicializar Forms en Paneles
+            Form_Equipos formEquipos = new Form_Equipos();
+            formEquipos.TopLevel = false;
+            Panel_Equipos.Controls.Add(formEquipos);
+            formEquipos.Show();
 
 
             //lista de cámaras 398
@@ -59,7 +59,6 @@ namespace _398_UI
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
             //actualizarComboBoxCaliFotones();
             //inicializarPredeterminados(100, 10);
-            InicializarInstitucionYMarcaEquipo();
             inicializacionesRegistro();
         }
 
@@ -96,16 +95,16 @@ namespace _398_UI
         //Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
         {
-            panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
+          /*  panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
             BT_EqIraCal.Text = "Seleccionar y volver a calibración";
-            Panel_Equipos.Visible = true;
+            Panel_Equipos.Visible = true;*/
         }
 
         private void btCkick_IraSistDos(object sender, EventArgs e)
         {
-            panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
+           /* panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
             BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
-            Panel_SistDos.Visible = true;
+            Panel_SistDos.Visible = true;*/
         }
 
         private void BT_EqIraCal_Click(object sender, EventArgs e)
@@ -140,6 +139,7 @@ namespace _398_UI
 
         #region pestanas
 
+        
         private void nuevaTabCaliFotones()
         {
             string nombrePestana = "tab" + numeroPestanasCaliFotones.ToString();
@@ -190,389 +190,7 @@ namespace _398_UI
 
 
 
-        #region Equipos UI
 
-        private void InicializarInstitucionYMarcaEquipo()
-        {
-            foreach (Equipo equipo in Equipo.lista())
-            {
-                if (equipo.Institucion != "" && !cb_InstitucionEq.Items.Contains(equipo.Institucion))
-                {
-                    cb_InstitucionEq.Items.Add(equipo.Institucion);
-                }
-                if (equipo.Marca != "" && !cb_MarcaEq.Items.Contains(equipo.Marca))
-                {
-                    cb_MarcaEq.Items.Add(equipo.Marca);
-                }
-            }
-        }
-
-        private void CHB_EnFotEquipo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHB_EnFotEquipo.Checked == true)
-            {
-                Panel_EnFotEquipo.Enabled = true;
-                TB_EnFotLado.Text = Configuracion.ladoCampoPredetFot.ToString();
-            }
-            else { Panel_EnFotEquipo.Enabled = false; }
-        }
-
-        private void CHB_EnElecEquipo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CHB_EnElecEquipo.Checked == true)
-            {
-                Panel_EnElecEquipo.Enabled = true;
-                TB_EnElecLado.Text = Configuracion.ladoCampoPredetElec.ToString();
-            }
-            else { Panel_EnElecEquipo.Enabled = false; }
-        }
-
-        private void RB_FuenteCo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RB_FuenteCo.Checked == true)
-            {
-                Panel_TipoHazEq.Enabled = false;
-                LB_TipoHaz.Enabled = false;
-                GB_EquiposEnergias.Enabled = true;
-                Panel_EnCoEquipo.Enabled = true;
-                CHB_EnElecEquipo.Enabled = false;
-                CHB_EnFotEquipo.Enabled = false;
-                TB_EnCoZref.Text = Configuracion.profPredetCo.ToString();
-                RB_Pulsado.Checked = false;
-                RB_PulsadoYBarrido.Checked = false;
-                TB_EnCoLado.Text = Configuracion.ladoCampoPredetFot.ToString();
-            }
-            else
-            {
-                Panel_EnCoEquipo.Enabled = false;
-                TB_EnCoZref.Text = "";
-            }
-            habilitarEquipoBotones(sender, e);
-        }
-
-        private void RB_FuenteALE_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RB_FuenteALE.Checked == true)
-            {
-                Panel_EnCoEquipo.Enabled = false;
-                Panel_TipoHazEq.Enabled = true;
-                LB_TipoHaz.Enabled = true;
-                GB_EquiposEnergias.Enabled = true;
-                CHB_EnElecEquipo.Enabled = true;
-                CHB_EnFotEquipo.Enabled = true;
-            }
-            else
-            {
-                CHB_EnElecEquipo.Enabled = false;
-                CHB_EnFotEquipo.Enabled = false;
-            }
-            habilitarEquipoBotones(sender, e);
-        }
-
-        #endregion
-
-        #region Equipos EquipoBotones
-
-        private void BT_GuardarEq_Click(object sender, EventArgs e)
-        {
-            if (editaEquipo)
-            {
-                indiceEquipo = DGV_Equipo.SelectedRows[0].Index;
-            }
-            int auxHaz = 0;
-            if (RB_FuenteCo.Checked == true)
-            {
-                Equipo.guardar(Equipo.crearCo(cb_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 1, 0, Calcular.doubleNaN(TB_EnCoZref), Calcular.doubleNaN(TB_EnCoLado), Calcular.doubleNaN(TB_EnCoPDD), Calcular.doubleNaN(TB_EnCoTMR), cb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
-            }
-            else if (RB_FuenteALE.Checked == true)
-            {
-
-                if (RB_Pulsado.Checked == true)
-                {
-                    auxHaz = 1;
-                }
-                else if (RB_PulsadoYBarrido.Checked == true)
-                {
-                    auxHaz = 2;
-                }
-                Equipo.guardar(Equipo.crearAle(cb_MarcaEq.Text, TB_ModeloEq.Text, TB_NumSerieEq.Text, TB_AliasEq.Text, 2, auxHaz, DGV_EnFot, DGV_EnElec, cb_InstitucionEq.Text), editaEquipo, DGV_Equipo);
-            }
-
-            DGV_Equipo.DataSource = Equipo.lista();
-            limpiarRegistro(GB_Equipos);
-            limpiarRegistro(Panel_FuenteEq);
-            limpiarRegistro(Panel_TipoHazEq);
-            limpiarRegistro(Panel_EnCoEquipo);
-            limpiarRegistro(Panel_EnElecEquipo);
-            limpiarRegistro(Panel_EnFotEquipo);
-            DGV_EnFot.Rows.Clear();
-            DGV_EnFot.Visible = false;
-            DGV_EnElec.Rows.Clear();
-            DGV_EnElec.Visible = false;
-            CHB_EnFotEquipo.Checked = false;
-            CHB_EnElecEquipo.Checked = false;
-            TB_EnElecR50ion_Leave(sender, e);
-
-            if (editaEquipo)
-            {
-                foreach (DataGridViewRow row in DGV_Equipo.Rows)
-                {
-                    row.Selected = false;
-                }
-                DGV_Equipo.Rows[indiceEquipo].Selected = true;
-            }
-            editaEquipo = false;
-            Panel_TipoHazEq.Enabled = false;
-            //actualizarComboBoxCaliFotones();
-            DGV_Equipo.Enabled = true;
-            InicializarInstitucionYMarcaEquipo();
-        }
-
-        private void BT_PredetEqu_Click(object sender, EventArgs e)
-        {
-            Equipo.hacerPredeterminado(DGV_Equipo);
-            //actualizarComboBoxCaliFotones();
-        }
-
-        private void BT_EliminarEq_Click(object sender, EventArgs e)
-        {
-            Equipo.eliminar(DGV_Equipo);
-            //actualizarComboBoxCaliFotones();
-        }
-
-        private void BT_EditarEq_Click(object sender, EventArgs e)
-        {
-            DGV_Equipo.Enabled = false;
-            if (Equipo.lista()[DGV_Equipo.SelectedRows[0].Index].Fuente == 1)
-            {
-                Panel_EnCoEquipo.Enabled = true;
-                Equipo.editarCo(cb_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, cb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, TB_EnCoZref, TB_EnCoPDD, TB_EnCoTMR, DGV_Equipo);
-            }
-            else
-            {
-                Equipo.editarAle(cb_MarcaEq, TB_ModeloEq, TB_NumSerieEq, TB_AliasEq, cb_InstitucionEq, Panel_FuenteEq, Panel_TipoHazEq, DGV_EnFot, DGV_EnElec, DGV_Equipo);
-                CHB_EnElecEquipo.Checked = true;
-                if (DGV_EnFot.Rows.Count > 0)
-                {
-                    CHB_EnFotEquipo.Checked = true;
-                    DGV_EnFot.Visible = true;
-                }
-                else
-                {
-                    CHB_EnFotEquipo.Checked = false;
-                    DGV_EnFot.Visible = false;
-                }
-                if (DGV_EnElec.Rows.Count > 0)
-                {
-                    CHB_EnElecEquipo.Checked = true;
-                    DGV_EnElec.Visible = true;
-                }
-                else
-                {
-                    CHB_EnElecEquipo.Checked = false;
-                    DGV_EnElec.Visible = false;
-                }
-            }
-            editaEquipo = true;
-            //actualizarComboBoxCaliFotones();
-        }
-
-        private void BT_ExportarEq_Click(object sender, EventArgs e)
-        {
-            Equipo.exportar(DGV_Equipo);
-        }
-
-        private void BT_ImportarEq_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog()
-            {
-                Filter = "Archivos txt(.txt)|*.txt|All Files (*.*)|*.*"
-            };
-            openFileDialog1.ShowDialog();
-            BindingList<Equipo> listaImportada = Equipo.importar(openFileDialog1.FileName);
-            if (listaImportada.Count() == 0)
-            {
-                MessageBox.Show("No hay nuevos equipos para importar en el archivo seleccionado");
-            }
-            else
-            {
-                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " equipos. ¿Continuar?", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    Equipo.agregarImportados(listaImportada, DGV_Equipo);
-                }
-            }
-        }
-
-        private void BT_EquiposCancelar_Click(object sender, EventArgs e)
-        {
-            limpiarRegistro(GB_Equipos);
-            limpiarRegistro(Panel_FuenteEq);
-            limpiarRegistro(Panel_TipoHazEq);
-            limpiarRegistro(Panel_EnCoEquipo);
-            limpiarRegistro(Panel_EnElecEquipo);
-            limpiarRegistro(Panel_EnFotEquipo);
-            DGV_EnFot.Rows.Clear();
-            DGV_EnFot.Visible = false;
-            DGV_EnElec.Rows.Clear();
-            DGV_EnElec.Visible = false;
-            CHB_EnFotEquipo.Checked = false;
-            CHB_EnElecEquipo.Checked = false;
-            editaEquipo = false;
-            DGV_Equipo.Enabled = true;
-            TB_EnElecR50ion_Leave(sender, e);
-        }
-
-        private void habilitarEquipoBotones(object sender, EventArgs e)
-        {
-            bool tieneFuente = RB_FuenteCo.Checked || RB_FuenteALE.Checked;
-            bool tieneTipoDeHaz = false;
-            bool tieneEnergia = false;
-            if (RB_FuenteALE.Checked)
-            {
-                tieneTipoDeHaz = RB_Pulsado.Checked || RB_PulsadoYBarrido.Checked;
-                if (DGV_EnFot.Rows.Count + DGV_EnElec.Rows.Count > 0)
-                {
-                    tieneEnergia = true;
-                }
-            }
-            if (RB_FuenteCo.Checked)
-            {
-                tieneTipoDeHaz = true;
-                tieneEnergia = true;
-            }
-
-            habilitarBoton(cb_InstitucionEq.Text != "" && cb_MarcaEq.Text != "" && TB_ModeloEq.Text != "" &&
-                tieneFuente && tieneTipoDeHaz && tieneEnergia, BT_GuardarEq);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EditarEq);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_PredetEqu);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EqIraCal);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_EliminarEq);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_ExportarEq);
-        }
-
-        #endregion
-
-        #region Equipos EnergiaFotonesBotones
-
-        private void BT_EnFotGuardar_Click(object sender, EventArgs e)
-        {
-            DGV_EnFot.Visible = true;
-            EnergiaFotones.guardar(EnergiaFotones.crear(Convert.ToDouble(TB_EnFotEn.Text), Calcular.doubleNaN(TB_EnFotLado), Calcular.doubleNaN(TB_EnFotZref), Calcular.doubleNaN(TB_EnFotPDD), Calcular.doubleNaN(TB_EnFotTMR)), editaEnergiaFot, DGV_EnFot);
-            limpiarRegistro(Panel_EnFotEquipo);
-            TB_EnFotLado.Text = Configuracion.ladoCampoPredetFot.ToString();
-            TB_EnFotEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-            if (RB_FuenteCo.Checked == true && DGV_EnFot.ColumnCount > 0)
-            {
-                GB_EquiposEnergias.Enabled = false;
-            }
-            DGV_EnFot.Enabled = true;
-        }
-
-        private void BT_EnFotEliminar_Click(object sender, EventArgs e)
-        {
-            EnergiaFotones.eliminar(DGV_EnFot);
-            limpiarRegistro(Panel_EnFotEquipo);
-        }
-
-        private void BT_EnFotEditar_Click(object sender, EventArgs e)
-        {
-            DGV_EnFot.Enabled = false;
-            EnergiaFotones.editar(TB_EnFotEn, TB_EnFotZref, TB_EnFotLado, TB_EnFotPDD, TB_EnFotTMR, DGV_EnFot);
-            editaEnergiaFot = true;
-        }
-
-        private void BT_EnFotPredet_Click(object sender, EventArgs e)
-        {
-            EnergiaFotones.hacerPredeterminado(DGV_EnFot);
-        }
-
-
-        private void BT_EqEnergiaFot_Cancelar_Click(object sender, EventArgs e)
-        {
-            limpiarRegistro(Panel_EnFotEquipo);
-            DGV_EnFot.Enabled = true;
-            editaEnergiaFot = false;
-        }
-
-        private void habilitarEqEnFotBotones(object sender, EventArgs e)
-        {
-            habilitarBoton(TB_EnFotEn.Text != "", BT_EnFotGuardar);
-            habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotEditar);
-            habilitarBoton(DGV_EnFot.SelectedRows.Count == 1, BT_EnFotPredet);
-            habilitarBoton(DGV_EnFot.SelectedRows.Count > 0, BT_EnFotEliminar);
-            habilitarEquipoBotones(sender, e);
-        }
-        #endregion
-
-        #region Equipos EnergiaElectronesBotones
-
-        private void BT_EnElecGuardar_Click(object sender, EventArgs e)
-        {
-            DGV_EnElec.Visible = true;
-            EnergiaElectrones.guardar(EnergiaElectrones.crear(Convert.ToDouble(TB_EnElecEn.Text), Calcular.doubleNaN(TB_EnElecLado), Calcular.doubleNaN(TB_EnElecR50ion), Calcular.doubleNaN(L_EnElecR50dosis), Calcular.doubleNaN(L_EnElecZref), Calcular.doubleNaN(TB_EnElecPDDZref)), editaEnergiaElect, DGV_EnElec);
-            limpiarRegistro(Panel_EnElecEquipo);
-            TB_EnElecLado.Text = Configuracion.ladoCampoPredetElec.ToString();
-            L_EnElecR50dosis.Text = null;
-            L_EnElecZref.Text = null;
-            TB_EnElecEn.Focus(); // para que vuelva a energía para cargar uno nuevo
-            BT_EnElecGuardar.Enabled = false;
-            DGV_EnElec.Enabled = true;
-        }
-
-        private void BT_EnElecEliminar_Click(object sender, EventArgs e)
-        {
-            EnergiaElectrones.eliminar(DGV_EnElec);
-            limpiarRegistro(Panel_EnElecEquipo);
-        }
-
-        private void BT_EnElecEditar_Click(object sender, EventArgs e)
-        {
-            DGV_EnElec.Enabled = false;
-            EnergiaElectrones.editar(TB_EnElecEn, TB_EnElecR50ion, TB_EnElecLado, L_EnElecR50dosis, L_EnElecZref, TB_EnElecPDDZref, DGV_EnElec);
-            editaEnergiaElect = true;
-        }
-
-        private void BT_EnElecPredet_Click(object sender, EventArgs e)
-        {
-            EnergiaElectrones.hacerPredeterminado(DGV_EnElec);
-        }
-
-        private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
-        {
-            if (TB_EnElecR50ion.Text != "")
-            {
-                L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
-                L_EnElecR50dosis.Visible = true;
-                L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
-                L_EnElecZref.Visible = true;
-            }
-            else
-            {
-                L_EnElecR50dosis.Text = "Vacio";
-                L_EnElecR50dosis.Visible = false;
-                L_EnElecZref.Text = "Vacio";
-                L_EnElecZref.Visible = false;
-            }
-        }
-
-        private void BT_EqEnergiaElec_Cancelar_Click(object sender, EventArgs e)
-        {
-            limpiarRegistro(Panel_EnElecEquipo);
-            TB_EnElecR50ion_Leave(sender, e);
-            DGV_EnElec.Enabled = true;
-            editaEnergiaElect = false;
-        }
-
-        private void habilitarEqEnElecBotones(object sender, EventArgs e)
-        {
-            habilitarBoton(TB_EnElecEn.Text != "", BT_EnElecGuardar);
-            habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecEditar);
-            habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecPredet);
-            habilitarBoton(DGV_EnElec.SelectedRows.Count > 0, BT_EnElecEliminar);
-            habilitarEquipoBotones(sender, e);
-        }
-
-        #endregion
 
 
         #region SistDosimetricos UI
