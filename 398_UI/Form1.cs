@@ -16,8 +16,6 @@ namespace _398_UI
     {
         int panel = 0;
         //int indiceEquipo = 0;
-        bool editaCam = false;
-        bool editaElec = false;
         int numeroPestanasCaliFotones = 0;
         string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
 
@@ -36,9 +34,7 @@ namespace _398_UI
             MinimizeBox = false;
             MaximizeBox = false;
             //Carga DGV
-            DGV_Cam.DataSource = Camara.lista();
-            DGV_Elec.DataSource = Electrometro.lista();
-            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
+            
 
             //inicializar Forms en Paneles
             Form_Equipos formEquipos = new Form_Equipos();
@@ -46,12 +42,12 @@ namespace _398_UI
             Panel_Equipos.Controls.Add(formEquipos);
             formEquipos.Show();
 
+            Form_SistemasDosimetricos formSistDos = new Form_SistemasDosimetricos();
+            formSistDos.TopLevel = false;
+            Panel_SistDos.Controls.Add(formSistDos);
+            formSistDos.Show();
 
-            //lista de cámaras 398
-            CB_MarcaCam.DataSource = Camara398new.lista().Distinct().ToList();
-            CB_MarcaCam.DisplayMember = "marca";
-            CB_MarcaCam.ValueMember = "marca";
-            CB_MarcaCam.SelectedIndex = -1;
+
 
 
             //Carga UI
@@ -193,171 +189,7 @@ namespace _398_UI
 
 
 
-        #region SistDosimetricos UI
-        private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CB_MarcaCam.SelectedIndex != -1)
-            {
-                CB_ModCam.DataSource = Camara398new.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
-                CB_ModCam.DisplayMember = "modelo";
-            }
-            else
-            {
-                CB_ModCam.SelectedIndex = -1;
-            }
-            habilitarCamBotones(sender, e);
-        }
-        #endregion
-
-        #region SistDosimetricos CamaraBotones
-        private void BT_GuardarCam_Click(object sender, EventArgs e)
-        {
-            Camara.guardar(Camara.crear(CB_MarcaCam.Text, CB_ModCam.Text, TB_SNCam.Text), editaCam, DGV_Cam);
-            limpiarRegistro(GB_Camaras);
-            DGV_Cam.Enabled = true;
-        }
-
-        private void BT_EliminarCam_Click(object sender, EventArgs e)
-        {
-            Camara.eliminar(DGV_Cam);
-        }
-
-        private void BT_EditarCam_Click(object sender, EventArgs e)
-        {
-            DGV_Cam.Enabled = false;
-            Camara.editar(CB_MarcaCam, CB_ModCam, TB_SNCam, DGV_Cam);
-            editaCam = true;
-            habilitarCamBotones(sender, e);
-        }
-
-        private void BT_Camara_Cancelar_Click(object sender, EventArgs e)
-        {
-            limpiarRegistro(GB_Camaras);
-            DGV_Cam.Enabled = true;
-            editaCam = false;
-        }
-
-        private void habilitarCamBotones(object sender, EventArgs e)
-        {
-            habilitarBoton(CB_MarcaCam.SelectedIndex != -1 && CB_ModCam.SelectedIndex != -1 && TB_SNCam.Text != "", BT_GuardarCam);
-            habilitarBoton(DGV_Cam.SelectedRows.Count == 1, BT_EditarCam);
-            habilitarBoton(DGV_Cam.SelectedRows.Count > 0, BT_EliminarCam);
-        }
-
-        #endregion
-
-        #region SistDosimetrico ElectrometroBotones
-        private void BT_GuardarElec_Click(object sender, EventArgs e)
-        {
-            Electrometro.guardar(Electrometro.crear(TB_MarcaElec.Text, TB_ModeloElec.Text, TB_SNElec.Text), editaElec, DGV_Elec);
-            limpiarRegistro(GB_Electrómetros);
-            DGV_Elec.Enabled = true;
-        }
-
-        private void BT_EliminarElec_Click(object sender, EventArgs e)
-        {
-            Electrometro.eliminar(DGV_Elec);
-        }
-
-        private void BT_EditarElec_Click(object sender, EventArgs e)
-        {
-            DGV_Elec.Enabled = false;
-            Electrometro.editar(TB_MarcaElec, TB_ModeloElec, TB_SNElec, DGV_Elec);
-            editaElec = true;
-            habilitarElecBotones(sender, e);
-        }
-
-        private void BT_Electrometro_Cancelar_Click(object sender, EventArgs e)
-        {
-            limpiarRegistro(GB_Electrómetros);
-            DGV_Elec.Enabled = true;
-            editaElec = false;
-        }
-
-        private void habilitarElecBotones(object sender, EventArgs e)
-        {
-            habilitarBoton(TB_MarcaElec.Text != "" && TB_ModeloElec.Text != "" && TB_SNElec.Text != "", BT_GuardarElec);
-            habilitarBoton(DGV_Elec.SelectedRows.Count == 1, BT_EditarElec);
-            habilitarBoton(DGV_Elec.SelectedRows.Count > 0, BT_EliminarElec);
-        }
-        #endregion
-
-        #region SistDosimetricos SistDosimetricoBotones
-
-        private void BT_NuevSistDos_Click(object sender, EventArgs e)
-        {
-            NuevoSistDos nsd = new NuevoSistDos(false, 0);
-            nsd.ShowDialog();
-            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
-           // actualizarComboBoxCaliFotones();
-            habilitarSistDosBotones(sender, e);
-        }
-
-        private void BT_EliminarSistDos_Click(object sender, EventArgs e)
-        {
-            SistemaDosimetrico.eliminar(DGV_SistDos);
-          //  actualizarComboBoxCaliFotones();
-        }
-
-        private void BT_EditarSistDos_Click(object sender, EventArgs e)
-        {
-            NuevoSistDos nsd = new NuevoSistDos(true, DGV_SistDos.SelectedRows[0].Index);
-            nsd.ShowDialog();
-            DGV_SistDos.DataSource = SistemaDosimetrico.lista();
-            DGV_SistDos.ClearSelection();
-         //   actualizarComboBoxCaliFotones();
-        }
-
-        private void BT_PredSistDos_Click(object sender, EventArgs e)
-        {
-            SistemaDosimetrico.hacerPredeterminado(DGV_SistDos);
-          //  actualizarComboBoxCaliFotones();
-        }
-
-        private void BT_ImportarSistDos_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog()
-            {
-                Filter = "Archivos txt(.txt)|*.txt|All Files (*.*)|*.*"
-            };
-            openFileDialog1.ShowDialog();
-            BindingList<SistemaDosimetrico> listaImportada = SistemaDosimetrico.importar(openFileDialog1.FileName);
-            if (listaImportada.Count() == 0)
-            {
-                MessageBox.Show("No hay nuevos sistemas dosimétricos para importar en el archivo seleccionado");
-            }
-            else
-            {
-                if (MessageBox.Show("Está por importar " + listaImportada.Count() + " sistemas dosimétricos. ¿Continuar?", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    SistemaDosimetrico.agregarImportados(listaImportada, DGV_SistDos);
-                }
-                if (MessageBox.Show("¿Desea agregar también las cámaras y electrómetros a sus listas? ", "Importar", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    Camara.importar(listaImportada, DGV_Cam);
-                    Electrometro.importar(listaImportada, DGV_Elec);
-                }
-            }
-
-        }
-
-        private void BT_ExportarSistDos_Click(object sender, EventArgs e)
-        {
-            SistemaDosimetrico.exportar(DGV_SistDos);
-        }
-
-        private void habilitarSistDosBotones(object sender, EventArgs e)
-        {
-            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_EditarSistDos);
-            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_PredSistDos);
-            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_SistDosIraCal);
-            habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_EliminarSistDos);
-            habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_ExportarSistDos);
-        }
-
-        #endregion
-
-        #region Analizar Registros Inicializaciones
+            #region Analizar Registros Inicializaciones
 
         private void inicializarRegistrosEquipos()
         {
