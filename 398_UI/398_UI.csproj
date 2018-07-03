@@ -68,6 +68,12 @@
     <Compile Include="EnergiaElectrones.cs" />
     <Compile Include="EnergiaFotones.cs" />
     <Compile Include="Equipo.cs" />
+    <Compile Include="Form_Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Inicio.Designer.cs">
+      <DependentUpon>Form_Inicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_AnalizarReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="ValorARF.cs" />
     <EmbeddedResource Include="Auxiliar.resx">
       <DependentUpon>Auxiliar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Inicio.resx">
+      <DependentUpon>Form_Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_AnalizarReg.resx">
       <DependentUpon>Form_AnalizarReg.cs</DependentUpon>

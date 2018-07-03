@@ -52,12 +52,18 @@ namespace _398_UI
             Panel_AnalizarReg.Controls.Add(formAnalizarReg);
             formAnalizarReg.Show();
 
+            Form_Inicio formInicio = new Form_Inicio();
+            formInicio.TopLevel = false;
+            Panel_Inicio.Controls.Add(formInicio);
+            formInicio.Show();
+
+            nuevaTabCaliFotones();
+
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
-            //actualizarComboBoxCaliFotones();
-            //inicializarPredeterminados(100, 10);
+
         }
 
 
