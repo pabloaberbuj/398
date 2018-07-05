@@ -28,7 +28,7 @@ namespace _398_UI
         [Browsable(false)]
         public string Etiqueta { get; set; }
 
-        public static Camara crear(string _marca, string _modelo, string _numSerie)
+    /*    public static Camara crear(string _marca, string _modelo, string _numSerie)
         {
             return new Camara()
             {
@@ -36,6 +36,23 @@ namespace _398_UI
                 Modelo = _modelo,
                 NumSerie = _numSerie,
                 Etiqueta = _marca + " " + _modelo + " " + _numSerie,
+            };
+        }*/
+
+        public static Camara crear(string _marca, string _modelo, string _numSerie)
+        {
+            Camaras398FotyElec camara398 = Camaras398FotyElec.lista().Where(c => c.marca == _marca && c.modelo == _modelo).FirstOrDefault();
+            return new Camara()
+            {
+                Marca = camara398.marca,
+                Modelo = camara398.modelo,
+                submodelo = camara398.submodelo,
+                NumSerie = _numSerie,
+                paraFotones = camara398.paraFotones,
+                kqq0Fot = camara398.kqq0Fot,
+                paraElectrones = camara398.paraElectrones,
+                kqq0Elec = camara398.kqq0Elec,
+                Etiqueta = camara398.marca + " " + camara398.modelo + " " + _numSerie,
             };
         }
         public static BindingList<Camara> lista()
@@ -93,19 +110,19 @@ namespace _398_UI
             Camara aux = lista()[DGV.SelectedRows[0].Index];
             for (int i=0;i<Marca.Items.Count;i++)
             {
-                Camara398new item = (Camara398new)Marca.Items[i];
+                Camaras398FotyElec item = (Camaras398FotyElec)Marca.Items[i];
                 if (item.marca==aux.Marca)
                 {
                     Marca.SelectedIndex = i;
                     break;
                 }
             }
-            var auxLista = Camara398new.lista().Where(elemento => elemento.marca == aux.Marca).ToList();
+            var auxLista = Camaras398FotyElec.lista().Where(elemento => elemento.marca == aux.Marca).ToList();
             Modelo.DataSource = auxLista;
             Modelo.DisplayMember = "modelo";
             for (int i = 0; i < Modelo.Items.Count; i++)
             {
-                Camara398new item = (Camara398new)Modelo.Items[i];
+                Camaras398FotyElec item = (Camaras398FotyElec)Modelo.Items[i];
                 if (item.modelo == aux.Modelo)
                 {
                     Modelo.SelectedIndex = i;
@@ -136,10 +153,10 @@ namespace _398_UI
             }
         }
 
-        public static double[] obtenerLineakQQ0(Camara camara)
+     /*   public static double[] obtenerLineakQQ0(Camara camara)
         {
             return Camara398new.lista().SingleOrDefault(c => c.marca == camara.Marca && c.modelo == camara.Modelo).kqq0;
-        }
+        }*/
 
     }
 }

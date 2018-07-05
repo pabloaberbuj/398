@@ -14,13 +14,8 @@ namespace _398_UI
 
     public partial class Form_SistemasDosimetricos : Form
     {
-        int panel = 0;
-        //int indiceEquipo = 0;
         bool editaCam = false;
         bool editaElec = false;
-        int numeroPestanasCaliFotones = 0;
-        string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
-
         public Form_SistemasDosimetricos()
         {
             InitializeComponent();
@@ -38,7 +33,7 @@ namespace _398_UI
 
 
             //lista de cámaras 398
-            CB_MarcaCam.DataSource = Camara398new.lista().Distinct().ToList();
+            CB_MarcaCam.DataSource = Camaras398FotyElec.lista().Distinct().ToList();
             CB_MarcaCam.DisplayMember = "marca";
             CB_MarcaCam.ValueMember = "marca";
             CB_MarcaCam.SelectedIndex = -1;
@@ -62,7 +57,7 @@ namespace _398_UI
         {
             if (CB_MarcaCam.SelectedIndex != -1)
             {
-                CB_ModCam.DataSource = Camara398new.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
+                CB_ModCam.DataSource = Camaras398FotyElec.lista().Where(elemento => elemento.marca == CB_MarcaCam.Text).ToList();
                 CB_ModCam.DisplayMember = "modelo";
             }
             else

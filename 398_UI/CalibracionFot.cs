@@ -364,8 +364,8 @@ namespace _398_UI
             {
                 string[] fid = Tabla.Cargar(Tabla.tabla_Kqq0);
                 double[] TPR2010Etiquetas = Tabla.extraerDoubleArray(fid, 0);
-                double[] valoresKqq0 = Camara.obtenerLineakQQ0(camara);
-                return Math.Round(Calcular.interpolarLinea(TPR2010, TPR2010Etiquetas, valoresKqq0), 4);
+                //double[] valoresKqq0 = ;
+                return Math.Round(Calcular.interpolarLinea(TPR2010, TPR2010Etiquetas, camara.kqq0Fot), 4);
             }
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UMoTiempo)

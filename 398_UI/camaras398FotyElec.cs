@@ -19,7 +19,7 @@ namespace _398_UI
 
         public static BindingList<Camaras398FotyElec> lista()
         {
-            return IO.readJsonList<Camaras398FotyElec>(@"..\..\camaras398new.txt");
+            return IO.readJsonList<Camaras398FotyElec>(@"..\..\camaras398FotyElec.txt");
         }
         public override bool Equals(object obj) //distingue solo por marca
         {
