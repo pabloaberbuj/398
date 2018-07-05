@@ -36,21 +36,13 @@ namespace _398_UI
             CB_MarcaCam.DataSource = Camaras398FotyElec.lista().Distinct().ToList();
             CB_MarcaCam.DisplayMember = "marca";
             CB_MarcaCam.ValueMember = "marca";
-            CB_MarcaCam.SelectedIndex = -1;
+            CB_MarcaCam.SelectedIndex = 0;
 
 
             //Carga UI
             //actualizarComboBoxCaliFotones();
             //inicializarPredeterminados(100, 10);
         }
-
-
-       
-
-
-
-
-
 
         #region SistDosimetricos UI
         private void CB_MarcaCam_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,6 +57,26 @@ namespace _398_UI
                 CB_ModCam.SelectedIndex = -1;
             }
             habilitarCamBotones(sender, e);
+        }
+
+        private void camaraFuncionaParaFotonesYElectrones(Camaras398FotyElec camara)
+        {
+            if (camara.paraElectrones)
+            {
+                L_CamElectronesTrue.Visible = true;
+            }
+            else
+            {
+                L_CamElectronesTrue.Visible = false;
+            }
+            if (camara.paraFotones)
+            {
+                L_CamFotonesTrue.Visible = true;
+            }
+            else
+            {
+                L_CamFotonesTrue.Visible = false;
+            }
         }
         #endregion
 
@@ -98,6 +110,11 @@ namespace _398_UI
 
         private void habilitarCamBotones(object sender, EventArgs e)
         {
+            if (CB_MarcaCam.SelectedIndex != -1 && CB_ModCam.SelectedIndex != -1)
+            {
+                Camaras398FotyElec camara398Seleccionada = Camaras398FotyElec.lista().Where(c => c.marca == CB_MarcaCam.Text && c.modelo == CB_ModCam.Text).FirstOrDefault();
+                camaraFuncionaParaFotonesYElectrones(camara398Seleccionada);
+            }
             habilitarBoton(CB_MarcaCam.SelectedIndex != -1 && CB_ModCam.SelectedIndex != -1 && TB_SNCam.Text != "", BT_GuardarCam);
             habilitarBoton(DGV_Cam.SelectedRows.Count == 1, BT_EditarCam);
             habilitarBoton(DGV_Cam.SelectedRows.Count > 0, BT_EliminarCam);

@@ -28,18 +28,7 @@ namespace _398_UI
         [Browsable(false)]
         public string Etiqueta { get; set; }
 
-    /*    public static Camara crear(string _marca, string _modelo, string _numSerie)
-        {
-            return new Camara()
-            {
-                Marca = _marca,
-                Modelo = _modelo,
-                NumSerie = _numSerie,
-                Etiqueta = _marca + " " + _modelo + " " + _numSerie,
-            };
-        }*/
-
-        public static Camara crear(string _marca, string _modelo, string _numSerie)
+            public static Camara crear(string _marca, string _modelo, string _numSerie)
         {
             Camaras398FotyElec camara398 = Camaras398FotyElec.lista().Where(c => c.marca == _marca && c.modelo == _modelo).FirstOrDefault();
             return new Camara()
@@ -153,11 +142,8 @@ namespace _398_UI
             }
         }
 
-     /*   public static double[] obtenerLineakQQ0(Camara camara)
-        {
-            return Camara398new.lista().SingleOrDefault(c => c.marca == camara.Marca && c.modelo == camara.Modelo).kqq0;
-        }*/
-
+        
+     
     }
 }
 
