@@ -33,14 +33,19 @@ namespace _398_UI
 
             MinimizeBox = false;
             MaximizeBox = false;
-            //Carga DGV
             
 
             //inicializar Forms en Paneles
-            Form_Equipos formEquipos = new Form_Equipos();
-            formEquipos.TopLevel = false;
-            Panel_Equipos.Controls.Add(formEquipos);
-            formEquipos.Show();
+            cargarForm(f => new Form_Equipos(), "Form_Equipos", Panel_Equipos);
+            cargarForm(f => new Form_AnalizarReg(), "Form_AnalizarReg", Panel_AnalizarReg);
+            cargarForm(f => new Form_Inicio(), "Form_Inicio", Panel_Inicio);
+            cargarForm(f => new Form_SistemasDosimetricos(), "Form_SistemasDosimetricos", Panel_SistDos);
+            
+            /*  Form_Equipos formEquipos = new Form_Equipos();
+              formEquipos.TopLevel = false;
+              Panel_Equipos.Controls.Add(formEquipos);
+              formEquipos.Show();
+
 
             Form_SistemasDosimetricos formSistDos = new Form_SistemasDosimetricos();
             formSistDos.TopLevel = false;
@@ -55,10 +60,11 @@ namespace _398_UI
             Form_Inicio formInicio = new Form_Inicio();
             formInicio.TopLevel = false;
             Panel_Inicio.Controls.Add(formInicio);
-            formInicio.Show();
+            formInicio.Show();*/
 
             nuevaTabCaliFotones();
 
+            
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
@@ -66,6 +72,7 @@ namespace _398_UI
 
         }
 
+        
 
         #region Paneles
         //Ir a paneles
@@ -95,6 +102,13 @@ namespace _398_UI
             panel = traerPanel(panel, 4, Panel_AnalizarReg, Bt_AnalizarReg, Panel_Botones);
         }
 
+        private void cargarForm(Func<string, Form> formConstructor, string formNombre, Panel panel)
+        {
+            Form form = formConstructor(formNombre);
+            form.TopLevel = false;
+            panel.Controls.Add(form);
+            form.Show();
+        }
 
         //Ir y volver de calibración
         private void btClick_IraEquipo(object sender, EventArgs e)
