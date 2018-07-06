@@ -15,13 +15,8 @@ namespace _398_UI
     public partial class Form1 : Form
     {
         int panel = 0;
-        //int indiceEquipo = 0;
         int numeroPestanasCaliFotones = 0;
         //string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
-
-        
-
-
 
         public Form1()
         {
@@ -40,36 +35,11 @@ namespace _398_UI
             cargarForm(f => new Form_AnalizarReg(), "Form_AnalizarReg", Panel_AnalizarReg);
             cargarForm(f => new Form_Inicio(), "Form_Inicio", Panel_Inicio);
             cargarForm(f => new Form_SistemasDosimetricos(), "Form_SistemasDosimetricos", Panel_SistDos);
-            
-            /*  Form_Equipos formEquipos = new Form_Equipos();
-              formEquipos.TopLevel = false;
-              Panel_Equipos.Controls.Add(formEquipos);
-              formEquipos.Show();
-
-
-            Form_SistemasDosimetricos formSistDos = new Form_SistemasDosimetricos();
-            formSistDos.TopLevel = false;
-            Panel_SistDos.Controls.Add(formSistDos);
-            formSistDos.Show();
-
-            Form_AnalizarReg formAnalizarReg = new Form_AnalizarReg();
-            formAnalizarReg.TopLevel = false;
-            Panel_AnalizarReg.Controls.Add(formAnalizarReg);
-            formAnalizarReg.Show();
-
-            Form_Inicio formInicio = new Form_Inicio();
-            formInicio.TopLevel = false;
-            Panel_Inicio.Controls.Add(formInicio);
-            formInicio.Show();*/
-
             nuevaTabCaliFotones();
-
-            
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
-
         }
 
         
@@ -87,6 +57,13 @@ namespace _398_UI
             {
                 nuevaTabCaliFotones();
             }
+            foreach (TabPage tab in TabC_CaliFotones.TabPages)
+            {
+                Form_CaliFotones form = tab.Controls.OfType<Form_CaliFotones>().FirstOrDefault();
+                form.
+                
+            }
+
         }
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
@@ -110,49 +87,6 @@ namespace _398_UI
             form.Show();
         }
 
-        //Ir y volver de calibración
-        private void btClick_IraEquipo(object sender, EventArgs e)
-        {
-          /*  panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
-            BT_EqIraCal.Text = "Seleccionar y volver a calibración";
-            Panel_Equipos.Visible = true;*/
-        }
-
-        private void btCkick_IraSistDos(object sender, EventArgs e)
-        {
-           /* panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
-            BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
-            Panel_SistDos.Visible = true;*/
-        }
-
-        private void BT_EqIraCal_Click(object sender, EventArgs e)
-        {
-            /*if (DGV_Equipo.SelectedRows.Count == 1)
-            {
-                Equipo seleccionado = Equipo.lista()[DGV_Equipo.SelectedRows[0].Index];
-                //string aux = seleccionado.Marca + " " + seleccionado.Modelo + " Nº Serie: " + seleccionado.NumSerie;
-                //Form_CaliFotones fcf = TabC_CaliFotones.SelectedTab.Controls.OfType<Form_CaliFotones>().FirstOrDefault();
-
-
-                CB_CaliEquipos.SelectedIndex = CB_CaliEquipos.FindStringExact(aux);
-                actualizarComboBoxCaliFotones();
-                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
-                BT_EqIraCal.Text = "Seleccionar e ir a calibración";
-            }*/
-
-        }
-
-        private void BT_SistDosIraCal_Click(object sender, EventArgs e)
-        {
-         /*   if (DGV_SistDos.SelectedRows.Count == 1)
-            {
-                SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
-                string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.Etiqueta;
-                CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
-                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
-                BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
-            }*/
-        }
         #endregion
 
         #region pestanas
@@ -402,13 +336,12 @@ namespace _398_UI
             }
         }
 
-        
 
-        
+
+
+
+
         #endregion
-
-        
-       
     }
 }
 

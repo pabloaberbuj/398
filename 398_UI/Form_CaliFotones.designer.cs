@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_CaliFotones));
             this.Panel_CalFot = new System.Windows.Forms.Panel();
+            this.CB_caliFotRealizadoPor3 = new System.Windows.Forms.ComboBox();
+            this.CB_caliFotRealizadoPor2 = new System.Windows.Forms.ComboBox();
             this.CHB_caliFotEstablecerComoRef = new System.Windows.Forms.CheckBox();
             this.L_CaliFMref = new System.Windows.Forms.Label();
             this.L_CaliFKqq0 = new System.Windows.Forms.Label();
@@ -57,8 +59,6 @@
             this.BT_ReporteImp = new System.Windows.Forms.Button();
             this.Bt_ReporteVP = new System.Windows.Forms.Button();
             this.BT_ExportarCaliFot = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
             this.Panel_Tiempo = new System.Windows.Forms.Panel();
             this.TB_tiempo = new System.Windows.Forms.TextBox();
@@ -176,8 +176,6 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.CB_caliFotRealizadoPor2 = new System.Windows.Forms.ComboBox();
-            this.CB_caliFotRealizadoPor3 = new System.Windows.Forms.ComboBox();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -226,8 +224,6 @@
             this.Panel_CalFot.Controls.Add(this.BT_ReporteImp);
             this.Panel_CalFot.Controls.Add(this.Bt_ReporteVP);
             this.Panel_CalFot.Controls.Add(this.BT_ExportarCaliFot);
-            this.Panel_CalFot.Controls.Add(this.button15);
-            this.Panel_CalFot.Controls.Add(this.button14);
             this.Panel_CalFot.Controls.Add(this.gLecturaReferencia);
             this.Panel_CalFot.Controls.Add(this.groupBox5);
             this.Panel_CalFot.Controls.Add(this.label14);
@@ -246,6 +242,23 @@
             this.Panel_CalFot.Name = "Panel_CalFot";
             this.Panel_CalFot.Size = new System.Drawing.Size(804, 680);
             this.Panel_CalFot.TabIndex = 0;
+            
+            // 
+            // CB_caliFotRealizadoPor3
+            // 
+            this.CB_caliFotRealizadoPor3.FormattingEnabled = true;
+            this.CB_caliFotRealizadoPor3.Location = new System.Drawing.Point(157, 476);
+            this.CB_caliFotRealizadoPor3.Name = "CB_caliFotRealizadoPor3";
+            this.CB_caliFotRealizadoPor3.Size = new System.Drawing.Size(127, 21);
+            this.CB_caliFotRealizadoPor3.TabIndex = 73;
+            // 
+            // CB_caliFotRealizadoPor2
+            // 
+            this.CB_caliFotRealizadoPor2.FormattingEnabled = true;
+            this.CB_caliFotRealizadoPor2.Location = new System.Drawing.Point(157, 449);
+            this.CB_caliFotRealizadoPor2.Name = "CB_caliFotRealizadoPor2";
+            this.CB_caliFotRealizadoPor2.Size = new System.Drawing.Size(127, 21);
+            this.CB_caliFotRealizadoPor2.TabIndex = 72;
             // 
             // CHB_caliFotEstablecerComoRef
             // 
@@ -519,24 +532,6 @@
             this.BT_ExportarCaliFot.Text = "Exportar";
             this.BT_ExportarCaliFot.UseVisualStyleBackColor = true;
             this.BT_ExportarCaliFot.Click += new System.EventHandler(this.BT_ExportarCaliFot_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(191, 101);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(67, 23);
-            this.button15.TabIndex = 59;
-            this.button15.Text = "Nuevo...";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(191, 11);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(67, 23);
-            this.button14.TabIndex = 58;
-            this.button14.Text = "Nuevo...";
-            this.button14.UseVisualStyleBackColor = true;
             // 
             // gLecturaReferencia
             // 
@@ -1715,22 +1710,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // CB_caliFotRealizadoPor2
-            // 
-            this.CB_caliFotRealizadoPor2.FormattingEnabled = true;
-            this.CB_caliFotRealizadoPor2.Location = new System.Drawing.Point(157, 449);
-            this.CB_caliFotRealizadoPor2.Name = "CB_caliFotRealizadoPor2";
-            this.CB_caliFotRealizadoPor2.Size = new System.Drawing.Size(127, 21);
-            this.CB_caliFotRealizadoPor2.TabIndex = 72;
-            // 
-            // CB_caliFotRealizadoPor3
-            // 
-            this.CB_caliFotRealizadoPor3.FormattingEnabled = true;
-            this.CB_caliFotRealizadoPor3.Location = new System.Drawing.Point(157, 476);
-            this.CB_caliFotRealizadoPor3.Name = "CB_caliFotRealizadoPor3";
-            this.CB_caliFotRealizadoPor3.Size = new System.Drawing.Size(127, 21);
-            this.CB_caliFotRealizadoPor3.TabIndex = 73;
-            // 
             // Form_CaliFotones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1740,7 +1719,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_CaliFotones";
             this.Text = "Form_CaliFotones";
-            this.Load += new System.EventHandler(this.Form_CaliFotones_Load);
             this.Panel_CalFot.ResumeLayout(false);
             this.Panel_CalFot.PerformLayout();
             this.GB_CondMed.ResumeLayout(false);
@@ -1840,8 +1818,6 @@
         private System.Windows.Forms.TextBox tbPresion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbHumedad;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button BT_ExportarCaliFot;
         private System.Windows.Forms.Button BT_ReporteImp;
         private System.Windows.Forms.Button Bt_ReporteVP;

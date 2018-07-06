@@ -223,11 +223,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
             this.Controls.Add(this.Panel_SistDos);
             this.Controls.Add(this.Panel_Equipos);
-            this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Botones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";

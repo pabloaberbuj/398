@@ -44,7 +44,6 @@
             this.RB_FuenteALE = new System.Windows.Forms.RadioButton();
             this.RB_FuenteCo = new System.Windows.Forms.RadioButton();
             this.LB_TipoHaz = new System.Windows.Forms.Label();
-            this.BT_EqIraCal = new System.Windows.Forms.Button();
             this.BT_PredetEqu = new System.Windows.Forms.Button();
             this.TB_AliasEq = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -157,7 +156,6 @@
             this.GB_Equipos.Controls.Add(this.Panel_TipoHazEq);
             this.GB_Equipos.Controls.Add(this.Panel_FuenteEq);
             this.GB_Equipos.Controls.Add(this.LB_TipoHaz);
-            this.GB_Equipos.Controls.Add(this.BT_EqIraCal);
             this.GB_Equipos.Controls.Add(this.BT_PredetEqu);
             this.GB_Equipos.Controls.Add(this.TB_AliasEq);
             this.GB_Equipos.Controls.Add(this.label18);
@@ -323,15 +321,6 @@
             this.LB_TipoHaz.Size = new System.Drawing.Size(63, 13);
             this.LB_TipoHaz.TabIndex = 69;
             this.LB_TipoHaz.Text = "Tipo de haz";
-            // 
-            // BT_EqIraCal
-            // 
-            this.BT_EqIraCal.Location = new System.Drawing.Point(718, 598);
-            this.BT_EqIraCal.Name = "BT_EqIraCal";
-            this.BT_EqIraCal.Size = new System.Drawing.Size(110, 39);
-            this.BT_EqIraCal.TabIndex = 28;
-            this.BT_EqIraCal.Text = "Seleccionar e ir a Calibración";
-            this.BT_EqIraCal.UseVisualStyleBackColor = true;
             // 
             // BT_PredetEqu
             // 
@@ -1173,7 +1162,6 @@
         private System.Windows.Forms.TextBox TB_AliasEq;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button BT_PredetEqu;
-        private System.Windows.Forms.Button BT_EqIraCal;
         private System.Windows.Forms.Label LB_TipoHaz;
         private System.Windows.Forms.Panel Panel_EnFotEquipo;
         private System.Windows.Forms.Button BT_EnFotPredet;

@@ -34,7 +34,7 @@ namespace _398_UI
 
             MinimizeBox = false;
             MaximizeBox = false;
-  
+
             //Carga UI
             actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
@@ -48,7 +48,7 @@ namespace _398_UI
         private void actualizarNombrePestana()
         {
             string nombrePestana = equipoSeleccionado().Marca + " " + equipoSeleccionado().Modelo;
-            if (equipoSeleccionado().Fuente==2)
+            if (equipoSeleccionado().Fuente == 2)
             {
                 nombrePestana += " " + energiaSeleccionada().Etiqueta + "MV";
             }
@@ -68,8 +68,6 @@ namespace _398_UI
                 {
                     CB_CaliEquipos.Items.Add(equipo);
                     CB_CaliEquipos.DisplayMember = "Etiqueta";
-                    //string aux = equipo.Marca + " " + equipo.Modelo + " Nº Serie: " + equipo.NumSerie;
-                    //CB_CaliEquipos.Items.Add(aux);
                     if (equipo.EsPredet == true)
                     {
                         CB_CaliEquipos.SelectedItem = equipo;
@@ -85,8 +83,6 @@ namespace _398_UI
             {
                 foreach (var sistdos in SistemaDosimetrico.lista())
                 {
-                    //string aux = sistdos.camara.Etiqueta + sistdos.electrometro.Etiqueta;
-                    //CB_CaliSistDosimetrico.Items.Add(aux);
                     CB_CaliSistDosimetrico.Items.Add(sistdos);
                     CB_CaliSistDosimetrico.DisplayMember = "Etiqueta";
                     if (sistdos.EsPredet == true)
@@ -272,7 +268,7 @@ namespace _398_UI
 
         private double calculoKpol()
         {
-            return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, lecVmas(),lecVmenos(), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+            return CalibracionFot.calcularKpol(sistDosimSeleccionado().SignoTension, lecVmas(), lecVmenos(), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
         }
 
         private double lecVmas()
@@ -386,7 +382,7 @@ namespace _398_UI
 
         private double CalculoMref()
         {
-            if (equipoSeleccionado().Fuente==1)//Co
+            if (equipoSeleccionado().Fuente == 1)//Co
             {
                 return CalibracionFot.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_tiempo.Text));
             }
@@ -394,7 +390,7 @@ namespace _398_UI
             {
                 return CalibracionFot.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
             }
-            
+
         }
 
         private double calculoDwRef()
@@ -448,7 +444,7 @@ namespace _398_UI
 
         private void actualizarCalculos()
         {
-            
+
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpFot = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliFKTP);
@@ -464,6 +460,9 @@ namespace _398_UI
                 chequearKpol();
                 chequearKs();
                 habilitarBotonesCaliFotones();
+            }
+            if (CB_CaliEquipos.SelectedIndex > -1)
+            {
                 actualizarNombrePestana();
                 UMoTiempo();
             }
@@ -511,7 +510,7 @@ namespace _398_UI
 
         private void UMoTiempo()
         {
-            if (equipoSeleccionado().Fuente==1) //Co
+            if (equipoSeleccionado().Fuente == 1) //Co
             {
                 Panel_UM.Enabled = false;
                 Panel_Tiempo.Enabled = true;
@@ -604,7 +603,7 @@ namespace _398_UI
             }
             if (!chb_EditarVKpol.Checked)
             {
-                if (sistDosimSeleccionado().SignoTension==1)
+                if (sistDosimSeleccionado().SignoTension == 1)
                 {
                     Panel_LectmenosV.Enabled = true;
                     limpiarRegistro(Panel_LectmasV);
@@ -742,7 +741,7 @@ namespace _398_UI
                 {
                     CHB_UsarKqq0LB.Checked = false;
                     CHB_UsaKpolLB.Checked = false;
-                    CHB_UsaKsLB.Checked = false;                
+                    CHB_UsaKsLB.Checked = false;
                     limpiarRegistro2Niveles(Panel_CalFot);
                     actualizarComboBoxCaliFotones();
                     inicializarPredeterminados(100, 10);
@@ -792,11 +791,27 @@ namespace _398_UI
             habilitarBoton(calculaDwzrefFot, BT_ExportarCaliFot);
         }
 
+        /*     //Ir y volver de calibración
+             private void btClick_IraEquipo(object sender, EventArgs e)
+             {
+                 this.Parent.Controls.
+                 panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
+                 //BT_EqIraCal.Text = "Seleccionar y volver a calibración";
+                 Panel_Equipos.Visible = true;
+             }
+
+             private void btCkick_IraSistDos(object sender, EventArgs e)
+             {
+                 panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
+                 //BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
+                 Panel_SistDos.Visible = true;
+             }*/
+
         #endregion
 
 
 
-        
+
         #region Métodos
         public static void limpiarRegistro(Panel panel)
         {
@@ -911,7 +926,7 @@ namespace _398_UI
             promedio = Calcular.promediar(valores);
             return promedio;
         }
-        
+
         public static bool escribirLabel(double valor, Label label)
         {
             if (!Double.IsNaN(valor))
@@ -1257,7 +1272,11 @@ namespace _398_UI
 
 
 
+
+
+
         #endregion
+
     }
 }
 

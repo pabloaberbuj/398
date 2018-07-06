@@ -226,14 +226,25 @@ namespace _398_UI
         {
             habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_EditarSistDos);
             habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_PredSistDos);
-            habilitarBoton(DGV_SistDos.SelectedRows.Count == 1, BT_SistDosIraCal);
             habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_EliminarSistDos);
             habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_ExportarSistDos);
         }
 
+     /*   private void BT_SistDosIraCal_Click(object sender, EventArgs e)
+        {
+               if (DGV_SistDos.SelectedRows.Count == 1)
+               {
+                   SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
+                   string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.Etiqueta;
+                   CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
+                   panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+                   BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
+               }
+        }*/
+
         #endregion
 
-       
+
         #region Métodos
         public static void limpiarRegistro(Panel panel)
         {

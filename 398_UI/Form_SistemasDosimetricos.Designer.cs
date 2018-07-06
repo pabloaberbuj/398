@@ -31,7 +31,6 @@
             this.Panel_SistDos = new System.Windows.Forms.Panel();
             this.GB_SistDos = new System.Windows.Forms.GroupBox();
             this.BT_ImportarSistDos = new System.Windows.Forms.Button();
-            this.BT_SistDosIraCal = new System.Windows.Forms.Button();
             this.BT_PredSistDos = new System.Windows.Forms.Button();
             this.BT_EditarSistDos = new System.Windows.Forms.Button();
             this.BT_ExportarSistDos = new System.Windows.Forms.Button();
@@ -51,6 +50,9 @@
             this.LB_ModeloElec = new System.Windows.Forms.Label();
             this.LB_MarcaElec = new System.Windows.Forms.Label();
             this.GB_Camaras = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.L_CamElectronesTrue = new System.Windows.Forms.Label();
+            this.L_CamFotonesTrue = new System.Windows.Forms.Label();
             this.BT_Camara_Cancelar = new System.Windows.Forms.Button();
             this.BT_EliminarCam = new System.Windows.Forms.Button();
             this.BT_EditarCam = new System.Windows.Forms.Button();
@@ -62,9 +64,6 @@
             this.LB_SNCam = new System.Windows.Forms.Label();
             this.LB_ModCam = new System.Windows.Forms.Label();
             this.LB_MarcaCam = new System.Windows.Forms.Label();
-            this.L_CamFotonesTrue = new System.Windows.Forms.Label();
-            this.L_CamElectronesTrue = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Panel_SistDos.SuspendLayout();
             this.GB_SistDos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SistDos)).BeginInit();
@@ -87,7 +86,6 @@
             // GB_SistDos
             // 
             this.GB_SistDos.Controls.Add(this.BT_ImportarSistDos);
-            this.GB_SistDos.Controls.Add(this.BT_SistDosIraCal);
             this.GB_SistDos.Controls.Add(this.BT_PredSistDos);
             this.GB_SistDos.Controls.Add(this.BT_EditarSistDos);
             this.GB_SistDos.Controls.Add(this.BT_ExportarSistDos);
@@ -110,15 +108,6 @@
             this.BT_ImportarSistDos.Text = "Importar";
             this.BT_ImportarSistDos.UseVisualStyleBackColor = true;
             this.BT_ImportarSistDos.Click += new System.EventHandler(this.BT_ImportarSistDos_Click);
-            // 
-            // BT_SistDosIraCal
-            // 
-            this.BT_SistDosIraCal.Location = new System.Drawing.Point(619, 183);
-            this.BT_SistDosIraCal.Name = "BT_SistDosIraCal";
-            this.BT_SistDosIraCal.Size = new System.Drawing.Size(157, 44);
-            this.BT_SistDosIraCal.TabIndex = 18;
-            this.BT_SistDosIraCal.Text = "Seleccionar e ir a Calibración";
-            this.BT_SistDosIraCal.UseVisualStyleBackColor = true;
             // 
             // BT_PredSistDos
             // 
@@ -334,6 +323,35 @@
             this.GB_Camaras.TabStop = false;
             this.GB_Camaras.Text = "Cámaras";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "Con kQQ0 para:";
+            // 
+            // L_CamElectronesTrue
+            // 
+            this.L_CamElectronesTrue.AutoSize = true;
+            this.L_CamElectronesTrue.Location = new System.Drawing.Point(159, 125);
+            this.L_CamElectronesTrue.Name = "L_CamElectronesTrue";
+            this.L_CamElectronesTrue.Size = new System.Drawing.Size(57, 13);
+            this.L_CamElectronesTrue.TabIndex = 75;
+            this.L_CamElectronesTrue.Text = "Electrones";
+            this.L_CamElectronesTrue.Visible = false;
+            // 
+            // L_CamFotonesTrue
+            // 
+            this.L_CamFotonesTrue.AutoSize = true;
+            this.L_CamFotonesTrue.Location = new System.Drawing.Point(113, 125);
+            this.L_CamFotonesTrue.Name = "L_CamFotonesTrue";
+            this.L_CamFotonesTrue.Size = new System.Drawing.Size(45, 13);
+            this.L_CamFotonesTrue.TabIndex = 74;
+            this.L_CamFotonesTrue.Text = "Fotones";
+            this.L_CamFotonesTrue.Visible = false;
+            // 
             // BT_Camara_Cancelar
             // 
             this.BT_Camara_Cancelar.Location = new System.Drawing.Point(265, 63);
@@ -444,35 +462,6 @@
             this.LB_MarcaCam.TabIndex = 0;
             this.LB_MarcaCam.Text = "Marca";
             // 
-            // L_CamFotonesTrue
-            // 
-            this.L_CamFotonesTrue.AutoSize = true;
-            this.L_CamFotonesTrue.Location = new System.Drawing.Point(113, 125);
-            this.L_CamFotonesTrue.Name = "L_CamFotonesTrue";
-            this.L_CamFotonesTrue.Size = new System.Drawing.Size(45, 13);
-            this.L_CamFotonesTrue.TabIndex = 74;
-            this.L_CamFotonesTrue.Text = "Fotones";
-            this.L_CamFotonesTrue.Visible = false;
-            // 
-            // L_CamElectronesTrue
-            // 
-            this.L_CamElectronesTrue.AutoSize = true;
-            this.L_CamElectronesTrue.Location = new System.Drawing.Point(159, 125);
-            this.L_CamElectronesTrue.Name = "L_CamElectronesTrue";
-            this.L_CamElectronesTrue.Size = new System.Drawing.Size(57, 13);
-            this.L_CamElectronesTrue.TabIndex = 75;
-            this.L_CamElectronesTrue.Text = "Electrones";
-            this.L_CamElectronesTrue.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 76;
-            this.label1.Text = "Con kQQ0 para:";
-            // 
             // Form_SistemasDosimetricos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -528,7 +517,6 @@
         private System.Windows.Forms.Label LB_MarcaCam;
         private System.Windows.Forms.Button BT_PredSistDos;
         private System.Windows.Forms.Button BT_EditarSistDos;
-        private System.Windows.Forms.Button BT_SistDosIraCal;
         private System.Windows.Forms.Button BT_Electrometro_Cancelar;
         private System.Windows.Forms.Button BT_Camara_Cancelar;
         private System.Windows.Forms.Button BT_ImportarSistDos;

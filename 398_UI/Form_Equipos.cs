@@ -302,10 +302,22 @@ namespace _398_UI
                 tieneFuente && tieneTipoDeHaz && tieneEnergia, BT_GuardarEq);
             habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EditarEq);
             habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_PredetEqu);
-            habilitarBoton(DGV_Equipo.SelectedRows.Count == 1, BT_EqIraCal);
             habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_EliminarEq);
             habilitarBoton(DGV_Equipo.SelectedRows.Count > 0, BT_ExportarEq);
         }
+
+      /*  private void BT_EqIraCal_Click(object sender, EventArgs e)
+        {
+            if (DGV_Equipo.SelectedRows.Count == 1)
+            {
+                Equipo seleccionado = Equipo.lista()[DGV_Equipo.SelectedRows[0].Index];
+                CB_CaliEquipos.SelectedIndex = CB_CaliEquipos.FindStringExact(aux);
+                actualizarComboBoxCaliFotones();
+                panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
+                BT_EqIraCal.Text = "Seleccionar e ir a calibración";
+            }
+
+        }*/
 
         #endregion
 

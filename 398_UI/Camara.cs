@@ -31,7 +31,7 @@ namespace _398_UI
             public static Camara crear(string _marca, string _modelo, string _numSerie)
         {
             Camaras398FotyElec camara398 = Camaras398FotyElec.lista().Where(c => c.marca == _marca && c.modelo == _modelo).FirstOrDefault();
-            return new Camara()
+            Camara camara = new Camara()
             {
                 Marca = camara398.marca,
                 Modelo = camara398.modelo,
@@ -43,6 +43,15 @@ namespace _398_UI
                 kqq0Elec = camara398.kqq0Elec,
                 Etiqueta = camara398.marca + " " + camara398.modelo + " " + _numSerie,
             };
+            if (camara.kqq0Fot==null)
+            {
+                camara.kqq0Fot = new double[0];
+            }
+            if (camara.kqq0Elec == null)
+            {
+                camara.kqq0Elec = new double[0];
+            }
+            return camara;
         }
         public static BindingList<Camara> lista()
         {
