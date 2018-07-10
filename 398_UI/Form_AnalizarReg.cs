@@ -14,12 +14,14 @@ namespace _398_UI
 
     public partial class Form_AnalizarReg : Form
     {
+        Form1 form1;
         string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
 
 
-        public Form_AnalizarReg()
+        public Form_AnalizarReg(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
         }
 
         private void Form_AnalizarReg_Load(object sender, EventArgs e)

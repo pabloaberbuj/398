@@ -14,10 +14,12 @@ namespace _398_UI
 
     public partial class Form_Inicio : Form
     {
-        
-        public Form_Inicio()
+        Form1 form1;
+
+        public Form_Inicio(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
         }
 
         private void Form_Inicio_Load(object sender, EventArgs e)

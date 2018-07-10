@@ -16,11 +16,24 @@ namespace _398_UI
     {
         int panel = 0;
         int numeroPestanasCaliFotones = 0;
+        public Form_AnalizarReg formAnalizarReg;
+        public Form_Equipos formEquipos;
+        public Form_SistemasDosimetricos formSistemasDosimetricos;
+        public Form_Inicio formInicio;
+        public List<Form_CaliFotones> listaFormsCaliFotones = new List<Form_CaliFotones>();
+        public Form_CaliFotones formCaliFotones1;
+
         //string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
 
         public Form1()
         {
             InitializeComponent();
+            //inicializar Forms en Paneles
+            formEquipos = (Form_Equipos)cargarForm(f => new Form_Equipos(this), "Form_Equipos", Panel_Equipos);
+            formAnalizarReg = (Form_AnalizarReg)cargarForm(f => new Form_AnalizarReg(this), "Form_AnalizarReg", Panel_AnalizarReg);
+            formInicio = (Form_Inicio)cargarForm(f => new Form_Inicio(this), "Form_Inicio", Panel_Inicio);
+            formSistemasDosimetricos = (Form_SistemasDosimetricos)cargarForm(f => new Form_SistemasDosimetricos(this), "Form_SistemasDosimetricos", Panel_SistDos);
+            formCaliFotones1 = nuevaTabCaliFotones();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,14 +41,6 @@ namespace _398_UI
 
             MinimizeBox = false;
             MaximizeBox = false;
-            
-
-            //inicializar Forms en Paneles
-            cargarForm(f => new Form_Equipos(), "Form_Equipos", Panel_Equipos);
-            cargarForm(f => new Form_AnalizarReg(), "Form_AnalizarReg", Panel_AnalizarReg);
-            cargarForm(f => new Form_Inicio(), "Form_Inicio", Panel_Inicio);
-            cargarForm(f => new Form_SistemasDosimetricos(), "Form_SistemasDosimetricos", Panel_SistDos);
-            nuevaTabCaliFotones();
 
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
@@ -60,8 +65,7 @@ namespace _398_UI
             foreach (TabPage tab in TabC_CaliFotones.TabPages)
             {
                 Form_CaliFotones form = tab.Controls.OfType<Form_CaliFotones>().FirstOrDefault();
-                form.
-                
+                form.inicializarDesdeAfuera();
             }
 
         }
@@ -79,12 +83,14 @@ namespace _398_UI
             panel = traerPanel(panel, 4, Panel_AnalizarReg, Bt_AnalizarReg, Panel_Botones);
         }
 
-        private void cargarForm(Func<string, Form> formConstructor, string formNombre, Panel panel)
+        private Form cargarForm(Func<string, Form> formConstructor, string formNombre, Panel panel)
         {
             Form form = formConstructor(formNombre);
             form.TopLevel = false;
             panel.Controls.Add(form);
             form.Show();
+
+            return form;
         }
 
         #endregion
@@ -92,24 +98,28 @@ namespace _398_UI
         #region pestanas
 
         
-        private void nuevaTabCaliFotones()
+        private Form_CaliFotones nuevaTabCaliFotones()
         {
             string nombrePestana = "tab" + numeroPestanasCaliFotones.ToString();
-            string nombreForm = "form" + numeroPestanasCaliFotones.ToString();
+            string nombreForm = "formCaliFotones" + numeroPestanasCaliFotones.ToString();
             TabPage tabCaliFotones = new TabPage()
             {
                 Name = nombrePestana,
                 Text = "Nueva Calibracion",
             };
             TabC_CaliFotones.TabPages.Add(tabCaliFotones);
-            TabC_CaliFotones.TabPages[nombrePestana].Controls.Add(new Form_CaliFotones()
+            Form_CaliFotones formCF = new Form_CaliFotones(this)
             {
                 Name = nombreForm,
                 TopLevel = false,
-            });
+            };
+
+            TabC_CaliFotones.TabPages[nombrePestana].Controls.Add(formCF);
             TabC_CaliFotones.TabPages[nombrePestana].Controls[nombreForm].Show();
             TabC_CaliFotones.SelectedTab = TabC_CaliFotones.TabPages[nombrePestana];
             numeroPestanasCaliFotones++;
+            listaFormsCaliFotones.Add(formCF);
+            return formCF;
         }
 
         private void cerrarTabCaliFotones()

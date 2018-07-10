@@ -124,6 +124,7 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button1 = new System.Windows.Forms.Button();
             this.Panel_Equipos.SuspendLayout();
             this.GB_Equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Equipo)).BeginInit();
@@ -147,6 +148,7 @@
             // 
             // GB_Equipos
             // 
+            this.GB_Equipos.Controls.Add(this.button1);
             this.GB_Equipos.Controls.Add(this.BT_ImportarEq);
             this.GB_Equipos.Controls.Add(this.cb_MarcaEq);
             this.GB_Equipos.Controls.Add(this.cb_InstitucionEq);
@@ -1110,6 +1112,16 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(465, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.TabIndex = 78;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_Equipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1239,6 +1251,7 @@
         private System.Windows.Forms.TextBox TB_EnFotLado;
         private System.Windows.Forms.Label label91;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

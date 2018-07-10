@@ -23,13 +23,15 @@ namespace _398_UI
         bool calculaDwzrefFot = false;
         bool calculaDwzmaxFot = false;
         bool calculaDifLBFot = false;
+        Form1 form1;
 
-        public Form_CaliFotones()
+        public Form_CaliFotones(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
         }
 
-        private void Form_CaliFotones_Load(object sender, EventArgs e)
+    private void Form_CaliFotones_Load(object sender, EventArgs e)
         {
 
             MinimizeBox = false;
@@ -58,6 +60,13 @@ namespace _398_UI
 
 
         #region Cali Fotones Inicializaciones
+
+        public void inicializarDesdeAfuera()
+        {
+            InicializarComboBoxEquipos();
+            InicializarComboBoxEnergias();
+            InicializarComboBoxSistDosim();
+        }
 
         private void InicializarComboBoxEquipos()
         {

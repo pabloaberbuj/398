@@ -18,11 +18,13 @@ namespace _398_UI
         bool editaEquipo = false;
         bool editaEnergiaFot = false;
         bool editaEnergiaElect = false;
+        Form1 form1;
         
 
-        public Form_Equipos()
+        public Form_Equipos(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
         }
 
         private void Form_Equipos_Load(object sender, EventArgs e)
@@ -635,13 +637,20 @@ namespace _398_UI
             }
         }
 
-        
 
-        
+
+
+
+
         #endregion
 
-       
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (Form_CaliFotones cali in form1.listaFormsCaliFotones)
+            {
+                MessageBox.Show(cali.Name);
+            }
+        }
     }
 }
 

@@ -242,7 +242,6 @@
             this.Panel_CalFot.Name = "Panel_CalFot";
             this.Panel_CalFot.Size = new System.Drawing.Size(804, 680);
             this.Panel_CalFot.TabIndex = 0;
-            
             // 
             // CB_caliFotRealizadoPor3
             // 
@@ -1719,6 +1718,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_CaliFotones";
             this.Text = "Form_CaliFotones";
+            this.Load += new System.EventHandler(this.Form_CaliFotones_Load);
             this.Panel_CalFot.ResumeLayout(false);
             this.Panel_CalFot.PerformLayout();
             this.GB_CondMed.ResumeLayout(false);

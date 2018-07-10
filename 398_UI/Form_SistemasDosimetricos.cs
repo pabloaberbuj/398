@@ -16,9 +16,12 @@ namespace _398_UI
     {
         bool editaCam = false;
         bool editaElec = false;
-        public Form_SistemasDosimetricos()
+        Form1 form1;
+
+        public Form_SistemasDosimetricos(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
         }
 
         private void Form_SistemasDosimetricos_Load(object sender, EventArgs e)
