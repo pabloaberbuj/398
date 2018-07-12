@@ -29,16 +29,16 @@ namespace _398_UI
         {
             InitializeComponent();
             this.form1 = form1;
+            //actualizarComboBoxCaliFotones();
         }
 
     private void Form_CaliFotones_Load(object sender, EventArgs e)
         {
-
+            actualizarComboBoxCaliFotones();
             MinimizeBox = false;
             MaximizeBox = false;
 
             //Carga UI
-            actualizarComboBoxCaliFotones();
             inicializarPredeterminados(100, 10);
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
@@ -61,15 +61,13 @@ namespace _398_UI
 
         #region Cali Fotones Inicializaciones
 
-        public void inicializarDesdeAfuera()
+        private void InicializarComboBoxEquipos(bool guardarSeleccion = false)
         {
-            InicializarComboBoxEquipos();
-            InicializarComboBoxEnergias();
-            InicializarComboBoxSistDosim();
-        }
-
-        private void InicializarComboBoxEquipos()
-        {
+            Equipo equipoASeleccionar = new Equipo(); 
+            if (guardarSeleccion)
+            {
+                equipoASeleccionar = (Equipo)CB_CaliEquipos.SelectedItem;
+            }
             CB_CaliEquipos.Items.Clear();
             if (Equipo.lista().Count > 0)
             {
@@ -77,16 +75,23 @@ namespace _398_UI
                 {
                     CB_CaliEquipos.Items.Add(equipo);
                     CB_CaliEquipos.DisplayMember = "Etiqueta";
-                    if (equipo.EsPredet == true)
+                    if (!guardarSeleccion && equipo.EsPredet == true)
                     {
-                        CB_CaliEquipos.SelectedItem = equipo;
+                        equipoASeleccionar = equipo;
                     }
                 }
             }
+            CB_CaliEquipos.SelectedItem = equipoASeleccionar;
         }
 
-        private void InicializarComboBoxSistDosim()
+
+        private void InicializarComboBoxSistDosim(bool guardarSeleccion = false)
         {
+            SistemaDosimetrico sistDosASeleccionar = new SistemaDosimetrico();
+            if (guardarSeleccion)
+            {
+                sistDosASeleccionar = (SistemaDosimetrico)CB_CaliSistDosimetrico.SelectedItem;
+            }
             CB_CaliSistDosimetrico.Items.Clear();
             if (SistemaDosimetrico.lista().Count > 0)
             {
@@ -94,15 +99,21 @@ namespace _398_UI
                 {
                     CB_CaliSistDosimetrico.Items.Add(sistdos);
                     CB_CaliSistDosimetrico.DisplayMember = "Etiqueta";
-                    if (sistdos.EsPredet == true)
+                    if (!guardarSeleccion && sistdos.EsPredet == true)
                     {
-                        CB_CaliSistDosimetrico.SelectedItem = sistdos;
+                        sistDosASeleccionar = sistdos;
                     }
                 }
             }
+            CB_CaliSistDosimetrico.SelectedItem = sistDosASeleccionar;
         }
-        private void InicializarComboBoxEnergias()
+        private void InicializarComboBoxEnergias(bool guardarSeleccion = false)
         {
+            EnergiaFotones energiaASeleccionar = new EnergiaFotones();
+            if (guardarSeleccion)
+            {
+                energiaASeleccionar = (EnergiaFotones)CB_CaliEnergias.SelectedItem;
+            }
             CB_CaliEnergias.Items.Clear();
 
             if (CB_CaliEquipos.SelectedIndex != -1)
@@ -119,11 +130,12 @@ namespace _398_UI
                     {
                         CB_CaliEnergias.Items.Add(energia);
                         CB_CaliEnergias.DisplayMember = "Etiqueta";
-                        if (energia.EsPredet == true)
+                        if (!guardarSeleccion && energia.EsPredet == true)
                         {
-                            CB_CaliEnergias.SelectedItem = energia;
+                            energiaASeleccionar = energia;
                         }
                     }
+                    CB_CaliEnergias.SelectedItem = energiaASeleccionar;
                     CB_CaliEnergias.Enabled = true;
                 }
                 CB_CaliEnergias.DisplayMember = "Etiqueta";
@@ -507,14 +519,17 @@ namespace _398_UI
             actualizarCalculos();
         }
 
-        private void actualizarComboBoxCaliFotones()
+        public void actualizarComboBoxCaliFotones(bool guardarSeleccion = false)
         {
-            InicializarComboBoxSistDosim();
-            InicializarComboBoxEquipos();
-            InicializarComboBoxEnergias();
-            inicializarLadoCampoReferencia();
-            InicializarRealizadoPor();
-            InicializarPDDyTMRref();
+            InicializarComboBoxSistDosim(guardarSeleccion);
+            InicializarComboBoxEquipos(guardarSeleccion);
+            InicializarComboBoxEnergias(guardarSeleccion);
+            if (!guardarSeleccion)
+            {
+                inicializarLadoCampoReferencia();
+                InicializarRealizadoPor();
+                InicializarPDDyTMRref();
+            }
         }
 
         private void UMoTiempo()

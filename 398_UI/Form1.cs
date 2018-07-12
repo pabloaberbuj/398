@@ -62,12 +62,6 @@ namespace _398_UI
             {
                 nuevaTabCaliFotones();
             }
-            foreach (TabPage tab in TabC_CaliFotones.TabPages)
-            {
-                Form_CaliFotones form = tab.Controls.OfType<Form_CaliFotones>().FirstOrDefault();
-                form.inicializarDesdeAfuera();
-            }
-
         }
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {

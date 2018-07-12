@@ -182,7 +182,7 @@ namespace _398_UI
             }
             editaEquipo = false;
             Panel_TipoHazEq.Enabled = false;
-            //actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
             DGV_Equipo.Enabled = true;
             InicializarInstitucionYMarcaEquipo();
         }
@@ -190,13 +190,13 @@ namespace _398_UI
         private void BT_PredetEqu_Click(object sender, EventArgs e)
         {
             Equipo.hacerPredeterminado(DGV_Equipo);
-            //actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
         }
 
         private void BT_EliminarEq_Click(object sender, EventArgs e)
         {
             Equipo.eliminar(DGV_Equipo);
-            //actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
         }
 
         private void BT_EditarEq_Click(object sender, EventArgs e)
@@ -233,7 +233,7 @@ namespace _398_UI
                 }
             }
             editaEquipo = true;
-            //actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
         }
 
         private void BT_ExportarEq_Click(object sender, EventArgs e)
@@ -260,6 +260,7 @@ namespace _398_UI
                     Equipo.agregarImportados(listaImportada, DGV_Equipo);
                 }
             }
+            actualizarComboBoxCaliFotones();
         }
 
         private void BT_EquiposCancelar_Click(object sender, EventArgs e)
@@ -644,11 +645,12 @@ namespace _398_UI
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void actualizarComboBoxCaliFotones()
         {
             foreach (Form_CaliFotones cali in form1.listaFormsCaliFotones)
             {
-                MessageBox.Show(cali.Name);
+                cali.actualizarComboBoxCaliFotones(true);
             }
         }
     }
