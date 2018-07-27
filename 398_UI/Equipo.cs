@@ -37,8 +37,10 @@ namespace _398_UI
         public string Institucion { get; set; }
         [Browsable(false)]
         public string Nota { get; set; }
+        [Browsable(false)]
+        public string ID { get; set; }
 
-        
+
 
         public static Equipo crearAle(string _marca, string _modelo, string _numSerie, string _alias, int _fuente, int _tipoDeHaz,
              DataGridView DGVFot, DataGridView DGVElec, string _institucion)
@@ -120,6 +122,7 @@ namespace _398_UI
         {
             if (edita)
             {
+                string IDvieja = ((Equipo)DGV.SelectedRows[0].DataBoundItem).ID;
                 int indice = DGV.SelectedRows[0].Index;
                 if (((Equipo)DGV.SelectedRows[0].DataBoundItem).EsPredet)
                 {
@@ -131,6 +134,7 @@ namespace _398_UI
                 {
                     _nuevo.EsPredet = true;
                 }
+                _nuevo.ID = IDvieja;
                 auxLista.Insert(indice, _nuevo);
                 IO.writeObjectAsJson(file, auxLista);
                 DGV.DataSource = lista();
@@ -145,6 +149,7 @@ namespace _398_UI
                 {
                     _nuevo.EsPredet = true;
                 }
+                _nuevo.ID = _nuevo.Etiqueta;
                 auxLista.Add(_nuevo);
                 IO.writeObjectAsJson(file, auxLista);
                 DGV.DataSource = lista();

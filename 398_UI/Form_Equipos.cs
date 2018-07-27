@@ -171,6 +171,7 @@ namespace _398_UI
             CHB_EnFotEquipo.Checked = false;
             CHB_EnElecEquipo.Checked = false;
             TB_EnElecR50ion_Leave(sender, e);
+            cb_MarcaEq.SelectedItem = -1;
 
             if (editaEquipo)
             {
@@ -179,10 +180,15 @@ namespace _398_UI
                     row.Selected = false;
                 }
                 DGV_Equipo.Rows[indiceEquipo].Selected = true;
+                actualizarComboBoxCaliFotones(true);
+            }
+            else
+            {
+                actualizarComboBoxCaliFotones();
             }
             editaEquipo = false;
             Panel_TipoHazEq.Enabled = false;
-            actualizarComboBoxCaliFotones();
+            
             DGV_Equipo.Enabled = true;
             InicializarInstitucionYMarcaEquipo();
         }
@@ -196,7 +202,7 @@ namespace _398_UI
         private void BT_EliminarEq_Click(object sender, EventArgs e)
         {
             Equipo.eliminar(DGV_Equipo);
-            actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
         }
 
         private void BT_EditarEq_Click(object sender, EventArgs e)
@@ -233,7 +239,7 @@ namespace _398_UI
                 }
             }
             editaEquipo = true;
-            actualizarComboBoxCaliFotones();
+            //actualizarComboBoxCaliFotones();
         }
 
         private void BT_ExportarEq_Click(object sender, EventArgs e)
@@ -646,11 +652,11 @@ namespace _398_UI
         #endregion
 
 
-        private void actualizarComboBoxCaliFotones()
+        private void actualizarComboBoxCaliFotones(bool guardarSeleccion = false)
         {
             foreach (Form_CaliFotones cali in form1.listaFormsCaliFotones)
             {
-                cali.actualizarComboBoxCaliFotones(true);
+                cali.actualizarComboBoxCaliFotones(guardarSeleccion);
             }
         }
     }

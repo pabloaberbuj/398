@@ -80,8 +80,9 @@ namespace _398_UI
                         equipoASeleccionar = equipo;
                     }
                 }
+                CB_CaliEquipos.SelectedItem = Equipo.lista().Where(e => e.ID == equipoASeleccionar.ID).FirstOrDefault();
             }
-            CB_CaliEquipos.SelectedItem = equipoASeleccionar;
+            
         }
 
 
