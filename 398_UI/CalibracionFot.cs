@@ -278,11 +278,11 @@ namespace _398_UI
             {
                 if (signopol == 1) //polaridad positiva
                 {
-                    return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmas), 4);
+                    return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * Math.Abs(LVmas)), 4);
                 }
                 else
                 {
-                    return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * LVmenos), 4);
+                    return Math.Round((Math.Abs(LVmas) + Math.Abs(LVmenos)) / (2 * Math.Abs(LVmenos)), 4);
                 }
             }
         }
@@ -364,13 +364,12 @@ namespace _398_UI
             {
                 string[] fid = Tabla.Cargar(Tabla.tabla_Kqq0);
                 double[] TPR2010Etiquetas = Tabla.extraerDoubleArray(fid, 0);
-                //double[] valoresKqq0 = ;
                 return Math.Round(Calcular.interpolarLinea(TPR2010, TPR2010Etiquetas, camara.kqq0Fot), 4);
             }
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UMoTiempo)
         {
-            return Math.Round(Lref * Ktp * Ks * Kpol / UMoTiempo, 4);
+            return Math.Round(Math.Abs(Lref * Ktp * Ks * Kpol / UMoTiempo), 4);
         }
 
         public static double CalcularDwRef(double Mref, SistemaDosimetrico sistDosim)

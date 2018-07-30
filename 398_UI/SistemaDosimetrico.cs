@@ -69,7 +69,7 @@ namespace _398_UI
                 FechaCalibracion = _fechaCal,
                 LaboCalibracion = _laboCal,
                 Nota = "",
-                Etiqueta = _camara.Etiqueta + " " + _electrometro.Etiqueta,
+                Etiqueta = _camara.Etiqueta + " - " + _electrometro.Etiqueta,
             };
         }
         public static BindingList<SistemaDosimetrico> lista()

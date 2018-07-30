@@ -513,7 +513,6 @@ namespace _398_UI
         private void CB_CaliSistDosimetrico_SelectedIndexChanged(object sender, EventArgs e)
         {
             actualizarCalculos();
-            MessageBox.Show(((SistemaDosimetrico)CB_CaliSistDosimetrico.SelectedItem).Etiqueta);
         }
 
         private void actualizarCalculos(object sender, EventArgs e)
