@@ -165,7 +165,7 @@ namespace _398_UI
 
         private void BT_NuevSistDos_Click(object sender, EventArgs e)
         {
-            NuevoSistDos nsd = new NuevoSistDos(form1, false, 0);
+            NuevoSistDos nsd = new NuevoSistDos(false, 0);
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             actualizarComboBoxCaliFotones();
@@ -180,7 +180,7 @@ namespace _398_UI
 
         private void BT_EditarSistDos_Click(object sender, EventArgs e)
         {
-            NuevoSistDos nsd = new NuevoSistDos(form1, true, DGV_SistDos.SelectedRows[0].Index);
+            NuevoSistDos nsd = new NuevoSistDos(true, DGV_SistDos.SelectedRows[0].Index);
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             DGV_SistDos.ClearSelection();

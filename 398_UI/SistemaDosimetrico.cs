@@ -44,6 +44,8 @@ namespace _398_UI
         public string LaboCalibracion { get; set; }
         [Browsable(false)]
         public string Nota { get; set; }
+        [Browsable(false)]
+        public string ID { get; set; }
 
 
         public static SistemaDosimetrico crear(Camara _camara, Electrometro _electrometro, double _factorCal,
@@ -80,7 +82,9 @@ namespace _398_UI
             if (edita)
             {
                 bool auxPredet = auxLista[indice].EsPredet;
+                string IDvieja = auxLista[indice].ID;
                 auxLista.RemoveAt(indice);
+                _nuevo.ID = IDvieja;
                 auxLista.Insert(indice, _nuevo);
                 auxLista[indice].EsPredet = auxPredet;
                 IO.writeObjectAsJson(file, auxLista);
@@ -95,6 +99,7 @@ namespace _398_UI
                 {
                     _nuevo.EsPredet = true;
                 }
+                _nuevo.ID = _nuevo.Etiqueta;
                 auxLista.Add(_nuevo);
                 IO.writeObjectAsJson(file, auxLista);
             }
@@ -116,7 +121,7 @@ namespace _398_UI
                         DGV.Rows.Remove(fila);
                     }
                     if (hayPredet && DGV.RowCount > 0)
-                    { ((Equipo)DGV.Rows[0].DataBoundItem).EsPredet = true; }
+                    { ((SistemaDosimetrico)DGV.Rows[0].DataBoundItem).EsPredet = true; }
                     IO.writeObjectAsJson(file, DGV.DataSource);
                 };
             }

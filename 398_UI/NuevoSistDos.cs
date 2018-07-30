@@ -14,8 +14,7 @@ namespace _398_UI
     {
         bool editaSD = false;
         int indice = -1;
-        Form1 form1;
-        public NuevoSistDos(Form1 form1, bool editaSistDos, int indiceEditar)
+        public NuevoSistDos(bool editaSistDos, int indiceEditar)
         {
             InitializeComponent();
 
