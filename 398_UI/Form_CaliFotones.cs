@@ -774,6 +774,8 @@ namespace _398_UI
                     chb_EditarVKs.Checked = false;
                     actualizarCalculos();
                     CB_caliFotRealizadoPor1.Text = "";
+                    CB_caliFotRealizadoPor2.Text = "";
+                    CB_caliFotRealizadoPor3.Text = "";
                 }
             }
 
@@ -787,7 +789,7 @@ namespace _398_UI
                 difConRef = calculoDifConRef();
             }
             return CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, CB_caliFotRealizadoPor1.Text, calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
+                Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliFot.Value, realizadoPor(), calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
                 Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax(),
                 Convert.ToDouble(TB_UM.Text), Convert.ToDouble(tbTemp.Text), Convert.ToDouble(tbPresion.Text), Convert.ToDouble(tbHumedad.Text),
                 lecVmas(), lecVmenos(), lecVTotal(), lecVred(), lecRef(), lec20(), lec10(), TPRoD2010(), difConRef);
@@ -801,6 +803,8 @@ namespace _398_UI
             chb_EditarVKs.Checked = false;
             actualizarCalculos();
             CB_caliFotRealizadoPor1.Text = "";
+            CB_caliFotRealizadoPor2.Text = "";
+            CB_caliFotRealizadoPor3.Text = "";
         }
 
         private void BT_ExportarCaliFot_Click(object sender, EventArgs e)
@@ -815,22 +819,6 @@ namespace _398_UI
             habilitarBoton(calculaDwzrefFot, BT_ReporteImp);
             habilitarBoton(calculaDwzrefFot, BT_ExportarCaliFot);
         }
-
-        /*     //Ir y volver de calibración
-             private void btClick_IraEquipo(object sender, EventArgs e)
-             {
-                 this.Parent.Controls.
-                 panel = traerPanel(panel, 3, Panel_Equipos, Bt_Equipos, Panel_Botones);
-                 //BT_EqIraCal.Text = "Seleccionar y volver a calibración";
-                 Panel_Equipos.Visible = true;
-             }
-
-             private void btCkick_IraSistDos(object sender, EventArgs e)
-             {
-                 panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
-                 //BT_SistDosIraCal.Text = "Seleccionar y volver a calibración";
-                 Panel_SistDos.Visible = true;
-             }*/
 
         #endregion
 
@@ -1148,7 +1136,20 @@ namespace _398_UI
             return mideKpol;
         }
 
+        private string realizadoPor()
+        {
+            string aux = CB_caliFotRealizadoPor1.Text;
+            if (!String.IsNullOrWhiteSpace(CB_caliFotRealizadoPor2.Text))
+            {
+                aux += " / " + CB_caliFotRealizadoPor2.Text;
+            }
+            if (!String.IsNullOrWhiteSpace(CB_caliFotRealizadoPor3.Text))
+            {
+                aux += " / " + CB_caliFotRealizadoPor3.Text;
+            }
+            return aux;
 
+        }
         #endregion
 
         #region Imprimir
@@ -1250,7 +1251,7 @@ namespace _398_UI
             int posicionlinea = 30;
             posicionlinea = Imprimir.imprimirTituloCaliFotones(e, posicionlinea);
 
-            posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, CB_caliFotRealizadoPor1.Text, DTP_FechaCaliFot.Value);
+            posicionlinea = Imprimir.imprimirUsuarioYFecha(e, posicionlinea, realizadoPor(), DTP_FechaCaliFot.Value);
             posicionlinea += Imprimir.altoTexto;
             posicionlinea = Imprimir.imprimirEquipo(e, posicionlinea, equipoSeleccionado(), energiaSeleccionada());
             posicionlinea += Imprimir.altoTexto;

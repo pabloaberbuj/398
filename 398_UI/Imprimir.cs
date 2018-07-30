@@ -259,7 +259,7 @@ namespace _398_UI
 
         public static int imprimirUsuarioYFecha(PrintPageEventArgs e,int posicionlinea,string usuario, DateTime fecha)
         {
-            imprimirEtiquetaYValorx2Sep(e, posicionlinea, "Usuario: ", usuario, "Fecha: ", fecha.ToShortDateString());
+            imprimirEtiquetaYValorx2Sep(e, posicionlinea, "Realizado por: ", usuario, "Fecha: ", fecha.ToShortDateString());
             posicionlinea += altoTexto + espacioTitulo;
             return posicionlinea;
         }
