@@ -108,5 +108,21 @@ namespace _398_UI
                 MessageBox.Show("No hay nuevos electrómetros para importar");
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
+            {
+                return false;
+            }
+            if (Marca == ((Electrometro)obj).Marca && Modelo == ((Electrometro)obj).Modelo && NumSerie == ((Electrometro)obj).NumSerie)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

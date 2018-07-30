@@ -14,7 +14,8 @@ namespace _398_UI
     {
         bool editaSD = false;
         int indice = -1;
-        public NuevoSistDos(bool editaSistDos, int indiceEditar)
+        Form1 form1;
+        public NuevoSistDos(Form1 form1, bool editaSistDos, int indiceEditar)
         {
             InitializeComponent();
 
@@ -112,6 +113,5 @@ namespace _398_UI
                 TB_Temp.Text != "" && TB_Presion.Text != "", BT_Guardar);
         }
 
-        
     }
 }

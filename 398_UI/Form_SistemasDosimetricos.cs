@@ -165,32 +165,32 @@ namespace _398_UI
 
         private void BT_NuevSistDos_Click(object sender, EventArgs e)
         {
-            NuevoSistDos nsd = new NuevoSistDos(false, 0);
+            NuevoSistDos nsd = new NuevoSistDos(form1, false, 0);
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
-           // actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
             habilitarSistDosBotones(sender, e);
         }
 
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.eliminar(DGV_SistDos);
-          //  actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
         }
 
         private void BT_EditarSistDos_Click(object sender, EventArgs e)
         {
-            NuevoSistDos nsd = new NuevoSistDos(true, DGV_SistDos.SelectedRows[0].Index);
+            NuevoSistDos nsd = new NuevoSistDos(form1, true, DGV_SistDos.SelectedRows[0].Index);
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             DGV_SistDos.ClearSelection();
-         //   actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
         }
 
         private void BT_PredSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.hacerPredeterminado(DGV_SistDos);
-          //  actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
         }
 
         private void BT_ImportarSistDos_Click(object sender, EventArgs e)
@@ -217,6 +217,7 @@ namespace _398_UI
                     Electrometro.importar(listaImportada, DGV_Elec);
                 }
             }
+            actualizarComboBoxCaliFotones();
 
         }
 
@@ -233,17 +234,13 @@ namespace _398_UI
             habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_ExportarSistDos);
         }
 
-     /*   private void BT_SistDosIraCal_Click(object sender, EventArgs e)
+        private void actualizarComboBoxCaliFotones(bool guardarSeleccion = false)
         {
-               if (DGV_SistDos.SelectedRows.Count == 1)
-               {
-                   SistemaDosimetrico seleccionado = SistemaDosimetrico.lista()[DGV_SistDos.SelectedRows[0].Index];
-                   string aux = seleccionado.camara.Etiqueta + seleccionado.electrometro.Etiqueta;
-                   CB_CaliSistDosimetrico.SelectedIndex = CB_CaliSistDosimetrico.FindStringExact(aux);
-                   panel = traerPanel(panel, 1, Panel_CalFot, Bt_CalFot, Panel_Botones);
-                   BT_SistDosIraCal.Text = "Seleccionar e ir a calibración";
-               }
-        }*/
+            foreach (Form_CaliFotones cali in form1.listaFormsCaliFotones)
+            {
+                cali.actualizarComboBoxCaliFotones(guardarSeleccion);
+            }
+        }
 
         #endregion
 

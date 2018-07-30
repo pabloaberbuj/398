@@ -151,8 +151,22 @@ namespace _398_UI
             }
         }
 
-        
-     
+        public override bool Equals(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType() || this == null)
+            {
+                return false;
+            }
+            if (Marca==((Camara)obj).Marca && Modelo== ((Camara)obj).Modelo && NumSerie == ((Camara)obj).NumSerie)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
 
