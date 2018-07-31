@@ -16,12 +16,15 @@ namespace _398_UI
     {
         int panel = 0;
         int numeroPestanasCaliFotones = 0;
+        int numeroPestanasCaliElectrones = 0;
         public Form_AnalizarReg formAnalizarReg;
         public Form_Equipos formEquipos;
         public Form_SistemasDosimetricos formSistemasDosimetricos;
         public Form_Inicio formInicio;
         public List<Form_CaliFotones> listaFormsCaliFotones = new List<Form_CaliFotones>();
+        public List<Form_CaliElectrones> listaFormsCaliElectrones = new List<Form_CaliElectrones>();
         public Form_CaliFotones formCaliFotones1;
+        public Form_CaliElectrones form_CaliElectrones1;
 
         //string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
 
@@ -45,6 +48,7 @@ namespace _398_UI
             //Carga UI
             Panel_AnalizarReg.Visible = false; Panel_Equipos.Visible = false;
             Panel_CalFot.Visible = false; Panel_SistDos.Visible = false;
+            Panel_CalElec.Visible = false;
         }
 
         
@@ -63,6 +67,16 @@ namespace _398_UI
                 nuevaTabCaliFotones();
             }
         }
+
+        private void Bt_CalElec_Click(object sender, EventArgs e)
+        {
+            panel = traerPanel(panel, 5, Panel_CalElec, Bt_CalElec, Panel_Botones);
+            if (numeroPestanasCaliFotones == 0)
+            {
+                nuevaTabCaliFotones();
+            }
+        }
+
         private void Bt_SistDos_Click(object sender, EventArgs e)
         {
             panel = traerPanel(panel, 2, Panel_SistDos, Bt_SistDos, Panel_Botones);
@@ -140,8 +154,51 @@ namespace _398_UI
             cerrarTabCaliFotones();
         }
 
+        private Form_CaliElectrones nuevaTabCaliElectrones()
+        {
+            string nombrePestana = "tab" + numeroPestanasCaliElectrones.ToString();
+            string nombreForm = "formCaliElectrones" + numeroPestanasCaliElectrones.ToString();
+            TabPage tabCaliElectrones = new TabPage()
+            {
+                Name = nombrePestana,
+                Text = "Nueva Calibracion",
+            };
+            TabC_CaliElectrones.TabPages.Add(tabCaliElectrones);
+            Form_CaliElectrones formCE = new Form_CaliElectrones(this)
+            {
+                Name = nombreForm,
+                TopLevel = false,
+            };
 
+            TabC_CaliElectrones.TabPages[nombrePestana].Controls.Add(formCE);
+            TabC_CaliElectrones.TabPages[nombrePestana].Controls[nombreForm].Show();
+            TabC_CaliElectrones.SelectedTab = TabC_CaliFotones.TabPages[nombrePestana];
+            numeroPestanasCaliFotones++;
+            listaFormsCaliElectrones.Add(formCE);
+            return formCE;
+        }
+        private void cerrarTabCaliElectrones()
+        {
+            if (MessageBox.Show("¿Desea cerrar la calibracion", "Cerrar calibracion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                TabC_CaliElectrones.TabPages.Remove(TabC_CaliElectrones.SelectedTab);
+                numeroPestanasCaliElectrones--;
+            }
+            if (numeroPestanasCaliElectrones == 0)
+            {
+                nuevaTabCaliElectrones();
+            }
+        }
 
+        private void BT_NuevaCalElectrones_Click(object sender, EventArgs e)
+        {
+            nuevaTabCaliElectrones();
+        }
+
+        private void BT_CerrarCalElectrones_Click(object sender, EventArgs e)
+        {
+            cerrarTabCaliElectrones();
+        }
         #endregion
 
 
@@ -345,7 +402,10 @@ namespace _398_UI
 
 
 
+
         #endregion
+
+       
     }
 }
 

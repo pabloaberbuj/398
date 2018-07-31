@@ -47,8 +47,13 @@
             this.BT_CerrarCalFotones = new System.Windows.Forms.Button();
             this.BT_NuevaCalFotones = new System.Windows.Forms.Button();
             this.TabC_CaliFotones = new System.Windows.Forms.TabControl();
+            this.Panel_CalElec = new System.Windows.Forms.Panel();
+            this.BT_CerrarCalElectrones = new System.Windows.Forms.Button();
+            this.BT_NuevaCalElectrones = new System.Windows.Forms.Button();
+            this.TabC_CaliElectrones = new System.Windows.Forms.TabControl();
             this.Panel_Botones.SuspendLayout();
             this.Panel_CalFot.SuspendLayout();
+            this.Panel_CalElec.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_Equipos
@@ -152,6 +157,7 @@
             this.Bt_CalElec.TabIndex = 8;
             this.Bt_CalElec.Text = "Calibración electrones";
             this.Bt_CalElec.UseVisualStyleBackColor = true;
+            this.Bt_CalElec.Click += new System.EventHandler(this.Bt_CalElec_Click);
             // 
             // Panel_Botones
             // 
@@ -218,11 +224,50 @@
             this.TabC_CaliFotones.Size = new System.Drawing.Size(804, 700);
             this.TabC_CaliFotones.TabIndex = 0;
             // 
+            // Panel_CalElec
+            // 
+            this.Panel_CalElec.Controls.Add(this.BT_CerrarCalElectrones);
+            this.Panel_CalElec.Controls.Add(this.BT_NuevaCalElectrones);
+            this.Panel_CalElec.Controls.Add(this.TabC_CaliElectrones);
+            this.Panel_CalElec.Location = new System.Drawing.Point(4, 0);
+            this.Panel_CalElec.Name = "Panel_CalElec";
+            this.Panel_CalElec.Size = new System.Drawing.Size(870, 700);
+            this.Panel_CalElec.TabIndex = 12;
+            // 
+            // BT_CerrarCalElectrones
+            // 
+            this.BT_CerrarCalElectrones.Location = new System.Drawing.Point(786, 56);
+            this.BT_CerrarCalElectrones.Name = "BT_CerrarCalElectrones";
+            this.BT_CerrarCalElectrones.Size = new System.Drawing.Size(72, 37);
+            this.BT_CerrarCalElectrones.TabIndex = 2;
+            this.BT_CerrarCalElectrones.Text = "Cerrar Calibración";
+            this.BT_CerrarCalElectrones.UseVisualStyleBackColor = true;
+            this.BT_CerrarCalElectrones.Click += new System.EventHandler(this.BT_CerrarCalElectrones_Click);
+            // 
+            // BT_NuevaCalElectrones
+            // 
+            this.BT_NuevaCalElectrones.Location = new System.Drawing.Point(786, 7);
+            this.BT_NuevaCalElectrones.Name = "BT_NuevaCalElectrones";
+            this.BT_NuevaCalElectrones.Size = new System.Drawing.Size(72, 37);
+            this.BT_NuevaCalElectrones.TabIndex = 1;
+            this.BT_NuevaCalElectrones.Text = "Nueva Calibración";
+            this.BT_NuevaCalElectrones.UseVisualStyleBackColor = true;
+            this.BT_NuevaCalElectrones.Click += new System.EventHandler(this.BT_NuevaCalElectrones_Click);
+            // 
+            // TabC_CaliElectrones
+            // 
+            this.TabC_CaliElectrones.Location = new System.Drawing.Point(0, 0);
+            this.TabC_CaliElectrones.Name = "TabC_CaliElectrones";
+            this.TabC_CaliElectrones.SelectedIndex = 0;
+            this.TabC_CaliElectrones.Size = new System.Drawing.Size(804, 700);
+            this.TabC_CaliElectrones.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1008, 692);
+            this.Controls.Add(this.Panel_CalElec);
             this.Controls.Add(this.Panel_CalFot);
             this.Controls.Add(this.Panel_Inicio);
             this.Controls.Add(this.Panel_AnalizarReg);
@@ -236,6 +281,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Panel_Botones.ResumeLayout(false);
             this.Panel_CalFot.ResumeLayout(false);
+            this.Panel_CalElec.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,6 +305,10 @@
         private System.Windows.Forms.TabControl TabC_CaliFotones;
         private System.Windows.Forms.Button BT_CerrarCalFotones;
         private System.Windows.Forms.Button BT_NuevaCalFotones;
+        private System.Windows.Forms.Panel Panel_CalElec;
+        private System.Windows.Forms.Button BT_CerrarCalElectrones;
+        private System.Windows.Forms.Button BT_NuevaCalElectrones;
+        private System.Windows.Forms.TabControl TabC_CaliElectrones;
     }
 }
 
