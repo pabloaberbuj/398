@@ -565,9 +565,9 @@
             this.label93.AutoSize = true;
             this.label93.Location = new System.Drawing.Point(4, 70);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(66, 13);
+            this.label93.Size = new System.Drawing.Size(77, 13);
             this.label93.TabIndex = 108;
-            this.label93.Text = "Lado campo";
+            this.label93.Text = "Lado aplicador";
             // 
             // label67
             // 

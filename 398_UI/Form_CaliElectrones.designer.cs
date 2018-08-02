@@ -60,12 +60,6 @@
             this.Bt_ReporteVP = new System.Windows.Forms.Button();
             this.BT_ExportarCaliElec = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
-            this.Panel_Tiempo = new System.Windows.Forms.Panel();
-            this.TB_tiempo = new System.Windows.Forms.TextBox();
-            this.L_tiempo = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.TB_CaliETMRref = new System.Windows.Forms.TextBox();
-            this.label79 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.TB_CaliEPDDref = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
@@ -180,8 +174,6 @@
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
-            this.Panel_Tiempo.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.Panel_UM.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
@@ -341,9 +333,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 69;
-            this.label4.Text = "Lado campo";
+            this.label4.Text = "Lado aplicador";
             // 
             // TB_CaliLadoCampo
             // 
@@ -358,9 +350,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(16, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 71;
-            this.label6.Text = "Profundidad";
+            this.label6.Text = "Zref";
             // 
             // TB_CaliPRof
             // 
@@ -534,8 +526,6 @@
             // 
             // gLecturaReferencia
             // 
-            this.gLecturaReferencia.Controls.Add(this.Panel_Tiempo);
-            this.gLecturaReferencia.Controls.Add(this.panel4);
             this.gLecturaReferencia.Controls.Add(this.panel3);
             this.gLecturaReferencia.Controls.Add(this.Panel_UM);
             this.gLecturaReferencia.Controls.Add(this.Panel_LecRef);
@@ -546,58 +536,6 @@
             this.gLecturaReferencia.TabIndex = 57;
             this.gLecturaReferencia.TabStop = false;
             this.gLecturaReferencia.Text = "Lectura en referencia";
-            // 
-            // Panel_Tiempo
-            // 
-            this.Panel_Tiempo.Controls.Add(this.TB_tiempo);
-            this.Panel_Tiempo.Controls.Add(this.L_tiempo);
-            this.Panel_Tiempo.Location = new System.Drawing.Point(109, 49);
-            this.Panel_Tiempo.Name = "Panel_Tiempo";
-            this.Panel_Tiempo.Size = new System.Drawing.Size(130, 30);
-            this.Panel_Tiempo.TabIndex = 44;
-            // 
-            // TB_tiempo
-            // 
-            this.TB_tiempo.Location = new System.Drawing.Point(76, 5);
-            this.TB_tiempo.Name = "TB_tiempo";
-            this.TB_tiempo.Size = new System.Drawing.Size(48, 20);
-            this.TB_tiempo.TabIndex = 34;
-            this.TB_tiempo.Leave += new System.EventHandler(this.TB_UM_Leave);
-            // 
-            // L_tiempo
-            // 
-            this.L_tiempo.AutoSize = true;
-            this.L_tiempo.Location = new System.Drawing.Point(3, 8);
-            this.L_tiempo.Name = "L_tiempo";
-            this.L_tiempo.Size = new System.Drawing.Size(67, 13);
-            this.L_tiempo.TabIndex = 35;
-            this.L_tiempo.Text = "Tiempo [min]";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.TB_CaliETMRref);
-            this.panel4.Controls.Add(this.label79);
-            this.panel4.Location = new System.Drawing.Point(109, 124);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(130, 30);
-            this.panel4.TabIndex = 45;
-            // 
-            // TB_CaliETMRref
-            // 
-            this.TB_CaliETMRref.Location = new System.Drawing.Point(56, 5);
-            this.TB_CaliETMRref.Name = "TB_CaliETMRref";
-            this.TB_CaliETMRref.Size = new System.Drawing.Size(68, 20);
-            this.TB_CaliETMRref.TabIndex = 34;
-            this.TB_CaliETMRref.Leave += new System.EventHandler(this.LeaveCalcularDwzmax);
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(3, 8);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(43, 13);
-            this.label79.TabIndex = 35;
-            this.label79.Text = "TMRref";
             // 
             // panel3
             // 
@@ -1726,10 +1664,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gLecturaReferencia.ResumeLayout(false);
-            this.Panel_Tiempo.ResumeLayout(false);
-            this.Panel_Tiempo.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.Panel_UM.ResumeLayout(false);
@@ -1894,9 +1828,6 @@
         private System.Windows.Forms.Panel Panel_UM;
         private System.Windows.Forms.TextBox TB_UM;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox TB_CaliETMRref;
-        private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox TB_CaliEPDDref;
         private System.Windows.Forms.Label label78;
@@ -1914,9 +1845,6 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Panel Panel_Tiempo;
-        private System.Windows.Forms.TextBox TB_tiempo;
-        private System.Windows.Forms.Label L_tiempo;
         private System.Windows.Forms.ComboBox CB_caliElecRealizadoPor3;
         private System.Windows.Forms.ComboBox CB_caliElecRealizadoPor2;
     }
