@@ -24,7 +24,7 @@ namespace _398_UI
         public List<Form_CaliFotones> listaFormsCaliFotones = new List<Form_CaliFotones>();
         public List<Form_CaliElectrones> listaFormsCaliElectrones = new List<Form_CaliElectrones>();
         public Form_CaliFotones formCaliFotones1;
-        public Form_CaliElectrones form_CaliElectrones1;
+        public Form_CaliElectrones formCaliElectrones1;
 
         //string pathExportarTablaCalibraciones = IO.GetUniqueFilename(@"..\..\", "Registros Calibraciones " + DateTime.Today.ToString("dd-MM-yyyy"));
 
@@ -37,6 +37,7 @@ namespace _398_UI
             formInicio = (Form_Inicio)cargarForm(f => new Form_Inicio(this), "Form_Inicio", Panel_Inicio);
             formSistemasDosimetricos = (Form_SistemasDosimetricos)cargarForm(f => new Form_SistemasDosimetricos(this), "Form_SistemasDosimetricos", Panel_SistDos);
             formCaliFotones1 = nuevaTabCaliFotones();
+            formCaliElectrones1 = nuevaTabCaliElectrones();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -172,8 +173,8 @@ namespace _398_UI
 
             TabC_CaliElectrones.TabPages[nombrePestana].Controls.Add(formCE);
             TabC_CaliElectrones.TabPages[nombrePestana].Controls[nombreForm].Show();
-            TabC_CaliElectrones.SelectedTab = TabC_CaliFotones.TabPages[nombrePestana];
-            numeroPestanasCaliFotones++;
+            TabC_CaliElectrones.SelectedTab = TabC_CaliElectrones.TabPages[nombrePestana];
+            numeroPestanasCaliElectrones++;
             listaFormsCaliElectrones.Add(formCE);
             return formCE;
         }
