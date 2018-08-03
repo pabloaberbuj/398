@@ -73,16 +73,22 @@ namespace _398_UI
             {
                 foreach (var equipo in Equipo.lista())
                 {
-                    CB_CaliEquipos.Items.Add(equipo);
-                    CB_CaliEquipos.DisplayMember = "Etiqueta";
-                    if (!guardarSeleccion && equipo.EsPredet == true)
+                    if (equipo.EnergiasFotones.Count()>0)
                     {
-                        equipoASeleccionar = equipo;
+                        CB_CaliEquipos.Items.Add(equipo);
+                        CB_CaliEquipos.DisplayMember = "Etiqueta";
+                        if (!guardarSeleccion && equipo.EsPredet == true)
+                        {
+                            equipoASeleccionar = equipo;
+                        }
                     }
                 }
                 CB_CaliEquipos.SelectedItem = Equipo.lista().Where(e => e.ID == equipoASeleccionar.ID).FirstOrDefault();
             }
-            
+            if (CB_CaliEquipos.Items.Count > 0 && CB_CaliEquipos.SelectedIndex == -1)
+            {
+                CB_CaliEquipos.SelectedIndex = 0;
+            }
         }
 
 
@@ -98,11 +104,14 @@ namespace _398_UI
             {
                 foreach (var sistdos in SistemaDosimetrico.lista())
                 {
-                    CB_CaliSistDosimetrico.Items.Add(sistdos);
-                    CB_CaliSistDosimetrico.DisplayMember = "Etiqueta";
-                    if (!guardarSeleccion && sistdos.EsPredet == true)
+                    if (sistdos.camara.paraFotones)
                     {
-                        sistDosASeleccionar = sistdos;
+                        CB_CaliSistDosimetrico.Items.Add(sistdos);
+                        CB_CaliSistDosimetrico.DisplayMember = "Etiqueta";
+                        if (!guardarSeleccion && sistdos.EsPredet == true)
+                        {
+                            sistDosASeleccionar = sistdos;
+                        }
                     }
                 }
             }
@@ -187,7 +196,7 @@ namespace _398_UI
 
         private void InicializarPDDyTMRref()
         {
-            if (!Double.IsNaN(PDDref()))
+            if (CB_CaliEnergias.SelectedIndex > -1 && !Double.IsNaN(PDDref()))
             {
                 TB_CaliFPDDref.Text = PDDref().ToString();
                 TB_CaliFPDDref.Enabled = false;
@@ -483,7 +492,7 @@ namespace _398_UI
                 chequearKs();
                 habilitarBotonesCaliFotones();
             }
-            if (CB_CaliEquipos.SelectedIndex > -1)
+            if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex>-1)
             {
                 actualizarNombrePestana();
                 UMoTiempo();
