@@ -176,6 +176,9 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -549,6 +552,7 @@
             // 
             // Panel_Tiempo
             // 
+            this.Panel_Tiempo.Controls.Add(this.label2);
             this.Panel_Tiempo.Controls.Add(this.TB_tiempo);
             this.Panel_Tiempo.Controls.Add(this.L_tiempo);
             this.Panel_Tiempo.Location = new System.Drawing.Point(109, 49);
@@ -558,9 +562,9 @@
             // 
             // TB_tiempo
             // 
-            this.TB_tiempo.Location = new System.Drawing.Point(76, 5);
+            this.TB_tiempo.Location = new System.Drawing.Point(49, 5);
             this.TB_tiempo.Name = "TB_tiempo";
-            this.TB_tiempo.Size = new System.Drawing.Size(48, 20);
+            this.TB_tiempo.Size = new System.Drawing.Size(53, 20);
             this.TB_tiempo.TabIndex = 34;
             this.TB_tiempo.Leave += new System.EventHandler(this.TB_UM_Leave);
             // 
@@ -569,24 +573,25 @@
             this.L_tiempo.AutoSize = true;
             this.L_tiempo.Location = new System.Drawing.Point(3, 8);
             this.L_tiempo.Name = "L_tiempo";
-            this.L_tiempo.Size = new System.Drawing.Size(67, 13);
+            this.L_tiempo.Size = new System.Drawing.Size(42, 13);
             this.L_tiempo.TabIndex = 35;
-            this.L_tiempo.Text = "Tiempo [min]";
+            this.L_tiempo.Text = "Tiempo";
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.label65);
             this.panel4.Controls.Add(this.TB_CaliFTMRref);
             this.panel4.Controls.Add(this.label79);
-            this.panel4.Location = new System.Drawing.Point(109, 124);
+            this.panel4.Location = new System.Drawing.Point(109, 125);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(130, 30);
             this.panel4.TabIndex = 45;
             // 
             // TB_CaliFTMRref
             // 
-            this.TB_CaliFTMRref.Location = new System.Drawing.Point(56, 5);
+            this.TB_CaliFTMRref.Location = new System.Drawing.Point(49, 5);
             this.TB_CaliFTMRref.Name = "TB_CaliFTMRref";
-            this.TB_CaliFTMRref.Size = new System.Drawing.Size(68, 20);
+            this.TB_CaliFTMRref.Size = new System.Drawing.Size(53, 20);
             this.TB_CaliFTMRref.TabIndex = 34;
             this.TB_CaliFTMRref.Leave += new System.EventHandler(this.LeaveCalcularDwzmax);
             // 
@@ -601,6 +606,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.TB_CaliFPDDref);
             this.panel3.Controls.Add(this.label78);
             this.panel3.Location = new System.Drawing.Point(109, 85);
@@ -610,9 +616,9 @@
             // 
             // TB_CaliFPDDref
             // 
-            this.TB_CaliFPDDref.Location = new System.Drawing.Point(56, 5);
+            this.TB_CaliFPDDref.Location = new System.Drawing.Point(49, 5);
             this.TB_CaliFPDDref.Name = "TB_CaliFPDDref";
-            this.TB_CaliFPDDref.Size = new System.Drawing.Size(68, 20);
+            this.TB_CaliFPDDref.Size = new System.Drawing.Size(53, 20);
             this.TB_CaliFPDDref.TabIndex = 34;
             this.TB_CaliFPDDref.Leave += new System.EventHandler(this.LeaveCalcularDwzmax);
             // 
@@ -636,9 +642,9 @@
             // 
             // TB_UM
             // 
-            this.TB_UM.Location = new System.Drawing.Point(76, 5);
+            this.TB_UM.Location = new System.Drawing.Point(49, 5);
             this.TB_UM.Name = "TB_UM";
-            this.TB_UM.Size = new System.Drawing.Size(48, 20);
+            this.TB_UM.Size = new System.Drawing.Size(53, 20);
             this.TB_UM.TabIndex = 34;
             this.TB_UM.Leave += new System.EventHandler(this.TB_UM_Leave);
             // 
@@ -1709,6 +1715,33 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(105, 8);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(15, 13);
+            this.label65.TabIndex = 109;
+            this.label65.Text = "%";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(105, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 110;
+            this.label1.Text = "%";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 111;
+            this.label2.Text = "min";
+            // 
             // Form_CaliFotones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1919,6 +1952,9 @@
         private System.Windows.Forms.Label L_tiempo;
         private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor3;
         private System.Windows.Forms.ComboBox CB_caliFotRealizadoPor2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label1;
     }
 }
 

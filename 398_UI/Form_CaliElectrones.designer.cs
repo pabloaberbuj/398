@@ -38,11 +38,8 @@
             this.L_CaliEDifLB = new System.Windows.Forms.Label();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TB_CaliLadoCampo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TB_CaliPRof = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.RB_CaliFIso = new System.Windows.Forms.RadioButton();
             this.RB_CaliFDFSfija = new System.Windows.Forms.RadioButton();
@@ -125,29 +122,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.GB_FactorDeCalidad = new System.Windows.Forms.GroupBox();
-            this.L_CaliFTPR2010 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.Panel_TPRoPDD = new System.Windows.Forms.Panel();
-            this.RB_CaliFD2010 = new System.Windows.Forms.RadioButton();
-            this.RB_CaliFTPR2010 = new System.Windows.Forms.RadioButton();
-            this.Panel_LecKqq0 = new System.Windows.Forms.Panel();
-            this.Panel_Lect10 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.LB_Lect10prom = new System.Windows.Forms.Label();
-            this.Panel_Lect20 = new System.Windows.Forms.Panel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.LB_Lect20prom = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.CHB_UsarKqq0LB = new System.Windows.Forms.CheckBox();
+            this.CHB_EditarR50ion = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.BT_CaliEGuardar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -170,6 +145,16 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.L_EnElecR50dosis = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.TB_EnElecR50ion = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
             this.Panel_CalElec.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -187,10 +172,6 @@
             this.Panel_LectmenosV.SuspendLayout();
             this.Panel_LectmasV.SuspendLayout();
             this.GB_FactorDeCalidad.SuspendLayout();
-            this.Panel_TPRoPDD.SuspendLayout();
-            this.Panel_LecKqq0.SuspendLayout();
-            this.Panel_Lect10.SuspendLayout();
-            this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -276,7 +257,7 @@
             // 
             this.L_CaliEKqq0.AutoSize = true;
             this.L_CaliEKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliEKqq0.Location = new System.Drawing.Point(425, 314);
+            this.L_CaliEKqq0.Location = new System.Drawing.Point(394, 144);
             this.L_CaliEKqq0.Name = "L_CaliEKqq0";
             this.L_CaliEKqq0.Size = new System.Drawing.Size(48, 16);
             this.L_CaliEKqq0.TabIndex = 30;
@@ -296,12 +277,12 @@
             // 
             // GB_CondMed
             // 
+            this.GB_CondMed.Controls.Add(this.label1);
             this.GB_CondMed.Controls.Add(this.label7);
             this.GB_CondMed.Controls.Add(this.label8);
             this.GB_CondMed.Controls.Add(this.label4);
             this.GB_CondMed.Controls.Add(this.TB_CaliLadoCampo);
             this.GB_CondMed.Controls.Add(this.label6);
-            this.GB_CondMed.Controls.Add(this.TB_CaliPRof);
             this.GB_CondMed.Controls.Add(this.panel1);
             this.GB_CondMed.Location = new System.Drawing.Point(27, 160);
             this.GB_CondMed.Name = "GB_CondMed";
@@ -319,15 +300,6 @@
             this.label7.TabIndex = 73;
             this.label7.Text = "cm";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(178, 79);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 74;
-            this.label8.Text = "cm";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -344,23 +316,6 @@
             this.TB_CaliLadoCampo.Size = new System.Drawing.Size(76, 20);
             this.TB_CaliLadoCampo.TabIndex = 70;
             this.TB_CaliLadoCampo.Leave += new System.EventHandler(this.esNumeroTB);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 78);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Zref";
-            // 
-            // TB_CaliPRof
-            // 
-            this.TB_CaliPRof.Location = new System.Drawing.Point(96, 75);
-            this.TB_CaliPRof.Name = "TB_CaliPRof";
-            this.TB_CaliPRof.Size = new System.Drawing.Size(76, 20);
-            this.TB_CaliPRof.TabIndex = 72;
-            this.TB_CaliPRof.Leave += new System.EventHandler(this.esNumeroTB);
             // 
             // panel1
             // 
@@ -410,7 +365,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(339, 314);
+            this.label15.Location = new System.Drawing.Point(324, 144);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(55, 16);
             this.label15.TabIndex = 29;
@@ -539,6 +494,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label65);
             this.panel3.Controls.Add(this.TB_CaliEPDDref);
             this.panel3.Controls.Add(this.label78);
             this.panel3.Location = new System.Drawing.Point(109, 85);
@@ -548,9 +504,9 @@
             // 
             // TB_CaliEPDDref
             // 
-            this.TB_CaliEPDDref.Location = new System.Drawing.Point(56, 5);
+            this.TB_CaliEPDDref.Location = new System.Drawing.Point(61, 5);
             this.TB_CaliEPDDref.Name = "TB_CaliEPDDref";
-            this.TB_CaliEPDDref.Size = new System.Drawing.Size(68, 20);
+            this.TB_CaliEPDDref.Size = new System.Drawing.Size(48, 20);
             this.TB_CaliEPDDref.TabIndex = 34;
             this.TB_CaliEPDDref.Leave += new System.EventHandler(this.LeaveCalcularDwzmax);
             // 
@@ -574,7 +530,7 @@
             // 
             // TB_UM
             // 
-            this.TB_UM.Location = new System.Drawing.Point(76, 5);
+            this.TB_UM.Location = new System.Drawing.Point(61, 5);
             this.TB_UM.Name = "TB_UM";
             this.TB_UM.Size = new System.Drawing.Size(48, 20);
             this.TB_UM.TabIndex = 34;
@@ -1195,257 +1151,30 @@
             // 
             // GB_FactorDeCalidad
             // 
-            this.GB_FactorDeCalidad.Controls.Add(this.L_CaliFTPR2010);
-            this.GB_FactorDeCalidad.Controls.Add(this.label24);
-            this.GB_FactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
-            this.GB_FactorDeCalidad.Controls.Add(this.Panel_LecKqq0);
-            this.GB_FactorDeCalidad.Controls.Add(this.CHB_UsarKqq0LB);
+            this.GB_FactorDeCalidad.Controls.Add(this.label67);
+            this.GB_FactorDeCalidad.Controls.Add(this.L_EnElecR50dosis);
+            this.GB_FactorDeCalidad.Controls.Add(this.label75);
+            this.GB_FactorDeCalidad.Controls.Add(this.label68);
+            this.GB_FactorDeCalidad.Controls.Add(this.TB_EnElecR50ion);
+            this.GB_FactorDeCalidad.Controls.Add(this.label73);
+            this.GB_FactorDeCalidad.Controls.Add(this.CHB_EditarR50ion);
             this.GB_FactorDeCalidad.Location = new System.Drawing.Point(297, 12);
             this.GB_FactorDeCalidad.Name = "GB_FactorDeCalidad";
-            this.GB_FactorDeCalidad.Size = new System.Drawing.Size(233, 298);
+            this.GB_FactorDeCalidad.Size = new System.Drawing.Size(233, 122);
             this.GB_FactorDeCalidad.TabIndex = 55;
             this.GB_FactorDeCalidad.TabStop = false;
             this.GB_FactorDeCalidad.Text = "Factor de calidad";
             // 
-            // L_CaliFTPR2010
+            // CHB_EditarR50ion
             // 
-            this.L_CaliFTPR2010.AutoSize = true;
-            this.L_CaliFTPR2010.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliFTPR2010.Location = new System.Drawing.Point(125, 272);
-            this.L_CaliFTPR2010.Name = "L_CaliFTPR2010";
-            this.L_CaliFTPR2010.Size = new System.Drawing.Size(48, 16);
-            this.L_CaliFTPR2010.TabIndex = 28;
-            this.L_CaliFTPR2010.Text = "Vacio";
-            this.L_CaliFTPR2010.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(39, 272);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(83, 16);
-            this.label24.TabIndex = 26;
-            this.label24.Text = "TPR2010 =";
-            // 
-            // Panel_TPRoPDD
-            // 
-            this.Panel_TPRoPDD.Controls.Add(this.RB_CaliFD2010);
-            this.Panel_TPRoPDD.Controls.Add(this.RB_CaliFTPR2010);
-            this.Panel_TPRoPDD.Location = new System.Drawing.Point(38, 40);
-            this.Panel_TPRoPDD.Name = "Panel_TPRoPDD";
-            this.Panel_TPRoPDD.Size = new System.Drawing.Size(155, 28);
-            this.Panel_TPRoPDD.TabIndex = 25;
-            // 
-            // RB_CaliFD2010
-            // 
-            this.RB_CaliFD2010.AutoSize = true;
-            this.RB_CaliFD2010.Location = new System.Drawing.Point(90, 4);
-            this.RB_CaliFD2010.Name = "RB_CaliFD2010";
-            this.RB_CaliFD2010.Size = new System.Drawing.Size(57, 17);
-            this.RB_CaliFD2010.TabIndex = 22;
-            this.RB_CaliFD2010.TabStop = true;
-            this.RB_CaliFD2010.Text = "D2010";
-            this.RB_CaliFD2010.UseVisualStyleBackColor = true;
-            this.RB_CaliFD2010.CheckedChanged += new System.EventHandler(this.RB_CaliFTPR2010_CheckedChanged);
-            // 
-            // RB_CaliFTPR2010
-            // 
-            this.RB_CaliFTPR2010.AutoSize = true;
-            this.RB_CaliFTPR2010.Location = new System.Drawing.Point(13, 4);
-            this.RB_CaliFTPR2010.Name = "RB_CaliFTPR2010";
-            this.RB_CaliFTPR2010.Size = new System.Drawing.Size(71, 17);
-            this.RB_CaliFTPR2010.TabIndex = 21;
-            this.RB_CaliFTPR2010.TabStop = true;
-            this.RB_CaliFTPR2010.Text = "TPR2010";
-            this.RB_CaliFTPR2010.UseVisualStyleBackColor = true;
-            this.RB_CaliFTPR2010.CheckedChanged += new System.EventHandler(this.RB_CaliFTPR2010_CheckedChanged);
-            // 
-            // Panel_LecKqq0
-            // 
-            this.Panel_LecKqq0.Controls.Add(this.Panel_Lect10);
-            this.Panel_LecKqq0.Controls.Add(this.LB_Lect10prom);
-            this.Panel_LecKqq0.Controls.Add(this.Panel_Lect20);
-            this.Panel_LecKqq0.Controls.Add(this.LB_Lect20prom);
-            this.Panel_LecKqq0.Controls.Add(this.label32);
-            this.Panel_LecKqq0.Controls.Add(this.label31);
-            this.Panel_LecKqq0.Location = new System.Drawing.Point(20, 74);
-            this.Panel_LecKqq0.Name = "Panel_LecKqq0";
-            this.Panel_LecKqq0.Size = new System.Drawing.Size(197, 190);
-            this.Panel_LecKqq0.TabIndex = 24;
-            // 
-            // Panel_Lect10
-            // 
-            this.Panel_Lect10.Controls.Add(this.textBox11);
-            this.Panel_Lect10.Controls.Add(this.textBox12);
-            this.Panel_Lect10.Controls.Add(this.textBox13);
-            this.Panel_Lect10.Controls.Add(this.textBox14);
-            this.Panel_Lect10.Controls.Add(this.textBox15);
-            this.Panel_Lect10.Location = new System.Drawing.Point(107, 22);
-            this.Panel_Lect10.Name = "Panel_Lect10";
-            this.Panel_Lect10.Size = new System.Drawing.Size(78, 138);
-            this.Panel_Lect10.TabIndex = 43;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(7, 59);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(65, 20);
-            this.textBox11.TabIndex = 39;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox11.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox11.Leave += new System.EventHandler(this.Prom_L10);
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(7, 111);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(65, 20);
-            this.textBox12.TabIndex = 41;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox12.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox12.Leave += new System.EventHandler(this.Prom_L10);
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(7, 33);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(65, 20);
-            this.textBox13.TabIndex = 38;
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox13.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox13.Leave += new System.EventHandler(this.Prom_L10);
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(7, 85);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(65, 20);
-            this.textBox14.TabIndex = 40;
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox14.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox14.Leave += new System.EventHandler(this.Prom_L10);
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(7, 7);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(65, 20);
-            this.textBox15.TabIndex = 37;
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox15.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox15.Leave += new System.EventHandler(this.Prom_L10);
-            // 
-            // LB_Lect10prom
-            // 
-            this.LB_Lect10prom.Location = new System.Drawing.Point(113, 163);
-            this.LB_Lect10prom.Name = "LB_Lect10prom";
-            this.LB_Lect10prom.Size = new System.Drawing.Size(66, 13);
-            this.LB_Lect10prom.TabIndex = 42;
-            this.LB_Lect10prom.Text = "Vacio";
-            this.LB_Lect10prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_Lect10prom.Visible = false;
-            // 
-            // Panel_Lect20
-            // 
-            this.Panel_Lect20.Controls.Add(this.textBox10);
-            this.Panel_Lect20.Controls.Add(this.textBox26);
-            this.Panel_Lect20.Controls.Add(this.textBox27);
-            this.Panel_Lect20.Controls.Add(this.textBox28);
-            this.Panel_Lect20.Controls.Add(this.textBox29);
-            this.Panel_Lect20.Location = new System.Drawing.Point(11, 22);
-            this.Panel_Lect20.Name = "Panel_Lect20";
-            this.Panel_Lect20.Size = new System.Drawing.Size(78, 138);
-            this.Panel_Lect20.TabIndex = 40;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(7, 59);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(65, 20);
-            this.textBox10.TabIndex = 39;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox10.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox10.Leave += new System.EventHandler(this.Prom_L20);
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(7, 111);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(65, 20);
-            this.textBox26.TabIndex = 41;
-            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox26.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox26.Leave += new System.EventHandler(this.Prom_L20);
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(7, 33);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(65, 20);
-            this.textBox27.TabIndex = 38;
-            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox27.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox27.Leave += new System.EventHandler(this.Prom_L20);
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(7, 85);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(65, 20);
-            this.textBox28.TabIndex = 40;
-            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox28.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox28.Leave += new System.EventHandler(this.Prom_L20);
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(7, 7);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(65, 20);
-            this.textBox29.TabIndex = 37;
-            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox29.Enter += new System.EventHandler(this.textBox_Enter);
-            this.textBox29.Leave += new System.EventHandler(this.Prom_L20);
-            // 
-            // LB_Lect20prom
-            // 
-            this.LB_Lect20prom.Location = new System.Drawing.Point(17, 163);
-            this.LB_Lect20prom.Name = "LB_Lect20prom";
-            this.LB_Lect20prom.Size = new System.Drawing.Size(66, 13);
-            this.LB_Lect20prom.TabIndex = 39;
-            this.LB_Lect20prom.Text = "Vacio";
-            this.LB_Lect20prom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LB_Lect20prom.Visible = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(100, 5);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(89, 13);
-            this.label32.TabIndex = 9;
-            this.label32.Text = "Lecturas a 10 cm";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(3, 5);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(89, 13);
-            this.label31.TabIndex = 8;
-            this.label31.Text = "Lecturas a 20 cm";
-            // 
-            // CHB_UsarKqq0LB
-            // 
-            this.CHB_UsarKqq0LB.AutoSize = true;
-            this.CHB_UsarKqq0LB.Location = new System.Drawing.Point(11, 18);
-            this.CHB_UsarKqq0LB.Name = "CHB_UsarKqq0LB";
-            this.CHB_UsarKqq0LB.Size = new System.Drawing.Size(198, 17);
-            this.CHB_UsarKqq0LB.TabIndex = 7;
-            this.CHB_UsarKqq0LB.Text = "Usar factor de calidad de línea base";
-            this.CHB_UsarKqq0LB.UseVisualStyleBackColor = true;
-            this.CHB_UsarKqq0LB.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
+            this.CHB_EditarR50ion.AutoSize = true;
+            this.CHB_EditarR50ion.Location = new System.Drawing.Point(10, 19);
+            this.CHB_EditarR50ion.Name = "CHB_EditarR50ion";
+            this.CHB_EditarR50ion.Size = new System.Drawing.Size(93, 17);
+            this.CHB_EditarR50ion.TabIndex = 7;
+            this.CHB_EditarR50ion.Text = "Editar R50 ion";
+            this.CHB_EditarR50ion.UseVisualStyleBackColor = true;
+            this.CHB_EditarR50ion.CheckedChanged += new System.EventHandler(this.actualizarCalculos);
             // 
             // label23
             // 
@@ -1647,6 +1376,101 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 71;
+            this.label6.Text = "Zref";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 74;
+            this.label8.Text = "cm";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label67.Location = new System.Drawing.Point(151, 79);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(28, 16);
+            this.label67.TabIndex = 122;
+            this.label67.Text = "cm";
+            // 
+            // L_EnElecR50dosis
+            // 
+            this.L_EnElecR50dosis.AutoSize = true;
+            this.L_EnElecR50dosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.L_EnElecR50dosis.Location = new System.Drawing.Point(97, 79);
+            this.L_EnElecR50dosis.Name = "L_EnElecR50dosis";
+            this.L_EnElecR50dosis.Size = new System.Drawing.Size(48, 16);
+            this.L_EnElecR50dosis.TabIndex = 121;
+            this.L_EnElecR50dosis.Text = "Vacio";
+            this.L_EnElecR50dosis.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_EnElecR50dosis.Visible = false;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label75.Location = new System.Drawing.Point(34, 79);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(35, 16);
+            this.label75.TabIndex = 120;
+            this.label75.Text = "R50";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(151, 50);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(21, 13);
+            this.label68.TabIndex = 118;
+            this.label68.Text = "cm";
+            // 
+            // TB_EnElecR50ion
+            // 
+            this.TB_EnElecR50ion.Location = new System.Drawing.Point(102, 45);
+            this.TB_EnElecR50ion.Name = "TB_EnElecR50ion";
+            this.TB_EnElecR50ion.Size = new System.Drawing.Size(43, 20);
+            this.TB_EnElecR50ion.TabIndex = 115;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(27, 50);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(44, 13);
+            this.label73.TabIndex = 116;
+            this.label73.Text = "R50 ion";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(137, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 120;
+            this.label1.Text = "Vacio";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Visible = false;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(109, 8);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(15, 13);
+            this.label65.TabIndex = 109;
+            this.label65.Text = "%";
+            // 
             // Form_CaliElectrones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1690,14 +1514,6 @@
             this.Panel_LectmasV.PerformLayout();
             this.GB_FactorDeCalidad.ResumeLayout(false);
             this.GB_FactorDeCalidad.PerformLayout();
-            this.Panel_TPRoPDD.ResumeLayout(false);
-            this.Panel_TPRoPDD.PerformLayout();
-            this.Panel_LecKqq0.ResumeLayout(false);
-            this.Panel_LecKqq0.PerformLayout();
-            this.Panel_Lect10.ResumeLayout(false);
-            this.Panel_Lect10.PerformLayout();
-            this.Panel_Lect20.ResumeLayout(false);
-            this.Panel_Lect20.PerformLayout();
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
             this.ResumeLayout(false);
@@ -1719,13 +1535,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.GroupBox GB_FactorDeCalidad;
-        private System.Windows.Forms.Panel Panel_TPRoPDD;
-        private System.Windows.Forms.RadioButton RB_CaliFD2010;
-        private System.Windows.Forms.RadioButton RB_CaliFTPR2010;
-        private System.Windows.Forms.Panel Panel_LecKqq0;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.CheckBox CHB_UsarKqq0LB;
+        private System.Windows.Forms.CheckBox CHB_EditarR50ion;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker DTP_FechaCaliElec;
         private System.Windows.Forms.Label label23;
@@ -1764,20 +1574,6 @@
         private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.TextBox textBox42;
         private System.Windows.Forms.TextBox textBox47;
-        private System.Windows.Forms.Panel Panel_Lect20;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.Label LB_Lect20prom;
-        private System.Windows.Forms.Panel Panel_Lect10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label LB_Lect10prom;
         private System.Windows.Forms.Panel Panel_LectmenosV;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox16;
@@ -1806,22 +1602,17 @@
         private System.Windows.Forms.TextBox textBox36;
         private System.Windows.Forms.TextBox textBox37;
         private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel Panel_Vred;
         private System.Windows.Forms.GroupBox GB_CondMed;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TB_CaliLadoCampo;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TB_CaliPRof;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton RB_CaliFIso;
         private System.Windows.Forms.RadioButton RB_CaliFDFSfija;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label L_CaliFTPR2010;
         private System.Windows.Forms.Label L_CaliEKTP;
         private System.Windows.Forms.Label L_Kpol;
         private System.Windows.Forms.Label L_Ks;
@@ -1847,6 +1638,16 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox CB_caliElecRealizadoPor3;
         private System.Windows.Forms.ComboBox CB_caliElecRealizadoPor2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label L_EnElecR50dosis;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox TB_EnElecR50ion;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label65;
     }
 }
 

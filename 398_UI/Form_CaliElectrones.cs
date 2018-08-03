@@ -238,18 +238,18 @@ namespace _398_UI
         //TPR 2010 y Kqq0
         private double calculoTPR2010()
         {
-            return CalibracionFot.calcularTPR2010(lec20(), lec10(), TPRoD2010(), CHB_UsarKqq0LB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
+            return CalibracionFot.calcularTPR2010(lec20(), lec10(), TPRoD2010(), CHB_EditarR50ion.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO());
         }
 
         private double calculokQQ0()
         {
 
-            return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO());
+            return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_EditarR50ion.Checked, energiaSeleccionada(), DFSoISO());
         }
 
         private double lec20()
         {
-            if (CHB_UsarKqq0LB.Checked)
+            if (CHB_EditarR50ion.Checked)
             {
                 return Double.NaN;
             }
@@ -266,7 +266,7 @@ namespace _398_UI
 
         private double lec10()
         {
-            if (CHB_UsarKqq0LB.Checked)
+            if (CHB_EditarR50ion.Checked)
             {
                 return Double.NaN;
             }
@@ -470,8 +470,8 @@ namespace _398_UI
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpFot = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
-                calculaTPR2010Fot = escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio" || CHB_UsarKqq0LB.Checked == true, calculoTPR2010, L_CaliFTPR2010);
-                calculaKqq0Fot = escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad);
+                calculaTPR2010Fot = escribirLabel((RB_CaliFTPR2010.Checked || RB_CaliFD2010.Checked) && LB_Lect10prom.Text != "Vacio" && LB_Lect20prom.Text != "Vacio" || CHB_EditarR50ion.Checked == true, calculoTPR2010, L_CaliFTPR2010);
+                calculaKqq0Fot = escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_EditarR50ion.Checked == true, calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad);
                 calculaKpolFot = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
                 calculaKsFot = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
                 calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliEKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliEMref);
@@ -557,14 +557,14 @@ namespace _398_UI
                 limpiarRegistro(Panel_TPRoPDD);
                 escribirLabel(lec20(), LB_Lect20prom);
                 escribirLabel(lec10(), LB_Lect10prom);
-                CHB_UsarKqq0LB.Checked = false;
+                CHB_EditarR50ion.Checked = false;
 
             }
-            else if (CHB_UsarKqq0LB.Checked)
+            else if (CHB_EditarR50ion.Checked)
             {
                 if (!hayLB())
                 {
-                    CHB_UsarKqq0LB.Checked = false;
+                    CHB_EditarR50ion.Checked = false;
                     L_CaliFTPR2010.Visible = false;
                     L_CaliEKqq0.Visible = false;
                     L_CaliFTPR2010.Text = "Vacio";
@@ -584,7 +584,7 @@ namespace _398_UI
             else
             {
                 GB_FactorDeCalidad.Enabled = true;
-                CHB_UsarKqq0LB.Enabled = true;
+                CHB_EditarR50ion.Enabled = true;
             }
         }
 
@@ -764,7 +764,7 @@ namespace _398_UI
                 MessageBox.Show("Calibración guardada");
                 if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    CHB_UsarKqq0LB.Checked = false;
+                    CHB_EditarR50ion.Checked = false;
                     CHB_UsaKpolLB.Checked = false;
                     CHB_UsaKsLB.Checked = false;
                     limpiarRegistro2Niveles(Panel_CalElec);
@@ -1102,7 +1102,7 @@ namespace _398_UI
         private int mideKqq0()
         {
             int mideKqq0 = 1;
-            if (CHB_UsarKqq0LB.Checked)
+            if (CHB_EditarR50ion.Checked)
             {
                 mideKqq0 = 2;
             }
@@ -1224,7 +1224,7 @@ namespace _398_UI
             {
                 DoTPR2010 = 2;
             }
-            if (CHB_UsarKqq0LB.Checked)
+            if (CHB_EditarR50ion.Checked)
             {
                 corrigeKqq0 = 2;
             }
