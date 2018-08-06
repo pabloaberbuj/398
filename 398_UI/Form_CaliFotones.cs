@@ -116,6 +116,10 @@ namespace _398_UI
                 }
             }
             CB_CaliSistDosimetrico.SelectedItem = SistemaDosimetrico.lista().Where(s => s.ID == sistDosASeleccionar.ID).FirstOrDefault();
+            if (CB_CaliSistDosimetrico.Items.Count > 0 && CB_CaliSistDosimetrico.SelectedIndex == -1)
+            {
+                CB_CaliSistDosimetrico.SelectedIndex = 0;
+            }
         }
         private void InicializarComboBoxEnergias(bool guardarSeleccion = false)
         {
