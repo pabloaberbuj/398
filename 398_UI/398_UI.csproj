@@ -123,6 +123,13 @@
     <Compile Include="MetodosControles.cs" />
     <Compile Include="IO.cs" />
     <Compile Include="Calcular.cs" />
+    <Compile Include="Form_Nota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Nota.Designer.cs">
+      <DependentUpon>Form_Nota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nota.cs" />
     <Compile Include="NuevoSistDos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_CaliFotones.resx">
       <DependentUpon>Form_CaliFotones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Nota.resx">
+      <DependentUpon>Form_Nota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoSistDos.resx">
       <DependentUpon>NuevoSistDos.cs</DependentUpon>

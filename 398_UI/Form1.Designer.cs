@@ -229,7 +229,7 @@
             this.Panel_CalElec.Controls.Add(this.BT_CerrarCalElectrones);
             this.Panel_CalElec.Controls.Add(this.BT_NuevaCalElectrones);
             this.Panel_CalElec.Controls.Add(this.TabC_CaliElectrones);
-            this.Panel_CalElec.Location = new System.Drawing.Point(4, 0);
+            this.Panel_CalElec.Location = new System.Drawing.Point(0, 0);
             this.Panel_CalElec.Name = "Panel_CalElec";
             this.Panel_CalElec.Size = new System.Drawing.Size(870, 700);
             this.Panel_CalElec.TabIndex = 12;

@@ -21,7 +21,7 @@ namespace _398_UI
             Thread.CurrentThread.CurrentUICulture = current;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form_Nota());
         }
     }
 }
