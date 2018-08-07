@@ -312,18 +312,13 @@ namespace _398_UI
             }
         }
 
-         public static double calcularKqq0(double TPR2010, Camara camara, Equipo equipo, bool usarLB, EnergiaElectrones energia, int DFSoISO)
+         public static double calcularKqq0(Camara camara, Equipo equipo, bool editaR50ion, EnergiaElectrones energia, double R50ion = double.NaN)
         {
-            if (usarLB)
+            if (editaR50ion)
             {
-                return obtenerCaliReferencia(equipo, energia).Kqq0;
+                energia.R50D = EnergiaElectrones.calcularR50D(R50ion);
             }
-            else
-            {
-                string[] fid = Tabla.Cargar(Tabla.tabla_Kqq0);
-                double[] TPR2010Etiquetas = Tabla.extraerDoubleArray(fid, 0);
-                return Math.Round(Calcular.interpolarLinea(TPR2010, TPR2010Etiquetas, camara.kqq0Fot), 4);
-            }
+                return Math.Round(Calcular.interpolarLinea(energia.R50D, Tabla.R50etiquetas, camara.kqq0Elec), 4);
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
         {

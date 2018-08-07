@@ -43,21 +43,21 @@ namespace _398_UI
             };
         }
 
-        public static string calcularR50D(double R50ion)
+        public static double calcularR50D(double R50ion)
         {
             if (R50ion <= 10)
             {
-                return (Math.Round(1.029 * R50ion - 0.06, 2)).ToString();
+                return (Math.Round(1.029 * R50ion - 0.06, 2));
             }
             else
             {
-                return Math.Round((1.059 * R50ion - 0.37), 2).ToString();
+                return Math.Round((1.059 * R50ion - 0.37), 2);
             }
         }
 
-        public static string calcularZref(double r50D)
+        public static double calcularZref(double r50D)
         {
-            return Math.Round((0.6 * r50D - 0.1), 2).ToString();
+            return Math.Round((0.6 * r50D - 0.1), 2);
         }
 
         public static ListaElectrones lista(DataGridView DGV)

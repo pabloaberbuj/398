@@ -1212,6 +1212,7 @@
             this.TB_EnElecR50ion.Name = "TB_EnElecR50ion";
             this.TB_EnElecR50ion.Size = new System.Drawing.Size(43, 20);
             this.TB_EnElecR50ion.TabIndex = 115;
+            this.TB_EnElecR50ion.Leave += new System.EventHandler(this.TB_EnElecR50ion_Leave);
             // 
             // label73
             // 

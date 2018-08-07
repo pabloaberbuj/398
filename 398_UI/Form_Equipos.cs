@@ -419,9 +419,9 @@ namespace _398_UI
         {
             if (TB_EnElecR50ion.Text != "")
             {
-                L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
+                L_EnElecR50dosis.Text = EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text)).ToString();
                 L_EnElecR50dosis.Visible = true;
-                L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text));
+                L_EnElecZref.Text = EnergiaElectrones.calcularZref(Convert.ToDouble(TB_EnElecR50ion.Text)).ToString();
                 L_EnElecZref.Visible = true;
             }
             else

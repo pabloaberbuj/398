@@ -12,7 +12,10 @@ namespace _398_UI
     {
         public static string tabla_Ks_pulsados = @"..\..\tabla_Ks_pulsados.txt";
         public static string tabla_Ks_pulsadosYbarridos = @"..\..\tabla_Ks_pulsadosYbarridos.txt";
-        public static string tabla_Kqq0 = @"..\..\tabla_Kqq0.txt";
+        public static string tabla_Kqq0Fot = @"..\..\tabla_Kqq0Fot.txt";
+
+        public static double[] TPR2010etiquetas = { 0.5, 0.53, 0.56, 0.59, 0.62, 0.65, 0.68, 0.7, 0.72, 0.74, 0.76, 0.78, 0.8, 0.82, 0.84 };
+        public static double[] R50etiquetas = { 1, 1.4, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 7, 8, 10, 13, 16, 20 };
         public static string[] Cargar(string archivo)
         {
             return File.ReadAllLines(archivo);
