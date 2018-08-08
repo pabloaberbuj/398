@@ -312,13 +312,13 @@ namespace _398_UI
             }
         }
 
-         public static double calcularKqq0(Camara camara, Equipo equipo, bool editaR50ion, EnergiaElectrones energia, double R50ion = double.NaN)
+        public static double calcularKqq0(Camara camara, Equipo equipo, bool editaR50ion, EnergiaElectrones energia, double R50ion = double.NaN)
         {
             if (editaR50ion)
             {
                 energia.R50D = EnergiaElectrones.calcularR50D(R50ion);
             }
-                return Math.Round(Calcular.interpolarLinea(energia.R50D, Tabla.R50etiquetas, camara.kqq0Elec), 4);
+            return Math.Round(Calcular.interpolarLinea(energia.R50D, Tabla.R50etiquetas, camara.kqq0Elec), 4);
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
         {
@@ -388,23 +388,23 @@ namespace _398_UI
 
         }
 
-      /*  public static string resumenCalibracion(CalibracionFot cali) //funciona. COMPLETAR. Ver si vale la pena
-        {
-            return "Equipo: " + cali.Equipo.Etiqueta + "\n" +
-                "Energia: " + cali.Energia.Energia.ToString() + "MV \n" +
-                "Sistema Dosimétrico: " + cali.SistemaDosim.Etiqueta + "\n" +
-                "Indice de calidad:\n" +
-                "TPR2010 = " + cali.TPR2010.ToString() + "\n" +
-                "kQQ0 = " + cali.Kqq0.ToString() + "\n" +
-                "Factores:\n" +
-                "kTP= " + cali.Ktp.ToString() + "\n" +
-                "kpol= " + cali.kpol.ToString() + "\n" +
-                "ks= " + cali.ks.ToString() + "\n\n" +
+        /*  public static string resumenCalibracion(CalibracionFot cali) //funciona. COMPLETAR. Ver si vale la pena
+          {
+              return "Equipo: " + cali.Equipo.Etiqueta + "\n" +
+                  "Energia: " + cali.Energia.Energia.ToString() + "MV \n" +
+                  "Sistema Dosimétrico: " + cali.SistemaDosim.Etiqueta + "\n" +
+                  "Indice de calidad:\n" +
+                  "TPR2010 = " + cali.TPR2010.ToString() + "\n" +
+                  "kQQ0 = " + cali.Kqq0.ToString() + "\n" +
+                  "Factores:\n" +
+                  "kTP= " + cali.Ktp.ToString() + "\n" +
+                  "kpol= " + cali.kpol.ToString() + "\n" +
+                  "ks= " + cali.ks.ToString() + "\n\n" +
 
-                "Mref= " + cali.Mref.ToString() + "\n" +
-                "Dwzref= " + cali.Dwzref.ToString();
+                  "Mref= " + cali.Mref.ToString() + "\n" +
+                  "Dwzref= " + cali.Dwzref.ToString();
 
-        }*/
+          }*/
 
         public override bool Equals(object obj)
         {

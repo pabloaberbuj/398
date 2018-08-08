@@ -192,6 +192,21 @@ namespace _398_UI
                 TB_CaliEPDDref.Enabled = true;
             }
         }
+        
+        private void inicializarR50D()
+        {
+            if (CB_CaliEnergias.SelectedIndex>-1 && !Double.IsNaN(energiaSeleccionada().R50D))
+            {
+                TB_EnElecR50ion.Text = energiaSeleccionada().R50ion.ToString();
+                TB_EnElecR50ion.Enabled = false;
+            }
+            else
+            {
+                TB_EnElecR50ion.Text = "";
+                TB_EnElecR50ion.Enabled = true;
+            }
+            escribirLabel(energiaSeleccionada().R50D, L_EnElecR50dosis);
+        }
 
         private void inicializarPredeterminados(double umPred, double ladoCampopred) //ver si sacar lado campo pred
         {
@@ -213,32 +228,23 @@ namespace _398_UI
         private void tbKTP_Leave(object sender, EventArgs e)
         {
             esNumeroTB(sender, e);
-            //actualizarCalculos();
+            actualizarCalculos();
         }
 
 
 
-        //R50dosis y Kqq0
+        //Kqq0
 
-        private double r50Dosis()
-        {
-            if (CHB_EditarR50ion.Checked)
-            {
-                return EnergiaElectrones.calcularR50D(Convert.ToDouble(TB_EnElecR50ion.Text));
-            }
-            else
-            {
-                return energiaSeleccionada().R50D;
-            }
-        }
+
         private double calculokQQ0()
         {
-            return CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), true, energiaSeleccionada(), Convert.ToDouble(TB_EnElecR50ion.Text));
+            bool editaR50 = Double.IsNaN(energiaSeleccionada().R50D);
+            return CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), editaR50, energiaSeleccionada(),  Convert.ToDouble(TB_EnElecR50ion.Text));
         }
 
         private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show(calculokQQ0().ToString());
+            
         }
 
 
@@ -409,7 +415,7 @@ namespace _398_UI
             {
                 calculaKtpElec = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
 
-                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1, calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad); //revisar!!!!!!!!!!!
+                calculaKqq0Elec = escribirLabel((energiaSeleccionada().R50D != double.NaN || TB_EnElecR50ion.Text != "") && CB_CaliSistDosimetrico.SelectedIndex != -1, calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad); //revisar!!!!!!!!!!!
                 calculaKpolElec = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
                 calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
                 calculaMrefElec = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliEKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliEMref);
