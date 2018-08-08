@@ -45,7 +45,11 @@ namespace _398_UI
 
         public static double calcularR50D(double R50ion)
         {
-            if (R50ion <= 10)
+            if (double.IsNaN(R50ion))
+            {
+                return double.NaN;
+            }
+            else if (R50ion <= 10)
             {
                 return (Math.Round(1.029 * R50ion - 0.06, 2));
             }

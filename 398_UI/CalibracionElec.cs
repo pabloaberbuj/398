@@ -29,7 +29,7 @@ namespace _398_UI
         public double Ktp { get; set; }
         public double Kqq0 { get; set; }
         [Browsable(false)]
-        public int mideKqq0 { get; set; } //1 si 2 usaLB VER SI USAR!!!!!!!!!!!!!
+        public int editaR50Ion { get; set; } //1 si 2 usaLB VER SI USAR!!!!!!!!!!!!!
         public double kpol { get; set; }
         [Browsable(false)]
         public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
@@ -96,7 +96,7 @@ namespace _398_UI
                 humedad = _humedad,
                 Ktp = _ktp,
                 Kqq0 = _kqq0,
-                mideKqq0 = _mideKqq0,
+                editaR50Ion = _mideKqq0,
                 lectVmas = _lectVmas,
                 lectVmenos = _lectVmenos,
                 kpol = _kpol,
@@ -273,7 +273,7 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKs(double Vtot, double LVtot, double LVred, bool noUsa, bool usaLB, Equipo equipo, EnergiaElectrones energia, int DFSoISO, double Vred)
+        public static double calcularKs(double Vtot, double LVtot, double LVred, bool noUsa, bool usaLB, Equipo equipo, EnergiaElectrones energia, double Vred)
         {
             if (noUsa)
             {

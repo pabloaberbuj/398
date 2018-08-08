@@ -164,6 +164,8 @@ namespace _398_UI
                 if (realizador != "" && !CB_caliFotRealizadoPor1.Items.Contains(realizador))
                 {
                     CB_caliFotRealizadoPor1.Items.Add(cali.RealizadoPor);
+                    CB_caliFotRealizadoPor2.Items.Add(cali.RealizadoPor);
+                    CB_caliFotRealizadoPor3.Items.Add(cali.RealizadoPor);
                 }
             }
         }
@@ -193,7 +195,7 @@ namespace _398_UI
             else
             {
                 TB_CaliLadoCampo.Text = "";
-                TB_CaliPRof.Enabled = true;
+                TB_CaliLadoCampo.Enabled = true;
             }
         }
 
@@ -211,7 +213,7 @@ namespace _398_UI
                 TB_CaliFPDDref.Enabled = true;
             }
 
-            if (!Double.IsNaN(TMRref()))
+            if (CB_CaliEnergias.SelectedIndex > -1 && !Double.IsNaN(TMRref()))
             {
                 TB_CaliFTMRref.Text = TMRref().ToString();
                 TB_CaliFTMRref.Enabled = false;
@@ -223,7 +225,7 @@ namespace _398_UI
             }
         }
 
-        private void inicializarPredeterminados(double umPred, double ladoCampopred)
+        private void inicializarPredeterminados(double umPred, double ladoCampopred) //ver si sacar lado campo pred
         {
             TB_UM.Text = Configuracion.umPredet.ToString();
             TB_tiempo.Text = Configuracion.tiempoPredet.ToString();
@@ -487,9 +489,9 @@ namespace _398_UI
                 calculaKqq0Fot = escribirLabel((L_CaliFTPR2010.Text != "Vacio" && CB_CaliSistDosimetrico.SelectedIndex != -1) || equipoSeleccionado().Fuente == 1 || CHB_UsarKqq0LB.Checked == true, calculokQQ0, L_CaliFKqq0, GB_FactorDeCalidad);
                 calculaKpolFot = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
                 calculaKsFot = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
-                calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliFMref);
+                calculaMrefFot = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliFKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && (TB_UM.Text != "" || TB_tiempo.Text !=""), CalculoMref, L_CaliFMref);
                 calculaDwzrefFot = escribirLabel(L_CaliFMref.Text != "Vacio", calculoDwRef, L_CaliFDwZref);
-                calculaDwzmaxFot = escribirLabel((RB_CaliFDFSfija.Checked || RB_CaliFIso.Checked) && TB_CaliFPDDref.Text != "" && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
+                calculaDwzmaxFot = escribirLabel((RB_CaliFDFSfija.Checked && TB_CaliFPDDref.Text != "") || (RB_CaliFIso.Checked && TB_CaliFTMRref.Text !="") && L_CaliFDwZref.Text != "Vacio", calculoDwZmax, L_CaliFDwZmax);
                 calculaDifLBFot = escribirLabel(calculaDwzrefFot && hayLBsinCartel(), calculoDifConRef, L_CaliFDifLB);
                 chequearKqq0();
                 chequearKpol();
