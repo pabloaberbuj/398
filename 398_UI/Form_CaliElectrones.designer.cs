@@ -37,7 +37,7 @@
             this.L_CaliEKqq0 = new System.Windows.Forms.Label();
             this.L_CaliEDifLB = new System.Windows.Forms.Label();
             this.GB_CondMed = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.L_Zref = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -268,7 +268,7 @@
             // 
             // GB_CondMed
             // 
-            this.GB_CondMed.Controls.Add(this.label1);
+            this.GB_CondMed.Controls.Add(this.L_Zref);
             this.GB_CondMed.Controls.Add(this.label7);
             this.GB_CondMed.Controls.Add(this.label8);
             this.GB_CondMed.Controls.Add(this.label4);
@@ -281,16 +281,16 @@
             this.GB_CondMed.TabStop = false;
             this.GB_CondMed.Text = "Condiciones de medición";
             // 
-            // label1
+            // L_Zref
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 120;
-            this.label1.Text = "Vacio";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Visible = false;
+            this.L_Zref.AutoSize = true;
+            this.L_Zref.Location = new System.Drawing.Point(129, 48);
+            this.L_Zref.Name = "L_Zref";
+            this.L_Zref.Size = new System.Drawing.Size(34, 13);
+            this.L_Zref.TabIndex = 120;
+            this.L_Zref.Text = "Vacio";
+            this.L_Zref.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_Zref.Visible = false;
             // 
             // label7
             // 
@@ -1566,7 +1566,7 @@
         private System.Windows.Forms.ComboBox CB_caliElecRealizadoPor2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label L_Zref;
         private System.Windows.Forms.Label L_EnElecR50dosis;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label65;

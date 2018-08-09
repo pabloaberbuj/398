@@ -452,7 +452,6 @@ namespace _398_UI
 
         #endregion
 
-
         #region Métodos
         public static void limpiarRegistro(Panel panel)
         {

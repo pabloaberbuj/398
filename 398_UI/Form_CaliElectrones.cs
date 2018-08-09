@@ -28,7 +28,7 @@ namespace _398_UI
         {
             InitializeComponent();
             this.form1 = form1;
-            //actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones();
         }
 
         private void Form_CaliElectrones_Load(object sender, EventArgs e)
@@ -199,6 +199,7 @@ namespace _398_UI
             {
                 escribirLabel(energiaSeleccionada().R50ion, L_EnElecR50ion);
                 escribirLabel(energiaSeleccionada().R50D, L_EnElecR50dosis);
+                escribirLabel(energiaSeleccionada().Zref, L_Zref);
             }
         }
 
@@ -266,7 +267,7 @@ namespace _398_UI
         private void Prom_masV(object sender, EventArgs e)
         {
             escribirLabel(lecVmas(), LB_LectmasVprom);
-            //actualizarCalculos();
+            actualizarCalculos();
         }
 
         private double lecVmenos()
@@ -288,7 +289,7 @@ namespace _398_UI
         private void Prom_menosV(object sender, EventArgs e)
         {
             escribirLabel(lecVmenos(), LB_LectmenosVprom);
-            //           actualizarCalculos();
+            actualizarCalculos();
         }
 
         //Ks
@@ -321,7 +322,7 @@ namespace _398_UI
         private void Prom_Vtot(object sender, EventArgs e)
         {
             escribirLabel(lecVTotal(), LB_lectVtotProm);
-            //         actualizarCalculos();
+            actualizarCalculos();
         }
 
         private double lecVred()
@@ -335,13 +336,13 @@ namespace _398_UI
         private void Prom_Vred(object sender, EventArgs e)
         {
             escribirLabel(lecVred(), LB_LectVredProm);
-            //         actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void TB_Vred_Leave(object sender, EventArgs e)
         {
             esNumeroTB(sender, e);
-            //           actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void textBox_Enter(object sender, EventArgs e)
@@ -383,23 +384,22 @@ namespace _398_UI
             escribirLabel(lecRef(), LB_LecRefProm);
             Prom_masV(sender, e);
             Prom_Vtot(sender, e);
-            //         actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void TB_UM_Leave(object sender, EventArgs e)
         {
             esNumeroTB(sender, e);
-            //          actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void LeaveCalcularDwzmax(object sender, EventArgs e)
         {
-            //         actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void actualizarCalculos()
         {
-
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpElec = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
@@ -414,7 +414,7 @@ namespace _398_UI
                 chequearKs();
                 habilitarBotonesCaliFotones();
             }
-            if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
+            if (this.Parent != null && CB_CaliEquipos.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 actualizarNombrePestana();
             }
@@ -700,7 +700,7 @@ namespace _398_UI
             inicializarPredeterminados(100, 10);
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
-            //actualizarCalculos();
+            actualizarCalculos();
             CB_caliElecRealizadoPor1.Text = "";
             CB_caliElecRealizadoPor2.Text = "";
             CB_caliElecRealizadoPor3.Text = "";
