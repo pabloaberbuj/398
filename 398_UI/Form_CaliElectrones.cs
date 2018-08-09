@@ -193,25 +193,18 @@ namespace _398_UI
             }
         }
         
-        private void inicializarR50D()
+        private void inicializarR50()
         {
             if (CB_CaliEnergias.SelectedIndex>-1 && !Double.IsNaN(energiaSeleccionada().R50D))
             {
-                TB_EnElecR50ion.Text = energiaSeleccionada().R50ion.ToString();
-                TB_EnElecR50ion.Enabled = false;
+                escribirLabel(energiaSeleccionada().R50ion, L_EnElecR50ion);
+                escribirLabel(energiaSeleccionada().R50D, L_EnElecR50dosis);
             }
-            else
-            {
-                TB_EnElecR50ion.Text = "";
-                TB_EnElecR50ion.Enabled = true;
-            }
-            escribirLabel(energiaSeleccionada().R50D, L_EnElecR50dosis);
         }
 
         private void inicializarPredeterminados(double umPred, double ladoCampopred) //ver si sacar lado campo pred
         {
             TB_UM.Text = Configuracion.umPredet.ToString();
-
         }
 
         #endregion
@@ -238,15 +231,13 @@ namespace _398_UI
 
         private double calculokQQ0()
         {
-            bool editaR50 = Double.IsNaN(energiaSeleccionada().R50D);
-            return CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), editaR50, energiaSeleccionada(),  Convert.ToDouble(TB_EnElecR50ion.Text));
+            double kqq0 = CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), energiaSeleccionada(),  energiaSeleccionada().R50D);
+            if (Double.IsNaN(kqq0))
+            {
+                MessageBox.Show("El valor de kQQ0 no se puede obtener para esa combinación de cámara y haz.\nRevisar que la cámara esté recomendada para esa calidad de haz");
+            }
+            return kqq0;
         }
-
-        private void TB_EnElecR50ion_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
 
         //Kpol
 
@@ -366,8 +357,6 @@ namespace _398_UI
         private double CalculoMref()
         {
             return CalibracionElec.CalcularMref(lecRef(), calculoKTP(), calculoKs(), calculoKpol(), Convert.ToDouble(TB_UM.Text));
-
-
         }
 
         private double calculoDwRef()
@@ -414,15 +403,13 @@ namespace _398_UI
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpElec = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
-
-                calculaKqq0Elec = escribirLabel((energiaSeleccionada().R50D != double.NaN || TB_EnElecR50ion.Text != "") && CB_CaliSistDosimetrico.SelectedIndex != -1, calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad); //revisar!!!!!!!!!!!
+                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1 && !Double.IsNaN(calculokQQ0()), calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad);
                 calculaKpolElec = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
                 calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
                 calculaMrefElec = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliEKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliEMref);
                 calculaDwzrefElec = escribirLabel(L_CaliEMref.Text != "Vacio", calculoDwRef, L_CaliEDwZref);
                 calculaDwzmaxElec = escribirLabel(TB_CaliEPDDref.Text != "" && L_CaliEDwZref.Text != "Vacio", calculoDwZmax, L_CaliEDwZmax);
                 calculaDifLBElec = escribirLabel(calculaDwzrefElec && hayLBsinCartel(), calculoDifConRef, L_CaliEDifLB);
-                chequearKqq0();
                 chequearKpol();
                 chequearKs();
                 habilitarBotonesCaliFotones();
@@ -443,23 +430,24 @@ namespace _398_UI
             {
                 GB_FactorDeCalidad.Enabled = true;
             }
-            //         actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void CB_CaliEnergias_SelectedIndexChanged(object sender, EventArgs e)
         {
             InicializarPDDref();
-            //         actualizarCalculos();
+            inicializarR50();
+            actualizarCalculos();
         }
 
         private void CB_CaliSistDosimetrico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //         actualizarCalculos();
+            actualizarCalculos();
         }
 
         private void actualizarCalculos(object sender, EventArgs e)
         {
-            //           actualizarCalculos();
+            actualizarCalculos();
         }
 
         public void actualizarComboBoxCaliFotones(bool guardarSeleccion = false)
@@ -476,7 +464,7 @@ namespace _398_UI
         }
 
 
-        private void chequearKqq0()
+/*        private void chequearKqq0()
         {
             if (energiaSeleccionada().R50D != double.NaN)
             {
@@ -497,7 +485,7 @@ namespace _398_UI
             {
                 TB_EnElecR50ion.Enabled = false;
             }
-        }
+        }*/
 
         private void chequearKpol()
         {
@@ -979,15 +967,6 @@ namespace _398_UI
         }
 
 
-        private int mideKqq0()
-        {
-            int mideKqq0 = 1;
-            if (CHB_EditarR50ion.Checked)
-            {
-                mideKqq0 = 2;
-            }
-            return mideKqq0;
-        }
         private int mideKs()
         {
             int mideKs = 1;
@@ -1096,14 +1075,6 @@ namespace _398_UI
             {
                 DoTPR2010 = 2;
             }*/
-            if (CHB_EditarR50ion.Checked)
-            {
-                corrigeKqq0 = 2;
-            }
-            else
-            {
-                //        TPR2010reporte = calculoTPR2010();
-            }
             bool hayPDDoTPR = false;
             double dwzmaxreporte = 0;
             bool hayLB = false;

@@ -123,7 +123,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.GB_FactorDeCalidad = new System.Windows.Forms.GroupBox();
-            this.label67 = new System.Windows.Forms.Label();
             this.L_EnElecR50dosis = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -148,9 +147,8 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label68 = new System.Windows.Forms.Label();
-            this.TB_EnElecR50ion = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
+            this.L_EnElecR50ion = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.Panel_CalElec.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
@@ -176,11 +174,9 @@
             this.Panel_CalElec.Controls.Add(this.CB_caliElecRealizadoPor2);
             this.Panel_CalElec.Controls.Add(this.CHB_caliElecEstablecerComoRef);
             this.Panel_CalElec.Controls.Add(this.L_CaliEMref);
-            this.Panel_CalElec.Controls.Add(this.L_CaliEKqq0);
             this.Panel_CalElec.Controls.Add(this.L_CaliEDifLB);
             this.Panel_CalElec.Controls.Add(this.GB_CondMed);
             this.Panel_CalElec.Controls.Add(this.L_CaliEDwZmax);
-            this.Panel_CalElec.Controls.Add(this.label15);
             this.Panel_CalElec.Controls.Add(this.L_CaliEDwZref);
             this.Panel_CalElec.Controls.Add(this.CB_caliElecRealizadoPor1);
             this.Panel_CalElec.Controls.Add(this.label41);
@@ -252,7 +248,7 @@
             // 
             this.L_CaliEKqq0.AutoSize = true;
             this.L_CaliEKqq0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CaliEKqq0.Location = new System.Drawing.Point(397, 108);
+            this.L_CaliEKqq0.Location = new System.Drawing.Point(106, 80);
             this.L_CaliEKqq0.Name = "L_CaliEKqq0";
             this.L_CaliEKqq0.Size = new System.Drawing.Size(48, 16);
             this.L_CaliEKqq0.TabIndex = 30;
@@ -355,7 +351,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(327, 108);
+            this.label15.Location = new System.Drawing.Point(34, 79);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(55, 16);
             this.label15.TabIndex = 29;
@@ -1150,34 +1146,24 @@
             // 
             // GB_FactorDeCalidad
             // 
-            this.GB_FactorDeCalidad.Controls.Add(this.label67);
+            this.GB_FactorDeCalidad.Controls.Add(this.L_EnElecR50ion);
+            this.GB_FactorDeCalidad.Controls.Add(this.label5);
+            this.GB_FactorDeCalidad.Controls.Add(this.L_CaliEKqq0);
             this.GB_FactorDeCalidad.Controls.Add(this.L_EnElecR50dosis);
             this.GB_FactorDeCalidad.Controls.Add(this.label75);
-            this.GB_FactorDeCalidad.Controls.Add(this.label68);
-            this.GB_FactorDeCalidad.Controls.Add(this.TB_EnElecR50ion);
-            this.GB_FactorDeCalidad.Controls.Add(this.label73);
+            this.GB_FactorDeCalidad.Controls.Add(this.label15);
             this.GB_FactorDeCalidad.Location = new System.Drawing.Point(297, 12);
             this.GB_FactorDeCalidad.Name = "GB_FactorDeCalidad";
-            this.GB_FactorDeCalidad.Size = new System.Drawing.Size(233, 86);
+            this.GB_FactorDeCalidad.Size = new System.Drawing.Size(233, 109);
             this.GB_FactorDeCalidad.TabIndex = 55;
             this.GB_FactorDeCalidad.TabStop = false;
             this.GB_FactorDeCalidad.Text = "Factor de calidad";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label67.Location = new System.Drawing.Point(151, 56);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(28, 16);
-            this.label67.TabIndex = 122;
-            this.label67.Text = "cm";
             // 
             // L_EnElecR50dosis
             // 
             this.L_EnElecR50dosis.AutoSize = true;
             this.L_EnElecR50dosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.L_EnElecR50dosis.Location = new System.Drawing.Point(97, 56);
+            this.L_EnElecR50dosis.Location = new System.Drawing.Point(106, 50);
             this.L_EnElecR50dosis.Name = "L_EnElecR50dosis";
             this.L_EnElecR50dosis.Size = new System.Drawing.Size(48, 16);
             this.L_EnElecR50dosis.TabIndex = 121;
@@ -1189,11 +1175,11 @@
             // 
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label75.Location = new System.Drawing.Point(34, 56);
+            this.label75.Location = new System.Drawing.Point(34, 52);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(35, 16);
+            this.label75.Size = new System.Drawing.Size(47, 16);
             this.label75.TabIndex = 120;
-            this.label75.Text = "R50";
+            this.label75.Text = "R50 =";
             // 
             // label23
             // 
@@ -1395,31 +1381,27 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // label68
+            // L_EnElecR50ion
             // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(151, 31);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(21, 13);
-            this.label68.TabIndex = 118;
-            this.label68.Text = "cm";
+            this.L_EnElecR50ion.AutoSize = true;
+            this.L_EnElecR50ion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.L_EnElecR50ion.Location = new System.Drawing.Point(106, 25);
+            this.L_EnElecR50ion.Name = "L_EnElecR50ion";
+            this.L_EnElecR50ion.Size = new System.Drawing.Size(48, 16);
+            this.L_EnElecR50ion.TabIndex = 124;
+            this.L_EnElecR50ion.Text = "Vacio";
+            this.L_EnElecR50ion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_EnElecR50ion.Visible = false;
             // 
-            // TB_EnElecR50ion
+            // label5
             // 
-            this.TB_EnElecR50ion.Location = new System.Drawing.Point(102, 26);
-            this.TB_EnElecR50ion.Name = "TB_EnElecR50ion";
-            this.TB_EnElecR50ion.Size = new System.Drawing.Size(43, 20);
-            this.TB_EnElecR50ion.TabIndex = 115;
-            this.TB_EnElecR50ion.Leave += new System.EventHandler(this.TB_EnElecR50ion_Leave);
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(27, 31);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(44, 13);
-            this.label73.TabIndex = 116;
-            this.label73.Text = "R50 ion";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(34, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 16);
+            this.label5.TabIndex = 123;
+            this.label5.Text = "R50ion =";
             // 
             // Form_CaliElectrones
             // 
@@ -1585,13 +1567,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label L_EnElecR50dosis;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.TextBox TB_EnElecR50ion;
-        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label L_EnElecR50ion;
+        private System.Windows.Forms.Label label5;
     }
 }
 

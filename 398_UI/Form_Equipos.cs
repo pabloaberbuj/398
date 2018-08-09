@@ -443,7 +443,7 @@ namespace _398_UI
 
         private void habilitarEqEnElecBotones(object sender, EventArgs e)
         {
-            habilitarBoton(TB_EnElecEn.Text != "", BT_EnElecGuardar);
+            habilitarBoton(TB_EnElecEn.Text != "" && TB_EnElecR50ion.Text!= "", BT_EnElecGuardar);
             habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecEditar);
             habilitarBoton(DGV_EnElec.SelectedRows.Count == 1, BT_EnElecPredet);
             habilitarBoton(DGV_EnElec.SelectedRows.Count > 0, BT_EnElecEliminar);

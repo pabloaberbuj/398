@@ -312,12 +312,8 @@ namespace _398_UI
             }
         }
 
-        public static double calcularKqq0(Camara camara, Equipo equipo, bool editaR50ion, EnergiaElectrones energia, double R50ion = double.NaN)
+        public static double calcularKqq0(Camara camara, Equipo equipo, EnergiaElectrones energia, double R50ion = double.NaN)
         {
-            if (editaR50ion)
-            {
-                energia.R50D = EnergiaElectrones.calcularR50D(R50ion);
-            }
             return Math.Round(Calcular.interpolarLinea(energia.R50D, Tabla.R50etiquetas, camara.kqq0Elec), 4);
         }
         public static double CalcularMref(double Lref, double Ktp, double Ks, double Kpol, double UM)
