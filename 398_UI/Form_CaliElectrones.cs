@@ -192,10 +192,10 @@ namespace _398_UI
                 TB_CaliEPDDref.Enabled = true;
             }
         }
-        
+
         private void inicializarR50()
         {
-            if (CB_CaliEnergias.SelectedIndex>-1 && !Double.IsNaN(energiaSeleccionada().R50D))
+            if (CB_CaliEnergias.SelectedIndex > -1 && !Double.IsNaN(energiaSeleccionada().R50D))
             {
                 escribirLabel(energiaSeleccionada().R50ion, L_EnElecR50ion);
                 escribirLabel(energiaSeleccionada().R50D, L_EnElecR50dosis);
@@ -232,11 +232,7 @@ namespace _398_UI
 
         private double calculokQQ0()
         {
-            double kqq0 = CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), energiaSeleccionada(),  energiaSeleccionada().R50D);
-            if (Double.IsNaN(kqq0))
-            {
-                MessageBox.Show("El valor de kQQ0 no se puede obtener para esa combinación de cámara y haz.\nRevisar que la cámara esté recomendada para esa calidad de haz");
-            }
+            double kqq0 = CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), energiaSeleccionada(), energiaSeleccionada().R50D);
             return kqq0;
         }
 
@@ -403,9 +399,9 @@ namespace _398_UI
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpElec = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
-                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1 && !Double.IsNaN(calculokQQ0()), calculokQQ0, L_CaliEKqq0, GB_FactorDeCalidad);
+                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1 && !Double.IsNaN(calculokQQ0()), calculokQQ0, L_CaliEKqq0,PicBox_Kqq0Elec,ToolTips.stringErrorkQQ0Elec,1);
                 calculaKpolElec = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
-                calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
+                calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks,PicBox_KsElec,ToolTips.stringErrorInterpolacion,1);
                 calculaMrefElec = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliEKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliEMref);
                 calculaDwzrefElec = escribirLabel(L_CaliEMref.Text != "Vacio", calculoDwRef, L_CaliEDwZref);
                 calculaDwzmaxElec = escribirLabel(TB_CaliEPDDref.Text != "" && L_CaliEDwZref.Text != "Vacio", calculoDwZmax, L_CaliEDwZmax);
@@ -464,28 +460,28 @@ namespace _398_UI
         }
 
 
-/*        private void chequearKqq0()
-        {
-            if (energiaSeleccionada().R50D != double.NaN)
-            {
-                CHB_EditarR50ion.Checked = false;
-                TB_EnElecR50ion.Text = energiaSeleccionada().R50ion.ToString();
-                TB_EnElecR50ion.Enabled = false;
-            }
-            else
-            {
-                CHB_EditarR50ion.Checked = true;
-            }
-            if (CHB_EditarR50ion.Checked)
-            {
-                TB_EnElecR50ion.Enabled = true;
-                TB_EnElecR50ion.Text = "";
-            }
-            else
-            {
-                TB_EnElecR50ion.Enabled = false;
-            }
-        }*/
+        /*        private void chequearKqq0()
+                {
+                    if (energiaSeleccionada().R50D != double.NaN)
+                    {
+                        CHB_EditarR50ion.Checked = false;
+                        TB_EnElecR50ion.Text = energiaSeleccionada().R50ion.ToString();
+                        TB_EnElecR50ion.Enabled = false;
+                    }
+                    else
+                    {
+                        CHB_EditarR50ion.Checked = true;
+                    }
+                    if (CHB_EditarR50ion.Checked)
+                    {
+                        TB_EnElecR50ion.Enabled = true;
+                        TB_EnElecR50ion.Text = "";
+                    }
+                    else
+                    {
+                        TB_EnElecR50ion.Enabled = false;
+                    }
+                }*/
 
         private void chequearKpol()
         {
@@ -499,26 +495,26 @@ namespace _398_UI
                 CHB_UsaKpolLB.Enabled = false;
                 CHB_UsaKpolLB.Checked = false;
             }
-            /*         else if (CHB_UsaKpolLB.Checked)
-                     {
-                         if (!hayLB())
-                         {
-                             CHB_UsaKpolLB.Checked = false;
-                             L_Kpol.Visible = false;
-                             L_Kpol.Text = "Vacio";
-                         }
-                         else
-                         {
-                             Panel_LecKpol.Enabled = false;
-                             limpiarRegistro(Panel_LectmasV);
-                             limpiarRegistro(Panel_LectmenosV);
-                             escribirLabel(lecVmas(), LB_LectmasVprom);
-                             escribirLabel(lecVmenos(), LB_LectmenosVprom);
-                             CHB_NoUsaKpol.Enabled = false;
-                             CHB_NoUsaKpol.Checked = false;
-                         }
+            else if (CHB_UsaKpolLB.Checked)
+            {
+                if (!hayLB())
+                {
+                    CHB_UsaKpolLB.Checked = false;
+                    L_Kpol.Visible = false;
+                    L_Kpol.Text = "Vacio";
+                }
+                else
+                {
+                    Panel_LecKpol.Enabled = false;
+                    limpiarRegistro(Panel_LectmasV);
+                    limpiarRegistro(Panel_LectmenosV);
+                    escribirLabel(lecVmas(), LB_LectmasVprom);
+                    escribirLabel(lecVmenos(), LB_LectmenosVprom);
+                    CHB_NoUsaKpol.Enabled = false;
+                    CHB_NoUsaKpol.Checked = false;
+                }
 
-                     }*/
+            }
             else
             {
                 Panel_LecKpol.Enabled = true;
@@ -572,25 +568,24 @@ namespace _398_UI
             }
             else if (CHB_UsaKsLB.Checked)
             {
-                /*      if (!hayLB())
-                      {
-                          CHB_UsaKsLB.Checked = false;
-                          L_Ks.Visible = false;
-                          L_Ks.Text = "Vacio";
-                      }
-                      else
-                      {
-                          Panel_LecKs.Enabled = false;
-                          Panel_Vred.Enabled = false;
-                          TB_Vred.Clear();
-                          limpiarRegistro(Panel_lectVtot);
-                          limpiarRegistro(Panel_LectVred);
-                          escribirLabel(lecVTotal(), LB_lectVtotProm);
-                          escribirLabel(lecVred(), LB_LectVredProm);
-                          CHB_NoUsaKs.Enabled = false;
-                          CHB_NoUsaKs.Checked = false;
-                      }
-                      */
+                if (!hayLB())
+                {
+                    CHB_UsaKsLB.Checked = false;
+                    L_Ks.Visible = false;
+                    L_Ks.Text = "Vacio";
+                }
+                else
+                {
+                    Panel_LecKs.Enabled = false;
+                    Panel_Vred.Enabled = false;
+                    TB_Vred.Clear();
+                    limpiarRegistro(Panel_lectVtot);
+                    limpiarRegistro(Panel_LectVred);
+                    escribirLabel(lecVTotal(), LB_lectVtotProm);
+                    escribirLabel(lecVred(), LB_LectVredProm);
+                    CHB_NoUsaKs.Enabled = false;
+                    CHB_NoUsaKs.Checked = false;
+                }
             }
             else
             {
@@ -651,6 +646,7 @@ namespace _398_UI
                 return true;
             }
         }
+
 
         #endregion
 
@@ -867,6 +863,24 @@ namespace _398_UI
             {
                 label.Text = "Vacio";
                 label.Visible = false;
+                return false;
+            }
+        }
+
+        public static bool escribirLabel(bool test, Func<double> metodo, Label label, PictureBox figura, string mensaje, int tipoMensaje)
+        {
+            if (test)
+            {
+                label.Text = metodo().ToString();
+                label.Visible = true;
+                ToolTips.deshabilitar(figura);
+                return true;
+            }
+            else
+            {
+                label.Text = "Vacio";
+                label.Visible = false;
+                ToolTips.habilitar(figura, mensaje, tipoMensaje);
                 return false;
             }
         }

@@ -143,6 +143,7 @@
     <Compile Include="CalibracionFot.cs" />
     <Compile Include="SistemaDosimetrico.cs" />
     <Compile Include="Tabla.cs" />
+    <Compile Include="ToolTips.cs" />
     <Compile Include="ValorARF.cs" />
     <EmbeddedResource Include="Auxiliar.resx">
       <DependentUpon>Auxiliar.cs</DependentUpon>
@@ -202,7 +203,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\advertencia.png" />
+    <None Include="bin\Debug\error.png" />
+    <None Include="bin\Debug\informacion.png" />
     <Content Include="issues_29-6-17.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,40 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace _398_UI
 {
     public partial class Form2 : Form
     {
-        double[] etiquetasX = { 1, 2, 3 };
-        string[] etiquetasY = { "a0", "a1", "a2" };
-        double[,] valores = { { 2, 4, 6 }, { 3, 6, 9 }, { 4, 8, 12 } };
-
-
         public Form2()
         {
             InitializeComponent();
-            /* foreach (double x in etiquetasX)
-             {
-                 CB_X.Items.Add(x);
-             }*/
-            foreach (string y in etiquetasY)
+        }
+
+        private void nuevoToolTip(PictureBox figura, string mensaje)
+        {
+            ToolTip tooltip = new ToolTip()
             {
-                CB_Y.Items.Add(y);
+                Active = true,
+                UseAnimation = true,
+                
+            };
+            tooltip.SetToolTip(figura, mensaje);
+        }
+
+        private void habilitarImagen(bool test, PictureBox figura, string texto)
+        {
+            if (test)
+            {
+                figura.Visible = true;
+                nuevoToolTip(figura, texto);
             }
+            else
+            {
+                figura.Visible = false;
+            }
+            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            double aux = Calcular.interpolar(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToDouble(textBox3.Text), Convert.ToDouble(textBox4.Text), Convert.ToDouble(textBox5.Text));
-            label1.Text = aux.ToString();
+            habilitarImagen(textBox1.Text == "casa", pictureBox1,"casa");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            double XY = Calcular.interpolatabla(Convert.ToDouble(TB_Xint.Text), CB_Y.Text, etiquetasX, etiquetasY, valores);
-            LB_XY.Text = XY.ToString();
-
+            habilitarImagen(textBox2.Text == "perro", pictureBox2,"perro");
         }
     }
 }

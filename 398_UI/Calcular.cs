@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing;
 
 
 namespace _398_UI
@@ -119,11 +120,11 @@ namespace _398_UI
             int iX = Array.IndexOf(etiquetasX, X);
             if (X > etiquetasX.Max())
             {
-                MessageBox.Show("El valor es mayor que todos los tabulados. No se puede interpolar");
+                return Double.NaN;
             }
             else if (X < etiquetasX.Min())
             {
-                MessageBox.Show("El valor es menor que todos los tabulados. No se puede interpolar");
+                return Double.NaN;
             }
             else
             {
