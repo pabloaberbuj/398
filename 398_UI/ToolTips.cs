@@ -25,17 +25,21 @@ namespace _398_UI
             tooltip.SetToolTip(figura, mensaje);
         }
 
-        public static void habilitar(PictureBox figura, string mensaje, int tipoMensaje) //0 error, 1 advertencia, 2 info
+        public static void habilitar(bool test, PictureBox figura, string mensaje, int tipoMensaje) //0 error, 1 advertencia, 2 info
         {
-            figura.Image = imagenes[tipoMensaje];
-            figura.Visible = true;
-            crear(mensaje, figura);
+            if (test)
+            {
+                figura.Image = imagenes[tipoMensaje];
+                figura.Visible = true;
+                crear(mensaje, figura);
+            }
+            else
+            {
+                figura.Visible = false;
+            }
+            
         }
 
-        public static void deshabilitar(PictureBox figura)
-        {
-            figura.Visible = false;
-        }
 
     }
 

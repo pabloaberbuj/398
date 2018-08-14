@@ -233,6 +233,7 @@ namespace _398_UI
         private double calculokQQ0()
         {
             double kqq0 = CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), energiaSeleccionada(), energiaSeleccionada().R50D);
+            ToolTips.habilitar(Double.IsNaN(kqq0), PicBox_Kqq0Elec, ToolTips.stringErrorkQQ0Elec, 1);
             return kqq0;
         }
 
@@ -296,7 +297,9 @@ namespace _398_UI
             {
                 Vred = Convert.ToDouble(TB_Vred.Text);
             }
-            return CalibracionElec.calcularKs(sistDosimSeleccionado().Tension, lecVTotal(), lecVred(), CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), Vred);
+            double ks = CalibracionElec.calcularKs(sistDosimSeleccionado().Tension, lecVTotal(), lecVred(), CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), Vred);
+            ToolTips.habilitar(Double.IsNaN(ks), PicBox_KsElec, ToolTips.stringErrorInterpolacion, 1);
+            return ks;
         }
 
         private double lecVTotal()
@@ -399,9 +402,9 @@ namespace _398_UI
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpElec = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
-                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1 && !Double.IsNaN(calculokQQ0()), calculokQQ0, L_CaliEKqq0,PicBox_Kqq0Elec,ToolTips.stringErrorkQQ0Elec,1);
+                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1 && !Double.IsNaN(calculokQQ0()), calculokQQ0, L_CaliEKqq0);
                 calculaKpolElec = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
-                calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks,PicBox_KsElec,ToolTips.stringErrorInterpolacion,1);
+                calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
                 calculaMrefElec = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliEKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliEMref);
                 calculaDwzrefElec = escribirLabel(L_CaliEMref.Text != "Vacio", calculoDwRef, L_CaliEDwZref);
                 calculaDwzmaxElec = escribirLabel(TB_CaliEPDDref.Text != "" && L_CaliEDwZref.Text != "Vacio", calculoDwZmax, L_CaliEDwZmax);
@@ -602,14 +605,14 @@ namespace _398_UI
             }
             else
             {
-                if (L_Ks.Text == "NaN")
-                {
-                    L_Ks.Visible = false;
-                    L_Ks.Text = "Vacio";
-                }
+                Panel_lectVtot.Enabled = true;
                 escribirLabel(lecVTotal(), LB_lectVtotProm);
                 escribirLabel(lecVred(), LB_LectVredProm);
-                Panel_lectVtot.Enabled = true;
+            }
+            if (L_Ks.Text == "NaN")
+            {
+                L_Ks.Visible = false;
+                L_Ks.Text = "Vacio";
             }
         }
 
@@ -863,24 +866,6 @@ namespace _398_UI
             {
                 label.Text = "Vacio";
                 label.Visible = false;
-                return false;
-            }
-        }
-
-        public static bool escribirLabel(bool test, Func<double> metodo, Label label, PictureBox figura, string mensaje, int tipoMensaje)
-        {
-            if (test)
-            {
-                label.Text = metodo().ToString();
-                label.Visible = true;
-                ToolTips.deshabilitar(figura);
-                return true;
-            }
-            else
-            {
-                label.Text = "Vacio";
-                label.Visible = false;
-                ToolTips.habilitar(figura, mensaje, tipoMensaje);
                 return false;
             }
         }

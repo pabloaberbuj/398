@@ -723,14 +723,14 @@ namespace _398_UI
             }
             else
             {
-                if (L_Ks.Text == "NaN")
-                {
-                    L_Ks.Visible = false;
-                    L_Ks.Text = "Vacio";
-                }
                 escribirLabel(lecVTotal(), LB_lectVtotProm);
                 escribirLabel(lecVred(), LB_LectVredProm);
                 Panel_lectVtot.Enabled = true;
+            }
+            if (L_Ks.Text == "NaN")
+            {
+                L_Ks.Visible = false;
+                L_Ks.Text = "Vacio";
             }
         }
 
