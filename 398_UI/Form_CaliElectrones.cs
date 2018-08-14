@@ -233,7 +233,7 @@ namespace _398_UI
         private double calculokQQ0()
         {
             double kqq0 = CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), energiaSeleccionada(), energiaSeleccionada().R50D);
-            ToolTips.habilitar(Double.IsNaN(kqq0), PicBox_Kqq0Elec, ToolTips.stringErrorkQQ0Elec, 1);
+            ToolTips.habilitar(Double.IsNaN(kqq0), PicBox_Kqq0Elec, ToolTips.stringErrorkQQ0Elec, 0);
             return kqq0;
         }
 
@@ -298,7 +298,7 @@ namespace _398_UI
                 Vred = Convert.ToDouble(TB_Vred.Text);
             }
             double ks = CalibracionElec.calcularKs(sistDosimSeleccionado().Tension, lecVTotal(), lecVred(), CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), Vred);
-            ToolTips.habilitar(Double.IsNaN(ks), PicBox_KsElec, ToolTips.stringErrorInterpolacion, 1);
+            ToolTips.habilitar(Double.IsNaN(ks), PicBox_KsElec, ToolTips.stringErrorInterpolacion, 0);
             return ks;
         }
 

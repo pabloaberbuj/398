@@ -70,6 +70,7 @@
             this.textBox47 = new System.Windows.Forms.TextBox();
             this.LB_LecRefProm = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.PicBox_KsElec = new System.Windows.Forms.PictureBox();
             this.L_Ks = new System.Windows.Forms.Label();
             this.Panel_Vred = new System.Windows.Forms.Panel();
             this.TB_Vred = new System.Windows.Forms.TextBox();
@@ -121,6 +122,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.GB_FactorDeCalidad = new System.Windows.Forms.GroupBox();
+            this.PicBox_Kqq0Elec = new System.Windows.Forms.PictureBox();
             this.L_EnElecR50ion = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.L_CaliEKqq0 = new System.Windows.Forms.Label();
@@ -149,8 +151,6 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.PicBox_Kqq0Elec = new System.Windows.Forms.PictureBox();
-            this.PicBox_KsElec = new System.Windows.Forms.PictureBox();
             this.Panel_CalElec.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.gLecturaReferencia.SuspendLayout();
@@ -158,6 +158,7 @@
             this.Panel_UM.SuspendLayout();
             this.Panel_LecRef.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).BeginInit();
             this.Panel_Vred.SuspendLayout();
             this.Panel_LecKs.SuspendLayout();
             this.Panel_LectVred.SuspendLayout();
@@ -167,9 +168,8 @@
             this.Panel_LectmenosV.SuspendLayout();
             this.Panel_LectmasV.SuspendLayout();
             this.GB_FactorDeCalidad.SuspendLayout();
-            this.gCondiciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBox_Kqq0Elec)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).BeginInit();
+            this.gCondiciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_CalElec
@@ -610,6 +610,15 @@
             this.groupBox5.TabIndex = 56;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ks";
+            // 
+            // PicBox_KsElec
+            // 
+            this.PicBox_KsElec.Location = new System.Drawing.Point(165, 282);
+            this.PicBox_KsElec.Name = "PicBox_KsElec";
+            this.PicBox_KsElec.Size = new System.Drawing.Size(25, 25);
+            this.PicBox_KsElec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBox_KsElec.TabIndex = 126;
+            this.PicBox_KsElec.TabStop = false;
             // 
             // L_Ks
             // 
@@ -1144,6 +1153,15 @@
             this.GB_FactorDeCalidad.TabStop = false;
             this.GB_FactorDeCalidad.Text = "Factor de calidad";
             // 
+            // PicBox_Kqq0Elec
+            // 
+            this.PicBox_Kqq0Elec.Location = new System.Drawing.Point(163, 71);
+            this.PicBox_Kqq0Elec.Name = "PicBox_Kqq0Elec";
+            this.PicBox_Kqq0Elec.Size = new System.Drawing.Size(25, 25);
+            this.PicBox_Kqq0Elec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBox_Kqq0Elec.TabIndex = 125;
+            this.PicBox_Kqq0Elec.TabStop = false;
+            // 
             // L_EnElecR50ion
             // 
             this.L_EnElecR50ion.AutoSize = true;
@@ -1409,24 +1427,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // PicBox_Kqq0Elec
-            // 
-            this.PicBox_Kqq0Elec.Location = new System.Drawing.Point(163, 76);
-            this.PicBox_Kqq0Elec.Name = "PicBox_Kqq0Elec";
-            this.PicBox_Kqq0Elec.Size = new System.Drawing.Size(25, 25);
-            this.PicBox_Kqq0Elec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicBox_Kqq0Elec.TabIndex = 125;
-            this.PicBox_Kqq0Elec.TabStop = false;
-            // 
-            // PicBox_KsElec
-            // 
-            this.PicBox_KsElec.Location = new System.Drawing.Point(167, 290);
-            this.PicBox_KsElec.Name = "PicBox_KsElec";
-            this.PicBox_KsElec.Size = new System.Drawing.Size(25, 25);
-            this.PicBox_KsElec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicBox_KsElec.TabIndex = 126;
-            this.PicBox_KsElec.TabStop = false;
-            // 
             // Form_CaliElectrones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1450,6 +1450,7 @@
             this.Panel_LecRef.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).EndInit();
             this.Panel_Vred.ResumeLayout(false);
             this.Panel_Vred.PerformLayout();
             this.Panel_LecKs.ResumeLayout(false);
@@ -1468,10 +1469,9 @@
             this.Panel_LectmasV.PerformLayout();
             this.GB_FactorDeCalidad.ResumeLayout(false);
             this.GB_FactorDeCalidad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_Kqq0Elec)).EndInit();
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox_Kqq0Elec)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).EndInit();
             this.ResumeLayout(false);
 
         }

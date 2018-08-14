@@ -61,12 +61,15 @@
             this.BT_ExportarCaliFot = new System.Windows.Forms.Button();
             this.gLecturaReferencia = new System.Windows.Forms.GroupBox();
             this.Panel_Tiempo = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.TB_tiempo = new System.Windows.Forms.TextBox();
             this.L_tiempo = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label65 = new System.Windows.Forms.Label();
             this.TB_CaliFTMRref = new System.Windows.Forms.TextBox();
             this.label79 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.TB_CaliFPDDref = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
             this.Panel_UM = new System.Windows.Forms.Panel();
@@ -176,9 +179,9 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.PicBox_KsElec = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -203,10 +206,14 @@
             this.Panel_Lect10.SuspendLayout();
             this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
             // 
+            this.Panel_CalFot.Controls.Add(this.PicBox_KsElec);
             this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor3);
             this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor2);
             this.Panel_CalFot.Controls.Add(this.CHB_caliFotEstablecerComoRef);
@@ -560,6 +567,15 @@
             this.Panel_Tiempo.Size = new System.Drawing.Size(130, 30);
             this.Panel_Tiempo.TabIndex = 44;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 111;
+            this.label2.Text = "min";
+            // 
             // TB_tiempo
             // 
             this.TB_tiempo.Location = new System.Drawing.Point(49, 5);
@@ -587,6 +603,15 @@
             this.panel4.Size = new System.Drawing.Size(130, 30);
             this.panel4.TabIndex = 45;
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(105, 8);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(15, 13);
+            this.label65.TabIndex = 109;
+            this.label65.Text = "%";
+            // 
             // TB_CaliFTMRref
             // 
             this.TB_CaliFTMRref.Location = new System.Drawing.Point(49, 5);
@@ -613,6 +638,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(130, 30);
             this.panel3.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(105, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 110;
+            this.label1.Text = "%";
             // 
             // TB_CaliFPDDref
             // 
@@ -731,6 +765,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.pictureBox1);
             this.groupBox5.Controls.Add(this.L_Ks);
             this.groupBox5.Controls.Add(this.Panel_Vred);
             this.groupBox5.Controls.Add(this.LB_KsRes);
@@ -1263,6 +1298,7 @@
             // 
             // GB_FactorDeCalidad
             // 
+            this.GB_FactorDeCalidad.Controls.Add(this.pictureBox2);
             this.GB_FactorDeCalidad.Controls.Add(this.L_CaliFTPR2010);
             this.GB_FactorDeCalidad.Controls.Add(this.label24);
             this.GB_FactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
@@ -1715,32 +1751,32 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // label65
+            // PicBox_KsElec
             // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(105, 8);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(15, 13);
-            this.label65.TabIndex = 109;
-            this.label65.Text = "%";
+            this.PicBox_KsElec.Location = new System.Drawing.Point(481, 305);
+            this.PicBox_KsElec.Name = "PicBox_KsElec";
+            this.PicBox_KsElec.Size = new System.Drawing.Size(25, 25);
+            this.PicBox_KsElec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBox_KsElec.TabIndex = 127;
+            this.PicBox_KsElec.TabStop = false;
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 110;
-            this.label1.Text = "%";
+            this.pictureBox1.Location = new System.Drawing.Point(165, 282);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 128;
+            this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // pictureBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
-            this.label2.TabIndex = 111;
-            this.label2.Text = "min";
+            this.pictureBox2.Location = new System.Drawing.Point(184, 267);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 128;
+            this.pictureBox2.TabStop = false;
             // 
             // Form_CaliFotones
             // 
@@ -1799,6 +1835,9 @@
             this.Panel_Lect20.PerformLayout();
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1955,6 +1994,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox PicBox_KsElec;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
