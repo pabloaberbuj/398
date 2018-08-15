@@ -181,7 +181,7 @@ namespace _398_UI
                 }
                 DGV_Equipo.Rows[indiceEquipo].Selected = true;
             }
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
             editaEquipo = false;
             Panel_TipoHazEq.Enabled = false;
             
@@ -192,13 +192,13 @@ namespace _398_UI
         private void BT_PredetEqu_Click(object sender, EventArgs e)
         {
             Equipo.hacerPredeterminado(DGV_Equipo);
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
         }
 
         private void BT_EliminarEq_Click(object sender, EventArgs e)
         {
             Equipo.eliminar(DGV_Equipo);
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
         }
 
         private void BT_EditarEq_Click(object sender, EventArgs e)
@@ -261,7 +261,7 @@ namespace _398_UI
                     Equipo.agregarImportados(listaImportada, DGV_Equipo);
                 }
             }
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
         }
 
         private void BT_EquiposCancelar_Click(object sender, EventArgs e)
@@ -646,11 +646,15 @@ namespace _398_UI
         #endregion
 
 
-        private void actualizarComboBoxCaliFotones(bool guardarSeleccion = false)
+        private void actualizarComboBoxCaliFotonesyElectrones(bool guardarSeleccion = false)
         {
-            foreach (Form_CaliFotones cali in form1.listaFormsCaliFotones)
+            foreach (Form_CaliFotones calif in form1.listaFormsCaliFotones)
             {
-                cali.actualizarComboBoxCaliFotones(guardarSeleccion);
+                calif.actualizarComboBoxCaliFotones(guardarSeleccion);
+            }
+            foreach (Form_CaliElectrones calie in form1.listaFormsCaliElectrones)
+            {
+                calie.actualizarComboBoxCaliElectrones(guardarSeleccion);
             }
         }
     }

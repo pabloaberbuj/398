@@ -64,7 +64,7 @@ namespace _398_UI
             }
             foreach (var energia in EnergiaElectrones.lista(DGVElec))
             {
-                auxEnergiasElec += energia.Energia + "";
+                auxEnergiasElec += energia.Energia + " ";
             }
             string auxEtiqueta = "";
             if (_alias!="")

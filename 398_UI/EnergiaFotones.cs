@@ -25,6 +25,8 @@ namespace _398_UI
         public double PddZrefFot { get; set; }
         [DisplayName("TMR")]
         public double TmrZrefFot { get; set; }
+        [Browsable(false)]
+        public string ID { get; set; }
 
         public static EnergiaFotones crear(double _energia, double _lado, double _zRefFot, double _pddZrefFot, double _tmrZrefFot)
         {
@@ -56,10 +58,12 @@ namespace _398_UI
         {
             if (edita)
             {
+                string IDvieja = ((EnergiaFotones)DGV.SelectedRows[0].DataBoundItem).ID;
                 var auxlista = lista(DGV);
                 int indice = DGV.SelectedRows[0].Index;
                 bool auxPredet = auxlista[indice].EsPredet;
                 auxlista.RemoveAt(indice);
+                _nuevo.ID = IDvieja;
                 auxlista.Insert(indice, _nuevo);
                 auxlista[indice].EsPredet = auxPredet;
                 DGV.DataSource = auxlista;
@@ -74,6 +78,7 @@ namespace _398_UI
                     _nuevo.EsPredet = true;
                 }
                 var auxlista = lista(DGV);
+                _nuevo.ID = _nuevo.Etiqueta;
                 auxlista.Add(_nuevo);
                 DGV.DataSource = auxlista;
             }

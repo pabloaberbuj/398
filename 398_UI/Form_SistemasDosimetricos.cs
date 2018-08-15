@@ -168,14 +168,14 @@ namespace _398_UI
             NuevoSistDos nsd = new NuevoSistDos(false, 0);
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
             habilitarSistDosBotones(sender, e);
         }
 
         private void BT_EliminarSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.eliminar(DGV_SistDos);
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
         }
 
         private void BT_EditarSistDos_Click(object sender, EventArgs e)
@@ -184,13 +184,13 @@ namespace _398_UI
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
             DGV_SistDos.ClearSelection();
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
         }
 
         private void BT_PredSistDos_Click(object sender, EventArgs e)
         {
             SistemaDosimetrico.hacerPredeterminado(DGV_SistDos);
-            actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotonesyElectrones();
         }
 
         private void BT_ImportarSistDos_Click(object sender, EventArgs e)
@@ -217,7 +217,7 @@ namespace _398_UI
                     Electrometro.importar(listaImportada, DGV_Elec);
                 }
             }
-            actualizarComboBoxCaliFotones(true);
+            actualizarComboBoxCaliFotonesyElectrones(true);
 
         }
 
@@ -234,11 +234,15 @@ namespace _398_UI
             habilitarBoton(DGV_SistDos.SelectedRows.Count > 0, BT_ExportarSistDos);
         }
 
-        private void actualizarComboBoxCaliFotones(bool guardarSeleccion = false)
+        private void actualizarComboBoxCaliFotonesyElectrones(bool guardarSeleccion = false)
         {
-            foreach (Form_CaliFotones cali in form1.listaFormsCaliFotones)
+            foreach (Form_CaliFotones calif in form1.listaFormsCaliFotones)
             {
-                cali.actualizarComboBoxCaliFotones(guardarSeleccion);
+                calif.actualizarComboBoxCaliFotones(guardarSeleccion);
+            }
+            foreach (Form_CaliElectrones calie in form1.listaFormsCaliElectrones)
+            {
+                calie.actualizarComboBoxCaliElectrones(guardarSeleccion);
             }
         }
 
