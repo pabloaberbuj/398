@@ -973,7 +973,7 @@ namespace _398_UI
 
         public static bool escribirLabel(bool test, Func<double> metodo, Label label)
         {
-            if (test)
+            if (test && !Double.IsNaN(metodo()))
             {
                 label.Text = metodo().ToString();
                 label.Visible = true;
@@ -989,7 +989,7 @@ namespace _398_UI
 
         public static bool escribirLabel(bool test, Func<double> metodo, Label label, GroupBox gb)
         {
-            if (test)
+            if (test && !Double.IsNaN(metodo()))
             {
                 label.Text = metodo().ToString();
                 label.Visible = true;

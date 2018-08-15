@@ -402,7 +402,7 @@ namespace _398_UI
             if (CB_CaliEquipos.SelectedIndex > -1 && CB_CaliSistDosimetrico.SelectedIndex > -1 && CB_CaliEnergias.SelectedIndex > -1)
             {
                 calculaKtpElec = escribirLabel(tbTemp.Text != "" && tbPresion.Text != "", calculoKTP, L_CaliEKTP);
-                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1 && !Double.IsNaN(calculokQQ0()), calculokQQ0, L_CaliEKqq0);
+                calculaKqq0Elec = escribirLabel(energiaSeleccionada().R50D != double.NaN && CB_CaliSistDosimetrico.SelectedIndex != -1, calculokQQ0, L_CaliEKqq0);
                 calculaKpolElec = escribirLabel((LB_LectmasVprom.Text != "Vacio" && LB_LectmenosVprom.Text != "Vacio") || CHB_UsaKpolLB.Checked == true || CHB_NoUsaKpol.Checked == true, calculoKpol, L_Kpol);
                 calculaKsElec = escribirLabel((LB_lectVtotProm.Text != "Vacio" && LB_LectVredProm.Text != "Vacio" && TB_Vred.Text != "") || CHB_UsaKsLB.Checked || CHB_NoUsaKs.Checked, calculoKs, L_Ks);
                 calculaMrefElec = escribirLabel(LB_LecRefProm.Text != "Vacio" && L_CaliEKTP.Text != "Vacio" && L_Ks.Text != "Vacio" && L_Kpol.Text != "Vacio" && TB_UM.Text != "", CalculoMref, L_CaliEMref);
@@ -856,7 +856,7 @@ namespace _398_UI
 
         public static bool escribirLabel(bool test, Func<double> metodo, Label label)
         {
-            if (test)
+            if (test && !Double.IsNaN(metodo()))
             {
                 label.Text = metodo().ToString();
                 label.Visible = true;
@@ -872,7 +872,7 @@ namespace _398_UI
 
         public static bool escribirLabel(bool test, Func<double> metodo, Label label, GroupBox gb)
         {
-            if (test)
+            if (test && !Double.IsNaN(metodo()))
             {
                 label.Text = metodo().ToString();
                 label.Visible = true;
