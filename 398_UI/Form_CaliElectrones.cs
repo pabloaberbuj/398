@@ -210,7 +210,7 @@ namespace _398_UI
 
         #endregion
 
-        #region Cali Fotones Calculos
+        #region Cali Electrones Calculos
         //KTP
         private double calculoKTP()
         {
@@ -420,7 +420,7 @@ namespace _398_UI
         }
         #endregion
 
-        #region Cali Fotones UI
+        #region Cali Electrones UI
 
         private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -168,7 +168,7 @@ namespace _398_UI
             NuevoSistDos nsd = new NuevoSistDos(false, 0);
             nsd.ShowDialog();
             DGV_SistDos.DataSource = SistemaDosimetrico.lista();
-            actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
             habilitarSistDosBotones(sender, e);
         }
 
@@ -217,7 +217,7 @@ namespace _398_UI
                     Electrometro.importar(listaImportada, DGV_Elec);
                 }
             }
-            actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
 
         }
 

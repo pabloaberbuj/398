@@ -180,12 +180,8 @@ namespace _398_UI
                     row.Selected = false;
                 }
                 DGV_Equipo.Rows[indiceEquipo].Selected = true;
-                actualizarComboBoxCaliFotones(true);
             }
-            else
-            {
-                actualizarComboBoxCaliFotones();
-            }
+            actualizarComboBoxCaliFotones(true);
             editaEquipo = false;
             Panel_TipoHazEq.Enabled = false;
             
@@ -196,7 +192,7 @@ namespace _398_UI
         private void BT_PredetEqu_Click(object sender, EventArgs e)
         {
             Equipo.hacerPredeterminado(DGV_Equipo);
-            actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
         }
 
         private void BT_EliminarEq_Click(object sender, EventArgs e)
@@ -239,7 +235,6 @@ namespace _398_UI
                 }
             }
             editaEquipo = true;
-            //actualizarComboBoxCaliFotones();
         }
 
         private void BT_ExportarEq_Click(object sender, EventArgs e)
@@ -266,7 +261,7 @@ namespace _398_UI
                     Equipo.agregarImportados(listaImportada, DGV_Equipo);
                 }
             }
-            actualizarComboBoxCaliFotones();
+            actualizarComboBoxCaliFotones(true);
         }
 
         private void BT_EquiposCancelar_Click(object sender, EventArgs e)

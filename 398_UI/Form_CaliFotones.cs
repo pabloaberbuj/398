@@ -519,6 +519,10 @@ namespace _398_UI
             {
                 GB_FactorDeCalidad.Enabled = true;
             }
+            else
+            {
+                GB_FactorDeCalidad.Enabled = false;
+            }
             actualizarCalculos();
         }
 
