@@ -179,9 +179,8 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.PicBox_KsElec = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PicBox_Kqq0Fot = new System.Windows.Forms.PictureBox();
+            this.picBox_KsFot = new System.Windows.Forms.PictureBox();
             this.Panel_CalFot.SuspendLayout();
             this.GB_CondMed.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -206,14 +205,13 @@
             this.Panel_Lect10.SuspendLayout();
             this.Panel_Lect20.SuspendLayout();
             this.gCondiciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_Kqq0Fot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_KsFot)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_CalFot
             // 
-            this.Panel_CalFot.Controls.Add(this.PicBox_KsElec);
+            this.Panel_CalFot.Controls.Add(this.PicBox_Kqq0Fot);
             this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor3);
             this.Panel_CalFot.Controls.Add(this.CB_caliFotRealizadoPor2);
             this.Panel_CalFot.Controls.Add(this.CHB_caliFotEstablecerComoRef);
@@ -765,7 +763,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.pictureBox1);
+            this.groupBox5.Controls.Add(this.picBox_KsFot);
             this.groupBox5.Controls.Add(this.L_Ks);
             this.groupBox5.Controls.Add(this.Panel_Vred);
             this.groupBox5.Controls.Add(this.LB_KsRes);
@@ -1298,7 +1296,6 @@
             // 
             // GB_FactorDeCalidad
             // 
-            this.GB_FactorDeCalidad.Controls.Add(this.pictureBox2);
             this.GB_FactorDeCalidad.Controls.Add(this.L_CaliFTPR2010);
             this.GB_FactorDeCalidad.Controls.Add(this.label24);
             this.GB_FactorDeCalidad.Controls.Add(this.Panel_TPRoPDD);
@@ -1751,32 +1748,23 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // PicBox_KsElec
+            // PicBox_Kqq0Fot
             // 
-            this.PicBox_KsElec.Location = new System.Drawing.Point(481, 305);
-            this.PicBox_KsElec.Name = "PicBox_KsElec";
-            this.PicBox_KsElec.Size = new System.Drawing.Size(25, 25);
-            this.PicBox_KsElec.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicBox_KsElec.TabIndex = 127;
-            this.PicBox_KsElec.TabStop = false;
+            this.PicBox_Kqq0Fot.Location = new System.Drawing.Point(481, 305);
+            this.PicBox_Kqq0Fot.Name = "PicBox_Kqq0Fot";
+            this.PicBox_Kqq0Fot.Size = new System.Drawing.Size(25, 25);
+            this.PicBox_Kqq0Fot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBox_Kqq0Fot.TabIndex = 127;
+            this.PicBox_Kqq0Fot.TabStop = false;
             // 
-            // pictureBox1
+            // picBox_KsFot
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(165, 282);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 128;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(184, 267);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 128;
-            this.pictureBox2.TabStop = false;
+            this.picBox_KsFot.Location = new System.Drawing.Point(165, 282);
+            this.picBox_KsFot.Name = "picBox_KsFot";
+            this.picBox_KsFot.Size = new System.Drawing.Size(25, 25);
+            this.picBox_KsFot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_KsFot.TabIndex = 128;
+            this.picBox_KsFot.TabStop = false;
             // 
             // Form_CaliFotones
             // 
@@ -1835,9 +1823,8 @@
             this.Panel_Lect20.PerformLayout();
             this.gCondiciones.ResumeLayout(false);
             this.gCondiciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicBox_KsElec)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox_Kqq0Fot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_KsFot)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1994,9 +1981,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox PicBox_KsElec;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox PicBox_Kqq0Fot;
+        private System.Windows.Forms.PictureBox picBox_KsFot;
     }
 }
 

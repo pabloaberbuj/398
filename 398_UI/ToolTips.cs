@@ -11,6 +11,7 @@ namespace _398_UI
     {
         public static string stringErrorInterpolacion = "Uno o más valores están fuera del rango.\nNo se puede interpolar";
         public static string stringErrorkQQ0Elec = "El valor de kQQ0 no se puede obtener para esa combinación de cámara y haz.\nRevisar que la cámara esté recomendada para esa calidad de haz";
+        public static string stringErrorkQQ0Fot = "El valor de kQQ0 no se puede obtener para esa combinación de cámara y haz. \n Revisar las lecturas a 20cm y 10cm y la cámara elegida";
         public static System.Drawing.Image imagenError = Resources.error;
         public static System.Drawing.Image imagenAdvertencia = Resources.advertencia;
         public static System.Drawing.Image imagenInformacion = Resources.informacion;

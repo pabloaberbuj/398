@@ -259,7 +259,9 @@ namespace _398_UI
         private double calculokQQ0()
         {
 
-            return CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO());
+            double kqq0 = CalibracionFot.calcularKqq0(calculoTPR2010(), sistDosimSeleccionado().camara, equipoSeleccionado(), CHB_UsarKqq0LB.Checked, energiaSeleccionada(), DFSoISO());
+            ToolTips.habilitar(Double.IsNaN(kqq0), PicBox_Kqq0Fot, ToolTips.stringErrorkQQ0Fot, 0);
+            return kqq0;
         }
 
         private double lec20()
@@ -361,7 +363,9 @@ namespace _398_UI
             {
                 Vred = Convert.ToDouble(TB_Vred.Text);
             }
-            return CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, lecVTotal(), lecVred(), CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO(), Vred);
+            double ks = CalibracionFot.calcularKs(sistDosimSeleccionado().Tension, lecVTotal(), lecVred(), CHB_NoUsaKs.Checked, CHB_UsaKsLB.Checked, equipoSeleccionado(), energiaSeleccionada(), DFSoISO(), Vred);
+            ToolTips.habilitar(Double.IsNaN(ks), picBox_KsFot, ToolTips.stringErrorInterpolacion, 0);
+            return ks;
         }
 
 
