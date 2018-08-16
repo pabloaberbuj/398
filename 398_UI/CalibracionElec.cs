@@ -17,7 +17,6 @@ namespace _398_UI
         public EnergiaElectrones Energia { get; set; }
         [Browsable(false)]
         public SistemaDosimetrico SistemaDosim { get; set; }
-
         [DisplayName("Ref")]
         public bool EsReferencia { get; set; }
         [Browsable(false)]
@@ -28,8 +27,6 @@ namespace _398_UI
         public double DifLB { get; set; }
         public double Ktp { get; set; }
         public double Kqq0 { get; set; }
-        [Browsable(false)]
-        public int editaR50Ion { get; set; } //1 si 2 usaLB VER SI USAR!!!!!!!!!!!!!
         public double kpol { get; set; }
         [Browsable(false)]
         public int mideKpol { get; set; } //1 si 2 usaLB 3 no corrige
@@ -38,10 +35,10 @@ namespace _398_UI
         public double ks { get; set; }
         [Browsable(false)]
         public int mideKs { get; set; } //1 si 2 usaLB 3 no corrige
-        [DisplayName("Lado")]
+        [DisplayName("Lado Aplicador")]
         public double LadoCampo { get; set; }
-        [DisplayName("Prof.")]
-        public double Profundidad { get; set; }
+        [DisplayName("zref")]
+        public double Zref { get; set; }
         [DisplayName("Fecha")]
         public DateTime Fecha { get; set; }
         [DisplayName("Realizado Por")]
@@ -76,8 +73,8 @@ namespace _398_UI
             return IO.readJsonList<CalibracionElec>(file);
         }
 
-        public static CalibracionElec crear(Equipo _equipo, EnergiaElectrones _energia, SistemaDosimetrico _sistdos, double _ladoCampo, double _profundidad, DateTime _fecha,
-            string _realizadoPor, double _ktp, double _kqq0, int _mideKqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax,
+        public static CalibracionElec crear(Equipo _equipo, EnergiaElectrones _energia, SistemaDosimetrico _sistdos, double _ladoCampo, double _zref, DateTime _fecha,
+            string _realizadoPor, double _ktp, double _kqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax,
             double _um, double _temperatura, double _presion, double _humedad, double _lectVmas, double _lectVmenos, double _lectVtot, double _lectVred,
             double _lectRef, double _difLB)
         {
@@ -87,7 +84,7 @@ namespace _398_UI
                 Energia = _energia,
                 SistemaDosim = _sistdos,
                 LadoCampo = _ladoCampo,
-                Profundidad = _profundidad,
+                Zref = _zref,
                 Fecha = _fecha,
                 RealizadoPor = _realizadoPor,
                 UM = _um,
@@ -96,7 +93,6 @@ namespace _398_UI
                 humedad = _humedad,
                 Ktp = _ktp,
                 Kqq0 = _kqq0,
-                editaR50Ion = _mideKqq0,
                 lectVmas = _lectVmas,
                 lectVmenos = _lectVmenos,
                 kpol = _kpol,

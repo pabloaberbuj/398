@@ -152,18 +152,18 @@ namespace _398_UI
                     {
                         CB_CaliEnergias.Items.Add(energia);
                         CB_CaliEnergias.DisplayMember = "Etiqueta";
-                        if (!guardarSeleccion && energia.EsPredet == true)
+                        if (energia.EsPredet == true)
                         {
                             energiaPredet = energia;
                         }
                     }
                     if (energiaASeleccionar != null)
                     {
-                        CB_CaliEnergias.SelectedItem = equipoSeleccionado().energiaElec.Where(e => e.ID == energiaASeleccionar.ID).FirstOrDefault();
+                        CB_CaliEnergias.SelectedItem = equipoSeleccionado().energiaFot.Where(e => e.ID == energiaASeleccionar.ID).FirstOrDefault();
                     }
                     else if (energiaPredet != null)
                     {
-                        CB_CaliEnergias.SelectedItem = equipoSeleccionado().energiaElec.Where(e => e.ID == energiaPredet.ID).FirstOrDefault();
+                        CB_CaliEnergias.SelectedItem = equipoSeleccionado().energiaFot.Where(e => e.ID == energiaPredet.ID).FirstOrDefault();
                     }
 
                     CB_CaliEnergias.Enabled = true;
@@ -530,7 +530,7 @@ namespace _398_UI
 
         private void CB_CaliEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InicializarComboBoxEnergias();
+            InicializarComboBoxEnergias(true);
             if (equipoSeleccionado().Fuente == 2)
             {
                 GB_FactorDeCalidad.Enabled = true;

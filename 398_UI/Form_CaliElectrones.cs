@@ -38,7 +38,7 @@ namespace _398_UI
             MaximizeBox = false;
 
             //Carga UI
-            inicializarPredeterminados(100, 10);
+            inicializarPredeterminados(100);
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
         }
@@ -219,7 +219,7 @@ namespace _398_UI
             }
         }
 
-        private void inicializarPredeterminados(double umPred, double ladoCampopred) //ver si sacar lado campo pred
+        private void inicializarPredeterminados(double umPred)
         {
             TB_UM.Text = Configuracion.umPredet.ToString();
         }
@@ -244,8 +244,6 @@ namespace _398_UI
 
 
         //Kqq0
-
-
         private double calculokQQ0()
         {
             double kqq0 = CalibracionElec.calcularKqq0(sistDosimSeleccionado().camara, equipoSeleccionado(), energiaSeleccionada(), energiaSeleccionada().R50D);
@@ -254,7 +252,6 @@ namespace _398_UI
         }
 
         //Kpol
-
         private double calculoKpol()
         {
             return CalibracionElec.calcularKpol(sistDosimSeleccionado().SignoTension, lecVmas(), lecVmenos(), CHB_NoUsaKpol.Checked, CHB_UsaKpolLB.Checked, equipoSeleccionado(), energiaSeleccionada());
@@ -478,29 +475,6 @@ namespace _398_UI
         }
 
 
-        /*        private void chequearKqq0()
-                {
-                    if (energiaSeleccionada().R50D != double.NaN)
-                    {
-                        CHB_EditarR50ion.Checked = false;
-                        TB_EnElecR50ion.Text = energiaSeleccionada().R50ion.ToString();
-                        TB_EnElecR50ion.Enabled = false;
-                    }
-                    else
-                    {
-                        CHB_EditarR50ion.Checked = true;
-                    }
-                    if (CHB_EditarR50ion.Checked)
-                    {
-                        TB_EnElecR50ion.Enabled = true;
-                        TB_EnElecR50ion.Text = "";
-                    }
-                    else
-                    {
-                        TB_EnElecR50ion.Enabled = false;
-                    }
-                }*/
-
         private void chequearKpol()
         {
             if (CHB_NoUsaKpol.Checked)
@@ -531,7 +505,6 @@ namespace _398_UI
                     CHB_NoUsaKpol.Enabled = false;
                     CHB_NoUsaKpol.Checked = false;
                 }
-
             }
             else
             {
@@ -567,7 +540,6 @@ namespace _398_UI
                 escribirLabel(lecVmenos(), LB_LectmenosVprom);
                 Panel_LectmasV.Enabled = true;
             }
-
         }
 
         private void chequearKs()
@@ -672,17 +644,16 @@ namespace _398_UI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            /* if (CalibracionFot.guardar(calibracionActual(), CHB_caliElecEstablecerComoRef.Checked))
+            if (CalibracionElec.guardar(calibracionActual(), CHB_caliElecEstablecerComoRef.Checked))
              {
                  MessageBox.Show("Calibración guardada");
                  if (MessageBox.Show("¿Desea limpiar el registro?", "Limpiar Registro", MessageBoxButtons.OKCancel) == DialogResult.OK)
                  {
-                     CHB_EditarR50ion.Checked = false;
                      CHB_UsaKpolLB.Checked = false;
                      CHB_UsaKsLB.Checked = false;
                      limpiarRegistro2Niveles(Panel_CalElec);
-                     actualizarComboBoxCaliFotones();
-                     inicializarPredeterminados(100, 10);
+                     actualizarComboBoxCaliElectrones();
+                     inicializarPredeterminados(100);
                      chb_EditarVKpol.Checked = false;
                      chb_EditarVKs.Checked = false;
                      actualizarCalculos();
@@ -690,28 +661,27 @@ namespace _398_UI
                      CB_caliElecRealizadoPor2.Text = "";
                      CB_caliElecRealizadoPor3.Text = "";
                  }
-             }*/
+             }
 
         }
 
-        /*   private CalibracionFot calibracionActual()
+           private CalibracionElec calibracionActual()
            {
                double difConRef = Double.NaN;
                if (hayLBsinCartel())
                {
                    difConRef = calculoDifConRef();
                }
-               return CalibracionFot.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), DFSoISO(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text),
-                   Calcular.validarYConvertirADouble(TB_CaliPRof.Text), DTP_FechaCaliElec.Value, realizadoPor(), calculoKTP(), calculoTPR2010(), calculokQQ0(), mideKqq0(), calculoKpol(), mideKpol(),
-                   Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax(),
-                   Convert.ToDouble(TB_UM.Text), Convert.ToDouble(tbTemp.Text), Convert.ToDouble(tbPresion.Text), Convert.ToDouble(tbHumedad.Text),
-                   lecVmas(), lecVmenos(), lecVTotal(), lecVred(), lecRef(), lec20(), lec10(), TPRoD2010(), difConRef);
-           }*/
+            return CalibracionElec.crear(equipoSeleccionado(), energiaSeleccionada(), sistDosimSeleccionado(), Calcular.validarYConvertirADouble(TB_CaliLadoCampo.Text), energiaSeleccionada().Zref,
+                DTP_FechaCaliElec.Value, realizadoPor(), calculoKTP(), calculokQQ0(), calculoKpol(), mideKpol(), Calcular.validarYConvertirADouble(TB_Vred.Text), calculoKs(), mideKs(), CalculoMref(), calculoDwRef(), calculoDwZmax(),
+                Convert.ToDouble(TB_UM.Text), Convert.ToDouble(tbTemp.Text), Convert.ToDouble(tbPresion.Text), Convert.ToDouble(tbHumedad.Text), lecVmas(), lecVmenos(), lecVTotal(),
+                lecVred(), lecRef(), difConRef);
+           }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             limpiarRegistro2Niveles(Panel_CalElec);
             actualizarComboBoxCaliElectrones();
-            inicializarPredeterminados(100, 10);
+            inicializarPredeterminados(100);
             chb_EditarVKpol.Checked = false;
             chb_EditarVKs.Checked = false;
             actualizarCalculos();

@@ -29,28 +29,31 @@ namespace _398_UI
 
             MinimizeBox = false;
             MaximizeBox = false;
-            //Carga DGV
-            
-
-            //Carga UI
-            //actualizarComboBoxCaliFotones();
-            //inicializarPredeterminados(100, 10);
             inicializacionesRegistro();
         }
 
 
-        
-
-        
 
 
 
 
-            #region Analizar Registros Inicializaciones
+
+
+
+        #region Analizar Registros Inicializaciones
 
         private void inicializarRegistrosEquipos()
         {
-             foreach (CalibracionFot cali in CalibracionFot.lista())
+            foreach (CalibracionFot cali in CalibracionFot.lista())
+            {
+                if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
+                {
+                    ListBox_RegistrosEquipos.Items.Add(cali.Equipo);
+                    ListBox_RegistrosEquipos.DisplayMember = "Etiqueta";
+                }
+            }
+
+            foreach (CalibracionElec cali in CalibracionElec.lista())
             {
                 if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
                 {
@@ -126,7 +129,7 @@ namespace _398_UI
                 CB_RegistroEnergiaElec.DisplayMember = "Etiqueta";
             }
         }
-    
+
         private Equipo registroEquipoSeleccionado()
         {
             return (Equipo)ListBox_RegistrosEquipos.SelectedItem;
@@ -197,12 +200,12 @@ namespace _398_UI
 
         private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
         {
-            
+
             List<CalibracionFot> lista = new List<CalibracionFot>();
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
                 if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO.Equals(registroDFSoISO())
-                    && DateTime.Compare(cali.Fecha.Date,DTPRegDesde.Value.Date)>=0 && DateTime.Compare(cali.Fecha.Date,DTPRegHasta.Value.Date)<=0)
+                    && DateTime.Compare(cali.Fecha.Date, DTPRegDesde.Value.Date) >= 0 && DateTime.Compare(cali.Fecha.Date, DTPRegHasta.Value.Date) <= 0)
                 {
                     lista.Add(cali);
                 }
@@ -214,12 +217,12 @@ namespace _398_UI
 
         private void habilitarBotonAnalizar(object sender, EventArgs e)
         {
-            bool test = (ListBox_RegistrosEquipos.SelectedIndex != -1 && (CB_RegistroEnergiaElec.SelectedIndex >-1 || CB_RegistroEnergiaFot.SelectedIndex > -1) && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked));
+            bool test = (ListBox_RegistrosEquipos.SelectedIndex != -1 && (CB_RegistroEnergiaElec.SelectedIndex > -1 || CB_RegistroEnergiaFot.SelectedIndex > -1) && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked));
             habilitarBoton(test, BtAnalizar);
         }
 
-        
-        
+
+
         private string stringEtiquetaLista()
         {
             string sDFSoISO = "";
@@ -276,11 +279,11 @@ namespace _398_UI
                 L_RegFechaHasta.Enabled = false;
             }
         }
-            #endregion
+        #endregion
 
-            #region Analizar Registros Botones
+        #region Analizar Registros Botones
 
-            private void BT_RegistrosResumen_Click(object sender, EventArgs e)
+        private void BT_RegistrosResumen_Click(object sender, EventArgs e)
         {
             MessageBox.Show(CalibracionFot.resumenCalibracion((CalibracionFot)DGV_Registros.SelectedRows[0].DataBoundItem));
         }
@@ -349,7 +352,7 @@ namespace _398_UI
 
         private void BT_AnalisisRegistroTendencia_Click(object sender, EventArgs e)
         {
-           double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO(),Chart_Registros);
+            double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO(), Chart_Registros);
             if (!Double.IsNaN(valor))
             {
                 L_Tendencia.Visible = true;
@@ -359,7 +362,7 @@ namespace _398_UI
             {
                 L_Tendencia.Visible = false;
             }
-            
+
         }
 
         private void BT_RegistroExportarLista_Click(object sender, EventArgs e)
@@ -484,7 +487,7 @@ namespace _398_UI
             promedio = Calcular.promediar(valores);
             return promedio;
         }
-        
+
         public static bool escribirLabel(double valor, Label label)
         {
             if (!Double.IsNaN(valor))
@@ -561,9 +564,9 @@ namespace _398_UI
             }
         }
 
-        
 
-        
+
+
         #endregion
 
         #region Imprimir
@@ -612,7 +615,7 @@ namespace _398_UI
 
         #endregion
 
-       
+
     }
 }
 
