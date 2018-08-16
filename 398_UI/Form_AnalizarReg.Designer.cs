@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AnalizarReg));
             this.Panel_AnalizarReg = new System.Windows.Forms.Panel();
             this.BT_RegistroExportarLista = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             this.BT_RegistroExportar = new System.Windows.Forms.Button();
             this.Chart_Registros = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.BtAnalizar = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.GB_DFSoISO = new System.Windows.Forms.GroupBox();
             this.RB_RegistroIso = new System.Windows.Forms.RadioButton();
             this.RB_RegistroDFSFija = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -85,7 +85,7 @@
             this.Panel_AnalizarReg.SuspendLayout();
             this.GB_Tendencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).BeginInit();
-            this.groupBox7.SuspendLayout();
+            this.GB_DFSoISO.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -106,7 +106,7 @@
             this.Panel_AnalizarReg.Controls.Add(this.BT_RegistroExportar);
             this.Panel_AnalizarReg.Controls.Add(this.Chart_Registros);
             this.Panel_AnalizarReg.Controls.Add(this.BtAnalizar);
-            this.Panel_AnalizarReg.Controls.Add(this.groupBox7);
+            this.Panel_AnalizarReg.Controls.Add(this.GB_DFSoISO);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox2);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox1);
             this.Panel_AnalizarReg.Controls.Add(this.groupBox6);
@@ -277,8 +277,8 @@
             // 
             this.Chart_Registros.Location = new System.Drawing.Point(195, 239);
             this.Chart_Registros.Name = "Chart_Registros";
-            series1.Name = "Series1";
-            this.Chart_Registros.Series.Add(series1);
+            series3.Name = "Series1";
+            this.Chart_Registros.Series.Add(series3);
             this.Chart_Registros.Size = new System.Drawing.Size(626, 198);
             this.Chart_Registros.TabIndex = 0;
             this.Chart_Registros.Text = "chart2";
@@ -294,16 +294,17 @@
             this.BtAnalizar.UseVisualStyleBackColor = true;
             this.BtAnalizar.Click += new System.EventHandler(this.BtAnalizar_Click);
             // 
-            // groupBox7
+            // GB_DFSoISO
             // 
-            this.groupBox7.Controls.Add(this.RB_RegistroIso);
-            this.groupBox7.Controls.Add(this.RB_RegistroDFSFija);
-            this.groupBox7.Location = new System.Drawing.Point(9, 280);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(180, 79);
-            this.groupBox7.TabIndex = 73;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "3. Elegir condición";
+            this.GB_DFSoISO.Controls.Add(this.RB_RegistroIso);
+            this.GB_DFSoISO.Controls.Add(this.RB_RegistroDFSFija);
+            this.GB_DFSoISO.Enabled = false;
+            this.GB_DFSoISO.Location = new System.Drawing.Point(9, 280);
+            this.GB_DFSoISO.Name = "GB_DFSoISO";
+            this.GB_DFSoISO.Size = new System.Drawing.Size(180, 79);
+            this.GB_DFSoISO.TabIndex = 73;
+            this.GB_DFSoISO.TabStop = false;
+            this.GB_DFSoISO.Text = "3. Elegir condición";
             // 
             // RB_RegistroIso
             // 
@@ -557,14 +558,14 @@
             this.absoluto,
             this.relativo,
             this.Fecha});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Analisis.DefaultCellStyle = dataGridViewCellStyle5;
             this.DGV_Analisis.Location = new System.Drawing.Point(196, 477);
             this.DGV_Analisis.Name = "DGV_Analisis";
             this.DGV_Analisis.ReadOnly = true;
@@ -604,14 +605,14 @@
             this.DGV_Registros.AllowUserToResizeColumns = false;
             this.DGV_Registros.AllowUserToResizeRows = false;
             this.DGV_Registros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_Registros.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGV_Registros.Location = new System.Drawing.Point(195, 26);
             this.DGV_Registros.Name = "DGV_Registros";
             this.DGV_Registros.ReadOnly = true;
@@ -649,8 +650,8 @@
             this.GB_Tendencia.ResumeLayout(false);
             this.GB_Tendencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Registros)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
+            this.GB_DFSoISO.ResumeLayout(false);
+            this.GB_DFSoISO.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -682,7 +683,7 @@
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox GB_DFSoISO;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton RB_RegistroIso;
         private System.Windows.Forms.RadioButton RB_RegistroDFSFija;

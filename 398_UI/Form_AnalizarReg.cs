@@ -70,16 +70,20 @@ namespace _398_UI
             {
                 CB_RegistroEnergiaFot.Enabled = true;
                 CB_RegistroEnergiaFot.SelectedIndex = 0;
+                GB_DFSoISO.Enabled = true;
             }
             else
             {
                 CB_RegistroEnergiaFot.Enabled = false;
                 CB_RegistroEnergiaFot.SelectedIndex = -1;
+                GB_DFSoISO.Enabled = false;
             }
             if (RB_RegistroEnergiaElec.Checked)
             {
                 CB_RegistroEnergiaElec.Enabled = true;
                 CB_RegistroEnergiaElec.SelectedIndex = 0;
+                RB_RegistroDFSFija.Checked = false;
+                RB_RegistroIso.Checked = false;
             }
             else
             {
@@ -215,9 +219,26 @@ namespace _398_UI
             return lista2;
         }
 
+        private BindingList<CalibracionElec> listaCalibracionesElectronesRegistro()
+        {
+
+            List<CalibracionElec> lista = new List<CalibracionElec>();
+            foreach (CalibracionElec cali in CalibracionElec.lista())
+            {
+                if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada())
+                    && DateTime.Compare(cali.Fecha.Date, DTPRegDesde.Value.Date) >= 0 && DateTime.Compare(cali.Fecha.Date, DTPRegHasta.Value.Date) <= 0)
+                {
+                    lista.Add(cali);
+                }
+            }
+            lista.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
+            BindingList<CalibracionElec> lista2 = new BindingList<CalibracionElec>(lista);
+            return lista2;
+        }
+
         private void habilitarBotonAnalizar(object sender, EventArgs e)
         {
-            bool test = (ListBox_RegistrosEquipos.SelectedIndex != -1 && (CB_RegistroEnergiaElec.SelectedIndex > -1 || CB_RegistroEnergiaFot.SelectedIndex > -1) && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked));
+            bool test = ((CB_RegistroEnergiaFot.SelectedIndex > -1 && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked)) || CB_RegistroEnergiaElec.SelectedIndex > -1);
             habilitarBoton(test, BtAnalizar);
         }
 
