@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class CalibracionFot : Objeto
+    public class CalibracionFot : Calibracion
     {
         [Browsable(false)]
         public Equipo Equipo { get; set; }

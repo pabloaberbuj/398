@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,42 +18,19 @@ namespace _398_UI
         public Form2()
         {
             InitializeComponent();
-        }
-
-        private void nuevoToolTip(PictureBox figura, string mensaje)
-        {
-            ToolTip tooltip = new ToolTip()
+            List<CalibracionFot> cF = new List<CalibracionFot>();
+            foreach (CalibracionFot cf in CalibracionFot.lista())
             {
-                Active = true,
-                UseAnimation = true,
-                
-            };
-            tooltip.SetToolTip(figura, mensaje);
-        }
-
-        private void habilitarImagen(bool test, PictureBox figura, string texto)
-        {
-            if (test)
-            {
-                figura.Visible = true;
-                nuevoToolTip(figura, texto);
+                cF.Add(cf);
             }
-            else
+            /*foreach (CalibracionElec ce in CalibracionElec.lista())
             {
-                figura.Visible = false;
-            }
-            
+                al.Add(ce);
+            }*/
+            List<Calibracion> al = new List<Calibracion>(cF);
+            MessageBox.Show(al.Count.ToString());
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            habilitarImagen(textBox1.Text == "casa", pictureBox1,"casa");
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            habilitarImagen(textBox2.Text == "perro", pictureBox2,"perro");
-        }
     }
 }

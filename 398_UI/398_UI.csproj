@@ -59,6 +59,7 @@
     <Compile Include="Auxiliar.Designer.cs">
       <DependentUpon>Auxiliar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calibracion.cs" />
     <Compile Include="CalibracionElec.cs" />
     <Compile Include="CalibracionSistDos.cs" />
     <Compile Include="Camara.cs" />
