@@ -143,12 +143,48 @@ namespace _398_UI
             return eje;
         }
 
-        public static void graficarRegistrosCaliFotones(BindingList<CalibracionFot> calibraciones, Chart grafico)
+        public static void graficarRegistros(BindingList<CalibracionFot> calibraciones, Chart grafico)
         {
             List<DataPoint> puntos = new List<DataPoint>();
             List<DataPoint> referencia = new List<DataPoint>();
             double DwZRef = Double.NaN;
             foreach (CalibracionFot cali in calibraciones)
+            {
+                if (cali.EsReferencia)
+                {
+                    DwZRef = cali.Dwzref;
+                    DataPoint puntoRef = new DataPoint();
+                    puntoRef.XValue = cali.Fecha.ToOADate();
+                    puntoRef.YValues[0] = cali.Dwzref;
+                    referencia.Add(puntoRef);
+                }
+                DataPoint punto = new DataPoint()
+                {
+                    XValue = cali.Fecha.ToOADate(),
+                };
+
+                punto.YValues[0] = cali.Dwzref;
+                puntos.Add(punto);
+
+            }
+            List<Series> series = new List<Series>();
+            Series serie = crearSerie(SeriesChartType.Point, Color.Blue, "Tasa de dosis\nen zref", true, puntos);
+            series.Add(serie);
+            if (!Double.IsNaN(DwZRef))
+            {
+                Series serieRef = crearSerie(SeriesChartType.Point, Color.Black, "Referencia", true, referencia);
+                serieRef.MarkerSize = 10;
+                series.Add(serieRef);
+            }
+            graficarXY("Titulo", series, grafico, DwZRef, 2);
+        }
+
+        public static void graficarRegistros(BindingList<CalibracionElec> calibraciones, Chart grafico)
+        {
+            List<DataPoint> puntos = new List<DataPoint>();
+            List<DataPoint> referencia = new List<DataPoint>();
+            double DwZRef = Double.NaN;
+            foreach (CalibracionElec cali in calibraciones)
             {
                 if (cali.EsReferencia)
                 {

@@ -73,6 +73,22 @@ namespace _398_UI
             return IO.readJsonList<CalibracionElec>(file);
         }
 
+
+        public static BindingList<CalibracionElec> lista(Equipo equipo, EnergiaElectrones energia)
+        {
+            var filtrada = IO.readJsonList<CalibracionElec>(file).Where(c => c.Equipo.Equals(equipo) && c.Energia.Equals(energia)).ToList();
+            filtrada.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
+            return new BindingList<CalibracionElec>(filtrada);
+        }
+
+        public static BindingList<CalibracionElec> lista(Equipo equipo, EnergiaElectrones energia, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            var filtrada = IO.readJsonList<CalibracionElec>(file).Where(c => c.Equipo.Equals(equipo) && c.Energia.Equals(energia) 
+            && DateTime.Compare(c.Fecha, fechaDesde) >= 0 && DateTime.Compare(c.Fecha, fechaHasta) <= 0).ToList();
+            filtrada.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
+            return new BindingList<CalibracionElec>(filtrada);
+        }
+
         public static CalibracionElec crear(Equipo _equipo, EnergiaElectrones _energia, SistemaDosimetrico _sistdos, double _ladoCampo, double _zref, DateTime _fecha,
             string _realizadoPor, double _ktp, double _kqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax,
             double _um, double _temperatura, double _presion, double _humedad, double _lectVmas, double _lectVmenos, double _lectVtot, double _lectVred,

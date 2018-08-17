@@ -85,6 +85,21 @@ namespace _398_UI
             return IO.readJsonList<CalibracionFot>(file);
         }
 
+        public static BindingList<CalibracionFot> lista(Equipo equipo, EnergiaFotones energia, int DFSoISO)
+        {
+            var filtrada = IO.readJsonList<CalibracionFot>(file).Where(c => c.Equipo.Equals(equipo) && c.Energia.Equals(energia) && c.DFSoISO == DFSoISO).ToList();
+            filtrada.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
+            return new BindingList<CalibracionFot>(filtrada);
+        }
+
+        public static BindingList<CalibracionFot> lista(Equipo equipo, EnergiaFotones energia, int DFSoISO, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            var filtrada = IO.readJsonList<CalibracionFot>(file).Where(c => c.Equipo.Equals(equipo) && c.Energia.Equals(energia) && c.DFSoISO == DFSoISO
+            && DateTime.Compare(c.Fecha, fechaDesde)>=0 && DateTime.Compare(c.Fecha,fechaHasta)<=0).ToList();
+            filtrada.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
+            return new BindingList<CalibracionFot>(filtrada);
+        }
+
         public static CalibracionFot crear(Equipo _equipo, EnergiaFotones _energia, SistemaDosimetrico _sistdos, int _DFSoISO, double _ladoCampo, double _profundidad, DateTime _fecha,
             string _realizadoPor, double _ktp, double _TPR2010, double _kqq0, int _mideKqq0, double _kpol, int _mideKpol, double _vred, double _ks, int _mideKs, double _mref, double _dwzref, double _dwzmax,
             double _um, double _temperatura, double _presion, double _humedad, double _lectVmas, double _lectVmenos, double _lectVtot, double _lectVred,

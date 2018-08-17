@@ -29,7 +29,7 @@ namespace _398_UI
 
             MinimizeBox = false;
             MaximizeBox = false;
-            inicializacionesRegistro();
+            inicializaciones();
         }
 
 
@@ -42,121 +42,121 @@ namespace _398_UI
 
         #region Analizar Registros Inicializaciones
 
-        private void inicializarRegistrosEquipos()
+        private void inicializarEquipos()
         {
             foreach (CalibracionFot cali in CalibracionFot.lista())
             {
-                if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
+                if (!ListBox_Equipos.Items.Contains(cali.Equipo))
                 {
-                    ListBox_RegistrosEquipos.Items.Add(cali.Equipo);
-                    ListBox_RegistrosEquipos.DisplayMember = "Etiqueta";
+                    ListBox_Equipos.Items.Add(cali.Equipo);
+                    ListBox_Equipos.DisplayMember = "Etiqueta";
                 }
             }
 
             foreach (CalibracionElec cali in CalibracionElec.lista())
             {
-                if (!ListBox_RegistrosEquipos.Items.Contains(cali.Equipo))
+                if (!ListBox_Equipos.Items.Contains(cali.Equipo))
                 {
-                    ListBox_RegistrosEquipos.Items.Add(cali.Equipo);
-                    ListBox_RegistrosEquipos.DisplayMember = "Etiqueta";
+                    ListBox_Equipos.Items.Add(cali.Equipo);
+                    ListBox_Equipos.DisplayMember = "Etiqueta";
                 }
             }
         }
 
-        private void registroChequeoEnergias(object sender, EventArgs e)
+        private void chequeoEnergias(object sender, EventArgs e)
         {
-            inicializarRegistrosEnergias();
-            if (RB_RegistroEnergiaFot.Checked)
+            inicializarEnergias();
+            if (RB_EnergiaFot.Checked)
             {
-                CB_RegistroEnergiaFot.Enabled = true;
-                CB_RegistroEnergiaFot.SelectedIndex = 0;
+                CB_EnergiaFot.Enabled = true;
+                CB_EnergiaFot.SelectedIndex = 0;
                 GB_DFSoISO.Enabled = true;
             }
             else
             {
-                CB_RegistroEnergiaFot.Enabled = false;
-                CB_RegistroEnergiaFot.SelectedIndex = -1;
+                CB_EnergiaFot.Enabled = false;
+                CB_EnergiaFot.SelectedIndex = -1;
                 GB_DFSoISO.Enabled = false;
             }
-            if (RB_RegistroEnergiaElec.Checked)
+            if (RB_EnergiaElec.Checked)
             {
-                CB_RegistroEnergiaElec.Enabled = true;
-                CB_RegistroEnergiaElec.SelectedIndex = 0;
-                RB_RegistroDFSFija.Checked = false;
-                RB_RegistroIso.Checked = false;
+                CB_EnergiaElec.Enabled = true;
+                CB_EnergiaElec.SelectedIndex = 0;
+                RB_DFSFija.Checked = false;
+                RB_Iso.Checked = false;
             }
             else
             {
-                CB_RegistroEnergiaElec.Enabled = false;
-                CB_RegistroEnergiaElec.SelectedIndex = -1;
+                CB_EnergiaElec.Enabled = false;
+                CB_EnergiaElec.SelectedIndex = -1;
             }
         }
-        private void inicializarRegistrosEnergias()
+        private void inicializarEnergias()
         {
-            CB_RegistroEnergiaFot.Items.Clear();
-            CB_RegistroEnergiaElec.Items.Clear();
-            if (ListBox_RegistrosEquipos.SelectedIndex != -1)
+            CB_EnergiaFot.Items.Clear();
+            CB_EnergiaElec.Items.Clear();
+            if (ListBox_Equipos.SelectedIndex != -1)
             {
-                if (registroEquipoSeleccionado().energiaFot.Count() > 0)
+                if (equipoSeleccionado().energiaFot.Count() > 0)
                 {
-                    foreach (EnergiaFotones eF in registroEquipoSeleccionado().energiaFot)
+                    foreach (EnergiaFotones eF in equipoSeleccionado().energiaFot)
                     {
-                        CB_RegistroEnergiaFot.Items.Add(eF);
+                        CB_EnergiaFot.Items.Add(eF);
                     }
-                    RB_RegistroEnergiaFot.Enabled = true;
-                    if (registroEquipoSeleccionado().energiaElec.Count == 0)
+                    RB_EnergiaFot.Enabled = true;
+                    if (equipoSeleccionado().energiaElec.Count == 0)
                     {
-                        RB_RegistroEnergiaFot.Checked = true;
-                    }
-                }
-                else
-                {
-                    RB_RegistroEnergiaFot.Enabled = false;
-                }
-                if (registroEquipoSeleccionado().energiaElec.Count() > 0)
-                {
-                    foreach (EnergiaElectrones eE in registroEquipoSeleccionado().energiaElec)
-                    {
-                        CB_RegistroEnergiaElec.Items.Add(eE);
-                    }
-                    RB_RegistroEnergiaElec.Enabled = true;
-                    if (registroEquipoSeleccionado().energiaFot.Count == 0)
-                    {
-                        RB_RegistroEnergiaElec.Checked = true;
+                        RB_EnergiaFot.Checked = true;
                     }
                 }
                 else
                 {
-                    RB_RegistroEnergiaElec.Enabled = false;
+                    RB_EnergiaFot.Enabled = false;
                 }
-                CB_RegistroEnergiaFot.DisplayMember = "Etiqueta";
-                CB_RegistroEnergiaElec.DisplayMember = "Etiqueta";
+                if (equipoSeleccionado().energiaElec.Count() > 0)
+                {
+                    foreach (EnergiaElectrones eE in equipoSeleccionado().energiaElec)
+                    {
+                        CB_EnergiaElec.Items.Add(eE);
+                    }
+                    RB_EnergiaElec.Enabled = true;
+                    if (equipoSeleccionado().energiaFot.Count == 0)
+                    {
+                        RB_EnergiaElec.Checked = true;
+                    }
+                }
+                else
+                {
+                    RB_EnergiaElec.Enabled = false;
+                }
+                CB_EnergiaFot.DisplayMember = "Etiqueta";
+                CB_EnergiaElec.DisplayMember = "Etiqueta";
             }
         }
 
-        private Equipo registroEquipoSeleccionado()
+        private Equipo equipoSeleccionado()
         {
-            return (Equipo)ListBox_RegistrosEquipos.SelectedItem;
+            return (Equipo)ListBox_Equipos.SelectedItem;
         }
 
-        private EnergiaFotones registroEnergiaFotonesSeleccionada()
+        private EnergiaFotones energiaFotonesSeleccionada()
         {
-            return (EnergiaFotones)CB_RegistroEnergiaFot.SelectedItem;
+            return (EnergiaFotones)CB_EnergiaFot.SelectedItem;
         }
 
-        private EnergiaElectrones registroEnergiaElectronesSeleccionada()
+        private EnergiaElectrones energiaElectronesSeleccionada()
         {
-            return (EnergiaElectrones)CB_RegistroEnergiaElec.SelectedItem;
+            return (EnergiaElectrones)CB_EnergiaElec.SelectedItem;
         }
 
-        private int registroDFSoISO()
+        private int DFSoISO()
         {
             int DFSoISO = 0;
-            if (RB_RegistroDFSFija.Checked)
+            if (RB_DFSFija.Checked)
             {
                 DFSoISO = 1;
             }
-            else if (RB_RegistroIso.Checked)
+            else if (RB_Iso.Checked)
             {
                 DFSoISO = 2;
             }
@@ -164,81 +164,84 @@ namespace _398_UI
         }
 
 
-        private void inicializacionesRegistro()
+        private void inicializaciones()
         {
-            inicializarRegistrosEquipos();
-            inicializarRegistrosEnergias();
-            DTPRegDesde.Value = primerFechaCali();
-            DTPRegHasta.Value = ultimaFechaCali();
+            inicializarEquipos();
+            inicializarEnergias();
+            DTPDesde.Value = primerFechaCali();
+            DTPHasta.Value = ultimaFechaCali();
         }
 
         private void ListBox_RegistrosEquipos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            inicializacionesRegistro();
-            registroChequeoEnergias(sender, e);
+            inicializaciones();
+            chequeoEnergias(sender, e);
             habilitarBotonAnalizar(sender, e);
         }
 
         private DateTime primerFechaCali()
         {
+            DateTime primeraFecha = new DateTime(2017, 11, 8);
             if (CalibracionFot.lista().Count > 0)
             {
-                return (CalibracionFot.lista().OrderBy(c => c.Fecha).First()).Fecha;
+                primeraFecha = (CalibracionFot.lista().OrderBy(c => c.Fecha).First()).Fecha;
             }
-            else
+            if (CalibracionElec.lista().Count > 0)
             {
-                return new DateTime(2017, 11, 8);
+                DateTime primeraFechaElec = (CalibracionElec.lista().OrderBy(c => c.Fecha).First()).Fecha;
+                if (DateTime.Compare(primeraFechaElec, primeraFecha) < 0)
+                {
+                    primeraFecha = primeraFechaElec;
+                }
             }
+            return primeraFecha;
+
         }
         private DateTime ultimaFechaCali()
         {
+            DateTime ultimaFecha = new DateTime(2017, 11, 8);
             if (CalibracionFot.lista().Count > 0)
             {
-                return (CalibracionFot.lista().OrderByDescending(c => c.Fecha).First()).Fecha;
+                ultimaFecha = (CalibracionFot.lista().OrderByDescending(c => c.Fecha).First()).Fecha;
+            }
+            if (CalibracionElec.lista().Count > 0)
+            {
+                DateTime primeraFechaElec = (CalibracionElec.lista().OrderByDescending(c => c.Fecha).First()).Fecha;
+                if (DateTime.Compare(primeraFechaElec, ultimaFecha) > 0)
+                {
+                    ultimaFecha = primeraFechaElec;
+                }
+            }
+            return ultimaFecha;
+        }
+
+        private BindingList<CalibracionFot> listaCalibracionesFotones()
+        {
+            if (CHB_Rango.Checked)
+            {
+                return CalibracionFot.lista(equipoSeleccionado(), energiaFotonesSeleccionada(), DFSoISO(), DTPDesde.Value, DTPHasta.Value);
             }
             else
             {
-                return new DateTime(2017, 11, 8);
+                return CalibracionFot.lista(equipoSeleccionado(), energiaFotonesSeleccionada(), DFSoISO());
             }
         }
 
-        private BindingList<CalibracionFot> listaCalibracionesFotonesRegistro()
+        private BindingList<CalibracionElec> listaCalibracionesElectrones()
         {
-
-            List<CalibracionFot> lista = new List<CalibracionFot>();
-            foreach (CalibracionFot cali in CalibracionFot.lista())
+            if (CHB_Rango.Checked)
             {
-                if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada()) && cali.DFSoISO.Equals(registroDFSoISO())
-                    && DateTime.Compare(cali.Fecha.Date, DTPRegDesde.Value.Date) >= 0 && DateTime.Compare(cali.Fecha.Date, DTPRegHasta.Value.Date) <= 0)
-                {
-                    lista.Add(cali);
-                }
+                return CalibracionElec.lista(equipoSeleccionado(), energiaElectronesSeleccionada(), DTPDesde.Value, DTPHasta.Value);
             }
-            lista.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
-            BindingList<CalibracionFot> lista2 = new BindingList<CalibracionFot>(lista);
-            return lista2;
-        }
-
-        private BindingList<CalibracionElec> listaCalibracionesElectronesRegistro()
-        {
-
-            List<CalibracionElec> lista = new List<CalibracionElec>();
-            foreach (CalibracionElec cali in CalibracionElec.lista())
+            else
             {
-                if (cali.Equipo.Equals(registroEquipoSeleccionado()) && cali.Energia.Equals(registroEnergiaFotonesSeleccionada())
-                    && DateTime.Compare(cali.Fecha.Date, DTPRegDesde.Value.Date) >= 0 && DateTime.Compare(cali.Fecha.Date, DTPRegHasta.Value.Date) <= 0)
-                {
-                    lista.Add(cali);
-                }
+                return CalibracionElec.lista(equipoSeleccionado(), energiaElectronesSeleccionada());
             }
-            lista.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
-            BindingList<CalibracionElec> lista2 = new BindingList<CalibracionElec>(lista);
-            return lista2;
         }
 
         private void habilitarBotonAnalizar(object sender, EventArgs e)
         {
-            bool test = ((CB_RegistroEnergiaFot.SelectedIndex > -1 && (RB_RegistroDFSFija.Checked || RB_RegistroIso.Checked)) || CB_RegistroEnergiaElec.SelectedIndex > -1);
+            bool test = ((CB_EnergiaFot.SelectedIndex > -1 && (RB_DFSFija.Checked || RB_Iso.Checked)) || CB_EnergiaElec.SelectedIndex > -1);
             habilitarBoton(test, BtAnalizar);
         }
 
@@ -247,69 +250,81 @@ namespace _398_UI
         private string stringEtiquetaLista()
         {
             string sDFSoISO = "";
-            if (registroDFSoISO() == 1)
+            string energia = "";
+            if (RB_EnergiaFot.Checked)
             {
-                sDFSoISO = "DFS fija";
+                if (DFSoISO() == 1)
+                {
+                    sDFSoISO = "DFS fija";
+                }
+                else
+                {
+                    sDFSoISO = "Isocéntrica";
+                }
+                if (equipoSeleccionado().Fuente==2)
+                {
+                    energia = energiaFotonesSeleccionada().Etiqueta + "MV ";
+                }
             }
             else
             {
-                sDFSoISO = "Isocéntrica";
+                energia = energiaElectronesSeleccionada().Etiqueta + "MeV ";
             }
             string fechas = "";
-            if (ChBRegRango.Checked)
+            if (CHB_Rango.Checked)
             {
-                fechas = " desde: " + DTPRegDesde.Value.ToShortDateString() + " hasta: " + DTPRegHasta.Value.ToShortDateString();
+                fechas = " (desde: " + DTPDesde.Value.ToShortDateString() + " hasta: " + DTPHasta.Value.ToShortDateString()+")";
             }
 
-            return " (" + registroEquipoSeleccionado().Etiqueta + " " + registroEnergiaFotonesSeleccionada().Etiqueta + "MV " + sDFSoISO + fechas + ")";
+            return ": " + equipoSeleccionado().Etiqueta + " " + energia + sDFSoISO + fechas;
         }
         private void ChBRegRango_CheckedChanged(object sender, EventArgs e)
         {
-            if (ChBRegRango.Checked)
+            if (CHB_Rango.Checked)
             {
-                L_RegFechaHasta.Enabled = true;
-                L_regFechaDesde.Enabled = true;
-                DTPRegDesde.Enabled = true;
-                DTPRegHasta.Enabled = true;
+                L_FechaHasta.Enabled = true;
+                L_FechaDesde.Enabled = true;
+                DTPDesde.Enabled = true;
+                DTPHasta.Enabled = true;
             }
             else
             {
-                L_RegFechaHasta.Enabled = false;
-                L_regFechaDesde.Enabled = false;
-                DTPRegDesde.Enabled = false;
-                DTPRegHasta.Enabled = false;
+                L_FechaHasta.Enabled = false;
+                L_FechaDesde.Enabled = false;
+                DTPDesde.Enabled = false;
+                DTPHasta.Enabled = false;
             }
         }
 
         private void CHB_RangoTendenciaRegistros_CheckedChanged(object sender, EventArgs e)
         {
-            if (CHB_RangoTendenciaRegistros.Checked)
+            if (CHB_RangoTendencia.Checked)
             {
                 DTP_TendenciaDesde.Enabled = true;
-                DTP_TendenciaDesde.Value = DTPRegDesde.Value;
+                DTP_TendenciaDesde.Value = DTPDesde.Value;
                 DTP_TendenciaHasta.Enabled = true;
-                DTP_TendenciaHasta.Value = DTPRegHasta.Value;
-                L_regFechaDesde.Enabled = true;
-                L_RegFechaHasta.Enabled = true;
+                DTP_TendenciaHasta.Value = DTPHasta.Value;
+                L_FechaDesde.Enabled = true;
+                L_FechaHasta.Enabled = true;
             }
             else
             {
                 DTP_TendenciaDesde.Enabled = false;
                 DTP_TendenciaHasta.Enabled = false;
-                L_regFechaDesde.Enabled = false;
-                L_RegFechaHasta.Enabled = false;
+                L_FechaDesde.Enabled = false;
+                L_FechaHasta.Enabled = false;
             }
         }
         #endregion
 
         #region Analizar Registros Botones
 
-        private void BT_RegistrosResumen_Click(object sender, EventArgs e)
+    /*    private void BT_RegistrosResumen_Click(object sender, EventArgs e)
         {
             MessageBox.Show(CalibracionFot.resumenCalibracion((CalibracionFot)DGV_Registros.SelectedRows[0].DataBoundItem));
-        }
+        }*/
 
-        private void BT_RegistroImportar_Click(object sender, EventArgs e)
+        private void BT_RegistroImportar_Click(object sender, EventArgs e) //INCORPORAR CALIELECTRONES!!!!!!!!!!!
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog()
             {
@@ -331,12 +346,12 @@ namespace _398_UI
             BtAnalizar_Click(sender, e);
         }
 
-        private void BT_RegistroExportar_Click(object sender, EventArgs e)
+        private void BT_RegistroExportar_Click(object sender, EventArgs e)//INCORPORAR CALIELECTRONES!!!!!!!!!!!
         {
             CalibracionFot.exportar(DGV_Registros);
         }
 
-        private void BT_RegistroReferencia_Click(object sender, EventArgs e)
+        private void BT_RegistroReferencia_Click(object sender, EventArgs e)//INCORPORAR CALIELECTRONES!!!!!!!!!!!
         {
             CalibracionFot.hacerReferencia(DGV_Registros);
             BtAnalizar_Click(sender, e);
@@ -344,36 +359,71 @@ namespace _398_UI
 
         private void BtAnalizar_Click(object sender, EventArgs e)
         {
-            BindingList<CalibracionFot> lista = listaCalibracionesFotonesRegistro();
-            //BindingList<Analisis> analisis = Analisis.analizar(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO());
-            if (lista.Count() > 0)
+            if (RB_EnergiaFot.Checked)
             {
-                DGV_Registros.DataSource = lista;
-                DGV_Registros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGV_Analisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                DGV_Analisis.BackgroundColor = DefaultBackColor;
-                DGV_Analisis.BorderStyle = BorderStyle.None;
-                Analisis.llenarDGV(Analisis.analizar2(lista, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO()), DGV_Analisis, L_Tendencia);
-                Graficar.graficarRegistrosCaliFotones(lista, Chart_Registros);
-                L_RegistroCalibraciones.Text = "Calibraciones" + stringEtiquetaLista();
-                GB_Tendencia.Enabled = true;
+                BindingList<CalibracionFot> lista = listaCalibracionesFotones();
+                if (lista.Count() > 0)
+                {
+                    DGV_Registros.DataSource = lista;
+                    DGV_Registros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                    DGV_Analisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                    DGV_Analisis.BackgroundColor = DefaultBackColor;
+                    DGV_Analisis.BorderStyle = BorderStyle.None;
+                    Analisis.llenarDGV(Analisis.analizar2(lista, equipoSeleccionado(), energiaFotonesSeleccionada(), DFSoISO()), DGV_Analisis, L_Tendencia);
+                    Graficar.graficarRegistros(lista, Chart_Registros);
+                    L_Calibraciones.Text = "Calibraciones" + stringEtiquetaLista();
+                    GB_Tendencia.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("No existen calibraciones con las condiciones descriptas");
+                    DGV_Registros.DataSource = null;
+                    DGV_Analisis.DataSource = null;
+                    Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
+                    L_Calibraciones.Text = "Calibraciones";
+                    GB_Tendencia.Enabled = false;
+                }
+                L_Tendencia.Visible = false;
             }
-            else
+            else if (RB_EnergiaElec.Checked)
             {
-                MessageBox.Show("No existen calibraciones con las condiciones descriptas");
-                DGV_Registros.DataSource = null;
-                DGV_Analisis.DataSource = null;
-                Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
-                L_RegistroCalibraciones.Text = "Calibraciones";
-                GB_Tendencia.Enabled = false;
+                BindingList<CalibracionElec> lista = listaCalibracionesElectrones();
+                if (lista.Count() > 0)
+                {
+                    DGV_Registros.DataSource = lista;
+                    DGV_Registros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                    DGV_Analisis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                    DGV_Analisis.BackgroundColor = DefaultBackColor;
+                    DGV_Analisis.BorderStyle = BorderStyle.None;
+                    Analisis.llenarDGV(Analisis.analizar2(lista, equipoSeleccionado(), energiaElectronesSeleccionada()), DGV_Analisis, L_Tendencia);
+                    Graficar.graficarRegistros(lista, Chart_Registros);
+                    L_Calibraciones.Text = "Calibraciones" + stringEtiquetaLista();
+                    GB_Tendencia.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("No existen calibraciones con las condiciones descriptas");
+                    DGV_Registros.DataSource = null;
+                    DGV_Analisis.DataSource = null;
+                    Chart_Registros.Legends.Clear(); Chart_Registros.ChartAreas.Clear(); Chart_Registros.Series.Clear();
+                    L_Calibraciones.Text = "Calibraciones";
+                    GB_Tendencia.Enabled = false;
+                }
+                L_Tendencia.Visible = false;
             }
-            L_Tendencia.Visible = false;
-
         }
 
         private void BT_AnalisisRegistroTendencia_Click(object sender, EventArgs e)
         {
-            double valor = Analisis.calcularTendencia(listaCalibracionesFotonesRegistro(), CHB_RangoTendenciaRegistros.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), registroDFSoISO(), Chart_Registros);
+            double valor = Double.NaN;
+            if (RB_EnergiaFot.Checked)
+            {
+                valor = Analisis.calcularTendencia(listaCalibracionesFotones(), CHB_RangoTendencia.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, equipoSeleccionado(), energiaFotonesSeleccionada(), DFSoISO(), Chart_Registros);
+            }
+            else if (RB_EnergiaElec.Checked)
+            {
+                valor = Analisis.calcularTendencia(listaCalibracionesElectrones(), CHB_RangoTendencia.Checked, DTP_TendenciaDesde.Value, DTP_TendenciaHasta.Value, equipoSeleccionado(), energiaElectronesSeleccionada(), Chart_Registros);
+            }
             if (!Double.IsNaN(valor))
             {
                 L_Tendencia.Visible = true;
@@ -383,7 +433,6 @@ namespace _398_UI
             {
                 L_Tendencia.Visible = false;
             }
-
         }
 
         private void BT_RegistroExportarLista_Click(object sender, EventArgs e)
@@ -618,7 +667,7 @@ namespace _398_UI
         }
         private void printDocument1_PrintPage_2(object sender, PrintPageEventArgs e)
         {
-            Imprimir.analisis(sender, e, registroEquipoSeleccionado(), registroEnergiaFotonesSeleccionada(), Chart_Registros, DGV_Registros, DGV_Analisis, registroDFSoISO());
+            Imprimir.analisis(sender, e, equipoSeleccionado(), energiaFotonesSeleccionada(), Chart_Registros, DGV_Registros, DGV_Analisis, DFSoISO());
         }
 
 

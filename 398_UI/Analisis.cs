@@ -70,6 +70,33 @@ namespace _398_UI
             return analisis;
         }
 
+        public static Analisis analizar2(BindingList<CalibracionElec> lista, Equipo equipo, EnergiaElectrones energia)
+        {
+            Analisis analisis = new Analisis();
+            List<Double> valores = lista.Select(q => q.Dwzref).ToList();
+            if (CalibracionElec.hayReferencia(equipo, energia))
+            {
+                CalibracionElec caliRef = CalibracionElec.obtenerCaliReferencia(equipo, energia);
+                analisis.Referencia = ValorARF.crear(caliRef.Dwzref, caliRef.Dwzref, caliRef.Fecha);
+            }
+            else
+            {
+                analisis.Referencia = new ValorARF()
+                {
+                    absoluto = double.NaN,
+                    relativo = double.NaN,
+                    fecha = "",
+
+                };
+            }
+            analisis.Maximo = ValorARF.crear(valores.Max(), analisis.Referencia.absoluto, (lista[valores.IndexOf(valores.Max())].Fecha));
+            analisis.Minimo = ValorARF.crear(valores.Min(), analisis.Referencia.absoluto, (lista[valores.IndexOf(valores.Min())].Fecha));
+            analisis.Promedio = ValorARF.crear(Math.Round(valores.Average(), 2), analisis.Referencia.absoluto);
+            analisis.DesvEst = ValorARF.crear(Calcular.desvEstandar(valores), analisis.Referencia.absoluto);
+
+            return analisis;
+        }
+
         public static void llenarDGV(Analisis analisis, DataGridView DGV, Label tendencia)
         {
             DGV.Rows.Clear();
@@ -132,6 +159,50 @@ namespace _398_UI
                     return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / valores.Average() * 100*30, 2); //mensual
                 }
                 
+            }
+        }
+
+        public static double calcularTendencia(BindingList<CalibracionElec> lista, bool fechas, DateTime desde, DateTime hasta, Equipo equipo, EnergiaElectrones energia, Chart grafico)
+        {
+            BindingList<CalibracionElec> listaFiltrada = new BindingList<CalibracionElec>();
+            if (fechas)
+            {
+                foreach (CalibracionElec cali in lista)
+                {
+                    if (DateTime.Compare(cali.Fecha.Date, desde.Date) >= 0 && DateTime.Compare(cali.Fecha.Date, hasta.Date) <= 0)
+                    {
+                        listaFiltrada.Add(cali);
+                    }
+                }
+            }
+            else
+            {
+                listaFiltrada = lista;
+            }
+            if (listaFiltrada.Count() == 0)
+            {
+                MessageBox.Show("No hay calibraciones en el rango de fechas seleccionado");
+                return Double.NaN;
+            }
+            if (listaFiltrada.Count() == 1)
+            {
+                MessageBox.Show("En el rango de fechas seleccionado hay una única calibración.\nNo se puede realizar el análisis");
+                return Double.NaN;
+            }
+            else
+            {
+                List<Double> valores = listaFiltrada.Select(q => q.Dwzref).ToList();
+                List<Double> fechasDouble = listaFiltrada.Select(q => q.Fecha.ToOADate()).ToList();
+                Graficar.agregarLineaTendencia(grafico, Calcular.cuadradosMinimos(fechasDouble, valores), fechasDouble.Min(), fechasDouble.Max());
+                if (CalibracionElec.hayReferencia(equipo, energia))
+                {
+                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / CalibracionElec.obtenerCaliReferencia(equipo, energia).Dwzref * 100 * 30, 2); //mensual
+                }
+                else
+                {
+                    return Math.Round(Calcular.cuadradosMinimos(fechasDouble, valores).Item1 / valores.Average() * 100 * 30, 2); //mensual
+                }
+
             }
         }
     }
