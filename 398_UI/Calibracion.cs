@@ -9,7 +9,8 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class Calibracion:Objeto
+    public interface ICalibracion
     {
+        List<ICalibracion> prueba();
     }
 }

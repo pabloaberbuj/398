@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class CalibracionFot : Calibracion
+    public class CalibracionFot : ICalibracion
     {
         [Browsable(false)]
         public Equipo Equipo { get; set; }
@@ -95,7 +95,7 @@ namespace _398_UI
         public static BindingList<CalibracionFot> lista(Equipo equipo, EnergiaFotones energia, int DFSoISO, DateTime fechaDesde, DateTime fechaHasta)
         {
             var filtrada = IO.readJsonList<CalibracionFot>(file).Where(c => c.Equipo.Equals(equipo) && c.Energia.Equals(energia) && c.DFSoISO == DFSoISO
-            && DateTime.Compare(c.Fecha, fechaDesde)>=0 && DateTime.Compare(c.Fecha,fechaHasta)<=0).ToList();
+            && DateTime.Compare(c.Fecha, fechaDesde) >= 0 && DateTime.Compare(c.Fecha, fechaHasta) <= 0).ToList();
             filtrada.Sort((x, y) => DateTime.Compare(x.Fecha, y.Fecha));
             return new BindingList<CalibracionFot>(filtrada);
         }
@@ -259,16 +259,16 @@ namespace _398_UI
                 return;
             }
             if (hayReferencia(cali.Equipo, cali.Energia, cali.DFSoISO))
-                {
-                    if (MessageBox.Show("Ya existe una referencia \n ¿Desea continuar?", "Establecer Referencia", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                    {
-                        establecerComoReferencia(cali, auxLista);
-                    }
-                }
-                else
+            {
+                if (MessageBox.Show("Ya existe una referencia \n ¿Desea continuar?", "Establecer Referencia", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     establecerComoReferencia(cali, auxLista);
                 }
+            }
+            else
+            {
+                establecerComoReferencia(cali, auxLista);
+            }
             IO.writeObjectAsJson(file, auxLista);
         }
 
@@ -483,6 +483,14 @@ namespace _398_UI
             return true;
         }
 
+
+        List<ICalibracion> ICalibracion.prueba()
+        {
+            CalibracionFot cali = new CalibracionFot();
+            List<ICalibracion> lista = new List<ICalibracion>();
+            lista.Add(cali);
+            return lista;
+        }
     }
 }
 

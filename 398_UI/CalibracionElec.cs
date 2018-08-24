@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _398_UI
 {
-    public class CalibracionElec : Calibracion
+    public class CalibracionElec : ICalibracion
     {
         [Browsable(false)]
         public Equipo Equipo { get; set; }
